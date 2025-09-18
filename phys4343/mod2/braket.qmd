@@ -108,32 +108,4 @@ If $\ket{\alpha}$ is a normalized eigenvector of $\hat{A}$ and the system is in 
   \sigma_A = \langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2.
   $$
 
-## Commutators and Heisenberg’s Uncertainty Principle
-The **commutator** of two observables $\hat{A}$ and $\hat{B}$ is defined as
-
-$$
-\comm{\hat{A}}{\hat{B}} = \hat{A}\hat{B} - \hat{B}\hat{A}.
-$$
-
-### Key properties
-- $\hat{A}$ and $\hat{B}$ have a complete set of common eigenstates *if and only if* their commutator vanishes:  
-  $\comm{\hat{A}}{\hat{B}} = \hat{0}$.  
-- Observables with non-commuting operators ($\comm{\hat{A}}{\hat{B}} \neq \hat{0}$) are called **incompatible observables**.  
-  They cannot, in general, be measured sharply at the same time.  
-- The **Heisenberg uncertainty principle**:  
-  $$
-  \sigma_A \sigma_B \geq \tfrac{1}{2} \left| \langle \comm{\hat{A}}{\hat{B}} \rangle \right|.
-  $$
-
-### Important commutators
-- Position–momentum:  
-  $\comm{\hat{r}_i}{\hat{p}_j} = i\hbar \delta_{ij}$, where $i,j$ label the components.  
-- Angular momentum components:  
-  $\comm{\hat{L}_x}{\hat{L}_y} = i\hbar \hat{L}_z$,  
-  $\comm{\hat{L}_y}{\hat{L}_z} = i\hbar \hat{L}_x$,  
-  $\comm{\hat{L}_z}{\hat{L}_x} = i\hbar \hat{L}_y$.  
-- Some vanishing commutators:  
-  $\comm{\hat{\vec{L}}^2}{\hat{L}_z} = \hat{0}$ and $\comm{\hat{\vec{L}}^2}{\hat{H}} = \hat{0}$.  
-
-
 
