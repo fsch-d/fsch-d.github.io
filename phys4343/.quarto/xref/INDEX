@@ -40,5 +40,11 @@
   },
   "mod2/perturb.qmd": {
     "perturb.html": "94b5ee0b"
+  },
+  "mod2/index.qmd": {
+    "index.html": "3965178d"
+  },
+  "mod3/index.qmd": {
+    "index.html": "95f374e5"
   }
 }

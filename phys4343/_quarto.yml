@@ -23,6 +23,7 @@ website:
 #          - basics-knitr.qmd
 #          - basics-jupyter.qmd
       - section: "Quantum Mechanics"
+        href: mod2/index.qmd
         contents:
           - mod2/wavemechanics.qmd
           - mod2/braket.qmd
@@ -30,6 +31,7 @@ website:
           - mod2/perturb.qmd
           - mod4/relwaves.qmd            
       - section: "Hydrogen (Basics)"
+        href: mod3/index.qmd
         contents:
           - mod3/angmom.qmd
           - mod3/hydrogen.qmd
