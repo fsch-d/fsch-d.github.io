@@ -1,0 +1,177 @@
+---
+title: Time-Independent Perturbation Theory
+author: Daniel Fischer
+filters:
+  - physics-macros.lua
+---
+
+## Time-independent (and non-degenerate) perturbation theory
+
+### Problem setup
+
+We consider a system whose Hamiltonian is given by
+
+$$
+\hat{H} = \hat{H}_0 + \hat{V},
+$$
+
+where $\hat{V}$ is a weak perturbation of the system.  
+The eigenstates $\ket{n^{(0)}}$ and eigenenergies $E_n^{(0)}$ of the unperturbed system are assumed to be known, i.e.
+
+$$
+\hat{H}_0 \ket{n^{(0)}} = E_n^{(0)} \ket{n^{(0)}}.
+$$
+
+**Question:** How does the perturbation $\hat{V}$ modify the eigenenergies and eigenstates?
+
+---
+
+### Ansatz
+
+We introduce a real-valued “tuning” parameter $\lambda$ (between 0 and 1) to interpolate between the unperturbed ($\lambda=0$) and the fully perturbed ($\lambda=1$) system:
+
+$$
+\hat{H} = \hat{H}_0 + \lambda \hat{V}.
+$$
+
+We then expand the eigenenergies and eigenstates in powers of $\lambda$:
+
+$$
+E_n = E_n^{(0)} + \lambda E_n^{(1)} + \lambda^2 E_n^{(2)} + \lambda^3 E_n^{(3)} + \dots
+$$
+
+$$
+\ket{n} = N(\lambda)\left( \ket{n^{(0)}} + \sum_{k \neq n} c_{nk}(\lambda) \ket{k^{(0)}} \right),
+$$
+
+with expansion coefficients
+
+$$
+c_{nk}(\lambda) = \lambda c_{nk}^{(1)} + \lambda^2 c_{nk}^{(2)} + \lambda^3 c_{nk}^{(3)} + \dots
+$$
+
+---
+
+### Solution strategy
+
+We plug this expansion into the Schrödinger equation:
+
+$$
+(\hat{H}_0 + \lambda \hat{V})
+\left( \ket{n^{(0)}} + \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \ket{k^{(0)}} \right)
+=
+\left( \sum_{i\geq 0} \lambda^i E_n^{(i)} \right)
+\left( \ket{n^{(0)}} + \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \ket{k^{(0)}} \right).
+$$
+
+By comparing powers of $\lambda$ on both sides, we obtain recursive equations for the corrections $E_n^{(i)}$ and $c_{nk}^{(i)}$.  
+At the end, we set $\lambda=1$.
+
+> **Remark.** This method works because the perturbation is assumed *small*. If $\hat{V}$ is comparable to $\hat{H}_0$ in magnitude, the perturbation expansion does not converge.
+
+---
+
+### Zeroth order ($\lambda^0$)
+
+At order $\lambda^0$ we recover the unperturbed Schrödinger equation:
+
+$$
+\hat{H}_0 \ket{n^{(0)}} = E_n^{(0)} \ket{n^{(0)}},
+$$
+
+which is already solved.
+
+---
+
+### First order ($\lambda^1$)
+
+At order $\lambda^1$ we find
+
+$$
+\sum_{k' \neq n} c_{nk'}^{(1)} \hat{H}_0 \ket{k'^{(0)}} + \hat{V}\ket{n^{(0)}}
+=
+\sum_{k' \neq n} c_{nk'}^{(1)} E_n^{(0)} \ket{k'^{(0)}} + E_n^{(1)} \ket{n^{(0)}}.
+$$
+
+Taking the inner product with $\bra{k^{(0)}}$ and using orthonormality $\braket{k^{(0)}}{n^{(0)}} = \delta_{nk}$ gives
+
+$$
+c_{nk}^{(1)} E_k^{(0)} + \bra{k^{(0)}} \hat{V} \ket{n^{(0)}}
+= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \delta_{nk}.
+$$
+
+#### First-order energy correction
+For $n=k$, this reduces to:
+
+$$
+E_n^{(1)} = \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
+$$
+
+So the energy to first order is:
+
+$$
+E_n \approx E_n^{(0)} + \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
+$$
+
+#### First-order correction to the state
+For $k \neq n$, we obtain:
+
+$$
+c_{nk}^{(1)} = \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.
+$$
+
+Thus the perturbed state (to first order) becomes:
+
+$$
+\ket{n} \approx N(1) \left(
+\ket{n^{(0)}} +
+\sum_{k \neq n} \ket{k^{(0)}} \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}
+\right).
+$$
+
+> **Remark.** Notice the denominators $E_n^{(0)} - E_k^{(0)}$.  
+> If two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need *degenerate perturbation theory* in those cases.
+
+---
+
+### Second order ($\lambda^2$)
+
+At second order, one finds for the energy correction:
+
+$$
+E_n^{(2)} = \sum_{k \neq n} \frac{|\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.
+$$
+
+This expression shows that states closer in energy contribute more strongly.
+
+---
+
+### Additional notes
+
+- The perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.  
+- The normalization factor $N(1)$ must be chosen such that
+  $$
+  \braket{n}{n} = 1.
+  $$
+
+---
+
+### Summary
+
+- First-order correction to the **energy**:  
+  $$
+  E_n^{(1)} = \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
+  $$
+
+- First-order correction to the **state**:  
+  $$
+  \ket{n} \approx \ket{n^{(0)}} +
+  \sum_{k \neq n} \ket{k^{(0)}} \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.
+  $$
+
+- Second-order correction to the **energy**:  
+  $$
+  E_n^{(2)} = \sum_{k \neq n} \frac{|\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.
+  $$
+
+---

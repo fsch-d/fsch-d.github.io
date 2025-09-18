@@ -1,0 +1,139 @@
+---
+title: "Heisenberg's Uncertainty Principle"
+author: "Daniel Fischer"
+filters:
+  - physics-macros.lua
+---
+
+# Commutators and Heisenberg’s Uncertainty Principle
+
+The **commutator** of two operators $\hat{A}$ and $\hat{B}$ is defined as
+
+$$
+\comm{\hat{A}}{\hat{B}} = \hat{A}\hat{B} - \hat{B}\hat{A}.
+$$
+
+---
+
+## Key Properties of Commutators
+
+- Two observables $\hat{A}$ and $\hat{B}$ have a complete set of **common eigenstates**  
+  *if and only if* their commutator vanishes:
+  $$
+  \comm{\hat{A}}{\hat{B}} = \hat{0}.
+  $$
+- If $\comm{\hat{A}}{\hat{B}} \neq \hat{0}$, the observables are called **incompatible**.  
+  They cannot, in general, be measured sharply at the same time.  
+- This incompatibility is made quantitative by the **Heisenberg uncertainty principle**:
+  $$
+  \sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2}\,\big|\langle \comm{\hat{A}}{\hat{B}} \rangle\big|,
+  $$
+  where $\sigma_A$ and $\sigma_B$ denote the standard deviations of observables $A$ and $B$.
+
+:::{.callout-note  collapse="true"}
+## Proof of the Uncertainty Principle
+
+Let $\hat{A}$ and $\hat{B}$ be Hermitian operators.  
+Define centered operators
+$$
+\Delta \hat{A} = \hat{A} - \langle \hat{A} \rangle, \qquad
+\Delta \hat{B} = \hat{B} - \langle \hat{B} \rangle.
+$$
+
+For any real number $\lambda$, consider
+the inner product
+$$
+\langle \psi | (\Delta \hat{A} + i \lambda \Delta \hat{B})^\dagger (\Delta \hat{A} + i \lambda \Delta \hat{B}) | \psi \rangle \;\geq\; 0.
+$$
+
+> **Remark.** This is just $\| (\Delta \hat{A} + i \lambda \Delta \hat{B}) |\psi\rangle \|^2$,  
+> the squared norm of a vector in Hilbert space.  
+> Since norms are always nonnegative, the whole expression is $\geq 0$.
+
+
+Expanding gives
+$$
+\langle (\Delta \hat{A})^2 \rangle
++ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
++ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \;\geq\; 0.
+$$
+
+The expression
+$$
+f(\lambda) = \langle (\Delta \hat{A})^2 \rangle
++ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
++ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle
+$$
+is a quadratic function of the real variable $\lambda$.
+
+> **Remark.** The coefficient of $\lambda^2$ is $\langle (\Delta \hat{B})^2 \rangle = \sigma_B^2$,  
+> which is strictly positive unless the state is an exact eigenstate of $\hat{B}$.  
+> Therefore $f(\lambda)$ is a parabola that opens upwards, ensuring that it has a unique global minimum. 
+
+Its minimum value occurs at
+$$
+\lambda_{\min} = -\, \frac{i \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle}{2 \langle (\Delta \hat{B})^2 \rangle}.
+$$
+
+Substituting back:
+$$
+f(\lambda_{\min}) = \langle (\Delta \hat{A})^2 \rangle
+- \frac{1}{4 \langle (\Delta \hat{B})^2 \rangle} 
+\, \big| \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \big|^2 \;\geq\; 0.
+$$
+
+Rearranging gives
+$$
+\langle (\Delta \hat{A})^2 \rangle \, \langle (\Delta \hat{B})^2 \rangle
+\;\geq\; \tfrac{1}{4} \big| \langle [\hat{A}, \hat{B}] \rangle \big|^2.
+$$
+
+Since $\sigma_A^2 = \langle (\Delta \hat{A})^2 \rangle$ and  
+$\sigma_B^2 = \langle (\Delta \hat{B})^2 \rangle$, we finally obtain
+$$
+\sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2} \, \big| \langle [\hat{A}, \hat{B}] \rangle \big|.
+$$
+
+This is the **Heisenberg uncertainty principle**.
+:::
+
+
+---
+
+## Important Examples
+
+### Position–Momentum Commutator
+$$
+\comm{\hat{r}_i}{\hat{p}_j} = i\hbar \, \delta_{ij},
+$$
+where $i,j$ label Cartesian components.  
+This leads directly to the familiar uncertainty relation
+$$
+\sigma_x \, \sigma_{p_x} \geq \tfrac{\hbar}{2}.
+$$
+
+### Angular Momentum Commutators
+The components of angular momentum form a **Lie algebra**:
+$$
+\comm{\hat{L}_x}{\hat{L}_y} = i\hbar \hat{L}_z, \qquad
+\comm{\hat{L}_y}{\hat{L}_z} = i\hbar \hat{L}_x, \qquad
+\comm{\hat{L}_z}{\hat{L}_x} = i\hbar \hat{L}_y.
+$$
+
+### Commuting Quantities
+Some pairs of operators *do* commute, which means they can be simultaneously diagonalized:
+$$
+\comm{\hat{\vec L}^2}{\hat{L}_z} = \hat{0}, \qquad
+\comm{\hat{\vec L}^2}{\hat{H}} = \hat{0}.
+$$
+
+---
+
+::: callout-note
+## Remark
+
+- The **uncertainty principle is not about experimental imperfections**.  
+  It is a fundamental feature of quantum mechanics: non-commuting observables simply do not admit sharp simultaneous values.  
+
+- The stronger the commutator, the stronger the tradeoff between precisions of measurement.  
+:::
