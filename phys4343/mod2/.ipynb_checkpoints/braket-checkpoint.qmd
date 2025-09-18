@@ -1,0 +1,139 @@
+---
+author: Daniel Fischer
+jupyter: python3
+filters:
+  - physics-macros.lua
+title: Bra–Ket (Dirac) Notation, Operators, and More
+---
+
+
+
+
+## Ket-vectors
+A **ket vector** $\ket{\alpha}$ denotes an element of a vector space, more specifically a Hilbert space $\mathscr{H}$.  
+It represents a **quantum state**, for example a wave function or a spin state.
+
+## Bra-vectors
+A **bra vector** $\bra{\beta}$ denotes an element of the dual space of $\mathscr{H}$.  
+It is a linear form that maps each vector in $\mathscr{H}$ into the complex plane $\mathbb{C}$ by means of the **inner product**:
+
+$$
+\braket{\beta}{\alpha} \in \mathbb{C}.
+$$
+
+For example, a wave function $\psi(\vec{r})$ corresponding to a state $\ket{\psi}$ is obtained by mapping it into coordinate space using the inner product:
+
+$$
+\braket{\vec{r}}{\psi} = \psi(\vec{r}).
+$$
+
+### Inner product for wave functions
+For two wave functions $\psi(x)$ and $\phi(x)$, the inner product is defined as
+
+$$
+\braket{\phi}{\psi} = \int_{-\infty}^{\infty} \phi^\ast(x)\,\psi(x)\,dx,
+$$
+
+where $\phi^\ast(x)$ is the complex conjugate of $\phi(x)$.  
+This definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.
+
+## Linear operators
+An **operator** $\hat{O}$ acting on a ket creates another ket:
+
+$$
+\hat{O}\ket{\psi} = \ket{\phi}.
+$$
+
+A **linear operator** satisfies the two additional conditions:
+
+1. $\hat{O}(\ket{\psi}+\ket{\phi}) = \hat{O}\ket{\psi} + \hat{O}\ket{\phi}$  
+2. $\hat{O}c\ket{\psi} = c\hat{O}\ket{\psi}$
+
+**Additional notes:**
+
+- The operator can also be written as an outer product:  
+  $$
+  \hat{O} = \frac{1}{\braket{\psi}{\psi}} \ketbra{\phi}{\psi}.
+  $$
+- If $\{\ket{\phi_i}\}$ is a complete basis of $\mathscr{H}$, a linear operator $\hat{O}$ can be written as a matrix with entries  
+  $$
+  O_{ij} = \mel{\phi_j}{\hat{O}}{\phi_i}.
+  $$
+
+## Hermitian conjugates
+The **Hermitian conjugate** of a vector or operator is denoted by a $\dagger$ (called *dagger*).  
+The rules are:
+
+- The Hermitian conjugate of a bra is the corresponding ket, and vice versa.  
+- The Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript $^\ast$).  
+- The Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.  
+- For any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.
+
+**Examples:**
+
+- $\ket{\psi}^\dagger = \bra{\psi}$ and $\bra{\psi}^\dagger = \ket{\psi}$  
+- $\big(c_1\ket{\psi_1} + c_2\ket{\psi_2}\big)^\dagger = c_1^\ast \bra{\psi_1} + c_2^\ast \bra{\psi_2}$  
+- $\big(\braket{\psi}{\phi}\big)^\dagger = \braket{\psi}{\phi}^\ast = \braket{\phi}{\psi}$  
+- $\big(\mel{\phi}{\hat{A}^\dagger}{\psi}\big)^\ast = \mel{\psi}{\hat{A}}{\phi}$  
+  and  
+  $\big(\mel{\phi}{\hat{A}^\dagger \hat{B}^\dagger}{\psi}\big)^\ast = \mel{\psi}{\hat{B}\hat{A}}{\phi}$  
+
+## Observables
+**Observables** are represented by Hermitian operators. “Hermitian” means $\hat{A} = \hat{A}^\dagger$.  
+They are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).
+
+### Properties
+- The eigenvalues $a$ of a Hermitian operator $\hat{A}$, satisfying $\hat{A}\ket{\alpha} = a\ket{\alpha}$, are **real numbers**.  
+- For every observable, a **complete and orthonormal basis** can be found:  
+  - The basis is given by eigenvectors solving  
+    $\hat{A}\ket{n} = a_n\ket{n}$ (discrete spectrum) or $\hat{A}\ket{k} = k\ket{k}$ (continuous spectrum).  
+  - Orthonormality: $\braket{n'}{n} = \delta_{n'n}$ or $\braket{k_i}{k_j} = \delta(k_i-k_j)$.  
+  - Completeness: every state $\ket{\psi}$ in $\mathscr{H}$ can be expressed as  
+    $\ket{\psi} = \sum_n c_n\ket{n}$ or $\ket{\psi} = \int c(k)\ket{k}\,dk$.  
+  - The identity operator can be written as $\mathbb{1} = \sum_n \ketbra{n}{n}$ or $\mathbb{1} = \int \ketbra{k}{k}\,dk$.
+
+### Additional notes
+If $\ket{\alpha}$ is a normalized eigenvector of $\hat{A}$ and the system is in the normalized state $\ket{\psi}$, then:
+
+- The probability of finding the system in state $\ket{\alpha}$ is  
+  $$
+  P = \left|\braket{\alpha}{\psi}\right|^2.
+  $$
+- The expectation value of $\hat{A}$ is  
+  $$
+  \langle \hat{A} \rangle = \mel{\psi}{\hat{A}}{\psi}.
+  $$
+- The variance of $\hat{A}$ is  
+  $$
+  \sigma_A = \langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2.
+  $$
+
+## Commutators and Heisenberg’s Uncertainty Principle
+The **commutator** of two observables $\hat{A}$ and $\hat{B}$ is defined as
+
+$$
+\comm{\hat{A}}{\hat{B}} = \hat{A}\hat{B} - \hat{B}\hat{A}.
+$$
+
+### Key properties
+- $\hat{A}$ and $\hat{B}$ have a complete set of common eigenstates *if and only if* their commutator vanishes:  
+  $\comm{\hat{A}}{\hat{B}} = \hat{0}$.  
+- Observables with non-commuting operators ($\comm{\hat{A}}{\hat{B}} \neq \hat{0}$) are called **incompatible observables**.  
+  They cannot, in general, be measured sharply at the same time.  
+- The **Heisenberg uncertainty principle**:  
+  $$
+  \sigma_A \sigma_B \geq \tfrac{1}{2} \left| \langle \comm{\hat{A}}{\hat{B}} \rangle \right|.
+  $$
+
+### Important commutators
+- Position–momentum:  
+  $\comm{\hat{r}_i}{\hat{p}_j} = i\hbar \delta_{ij}$, where $i,j$ label the components.  
+- Angular momentum components:  
+  $\comm{\hat{L}_x}{\hat{L}_y} = i\hbar \hat{L}_z$,  
+  $\comm{\hat{L}_y}{\hat{L}_z} = i\hbar \hat{L}_x$,  
+  $\comm{\hat{L}_z}{\hat{L}_x} = i\hbar \hat{L}_y$.  
+- Some vanishing commutators:  
+  $\comm{\hat{\vec{L}}^2}{\hat{L}_z} = \hat{0}$ and $\comm{\hat{\vec{L}}^2}{\hat{H}} = \hat{0}$.  
+
+
+

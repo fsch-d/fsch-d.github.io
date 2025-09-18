@@ -1,0 +1,52 @@
+---
+title: "Introduction to Atomic, Molecular, and Optical Physics"
+subtitle: "PHYS 4343 — Missouri S&T, Fall 2025"
+author: "Daniel Fischer"
+---
+
+# Welcome
+
+These notes accompany the course **PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics**, taught at **Missouri University of Science and Technology (Missouri S&T)** in **Fall 2025** by *Daniel Fischer*.
+
+---
+
+# Prerequisites
+
+To benefit most from this course, students are expected to have completed:
+
+- **Mathematics**
+  - Linear Algebra  
+  - Calculus (single- and multivariable)  
+  - Differential Equations  
+
+- **Physics**
+  - Introduction to Classical Mechanics  
+  - Introduction to Electromagnetism  
+  - Introduction to Modern Physics  
+
+---
+
+# Disclaimer
+
+This lecture is intended as an **introductory-level course** in AMO physics.  
+Quantum mechanics is used throughout.  
+
+- A **formal course in quantum mechanics is *not* required**, but many ideas and techniques of QM will appear repeatedly.  
+- For this reason, a **very brief introduction** to some quantum mechanical concepts is included.  
+- These remarks are **not comprehensive** and are meant only to provide enough background to follow the AMO applications.  
+
+---
+
+# A Few Words about AMO Physics
+
+**Atomic, Molecular, and Optical physics** is one of the most dynamic areas of modern physics.  
+
+- It connects fundamental quantum concepts with cutting-edge experiments.  
+- It has direct applications in **laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter**.  
+- AMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.  
+
+Whether your interest lies in the **foundations of quantum theory**, the **applications in modern technology**, or simply the **beauty of light–matter interaction**, AMO physics offers a rich and fascinating journey.  
+
+---
+
+> *These notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.*

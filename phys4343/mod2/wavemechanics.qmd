@@ -1,0 +1,203 @@
+---
+author: Daniel Fischer
+jupyter: python3
+title: Wave Mechanics
+---
+
+
+
+
+## Matter waves
+
+Particles exhibit wave-like behavior (e.g., diffraction). The momentum/wave vector and energy/frequency relations (de Broglie) are:
+
+$$
+\vec{p} = \hbar \vec{k} \quad \text{and} \quad E = \hbar \omega
+$$
+
+## Time evolution
+
+The particle wave function $\psi$ follows the time-dependent Schrödinger Equation (SE):
+
+$$
+i \hbar \frac{\partial}{\partial t} \psi(\vec{r},t) = \hat{H} \psi(\vec{r},t), \quad
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
+$$
+
+## Time-independent SE
+
+For a potential without explicit time dependence $V(\vec{r},t)=V(\vec{r})$ and a well-defined energy $E = \hbar \omega$, the wave function can be written as $\psi(\vec{r},t) = \phi(\vec{r}) e^{i\omega t}$ with $\phi(\vec{r})$ following the time-independent SE:
+
+$$
+\hat{H}\phi(\vec{r}) = E \phi(\vec{r})
+$$
+
+## Probability density (Born rule)
+
+The wave function is related to the particle’s probability density $P(\vec{r},t)$ (i.e., the probability of finding the particle at position $\vec{r}$) following the Born rule:
+
+$$
+P(\vec{r},t) = |\psi(\vec{r},t)|^2
+$$
+
+> (Note: This requires the wave function to be normalized, i.e., $\int |\psi(\vec{r},t)|^2 d^3r = 1$. However, not all wave functions can be normalized, e.g., 'plane waves'.)
+
+## Expectation value of position
+
+This is the average position of the particle when many identical measurements are performed, and it is given by:
+
+$$
+\langle \vec{r} \rangle = \int \psi^*(\vec{r},t) \, \vec{r} \, \psi(\vec{r},t) \, d^3r
+$$
+
+## Variance of position
+
+The variance of the position $\vec{r}$ quantifies the spread of the probability distribution, i.e., it expresses the uncertainty in the particle’s position:
+
+$$
+\mathrm{Var}(\vec{r}) = \langle \vec{r}^2 \rangle - \langle \vec{r} \rangle^2,
+\quad \text{with} \quad
+\langle \vec{r}^2 \rangle = \int \psi^*(\vec{r},t) \, \vec{r}^2 \, \psi(\vec{r},t) \, d^3r
+$$
+
+## Wave function in momentum space
+
+A wave function in coordinate space $\psi(\vec{r})$ has a corresponding wave function in momentum space $\Psi(\vec{k})$, and they are related by a Fourier transform (for one particle in three-dimensional space):
+
+$$
+\Psi(\vec{k}) = \frac{1}{(2\pi)^{3/2}} \int d^3r \, \psi(\vec{r}) e^{-i\vec{k}\cdot \vec{r}}, \quad
+\psi(\vec{r}) = \frac{1}{(2\pi)^{3/2}} \int d^3k \, \Psi(\vec{k}) e^{i\vec{k}\cdot \vec{r}}
+$$
+
+
+---
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\clearpage
+```
+:::
+
+## EXAMPLE 1: Measurement outcomes and probability distributions
+
+```{python}
+#| label: fig-measurement
+#| fig-format: svg
+#| fig-cap: Measurement outcomes and probability distributions for small (blue) and large (red) variance. Shaded bands show ±σ around the expectation value <x>.
+#| fig-alt: Red broad and blue narrow Gaussians with markers, shaded ±σ bands, and dashed line at x=0.
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+x = np.linspace(-6,6,400)
+large_var = norm.pdf(x, 0, 2)
+small_var = norm.pdf(x, 0, 0.6)
+np.random.seed(0)
+measurements_wide = np.random.normal(0, 2, 10)
+measurements_narrow = np.random.normal(0, 0.6, 10)
+plt.figure(figsize=(10,5))
+plt.fill_between(x, 0, 2.2, where=(x>=-2) & (x<=2), color='red', alpha=0.1)
+plt.fill_between(x, 0, 2.2, where=(x>=-0.6) & (x<=0.6), color='blue', alpha=0.1)
+plt.plot(x, large_var*2.5, 'r--', label='Large variance distribution')
+plt.plot(x, small_var*2.5, 'b-', label='Small variance distribution')
+plt.scatter(measurements_wide, [0.3]*10, color='red', marker='^', s=50, alpha=0.7, label='Measurements (wide)')
+plt.scatter(measurements_narrow, [0.6]*10, color='blue', s=20, alpha=0.7, label='Measurements (narrow)')
+plt.axvline(0, color='black', linestyle='--', linewidth=2, label='Expectation value <x>')
+plt.xlabel('Measurement outcome x')
+plt.ylabel('Probability density / outcomes')
+plt.legend(loc='upper left')
+plt.grid(False)
+```
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\clearpage
+```
+:::
+
+## EXAMPLE 2: Free 1D Electron: Plane Wave Solution
+
+The time-dependent Schrödinger equation for a free particle in 1D:
+
+$$
+i \hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2}
+$$
+
+Plane wave solution:
+
+$$
+\psi(x,t) = e^{i(kx - \omega t)}, \quad \omega = \frac{\hbar k^2}{2m}
+$$
+
+- **Solution:** plane wave with constant amplitude
+- **Momentum:** well-defined, $p = \hbar k$
+- **Normalizability:** Not normalizable, so not physical by itself
+
+```{python}
+#| label: fig-wave
+#| fig-format: svg
+#| fig-cap: 'Plane wave solution: real part of the wave function for a free 1D electron'
+#| fig-alt: Cosine wave showing the oscillatory behavior of a free electron plane wave in one dimension.
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 400)
+y = np.cos(2*np.pi*0.8*x - 0.5)
+
+plt.figure(figsize=(8,4))
+plt.plot(x, y, color='blue', linewidth=2)
+plt.xlabel('x')
+plt.ylabel('Re[ψ(x,t)]')
+plt.ylim(-2,2)
+plt.grid(False)
+```
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\newpage
+```
+:::
+
+## EXAMPLE 3: Gaussian Wavepacket in 1D
+
+Initial wavepacket:
+
+$$
+\psi(x,0) = e^{-x^2/(2\sigma^2)} e^{i k_0 x}
+$$
+
+Time evolution:
+
+$$
+\psi(x,t) \sim e^{-(x - \hbar k_0 t / m)^2 / (2 \sigma_t^2)} e^{i(k_0 x - \omega t)}, \quad
+\sigma_t = \sigma \sqrt{1 + \left(\frac{\hbar t}{m \sigma^2}\right)^2}
+$$
+
+- **Localized wavepacket** (superposition of plane waves)
+- **Moves with group velocity** $v_g = \hbar k_0/m$
+- **Spreads in time** due to dispersion
+- **Physical:** normalizable and finite probability
+
+```{python}
+#| label: fig-wavepacket
+#| fig-format: svg
+#| fig-cap: 'Gaussian wavepacket evolution: initial (red) and later (blue) distributions'
+#| fig-alt: 'Two Gaussian curves: narrow red at center and broader blue shifted right, showing spreading.'
+x = np.linspace(-8, 8, 400)
+psi0 = np.exp(-x**2/2)
+psi_t = np.exp(-(x-2)**2/4)
+plt.figure(figsize=(8,4))
+plt.plot(x, psi0, color='red', linewidth=2, label='t=0')
+plt.plot(x, psi_t, color='blue', linewidth=2, label='t>0')
+plt.xlabel('x')
+plt.ylabel('|ψ(x,t)|²')
+plt.legend()
+plt.grid(False)
+```
+
+## Additional notes:
+
+- Analytic solutions exist only for very simple systems. More particles require approximations or numerical methods.
+- Electromagnetic interactions are relativistic; a full description uses quantum electrodynamics (QED).
+- Some quantum properties (e.g., spin) cannot be described by wave functions alone, but the general Schrödinger equation $\hat{H}\psi=i\hbar \partial_t \psi$ still governs time evolution.
+

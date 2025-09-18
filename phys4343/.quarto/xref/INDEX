@@ -1,0 +1,38 @@
+{
+  "about.qmd": {
+    "about.html": "cad36fcf"
+  },
+  "index.qmd": {
+    "index.html": "fcaed547"
+  },
+  "mod2/braket.qmd": {
+    "braket.html": "6a44ea9e"
+  },
+  "mod2/wavemechanics.qmd": {
+    "wavemechanics.html": "ca3702eb"
+  },
+  "mod3/hydrogen.qmd": {
+    "hydrogen.html": "9c7b40d3"
+  },
+  "mod3/angmom.qmd": {
+    "angmom.html": "a421d341"
+  },
+  "mod4/lamb.qmd": {
+    "lamb.html": "5613753f"
+  },
+  "mod4/hfs.qmd": {
+    "hfs.html": "066401ae"
+  },
+  "mod4/spin.qmd": {
+    "spin.html": "6bb03db6"
+  },
+  "mod4/relwaves.qmd": {
+    "relwaves.html": "ee8bb411"
+  },
+  "mod3/interactivewf.qmd": {
+    "interactivewf.html": "c268e489"
+  },
+  "hydorgen.ipynb": {
+    "hydorgen.html": "537839b4"
+  }
+}

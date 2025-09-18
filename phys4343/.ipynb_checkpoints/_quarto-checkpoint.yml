@@ -1,0 +1,57 @@
+project:
+  type: website
+
+website:
+  title: "Introduction into Atomic, Molecular, and Optical Physics"
+#  navbar:
+#    left:
+#      - href: index.qmd
+#        text: Home
+#      - about.qmd
+  reader-mode: true
+  sidebar:
+    style: "floating"
+    collapse-level: 1
+    search: true
+    contents:
+      - text: "Home"
+        href: index.qmd
+#      - section: "Basics"
+#        href: basics-summary.qmd
+#        contents:
+#          - index.qmd
+#          - basics-knitr.qmd
+#          - basics-jupyter.qmd
+      - section: "Quantum Mechanics"
+        contents:
+          - mod2/wavemechanics.qmd
+          - mod2/braket.qmd
+          - mod4/relwaves.qmd            
+      - section: "Hydrogen (Basics)"
+        contents:
+          - mod3/angmom.qmd
+          - mod3/hydrogen.qmd
+      - section: "Hydrogen (Details)"
+        contents:
+          - mod4/spin.qmd
+          - mod4/lamb.qmd
+          - mod4/hfs.qmd
+
+
+#      - section: advanced.qmd
+#        contents:
+#          - raw-code.qmd
+#          - custom-theme.qmd
+#      - acknowledgment.qmd
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: true
+    embed-resources: true
+    self-contained: true
+    fig-alt: true
+    html-math-method: mathjax
