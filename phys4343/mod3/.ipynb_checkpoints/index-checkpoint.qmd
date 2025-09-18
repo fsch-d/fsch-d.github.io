@@ -1,0 +1,39 @@
+---
+title: "The Hydrogen Atom — Basics"
+author: Daniel Fischer
+---
+
+## Why Hydrogen?
+
+Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the **paradigm** for quantum mechanics in atoms:  
+  
+- It is one of the very few systems where the Schrödinger equation can be solved *exactly*.  
+- Its spectrum was central to the historical development of quantum theory.  
+- Many techniques used for hydrogen generalize to more complex atoms and molecules.  
+
+---
+
+## Scope of this Section
+
+In this chapter, we study hydrogen in the **nonrelativistic Schrödinger picture**.  
+Our goals are:
+
+- Solve the time-independent Schrödinger equation for the Coulomb potential.  
+- Separate variables in spherical coordinates and identify radial and angular parts.  
+- Derive the **hydrogenic eigenenergies** and their degeneracies.  
+- Understand the structure of the **spatial wavefunctions** (orbitals).  
+- Connect angular momentum quantum numbers $(l,m)$ with the orbital shapes.  
+
+This provides the **foundation** for later refinements.
+
+---
+
+## What Comes Next
+
+The treatment here ignores effects such as spin, relativistic corrections, the Lamb shift, and hyperfine structure. These topics are crucial for precision AMO physics, and we will address them in the [Hydrogen (Details)](../mod4/spin.qmd) chapter.  
+
+---
+
+## A Final Remark
+
+Hydrogen is not just a “toy problem.” It remains a **testing ground for quantum mechanics** and a reference point for experiments across physics, from spectroscopy to astrophysics. By mastering the hydrogen atom at this basic level, we gain insight into both the methods of quantum mechanics and the rich structure of atomic physics.

@@ -180,135 +180,195 @@
     ]
   },
   {
-    "objectID": "mod3/angmom.html",
-    "href": "mod3/angmom.html",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "objectID": "mod2/braket.html",
+    "href": "mod2/braket.html",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
     "section": "",
-    "text": "This chapter provides a comprehensive introduction to the quantum mechanical treatment of orbital angular momentum. We will derive the operators for angular momentum and solve the corresponding eigenvalue problem, which is fundamental to understanding the behavior of many quantum systems, including the hydrogen atom.\nThe specific goals for this chapter are:\n\nDerive the quantum mechanical operator for orbital angular momentum, \\(\\hat{\\vec L}\\), and analyze its key commutation relations.\nEmploy the method of separation of variables in spherical coordinates to transform the eigenvalue problem into a set of angular ordinary differential equations (ODEs).\nSolve these ODEs to determine the quantized eigenvalues of \\(\\hat L^2\\) and its components, and find the corresponding eigenfunctions.",
+    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#commutation-relations",
-    "href": "mod3/angmom.html#commutation-relations",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "1.1 Commutation Relations",
-    "text": "1.1 Commutation Relations\nFrom the canonical commutation relations \\[\n[\\hat x_i, \\hat p_j] = i\\hbar \\,\\delta_{ij},\n\\quad\n[\\hat x_i, \\hat x_j] = 0,\n\\quad\n[\\hat p_i, \\hat p_j] = 0,\n\\] one can compute \\[\n[\\hat L_x, \\hat L_y] = i\\hbar \\hat L_z, \\qquad\n[\\hat L_y, \\hat L_z] = i\\hbar \\hat L_x, \\qquad\n[\\hat L_z, \\hat L_x] = i\\hbar \\hat L_y.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe angular momentum components are \\[\n\\hat L_x = \\hat y \\hat p_z - \\hat z \\hat p_y, \\qquad\n\\hat L_y = \\hat z \\hat p_x - \\hat x \\hat p_z, \\qquad\n\\hat L_z = \\hat x \\hat p_y - \\hat y \\hat p_x.\n\\]\nCompute the commutator: \\[\n\\begin{aligned}\n{[\\hat L_x, \\hat L_y]} &= [\\hat y \\hat p_z - \\hat z \\hat p_y, \\; \\hat z \\hat p_x - \\hat x \\hat p_z] \\\\\n&= [\\hat y \\hat p_z, \\hat z \\hat p_x]\n- [\\hat y \\hat p_z, \\hat x \\hat p_z]\n- [\\hat z \\hat p_y, \\hat z \\hat p_x]\n+ [\\hat z \\hat p_y, \\hat x \\hat p_z].\n\\end{aligned}\n\\]\nExpanding and using the canonical commutators \\([\\hat x_i, \\hat p_j] = i\\hbar \\delta_{ij}\\) and \\([\\hat x_i, \\hat x_j] = [\\hat p_i, \\hat p_j] = 0\\):\n\n\\([\\hat y \\hat p_z, \\hat z \\hat p_x] = \\hat y [\\hat p_z, \\hat z] \\hat p_x = -i\\hbar \\hat y \\hat p_x\\)\n\n\\(-[\\hat y \\hat p_z, \\hat x \\hat p_z] = 0\\)\n\n\\(-[\\hat z \\hat p_y, \\hat z \\hat p_x] = 0\\)\n\\([\\hat z \\hat p_y, \\hat x \\hat p_z] = \\hat x [\\hat z, \\hat p_z] \\hat p_y = i\\hbar \\hat x \\hat p_y\\)\n\nAdding the nonzero terms gives \\[\n[\\hat L_x, \\hat L_y] = i\\hbar (\\hat x \\hat p_y - \\hat y \\hat p_x) = i\\hbar \\hat L_z.\n\\]\nThus the commutator is verified. The remaining commutators, \\([\\hat L_y, \\hat L_z]\\) and \\([\\hat L_z, \\hat L_x]\\), can be derived using the same method.\n\n\n\nThese relations show:\n\n\n\n\n\n\nCaution\n\n\n\n\nThe three components \\(\\hat L_x, \\hat L_y, \\hat L_z\\) do not commute.\n\nThus, there are no eigenstates of the full vector operator \\(\\hat{\\vec L}\\).",
+    "objectID": "mod2/braket.html#ket-vectors",
+    "href": "mod2/braket.html#ket-vectors",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "section": "",
+    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#total-angular-momentum",
-    "href": "mod3/angmom.html#total-angular-momentum",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "1.2 Total Angular Momentum",
-    "text": "1.2 Total Angular Momentum\nThe squared operator is defined as \\[\n\\hat L^2 = \\hat L_x^2 + \\hat L_y^2 + \\hat L_z^2.\n\\]\nIt satisfies \\[\n[\\hat L^2, \\hat L_x] = [\\hat L^2, \\hat L_y] = [\\hat L^2, \\hat L_z] = 0.\n\\]\nHence, we can find simultaneous eigenstates of \\(\\hat L^2\\) and one component, usually chosen to be \\(\\hat L_z\\).\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Create a new figure and a 3D axis\nfig = plt.figure(figsize=(10, 8))\nax = fig.add_subplot(111, projection='3d')\n\n# Set the aspect ratio to 'equal' for better visualization\nax.set_box_aspect([1,1,1])\n\n# Define the components of the angular momentum vector L\nLx = 3\nLy = 4\nLz = 6\n\n# The origin of the vectors\norigin = [0, 0, 0]\n\n# Plot the angular momentum vector L\nax.quiver(*origin, Lx, Ly, Lz, color='red', label=r'$\\vec{L}$', arrow_length_ratio=0.15)\n\n# Plot the z-component vector Lz\nax.quiver(*origin, 0, 0, Lz, color='blue', linestyle='--', arrow_length_ratio=0.1)\n\n# Plot the x, y, and z unit vectors\nax.quiver(*origin, 1, 0, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 1, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 0, 1, color='gray', arrow_length_ratio=0.3)\n\n# Add labels for the unit vectors\nax.text(1.2, 0, 0, 'x', color='gray', fontsize=12)\nax.text(0, 1.2, 0, 'y', color='gray', fontsize=12)\nax.text(0, 0, 1.2, 'z', color='gray', fontsize=12)\n\n# Set title\n# ax.set_title('Quantum Mechanical Angular Momentum Vector', fontsize=16)\n\n# Plot the circle of possible endpoints for the L vector\nradius = np.sqrt(Lx**2 + Ly**2)\ntheta = np.linspace(0, 2 * np.pi, 100)\nx_circle = radius * np.cos(theta)\ny_circle = radius * np.sin(theta)\nz_circle = np.full_like(theta, Lz)\nax.plot(x_circle, y_circle, z_circle, color='green', linestyle=':', label='Uncertainty Circle')\n\n# Add annotations for vector lengths, adjusted for better visibility\nlambda_val = Lx**2 + Ly**2 + Lz**2\nmu_val = Lz\nax.text(Lx * 0.7, Ly * 0.6, Lz * 0.4, r'$\\sqrt{\\lambda}$', color='red', fontsize=14, horizontalalignment='left')\nax.text(0.5, 0.5, Lz * 0.5, r'$\\mu$', color='blue', fontsize=14, horizontalalignment='left')\n\n# Set the plot limits\nax.set_xlim([-5, 5])\nax.set_ylim([-5, 5])\nax.set_zlim([0, 7])\n\n# Remove background planes and main axes lines, but keep the specific unit vectors\nax.set_axis_off()\n\n# Remove grid\nax.grid(False)\n\n# Save the plot\n#plt.savefig('angular_momentum_final.png')\n\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Momentum Eigenvector in Quantum Mechanics.",
+    "objectID": "mod2/braket.html#bra-vectors",
+    "href": "mod2/braket.html#bra-vectors",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "section": "Bra-vectors",
+    "text": "Bra-vectors\nA bra vector \\(\\left\\langle \\beta \\right\\rvert\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\left\\langle \\beta \\mid \\alpha \\right\\rangle\\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\left\\lvert \\psi \\right\\rangle\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\left\\langle \\vec{r} \\mid \\psi \\right\\rangle= \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\left\\langle \\phi \\mid \\psi \\right\\rangle= \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#eigenfunctions-of-hatl_z",
-    "href": "mod3/angmom.html#eigenfunctions-of-hatl_z",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)",
-    "text": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)\nApplying \\(\\hat{L}_z\\) gives:\n\\[\n\\hat{L}_z Y = -i\\hbar \\frac{\\partial}{\\partial \\varphi}(\\Theta(\\theta)\\Phi(\\varphi))\n= -i\\hbar \\Theta(\\theta) \\frac{d\\Phi}{d\\varphi}.\n\\]\nThus \\(\\Phi\\) must satisfy:\n\\[\n\\frac{d\\Phi}{d\\varphi} = i m \\Phi, \\quad m \\in \\mathbb{Z}.\n\\]\nThe solutions are:\n\\[\n\\Phi(\\varphi) = e^{im\\varphi}, \\qquad \\mu = \\hbar m.\n\\]",
+    "objectID": "mod2/braket.html#linear-operators",
+    "href": "mod2/braket.html#linear-operators",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "section": "Linear operators",
+    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\left\\lvert \\psi \\right\\rangle= \\left\\lvert \\phi \\right\\rangle.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\left\\lvert \\psi \\right\\rangle+\\left\\lvert \\phi \\right\\rangle) = \\hat{O}\\left\\lvert \\psi \\right\\rangle+ \\hat{O}\\left\\lvert \\phi \\right\\rangle\\)\n\n\\(\\hat{O}c\\left\\lvert \\psi \\right\\rangle= c\\hat{O}\\left\\lvert \\psi \\right\\rangle\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\left\\langle \\psi \\mid \\psi \\right\\rangle} \\left\\lvert \\phi \\right\\rangle\\left\\langle \\psi \\right\\rvert.\n\\]\nIf \\(\\{\\left\\lvert \\phi_i \\right\\rangle\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\left\\langle \\phi_j \\mid \\hat{O} \\mid \\phi_i \\right\\rangle.\n\\]",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#equation-for-thetatheta",
-    "href": "mod3/angmom.html#equation-for-thetatheta",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.2 Equation for \\(\\Theta(\\theta)\\)",
-    "text": "3.2 Equation for \\(\\Theta(\\theta)\\)\nSubstituting into the \\(\\hat{L}^2\\) eigenvalue equation:\n\\[\n\\frac{1}{\\sin\\theta}\\frac{d}{d\\theta}\\!\\Big(\\sin\\theta\\frac{d\\Theta}{d\\theta}\\Big)\n- \\frac{m^2}{\\sin^2\\theta}\\Theta + \\ell(\\ell+1)\\Theta = 0,\n\\]\nwhere we have set \\(\\lambda = \\hbar^2 \\ell(\\ell+1)\\).\nLet \\(x = \\cos\\theta\\). Then the equation becomes:\n\\[\n\\frac{d}{dx}\\Big[(1-x^2)\\frac{dP}{dx}\\Big] + \\Big[\\ell(\\ell+1) - \\frac{m^2}{1-x^2}\\Big] P(x) = 0.\n\\]\nThis is the associated Legendre equation. The physically acceptable solutions to this equation are the associated Legendre functions, \\(P_\\ell^m(x)\\) , which are defined in terms of the standard Legendre polynomials \\(P_\\ell(x)\\):\n\\[\nP_\\ell^m(x) = (1-x^2)^{m/2} \\frac{d^m}{dx^m} P_\\ell(x).\n\\]\nThe Legendre polynomials \\(P_\\ell(x)\\) can be constructed explicitly as (Rodrigues’ Formula):\n\\[\nP_\\ell(x) = \\frac{1}{2^\\ell \\ell!} \\frac{d^\\ell}{dx^\\ell} \\big[(x^2-1)^\\ell\\big].\n\\]",
+    "objectID": "mod2/braket.html#hermitian-conjugates",
+    "href": "mod2/braket.html#hermitian-conjugates",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "section": "Hermitian conjugates",
+    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\left\\lvert \\psi \\right\\rangle^\\dagger = \\left\\langle \\psi \\right\\rvert\\) and \\(\\left\\langle \\psi \\right\\rvert^\\dagger = \\left\\lvert \\psi \\right\\rangle\\)\n\n\\(\\big(c_1\\left\\lvert \\psi_1 \\right\\rangle+ c_2\\left\\lvert \\psi_2 \\right\\rangle\\big)^\\dagger = c_1^\\ast \\left\\langle \\psi_1 \\right\\rvert+ c_2^\\ast \\left\\langle \\psi_2 \\right\\rvert\\)\n\n\\(\\big(\\left\\langle \\psi \\mid \\phi \\right\\rangle\\big)^\\dagger = \\left\\langle \\psi \\mid \\phi \\right\\rangle^\\ast = \\left\\langle \\phi \\mid \\psi \\right\\rangle\\)\n\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{A} \\mid \\phi \\right\\rangle\\)\nand\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\hat{B}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{B}\\hat{A} \\mid \\phi \\right\\rangle\\)",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#general-result",
-    "href": "mod3/angmom.html#general-result",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.3 General result",
-    "text": "3.3 General result\n\n\n\n\n\n\nTipGeneral Form of Spherical Harmonics\n\n\n\nCombining both angular parts, the eigenfunctions are:\n\\[\nY_\\ell^m(\\theta,\\varphi) = N_{\\ell m}\\, P_\\ell^m(\\cos\\theta)\\, e^{i m \\varphi},\n\\]\nwith normalization constant\n\\[\nN_{\\ell m} = (-1)^m \\sqrt{\\frac{2\\ell+1}{4\\pi}\\,\\frac{(\\ell-m)!}{(\\ell+m)!}}.\n\\]\n\n\n\n\n\n\n\n\nTipEigenvalue Equations\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\hat{L}^2 Y_{\\ell}^{m} = \\hbar^2 \\ell(\\ell+1) Y_{\\ell}^{m}, \\qquad\n\\hat{L}_z Y_{\\ell}^{m} = \\hbar m Y_{\\ell}^{m}.\n\\]\nThus \\(Y_\\ell^m\\) are simultaneous eigenfunctions of both \\(\\hat{L}^2\\) and \\(\\hat{L}_z\\).\n\n\n\n\n\n\n\n\nTipOrthonormality\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\int_0^{2\\pi}\\!\\int_0^\\pi Y_\\ell^m(\\theta,\\varphi)^*\\,Y_{\\ell'}^{m'}(\\theta,\\varphi)\\,\n\\sin\\theta \\, d\\theta\\, d\\varphi\n= \\delta_{\\ell\\ell'}\\delta_{mm'}.\n\\]\nThus, \\(\\{Y_\\ell^m\\}\\) forms a complete orthonormal basis for functions on the sphere.",
+    "objectID": "mod2/braket.html#observables",
+    "href": "mod2/braket.html#observables",
+    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "section": "Observables",
+    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\left\\lvert \\alpha \\right\\rangle= a\\left\\lvert \\alpha \\right\\rangle\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\left\\lvert n \\right\\rangle= a_n\\left\\lvert n \\right\\rangle\\) (discrete spectrum) or \\(\\hat{A}\\left\\lvert k \\right\\rangle= k\\left\\lvert k \\right\\rangle\\) (continuous spectrum).\n\nOrthonormality: \\(\\left\\langle n' \\mid n \\right\\rangle= \\delta_{n'n}\\) or \\(\\left\\langle k_i \\mid k_j \\right\\rangle= \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\left\\lvert \\psi \\right\\rangle\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\left\\lvert \\psi \\right\\rangle= \\sum_n c_n\\left\\lvert n \\right\\rangle\\) or \\(\\left\\lvert \\psi \\right\\rangle= \\int c(k)\\left\\lvert k \\right\\rangle\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\left\\lvert n \\right\\rangle\\left\\langle n \\right\\rvert\\) or \\(\\mathbb{1} = \\int \\left\\lvert k \\right\\rangle\\left\\langle k \\right\\rvert\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\left\\lvert \\alpha \\right\\rangle\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\left\\lvert \\psi \\right\\rangle\\), then:\n\nThe probability of finding the system in state \\(\\left\\lvert \\alpha \\right\\rangle\\) is\n\\[\nP = \\left|\\left\\langle \\alpha \\mid \\psi \\right\\rangle\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\left\\langle \\psi \\mid \\hat{A} \\mid \\psi \\right\\rangle.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Quantum Mechanics",
+      "Bra–Ket (Dirac) Notation, Operators, and More"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#key-observations",
-    "href": "mod3/angmom.html#key-observations",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "5.1 Key observations",
-    "text": "5.1 Key observations\n\n\\(\\hat{L}_+\\) raises \\(m\\) by one unit:\n\\(\\; m \\mapsto m+1\\).\n\\(\\hat{L}_-\\) lowers \\(m\\) by one unit:\n\\(\\; m \\mapsto m-1\\).\nSince the maximum value of \\(m\\) is \\(\\ell\\), applying \\(\\hat{L}_+\\) to \\(\\lvert \\ell, \\ell \\rangle\\) gives zero:\n\\[\n\\hat{L}_+ \\lvert \\ell, \\ell \\rangle = 0.\n\\]\nSimilarly, \\(L_-\\) annihilates the lowest state \\(\\lvert \\ell, -\\ell \\rangle\\):\n\\[\n\\hat{L}_- \\lvert \\ell, -\\ell \\rangle = 0.\n\\]\nThe ladder operators explain why the possible \\(m\\) values for a fixed \\(\\ell\\) are restricted to integers in the range \\(-\\ell, -\\ell+1, \\dots, \\ell - 1, \\ell\\):\n\nStarting from the top state \\(\\lvert \\ell, \\ell \\rangle\\), repeated applications of \\(\\hat{L}_-\\) generate all the states down to \\(\\lvert \\ell, -\\ell \\rangle\\).\n\nNo other values of \\(m\\) appear, because outside this range the ladder action vanishes.",
+    "objectID": "mod3/hydrogen.html",
+    "href": "mod3/hydrogen.html",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "",
+    "text": "We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number \\(Z\\)). The goals of this chapter are:\n\nRe-express the Hamiltonian using the angular-momentum operator \\(\\hat{\\vec L}\\).\n\nSeparate variables in spherical coordinates and reduce the problem to a radial ordinary differential equation (ODE).\n\nSolve the radial ODE for bound states (\\(E&lt;0\\)), perform the asymptotic analysis, obtain the quantization condition, and write the normalized eigenfunctions.",
     "crumbs": [
       "Home",
       "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#connection-to-spherical-harmonics",
-    "href": "mod3/angmom.html#connection-to-spherical-harmonics",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "5.2 Connection to spherical harmonics",
-    "text": "5.2 Connection to spherical harmonics\nIn the coordinate-space representation, these ladder operators correspond to differential operators acting on the spherical harmonics \\(Y_\\ell^m(\\theta,\\varphi)\\):\n\\[\n\\hat{L}_\\pm Y_\\ell^m(\\theta,\\varphi)\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m \\pm 1)} \\, Y_\\ell^{m\\pm 1}(\\theta,\\varphi).\n\\]\nThis provides an algebraic way to generate all spherical harmonics of a given \\(\\ell\\) starting from the “highest-weight” function \\(Y_\\ell^\\ell(\\theta,\\varphi)\\).",
+    "objectID": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
+    "href": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.1 Center of Mass and Relative Motion",
+    "text": "1.1 Center of Mass and Relative Motion\nIt is convenient to switch from the electron and proton coordinates \\((\\vec r_e, \\vec r_p)\\) to\n\nthe center-of-mass coordinate \\[\n\\vec R = \\frac{m \\vec r_e + M \\vec r_p}{m+M},\n\\]\nand the relative coordinate \\[\n\\vec r = \\vec r_e - \\vec r_p.\n\\]\n\nIn these new variables the Hamiltonian separates into two parts:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2(m+M)} \\nabla_R^2\n         -\\frac{\\hbar^2}{2\\mu} \\nabla_r^2\n         + V(r),\n\\]\nwhere\n\\[\n\\mu = \\frac{mM}{m+M}\n\\]\nis the reduced mass of the electron–proton system.\nThe term \\[\n-\\frac{\\hbar^2}{2(m+M)}\\nabla_R^2\n\\] describes the free motion of the atom as a whole through space. Since spectroscopy and bound-state problems are only sensitive to the internal dynamics, this center-of-mass contribution can be ignored (or factored out as a plane wave).",
     "crumbs": [
       "Home",
       "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#step-1-definitions-and-commutators",
-    "href": "mod3/angmom.html#step-1-definitions-and-commutators",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 1: Definitions and commutators",
-    "text": "Step 1: Definitions and commutators\nDefine the ladder operators \\[\n\\hat L_\\pm = \\hat L_x \\pm i \\hat L_y.\n\\]\nThey satisfy the commutation relations \\[\n[\\hat L_z, \\hat L_\\pm] = \\pm \\hbar \\hat L_\\pm,\n\\qquad\n[\\hat L_+, \\hat L_-] = 2\\hbar \\hat L_z.\n\\]\nThus, if \\(\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle\\), then \\[\n\\hat L_z(\\hat L_\\pm \\lvert \\ell,m \\rangle)\n= (\\hbar m \\pm \\hbar)\\, \\hat L_\\pm \\lvert \\ell,m \\rangle.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe commutator of \\(\\hat L_z\\) with the ladder operators is\n\\[\n[\\hat L_z, \\hat L_\\pm]\n= [\\hat L_z, \\hat L_x] \\pm i [\\hat L_z, \\hat L_y]\n= i \\hbar \\hat L_y \\pm \\hbar \\hat L_x\n= \\pm \\hbar (\\hat L_x \\pm i \\hat L_y)\n= \\pm \\hbar \\hat L_\\pm .\n\\]\nFrom this relation we obtain the operator identity\n\\[\n\\hat L_z \\hat L_\\pm\n= [\\hat L_z, \\hat L_\\pm] + \\hat L_\\pm \\hat L_z\n= \\pm \\hbar \\hat L_\\pm + \\hat L_\\pm \\hat L_z\n= \\hat L_\\pm(\\hat L_z \\pm \\hbar).\n\\]\nThus, when acting on an eigenstate \\(\\lvert \\ell, m \\rangle\\) of \\(\\hat L^2\\) and \\(\\hat L_z\\), the operator \\(\\hat L_\\pm\\) shifts the magnetic quantum number by one unit:\n\\[\n\\hat L_z \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle)\n= (m \\pm 1)\\hbar \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle).\n\\]\n\n\n\nThis shows that \\(\\hat L_\\pm\\) (if nonzero) produces another eigenstate with eigenvalue \\(m \\pm 1\\).\nSo we may write \\[\n\\hat L_\\pm \\lvert \\ell,m \\rangle = C_\\pm(\\ell,m) \\lvert \\ell, m \\pm 1 \\rangle,\n\\] for some coefficient \\(C_\\pm(\\ell,m)\\).",
+    "objectID": "mod3/hydrogen.html#effective-one-body-hamiltonian",
+    "href": "mod3/hydrogen.html#effective-one-body-hamiltonian",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.2 Effective One-Body Hamiltonian",
+    "text": "1.2 Effective One-Body Hamiltonian\nThus, for studying the hydrogen spectrum we keep only the relative motion:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\nabla_r^2\n         -\\frac{Z e^2}{4\\pi\\varepsilon_0}\\,\\frac{1}{r}.\n\\]\nThis is the familiar hydrogen Hamiltonian, except that the electron mass \\(m\\) is replaced by the reduced mass \\(\\mu\\).\nFor hydrogen, since \\(M \\gg m\\), one has \\(\\mu \\approx m\\), but the correction is important for high-precision spectroscopy.",
     "crumbs": [
       "Home",
       "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#step-2-determining-c_pm2",
-    "href": "mod3/angmom.html#step-2-determining-c_pm2",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 2: Determining \\(|C_\\pm|^2\\)",
-    "text": "Step 2: Determining \\(|C_\\pm|^2\\)\nConsider the squared norm: \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\langle \\ell,m | \\hat L_- \\hat L_+ | \\ell,m \\rangle.\n\\]\nUsing the operator identity \\[\n\\hat L_- \\hat L_+ = \\hat L^2 - \\hat L_z^2 - \\hbar \\hat L_z,\n\\] and the eigenvalue equations \\[\n\\hat L^2 \\lvert \\ell,m \\rangle = \\hbar^2 \\ell(\\ell+1) \\lvert \\ell,m \\rangle,\n\\qquad\n\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle,\n\\] we get \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nThus, \\[\n|C_+(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nSimilarly, using \\[\n\\hat L_+ \\hat L_- = \\hat L^2 - \\hat L_z^2 + \\hbar \\hat L_z,\n\\] we find \\[\n|C_-(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m-1)\\big).\n\\]",
+    "objectID": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
+    "href": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.3 The Laplacian and \\(\\hat L^2\\)",
+    "text": "1.3 The Laplacian and \\(\\hat L^2\\)\nWe will rewrite the Laplacian in spherical coordinates and express the angular part in terms of \\(\\hat L^2\\).\nIn spherical coordinates \\((r,\\theta,\\varphi)\\) the Laplacian acting on a scalar \\(\\psi(r,\\theta,\\varphi)\\) reads\n\\[\n\\nabla^2 \\psi\n= \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial \\psi}{\\partial r}\\Big)\n+ \\frac{1}{r^2}\\Bigg[\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial \\psi}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2\\psi}{\\partial\\varphi^2}\\Bigg].\n\\]\nRecall the angular momentum squared operator in coordinate representation:\n\\[\n\\hat L^2 = -\\hbar^2\\left[\n\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2}{\\partial\\varphi^2}\n\\right].\n\\]\nComparing the two expressions gives the useful identity (acting on any \\(\\psi\\))\n\\[\n\\nabla^2 = \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big) - \\frac{1}{\\hbar^2 r^2}\\,\\hat L^2 .\n\\]\nInsert this into the kinetic term of the Hamiltonian to obtain\n\\[\n\\begin{aligned}\n-\\frac{\\hbar^2}{2\\mu}\\nabla^2\n&= -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2}.\n\\end{aligned}\n\\]\nTherefore the full Hamiltonian becomes\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2} + V(r)\n\\]",
     "crumbs": [
       "Home",
       "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/angmom.html#step-3-fixing-the-phase-convention",
-    "href": "mod3/angmom.html#step-3-fixing-the-phase-convention",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 3: Fixing the phase convention",
-    "text": "Step 3: Fixing the phase convention\nWe can choose the overall phase of the eigenstates such that \\(C_\\pm\\) are real and positive. With this standard convention we obtain:\n\\[\n\\hat L_+ \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m+1)} \\; \\lvert \\ell,m+1 \\rangle,\n\\]\n\\[\n\\hat L_- \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m-1)} \\; \\lvert \\ell,m-1 \\rangle.\n\\]\n\nConclusion:\nThe ladder operators raise or lower the \\(m\\) quantum number by one unit, with the above coefficients.",
+    "objectID": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
+    "href": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "2.1 The rotational (centrifugal) barrier",
+    "text": "2.1 The rotational (centrifugal) barrier\nThe term\n\\[\n\\frac{\\hbar^2 \\ell(\\ell+1)}{2 \\mu r^2}\n\\]\noriginates from the angular part of the kinetic energy. It acts like an effective potential that depends on \\(\\ell\\).\n\nFor \\(\\ell=0\\), this term vanishes, and the particle can access the region near \\(r=0\\).\n\nFor \\(\\ell&gt;0\\), the term grows rapidly as \\(r\\to 0\\), suppressing the radial wavefunction in the vicinity of the origin.\n\nThis is often called the centrifugal barrier. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.",
     "crumbs": [
       "Home",
       "Hydrogen (Basics)",
-      "Orbital Angular Momentum in Quantum Mechanics"
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
+    "href": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "2.2 Convert to the reduced radial equation",
+    "text": "2.2 Convert to the reduced radial equation\nDefine the reduced radial function\n\\[\nu(r) = r\\, R(r).\n\\]\nIt is straightforward to check that\n\\[\n\\frac{1}{r^2}\\frac{d}{dr}\\!\\Big(r^2\\frac{dR}{dr}\\Big)\n= \\frac{1}{r}\\frac{d^2}{dr^2}\\big(r R\\big)\n= \\frac{1}{r}\\frac{d^2 u}{dr^2}.\n\\]\nSubstituting into the radial equation gives the convenient one-dimensional form\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2}\n+ \\left[V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}\\right] u(r) = E\\, u(r).\n\\]\nThis is exactly the time-independent Schrödinger equation for a one-dimensional motion of \\(u(r)\\) on the half-line \\(r\\in(0,\\infty)\\) with the effective potential\n\\[\nV_{\\text{eff}}(r) = V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}.\n\\]\nThe boundary condition at the origin is \\(u(0)=0\\) (regularity) and \\(u(r)\\) must be square integrable on \\((0,\\infty)\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters (scaled units: ħ = m = k = 1)\nhbar = 1\nm = 1\nk = 1   # corresponds to e^2/(4πϵ0)\n\n# Define radial coordinate\nr = np.linspace(0.1, 30, 1000)  # avoid r=0 to prevent singularity\n\ndef V_eff(r, ell):\n    centrifugal = hbar**2 * ell * (ell + 1) / (2 * m * r**2)\n    coulomb = -k / r\n    return coulomb + centrifugal\n\n# Plot effective potentials for different l\nells = [0, 1, 2, 3]\nplt.figure(figsize=(8,6))\n\nfor ell in ells:\n    plt.plot(r, V_eff(r, ell), label=f\"$\\ell={ell}$\")\n\nplt.ylim(-0.5, 0.5)\nplt.xlim(0, 30)\nplt.axhline(0, color='black', linewidth=0.8)\nplt.title(\"Effective Radial Potential $V_{eff}(r)$\")\nplt.xlabel(\"r (arb. units)\")\nplt.ylabel(\"$V_{eff}(r)$ (arb. units)\")\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Effective radial Coulomb potential for different angular momenta.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#asymptotic-behavior",
+    "href": "mod3/hydrogen.html#asymptotic-behavior",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.1 Asymptotic behavior",
+    "text": "3.1 Asymptotic behavior\nAs \\(r\\to\\infty\\): the Coulomb potential is negligible compared to \\(E&lt;0\\), so the equation approximates\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} \\approx E\\, u .\n\\]\nSince \\(E&lt;0\\), set\n\\[\n\\kappa = \\sqrt{\\frac{-2\\mu E}{\\hbar^2}}\\quad (&gt;0),\n\\]\nand \\(u(r)\\sim e^{-\\kappa r}\\) as \\(r\\to\\infty\\) (the exponentially growing solution is discarded for normalizability).\nAs \\(r\\to 0\\): the dominant term is the centrifugal term \\(\\propto 1/r^2\\). Neglecting the Coulomb term for small \\(r\\) gives\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} + \\frac{\\hbar^2\\ell(\\ell+1)}{2\\mu r^2} u \\approx 0.\n\\]\nSolving the indicial equation yields the leading behavior \\(u(r)\\sim r^{\\ell+1}\\) (the second independent solution behaves like \\(r^{-\\ell}\\) and is non-physical because it is not regular at the origin). Therefore\n\\[\nR(r) = \\frac{u(r)}{r} \\sim r^{\\ell} \\quad (r\\to 0).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
+    "href": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.2 Polynomial Ansatz and reduced equation",
+    "text": "3.2 Polynomial Ansatz and reduced equation\nFrom the asymptotic analysis we propose\n\\[\nu(r) = r^{\\ell+1} e^{-\\kappa r} v(r),\n\\]\nwhere \\(v(r)\\) should be regular everywhere. Substituting this form into the full radial equation and using the dimensionless variable\n\\[\n\\rho = 2\\kappa r,\n\\]\none finds that \\(v(\\rho)\\) satisfies\n\\[\n\\rho \\frac{d^2 v}{d\\rho^2} + (2\\ell + 2 - \\rho)\\frac{dv}{d\\rho} +\n\\left( \\frac{Z e^2}{2\\pi \\varepsilon_0 \\hbar}\\frac{\\mu}{\\kappa} - \\ell - 1 \\right) v = 0.\n\\]\nThis is of the confluent hypergeometric form.\nTo solve, assume \\(v(\\rho)\\) can be expressed as a power series:\n\\[\nv(\\rho) = \\sum_{j=0}^{\\infty} a_j \\rho^j.\n\\]\nSubstituting this into the differential equation leads to a recurrence relation between coefficients:\n\\[\na_{j+1} = \\frac{j + \\ell + 1 - \\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa}}{(j+1)(j+2\\ell+2)}\\, a_j.\n\\]\n\nTermination condition\n\nIf the series does not terminate, the coefficients \\(a_j\\) fall off too slowly and \\(v(\\rho)\\) grows exponentially, which spoils normalizability.\n\nNormalizable solutions exist only if the numerator vanishes for some finite \\(j=n_r\\) (the radial quantum number). This forces the series to terminate, producing a polynomial.\n\nThus the termination condition is:\n\\[\n\\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa} = n_r + \\ell + 1 \\equiv n, \\qquad n=1,2,3,\\dots\n\\]\nwhere \\(n\\) is the principal quantum number.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
+    "href": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.3 Energy quantization and the principal quantum number",
+    "text": "3.3 Energy quantization and the principal quantum number\nThe requirement that the power-series solution terminates at a finite order fixes the parameter \\(\\kappa\\). Using \\(\\kappa^2 = \\tfrac{-2\\mu E}{\\hbar^2}\\), the allowed bound-state energies are\n\n\n\n\n\n\nTipBound-state energies\n\n\n\n\\[\nE_n = - \\frac{\\mu e^4 Z^2}{2(4\\pi\\varepsilon_0)^2 \\hbar^2}\\,\\frac{1}{n^2}\n= -\\frac{R_\\mathrm{y} Z^2}{n^2}, \\qquad n = 1,2,3,\\dots\n\\]\n\n\nwhere\n\\[\nR_\\mathrm{y} = \\frac{\\mu e^4}{2(4\\pi\\varepsilon_0)^2\\hbar^2}\n\\]\nis the Rydberg energy (\\(R_\\mathrm{y} \\approx 13.6057\\ \\text{eV}\\)).\nIt is convenient to introduce the Bohr radius\n\\[\na_0 = \\frac{4\\pi\\varepsilon_0 \\hbar^2}{\\mu e^2},\n\\]\nso that the energy can also be written as\n\\[\nE_n = -\\frac{1}{2}\\frac{\\mu e^4 Z^2}{(4\\pi\\varepsilon_0)^2 \\hbar^2}\\frac{1}{n^2}\n= -\\frac{Z^2}{2}\\,\\frac{\\hbar^2}{\\mu a_0^2}\\,\\frac{1}{n^2}\n= -\\frac{Z^2}{n^2}\\,\\frac{e^2}{8\\pi\\varepsilon_0 a_0}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#explicit-low-n-examples",
+    "href": "mod3/hydrogen.html#explicit-low-n-examples",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "4.1 Explicit low-\\(n\\) examples",
+    "text": "4.1 Explicit low-\\(n\\) examples\n\n1s state \\((n=1,\\ell=0)\\):\n\\[\nR_{10}(r) = 2 \\,a_0^{-3/2}\\, e^{-r/a_0}.\n\\]\n2s state \\((n=2,\\ell=0)\\):\n\\[\nR_{20}(r) = \\frac{1}{2\\sqrt{2}}\\, a_0^{-3/2} \\Big(2 - \\frac{r}{a_0}\\Big)\\, e^{-r/(2 a_0)}.\n\\]\n2p states \\((n=2,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{21}(r) = \\frac{1}{2\\sqrt{6}}\\, a_0^{-3/2}\\, \\frac{r}{a_0}\\, e^{-r/(2 a_0)}\n\\]\n\n\n\n3s state \\((n=3,\\ell=0)\\):\n\\[\nR_{30}(r) = \\frac{2}{81\\sqrt{3}}\\, a_0^{-3/2} \\Big(27 - 18 \\tfrac{r}{a_0} + 2 \\big(\\tfrac{r}{a_0}\\big)^2\\Big) e^{-r/(3a_0)}.\n\\]\n3p states \\((n=3,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{31}(r) = \\frac{4}{81\\sqrt{6}}\\, a_0^{-3/2} \\Big(6 - \\tfrac{r}{a_0}\\Big)\\, \\frac{r}{a_0}\\, e^{-r/(3a_0)}.\n\\]\n3d states \\((n=3,\\ell=2)\\); e.g. \\(m=0\\):\n\\[\nR_{32}(r) = \\frac{4}{81\\sqrt{30}}\\, a_0^{-3/2} \\Big(\\tfrac{r}{a_0}\\Big)^2 e^{-r/(3a_0)}.\n\\]\n\n\nThese explicit forms are obtained by substituting \\(n,\\ell\\) into the general hydrogen radial wavefunction formula and using the associated Laguerre polynomials for small \\(n\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Define the Bohr radius\na0 = 1.0\n\ndef R_10(r):\n    \"\"\"\n    1s radial wavefunction.\n    \"\"\"\n    return 2 * (a0**(-1.5)) * np.exp(-r / a0)\n\ndef R_20(r):\n    \"\"\"\n    2s radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(2))) * (a0**(-1.5)) * (2 - r / a0) * np.exp(-r / (2 * a0))\n\ndef R_21(r):\n    \"\"\"\n    2p radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(6))) * (a0**(-1.5)) * (r / a0) * np.exp(-r / (2 * a0))\n\ndef R_30(r):\n    \"\"\"\n    3s radial wavefunction.\n    \"\"\"\n    return (2 / (81 * np.sqrt(3))) * (a0**(-1.5)) * (27 - 18 * (r / a0) + 2 * (r / a0)**2) * np.exp(-r / (3 * a0))\n\ndef R_31(r):\n    \"\"\"\n    3p radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(6))) * (a0**(-1.5)) * (6 - r / a0) * (r / a0) * np.exp(-r / (3 * a0))\n\ndef R_32(r):\n    \"\"\"\n    3d radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(30))) * (a0**(-1.5)) * (r / a0)**2 * np.exp(-r / (3 * a0))\n\ndef P(R, r):\n    \"\"\"\n    Calculates the radial probability density P(r) = r^2 * |R(r)|^2\n    \"\"\"\n    return r**2 * np.abs(R)**2\n\n# Create a range of r values\nr_values = np.linspace(0, 25 * a0, 500)\n\n# Set up the plot\nfig, axes = plt.subplots(3, 2, figsize=(8, 8))\nfig.suptitle(\"Hydrogen Radial Wave Functions $R_{n\\ell}(r)$ and Probability Densities $P_{n\\ell}(r)$\", fontsize=16)\n\n# Plot for 1s state\nax1 = axes[0, 0]\nax1.set_title(\"1s State\")\nax1.plot(r_values, R_10(r_values), label='$R_{10}(r)$', color='blue')\nax1.plot(r_values, P(R_10(r_values), r_values), label='$P_{10}(r)$', color='red', linestyle='--')\nax1.set_xlabel('$r/a_0$')\nax1.set_xlim(0, 25)\nax1.legend()\nax1.grid(True)\n\n# Plot for 2s state\nax2 = axes[0, 1]\nax2.set_title(\"2s State\")\nax2.plot(r_values, R_20(r_values), label='$R_{20}(r)$', color='blue')\nax2.plot(r_values, P(R_20(r_values), r_values), label='$P_{20}(r)$', color='red', linestyle='--')\nax2.set_xlabel('$r/a_0$')\nax2.set_xlim(0, 25)\nax2.legend()\nax2.grid(True)\n\n# Plot for 2p state\nax3 = axes[1, 0]\nax3.set_title(\"2p State\")\nax3.plot(r_values, R_21(r_values), label='$R_{21}(r)$', color='blue')\nax3.plot(r_values, P(R_21(r_values), r_values), label='$P_{21}(r)$', color='red', linestyle='--')\nax3.set_xlabel('$r/a_0$')\nax3.set_xlim(0, 25)\nax3.legend()\nax3.grid(True)\n\n# Plot for 3s state\nax4 = axes[1, 1]\nax4.set_title(\"3s State\")\nax4.plot(r_values, R_30(r_values), label='$R_{30}(r)$', color='blue')\nax4.plot(r_values, P(R_30(r_values), r_values), label='$P_{30}(r)$', color='red', linestyle='--')\nax4.set_xlabel('$r/a_0$')\nax4.set_xlim(0, 25)\nax4.legend()\nax4.grid(True)\n\n# Plot for 3p state\nax5 = axes[2, 0]\nax5.set_title(\"3p State\")\nax5.plot(r_values, R_31(r_values), label='$R_{31}(r)$', color='blue')\nax5.plot(r_values, P(R_31(r_values), r_values), label='$P_{31}(r)$', color='red', linestyle='--')\nax5.set_xlabel('$r/a_0$')\nax5.set_xlim(0, 25)\nax5.legend()\nax5.grid(True)\n\n# Plot for 3d state\nax6 = axes[2, 1]\nax6.set_title(\"3d State\")\nax6.plot(r_values, R_32(r_values), label='$R_{32}(r)$', color='blue')\nax6.plot(r_values, P(R_32(r_values), r_values), label='$P_{32}(r)$', color='red', linestyle='--')\nax6.set_xlabel('$r/a_0$')\nax6.set_xlim(0, 25)\nax6.legend()\nax6.grid(True)\n\n# Adjust layout and show the plot\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 2: Radial wave functions and probability densities for low-\\(n\\) states.\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.constants import physical_constants\nfrom scipy.special import genlaguerre, factorial\n\n# Constants\na0 = physical_constants[\"Bohr radius\"][0]      # Bohr radius [m]\nEh = physical_constants[\"Hartree energy\"][0]   # Hartree energy [J]\neV = physical_constants[\"electron volt\"][0]    # 1 eV in J\n\nnmax = 4\n\n# General hydrogen radial wavefunction R_{nl}(r)\ndef R_nl(r, n, l):\n    if l &gt;= n or l &lt; 0:\n        raise ValueError(\"Quantum number l must satisfy 0 &lt;= l &lt; n\")\n    rho = 2 * r / (n * a0)\n    norm = np.sqrt((2/(n*a0))**3 * factorial(n-l-1)/(2*n*factorial(n+l)))\n    return norm * rho**l * np.exp(-rho/2) * genlaguerre(n-l-1, 2*l+1)(rho)\n\n# Radial probability densities P(r) = r^2 |R_{nl}(r)|^2\ndef P_n(r, n, l):\n    R = R_nl(r, n, l)\n    return r**2 * np.abs(R)**2\n\n# Energy levels [J]\ndef energy_n(n):\n    return -Eh / (2 * n**2)\n\n# Effective potential (Coulomb + centrifugal)\ndef V_r(r, l):\n    return -Eh * a0 / r + Eh * a0**2 * l*(l+1) / (2 * r**2)\n\n# Prepare data\nr = np.linspace(0.01*a0, 60*a0, 2000)  # radial range\n\n# Colors\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\n# Set up 2x2 subplots\nfig, axes = plt.subplots(2, 2, figsize=(11, 10), sharex=True, sharey=True)\naxes = axes.flatten()\n\nfor idx, myell in enumerate(range(4)):   # l = 0,1,2,3\n    ax = axes[idx]\n\n    # Effective potential\n    V = V_r(r, myell) / eV\n    ax.plot(r/a0, V, 'k', label=\"Effective potential\")\n\n    # Energy levels + radial probabilities\n    for i, n in enumerate(range(myell+1, nmax+1)):\n        E = energy_n(n)/eV\n        ax.hlines(E, 0, 40, colors=colors[n-1], linestyles='--', label=f\"n={n} level\")\n\n        P = P_n(r, n, myell)\n        P_scaled = (P/np.max(P)) * 5 + E  # scale & shift to energy level\n        ax.plot(r/a0, P_scaled, colors[n-1], label=f\"$P(r)$ for n={n}\")\n\n    # E=0 line\n    ax.axhline(0, color='gray', linewidth=1.2)\n\n    ax.set_xlim(0, 45)\n    ax.set_ylim(-20, 10)\n    ax.set_title(fr\"$\\ell={myell}$\", pad=10)\n    ax.grid(True)\n\n# Force ticks to show up only where wanted\nfor ax in axes:\n    ax.tick_params(labelbottom=False, labelleft=False)  # start blank\n\n# left column: y labels\naxes[0].tick_params(labelleft=True)\naxes[2].tick_params(labelleft=True)\n\n# bottom row: x labels\naxes[2].tick_params(labelbottom=True)\naxes[3].tick_params(labelbottom=True)\n\n# Shared axis labels (outside the plots)\nfig.text(0.5, 0.01, r\"$r/a_0$ (Bohr radii)\", ha=\"center\", fontsize=12)\nfig.text(0.01, 0.5, \"Energy (eV)\", va=\"center\", rotation=\"vertical\", fontsize=12)\n\n# Legend only in bottom-left subplot\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[2].legend(handles, labels, loc=\"lower left\", fontsize=10)\n\nfig.suptitle(\"Effective Potential and Hydrogen Atom Radial Probabilities\", fontsize=16)\nplt.tight_layout(rect=[0.04,0.04,1,0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 3: Radial wave probability densities in the effective potential for different \\(\\ell\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
@@ -730,195 +790,245 @@
     ]
   },
   {
-    "objectID": "mod3/hydrogen.html",
-    "href": "mod3/hydrogen.html",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "objectID": "mod3/index.html",
+    "href": "mod3/index.html",
+    "title": "The Hydrogen Atom — Basics",
     "section": "",
-    "text": "We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number \\(Z\\)). The goals of this chapter are:\n\nRe-express the Hamiltonian using the angular-momentum operator \\(\\hat{\\vec L}\\).\n\nSeparate variables in spherical coordinates and reduce the problem to a radial ordinary differential equation (ODE).\n\nSolve the radial ODE for bound states (\\(E&lt;0\\)), perform the asymptotic analysis, obtain the quantization condition, and write the normalized eigenfunctions.",
+    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
+      "Hydrogen (Basics)"
     ]
   },
   {
-    "objectID": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
-    "href": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.1 Center of Mass and Relative Motion",
-    "text": "1.1 Center of Mass and Relative Motion\nIt is convenient to switch from the electron and proton coordinates \\((\\vec r_e, \\vec r_p)\\) to\n\nthe center-of-mass coordinate \\[\n\\vec R = \\frac{m \\vec r_e + M \\vec r_p}{m+M},\n\\]\nand the relative coordinate \\[\n\\vec r = \\vec r_e - \\vec r_p.\n\\]\n\nIn these new variables the Hamiltonian separates into two parts:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2(m+M)} \\nabla_R^2\n         -\\frac{\\hbar^2}{2\\mu} \\nabla_r^2\n         + V(r),\n\\]\nwhere\n\\[\n\\mu = \\frac{mM}{m+M}\n\\]\nis the reduced mass of the electron–proton system.\nThe term \\[\n-\\frac{\\hbar^2}{2(m+M)}\\nabla_R^2\n\\] describes the free motion of the atom as a whole through space. Since spectroscopy and bound-state problems are only sensitive to the internal dynamics, this center-of-mass contribution can be ignored (or factored out as a plane wave).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#effective-one-body-hamiltonian",
-    "href": "mod3/hydrogen.html#effective-one-body-hamiltonian",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.2 Effective One-Body Hamiltonian",
-    "text": "1.2 Effective One-Body Hamiltonian\nThus, for studying the hydrogen spectrum we keep only the relative motion:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\nabla_r^2\n         -\\frac{Z e^2}{4\\pi\\varepsilon_0}\\,\\frac{1}{r}.\n\\]\nThis is the familiar hydrogen Hamiltonian, except that the electron mass \\(m\\) is replaced by the reduced mass \\(\\mu\\).\nFor hydrogen, since \\(M \\gg m\\), one has \\(\\mu \\approx m\\), but the correction is important for high-precision spectroscopy.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
-    "href": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.3 The Laplacian and \\(\\hat L^2\\)",
-    "text": "1.3 The Laplacian and \\(\\hat L^2\\)\nWe will rewrite the Laplacian in spherical coordinates and express the angular part in terms of \\(\\hat L^2\\).\nIn spherical coordinates \\((r,\\theta,\\varphi)\\) the Laplacian acting on a scalar \\(\\psi(r,\\theta,\\varphi)\\) reads\n\\[\n\\nabla^2 \\psi\n= \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial \\psi}{\\partial r}\\Big)\n+ \\frac{1}{r^2}\\Bigg[\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial \\psi}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2\\psi}{\\partial\\varphi^2}\\Bigg].\n\\]\nRecall the angular momentum squared operator in coordinate representation:\n\\[\n\\hat L^2 = -\\hbar^2\\left[\n\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2}{\\partial\\varphi^2}\n\\right].\n\\]\nComparing the two expressions gives the useful identity (acting on any \\(\\psi\\))\n\\[\n\\nabla^2 = \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big) - \\frac{1}{\\hbar^2 r^2}\\,\\hat L^2 .\n\\]\nInsert this into the kinetic term of the Hamiltonian to obtain\n\\[\n\\begin{aligned}\n-\\frac{\\hbar^2}{2\\mu}\\nabla^2\n&= -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2}.\n\\end{aligned}\n\\]\nTherefore the full Hamiltonian becomes\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2} + V(r)\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
-    "href": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "2.1 The rotational (centrifugal) barrier",
-    "text": "2.1 The rotational (centrifugal) barrier\nThe term\n\\[\n\\frac{\\hbar^2 \\ell(\\ell+1)}{2 \\mu r^2}\n\\]\noriginates from the angular part of the kinetic energy. It acts like an effective potential that depends on \\(\\ell\\).\n\nFor \\(\\ell=0\\), this term vanishes, and the particle can access the region near \\(r=0\\).\n\nFor \\(\\ell&gt;0\\), the term grows rapidly as \\(r\\to 0\\), suppressing the radial wavefunction in the vicinity of the origin.\n\nThis is often called the centrifugal barrier. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
-    "href": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "2.2 Convert to the reduced radial equation",
-    "text": "2.2 Convert to the reduced radial equation\nDefine the reduced radial function\n\\[\nu(r) = r\\, R(r).\n\\]\nIt is straightforward to check that\n\\[\n\\frac{1}{r^2}\\frac{d}{dr}\\!\\Big(r^2\\frac{dR}{dr}\\Big)\n= \\frac{1}{r}\\frac{d^2}{dr^2}\\big(r R\\big)\n= \\frac{1}{r}\\frac{d^2 u}{dr^2}.\n\\]\nSubstituting into the radial equation gives the convenient one-dimensional form\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2}\n+ \\left[V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}\\right] u(r) = E\\, u(r).\n\\]\nThis is exactly the time-independent Schrödinger equation for a one-dimensional motion of \\(u(r)\\) on the half-line \\(r\\in(0,\\infty)\\) with the effective potential\n\\[\nV_{\\text{eff}}(r) = V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}.\n\\]\nThe boundary condition at the origin is \\(u(0)=0\\) (regularity) and \\(u(r)\\) must be square integrable on \\((0,\\infty)\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters (scaled units: ħ = m = k = 1)\nhbar = 1\nm = 1\nk = 1   # corresponds to e^2/(4πϵ0)\n\n# Define radial coordinate\nr = np.linspace(0.1, 30, 1000)  # avoid r=0 to prevent singularity\n\ndef V_eff(r, ell):\n    centrifugal = hbar**2 * ell * (ell + 1) / (2 * m * r**2)\n    coulomb = -k / r\n    return coulomb + centrifugal\n\n# Plot effective potentials for different l\nells = [0, 1, 2, 3]\nplt.figure(figsize=(8,6))\n\nfor ell in ells:\n    plt.plot(r, V_eff(r, ell), label=f\"$\\ell={ell}$\")\n\nplt.ylim(-0.5, 0.5)\nplt.xlim(0, 30)\nplt.axhline(0, color='black', linewidth=0.8)\nplt.title(\"Effective Radial Potential $V_{eff}(r)$\")\nplt.xlabel(\"r (arb. units)\")\nplt.ylabel(\"$V_{eff}(r)$ (arb. units)\")\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Effective radial Coulomb potential for different angular momenta.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#asymptotic-behavior",
-    "href": "mod3/hydrogen.html#asymptotic-behavior",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.1 Asymptotic behavior",
-    "text": "3.1 Asymptotic behavior\nAs \\(r\\to\\infty\\): the Coulomb potential is negligible compared to \\(E&lt;0\\), so the equation approximates\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} \\approx E\\, u .\n\\]\nSince \\(E&lt;0\\), set\n\\[\n\\kappa = \\sqrt{\\frac{-2\\mu E}{\\hbar^2}}\\quad (&gt;0),\n\\]\nand \\(u(r)\\sim e^{-\\kappa r}\\) as \\(r\\to\\infty\\) (the exponentially growing solution is discarded for normalizability).\nAs \\(r\\to 0\\): the dominant term is the centrifugal term \\(\\propto 1/r^2\\). Neglecting the Coulomb term for small \\(r\\) gives\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} + \\frac{\\hbar^2\\ell(\\ell+1)}{2\\mu r^2} u \\approx 0.\n\\]\nSolving the indicial equation yields the leading behavior \\(u(r)\\sim r^{\\ell+1}\\) (the second independent solution behaves like \\(r^{-\\ell}\\) and is non-physical because it is not regular at the origin). Therefore\n\\[\nR(r) = \\frac{u(r)}{r} \\sim r^{\\ell} \\quad (r\\to 0).\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
-    "href": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.2 Polynomial Ansatz and reduced equation",
-    "text": "3.2 Polynomial Ansatz and reduced equation\nFrom the asymptotic analysis we propose\n\\[\nu(r) = r^{\\ell+1} e^{-\\kappa r} v(r),\n\\]\nwhere \\(v(r)\\) should be regular everywhere. Substituting this form into the full radial equation and using the dimensionless variable\n\\[\n\\rho = 2\\kappa r,\n\\]\none finds that \\(v(\\rho)\\) satisfies\n\\[\n\\rho \\frac{d^2 v}{d\\rho^2} + (2\\ell + 2 - \\rho)\\frac{dv}{d\\rho} +\n\\left( \\frac{Z e^2}{2\\pi \\varepsilon_0 \\hbar}\\frac{\\mu}{\\kappa} - \\ell - 1 \\right) v = 0.\n\\]\nThis is of the confluent hypergeometric form.\nTo solve, assume \\(v(\\rho)\\) can be expressed as a power series:\n\\[\nv(\\rho) = \\sum_{j=0}^{\\infty} a_j \\rho^j.\n\\]\nSubstituting this into the differential equation leads to a recurrence relation between coefficients:\n\\[\na_{j+1} = \\frac{j + \\ell + 1 - \\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa}}{(j+1)(j+2\\ell+2)}\\, a_j.\n\\]\n\nTermination condition\n\nIf the series does not terminate, the coefficients \\(a_j\\) fall off too slowly and \\(v(\\rho)\\) grows exponentially, which spoils normalizability.\n\nNormalizable solutions exist only if the numerator vanishes for some finite \\(j=n_r\\) (the radial quantum number). This forces the series to terminate, producing a polynomial.\n\nThus the termination condition is:\n\\[\n\\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa} = n_r + \\ell + 1 \\equiv n, \\qquad n=1,2,3,\\dots\n\\]\nwhere \\(n\\) is the principal quantum number.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
-    "href": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.3 Energy quantization and the principal quantum number",
-    "text": "3.3 Energy quantization and the principal quantum number\nThe requirement that the power-series solution terminates at a finite order fixes the parameter \\(\\kappa\\). Using \\(\\kappa^2 = \\tfrac{-2\\mu E}{\\hbar^2}\\), the allowed bound-state energies are\n\n\n\n\n\n\nTipBound-state energies\n\n\n\n\\[\nE_n = - \\frac{\\mu e^4 Z^2}{2(4\\pi\\varepsilon_0)^2 \\hbar^2}\\,\\frac{1}{n^2}\n= -\\frac{R_\\mathrm{y} Z^2}{n^2}, \\qquad n = 1,2,3,\\dots\n\\]\n\n\nwhere\n\\[\nR_\\mathrm{y} = \\frac{\\mu e^4}{2(4\\pi\\varepsilon_0)^2\\hbar^2}\n\\]\nis the Rydberg energy (\\(R_\\mathrm{y} \\approx 13.6057\\ \\text{eV}\\)).\nIt is convenient to introduce the Bohr radius\n\\[\na_0 = \\frac{4\\pi\\varepsilon_0 \\hbar^2}{\\mu e^2},\n\\]\nso that the energy can also be written as\n\\[\nE_n = -\\frac{1}{2}\\frac{\\mu e^4 Z^2}{(4\\pi\\varepsilon_0)^2 \\hbar^2}\\frac{1}{n^2}\n= -\\frac{Z^2}{2}\\,\\frac{\\hbar^2}{\\mu a_0^2}\\,\\frac{1}{n^2}\n= -\\frac{Z^2}{n^2}\\,\\frac{e^2}{8\\pi\\varepsilon_0 a_0}.\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#explicit-low-n-examples",
-    "href": "mod3/hydrogen.html#explicit-low-n-examples",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "4.1 Explicit low-\\(n\\) examples",
-    "text": "4.1 Explicit low-\\(n\\) examples\n\n1s state \\((n=1,\\ell=0)\\):\n\\[\nR_{10}(r) = 2 \\,a_0^{-3/2}\\, e^{-r/a_0}.\n\\]\n2s state \\((n=2,\\ell=0)\\):\n\\[\nR_{20}(r) = \\frac{1}{2\\sqrt{2}}\\, a_0^{-3/2} \\Big(2 - \\frac{r}{a_0}\\Big)\\, e^{-r/(2 a_0)}.\n\\]\n2p states \\((n=2,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{21}(r) = \\frac{1}{2\\sqrt{6}}\\, a_0^{-3/2}\\, \\frac{r}{a_0}\\, e^{-r/(2 a_0)}\n\\]\n\n\n\n3s state \\((n=3,\\ell=0)\\):\n\\[\nR_{30}(r) = \\frac{2}{81\\sqrt{3}}\\, a_0^{-3/2} \\Big(27 - 18 \\tfrac{r}{a_0} + 2 \\big(\\tfrac{r}{a_0}\\big)^2\\Big) e^{-r/(3a_0)}.\n\\]\n3p states \\((n=3,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{31}(r) = \\frac{4}{81\\sqrt{6}}\\, a_0^{-3/2} \\Big(6 - \\tfrac{r}{a_0}\\Big)\\, \\frac{r}{a_0}\\, e^{-r/(3a_0)}.\n\\]\n3d states \\((n=3,\\ell=2)\\); e.g. \\(m=0\\):\n\\[\nR_{32}(r) = \\frac{4}{81\\sqrt{30}}\\, a_0^{-3/2} \\Big(\\tfrac{r}{a_0}\\Big)^2 e^{-r/(3a_0)}.\n\\]\n\n\nThese explicit forms are obtained by substituting \\(n,\\ell\\) into the general hydrogen radial wavefunction formula and using the associated Laguerre polynomials for small \\(n\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Define the Bohr radius\na0 = 1.0\n\ndef R_10(r):\n    \"\"\"\n    1s radial wavefunction.\n    \"\"\"\n    return 2 * (a0**(-1.5)) * np.exp(-r / a0)\n\ndef R_20(r):\n    \"\"\"\n    2s radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(2))) * (a0**(-1.5)) * (2 - r / a0) * np.exp(-r / (2 * a0))\n\ndef R_21(r):\n    \"\"\"\n    2p radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(6))) * (a0**(-1.5)) * (r / a0) * np.exp(-r / (2 * a0))\n\ndef R_30(r):\n    \"\"\"\n    3s radial wavefunction.\n    \"\"\"\n    return (2 / (81 * np.sqrt(3))) * (a0**(-1.5)) * (27 - 18 * (r / a0) + 2 * (r / a0)**2) * np.exp(-r / (3 * a0))\n\ndef R_31(r):\n    \"\"\"\n    3p radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(6))) * (a0**(-1.5)) * (6 - r / a0) * (r / a0) * np.exp(-r / (3 * a0))\n\ndef R_32(r):\n    \"\"\"\n    3d radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(30))) * (a0**(-1.5)) * (r / a0)**2 * np.exp(-r / (3 * a0))\n\ndef P(R, r):\n    \"\"\"\n    Calculates the radial probability density P(r) = r^2 * |R(r)|^2\n    \"\"\"\n    return r**2 * np.abs(R)**2\n\n# Create a range of r values\nr_values = np.linspace(0, 25 * a0, 500)\n\n# Set up the plot\nfig, axes = plt.subplots(3, 2, figsize=(8, 8))\nfig.suptitle(\"Hydrogen Radial Wave Functions $R_{n\\ell}(r)$ and Probability Densities $P_{n\\ell}(r)$\", fontsize=16)\n\n# Plot for 1s state\nax1 = axes[0, 0]\nax1.set_title(\"1s State\")\nax1.plot(r_values, R_10(r_values), label='$R_{10}(r)$', color='blue')\nax1.plot(r_values, P(R_10(r_values), r_values), label='$P_{10}(r)$', color='red', linestyle='--')\nax1.set_xlabel('$r/a_0$')\nax1.set_xlim(0, 25)\nax1.legend()\nax1.grid(True)\n\n# Plot for 2s state\nax2 = axes[0, 1]\nax2.set_title(\"2s State\")\nax2.plot(r_values, R_20(r_values), label='$R_{20}(r)$', color='blue')\nax2.plot(r_values, P(R_20(r_values), r_values), label='$P_{20}(r)$', color='red', linestyle='--')\nax2.set_xlabel('$r/a_0$')\nax2.set_xlim(0, 25)\nax2.legend()\nax2.grid(True)\n\n# Plot for 2p state\nax3 = axes[1, 0]\nax3.set_title(\"2p State\")\nax3.plot(r_values, R_21(r_values), label='$R_{21}(r)$', color='blue')\nax3.plot(r_values, P(R_21(r_values), r_values), label='$P_{21}(r)$', color='red', linestyle='--')\nax3.set_xlabel('$r/a_0$')\nax3.set_xlim(0, 25)\nax3.legend()\nax3.grid(True)\n\n# Plot for 3s state\nax4 = axes[1, 1]\nax4.set_title(\"3s State\")\nax4.plot(r_values, R_30(r_values), label='$R_{30}(r)$', color='blue')\nax4.plot(r_values, P(R_30(r_values), r_values), label='$P_{30}(r)$', color='red', linestyle='--')\nax4.set_xlabel('$r/a_0$')\nax4.set_xlim(0, 25)\nax4.legend()\nax4.grid(True)\n\n# Plot for 3p state\nax5 = axes[2, 0]\nax5.set_title(\"3p State\")\nax5.plot(r_values, R_31(r_values), label='$R_{31}(r)$', color='blue')\nax5.plot(r_values, P(R_31(r_values), r_values), label='$P_{31}(r)$', color='red', linestyle='--')\nax5.set_xlabel('$r/a_0$')\nax5.set_xlim(0, 25)\nax5.legend()\nax5.grid(True)\n\n# Plot for 3d state\nax6 = axes[2, 1]\nax6.set_title(\"3d State\")\nax6.plot(r_values, R_32(r_values), label='$R_{32}(r)$', color='blue')\nax6.plot(r_values, P(R_32(r_values), r_values), label='$P_{32}(r)$', color='red', linestyle='--')\nax6.set_xlabel('$r/a_0$')\nax6.set_xlim(0, 25)\nax6.legend()\nax6.grid(True)\n\n# Adjust layout and show the plot\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 2: Radial wave functions and probability densities for low-\\(n\\) states.\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.constants import physical_constants\nfrom scipy.special import genlaguerre, factorial\n\n# Constants\na0 = physical_constants[\"Bohr radius\"][0]      # Bohr radius [m]\nEh = physical_constants[\"Hartree energy\"][0]   # Hartree energy [J]\neV = physical_constants[\"electron volt\"][0]    # 1 eV in J\n\nnmax = 4\n\n# General hydrogen radial wavefunction R_{nl}(r)\ndef R_nl(r, n, l):\n    if l &gt;= n or l &lt; 0:\n        raise ValueError(\"Quantum number l must satisfy 0 &lt;= l &lt; n\")\n    rho = 2 * r / (n * a0)\n    norm = np.sqrt((2/(n*a0))**3 * factorial(n-l-1)/(2*n*factorial(n+l)))\n    return norm * rho**l * np.exp(-rho/2) * genlaguerre(n-l-1, 2*l+1)(rho)\n\n# Radial probability densities P(r) = r^2 |R_{nl}(r)|^2\ndef P_n(r, n, l):\n    R = R_nl(r, n, l)\n    return r**2 * np.abs(R)**2\n\n# Energy levels [J]\ndef energy_n(n):\n    return -Eh / (2 * n**2)\n\n# Effective potential (Coulomb + centrifugal)\ndef V_r(r, l):\n    return -Eh * a0 / r + Eh * a0**2 * l*(l+1) / (2 * r**2)\n\n# Prepare data\nr = np.linspace(0.01*a0, 60*a0, 2000)  # radial range\n\n# Colors\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\n# Set up 2x2 subplots\nfig, axes = plt.subplots(2, 2, figsize=(11, 10), sharex=True, sharey=True)\naxes = axes.flatten()\n\nfor idx, myell in enumerate(range(4)):   # l = 0,1,2,3\n    ax = axes[idx]\n\n    # Effective potential\n    V = V_r(r, myell) / eV\n    ax.plot(r/a0, V, 'k', label=\"Effective potential\")\n\n    # Energy levels + radial probabilities\n    for i, n in enumerate(range(myell+1, nmax+1)):\n        E = energy_n(n)/eV\n        ax.hlines(E, 0, 40, colors=colors[n-1], linestyles='--', label=f\"n={n} level\")\n\n        P = P_n(r, n, myell)\n        P_scaled = (P/np.max(P)) * 5 + E  # scale & shift to energy level\n        ax.plot(r/a0, P_scaled, colors[n-1], label=f\"$P(r)$ for n={n}\")\n\n    # E=0 line\n    ax.axhline(0, color='gray', linewidth=1.2)\n\n    ax.set_xlim(0, 45)\n    ax.set_ylim(-20, 10)\n    ax.set_title(fr\"$\\ell={myell}$\", pad=10)\n    ax.grid(True)\n\n# Force ticks to show up only where wanted\nfor ax in axes:\n    ax.tick_params(labelbottom=False, labelleft=False)  # start blank\n\n# left column: y labels\naxes[0].tick_params(labelleft=True)\naxes[2].tick_params(labelleft=True)\n\n# bottom row: x labels\naxes[2].tick_params(labelbottom=True)\naxes[3].tick_params(labelbottom=True)\n\n# Shared axis labels (outside the plots)\nfig.text(0.5, 0.01, r\"$r/a_0$ (Bohr radii)\", ha=\"center\", fontsize=12)\nfig.text(0.01, 0.5, \"Energy (eV)\", va=\"center\", rotation=\"vertical\", fontsize=12)\n\n# Legend only in bottom-left subplot\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[2].legend(handles, labels, loc=\"lower left\", fontsize=10)\n\nfig.suptitle(\"Effective Potential and Hydrogen Atom Radial Probabilities\", fontsize=16)\nplt.tight_layout(rect=[0.04,0.04,1,0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 3: Radial wave probability densities in the effective potential for different \\(\\ell\\).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod2/braket.html",
-    "href": "mod2/braket.html",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "objectID": "mod3/index.html#why-hydrogen",
+    "href": "mod3/index.html#why-hydrogen",
+    "title": "The Hydrogen Atom — Basics",
     "section": "",
-    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
+    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)"
     ]
   },
   {
-    "objectID": "mod2/braket.html#ket-vectors",
-    "href": "mod2/braket.html#ket-vectors",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "objectID": "mod3/index.html#scope-of-this-section",
+    "href": "mod3/index.html#scope-of-this-section",
+    "title": "The Hydrogen Atom — Basics",
+    "section": "Scope of this Section",
+    "text": "Scope of this Section\nIn this chapter, we study hydrogen in the nonrelativistic Schrödinger picture.\nOur goals are:\n\nSolve the time-independent Schrödinger equation for the Coulomb potential.\n\nSeparate variables in spherical coordinates and identify radial and angular parts.\n\nDerive the hydrogenic eigenenergies and their degeneracies.\n\nUnderstand the structure of the spatial wavefunctions (orbitals).\n\nConnect angular momentum quantum numbers \\((l,m)\\) with the orbital shapes.\n\nThis provides the foundation for later refinements.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)"
+    ]
+  },
+  {
+    "objectID": "mod3/index.html#what-comes-next",
+    "href": "mod3/index.html#what-comes-next",
+    "title": "The Hydrogen Atom — Basics",
+    "section": "What Comes Next",
+    "text": "What Comes Next\nThe treatment here ignores effects such as spin, relativistic corrections, the Lamb shift, and hyperfine structure. These topics are crucial for precision AMO physics, and we will address them in the Hydrogen (Details) chapter.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)"
+    ]
+  },
+  {
+    "objectID": "mod3/index.html#a-final-remark",
+    "href": "mod3/index.html#a-final-remark",
+    "title": "The Hydrogen Atom — Basics",
+    "section": "A Final Remark",
+    "text": "A Final Remark\nHydrogen is not just a “toy problem.” It remains a testing ground for quantum mechanics and a reference point for experiments across physics, from spectroscopy to astrophysics. By mastering the hydrogen atom at this basic level, we gain insight into both the methods of quantum mechanics and the rich structure of atomic physics.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html",
+    "href": "mod3/angmom.html",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
     "section": "",
-    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
+    "text": "This chapter provides a comprehensive introduction to the quantum mechanical treatment of orbital angular momentum. We will derive the operators for angular momentum and solve the corresponding eigenvalue problem, which is fundamental to understanding the behavior of many quantum systems, including the hydrogen atom.\nThe specific goals for this chapter are:\n\nDerive the quantum mechanical operator for orbital angular momentum, \\(\\hat{\\vec L}\\), and analyze its key commutation relations.\nEmploy the method of separation of variables in spherical coordinates to transform the eigenvalue problem into a set of angular ordinary differential equations (ODEs).\nSolve these ODEs to determine the quantized eigenvalues of \\(\\hat L^2\\) and its components, and find the corresponding eigenfunctions.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#bra-vectors",
-    "href": "mod2/braket.html#bra-vectors",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Bra-vectors",
-    "text": "Bra-vectors\nA bra vector \\(\\left\\langle \\beta \\right\\rvert\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\left\\langle \\beta \\mid \\alpha \\right\\rangle\\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\left\\lvert \\psi \\right\\rangle\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\left\\langle \\vec{r} \\mid \\psi \\right\\rangle= \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\left\\langle \\phi \\mid \\psi \\right\\rangle= \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
+    "objectID": "mod3/angmom.html#commutation-relations",
+    "href": "mod3/angmom.html#commutation-relations",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "1.1 Commutation Relations",
+    "text": "1.1 Commutation Relations\nFrom the canonical commutation relations \\[\n[\\hat x_i, \\hat p_j] = i\\hbar \\,\\delta_{ij},\n\\quad\n[\\hat x_i, \\hat x_j] = 0,\n\\quad\n[\\hat p_i, \\hat p_j] = 0,\n\\] one can compute \\[\n[\\hat L_x, \\hat L_y] = i\\hbar \\hat L_z, \\qquad\n[\\hat L_y, \\hat L_z] = i\\hbar \\hat L_x, \\qquad\n[\\hat L_z, \\hat L_x] = i\\hbar \\hat L_y.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe angular momentum components are \\[\n\\hat L_x = \\hat y \\hat p_z - \\hat z \\hat p_y, \\qquad\n\\hat L_y = \\hat z \\hat p_x - \\hat x \\hat p_z, \\qquad\n\\hat L_z = \\hat x \\hat p_y - \\hat y \\hat p_x.\n\\]\nCompute the commutator: \\[\n\\begin{aligned}\n{[\\hat L_x, \\hat L_y]} &= [\\hat y \\hat p_z - \\hat z \\hat p_y, \\; \\hat z \\hat p_x - \\hat x \\hat p_z] \\\\\n&= [\\hat y \\hat p_z, \\hat z \\hat p_x]\n- [\\hat y \\hat p_z, \\hat x \\hat p_z]\n- [\\hat z \\hat p_y, \\hat z \\hat p_x]\n+ [\\hat z \\hat p_y, \\hat x \\hat p_z].\n\\end{aligned}\n\\]\nExpanding and using the canonical commutators \\([\\hat x_i, \\hat p_j] = i\\hbar \\delta_{ij}\\) and \\([\\hat x_i, \\hat x_j] = [\\hat p_i, \\hat p_j] = 0\\):\n\n\\([\\hat y \\hat p_z, \\hat z \\hat p_x] = \\hat y [\\hat p_z, \\hat z] \\hat p_x = -i\\hbar \\hat y \\hat p_x\\)\n\n\\(-[\\hat y \\hat p_z, \\hat x \\hat p_z] = 0\\)\n\n\\(-[\\hat z \\hat p_y, \\hat z \\hat p_x] = 0\\)\n\\([\\hat z \\hat p_y, \\hat x \\hat p_z] = \\hat x [\\hat z, \\hat p_z] \\hat p_y = i\\hbar \\hat x \\hat p_y\\)\n\nAdding the nonzero terms gives \\[\n[\\hat L_x, \\hat L_y] = i\\hbar (\\hat x \\hat p_y - \\hat y \\hat p_x) = i\\hbar \\hat L_z.\n\\]\nThus the commutator is verified. The remaining commutators, \\([\\hat L_y, \\hat L_z]\\) and \\([\\hat L_z, \\hat L_x]\\), can be derived using the same method.\n\n\n\nThese relations show:\n\n\n\n\n\n\nCaution\n\n\n\n\nThe three components \\(\\hat L_x, \\hat L_y, \\hat L_z\\) do not commute.\n\nThus, there are no eigenstates of the full vector operator \\(\\hat{\\vec L}\\).",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#linear-operators",
-    "href": "mod2/braket.html#linear-operators",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Linear operators",
-    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\left\\lvert \\psi \\right\\rangle= \\left\\lvert \\phi \\right\\rangle.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\left\\lvert \\psi \\right\\rangle+\\left\\lvert \\phi \\right\\rangle) = \\hat{O}\\left\\lvert \\psi \\right\\rangle+ \\hat{O}\\left\\lvert \\phi \\right\\rangle\\)\n\n\\(\\hat{O}c\\left\\lvert \\psi \\right\\rangle= c\\hat{O}\\left\\lvert \\psi \\right\\rangle\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\left\\langle \\psi \\mid \\psi \\right\\rangle} \\left\\lvert \\phi \\right\\rangle\\left\\langle \\psi \\right\\rvert.\n\\]\nIf \\(\\{\\left\\lvert \\phi_i \\right\\rangle\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\left\\langle \\phi_j \\mid \\hat{O} \\mid \\phi_i \\right\\rangle.\n\\]",
+    "objectID": "mod3/angmom.html#total-angular-momentum",
+    "href": "mod3/angmom.html#total-angular-momentum",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "1.2 Total Angular Momentum",
+    "text": "1.2 Total Angular Momentum\nThe squared operator is defined as \\[\n\\hat L^2 = \\hat L_x^2 + \\hat L_y^2 + \\hat L_z^2.\n\\]\nIt satisfies \\[\n[\\hat L^2, \\hat L_x] = [\\hat L^2, \\hat L_y] = [\\hat L^2, \\hat L_z] = 0.\n\\]\nHence, we can find simultaneous eigenstates of \\(\\hat L^2\\) and one component, usually chosen to be \\(\\hat L_z\\).\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Create a new figure and a 3D axis\nfig = plt.figure(figsize=(10, 8))\nax = fig.add_subplot(111, projection='3d')\n\n# Set the aspect ratio to 'equal' for better visualization\nax.set_box_aspect([1,1,1])\n\n# Define the components of the angular momentum vector L\nLx = 3\nLy = 4\nLz = 6\n\n# The origin of the vectors\norigin = [0, 0, 0]\n\n# Plot the angular momentum vector L\nax.quiver(*origin, Lx, Ly, Lz, color='red', label=r'$\\vec{L}$', arrow_length_ratio=0.15)\n\n# Plot the z-component vector Lz\nax.quiver(*origin, 0, 0, Lz, color='blue', linestyle='--', arrow_length_ratio=0.1)\n\n# Plot the x, y, and z unit vectors\nax.quiver(*origin, 1, 0, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 1, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 0, 1, color='gray', arrow_length_ratio=0.3)\n\n# Add labels for the unit vectors\nax.text(1.2, 0, 0, 'x', color='gray', fontsize=12)\nax.text(0, 1.2, 0, 'y', color='gray', fontsize=12)\nax.text(0, 0, 1.2, 'z', color='gray', fontsize=12)\n\n# Set title\n# ax.set_title('Quantum Mechanical Angular Momentum Vector', fontsize=16)\n\n# Plot the circle of possible endpoints for the L vector\nradius = np.sqrt(Lx**2 + Ly**2)\ntheta = np.linspace(0, 2 * np.pi, 100)\nx_circle = radius * np.cos(theta)\ny_circle = radius * np.sin(theta)\nz_circle = np.full_like(theta, Lz)\nax.plot(x_circle, y_circle, z_circle, color='green', linestyle=':', label='Uncertainty Circle')\n\n# Add annotations for vector lengths, adjusted for better visibility\nlambda_val = Lx**2 + Ly**2 + Lz**2\nmu_val = Lz\nax.text(Lx * 0.7, Ly * 0.6, Lz * 0.4, r'$\\sqrt{\\lambda}$', color='red', fontsize=14, horizontalalignment='left')\nax.text(0.5, 0.5, Lz * 0.5, r'$\\mu$', color='blue', fontsize=14, horizontalalignment='left')\n\n# Set the plot limits\nax.set_xlim([-5, 5])\nax.set_ylim([-5, 5])\nax.set_zlim([0, 7])\n\n# Remove background planes and main axes lines, but keep the specific unit vectors\nax.set_axis_off()\n\n# Remove grid\nax.grid(False)\n\n# Save the plot\n#plt.savefig('angular_momentum_final.png')\n\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Momentum Eigenvector in Quantum Mechanics.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#hermitian-conjugates",
-    "href": "mod2/braket.html#hermitian-conjugates",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Hermitian conjugates",
-    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\left\\lvert \\psi \\right\\rangle^\\dagger = \\left\\langle \\psi \\right\\rvert\\) and \\(\\left\\langle \\psi \\right\\rvert^\\dagger = \\left\\lvert \\psi \\right\\rangle\\)\n\n\\(\\big(c_1\\left\\lvert \\psi_1 \\right\\rangle+ c_2\\left\\lvert \\psi_2 \\right\\rangle\\big)^\\dagger = c_1^\\ast \\left\\langle \\psi_1 \\right\\rvert+ c_2^\\ast \\left\\langle \\psi_2 \\right\\rvert\\)\n\n\\(\\big(\\left\\langle \\psi \\mid \\phi \\right\\rangle\\big)^\\dagger = \\left\\langle \\psi \\mid \\phi \\right\\rangle^\\ast = \\left\\langle \\phi \\mid \\psi \\right\\rangle\\)\n\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{A} \\mid \\phi \\right\\rangle\\)\nand\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\hat{B}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{B}\\hat{A} \\mid \\phi \\right\\rangle\\)",
+    "objectID": "mod3/angmom.html#eigenfunctions-of-hatl_z",
+    "href": "mod3/angmom.html#eigenfunctions-of-hatl_z",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)",
+    "text": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)\nApplying \\(\\hat{L}_z\\) gives:\n\\[\n\\hat{L}_z Y = -i\\hbar \\frac{\\partial}{\\partial \\varphi}(\\Theta(\\theta)\\Phi(\\varphi))\n= -i\\hbar \\Theta(\\theta) \\frac{d\\Phi}{d\\varphi}.\n\\]\nThus \\(\\Phi\\) must satisfy:\n\\[\n\\frac{d\\Phi}{d\\varphi} = i m \\Phi, \\quad m \\in \\mathbb{Z}.\n\\]\nThe solutions are:\n\\[\n\\Phi(\\varphi) = e^{im\\varphi}, \\qquad \\mu = \\hbar m.\n\\]",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#observables",
-    "href": "mod2/braket.html#observables",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Observables",
-    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\left\\lvert \\alpha \\right\\rangle= a\\left\\lvert \\alpha \\right\\rangle\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\left\\lvert n \\right\\rangle= a_n\\left\\lvert n \\right\\rangle\\) (discrete spectrum) or \\(\\hat{A}\\left\\lvert k \\right\\rangle= k\\left\\lvert k \\right\\rangle\\) (continuous spectrum).\n\nOrthonormality: \\(\\left\\langle n' \\mid n \\right\\rangle= \\delta_{n'n}\\) or \\(\\left\\langle k_i \\mid k_j \\right\\rangle= \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\left\\lvert \\psi \\right\\rangle\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\left\\lvert \\psi \\right\\rangle= \\sum_n c_n\\left\\lvert n \\right\\rangle\\) or \\(\\left\\lvert \\psi \\right\\rangle= \\int c(k)\\left\\lvert k \\right\\rangle\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\left\\lvert n \\right\\rangle\\left\\langle n \\right\\rvert\\) or \\(\\mathbb{1} = \\int \\left\\lvert k \\right\\rangle\\left\\langle k \\right\\rvert\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\left\\lvert \\alpha \\right\\rangle\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\left\\lvert \\psi \\right\\rangle\\), then:\n\nThe probability of finding the system in state \\(\\left\\lvert \\alpha \\right\\rangle\\) is\n\\[\nP = \\left|\\left\\langle \\alpha \\mid \\psi \\right\\rangle\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\left\\langle \\psi \\mid \\hat{A} \\mid \\psi \\right\\rangle.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
+    "objectID": "mod3/angmom.html#equation-for-thetatheta",
+    "href": "mod3/angmom.html#equation-for-thetatheta",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "3.2 Equation for \\(\\Theta(\\theta)\\)",
+    "text": "3.2 Equation for \\(\\Theta(\\theta)\\)\nSubstituting into the \\(\\hat{L}^2\\) eigenvalue equation:\n\\[\n\\frac{1}{\\sin\\theta}\\frac{d}{d\\theta}\\!\\Big(\\sin\\theta\\frac{d\\Theta}{d\\theta}\\Big)\n- \\frac{m^2}{\\sin^2\\theta}\\Theta + \\ell(\\ell+1)\\Theta = 0,\n\\]\nwhere we have set \\(\\lambda = \\hbar^2 \\ell(\\ell+1)\\).\nLet \\(x = \\cos\\theta\\). Then the equation becomes:\n\\[\n\\frac{d}{dx}\\Big[(1-x^2)\\frac{dP}{dx}\\Big] + \\Big[\\ell(\\ell+1) - \\frac{m^2}{1-x^2}\\Big] P(x) = 0.\n\\]\nThis is the associated Legendre equation. The physically acceptable solutions to this equation are the associated Legendre functions, \\(P_\\ell^m(x)\\) , which are defined in terms of the standard Legendre polynomials \\(P_\\ell(x)\\):\n\\[\nP_\\ell^m(x) = (1-x^2)^{m/2} \\frac{d^m}{dx^m} P_\\ell(x).\n\\]\nThe Legendre polynomials \\(P_\\ell(x)\\) can be constructed explicitly as (Rodrigues’ Formula):\n\\[\nP_\\ell(x) = \\frac{1}{2^\\ell \\ell!} \\frac{d^\\ell}{dx^\\ell} \\big[(x^2-1)^\\ell\\big].\n\\]",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#general-result",
+    "href": "mod3/angmom.html#general-result",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "3.3 General result",
+    "text": "3.3 General result\n\n\n\n\n\n\nTipGeneral Form of Spherical Harmonics\n\n\n\nCombining both angular parts, the eigenfunctions are:\n\\[\nY_\\ell^m(\\theta,\\varphi) = N_{\\ell m}\\, P_\\ell^m(\\cos\\theta)\\, e^{i m \\varphi},\n\\]\nwith normalization constant\n\\[\nN_{\\ell m} = (-1)^m \\sqrt{\\frac{2\\ell+1}{4\\pi}\\,\\frac{(\\ell-m)!}{(\\ell+m)!}}.\n\\]\n\n\n\n\n\n\n\n\nTipEigenvalue Equations\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\hat{L}^2 Y_{\\ell}^{m} = \\hbar^2 \\ell(\\ell+1) Y_{\\ell}^{m}, \\qquad\n\\hat{L}_z Y_{\\ell}^{m} = \\hbar m Y_{\\ell}^{m}.\n\\]\nThus \\(Y_\\ell^m\\) are simultaneous eigenfunctions of both \\(\\hat{L}^2\\) and \\(\\hat{L}_z\\).\n\n\n\n\n\n\n\n\nTipOrthonormality\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\int_0^{2\\pi}\\!\\int_0^\\pi Y_\\ell^m(\\theta,\\varphi)^*\\,Y_{\\ell'}^{m'}(\\theta,\\varphi)\\,\n\\sin\\theta \\, d\\theta\\, d\\varphi\n= \\delta_{\\ell\\ell'}\\delta_{mm'}.\n\\]\nThus, \\(\\{Y_\\ell^m\\}\\) forms a complete orthonormal basis for functions on the sphere.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#key-observations",
+    "href": "mod3/angmom.html#key-observations",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "5.1 Key observations",
+    "text": "5.1 Key observations\n\n\\(\\hat{L}_+\\) raises \\(m\\) by one unit:\n\\(\\; m \\mapsto m+1\\).\n\\(\\hat{L}_-\\) lowers \\(m\\) by one unit:\n\\(\\; m \\mapsto m-1\\).\nSince the maximum value of \\(m\\) is \\(\\ell\\), applying \\(\\hat{L}_+\\) to \\(\\lvert \\ell, \\ell \\rangle\\) gives zero:\n\\[\n\\hat{L}_+ \\lvert \\ell, \\ell \\rangle = 0.\n\\]\nSimilarly, \\(L_-\\) annihilates the lowest state \\(\\lvert \\ell, -\\ell \\rangle\\):\n\\[\n\\hat{L}_- \\lvert \\ell, -\\ell \\rangle = 0.\n\\]\nThe ladder operators explain why the possible \\(m\\) values for a fixed \\(\\ell\\) are restricted to integers in the range \\(-\\ell, -\\ell+1, \\dots, \\ell - 1, \\ell\\):\n\nStarting from the top state \\(\\lvert \\ell, \\ell \\rangle\\), repeated applications of \\(\\hat{L}_-\\) generate all the states down to \\(\\lvert \\ell, -\\ell \\rangle\\).\n\nNo other values of \\(m\\) appear, because outside this range the ladder action vanishes.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#connection-to-spherical-harmonics",
+    "href": "mod3/angmom.html#connection-to-spherical-harmonics",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "5.2 Connection to spherical harmonics",
+    "text": "5.2 Connection to spherical harmonics\nIn the coordinate-space representation, these ladder operators correspond to differential operators acting on the spherical harmonics \\(Y_\\ell^m(\\theta,\\varphi)\\):\n\\[\n\\hat{L}_\\pm Y_\\ell^m(\\theta,\\varphi)\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m \\pm 1)} \\, Y_\\ell^{m\\pm 1}(\\theta,\\varphi).\n\\]\nThis provides an algebraic way to generate all spherical harmonics of a given \\(\\ell\\) starting from the “highest-weight” function \\(Y_\\ell^\\ell(\\theta,\\varphi)\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#step-1-definitions-and-commutators",
+    "href": "mod3/angmom.html#step-1-definitions-and-commutators",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "Step 1: Definitions and commutators",
+    "text": "Step 1: Definitions and commutators\nDefine the ladder operators \\[\n\\hat L_\\pm = \\hat L_x \\pm i \\hat L_y.\n\\]\nThey satisfy the commutation relations \\[\n[\\hat L_z, \\hat L_\\pm] = \\pm \\hbar \\hat L_\\pm,\n\\qquad\n[\\hat L_+, \\hat L_-] = 2\\hbar \\hat L_z.\n\\]\nThus, if \\(\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle\\), then \\[\n\\hat L_z(\\hat L_\\pm \\lvert \\ell,m \\rangle)\n= (\\hbar m \\pm \\hbar)\\, \\hat L_\\pm \\lvert \\ell,m \\rangle.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe commutator of \\(\\hat L_z\\) with the ladder operators is\n\\[\n[\\hat L_z, \\hat L_\\pm]\n= [\\hat L_z, \\hat L_x] \\pm i [\\hat L_z, \\hat L_y]\n= i \\hbar \\hat L_y \\pm \\hbar \\hat L_x\n= \\pm \\hbar (\\hat L_x \\pm i \\hat L_y)\n= \\pm \\hbar \\hat L_\\pm .\n\\]\nFrom this relation we obtain the operator identity\n\\[\n\\hat L_z \\hat L_\\pm\n= [\\hat L_z, \\hat L_\\pm] + \\hat L_\\pm \\hat L_z\n= \\pm \\hbar \\hat L_\\pm + \\hat L_\\pm \\hat L_z\n= \\hat L_\\pm(\\hat L_z \\pm \\hbar).\n\\]\nThus, when acting on an eigenstate \\(\\lvert \\ell, m \\rangle\\) of \\(\\hat L^2\\) and \\(\\hat L_z\\), the operator \\(\\hat L_\\pm\\) shifts the magnetic quantum number by one unit:\n\\[\n\\hat L_z \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle)\n= (m \\pm 1)\\hbar \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle).\n\\]\n\n\n\nThis shows that \\(\\hat L_\\pm\\) (if nonzero) produces another eigenstate with eigenvalue \\(m \\pm 1\\).\nSo we may write \\[\n\\hat L_\\pm \\lvert \\ell,m \\rangle = C_\\pm(\\ell,m) \\lvert \\ell, m \\pm 1 \\rangle,\n\\] for some coefficient \\(C_\\pm(\\ell,m)\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#step-2-determining-c_pm2",
+    "href": "mod3/angmom.html#step-2-determining-c_pm2",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "Step 2: Determining \\(|C_\\pm|^2\\)",
+    "text": "Step 2: Determining \\(|C_\\pm|^2\\)\nConsider the squared norm: \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\langle \\ell,m | \\hat L_- \\hat L_+ | \\ell,m \\rangle.\n\\]\nUsing the operator identity \\[\n\\hat L_- \\hat L_+ = \\hat L^2 - \\hat L_z^2 - \\hbar \\hat L_z,\n\\] and the eigenvalue equations \\[\n\\hat L^2 \\lvert \\ell,m \\rangle = \\hbar^2 \\ell(\\ell+1) \\lvert \\ell,m \\rangle,\n\\qquad\n\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle,\n\\] we get \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nThus, \\[\n|C_+(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nSimilarly, using \\[\n\\hat L_+ \\hat L_- = \\hat L^2 - \\hat L_z^2 + \\hbar \\hat L_z,\n\\] we find \\[\n|C_-(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m-1)\\big).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod3/angmom.html#step-3-fixing-the-phase-convention",
+    "href": "mod3/angmom.html#step-3-fixing-the-phase-convention",
+    "title": "Orbital Angular Momentum in Quantum Mechanics",
+    "section": "Step 3: Fixing the phase convention",
+    "text": "Step 3: Fixing the phase convention\nWe can choose the overall phase of the eigenstates such that \\(C_\\pm\\) are real and positive. With this standard convention we obtain:\n\\[\n\\hat L_+ \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m+1)} \\; \\lvert \\ell,m+1 \\rangle,\n\\]\n\\[\n\\hat L_- \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m-1)} \\; \\lvert \\ell,m-1 \\rangle.\n\\]\n\nConclusion:\nThe ladder operators raise or lower the \\(m\\) quantum number by one unit, with the above coefficients.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Orbital Angular Momentum in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/index.html",
+    "href": "mod2/index.html",
+    "title": "Quantum Mechanics — A Refresher",
+    "section": "",
+    "text": "Atomic, molecular, and optical (AMO) physics is built on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/index.html#why-quantum-mechanics",
+    "href": "mod2/index.html#why-quantum-mechanics",
+    "title": "Quantum Mechanics — A Refresher",
+    "section": "",
+    "text": "Atomic, molecular, and optical (AMO) physics is built on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/index.html#scope-of-this-section",
+    "href": "mod2/index.html#scope-of-this-section",
+    "title": "Quantum Mechanics — A Refresher",
+    "section": "Scope of this Section",
+    "text": "Scope of this Section\nThis section collects the quantum mechanics background needed for the rest of the course. It is not a complete QM class, but rather a streamlined toolkit. We will revisit some basic principles and then highlight those aspects most directly relevant for AMO physics.\nTopics covered here include:\n\nWave mechanics and the Schrödinger equation\n\nDirac’s bra–ket notation\n\nThe Heisenberg uncertainty principle\n\nPerturbation theory\n\nRelativistic wave equations (as a first step toward fine structure)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/index.html#level-and-assumptions",
+    "href": "mod2/index.html#level-and-assumptions",
+    "title": "Quantum Mechanics — A Refresher",
+    "section": "Level and Assumptions",
+    "text": "Level and Assumptions\nThese notes are introductory. We will use quantum mechanics throughout, but the aim is to supply just enough formalism to follow the physics.\n\nIf you have had a previous QM course: this will feel like a refresher.\n\nIf you have not: this section contains short introductions to the essential concepts and techniques.\nThese are by no means comprehensive, but they should be sufficient background for the AMO material.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/index.html#a-final-remark",
+    "href": "mod2/index.html#a-final-remark",
+    "title": "Quantum Mechanics — A Refresher",
+    "section": "A Final Remark",
+    "text": "A Final Remark\nQuantum mechanics is often seen as abstract or counterintuitive. Here, it becomes a practical tool: the language in which atoms, molecules, and light must be described. With this section, you should feel prepared to tackle the rich structure of hydrogen, the origins of spectra, and the foundations of modern AMO physics.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics"
     ]
   },
   {

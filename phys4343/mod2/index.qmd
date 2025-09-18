@@ -1,0 +1,38 @@
+---
+title: "Quantum Mechanics — A Refresher"
+author: Daniel Fischer
+---
+
+## Why Quantum Mechanics?
+
+Atomic, molecular, and optical (AMO) physics is *built* on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.
+
+---
+
+## Scope of this Section
+
+This section collects the **quantum mechanics background** needed for the rest of the course. It is **not** a complete QM class, but rather a streamlined toolkit. We will revisit some basic principles and then highlight those aspects most directly relevant for AMO physics.
+
+Topics covered here include:
+
+- Wave mechanics and the Schrödinger equation  
+- Dirac’s bra–ket notation  
+- The Heisenberg uncertainty principle  
+- Perturbation theory  
+- Relativistic wave equations (as a first step toward fine structure)  
+
+---
+
+## Level and Assumptions
+
+These notes are **introductory**. We will use quantum mechanics throughout, but the aim is to supply just enough formalism to follow the physics.  
+
+- If you have had a previous QM course: this will feel like a **refresher**.  
+- If you have not: this section contains **short introductions** to the essential concepts and techniques.  
+  These are by no means comprehensive, but they should be sufficient background for the AMO material.  
+
+---
+
+## A Final Remark
+
+Quantum mechanics is often seen as abstract or counterintuitive. Here, it becomes **a practical tool**: the language in which atoms, molecules, and light must be described. With this section, you should feel prepared to tackle the rich structure of hydrogen, the origins of spectra, and the foundations of modern AMO physics.
