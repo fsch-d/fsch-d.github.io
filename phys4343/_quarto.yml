@@ -36,6 +36,7 @@ website:
           - mod3/angmom.qmd
           - mod3/hydrogen.qmd
       - section: "Hydrogen (Details)"
+        href: mod4/index.qmd
         contents:
           - mod4/spin.qmd
           - mod4/lamb.qmd

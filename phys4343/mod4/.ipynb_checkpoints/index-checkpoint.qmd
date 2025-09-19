@@ -1,0 +1,280 @@
+---
+title: Hydrogen (Details)
+author: Daniel Fischer
+---
+
+## Introduction
+
+As we have seen in the [Hydrogen (Basics)](../mod3/hydrogen.qmd) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number $n$:
+
+$$
+E_n = -\frac{13.6\ \mathrm{eV}}{n^2}.
+$$
+
+In that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known *series* (see left figure below):
+
+- **Lyman**: transitions to $n_\ell=1$ (ultraviolet)  
+- **Balmer**: transitions to $n_\ell=2$ (visible)  
+- **Paschen, Brackett, Pfund, …**: transitions to $n_\ell=3,4,5,\dots$ (infrared)
+
+
+```{python}
+#| echo: false
+#| fig-cap: "Illustration of hydrogen spectral series. (*Left*) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (*Top right*) Balmer spectrum. (*Middle right*) Example of Doppler broadening in a hydrogen line. (*Bottom right*) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from *A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977)*."
+#| fig-alt: Momentum Eigenvector in Quantum Mechanics.
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import FancyArrowPatch
+import matplotlib.patches as mpatches
+
+# Create figure with subplots
+fig = plt.figure(figsize=(14, 8))
+
+# Left panel - Energy level diagram
+ax1 = plt.subplot2grid((3, 4), (0, 0), colspan=2, rowspan=3)
+
+# Calculate energy levels (in eV)
+def energy_level(n):
+    return -13.6 / (n**2)
+
+levels = [1, 2, 3, 4, 5, 6, 7]
+energies = [energy_level(n) for n in levels]
+
+# Draw horizontal lines for energy levels
+for i, (level, energy) in enumerate(zip(levels, energies)):
+    ax1.hlines(energy, 0, 1, colors='black', linewidth=1.5)
+    ax1.text(-0.1, energy, f'n={level}', fontsize=10, ha='right', va='center')
+
+# Draw transition arrows
+# Lyman series (n_h to n_l = 1)
+lyman_colors = ['red', 'red', 'red', 'red', 'red', 'red']
+for i, n_upper in enumerate([2, 3, 4, 5, 6, 7]):
+    x_pos = 0.15 + i * 0.03
+    arrow = FancyArrowPatch((x_pos, energy_level(n_upper)), (x_pos, energy_level(1)),
+                           arrowstyle='->', mutation_scale=20, 
+                           color=lyman_colors[i], linewidth=2)
+    ax1.add_patch(arrow)
+
+# Balmer series (n_h to n_l = 2)
+balmer_colors = ['blue', 'blue', 'blue', 'blue', 'blue']
+for i, n_upper in enumerate([3, 4, 5, 6, 7]):
+    x_pos = 0.4 + i * 0.03
+    arrow = FancyArrowPatch((x_pos, energy_level(n_upper)), (x_pos, energy_level(2)),
+                           arrowstyle='->', mutation_scale=20, 
+                           color=balmer_colors[i], linewidth=2)
+    ax1.add_patch(arrow)
+
+# Paschen series (n_h to n_l = 3)
+paschen_colors = ['magenta', 'magenta', 'magenta', 'magenta']
+for i, n_upper in enumerate([4, 5, 6, 7]):
+    x_pos = 0.65 + i * 0.03
+    arrow = FancyArrowPatch((x_pos, energy_level(n_upper)), (x_pos, energy_level(3)),
+                           arrowstyle='->', mutation_scale=20, 
+                           color=paschen_colors[i], linewidth=2)
+    ax1.add_patch(arrow)
+
+# Bracket series (n_h to n_l = 4)
+bracket_colors = ['green', 'green', 'green']
+for i, n_upper in enumerate([5, 6, 7]):
+    x_pos = 0.8 + i * 0.03
+    arrow = FancyArrowPatch((x_pos, energy_level(n_upper)), (x_pos, energy_level(4)),
+                           arrowstyle='->', mutation_scale=20, 
+                           color=bracket_colors[i], linewidth=2)
+    ax1.add_patch(arrow)
+
+# Add series labels
+ax1.text(0.2, -10, 'Lyman series\nn$_h$ to n$_l$=1', fontsize=9, ha='center', va='center',
+         bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.8))
+ax1.text(0.45, -4, 'Balmer series\nn$_h$ to n$_l$=2', fontsize=9, ha='center', va='center',
+         bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.8))
+ax1.text(0.7, -2.1, 'Paschen series\nn$_h$ to n$_l$=3', fontsize=9, ha='center', va='center',
+         bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.8))
+ax1.text(0.91, -1.3, 'Bracket series\nn$_h$ to n$_l$=4', fontsize=9, ha='center', va='center',
+         bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.8))
+
+ax1.set_xlim(-0.2, 1.2)
+ax1.set_ylim(-14, 0)
+ax1.set_ylabel('Energy E (eV)', fontsize=12)
+ax1.set_xticks([])
+# Remove the grid and frame
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+ax1.spines['bottom'].set_visible(False)
+#ax1.spines['left'].set_visible(False)
+
+# Top right - Balmer series spectrum
+ax2 = plt.subplot2grid((3, 4), (0, 2), colspan=2)
+
+def balmer_energy(n):
+    return 3290000 * (1/4 - 1 / ((n)**2))
+
+
+for n in range(3,10):
+    ax2.plot([balmer_energy(n), balmer_energy(n)], [0.5, 0.9], color='black', linewidth=2)
+
+ax2.plot([balmer_energy(3), balmer_energy(3)], [0.4, 0.42], color='black', linewidth=1)
+ax2.plot([balmer_energy(3), 0], [0.4, 0.2], color='black', linewidth=1)
+ax2.plot([balmer_energy(3), 1000000], [0.4, 0.2], color='black', linewidth=1)
+
+
+# Frequency scale
+#freq = np.linspace(0, 500000, 1000)
+# Create spectral lines at specific frequencies
+#balmer_freqs = [410000, 434000, 486000, 656000]  # Approximate Balmer line frequencies
+#spectrum = np.zeros_like(freq)
+
+#for bf in balmer_freqs:
+#    idx = np.argmin(np.abs(freq - bf))
+#    spectrum[idx-2:idx+3] = np.exp(-0.5 * ((freq[idx-2:idx+3] - bf) / 1000)**2)
+
+#ax2.plot(freq, spectrum, 'k-', linewidth=1)
+#ax2.fill_between(freq, 0, spectrum, alpha=0.7, color='lightblue')
+
+# Add H_α label
+ax2.text(420000, 0.8, 'H$_α$', fontsize=12, ha='center')
+ax2.text(200000, 0.8, 'BALMER SERIES', fontsize=12, ha='center', weight='bold')
+ax2.text(460000, 0.2, r'$\times 40000$', fontsize=12, ha='center')
+
+# Add frequency markers
+#for bf in balmer_freqs:
+#    ax2.axvline(bf, color='red', linestyle='--', alpha=0.7)
+
+ax2.set_xlim(0, 1000000)
+ax2.set_ylim(0, 1)
+ax2.set_xlabel('GHz', fontsize=10)
+ax2.xaxis.tick_top()
+ax2.xaxis.set_label_position('top') 
+#ax2.set_xticks([0, 1000000])
+#ax2.set_xticklabels(['0', '500000'])
+ax2.set_yticks([])
+ax2.spines['left'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+ax2.spines['bottom'].set_visible(False)
+ax2.ticklabel_format(style='plain') 
+
+# Middle right - Doppler profile
+ax3 = plt.subplot2grid((3, 4), (1, 2), colspan=2)
+
+# Create Doppler profile (Gaussian)
+x = np.linspace(-5, 14, 1000)
+#doppler = np.exp(-0.5 * x**2)
+# Add some asymmetry and additional peaks
+doppler = 0.6 * np.exp(-0.5 * ((x - 8.5) / 2.4)**2)
+doppler += 1 * np.exp(-0.5 * ((x + 0) / 2.4)**2)
+
+ax3.plot(x, doppler, 'k-', linewidth=2)
+ax3.fill_between(x, 0, doppler, alpha=0.6, color='lightcoral')
+
+# Add temperature markers
+#ax3.axvline(0, color='black', linestyle='-', alpha=0.5)
+ax3.text(-2.5, 1.1, 'H$_α$ DOPPLER PROFILE (300°K)', fontsize=10, ha='center', weight='bold')
+
+# Add some vertical markers
+#for pos in [-1, 0.5, 1.2]:
+#    ax3.axvline(pos, color='black', linestyle='-', alpha=0.7, linewidth=1)
+#    ax3.text(pos, -0.1, 'T', fontsize=8, ha='center')
+
+ax3.set_xlim(-5, 14)
+ax3.set_ylim(0, 1.2)
+ax3.set_yticks([])
+ax3.set_xticks([])
+
+ax3.spines['top'].set_visible(False)
+ax3.spines['right'].set_visible(False)
+ax3.spines['bottom'].set_visible(False)
+ax3.spines['left'].set_visible(False)
+
+
+
+# Bottom right - Saturation spectrum (similar to the one from previous question)
+ax4 = plt.subplot2grid((3, 4), (2, 2), colspan=2)
+
+# Create frequency array
+freq_sat = np.linspace(0, 10, 500)
+# Create spectral data similar to the previous plot
+spectrum_sat = 3 * np.ones_like(freq_sat)
+
+
+x_data=[-4.0185,-3.5271,-3.1697,-3.0161,-2.5482,-2.3698,-2.2019,-2.0077,-1.9031,-1.7243,-1.516,-1.1257,-0.9213,-0.7334,-0.545,-0.459,-0.3874,-0.3199,-0.2244,-0.1925,-0.115,-0.0411,0.0719,0.2587,0.4207,0.4857,0.5349,0.5761,0.6872,1.1226,1.3528,1.6205,1.9777,2.1401,2.3965,2.6321,2.8289,3.0331,3.1877,3.3592,3.5757,3.7597,3.9362,4.0843,4.3004,4.5259,4.7611,5.0137,5.0497,5.3367,5.4837,5.7486,6.0159,6.439,6.7628,6.9196,6.973,7.136,7.2221,7.4106,7.6122,7.7686,7.8406,8.2856,8.4735,8.5985,8.9208,9.0741,9.4081,9.4568,9.5976,9.7495,9.908,9.9843,10.1607,10.2212,10.4351,10.8363,11.1341,11.2965,11.4449,11.7734,11.9689,12.1861,12.4489,12.6522,12.9156,13.0889]
+y_data=[16.206,14.8,17.135,15.71,18.933,17.62,15.424,17.971,16.102,19.861,16.454,20.776,19.023,24.215,29.187,29.853,36.583,39.784,57.54,70.441,79.928,90.957,85.561,33.311,23.066,22.077,22.411,26.162,21.537,22.664,20.582,23.794,20.947,21.066,18.544,19.439,20.884,19.241,17.375,18.928,17.397,18.95,18.409,19.299,17.878,17.78,18.895,17.917,18.58,24.219,20.258,19.391,17.531,18.547,19.226,26.953,30.814,25.421,26.087,20.475,19.935,17.297,18.624,20.964,26.156,36.747,27.504,26.189,27.862,33.708,48.159,57.98,54.46,43.439,32.423,28.017,22.295,21.987,17.813,17.933,18.713,17.408,19.403,17.541,17.555,16.243,16.037,16.819]
+
+
+# Main peak around 2.3 GHz
+main_peak = 100 * np.exp(-0.5 * ((freq_sat - 2.3) / 0.15)**2)
+spectrum_sat += main_peak
+
+# Secondary peaks
+peak2 = 65 * np.exp(-0.5 * ((freq_sat - 7.2) / 0.2)**2)
+spectrum_sat += peak2
+
+peak3 = 40 * np.exp(-0.5 * ((freq_sat - 8.3) / 0.15)**2)
+spectrum_sat += peak3
+
+# Small peak around 9.4 GHz
+peak4 = 25 * np.exp(-0.5 * ((freq_sat - 9.4) / 0.1)**2)
+spectrum_sat += peak4
+
+# Add some noise
+noise = 2 * np.random.normal(0, 0.5, len(freq_sat))
+spectrum_sat += noise
+
+#ax4.plot(freq_sat, spectrum_sat, 'k-', linewidth=1)
+ax4.plot(x_data, y_data, 'k-', linewidth=1)
+ax4.text(5, 80, 'SATURATION\nSPECTRUM', fontsize=12, ha='center', weight='bold')
+
+# Add Lamb shift label
+#ax4.annotate('LAMB SHIFT', xy=(8.5, 45), xytext=(6, 60),
+#            arrowprops=dict(arrowstyle='->', lw=1.5),
+#            fontsize=10, ha='center')
+
+ax4.set_xlim(-5, 14)
+ax4.set_ylim(0, 110)
+ax4.set_xlabel('GHz', fontsize=10)
+#ax4.set_xticks([0, 10])
+#ax4.set_xticklabels(['0', '10'])
+ax4.set_yticks([])
+
+ax4.spines['top'].set_visible(False)
+ax4.spines['right'].set_visible(False)
+#ax4.spines['bottom'].set_visible(False)
+ax4.spines['left'].set_visible(False)
+
+
+# Add dashed line connecting the diagrams
+#fig.add_artist(plt.Line2D([0.48, 0.52], [0.5, 0.5], linestyle='--', color='gray', alpha=0.7, transform=fig.transFigure))
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## A closer look — why the simple picture fails
+
+High-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are **shifted** and **split** by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:
+
+- **[Spin and Fine Structure](./spin.qmd)** — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the *fine structure*.  
+- **[The Lamb Shift](./lamb.qmd)** — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.  
+- **[Hyperfine Structure](./hfs.qmd)** — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.  
+
+Each of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.
+
+---
+
+
+## Quick comment on notation
+
+In this chapter we will use the following conventions:
+
+- $n,\ell,m_\ell$ for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).  
+- $s$ for the electron spin (for a single electron $s=\tfrac{1}{2}$).  
+- $j$ for the single-electron total angular momentum $j=\ell+s$.  
+- $I$ for the nuclear spin and $F$ for the total atomic angular momentum $F=J+I$.  
+
+(If a section couples many electrons, capital $L,S,J$ denote the total orbital, total spin, and total electronic angular momentum.)
+
+---
+
+## Summary
+
+The Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.

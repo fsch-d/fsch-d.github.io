@@ -456,97 +456,69 @@
     ]
   },
   {
-    "objectID": "mod4/hfs.html",
-    "href": "mod4/hfs.html",
-    "title": "The Hyperfine Structure",
+    "objectID": "mod4/index.html",
+    "href": "mod4/index.html",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "title": "The Hyperfine Structure",
-    "section": "2.1 Worked numerical/physical example (sketch)",
-    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#operator-identities",
-    "href": "mod4/hfs.html#operator-identities",
-    "title": "The Hyperfine Structure",
-    "section": "3.1 Operator identities",
-    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
-    "href": "mod4/hfs.html#new-atomic-eigenstates",
-    "title": "The Hyperfine Structure",
-    "section": "3.2 New atomic eigenstates",
-    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "title": "The Hyperfine Structure",
-    "section": "3.3 Eigenvalue relations and energy formula",
-    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#possible-f-values",
-    "href": "mod4/hfs.html#possible-f-values",
-    "title": "The Hyperfine Structure",
-    "section": "3.4 Possible \\(F\\) values",
-    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "title": "The Hyperfine Structure",
-    "section": "4.1 Comments on the sign and ordering",
-    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Atomic, Molecular, and Optical Physics",
+    "objectID": "mod4/index.html#introduction",
+    "href": "mod4/index.html#introduction",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
-      "Home"
+      "Home",
+      "Hydrogen (Details)"
+    ]
+  },
+  {
+    "objectID": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "href": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "title": "Hydrogen (Details)",
+    "section": "A closer look — why the simple picture fails",
+    "text": "A closer look — why the simple picture fails\nHigh-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are shifted and split by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:\n\nSpin and Fine Structure — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the fine structure.\n\nThe Lamb Shift — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.\n\nHyperfine Structure — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.\n\nEach of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)"
+    ]
+  },
+  {
+    "objectID": "mod4/index.html#roadmap-for-this-chapter",
+    "href": "mod4/index.html#roadmap-for-this-chapter",
+    "title": "Hydrogen (Details)",
+    "section": "Roadmap for this chapter",
+    "text": "Roadmap for this chapter\nWe will study the corrections in the following order (each item links to the corresponding section):\n\nSpin and fine structure — introduce the spin operator, Pauli representation, spin–orbit interaction and how \\(j\\) becomes the relevant quantum number. (./spin.qmd)\n\nDirac and relativistic corrections — discuss how the Dirac equation alters energy levels and how relativistic kinetic-energy corrections and the Darwin term appear. (./relwaves.qmd or related)\n\nLamb shift (QED effects) — present the physical origin (self-energy, vacuum polarization), sketch the calculation logic, and show how QED produces the observed shift. (./lamb.qmd)\n\nHyperfine structure — couple electronic and nuclear moments, derive the \\(A\\,\\hat{\\mathbf I}\\cdot\\hat{\\mathbf J}\\) Hamiltonian and the \\(F\\)-dependent energy formula; work the hydrogen ground state as an example. (./hfs.qmd)",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)"
+    ]
+  },
+  {
+    "objectID": "mod4/index.html#quick-comment-on-notation",
+    "href": "mod4/index.html#quick-comment-on-notation",
+    "title": "Hydrogen (Details)",
+    "section": "Quick comment on notation",
+    "text": "Quick comment on notation\nIn this chapter we will use the following conventions:\n\n\\(n,\\ell,m_\\ell\\) for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).\n\n\\(s\\) for the electron spin (for a single electron \\(s=\\tfrac{1}{2}\\)).\n\n\\(j\\) for the single-electron total angular momentum \\(j=\\ell+s\\).\n\n\\(I\\) for the nuclear spin and \\(F\\) for the total atomic angular momentum \\(F=J+I\\).\n\n(If a section couples many electrons, capital \\(L,S,J\\) denote the total orbital, total spin, and total electronic angular momentum.)",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)"
+    ]
+  },
+  {
+    "objectID": "mod4/index.html#summary",
+    "href": "mod4/index.html#summary",
+    "title": "Hydrogen (Details)",
+    "section": "Summary",
+    "text": "Summary\nThe Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)"
     ]
   },
   {
@@ -691,6 +663,100 @@
       "Home",
       "Hydrogen (Details)",
       "The Lamb Shift — An Introduction to Quantum Electrodynamics"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Atomic, Molecular, and Optical Physics",
+    "section": "",
+    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html",
+    "href": "mod4/hfs.html",
+    "title": "The Hyperfine Structure",
+    "section": "",
+    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "title": "The Hyperfine Structure",
+    "section": "2.1 Worked numerical/physical example (sketch)",
+    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#operator-identities",
+    "href": "mod4/hfs.html#operator-identities",
+    "title": "The Hyperfine Structure",
+    "section": "3.1 Operator identities",
+    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
+    "href": "mod4/hfs.html#new-atomic-eigenstates",
+    "title": "The Hyperfine Structure",
+    "section": "3.2 New atomic eigenstates",
+    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "title": "The Hyperfine Structure",
+    "section": "3.3 Eigenvalue relations and energy formula",
+    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#possible-f-values",
+    "href": "mod4/hfs.html#possible-f-values",
+    "title": "The Hyperfine Structure",
+    "section": "3.4 Possible \\(F\\) values",
+    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "title": "The Hyperfine Structure",
+    "section": "4.1 Comments on the sign and ordering",
+    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
     ]
   },
   {
