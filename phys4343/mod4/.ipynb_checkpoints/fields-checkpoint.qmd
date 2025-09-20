@@ -1,0 +1,274 @@
+---
+title: Hydrogen in Static External Fields
+author: Daniel Fischer
+---
+
+# Hydrogen in External Fields
+
+This chapter collects commonly used formulae and order-of-magnitude estimates for how a hydrogenic atom responds to *static* external fields. We concentrate on the **Zeeman effect** (magnetic fields) and the leading **quadratic Stark effect** (electric fields), emphasising the interplay with fine and hyperfine structure and which quantum numbers remain "good" in the different parameter regimes.
+
+The presentation is perturbative: choose the largest interaction as the unperturbed Hamiltonian and treat smaller interactions as perturbations. Where a derivation is somewhat lengthy it is placed in a collapsible note.
+
+---
+
+# 1. Quick review — magnetic moments and interaction Hamiltonian
+
+The magnetic moment operator of an atom has contributions from electronic orbital motion, electronic spin, and the nuclear magnetic moment. In SI units we write
+
+$$
+\hat{\vec{\mu}} = -\mu_B\,\hat{\vec{L}} - g_s \mu_B\,\hat{\vec{S}} + g_I \mu_N\,\hat{\vec{I}},
+$$
+
+where
+
+- $\mu_B = \dfrac{e\hbar}{2m_e}$ is the Bohr magneton,
+- $g_s\approx 2.002319\ldots$ is the electron spin $g$-factor (often approximated as $2$),
+- $\mu_N = \dfrac{e\hbar}{2m_p}$ is the nuclear magneton,
+- $g_I$ is the nuclear $g$-factor (proton: $g_p\approx 5.5857$),
+- $\hat{\vec{L}},\hat{\vec{S}},\hat{\vec{I}}$ are the orbital, spin and nuclear spin operators respectively.
+
+An external (static) magnetic field $\vec{B}=B_z\hat{\vec z}$ couples via
+
+$$
+\hat{H}_{\rm ZE} \;=\; -\hat{\vec{\mu}}\cdot\vec{B}
+\;=\; \mu_B B_z\big(\hat{L}_z + g_s \hat{S}_z\big) - g_I\mu_N B_z \hat{I}_z.
+$$
+
+Because $\mu_N/\mu_B \approx m_e/m_p \approx 1/1836$, the direct nuclear Zeeman term is usually negligible for first-order electronic Zeeman shifts (but it does matter for very high precision hyperfine spectroscopy).
+
+**Useful numerical values**
+
+- $\mu_B \approx 9.2740100783\times10^{-24}\ \mathrm{J/T} \approx 5.7883818\times10^{-5}\ \mathrm{eV/T}.$  
+- In frequency units (divide energy by Planck's constant $h$):
+  $$\frac{\mu_B}{h} \approx 13.9962449\ \mathrm{GHz/T}.$$
+
+These conversions are handy when comparing Zeeman splittings (in GHz) to hyperfine frequencies (also usually quoted in MHz/GHz).
+
+---
+
+## 1.2 Why eigenstates change: non-commuting parts of the Hamiltonian
+
+The reason different bases become appropriate in different field strengths is that different pieces of the Hamiltonian do **not** commute. For example (schematically),
+
+- $[\hat{L}_z,\ \hat{\vec{L}}\!\cdot\!\hat{\vec{S}}]\neq 0$ and $[\hat{S}_z,\ \hat{\vec{L}}\!\cdot\!\hat{\vec{S}}]\neq 0$ — so states diagonal in $|L,M_L\rangle|S,M_S\rangle$ are not simultaneous eigenstates of the spin–orbit (fine structure) term.
+- $[\hat{I}_z,\ \hat{\vec{I}}\!\cdot\!\hat{\vec{J}}]\neq 0$ — so hyperfine eigenstates $|F,M_F\rangle$ are not eigenstates when an external Zeeman interaction is comparable to the hyperfine coupling.
+
+**Consequence.** Choose the largest energy scale as the zeroth-order Hamiltonian; treat the smaller interactions perturbatively. The "good" quantum numbers are those that label eigenstates of the dominant piece.
+
+---
+
+# 2. Practical regimes (and convenient bases)
+
+Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fine-structure splitting $\Delta E_{\rm FS}$ and hyperfine splitting $\Delta E_{\rm HF}$, different bases are useful:
+
+1. **Weak fields relative to fine structure** ($\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$).  
+   Natural basis: $|n,\ell,s,j,m_j\rangle$. Spin–orbit coupling fixes $\hat{\vec J}$ and we treat the Zeeman term as a perturbation in $\hat{\vec J}\cdot\vec{B}$; this leads to energy shifts proportional to $g_J \mu_B B m_j$.
+
+2. **Fields that are small compared to hyperfine but comparable to fine structure** ($\Delta E_{\rm ZE} < \Delta E_{\rm HF}$).  
+   Natural basis: $|n,\ell,s,j,i; F, M_F\rangle$. Hyperfine coupling fixes $\hat{\vec F}$ and first-order Zeeman shifts are proportional to $g_F\mu_B B M_F$.
+
+3. **Strong fields (Paschen–Back / hyperfine Paschen–Back)** ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$).  
+   Electronic and nuclear angular momenta decouple; a convenient product basis is $|J,M_J; I,M_I\rangle$, and the Zeeman energy is dominated by $g_J\mu_B B M_J$ with nuclear shifts small corrections.
+
+---
+
+## 2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
+
+If $\vec J$ is a good quantum number we can write approximately
+
+$$
+\hat{H}_{\rm ZE} \approx g_J \mu_B B_z \hat{J}_z,
+$$
+
+so the first-order Zeeman shift is
+
+$$
+\Delta E \approx g_J \mu_B B\, m_j.
+$$
+
+The Landé factor $g_J$ (exact for pure LS coupling) is
+
+$$
+g_J = \frac{1}{2J(J+1)}\Big[\, (1)\big(J(J+1)-S(S+1)+L(L+1)\big)
++ g_s\big(J(J+1)+S(S+1)-L(L+1)\big)\Big].
+$$
+
+::: {.callout-note collapse="true"}
+### Derivation of the Landé $g_J$ (sketch)
+
+Start from $\hat{\vec J}=\hat{\vec L}+\hat{\vec S}$. Take expectation values in a $|L,S,J,M_J\rangle$ eigenstate and use the identities
+
+$$
+\langle\hat{\vec L}\cdot\hat{\vec J}\rangle=\tfrac{1}{2}\big(J(J+1)+L(L+1)-S(S+1)\big),
+$$
+
+$$
+\langle\hat{\vec S}\cdot\hat{\vec J}\rangle=\tfrac{1}{2}\big(J(J+1)-L(L+1)+S(S+1)\big).
+$$
+
+The Zeeman operator (electronic part) is $\mu_B(\hat{L}_z + g_s \hat{S}_z)$. Projecting onto the $\hat{J}_z$ direction and solving for $g_J$ (so that $\mu_B g_J \hat{J}_z$ reproduces the expectation value) yields the formula above.
+
+This derivation assumes LS coupling (good $L,S$). For cases where $L$ and $S$ are not good quantum numbers, the "effective" $g_J$ must be obtained from the appropriate matrix elements.
+:::
+
+---
+
+## 2.2 Case 2: Hyperfine regime and $g_F$
+
+If hyperfine coupling dominates and $\hat{\vec F}=\hat{\vec J}+\hat{\vec I}$ is a good quantum number, the first-order Zeeman shift is
+
+$$
+\hat{H}_{\rm ZE} \approx g_F \mu_B B_z \hat{F}_z,
+\qquad
+\Delta E \approx g_F \mu_B B\, M_F,
+$$
+
+with the standard expression
+
+$$
+g_F = g_J\,\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}
++ g_I \frac{\mu_N}{\mu_B}\frac{F(F+1)+I(I+1)-J(J+1)}{2F(F+1)}.
+$$
+
+Because $\mu_N/\mu_B\ll 1$, the second (nuclear) term is typically negligible and one commonly uses
+
+$$
+g_F \approx g_J\,\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}.
+$$
+
+---
+
+## 2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
+
+When the Zeeman splitting greatly exceeds the hyperfine coupling, the electronic and nuclear moments decouple. The dominant energy is
+
+$$
+E \approx g_J \mu_B B M_J + g_I \mu_N B M_I,
+$$
+
+and hyperfine coupling can be treated perturbatively, giving small $M_I M_J$-dependent shifts:
+
+$$
+E \approx g_J \mu_B B M_J + A M_I M_J + \mathcal{O}\!\left(\frac{A^2}{g_J\mu_B B}\right).
+$$
+
+---
+
+# 3. Zeeman effect: summary and some exact results
+
+## 3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
+
+For the hydrogen ground state ($n=1$, $J=\tfrac12$, $I=\tfrac12$) the hyperfine + Zeeman Hamiltonian can be diagonalized exactly within the two $2\times2$ subspaces (labelled by $m_F=0$ and $m_F=\pm1$). The resulting $E(B)$ dependence is commonly referred to as the **Breit–Rabi** curve. It captures the gradual transition from hyperfine-dominated eigenstates at low field to Zeeman-dominated eigenstates at high field.
+
+(For completeness: the full Breit–Rabi formula and its derivation are standard and can be found in many textbooks — see the note below for a compact statement and derivation sketch.)
+
+::: {.callout-note collapse="true"}
+### The Breit–Rabi formula (reference and sketch)
+
+The Breit–Rabi formula gives closed expressions for the energy levels of an atom with $J=\tfrac12$ and arbitrary nuclear spin $I$ in an external magnetic field. For the special case $I=\tfrac12$ (hydrogen ground state) the formula simplifies considerably and yields the usual two linear Zeeman branches ($m_F=\pm1$) and two levels that mix and show the characteristic avoided-crossing behaviour for $m_F=0$.
+
+Derivation sketch:
+1. Write the Hamiltonian in the $\{|m_J,m_I\rangle\}$ product basis.
+2. Use that $m_F=m_J+m_I$ is conserved, which decomposes the problem into $2\times2$ blocks.
+3. Diagonalize each $2\times2$ block to get the analytic expressions.
+
+For an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu, and F. Laloë, *Quantum Mechanics* (Volume II) or the review by Steck (Rubidium data) where the Breit–Rabi formula is written out explicitly and applied to alkali ground states.
+:::
+
+---
+
+## 3.2 Order-of-magnitude numbers (useful estimates)
+
+- Hyperfine splitting of hydrogen ground state (21-cm line):
+  $$\nu_{\rm hfs} \approx 1420.405751768\ \mathrm{MHz},\qquad
+  \Delta E_{\rm hfs}=h\nu_{\rm hfs}\approx 5.87\times10^{-6}\ \mathrm{eV}.$$
+
+- Convert frequency to effective field:
+  $$B_{\rm crossover}\approx \frac{\nu_{\rm hfs}}{\mu_B/h}
+  \approx \frac{1.4204\ \mathrm{GHz}}{13.996245\ \mathrm{GHz/T}}
+  \approx 0.1015\ \mathrm{T}.$$
+
+  Thus around $\sim 0.1\ \mathrm{T}$ the Zeeman splitting becomes comparable to the zero-field hyperfine splitting for hydrogen.
+
+- At $B=1\ \mathrm{T}$ the single-electron Zeeman frequency (in energy units)
+  $$\Delta E_{\rm Z} = \mu_B B \approx 5.79\times10^{-5}\ \mathrm{eV}
+  \quad\Longleftrightarrow\quad \frac{\Delta E_{\rm Z}}{h}\approx 13.996\ \mathrm{GHz}.$$
+
+These numbers help decide which interactions dominate in a given laboratory situation.
+
+---
+
+# 4. Atoms in electric fields — quadratic Stark effect
+
+For the hydrogen ground state ($1s$) there is no linear (first-order) Stark effect because the $1s$ orbital has definite parity. The leading response is quadratic in the applied electric field $\mathcal{E}$:
+
+$$
+\Delta E = -\tfrac{1}{2}\,\alpha\,\mathcal{E}^2,
+$$
+
+where $\alpha$ is the static electric polarizability. For hydrogen $1s$:
+
+$$
+\alpha(1s) \approx 4.5\,a_0^3,
+$$
+
+with $a_0$ the Bohr radius. In SI units one can convert $\alpha$ to e.g. J/(V/m)$^2$ if needed.
+
+**Order of magnitude.** For a field of $\mathcal{E}=10^6\ \mathrm{V/m}$ (a large lab field) the energy shift is extremely small:
+
+$$
+\Delta E \sim -\tfrac{1}{2}\,(4.5\,a_0^3)\,(10^6\ \mathrm{V/m})^2 \quad\text{(in SI units after conversion)}.
+$$
+
+Thus the quadratic Stark shift for ground-state hydrogen is tiny compared with hyperfine and typical Zeeman splittings at laboratory fields.
+
+::: {.callout-note collapse="true"}
+### Quick remark on polarizability and units
+
+The quoted polarizability $\alpha(1s)\approx 4.5\,a_0^3$ is often given in atomic units (a.u.). To convert to SI (J m$^2$/V$^2$ or C m$^2$/V) use standard atomic-unit conversion factors. For most conceptual estimates the $a_0^3$ form is sufficient.
+:::
+
+---
+
+# 5. Worked examples and useful formulae
+
+## 5.1 Worked number: crossover field (revisited)
+
+Using $\nu_{\rm hfs}=1.420405751768\ \mathrm{GHz}$ and $\mu_B/h\approx 13.9962449\ \mathrm{GHz/T}$:
+
+$$
+B_{\rm crossover} \approx \frac{1.42040575}{13.9962449}\ \mathrm{T} \approx 0.1015\ \mathrm{T}.
+$$
+
+At $B\sim 0.1\ \mathrm{T}$ hyperfine and Zeeman energies are comparable for hydrogen ground state; at $B\gg 0.1\ \mathrm{T}$ the hyperfine Paschen–Back limit is approached.
+
+## 5.2 Typical experimental magnitudes
+
+- Weak laboratory fields ($B\lesssim 1\ \mathrm{mT}$): Zeeman shifts are tiny; hyperfine structure typically dominates.
+- Modest fields ($B\sim 0.01\!-\!0.2\ \mathrm{T}$): interesting interplay — use the Breit–Rabi description.
+- Strong fields ($B\gtrsim 1\ \mathrm{T}$): Zeeman splitting dominates; $M_J,M_I$ are the convenient labels.
+
+---
+
+# 6. Selection rules and spectroscopy
+
+For electric dipole transitions in the presence of a magnetic field the usual selection rules hold (in the dipole approximation):
+
+- $\Delta m = 0$ ($\pi$ transitions — linear polarisation along $B$),
+- $\Delta m = \pm 1$ ($\sigma^\pm$ transitions — circular polarisation).
+
+When the field mixes states (intermediate regime) one must compute transition matrix elements between the actual eigenstates (e.g. Breit–Rabi eigenstates) to get correct line strengths and polarisation properties.
+
+---
+
+# 7. Further reading and references
+
+- C. Cohen-Tannoudji, B. Diu, F. Laloë, *Quantum Mechanics*, Vol. II — discussion of the Breit–Rabi problem and atomic interactions with external fields.  
+- H. J. Metcalf & P. van der Straten, *Laser Cooling and Trapping* — practical discussion of energy shifts in spectroscopy.  
+- D. A. Steck, *Quantum and Atom Optics* (online notes) — compact treatments of atom–field interactions and the Breit–Rabi formula (useful for hands-on numbers).
+
+---
+
+## A note on derivations
+
+Where a derivation is lengthy (e.g. diagonalising the $2\times2$ blocks that lead to the Breit–Rabi formula) I placed a callout above with a sketch and references. If you would like, I can add the **complete algebraic derivation** of the Breit–Rabi formula in an expanded collapsible note (it is straightforward but algebraically tedious). Would you like that added?

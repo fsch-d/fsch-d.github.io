@@ -42,6 +42,7 @@ website:
           - mod4/lamb.qmd
           - mod4/hfs.qmd
           - mod4/summary.qmd
+          - mod4/fields.qmd
 
 
 #      - section: advanced.qmd
@@ -50,6 +51,7 @@ website:
 #          - custom-theme.qmd
 #      - acknowledgment.qmd
 
+lightbox: true
 
 format:
   html:
