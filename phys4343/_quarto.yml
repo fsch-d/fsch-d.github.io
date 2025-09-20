@@ -41,6 +41,7 @@ website:
           - mod4/spin.qmd
           - mod4/lamb.qmd
           - mod4/hfs.qmd
+          - mod4/summary.qmd
 
 
 #      - section: advanced.qmd

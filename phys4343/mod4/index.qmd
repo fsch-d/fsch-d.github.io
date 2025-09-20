@@ -1,6 +1,7 @@
 ---
 title: Hydrogen (Details)
 author: Daniel Fischer
+lightbox: true
 ---
 
 ## Introduction
