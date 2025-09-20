@@ -19,18 +19,15 @@ In this chapter, we study hydrogen in the **nonrelativistic Schrödinger picture
 Our goals are:
 
 - Solve the time-independent Schrödinger equation for the Coulomb potential.  
-- Separate variables in spherical coordinates and identify radial and angular parts.  
+- Separate variables in spherical coordinates and identify **radial and angular parts**.  
+  See [Orbital Angular Momentum](angmom.qmd) for the derivation of the spherical harmonics and the angular eigenproblem.  
 - Derive the **hydrogenic eigenenergies** and their degeneracies.  
-- Understand the structure of the **spatial wavefunctions** (orbitals).  
-- Connect angular momentum quantum numbers $(l,m)$ with the orbital shapes.  
+  See [The Hydrogen Atom](hydrogen.qmd) for the radial equation and energy quantization.  
+- Explore the structure of the **spatial wavefunctions** (orbitals) through graphical representations.  
+  See [Visualizing Hydrogen Orbitals](orbitals.qmd) — *placeholder / forthcoming* (suggested title: “Visualizing Hydrogen Orbitals”).  
+- Connect angular momentum quantum numbers $(\ell,m)$ with the orbital shapes and nodal structure.  
 
-This provides the **foundation** for later refinements.
-
----
-
-## What Comes Next
-
-The treatment here ignores effects such as spin, relativistic corrections, the Lamb shift, and hyperfine structure. These topics are crucial for precision AMO physics, and we will address them in the [Hydrogen (Details)](../mod4/spin.qmd) chapter.  
+This material provides the **foundation** for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the [Hydrogen (Details)](../mod4/spin.qmd) chapter.
 
 ---
 
