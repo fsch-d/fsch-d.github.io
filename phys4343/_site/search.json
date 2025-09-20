@@ -252,262 +252,273 @@
     ]
   },
   {
-    "objectID": "mod3/hydrogen.html",
-    "href": "mod3/hydrogen.html",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "objectID": "mod3/index.html",
+    "href": "mod3/index.html",
+    "title": "The Hydrogen Atom — Basics",
     "section": "",
-    "text": "We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number \\(Z\\)). The goals of this chapter are:\n\nRe-express the Hamiltonian using the angular-momentum operator \\(\\hat{\\vec L}\\).\n\nSeparate variables in spherical coordinates and reduce the problem to a radial ordinary differential equation (ODE).\n\nSolve the radial ODE for bound states (\\(E&lt;0\\)), perform the asymptotic analysis, obtain the quantization condition, and write the normalized eigenfunctions.",
+    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
+      "Hydrogen (Basics)"
     ]
   },
   {
-    "objectID": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
-    "href": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.1 Center of Mass and Relative Motion",
-    "text": "1.1 Center of Mass and Relative Motion\nIt is convenient to switch from the electron and proton coordinates \\((\\vec r_e, \\vec r_p)\\) to\n\nthe center-of-mass coordinate \\[\n\\vec R = \\frac{m \\vec r_e + M \\vec r_p}{m+M},\n\\]\nand the relative coordinate \\[\n\\vec r = \\vec r_e - \\vec r_p.\n\\]\n\nIn these new variables the Hamiltonian separates into two parts:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2(m+M)} \\nabla_R^2\n         -\\frac{\\hbar^2}{2\\mu} \\nabla_r^2\n         + V(r),\n\\]\nwhere\n\\[\n\\mu = \\frac{mM}{m+M}\n\\]\nis the reduced mass of the electron–proton system.\nThe term \\[\n-\\frac{\\hbar^2}{2(m+M)}\\nabla_R^2\n\\] describes the free motion of the atom as a whole through space. Since spectroscopy and bound-state problems are only sensitive to the internal dynamics, this center-of-mass contribution can be ignored (or factored out as a plane wave).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#effective-one-body-hamiltonian",
-    "href": "mod3/hydrogen.html#effective-one-body-hamiltonian",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.2 Effective One-Body Hamiltonian",
-    "text": "1.2 Effective One-Body Hamiltonian\nThus, for studying the hydrogen spectrum we keep only the relative motion:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\nabla_r^2\n         -\\frac{Z e^2}{4\\pi\\varepsilon_0}\\,\\frac{1}{r}.\n\\]\nThis is the familiar hydrogen Hamiltonian, except that the electron mass \\(m\\) is replaced by the reduced mass \\(\\mu\\).\nFor hydrogen, since \\(M \\gg m\\), one has \\(\\mu \\approx m\\), but the correction is important for high-precision spectroscopy.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
-    "href": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "1.3 The Laplacian and \\(\\hat L^2\\)",
-    "text": "1.3 The Laplacian and \\(\\hat L^2\\)\nWe will rewrite the Laplacian in spherical coordinates and express the angular part in terms of \\(\\hat L^2\\).\nIn spherical coordinates \\((r,\\theta,\\varphi)\\) the Laplacian acting on a scalar \\(\\psi(r,\\theta,\\varphi)\\) reads\n\\[\n\\nabla^2 \\psi\n= \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial \\psi}{\\partial r}\\Big)\n+ \\frac{1}{r^2}\\Bigg[\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial \\psi}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2\\psi}{\\partial\\varphi^2}\\Bigg].\n\\]\nRecall the angular momentum squared operator in coordinate representation:\n\\[\n\\hat L^2 = -\\hbar^2\\left[\n\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2}{\\partial\\varphi^2}\n\\right].\n\\]\nComparing the two expressions gives the useful identity (acting on any \\(\\psi\\))\n\\[\n\\nabla^2 = \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big) - \\frac{1}{\\hbar^2 r^2}\\,\\hat L^2 .\n\\]\nInsert this into the kinetic term of the Hamiltonian to obtain\n\\[\n\\begin{aligned}\n-\\frac{\\hbar^2}{2\\mu}\\nabla^2\n&= -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2}.\n\\end{aligned}\n\\]\nTherefore the full Hamiltonian becomes\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2} + V(r)\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
-    "href": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "2.1 The rotational (centrifugal) barrier",
-    "text": "2.1 The rotational (centrifugal) barrier\nThe term\n\\[\n\\frac{\\hbar^2 \\ell(\\ell+1)}{2 \\mu r^2}\n\\]\noriginates from the angular part of the kinetic energy. It acts like an effective potential that depends on \\(\\ell\\).\n\nFor \\(\\ell=0\\), this term vanishes, and the particle can access the region near \\(r=0\\).\n\nFor \\(\\ell&gt;0\\), the term grows rapidly as \\(r\\to 0\\), suppressing the radial wavefunction in the vicinity of the origin.\n\nThis is often called the centrifugal barrier. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
-    "href": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "2.2 Convert to the reduced radial equation",
-    "text": "2.2 Convert to the reduced radial equation\nDefine the reduced radial function\n\\[\nu(r) = r\\, R(r).\n\\]\nIt is straightforward to check that\n\\[\n\\frac{1}{r^2}\\frac{d}{dr}\\!\\Big(r^2\\frac{dR}{dr}\\Big)\n= \\frac{1}{r}\\frac{d^2}{dr^2}\\big(r R\\big)\n= \\frac{1}{r}\\frac{d^2 u}{dr^2}.\n\\]\nSubstituting into the radial equation gives the convenient one-dimensional form\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2}\n+ \\left[V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}\\right] u(r) = E\\, u(r).\n\\]\nThis is exactly the time-independent Schrödinger equation for a one-dimensional motion of \\(u(r)\\) on the half-line \\(r\\in(0,\\infty)\\) with the effective potential\n\\[\nV_{\\text{eff}}(r) = V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}.\n\\]\nThe boundary condition at the origin is \\(u(0)=0\\) (regularity) and \\(u(r)\\) must be square integrable on \\((0,\\infty)\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters (scaled units: ħ = m = k = 1)\nhbar = 1\nm = 1\nk = 1   # corresponds to e^2/(4πϵ0)\n\n# Define radial coordinate\nr = np.linspace(0.1, 30, 1000)  # avoid r=0 to prevent singularity\n\ndef V_eff(r, ell):\n    centrifugal = hbar**2 * ell * (ell + 1) / (2 * m * r**2)\n    coulomb = -k / r\n    return coulomb + centrifugal\n\n# Plot effective potentials for different l\nells = [0, 1, 2, 3]\nplt.figure(figsize=(8,6))\n\nfor ell in ells:\n    plt.plot(r, V_eff(r, ell), label=f\"$\\ell={ell}$\")\n\nplt.ylim(-0.5, 0.5)\nplt.xlim(0, 30)\nplt.axhline(0, color='black', linewidth=0.8)\nplt.title(\"Effective Radial Potential $V_{eff}(r)$\")\nplt.xlabel(\"r (arb. units)\")\nplt.ylabel(\"$V_{eff}(r)$ (arb. units)\")\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Effective radial Coulomb potential for different angular momenta.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#asymptotic-behavior",
-    "href": "mod3/hydrogen.html#asymptotic-behavior",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.1 Asymptotic behavior",
-    "text": "3.1 Asymptotic behavior\nAs \\(r\\to\\infty\\): the Coulomb potential is negligible compared to \\(E&lt;0\\), so the equation approximates\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} \\approx E\\, u .\n\\]\nSince \\(E&lt;0\\), set\n\\[\n\\kappa = \\sqrt{\\frac{-2\\mu E}{\\hbar^2}}\\quad (&gt;0),\n\\]\nand \\(u(r)\\sim e^{-\\kappa r}\\) as \\(r\\to\\infty\\) (the exponentially growing solution is discarded for normalizability).\nAs \\(r\\to 0\\): the dominant term is the centrifugal term \\(\\propto 1/r^2\\). Neglecting the Coulomb term for small \\(r\\) gives\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} + \\frac{\\hbar^2\\ell(\\ell+1)}{2\\mu r^2} u \\approx 0.\n\\]\nSolving the indicial equation yields the leading behavior \\(u(r)\\sim r^{\\ell+1}\\) (the second independent solution behaves like \\(r^{-\\ell}\\) and is non-physical because it is not regular at the origin). Therefore\n\\[\nR(r) = \\frac{u(r)}{r} \\sim r^{\\ell} \\quad (r\\to 0).\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
-    "href": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.2 Polynomial Ansatz and reduced equation",
-    "text": "3.2 Polynomial Ansatz and reduced equation\nFrom the asymptotic analysis we propose\n\\[\nu(r) = r^{\\ell+1} e^{-\\kappa r} v(r),\n\\]\nwhere \\(v(r)\\) should be regular everywhere. Substituting this form into the full radial equation and using the dimensionless variable\n\\[\n\\rho = 2\\kappa r,\n\\]\none finds that \\(v(\\rho)\\) satisfies\n\\[\n\\rho \\frac{d^2 v}{d\\rho^2} + (2\\ell + 2 - \\rho)\\frac{dv}{d\\rho} +\n\\left( \\frac{Z e^2}{2\\pi \\varepsilon_0 \\hbar}\\frac{\\mu}{\\kappa} - \\ell - 1 \\right) v = 0.\n\\]\nThis is of the confluent hypergeometric form.\nTo solve, assume \\(v(\\rho)\\) can be expressed as a power series:\n\\[\nv(\\rho) = \\sum_{j=0}^{\\infty} a_j \\rho^j.\n\\]\nSubstituting this into the differential equation leads to a recurrence relation between coefficients:\n\\[\na_{j+1} = \\frac{j + \\ell + 1 - \\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa}}{(j+1)(j+2\\ell+2)}\\, a_j.\n\\]\n\nTermination condition\n\nIf the series does not terminate, the coefficients \\(a_j\\) fall off too slowly and \\(v(\\rho)\\) grows exponentially, which spoils normalizability.\n\nNormalizable solutions exist only if the numerator vanishes for some finite \\(j=n_r\\) (the radial quantum number). This forces the series to terminate, producing a polynomial.\n\nThus the termination condition is:\n\\[\n\\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa} = n_r + \\ell + 1 \\equiv n, \\qquad n=1,2,3,\\dots\n\\]\nwhere \\(n\\) is the principal quantum number.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
-    "href": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "3.3 Energy quantization and the principal quantum number",
-    "text": "3.3 Energy quantization and the principal quantum number\nThe requirement that the power-series solution terminates at a finite order fixes the parameter \\(\\kappa\\). Using \\(\\kappa^2 = \\tfrac{-2\\mu E}{\\hbar^2}\\), the allowed bound-state energies are\n\n\n\n\n\n\nTipBound-state energies\n\n\n\n\\[\nE_n = - \\frac{\\mu e^4 Z^2}{2(4\\pi\\varepsilon_0)^2 \\hbar^2}\\,\\frac{1}{n^2}\n= -\\frac{R_\\mathrm{y} Z^2}{n^2}, \\qquad n = 1,2,3,\\dots\n\\]\n\n\nwhere\n\\[\nR_\\mathrm{y} = \\frac{\\mu e^4}{2(4\\pi\\varepsilon_0)^2\\hbar^2}\n\\]\nis the Rydberg energy (\\(R_\\mathrm{y} \\approx 13.6057\\ \\text{eV}\\)).\nIt is convenient to introduce the Bohr radius\n\\[\na_0 = \\frac{4\\pi\\varepsilon_0 \\hbar^2}{\\mu e^2},\n\\]\nso that the energy can also be written as\n\\[\nE_n = -\\frac{1}{2}\\frac{\\mu e^4 Z^2}{(4\\pi\\varepsilon_0)^2 \\hbar^2}\\frac{1}{n^2}\n= -\\frac{Z^2}{2}\\,\\frac{\\hbar^2}{\\mu a_0^2}\\,\\frac{1}{n^2}\n= -\\frac{Z^2}{n^2}\\,\\frac{e^2}{8\\pi\\varepsilon_0 a_0}.\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod3/hydrogen.html#explicit-low-n-examples",
-    "href": "mod3/hydrogen.html#explicit-low-n-examples",
-    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
-    "section": "4.1 Explicit low-\\(n\\) examples",
-    "text": "4.1 Explicit low-\\(n\\) examples\n\n1s state \\((n=1,\\ell=0)\\):\n\\[\nR_{10}(r) = 2 \\,a_0^{-3/2}\\, e^{-r/a_0}.\n\\]\n2s state \\((n=2,\\ell=0)\\):\n\\[\nR_{20}(r) = \\frac{1}{2\\sqrt{2}}\\, a_0^{-3/2} \\Big(2 - \\frac{r}{a_0}\\Big)\\, e^{-r/(2 a_0)}.\n\\]\n2p states \\((n=2,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{21}(r) = \\frac{1}{2\\sqrt{6}}\\, a_0^{-3/2}\\, \\frac{r}{a_0}\\, e^{-r/(2 a_0)}\n\\]\n\n\n\n3s state \\((n=3,\\ell=0)\\):\n\\[\nR_{30}(r) = \\frac{2}{81\\sqrt{3}}\\, a_0^{-3/2} \\Big(27 - 18 \\tfrac{r}{a_0} + 2 \\big(\\tfrac{r}{a_0}\\big)^2\\Big) e^{-r/(3a_0)}.\n\\]\n3p states \\((n=3,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{31}(r) = \\frac{4}{81\\sqrt{6}}\\, a_0^{-3/2} \\Big(6 - \\tfrac{r}{a_0}\\Big)\\, \\frac{r}{a_0}\\, e^{-r/(3a_0)}.\n\\]\n3d states \\((n=3,\\ell=2)\\); e.g. \\(m=0\\):\n\\[\nR_{32}(r) = \\frac{4}{81\\sqrt{30}}\\, a_0^{-3/2} \\Big(\\tfrac{r}{a_0}\\Big)^2 e^{-r/(3a_0)}.\n\\]\n\n\nThese explicit forms are obtained by substituting \\(n,\\ell\\) into the general hydrogen radial wavefunction formula and using the associated Laguerre polynomials for small \\(n\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Define the Bohr radius\na0 = 1.0\n\ndef R_10(r):\n    \"\"\"\n    1s radial wavefunction.\n    \"\"\"\n    return 2 * (a0**(-1.5)) * np.exp(-r / a0)\n\ndef R_20(r):\n    \"\"\"\n    2s radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(2))) * (a0**(-1.5)) * (2 - r / a0) * np.exp(-r / (2 * a0))\n\ndef R_21(r):\n    \"\"\"\n    2p radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(6))) * (a0**(-1.5)) * (r / a0) * np.exp(-r / (2 * a0))\n\ndef R_30(r):\n    \"\"\"\n    3s radial wavefunction.\n    \"\"\"\n    return (2 / (81 * np.sqrt(3))) * (a0**(-1.5)) * (27 - 18 * (r / a0) + 2 * (r / a0)**2) * np.exp(-r / (3 * a0))\n\ndef R_31(r):\n    \"\"\"\n    3p radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(6))) * (a0**(-1.5)) * (6 - r / a0) * (r / a0) * np.exp(-r / (3 * a0))\n\ndef R_32(r):\n    \"\"\"\n    3d radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(30))) * (a0**(-1.5)) * (r / a0)**2 * np.exp(-r / (3 * a0))\n\ndef P(R, r):\n    \"\"\"\n    Calculates the radial probability density P(r) = r^2 * |R(r)|^2\n    \"\"\"\n    return r**2 * np.abs(R)**2\n\n# Create a range of r values\nr_values = np.linspace(0, 25 * a0, 500)\n\n# Set up the plot\nfig, axes = plt.subplots(3, 2, figsize=(8, 8))\nfig.suptitle(\"Hydrogen Radial Wave Functions $R_{n\\ell}(r)$ and Probability Densities $P_{n\\ell}(r)$\", fontsize=16)\n\n# Plot for 1s state\nax1 = axes[0, 0]\nax1.set_title(\"1s State\")\nax1.plot(r_values, R_10(r_values), label='$R_{10}(r)$', color='blue')\nax1.plot(r_values, P(R_10(r_values), r_values), label='$P_{10}(r)$', color='red', linestyle='--')\nax1.set_xlabel('$r/a_0$')\nax1.set_xlim(0, 25)\nax1.legend()\nax1.grid(True)\n\n# Plot for 2s state\nax2 = axes[0, 1]\nax2.set_title(\"2s State\")\nax2.plot(r_values, R_20(r_values), label='$R_{20}(r)$', color='blue')\nax2.plot(r_values, P(R_20(r_values), r_values), label='$P_{20}(r)$', color='red', linestyle='--')\nax2.set_xlabel('$r/a_0$')\nax2.set_xlim(0, 25)\nax2.legend()\nax2.grid(True)\n\n# Plot for 2p state\nax3 = axes[1, 0]\nax3.set_title(\"2p State\")\nax3.plot(r_values, R_21(r_values), label='$R_{21}(r)$', color='blue')\nax3.plot(r_values, P(R_21(r_values), r_values), label='$P_{21}(r)$', color='red', linestyle='--')\nax3.set_xlabel('$r/a_0$')\nax3.set_xlim(0, 25)\nax3.legend()\nax3.grid(True)\n\n# Plot for 3s state\nax4 = axes[1, 1]\nax4.set_title(\"3s State\")\nax4.plot(r_values, R_30(r_values), label='$R_{30}(r)$', color='blue')\nax4.plot(r_values, P(R_30(r_values), r_values), label='$P_{30}(r)$', color='red', linestyle='--')\nax4.set_xlabel('$r/a_0$')\nax4.set_xlim(0, 25)\nax4.legend()\nax4.grid(True)\n\n# Plot for 3p state\nax5 = axes[2, 0]\nax5.set_title(\"3p State\")\nax5.plot(r_values, R_31(r_values), label='$R_{31}(r)$', color='blue')\nax5.plot(r_values, P(R_31(r_values), r_values), label='$P_{31}(r)$', color='red', linestyle='--')\nax5.set_xlabel('$r/a_0$')\nax5.set_xlim(0, 25)\nax5.legend()\nax5.grid(True)\n\n# Plot for 3d state\nax6 = axes[2, 1]\nax6.set_title(\"3d State\")\nax6.plot(r_values, R_32(r_values), label='$R_{32}(r)$', color='blue')\nax6.plot(r_values, P(R_32(r_values), r_values), label='$P_{32}(r)$', color='red', linestyle='--')\nax6.set_xlabel('$r/a_0$')\nax6.set_xlim(0, 25)\nax6.legend()\nax6.grid(True)\n\n# Adjust layout and show the plot\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 2: Radial wave functions and probability densities for low-\\(n\\) states.\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.constants import physical_constants\nfrom scipy.special import genlaguerre, factorial\n\n# Constants\na0 = physical_constants[\"Bohr radius\"][0]      # Bohr radius [m]\nEh = physical_constants[\"Hartree energy\"][0]   # Hartree energy [J]\neV = physical_constants[\"electron volt\"][0]    # 1 eV in J\n\nnmax = 4\n\n# General hydrogen radial wavefunction R_{nl}(r)\ndef R_nl(r, n, l):\n    if l &gt;= n or l &lt; 0:\n        raise ValueError(\"Quantum number l must satisfy 0 &lt;= l &lt; n\")\n    rho = 2 * r / (n * a0)\n    norm = np.sqrt((2/(n*a0))**3 * factorial(n-l-1)/(2*n*factorial(n+l)))\n    return norm * rho**l * np.exp(-rho/2) * genlaguerre(n-l-1, 2*l+1)(rho)\n\n# Radial probability densities P(r) = r^2 |R_{nl}(r)|^2\ndef P_n(r, n, l):\n    R = R_nl(r, n, l)\n    return r**2 * np.abs(R)**2\n\n# Energy levels [J]\ndef energy_n(n):\n    return -Eh / (2 * n**2)\n\n# Effective potential (Coulomb + centrifugal)\ndef V_r(r, l):\n    return -Eh * a0 / r + Eh * a0**2 * l*(l+1) / (2 * r**2)\n\n# Prepare data\nr = np.linspace(0.01*a0, 60*a0, 2000)  # radial range\n\n# Colors\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\n# Set up 2x2 subplots\nfig, axes = plt.subplots(2, 2, figsize=(11, 10), sharex=True, sharey=True)\naxes = axes.flatten()\n\nfor idx, myell in enumerate(range(4)):   # l = 0,1,2,3\n    ax = axes[idx]\n\n    # Effective potential\n    V = V_r(r, myell) / eV\n    ax.plot(r/a0, V, 'k', label=\"Effective potential\")\n\n    # Energy levels + radial probabilities\n    for i, n in enumerate(range(myell+1, nmax+1)):\n        E = energy_n(n)/eV\n        ax.hlines(E, 0, 40, colors=colors[n-1], linestyles='--', label=f\"n={n} level\")\n\n        P = P_n(r, n, myell)\n        P_scaled = (P/np.max(P)) * 5 + E  # scale & shift to energy level\n        ax.plot(r/a0, P_scaled, colors[n-1], label=f\"$P(r)$ for n={n}\")\n\n    # E=0 line\n    ax.axhline(0, color='gray', linewidth=1.2)\n\n    ax.set_xlim(0, 45)\n    ax.set_ylim(-20, 10)\n    ax.set_title(fr\"$\\ell={myell}$\", pad=10)\n    ax.grid(True)\n\n# Force ticks to show up only where wanted\nfor ax in axes:\n    ax.tick_params(labelbottom=False, labelleft=False)  # start blank\n\n# left column: y labels\naxes[0].tick_params(labelleft=True)\naxes[2].tick_params(labelleft=True)\n\n# bottom row: x labels\naxes[2].tick_params(labelbottom=True)\naxes[3].tick_params(labelbottom=True)\n\n# Shared axis labels (outside the plots)\nfig.text(0.5, 0.01, r\"$r/a_0$ (Bohr radii)\", ha=\"center\", fontsize=12)\nfig.text(0.01, 0.5, \"Energy (eV)\", va=\"center\", rotation=\"vertical\", fontsize=12)\n\n# Legend only in bottom-left subplot\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[2].legend(handles, labels, loc=\"lower left\", fontsize=10)\n\nfig.suptitle(\"Effective Potential and Hydrogen Atom Radial Probabilities\", fontsize=16)\nplt.tight_layout(rect=[0.04,0.04,1,0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 3: Radial wave probability densities in the effective potential for different \\(\\ell\\).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Basics)",
-      "Hydrogen atom — Schrödinger equation and radial solutions"
-    ]
-  },
-  {
-    "objectID": "mod4/relwaves.html",
-    "href": "mod4/relwaves.html",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "objectID": "mod3/index.html#why-hydrogen",
+    "href": "mod3/index.html#why-hydrogen",
+    "title": "The Hydrogen Atom — Basics",
     "section": "",
-    "text": "Our goal is to find an equation that consistently describes a free particle in a way that is both quantum mechanical and relativistic.\nQuantum mechanics, through the Schrödinger equation, successfully explains many microscopic phenomena but does not respect the principles of special relativity. On the other hand, special relativity dictates the correct relationship between energy and momentum, which must also hold at the quantum level. Reconciling these two frameworks is the challenge that led from the Schrödinger equation to the Klein–Gordon equation, and ultimately to the Dirac equation.",
+    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Basics)"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#motivation",
-    "href": "mod4/relwaves.html#motivation",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "objectID": "mod3/index.html#scope-of-this-section",
+    "href": "mod3/index.html#scope-of-this-section",
+    "title": "The Hydrogen Atom — Basics",
+    "section": "Scope of this Section",
+    "text": "Scope of this Section\nIn this chapter, we study hydrogen in the nonrelativistic Schrödinger picture.\nOur goals are:\n\nSolve the time-independent Schrödinger equation for the Coulomb potential.\n\nSeparate variables in spherical coordinates and identify radial and angular parts.\nSee Orbital Angular Momentum for the derivation of the spherical harmonics and the angular eigenproblem.\n\nDerive the hydrogenic eigenenergies and their degeneracies.\nSee The Hydrogen Atom for the radial equation and energy quantization.\n\nExplore the structure of the spatial wavefunctions (orbitals) through graphical representations.\nSee Visualizing Hydrogen Orbitals — placeholder / forthcoming (suggested title: “Visualizing Hydrogen Orbitals”).\n\nConnect angular momentum quantum numbers \\((\\ell,m)\\) with the orbital shapes and nodal structure.\n\nThis material provides the foundation for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the Hydrogen (Details) chapter.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)"
+    ]
+  },
+  {
+    "objectID": "mod3/index.html#a-final-remark",
+    "href": "mod3/index.html#a-final-remark",
+    "title": "The Hydrogen Atom — Basics",
+    "section": "A Final Remark",
+    "text": "A Final Remark\nHydrogen is not just a “toy problem.” It remains a testing ground for quantum mechanics and a reference point for experiments across physics, from spectroscopy to astrophysics. By mastering the hydrogen atom at this basic level, we gain insight into both the methods of quantum mechanics and the rich structure of atomic physics.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html",
+    "href": "mod4/spin.html",
+    "title": "Electron Spin and Fine Structure",
     "section": "",
-    "text": "Our goal is to find an equation that consistently describes a free particle in a way that is both quantum mechanical and relativistic.\nQuantum mechanics, through the Schrödinger equation, successfully explains many microscopic phenomena but does not respect the principles of special relativity. On the other hand, special relativity dictates the correct relationship between energy and momentum, which must also hold at the quantum level. Reconciling these two frameworks is the challenge that led from the Schrödinger equation to the Klein–Gordon equation, and ultimately to the Dirac equation.",
+    "text": "This chapter introduces the concept of electron spin and its consequences for the energy structure of atoms, particularly the hydrogen atom. We discuss how spin interacts with orbital angular momentum to produce fine structure in atomic spectra and how relativistic corrections refine the energy levels.\nThe specific goals for this chapter are:\n\nIntroduce the electron spin operator \\(\\hat{\\vec S}\\), its eigenvalues, and its commutation relations, highlighting the analogy to orbital angular momentum.\nPresent the Pauli matrix representation of spin-\\(\\tfrac{1}{2}\\) systems and demonstrate explicitly the commutator relations and eigenvalue equations.\nDescribe how the spin of the electron is combined with orbital angular momentum to define the total angular momentum \\(\\hat{\\vec J} = \\hat{\\vec L} + \\hat{\\vec S}\\).\nDerive the form of the spin–orbit interaction in the Hamiltonian and show how it modifies the conserved quantum numbers.\nExplain how the new complete set of quantum numbers \\(|n, \\ell, s, j, m_j\\rangle\\) is constructed using Clebsch–Gordan coefficients and the concept of the identity operator in a complete basis.\nDiscuss the fine-structure energy shifts, their origin from spin–orbit coupling and relativistic corrections, and the connection to the Dirac equation results.\nIntroduce term symbols (\\({ }^{2S+1}L_J\\)) and their use in describing atomic states, including the labeling of fine-structure-split energy levels.\n\nBy the end of this chapter, the student should be able to describe the spin of the electron, understand its contribution to the fine structure of atomic spectra, and connect the quantum numbers of total angular momentum to the observed energy level splittings.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#schrödingers-equation",
-    "href": "mod4/relwaves.html#schrödingers-equation",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
-    "section": "Schrödinger’s Equation",
-    "text": "Schrödinger’s Equation\nThe non-relativistic Schrödinger equation for a free particle is\n\\[\n-\\frac{\\hbar^{2}}{2m}\\,\\nabla^{2}\\phi(\\mathbf{r},t)\n= i\\hbar\\,\\frac{\\partial}{\\partial t}\\phi(\\mathbf{r},t).\n\\]\nThis equation successfully describes many quantum phenomena at low energies.\nHowever, it has a serious limitation: it is not consistent with special relativity.\nIn relativity, the energy–momentum relation is\n\\[\nE^{2} = p^{2}c^{2} + m^{2}c^{4}.\n\\]\nThe Schrödinger equation, being first-order in time but second-order in space, does not respect this relation. In other words, it is not Lorentz invariant.",
+    "objectID": "mod4/spin.html#the-sterngerlach-experiment",
+    "href": "mod4/spin.html#the-sterngerlach-experiment",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.1 The Stern–Gerlach Experiment",
+    "text": "1.1 The Stern–Gerlach Experiment\nIn 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an inhomogeneous magnetic field (Stern & Gerlach, 1922).\n\nSetup: A heated oven produces a jet of silver atoms, which is then collimated into a narrow beam. The beam enters a region between specially shaped magnet poles, arranged so that the magnetic field is not uniform but has a strong vertical gradient.\n\nAfter passing through the magnet, the atoms travel to a distant detection screen, where their spatial distribution can be recorded.\n\nWhat happens physically?\nThe silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete values — the phenomenon of spatial quantization (Richtungsquantelung).\n\n\n\nStern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#kleingordon-equation",
-    "href": "mod4/relwaves.html#kleingordon-equation",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
-    "section": "Klein–Gordon Equation",
-    "text": "Klein–Gordon Equation\nA natural attempt to fix this is to take the relativistic dispersion relation and promote \\(E\\) and \\(\\mathbf{p}\\) to quantum operators:\n\\[\nE \\;\\to\\; i\\hbar \\frac{\\partial}{\\partial t},\n\\qquad\n\\mathbf{p} \\;\\to\\; -i\\hbar \\nabla.\n\\]\nApplying these substitutions to \\(E^2 = p^2c^2 + m^2c^4\\) leads to the Klein–Gordon equation (KGE):\n\\[\n\\left(-\\frac{1}{c^{2}} \\frac{\\partial^{2}}{\\partial t^{2}} + \\nabla^{2}\\right)\\phi(\\mathbf{r},t)\n= \\frac{m^{2}c^{2}}{\\hbar^{2}}\\,\\phi(\\mathbf{r},t).\n\\]\nThe Klein–Gordon equation is second-order in time, unlike the Schrödinger equation.\nIt correctly incorporates special relativity, but it comes with its own challenges:\n\nIt naturally describes spin-0 (scalar) particles rather than spin-\\(\\tfrac{1}{2}\\) particles like the electron.\n\nIts probability density can take negative values, making the usual probabilistic interpretation of \\(\\lvert\\phi\\rvert^2\\) problematic.\n\nBecause of these issues, the KGE alone is not sufficient to describe electrons and other spin-\\(\\tfrac{1}{2}\\) particles.",
+    "objectID": "mod4/spin.html#the-einsteinde-haas-experiment",
+    "href": "mod4/spin.html#the-einsteinde-haas-experiment",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.2 The Einstein–de Haas Experiment",
+    "text": "1.2 The Einstein–de Haas Experiment\nSeveral years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum (Einstein & de Haas, 1915).\n\nSetup: A ferromagnetic cylinder (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.\n\nAround the cylinder is a coil of wire wound on a ferromagnetic core.\n\nWhen a current is switched on in the coil, it changes the magnetization of the cylinder.\n\nA small mirror is attached to the suspension, so that the mechanical rotation of the cylinder can be detected optically using a reflected probe light beam.\n\nWhat happens physically?\nWhen the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that magnetization arises from angular momentum. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.\n\n\n\nEinstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#diracs-approach",
-    "href": "mod4/relwaves.html#diracs-approach",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
-    "section": "Dirac’s Approach",
-    "text": "Dirac’s Approach\nPaul Dirac sought an equation that was:\n\nFirst-order in both space and time derivatives, so that the probability density would remain positive and the equation would resemble Schrödinger’s form.\n\nRelativistically invariant, consistent with \\(E^{2} = p^{2}c^{2} + m^{2}c^{4}\\).\n\nTo achieve this, Dirac proposed writing the Hamiltonian in a linear form:\n\\[\nE = c\\,\\boldsymbol{\\alpha}\\cdot \\mathbf{p} + \\beta\\,mc^{2},\n\\]\nwhere \\(\\boldsymbol{\\alpha}\\) and \\(\\beta\\) are not numbers but matrices chosen to satisfy specific algebraic relations.\nPromoting \\(E \\to i\\hbar \\partial_t\\) and \\(\\mathbf{p} \\to -i\\hbar \\nabla\\), one obtains the Dirac equation:\n\\[\ni\\hbar \\frac{\\partial}{\\partial t}\\psi\n= \\Big(-i\\hbar c\\,\\boldsymbol{\\alpha}\\cdot\\nabla + \\beta\\,mc^{2}\\Big)\\psi.\n\\]\nThis can also be written in a compact, manifestly relativistic form using the gamma matrices \\(\\gamma^\\mu\\):\n\\[\ni\\hbar\\,\\gamma^{\\mu}\\partial_{\\mu}\\psi - mc\\,\\psi = 0,\n\\]\nwhere \\(\\mu = 0,1,2,3\\) runs over time and space components.",
+    "objectID": "mod4/spin.html#historical-perspective",
+    "href": "mod4/spin.html#historical-perspective",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.3 Historical Perspective",
+    "text": "1.3 Historical Perspective\nAt the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of orbital angular momentum and the then-prevailing Bohr–Sommerfeld model of the atom.\n\nThe Stern–Gerlach experiment\nStern and Gerlach themselves interpreted their observation of beam splitting as evidence for the quantization of orbital angular momentum along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the \\(z\\)-axis should then yield discrete values, consistent with their result.\nWhat is striking in hindsight is that the silver atom has only a single valence electron in an \\(s\\)-orbital (\\(\\ell = 0\\)). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict no orbital magnetic moment at all in this case, and thus no splitting. Yet Stern and Gerlach observed two distinct components, not more and not less.\nThis outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin \\(s = \\tfrac{1}{2}\\).\n\n\nThe Einstein–de Haas experiment\nEinstein and de Haas (1915) were motivated by the idea of ring currents — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between magnetic moments and angular momentum.\nHowever, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about twice the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.\nIt was only later, with the recognition that the electron carries an intrinsic spin with \\(g \\approx 2\\), that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s \\(g\\)-factor without knowing that spin existed.\n\n\nSynthesis\nFrom today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:\n\nStern–Gerlach: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.\n\nEinstein–de Haas: seen as proof that magnetism stems from angular momentum, though the anomalous factor of two hinted at a hidden degree of freedom.\n\nOnly with Pauli’s exclusion principle (1925) and the proposal of electron spin by Uhlenbeck and Goudsmit (1925) were these puzzles fully understood. The reinterpretation of these classic experiments thus marks a turning point in atomic physics — from the orbital models of Bohr–Sommerfeld to the modern framework of quantum mechanics with spin.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#gamma-matrices",
-    "href": "mod4/relwaves.html#gamma-matrices",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
-    "section": "Gamma Matrices",
-    "text": "Gamma Matrices\nThe matrices \\(\\gamma^\\mu\\) must satisfy the anticommutation relations\n\\[\n\\{\\gamma^\\mu, \\gamma^\\nu\\} \\;=\\; \\gamma^\\mu \\gamma^\\nu + \\gamma^\\nu \\gamma^\\mu\n= 2\\,g^{\\mu\\nu}\\,I,\n\\]\nwith \\(g^{\\mu\\nu}\\) the Minkowski metric.\nOne explicit representation (the Dirac representation) uses \\(4\\times 4\\) matrices built from the Pauli matrices \\(\\sigma_i\\):\n\\[\n\\gamma^0 =\n\\begin{pmatrix}\nI & 0 \\\\ 0 & -I\n\\end{pmatrix},\n\\qquad\n\\gamma^i =\n\\begin{pmatrix}\n0 & \\sigma_i \\\\ -\\sigma_i & 0\n\\end{pmatrix},\n\\]\nwhere \\(i=1,2,3\\) and \\(I\\) is the \\(2\\times 2\\) identity matrix.\nThe Pauli matrices are the fundamental \\(2\\times 2\\) matrices that encode spin-\\(\\tfrac{1}{2}\\) structure in quantum mechanics:\n\\[\n\\sigma_x =\n\\begin{pmatrix}\n0 & 1 \\\\\n1 & 0\n\\end{pmatrix},\n\\quad\n\\sigma_y =\n\\begin{pmatrix}\n0 & -i \\\\\ni & 0\n\\end{pmatrix},\n\\quad\n\\sigma_z =\n\\begin{pmatrix}\n1 & 0 \\\\\n0 & -1\n\\end{pmatrix}.\n\\]\nThey satisfy the relations\n\\[\n[\\sigma_i, \\sigma_j] = 2 i \\,\\epsilon_{ijk}\\,\\sigma_k,\n\\qquad\n\\{\\sigma_i, \\sigma_j\\} = 2 \\delta_{ij} I,\n\\]\nwhich directly parallel the algebra of angular momentum operators.",
+    "objectID": "mod4/spin.html#notation",
+    "href": "mod4/spin.html#notation",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.1 Notation",
+    "text": "2.1 Notation\nIt is conventional to introduce the shorthand:\n\nSpin-up: \\(|\\tfrac{1}{2}, +\\tfrac{1}{2}\\rangle \\equiv |\\uparrow\\rangle \\equiv \\begin{pmatrix}1 \\\\ 0\\end{pmatrix}\\)\nSpin-down: \\(|\\tfrac{1}{2}, -\\tfrac{1}{2}\\rangle \\equiv |\\downarrow\\rangle \\equiv \\begin{pmatrix}0 \\\\ 1\\end{pmatrix}\\)\n\nUnlike orbital states, there is no spatial wavefunction representation for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/relwaves.html#key-features-of-the-dirac-equation",
-    "href": "mod4/relwaves.html#key-features-of-the-dirac-equation",
-    "title": "Relativistic Wave Equations — the Dirac Equation",
-    "section": "Key Features of the Dirac Equation",
-    "text": "Key Features of the Dirac Equation\nThe Dirac equation has profound physical consequences:\n\nSpin-\\(\\tfrac{1}{2}\\): It naturally incorporates electron spin, without being put in by hand.\n\nFour-component spinors: The solutions \\(\\psi\\) have four components, corresponding to spin-up/spin-down and particle/antiparticle states.\n\nFine structure: It predicts relativistic corrections and spin–orbit coupling in atomic spectra.\n\nAntimatter: It predicts the existence of antiparticles, such as the positron.\n\nMagnetic moment: It gives an electron \\(g\\)-factor of exactly 2 at tree level (later corrected slightly by quantum electrodynamics).",
+    "objectID": "mod4/spin.html#spin-operators",
+    "href": "mod4/spin.html#spin-operators",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.2 Spin Operators",
+    "text": "2.2 Spin Operators\nTo satisfy the eigenvalue and commutation relations, the spin operators are represented using the Pauli matrices, which provide a concrete \\(2\\times 2\\) matrix representation of spin-\\(\\tfrac{1}{2}\\) systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.\n\\[\n\\hat{S}_x = \\frac{\\hbar}{2}\\,\\sigma_x,\n\\qquad\n\\hat{S}_y = \\frac{\\hbar}{2}\\,\\sigma_y,\n\\qquad\n\\hat{S}_z = \\frac{\\hbar}{2}\\,\\sigma_z,\n\\]\nwhere\n\\[\n\\sigma_x = \\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}, \\quad\n\\sigma_y = \\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}, \\quad\n\\sigma_z = \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\n\n1. Commutator relations\nWe want to show that \\[\n[\\hat{S}_i, \\hat{S}_j] = i \\hbar \\, \\varepsilon_{ijk} \\hat{S}_k\n\\] for \\(i,j,k = x,y,z\\).\nStep 1: Write \\(\\hat{S}_i = \\frac{\\hbar}{2}\\sigma_i\\), then \\[\n[\\hat{S}_i, \\hat{S}_j] = \\frac{\\hbar^2}{4} [\\sigma_i, \\sigma_j].\n\\]\nStep 2: Recall the Pauli matrix commutators: \\[\n[\\sigma_x, \\sigma_y] = 2i \\sigma_z, \\quad\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\nStep 2: Compute the commutators of the Pauli matrices.\n\nExample: compute \\([\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x\\): \\[\n\\sigma_x \\sigma_y =\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n=\n\\begin{pmatrix} i & 0 \\\\ 0 & -i \\end{pmatrix} = i \\sigma_z,\n\\]\n\n\\[\n\\sigma_y \\sigma_x =\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n=\n\\begin{pmatrix}-i & 0 \\\\ 0 & i \\end{pmatrix} = -i \\sigma_z.\n\\]\n\nTherefore, \\[\n[\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x = i\\sigma_z - (-i\\sigma_z) = 2i \\sigma_z.\n\\]\nSimilarly, \\[\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\n\nThis shows explicitly how the commutators arise directly from the matrix multiplication.\nStep 3: Multiply by \\(\\frac{\\hbar^2}{4}\\): \\[\n[\\hat{S}_x, \\hat{S}_y] = \\frac{\\hbar^2}{4} \\cdot 2i \\sigma_z = i\\hbar \\hat{S}_z,\n\\] and similarly for the other pairs.\n\n\n\n2. Squared spin operator \\(\\hat{\\mathbf{S}}^2\\)\n\\(\\hat{\\mathbf{S}}^2 = \\hat{S}_x^2 + \\hat{S}_y^2 + \\hat{S}_z^2\\).\nStep 1: Substitute the Pauli matrices: \\[\n\\hat{S}_x^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_x^2, \\quad\n\\hat{S}_y^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_y^2, \\quad\n\\hat{S}_z^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_z^2.\n\\]\nStep 2: Use \\(\\sigma_i^2 = I_2\\) for all Pauli matrices: \\[\n\\hat{\\mathbf{S}}^2 = \\frac{\\hbar^2}{4} (I_2 + I_2 + I_2) = \\frac{3}{4} \\hbar^2 I_2.\n\\]\nStep 3: Action on spinors: \\[\n\\hat{\\mathbf{S}}^2 |\\uparrow\\rangle = \\frac{3}{4}\\hbar^2 |\\uparrow\\rangle, \\quad\n\\hat{\\mathbf{S}}^2 |\\downarrow\\rangle = \\frac{3}{4}\\hbar^2 |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{\\mathbf{S}}^2 |s,m_s\\rangle = \\hbar^2 s(s+1)\\,|s,m_s\\rangle.\\)\n\n\n\n3. z-component \\(\\hat{S}_z\\)\n\\(\\hat{S}_z = \\frac{\\hbar}{2} \\sigma_z = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}\\).\nStep 1: Apply to spin-up: \\[\n\\hat{S}_z |\\uparrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} |\\uparrow\\rangle\n\\]\nStep 2: Apply to spin-down: \\[\n\\hat{S}_z |\\downarrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}0 \\\\ 1\\end{pmatrix} = -\\frac{\\hbar}{2} |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{S}_z |s,m_s\\rangle = \\hbar m\\,|s,m_s\\rangle.\\)\nThese steps explicitly show the commutation relations and eigenvalues for spin-\\(\\frac{1}{2}\\) operators.",
     "crumbs": [
       "Home",
-      "Quantum Mechanics",
-      "Relativistic Wave Equations — the Dirac Equation"
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/index.html",
-    "href": "mod4/index.html",
-    "title": "Hydrogen (Details)",
+    "objectID": "mod4/spin.html#spin-in-hydrogen-states",
+    "href": "mod4/spin.html#spin-in-hydrogen-states",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.3 Spin in Hydrogen States",
+    "text": "2.3 Spin in Hydrogen States\nWhen spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers \\((n, \\ell, m_\\ell)\\) but also by the spin quantum numbers \\((s, m_s)\\).\nA complete basis state can thus be written as\n\\[\n|n, \\ell, m_\\ell, s, m_s\\rangle,\n\\]\nwhere:\n- \\(n\\) is the principal quantum number,\n- \\(\\ell\\) is the orbital angular momentum quantum number,\n- \\(m_\\ell\\) is the magnetic quantum number of orbital angular momentum,\n- \\(s = \\tfrac{1}{2}\\) for an electron,\n- \\(m_s = \\pm \\tfrac{1}{2}\\) is the spin projection.\nThis notation emphasizes that the electron’s state is a tensor product of its orbital part \\(|n,\\ell,m_\\ell\\rangle\\) and its spin part \\(|s,m_s\\rangle\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
+    "href": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.1 Spin–Orbit Interaction and the Hamiltonian",
+    "text": "4.1 Spin–Orbit Interaction and the Hamiltonian\nBecause both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional spin–orbit term, \\(\\hat{H}_{\\rm SO}\\), to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential \\(V(\\hat{\\vec r})\\) is\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nwhere \\(\\hat{\\mathbf p}\\) is the momentum operator, \\(\\mu\\) the (reduced) mass, and \\(\\hat{H}_{\\rm SO}\\) denotes the spin–orbit interaction, which arises due to the interaction of the magnetic moments and is\n\\[\n\\hat{H}_{\\rm SO} \\propto \\hat{\\vec{\\mu}}_\\ell \\cdot \\hat{\\vec{\\mu}}_s \\propto \\hat{\\vec{L}} \\cdot \\hat{\\vec{S}} = \\hat{L}_x\\hat{S}_x + \\hat{L}_y\\hat{S}_y + \\hat{L}_z\\hat{S}_z.\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nFor a central potential \\(V(r)\\) the standard spin–orbit term (obtained from the Dirac equation or from semi-classical Thomas-corrected arguments) can be written as\n\\[\n\\hat{H}_{\\rm SO} \\;=\\; \\frac{1}{2m^2 c^2}\\,\\frac{1}{r}\\frac{dV}{dr}\\;\\hat{\\vec L}\\!\\cdot\\!\\hat{\\vec S},\n\\]\nwhere \\(r=|\\hat{\\vec r}|\\), \\(\\hat{\\vec L}\\) is the orbital angular momentum operator and \\(\\hat{\\mathbf S}\\) the spin operator. (For the Coulomb potential \\(V(r)=-\\dfrac{Ze^2}{4\\pi\\varepsilon_0 r}\\) the radial factor becomes proportional to \\(1/r^3\\); here we keep the general \\(V(r)\\) form.)\n\n\n\nBecause \\(\\hat{H}_{\\rm SO}\\) contains \\(\\hat{\\mathbf L}\\cdot\\hat{\\mathbf S}\\), the full Hamiltonian no longer commutes with \\(\\hat{L}_z\\) or \\(\\hat{S}_z\\) separately. Formally,\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{L}_z] \\quad\\text{and}\\quad\n[\\hat{H},\\hat{S}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{S}_z].\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nTo see that these commutators are nonzero, compute (componentwise) the commutator of \\(\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S}\\) with \\(\\hat{L}_z\\):\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{L}_z\\big]\n&= \\big[L_x S_x + L_y S_y + L_z S_z,\\; L_z\\big] \\\\\n&= [L_x,L_z]\\,S_x + [L_y,L_z]\\,S_y + [L_z,L_z]\\,S_z \\\\\n&= -i\\hbar\\,L_y S_x - i\\hbar\\,L_x S_y \\\\\n&= -i\\hbar\\,(L_y S_x + L_x S_y),\n\\end{aligned}\n\\]\nwhich is generally nonzero (it vanishes only for special states). Hence\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{L}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\nSimilarly, using \\([S_i,S_j]=i\\hbar\\varepsilon_{ijk}S_k\\),\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{S}_z\\big]\n&= L_x\\,[S_x,S_z] + L_y\\,[S_y,S_z] + L_z\\,[S_z,S_z] \\\\\n&= -i\\hbar\\,L_x S_y + i\\hbar\\,L_y S_x \\\\\n&= i\\hbar\\,(L_y S_x - L_x S_y),\n\\end{aligned}\n\\]\nso\n\\[\n[\\hat{H},\\hat{S}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{S}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\n\n\n\nBecause \\(\\hat{L}_z\\) and \\(\\hat{S}_z\\) do not commute with the Hamiltonian containing spin–orbit coupling, the state \\(|n, \\ell, m_\\ell, s, m_s\\rangle\\) is not an eigenstate of the Hamiltonian anymore and the quantum numbers \\(m_\\ell\\) and \\(m_s\\) are no longer conserved.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#the-total-electron-angular-momentum",
+    "href": "mod4/spin.html#the-total-electron-angular-momentum",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.2 The Total Electron Angular Momentum",
+    "text": "4.2 The Total Electron Angular Momentum\nThe solution is to introduce the total electron angular momentum, \\(\\hat{\\vec{J}} = \\hat{\\vec{L}} + \\hat{\\vec{S}}\\). We can express the interaction term using the total angular momentum:\n\\[\n\\hat{\\vec{J}}^2 = \\hat{\\vec{L}}^2 + \\hat{\\vec{S}}^2 + 2\\,\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}}\n\\quad\\Longrightarrow\\quad\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big).\n\\]\nThe operators \\(\\hat{J}^2\\) and \\(\\hat{J}_z\\) commute with the Hamiltonian, so the quantum numbers \\(j\\) and \\(m_j\\) are now conserved. Their eigenvalues follow the standard angular momentum relations:\n\\[\n\\begin{align}\n\\hat{\\vec{J}}^2|j,m_j\\rangle &= \\hbar^2 j(j+1)|j,m_j\\rangle\\\\\n\\hat{J}_z|j,m_j\\rangle &= \\hbar m_j|j,m_j\\rangle\n\\end{align}\n\\]\nThe possible values for \\(j\\) are given by the Clebsch-Gordan series:\n\\[|\\ell-s| \\le j \\le \\ell+s.\\]\nThe new complete set of quantum numbers for the hydrogen atom, when spin is included, is\n\\[\n|n,\\ell,s,j,m_j\\rangle.\n\\]\nThese states are eigenstates of the Hamiltonian, and therefore provide the most convenient description of the system. The eigenvalue relation of the spin-orbit operator follows\n\\[\n\\begin{align}\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} |n,\\ell,s,j,m_j\\rangle = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big) |n,\\ell,s,j,m_j\\rangle\\\\\n= \\frac{\\hbar^2}{2}(j(j+1)-\\ell(\\ell+1)-s(s+1))|n,\\ell,s,j,m_j\\rangle.\n\\end{align}\n\\]\n\n\n\nIllustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red (LS_coupling_(corrected) by AnotherFlake under CC BY-SA 4.0)\n\n\nThe new eigenstates can also be written as linear combinations of the “old” basis states \\(|n,\\ell,m_\\ell,s,m_s\\rangle\\), where the orbital and spin angular momenta were treated separately.\nTo make this connection, we insert the identity operator expressed in the \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) basis:\n\\[\n|n,\\ell,s,j,m_j\\rangle\n= \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle\n\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle.\n\\]\nThe overlap coefficients\n\\[\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle\\]\nare precisely the Clebsch–Gordan coefficients, which describe how to combine orbital and spin angular momenta into total angular momentum.\nThus, the new basis states are superpositions of the old \\(|m_\\ell, m_s\\rangle\\) states, weighted by these coefficients.\n\n\n\n\n\n\nNoteNote: The Identity Operator in a Complete Basis\n\n\n\n\n\nIn quantum mechanics, a set of states \\(\\{|a_i\\rangle\\}\\) is called a complete orthonormal basis if:\n\n\\(\\langle a_i | a_j \\rangle = \\delta_{ij}\\) (orthonormality)\n\nThe set spans the whole Hilbert space (completeness).\n\nFor such a basis, the identity operator can be written as:\n\\[\n\\hat{I} = \\sum_i |a_i\\rangle \\langle a_i|.\n\\]\nThis operator acts like the “do nothing” operator, since for any state \\(|\\psi\\rangle\\):\n\\[\n\\hat{I}|\\psi\\rangle = \\sum_i |a_i\\rangle \\langle a_i|\\psi\\rangle = |\\psi\\rangle.\n\\]\nIn our case, the “old” states \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) form a complete basis, so we may freely insert\n\\[\n\\hat{I} = \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle \\langle n,\\ell,m_\\ell,s,m_s|.\n\\]\nThis is how the new coupled states \\(|n,\\ell,s,j,m_j\\rangle\\) can be expressed as superpositions of the old ones.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#eigenenergies",
+    "href": "mod4/spin.html#eigenenergies",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.3 Eigenenergies",
+    "text": "4.3 Eigenenergies\nIf we include the spin–orbit interaction in the Hamiltonian\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nthen the energy levels can no longer be labeled only by \\(n\\).\nInstead, they split according to the total angular momentum quantum number \\(j\\) and the orbital angular momentum quantum number \\(\\ell\\), so the eigenenergies depend on the set \\((n, \\ell, j)\\).\nHowever, this approach is incomplete. A fully consistent calculation of the fine structure requires additional relativistic corrections, which we do not discuss here in detail:\n\nthe Darwin term, arising from the “zitterbewegung” of the electron,\n\nand the Thomas precession correction, which modifies the effective strength of the spin–orbit interaction.\n\nWhen these effects are combined with the spin–orbit coupling, the result is the same fine structure spectrum that is obtained directly from the Dirac equation.\nIn the Dirac theory, the energy levels of hydrogen-like atoms (including the rest energy of the electron) are given by\n\\[\nE_{n,j} \\;=\\; m c^2 \\left[ 1 +\n\\left( \\frac{Z \\alpha}{n - (j + \\tfrac{1}{2}) + \\sqrt{(j+\\tfrac{1}{2})^2 - (Z\\alpha)^2}} \\right)^2\n\\right]^{-\\tfrac{1}{2}} ,\n\\]\nwhere \\(\\alpha\\) (\\(\\alpha=\\tfrac{1}{137}\\)) is the fine-structure constant and \\(Z\\) is the nuclear charge.\nThe above energies depend only on \\(n\\) and \\(j\\). Thus, while the Schrödinger equation with spin–orbit interaction suggests a dependence on \\(\\ell\\), the full relativistic treatment (or including the missing correction terms) removes this \\(\\ell\\)-dependence.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#fine-structure-energy-shift",
+    "href": "mod4/spin.html#fine-structure-energy-shift",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.4 Fine-Structure Energy Shift",
+    "text": "4.4 Fine-Structure Energy Shift\nIt is often more useful to consider the fine-structure shift rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:\n\\[\nE_n^{(0)} = - \\frac{\\mu c^2 (Z\\alpha)^2}{2 n^2},\n\\]\nwhere \\(\\mu\\) is the reduced mass of the electron. To leading order in \\((Z\\alpha)^2\\), the shift due to relativistic effects and spin–orbit interaction becomes\n\\[\n\\Delta E_{n,j}^{\\rm FS} = E_n^{(0)} \\, (Z\\alpha)^2 \\left( \\frac{1}{n} \\frac{1}{j + 1/2} - \\frac{3}{4 n^2} \\right).\n\\]\nThus, the total energy including fine structure is\n\\[\nE_{n,j} \\approx E_n^{(0)} + \\Delta E_{n,j}^{\\rm FS}.\n\\]\nNotes:\n\nThe first term in parentheses arises from the spin–orbit interaction.\n\nThe second term arises from the relativistic correction to the kinetic energy.\n\nAs in the full Dirac theory, the energy now depends on \\(n\\) and \\(j\\), but not on \\(\\ell\\) individually, consistent with experiment.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html",
+    "href": "mod4/hfs.html",
+    "title": "The Hyperfine Structure",
     "section": "",
-    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
+    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
     ]
   },
   {
-    "objectID": "mod4/index.html#introduction",
-    "href": "mod4/index.html#introduction",
-    "title": "Hydrogen (Details)",
+    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "title": "The Hyperfine Structure",
+    "section": "2.1 Worked numerical/physical example (sketch)",
+    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#operator-identities",
+    "href": "mod4/hfs.html#operator-identities",
+    "title": "The Hyperfine Structure",
+    "section": "3.1 Operator identities",
+    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
+    "href": "mod4/hfs.html#new-atomic-eigenstates",
+    "title": "The Hyperfine Structure",
+    "section": "3.2 New atomic eigenstates",
+    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "title": "The Hyperfine Structure",
+    "section": "3.3 Eigenvalue relations and energy formula",
+    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#possible-f-values",
+    "href": "mod4/hfs.html#possible-f-values",
+    "title": "The Hyperfine Structure",
+    "section": "3.4 Possible \\(F\\) values",
+    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "title": "The Hyperfine Structure",
+    "section": "4.1 Comments on the sign and ordering",
+    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Atomic, Molecular, and Optical Physics",
     "section": "",
-    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
+    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
     "crumbs": [
-      "Home",
-      "Hydrogen (Details)"
-    ]
-  },
-  {
-    "objectID": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
-    "href": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
-    "title": "Hydrogen (Details)",
-    "section": "A closer look — why the simple picture fails",
-    "text": "A closer look — why the simple picture fails\nHigh-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are shifted and split by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:\n\nSpin and Fine Structure — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the fine structure.\n\nThe Lamb Shift — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.\n\nHyperfine Structure — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.\n\nEach of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)"
-    ]
-  },
-  {
-    "objectID": "mod4/index.html#quick-comment-on-notation",
-    "href": "mod4/index.html#quick-comment-on-notation",
-    "title": "Hydrogen (Details)",
-    "section": "Quick comment on notation",
-    "text": "Quick comment on notation\nIn this chapter we will use the following conventions:\n\n\\(n,\\ell,m_\\ell\\) for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).\n\n\\(s\\) for the electron spin (for a single electron \\(s=\\tfrac{1}{2}\\)).\n\n\\(j\\) for the single-electron total angular momentum \\(j=\\ell+s\\).\n\n\\(I\\) for the nuclear spin and \\(F\\) for the total atomic angular momentum \\(F=J+I\\).\n\n(If a section couples many electrons, capital \\(L,S,J\\) denote the total orbital, total spin, and total electronic angular momentum.)",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)"
-    ]
-  },
-  {
-    "objectID": "mod4/index.html#summary",
-    "href": "mod4/index.html#summary",
-    "title": "Hydrogen (Details)",
-    "section": "Summary",
-    "text": "Summary\nThe Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)"
+      "Home"
     ]
   },
   {
@@ -655,284 +666,262 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Atomic, Molecular, and Optical Physics",
+    "objectID": "mod4/index.html",
+    "href": "mod4/index.html",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
-      "Home"
+      "Home",
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html",
-    "href": "mod4/hfs.html",
-    "title": "The Hyperfine Structure",
+    "objectID": "mod4/index.html#introduction",
+    "href": "mod4/index.html#introduction",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "title": "The Hyperfine Structure",
-    "section": "2.1 Worked numerical/physical example (sketch)",
-    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
+    "objectID": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "href": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "title": "Hydrogen (Details)",
+    "section": "A closer look — why the simple picture fails",
+    "text": "A closer look — why the simple picture fails\nHigh-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are shifted and split by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:\n\nSpin and Fine Structure — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the fine structure.\n\nThe Lamb Shift — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.\n\nHyperfine Structure — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.\n\nEach of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#operator-identities",
-    "href": "mod4/hfs.html#operator-identities",
-    "title": "The Hyperfine Structure",
-    "section": "3.1 Operator identities",
-    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
+    "objectID": "mod4/index.html#quick-comment-on-notation",
+    "href": "mod4/index.html#quick-comment-on-notation",
+    "title": "Hydrogen (Details)",
+    "section": "Quick comment on notation",
+    "text": "Quick comment on notation\nIn this chapter we will use the following conventions:\n\n\\(n,\\ell,m_\\ell\\) for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).\n\n\\(s\\) for the electron spin (for a single electron \\(s=\\tfrac{1}{2}\\)).\n\n\\(j\\) for the single-electron total angular momentum \\(j=\\ell+s\\).\n\n\\(I\\) for the nuclear spin and \\(F\\) for the total atomic angular momentum \\(F=J+I\\).\n\n(If a section couples many electrons, capital \\(L,S,J\\) denote the total orbital, total spin, and total electronic angular momentum.)",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
-    "href": "mod4/hfs.html#new-atomic-eigenstates",
-    "title": "The Hyperfine Structure",
-    "section": "3.2 New atomic eigenstates",
-    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
+    "objectID": "mod4/index.html#summary",
+    "href": "mod4/index.html#summary",
+    "title": "Hydrogen (Details)",
+    "section": "Summary",
+    "text": "Summary\nThe Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "title": "The Hyperfine Structure",
-    "section": "3.3 Eigenvalue relations and energy formula",
-    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#possible-f-values",
-    "href": "mod4/hfs.html#possible-f-values",
-    "title": "The Hyperfine Structure",
-    "section": "3.4 Possible \\(F\\) values",
-    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "title": "The Hyperfine Structure",
-    "section": "4.1 Comments on the sign and ordering",
-    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html",
-    "href": "mod4/spin.html",
-    "title": "Electron Spin and Fine Structure",
+    "objectID": "mod4/relwaves.html",
+    "href": "mod4/relwaves.html",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
     "section": "",
-    "text": "This chapter introduces the concept of electron spin and its consequences for the energy structure of atoms, particularly the hydrogen atom. We discuss how spin interacts with orbital angular momentum to produce fine structure in atomic spectra and how relativistic corrections refine the energy levels.\nThe specific goals for this chapter are:\n\nIntroduce the electron spin operator \\(\\hat{\\vec S}\\), its eigenvalues, and its commutation relations, highlighting the analogy to orbital angular momentum.\nPresent the Pauli matrix representation of spin-\\(\\tfrac{1}{2}\\) systems and demonstrate explicitly the commutator relations and eigenvalue equations.\nDescribe how the spin of the electron is combined with orbital angular momentum to define the total angular momentum \\(\\hat{\\vec J} = \\hat{\\vec L} + \\hat{\\vec S}\\).\nDerive the form of the spin–orbit interaction in the Hamiltonian and show how it modifies the conserved quantum numbers.\nExplain how the new complete set of quantum numbers \\(|n, \\ell, s, j, m_j\\rangle\\) is constructed using Clebsch–Gordan coefficients and the concept of the identity operator in a complete basis.\nDiscuss the fine-structure energy shifts, their origin from spin–orbit coupling and relativistic corrections, and the connection to the Dirac equation results.\nIntroduce term symbols (\\({ }^{2S+1}L_J\\)) and their use in describing atomic states, including the labeling of fine-structure-split energy levels.\n\nBy the end of this chapter, the student should be able to describe the spin of the electron, understand its contribution to the fine structure of atomic spectra, and connect the quantum numbers of total angular momentum to the observed energy level splittings.",
+    "text": "Our goal is to find an equation that consistently describes a free particle in a way that is both quantum mechanical and relativistic.\nQuantum mechanics, through the Schrödinger equation, successfully explains many microscopic phenomena but does not respect the principles of special relativity. On the other hand, special relativity dictates the correct relationship between energy and momentum, which must also hold at the quantum level. Reconciling these two frameworks is the challenge that led from the Schrödinger equation to the Klein–Gordon equation, and ultimately to the Dirac equation.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
     ]
   },
   {
-    "objectID": "mod4/spin.html#the-sterngerlach-experiment",
-    "href": "mod4/spin.html#the-sterngerlach-experiment",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.1 The Stern–Gerlach Experiment",
-    "text": "1.1 The Stern–Gerlach Experiment\nIn 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an inhomogeneous magnetic field (Stern & Gerlach, 1922).\n\nSetup: A heated oven produces a jet of silver atoms, which is then collimated into a narrow beam. The beam enters a region between specially shaped magnet poles, arranged so that the magnetic field is not uniform but has a strong vertical gradient.\n\nAfter passing through the magnet, the atoms travel to a distant detection screen, where their spatial distribution can be recorded.\n\nWhat happens physically?\nThe silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete values — the phenomenon of spatial quantization (Richtungsquantelung).\n\n\n\nStern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#the-einsteinde-haas-experiment",
-    "href": "mod4/spin.html#the-einsteinde-haas-experiment",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.2 The Einstein–de Haas Experiment",
-    "text": "1.2 The Einstein–de Haas Experiment\nSeveral years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum (Einstein & de Haas, 1915).\n\nSetup: A ferromagnetic cylinder (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.\n\nAround the cylinder is a coil of wire wound on a ferromagnetic core.\n\nWhen a current is switched on in the coil, it changes the magnetization of the cylinder.\n\nA small mirror is attached to the suspension, so that the mechanical rotation of the cylinder can be detected optically using a reflected probe light beam.\n\nWhat happens physically?\nWhen the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that magnetization arises from angular momentum. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.\n\n\n\nEinstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#historical-perspective",
-    "href": "mod4/spin.html#historical-perspective",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.3 Historical Perspective",
-    "text": "1.3 Historical Perspective\nAt the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of orbital angular momentum and the then-prevailing Bohr–Sommerfeld model of the atom.\n\nThe Stern–Gerlach experiment\nStern and Gerlach themselves interpreted their observation of beam splitting as evidence for the quantization of orbital angular momentum along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the \\(z\\)-axis should then yield discrete values, consistent with their result.\nWhat is striking in hindsight is that the silver atom has only a single valence electron in an \\(s\\)-orbital (\\(\\ell = 0\\)). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict no orbital magnetic moment at all in this case, and thus no splitting. Yet Stern and Gerlach observed two distinct components, not more and not less.\nThis outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin \\(s = \\tfrac{1}{2}\\).\n\n\nThe Einstein–de Haas experiment\nEinstein and de Haas (1915) were motivated by the idea of ring currents — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between magnetic moments and angular momentum.\nHowever, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about twice the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.\nIt was only later, with the recognition that the electron carries an intrinsic spin with \\(g \\approx 2\\), that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s \\(g\\)-factor without knowing that spin existed.\n\n\nSynthesis\nFrom today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:\n\nStern–Gerlach: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.\n\nEinstein–de Haas: seen as proof that magnetism stems from angular momentum, though the anomalous factor of two hinted at a hidden degree of freedom.\n\nOnly with Pauli’s exclusion principle (1925) and the proposal of electron spin by Uhlenbeck and Goudsmit (1925) were these puzzles fully understood. The reinterpretation of these classic experiments thus marks a turning point in atomic physics — from the orbital models of Bohr–Sommerfeld to the modern framework of quantum mechanics with spin.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#notation",
-    "href": "mod4/spin.html#notation",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.1 Notation",
-    "text": "2.1 Notation\nIt is conventional to introduce the shorthand:\n\nSpin-up: \\(|\\tfrac{1}{2}, +\\tfrac{1}{2}\\rangle \\equiv |\\uparrow\\rangle \\equiv \\begin{pmatrix}1 \\\\ 0\\end{pmatrix}\\)\nSpin-down: \\(|\\tfrac{1}{2}, -\\tfrac{1}{2}\\rangle \\equiv |\\downarrow\\rangle \\equiv \\begin{pmatrix}0 \\\\ 1\\end{pmatrix}\\)\n\nUnlike orbital states, there is no spatial wavefunction representation for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spin-operators",
-    "href": "mod4/spin.html#spin-operators",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.2 Spin Operators",
-    "text": "2.2 Spin Operators\nTo satisfy the eigenvalue and commutation relations, the spin operators are represented using the Pauli matrices, which provide a concrete \\(2\\times 2\\) matrix representation of spin-\\(\\tfrac{1}{2}\\) systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.\n\\[\n\\hat{S}_x = \\frac{\\hbar}{2}\\,\\sigma_x,\n\\qquad\n\\hat{S}_y = \\frac{\\hbar}{2}\\,\\sigma_y,\n\\qquad\n\\hat{S}_z = \\frac{\\hbar}{2}\\,\\sigma_z,\n\\]\nwhere\n\\[\n\\sigma_x = \\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}, \\quad\n\\sigma_y = \\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}, \\quad\n\\sigma_z = \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\n\n1. Commutator relations\nWe want to show that \\[\n[\\hat{S}_i, \\hat{S}_j] = i \\hbar \\, \\varepsilon_{ijk} \\hat{S}_k\n\\] for \\(i,j,k = x,y,z\\).\nStep 1: Write \\(\\hat{S}_i = \\frac{\\hbar}{2}\\sigma_i\\), then \\[\n[\\hat{S}_i, \\hat{S}_j] = \\frac{\\hbar^2}{4} [\\sigma_i, \\sigma_j].\n\\]\nStep 2: Recall the Pauli matrix commutators: \\[\n[\\sigma_x, \\sigma_y] = 2i \\sigma_z, \\quad\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\nStep 2: Compute the commutators of the Pauli matrices.\n\nExample: compute \\([\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x\\): \\[\n\\sigma_x \\sigma_y =\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n=\n\\begin{pmatrix} i & 0 \\\\ 0 & -i \\end{pmatrix} = i \\sigma_z,\n\\]\n\n\\[\n\\sigma_y \\sigma_x =\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n=\n\\begin{pmatrix}-i & 0 \\\\ 0 & i \\end{pmatrix} = -i \\sigma_z.\n\\]\n\nTherefore, \\[\n[\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x = i\\sigma_z - (-i\\sigma_z) = 2i \\sigma_z.\n\\]\nSimilarly, \\[\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\n\nThis shows explicitly how the commutators arise directly from the matrix multiplication.\nStep 3: Multiply by \\(\\frac{\\hbar^2}{4}\\): \\[\n[\\hat{S}_x, \\hat{S}_y] = \\frac{\\hbar^2}{4} \\cdot 2i \\sigma_z = i\\hbar \\hat{S}_z,\n\\] and similarly for the other pairs.\n\n\n\n2. Squared spin operator \\(\\hat{\\mathbf{S}}^2\\)\n\\(\\hat{\\mathbf{S}}^2 = \\hat{S}_x^2 + \\hat{S}_y^2 + \\hat{S}_z^2\\).\nStep 1: Substitute the Pauli matrices: \\[\n\\hat{S}_x^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_x^2, \\quad\n\\hat{S}_y^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_y^2, \\quad\n\\hat{S}_z^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_z^2.\n\\]\nStep 2: Use \\(\\sigma_i^2 = I_2\\) for all Pauli matrices: \\[\n\\hat{\\mathbf{S}}^2 = \\frac{\\hbar^2}{4} (I_2 + I_2 + I_2) = \\frac{3}{4} \\hbar^2 I_2.\n\\]\nStep 3: Action on spinors: \\[\n\\hat{\\mathbf{S}}^2 |\\uparrow\\rangle = \\frac{3}{4}\\hbar^2 |\\uparrow\\rangle, \\quad\n\\hat{\\mathbf{S}}^2 |\\downarrow\\rangle = \\frac{3}{4}\\hbar^2 |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{\\mathbf{S}}^2 |s,m_s\\rangle = \\hbar^2 s(s+1)\\,|s,m_s\\rangle.\\)\n\n\n\n3. z-component \\(\\hat{S}_z\\)\n\\(\\hat{S}_z = \\frac{\\hbar}{2} \\sigma_z = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}\\).\nStep 1: Apply to spin-up: \\[\n\\hat{S}_z |\\uparrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} |\\uparrow\\rangle\n\\]\nStep 2: Apply to spin-down: \\[\n\\hat{S}_z |\\downarrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}0 \\\\ 1\\end{pmatrix} = -\\frac{\\hbar}{2} |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{S}_z |s,m_s\\rangle = \\hbar m\\,|s,m_s\\rangle.\\)\nThese steps explicitly show the commutation relations and eigenvalues for spin-\\(\\frac{1}{2}\\) operators.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spin-in-hydrogen-states",
-    "href": "mod4/spin.html#spin-in-hydrogen-states",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.3 Spin in Hydrogen States",
-    "text": "2.3 Spin in Hydrogen States\nWhen spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers \\((n, \\ell, m_\\ell)\\) but also by the spin quantum numbers \\((s, m_s)\\).\nA complete basis state can thus be written as\n\\[\n|n, \\ell, m_\\ell, s, m_s\\rangle,\n\\]\nwhere:\n- \\(n\\) is the principal quantum number,\n- \\(\\ell\\) is the orbital angular momentum quantum number,\n- \\(m_\\ell\\) is the magnetic quantum number of orbital angular momentum,\n- \\(s = \\tfrac{1}{2}\\) for an electron,\n- \\(m_s = \\pm \\tfrac{1}{2}\\) is the spin projection.\nThis notation emphasizes that the electron’s state is a tensor product of its orbital part \\(|n,\\ell,m_\\ell\\rangle\\) and its spin part \\(|s,m_s\\rangle\\).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
-    "href": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.1 Spin–Orbit Interaction and the Hamiltonian",
-    "text": "4.1 Spin–Orbit Interaction and the Hamiltonian\nBecause both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional spin–orbit term, \\(\\hat{H}_{\\rm SO}\\), to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential \\(V(\\hat{\\vec r})\\) is\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nwhere \\(\\hat{\\mathbf p}\\) is the momentum operator, \\(\\mu\\) the (reduced) mass, and \\(\\hat{H}_{\\rm SO}\\) denotes the spin–orbit interaction, which arises due to the interaction of the magnetic moments and is\n\\[\n\\hat{H}_{\\rm SO} \\propto \\hat{\\vec{\\mu}}_\\ell \\cdot \\hat{\\vec{\\mu}}_s \\propto \\hat{\\vec{L}} \\cdot \\hat{\\vec{S}} = \\hat{L}_x\\hat{S}_x + \\hat{L}_y\\hat{S}_y + \\hat{L}_z\\hat{S}_z.\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nFor a central potential \\(V(r)\\) the standard spin–orbit term (obtained from the Dirac equation or from semi-classical Thomas-corrected arguments) can be written as\n\\[\n\\hat{H}_{\\rm SO} \\;=\\; \\frac{1}{2m^2 c^2}\\,\\frac{1}{r}\\frac{dV}{dr}\\;\\hat{\\vec L}\\!\\cdot\\!\\hat{\\vec S},\n\\]\nwhere \\(r=|\\hat{\\vec r}|\\), \\(\\hat{\\vec L}\\) is the orbital angular momentum operator and \\(\\hat{\\mathbf S}\\) the spin operator. (For the Coulomb potential \\(V(r)=-\\dfrac{Ze^2}{4\\pi\\varepsilon_0 r}\\) the radial factor becomes proportional to \\(1/r^3\\); here we keep the general \\(V(r)\\) form.)\n\n\n\nBecause \\(\\hat{H}_{\\rm SO}\\) contains \\(\\hat{\\mathbf L}\\cdot\\hat{\\mathbf S}\\), the full Hamiltonian no longer commutes with \\(\\hat{L}_z\\) or \\(\\hat{S}_z\\) separately. Formally,\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{L}_z] \\quad\\text{and}\\quad\n[\\hat{H},\\hat{S}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{S}_z].\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nTo see that these commutators are nonzero, compute (componentwise) the commutator of \\(\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S}\\) with \\(\\hat{L}_z\\):\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{L}_z\\big]\n&= \\big[L_x S_x + L_y S_y + L_z S_z,\\; L_z\\big] \\\\\n&= [L_x,L_z]\\,S_x + [L_y,L_z]\\,S_y + [L_z,L_z]\\,S_z \\\\\n&= -i\\hbar\\,L_y S_x - i\\hbar\\,L_x S_y \\\\\n&= -i\\hbar\\,(L_y S_x + L_x S_y),\n\\end{aligned}\n\\]\nwhich is generally nonzero (it vanishes only for special states). Hence\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{L}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\nSimilarly, using \\([S_i,S_j]=i\\hbar\\varepsilon_{ijk}S_k\\),\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{S}_z\\big]\n&= L_x\\,[S_x,S_z] + L_y\\,[S_y,S_z] + L_z\\,[S_z,S_z] \\\\\n&= -i\\hbar\\,L_x S_y + i\\hbar\\,L_y S_x \\\\\n&= i\\hbar\\,(L_y S_x - L_x S_y),\n\\end{aligned}\n\\]\nso\n\\[\n[\\hat{H},\\hat{S}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{S}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\n\n\n\nBecause \\(\\hat{L}_z\\) and \\(\\hat{S}_z\\) do not commute with the Hamiltonian containing spin–orbit coupling, the state \\(|n, \\ell, m_\\ell, s, m_s\\rangle\\) is not an eigenstate of the Hamiltonian anymore and the quantum numbers \\(m_\\ell\\) and \\(m_s\\) are no longer conserved.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#the-total-electron-angular-momentum",
-    "href": "mod4/spin.html#the-total-electron-angular-momentum",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.2 The Total Electron Angular Momentum",
-    "text": "4.2 The Total Electron Angular Momentum\nThe solution is to introduce the total electron angular momentum, \\(\\hat{\\vec{J}} = \\hat{\\vec{L}} + \\hat{\\vec{S}}\\). We can express the interaction term using the total angular momentum:\n\\[\n\\hat{\\vec{J}}^2 = \\hat{\\vec{L}}^2 + \\hat{\\vec{S}}^2 + 2\\,\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}}\n\\quad\\Longrightarrow\\quad\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big).\n\\]\nThe operators \\(\\hat{J}^2\\) and \\(\\hat{J}_z\\) commute with the Hamiltonian, so the quantum numbers \\(j\\) and \\(m_j\\) are now conserved. Their eigenvalues follow the standard angular momentum relations:\n\\[\n\\begin{align}\n\\hat{\\vec{J}}^2|j,m_j\\rangle &= \\hbar^2 j(j+1)|j,m_j\\rangle\\\\\n\\hat{J}_z|j,m_j\\rangle &= \\hbar m_j|j,m_j\\rangle\n\\end{align}\n\\]\nThe possible values for \\(j\\) are given by the Clebsch-Gordan series:\n\\[|\\ell-s| \\le j \\le \\ell+s.\\]\nThe new complete set of quantum numbers for the hydrogen atom, when spin is included, is\n\\[\n|n,\\ell,s,j,m_j\\rangle.\n\\]\nThese states are eigenstates of the Hamiltonian, and therefore provide the most convenient description of the system. The eigenvalue relation of the spin-orbit operator follows\n\\[\n\\begin{align}\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} |n,\\ell,s,j,m_j\\rangle = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big) |n,\\ell,s,j,m_j\\rangle\\\\\n= \\frac{\\hbar^2}{2}(j(j+1)-\\ell(\\ell+1)-s(s+1))|n,\\ell,s,j,m_j\\rangle.\n\\end{align}\n\\]\n\n\n\nIllustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red (LS_coupling_(corrected) by AnotherFlake under CC BY-SA 4.0)\n\n\nThe new eigenstates can also be written as linear combinations of the “old” basis states \\(|n,\\ell,m_\\ell,s,m_s\\rangle\\), where the orbital and spin angular momenta were treated separately.\nTo make this connection, we insert the identity operator expressed in the \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) basis:\n\\[\n|n,\\ell,s,j,m_j\\rangle\n= \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle\n\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle.\n\\]\nThe overlap coefficients\n\\[\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle\\]\nare precisely the Clebsch–Gordan coefficients, which describe how to combine orbital and spin angular momenta into total angular momentum.\nThus, the new basis states are superpositions of the old \\(|m_\\ell, m_s\\rangle\\) states, weighted by these coefficients.\n\n\n\n\n\n\nNoteNote: The Identity Operator in a Complete Basis\n\n\n\n\n\nIn quantum mechanics, a set of states \\(\\{|a_i\\rangle\\}\\) is called a complete orthonormal basis if:\n\n\\(\\langle a_i | a_j \\rangle = \\delta_{ij}\\) (orthonormality)\n\nThe set spans the whole Hilbert space (completeness).\n\nFor such a basis, the identity operator can be written as:\n\\[\n\\hat{I} = \\sum_i |a_i\\rangle \\langle a_i|.\n\\]\nThis operator acts like the “do nothing” operator, since for any state \\(|\\psi\\rangle\\):\n\\[\n\\hat{I}|\\psi\\rangle = \\sum_i |a_i\\rangle \\langle a_i|\\psi\\rangle = |\\psi\\rangle.\n\\]\nIn our case, the “old” states \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) form a complete basis, so we may freely insert\n\\[\n\\hat{I} = \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle \\langle n,\\ell,m_\\ell,s,m_s|.\n\\]\nThis is how the new coupled states \\(|n,\\ell,s,j,m_j\\rangle\\) can be expressed as superpositions of the old ones.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#eigenenergies",
-    "href": "mod4/spin.html#eigenenergies",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.3 Eigenenergies",
-    "text": "4.3 Eigenenergies\nIf we include the spin–orbit interaction in the Hamiltonian\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nthen the energy levels can no longer be labeled only by \\(n\\).\nInstead, they split according to the total angular momentum quantum number \\(j\\) and the orbital angular momentum quantum number \\(\\ell\\), so the eigenenergies depend on the set \\((n, \\ell, j)\\).\nHowever, this approach is incomplete. A fully consistent calculation of the fine structure requires additional relativistic corrections, which we do not discuss here in detail:\n\nthe Darwin term, arising from the “zitterbewegung” of the electron,\n\nand the Thomas precession correction, which modifies the effective strength of the spin–orbit interaction.\n\nWhen these effects are combined with the spin–orbit coupling, the result is the same fine structure spectrum that is obtained directly from the Dirac equation.\nIn the Dirac theory, the energy levels of hydrogen-like atoms (including the rest energy of the electron) are given by\n\\[\nE_{n,j} \\;=\\; m c^2 \\left[ 1 +\n\\left( \\frac{Z \\alpha}{n - (j + \\tfrac{1}{2}) + \\sqrt{(j+\\tfrac{1}{2})^2 - (Z\\alpha)^2}} \\right)^2\n\\right]^{-\\tfrac{1}{2}} ,\n\\]\nwhere \\(\\alpha\\) (\\(\\alpha=\\tfrac{1}{137}\\)) is the fine-structure constant and \\(Z\\) is the nuclear charge.\nThe above energies depend only on \\(n\\) and \\(j\\). Thus, while the Schrödinger equation with spin–orbit interaction suggests a dependence on \\(\\ell\\), the full relativistic treatment (or including the missing correction terms) removes this \\(\\ell\\)-dependence.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#fine-structure-energy-shift",
-    "href": "mod4/spin.html#fine-structure-energy-shift",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.4 Fine-Structure Energy Shift",
-    "text": "4.4 Fine-Structure Energy Shift\nIt is often more useful to consider the fine-structure shift rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:\n\\[\nE_n^{(0)} = - \\frac{\\mu c^2 (Z\\alpha)^2}{2 n^2},\n\\]\nwhere \\(\\mu\\) is the reduced mass of the electron. To leading order in \\((Z\\alpha)^2\\), the shift due to relativistic effects and spin–orbit interaction becomes\n\\[\n\\Delta E_{n,j}^{\\rm FS} = E_n^{(0)} \\, (Z\\alpha)^2 \\left( \\frac{1}{n} \\frac{1}{j + 1/2} - \\frac{3}{4 n^2} \\right).\n\\]\nThus, the total energy including fine structure is\n\\[\nE_{n,j} \\approx E_n^{(0)} + \\Delta E_{n,j}^{\\rm FS}.\n\\]\nNotes:\n\nThe first term in parentheses arises from the spin–orbit interaction.\n\nThe second term arises from the relativistic correction to the kinetic energy.\n\nAs in the full Dirac theory, the energy now depends on \\(n\\) and \\(j\\), but not on \\(\\ell\\) individually, consistent with experiment.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod3/index.html",
-    "href": "mod3/index.html",
-    "title": "The Hydrogen Atom — Basics",
+    "objectID": "mod4/relwaves.html#motivation",
+    "href": "mod4/relwaves.html#motivation",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
     "section": "",
-    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
+    "text": "Our goal is to find an equation that consistently describes a free particle in a way that is both quantum mechanical and relativistic.\nQuantum mechanics, through the Schrödinger equation, successfully explains many microscopic phenomena but does not respect the principles of special relativity. On the other hand, special relativity dictates the correct relationship between energy and momentum, which must also hold at the quantum level. Reconciling these two frameworks is the challenge that led from the Schrödinger equation to the Klein–Gordon equation, and ultimately to the Dirac equation.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)"
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
     ]
   },
   {
-    "objectID": "mod3/index.html#why-hydrogen",
-    "href": "mod3/index.html#why-hydrogen",
-    "title": "The Hydrogen Atom — Basics",
+    "objectID": "mod4/relwaves.html#schrödingers-equation",
+    "href": "mod4/relwaves.html#schrödingers-equation",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "section": "Schrödinger’s Equation",
+    "text": "Schrödinger’s Equation\nThe non-relativistic Schrödinger equation for a free particle is\n\\[\n-\\frac{\\hbar^{2}}{2m}\\,\\nabla^{2}\\phi(\\mathbf{r},t)\n= i\\hbar\\,\\frac{\\partial}{\\partial t}\\phi(\\mathbf{r},t).\n\\]\nThis equation successfully describes many quantum phenomena at low energies.\nHowever, it has a serious limitation: it is not consistent with special relativity.\nIn relativity, the energy–momentum relation is\n\\[\nE^{2} = p^{2}c^{2} + m^{2}c^{4}.\n\\]\nThe Schrödinger equation, being first-order in time but second-order in space, does not respect this relation. In other words, it is not Lorentz invariant.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
+    ]
+  },
+  {
+    "objectID": "mod4/relwaves.html#kleingordon-equation",
+    "href": "mod4/relwaves.html#kleingordon-equation",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "section": "Klein–Gordon Equation",
+    "text": "Klein–Gordon Equation\nA natural attempt to fix this is to take the relativistic dispersion relation and promote \\(E\\) and \\(\\mathbf{p}\\) to quantum operators:\n\\[\nE \\;\\to\\; i\\hbar \\frac{\\partial}{\\partial t},\n\\qquad\n\\mathbf{p} \\;\\to\\; -i\\hbar \\nabla.\n\\]\nApplying these substitutions to \\(E^2 = p^2c^2 + m^2c^4\\) leads to the Klein–Gordon equation (KGE):\n\\[\n\\left(-\\frac{1}{c^{2}} \\frac{\\partial^{2}}{\\partial t^{2}} + \\nabla^{2}\\right)\\phi(\\mathbf{r},t)\n= \\frac{m^{2}c^{2}}{\\hbar^{2}}\\,\\phi(\\mathbf{r},t).\n\\]\nThe Klein–Gordon equation is second-order in time, unlike the Schrödinger equation.\nIt correctly incorporates special relativity, but it comes with its own challenges:\n\nIt naturally describes spin-0 (scalar) particles rather than spin-\\(\\tfrac{1}{2}\\) particles like the electron.\n\nIts probability density can take negative values, making the usual probabilistic interpretation of \\(\\lvert\\phi\\rvert^2\\) problematic.\n\nBecause of these issues, the KGE alone is not sufficient to describe electrons and other spin-\\(\\tfrac{1}{2}\\) particles.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
+    ]
+  },
+  {
+    "objectID": "mod4/relwaves.html#diracs-approach",
+    "href": "mod4/relwaves.html#diracs-approach",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "section": "Dirac’s Approach",
+    "text": "Dirac’s Approach\nPaul Dirac sought an equation that was:\n\nFirst-order in both space and time derivatives, so that the probability density would remain positive and the equation would resemble Schrödinger’s form.\n\nRelativistically invariant, consistent with \\(E^{2} = p^{2}c^{2} + m^{2}c^{4}\\).\n\nTo achieve this, Dirac proposed writing the Hamiltonian in a linear form:\n\\[\nE = c\\,\\boldsymbol{\\alpha}\\cdot \\mathbf{p} + \\beta\\,mc^{2},\n\\]\nwhere \\(\\boldsymbol{\\alpha}\\) and \\(\\beta\\) are not numbers but matrices chosen to satisfy specific algebraic relations.\nPromoting \\(E \\to i\\hbar \\partial_t\\) and \\(\\mathbf{p} \\to -i\\hbar \\nabla\\), one obtains the Dirac equation:\n\\[\ni\\hbar \\frac{\\partial}{\\partial t}\\psi\n= \\Big(-i\\hbar c\\,\\boldsymbol{\\alpha}\\cdot\\nabla + \\beta\\,mc^{2}\\Big)\\psi.\n\\]\nThis can also be written in a compact, manifestly relativistic form using the gamma matrices \\(\\gamma^\\mu\\):\n\\[\ni\\hbar\\,\\gamma^{\\mu}\\partial_{\\mu}\\psi - mc\\,\\psi = 0,\n\\]\nwhere \\(\\mu = 0,1,2,3\\) runs over time and space components.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
+    ]
+  },
+  {
+    "objectID": "mod4/relwaves.html#gamma-matrices",
+    "href": "mod4/relwaves.html#gamma-matrices",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "section": "Gamma Matrices",
+    "text": "Gamma Matrices\nThe matrices \\(\\gamma^\\mu\\) must satisfy the anticommutation relations\n\\[\n\\{\\gamma^\\mu, \\gamma^\\nu\\} \\;=\\; \\gamma^\\mu \\gamma^\\nu + \\gamma^\\nu \\gamma^\\mu\n= 2\\,g^{\\mu\\nu}\\,I,\n\\]\nwith \\(g^{\\mu\\nu}\\) the Minkowski metric.\nOne explicit representation (the Dirac representation) uses \\(4\\times 4\\) matrices built from the Pauli matrices \\(\\sigma_i\\):\n\\[\n\\gamma^0 =\n\\begin{pmatrix}\nI & 0 \\\\ 0 & -I\n\\end{pmatrix},\n\\qquad\n\\gamma^i =\n\\begin{pmatrix}\n0 & \\sigma_i \\\\ -\\sigma_i & 0\n\\end{pmatrix},\n\\]\nwhere \\(i=1,2,3\\) and \\(I\\) is the \\(2\\times 2\\) identity matrix.\nThe Pauli matrices are the fundamental \\(2\\times 2\\) matrices that encode spin-\\(\\tfrac{1}{2}\\) structure in quantum mechanics:\n\\[\n\\sigma_x =\n\\begin{pmatrix}\n0 & 1 \\\\\n1 & 0\n\\end{pmatrix},\n\\quad\n\\sigma_y =\n\\begin{pmatrix}\n0 & -i \\\\\ni & 0\n\\end{pmatrix},\n\\quad\n\\sigma_z =\n\\begin{pmatrix}\n1 & 0 \\\\\n0 & -1\n\\end{pmatrix}.\n\\]\nThey satisfy the relations\n\\[\n[\\sigma_i, \\sigma_j] = 2 i \\,\\epsilon_{ijk}\\,\\sigma_k,\n\\qquad\n\\{\\sigma_i, \\sigma_j\\} = 2 \\delta_{ij} I,\n\\]\nwhich directly parallel the algebra of angular momentum operators.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
+    ]
+  },
+  {
+    "objectID": "mod4/relwaves.html#key-features-of-the-dirac-equation",
+    "href": "mod4/relwaves.html#key-features-of-the-dirac-equation",
+    "title": "Relativistic Wave Equations — the Dirac Equation",
+    "section": "Key Features of the Dirac Equation",
+    "text": "Key Features of the Dirac Equation\nThe Dirac equation has profound physical consequences:\n\nSpin-\\(\\tfrac{1}{2}\\): It naturally incorporates electron spin, without being put in by hand.\n\nFour-component spinors: The solutions \\(\\psi\\) have four components, corresponding to spin-up/spin-down and particle/antiparticle states.\n\nFine structure: It predicts relativistic corrections and spin–orbit coupling in atomic spectra.\n\nAntimatter: It predicts the existence of antiparticles, such as the positron.\n\nMagnetic moment: It gives an electron \\(g\\)-factor of exactly 2 at tree level (later corrected slightly by quantum electrodynamics).",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Relativistic Wave Equations — the Dirac Equation"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html",
+    "href": "mod3/hydrogen.html",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
     "section": "",
-    "text": "Hydrogen is the simplest atom, consisting of just one electron bound to one proton. Despite its simplicity, it provides the paradigm for quantum mechanics in atoms:\n\nIt is one of the very few systems where the Schrödinger equation can be solved exactly.\n\nIts spectrum was central to the historical development of quantum theory.\n\nMany techniques used for hydrogen generalize to more complex atoms and molecules.",
+    "text": "We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number \\(Z\\)). The goals of this chapter are:\n\nRe-express the Hamiltonian using the angular-momentum operator \\(\\hat{\\vec L}\\).\n\nSeparate variables in spherical coordinates and reduce the problem to a radial ordinary differential equation (ODE).\n\nSolve the radial ODE for bound states (\\(E&lt;0\\)), perform the asymptotic analysis, obtain the quantization condition, and write the normalized eigenfunctions.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)"
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/index.html#scope-of-this-section",
-    "href": "mod3/index.html#scope-of-this-section",
-    "title": "The Hydrogen Atom — Basics",
-    "section": "Scope of this Section",
-    "text": "Scope of this Section\nIn this chapter, we study hydrogen in the nonrelativistic Schrödinger picture.\nOur goals are:\n\nSolve the time-independent Schrödinger equation for the Coulomb potential.\n\nSeparate variables in spherical coordinates and identify radial and angular parts.\n\nDerive the hydrogenic eigenenergies and their degeneracies.\n\nUnderstand the structure of the spatial wavefunctions (orbitals).\n\nConnect angular momentum quantum numbers \\((l,m)\\) with the orbital shapes.\n\nThis provides the foundation for later refinements.",
+    "objectID": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
+    "href": "mod3/hydrogen.html#center-of-mass-and-relative-motion",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.1 Center of Mass and Relative Motion",
+    "text": "1.1 Center of Mass and Relative Motion\nIt is convenient to switch from the electron and proton coordinates \\((\\vec r_e, \\vec r_p)\\) to\n\nthe center-of-mass coordinate \\[\n\\vec R = \\frac{m \\vec r_e + M \\vec r_p}{m+M},\n\\]\nand the relative coordinate \\[\n\\vec r = \\vec r_e - \\vec r_p.\n\\]\n\nIn these new variables the Hamiltonian separates into two parts:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2(m+M)} \\nabla_R^2\n         -\\frac{\\hbar^2}{2\\mu} \\nabla_r^2\n         + V(r),\n\\]\nwhere\n\\[\n\\mu = \\frac{mM}{m+M}\n\\]\nis the reduced mass of the electron–proton system.\nThe term \\[\n-\\frac{\\hbar^2}{2(m+M)}\\nabla_R^2\n\\] describes the free motion of the atom as a whole through space. Since spectroscopy and bound-state problems are only sensitive to the internal dynamics, this center-of-mass contribution can be ignored (or factored out as a plane wave).",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)"
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/index.html#what-comes-next",
-    "href": "mod3/index.html#what-comes-next",
-    "title": "The Hydrogen Atom — Basics",
-    "section": "What Comes Next",
-    "text": "What Comes Next\nThe treatment here ignores effects such as spin, relativistic corrections, the Lamb shift, and hyperfine structure. These topics are crucial for precision AMO physics, and we will address them in the Hydrogen (Details) chapter.",
+    "objectID": "mod3/hydrogen.html#effective-one-body-hamiltonian",
+    "href": "mod3/hydrogen.html#effective-one-body-hamiltonian",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.2 Effective One-Body Hamiltonian",
+    "text": "1.2 Effective One-Body Hamiltonian\nThus, for studying the hydrogen spectrum we keep only the relative motion:\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\nabla_r^2\n         -\\frac{Z e^2}{4\\pi\\varepsilon_0}\\,\\frac{1}{r}.\n\\]\nThis is the familiar hydrogen Hamiltonian, except that the electron mass \\(m\\) is replaced by the reduced mass \\(\\mu\\).\nFor hydrogen, since \\(M \\gg m\\), one has \\(\\mu \\approx m\\), but the correction is important for high-precision spectroscopy.",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)"
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
-    "objectID": "mod3/index.html#a-final-remark",
-    "href": "mod3/index.html#a-final-remark",
-    "title": "The Hydrogen Atom — Basics",
-    "section": "A Final Remark",
-    "text": "A Final Remark\nHydrogen is not just a “toy problem.” It remains a testing ground for quantum mechanics and a reference point for experiments across physics, from spectroscopy to astrophysics. By mastering the hydrogen atom at this basic level, we gain insight into both the methods of quantum mechanics and the rich structure of atomic physics.",
+    "objectID": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
+    "href": "mod3/hydrogen.html#the-laplacian-and-hat-l2",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "1.3 The Laplacian and \\(\\hat L^2\\)",
+    "text": "1.3 The Laplacian and \\(\\hat L^2\\)\nWe will rewrite the Laplacian in spherical coordinates and express the angular part in terms of \\(\\hat L^2\\).\nIn spherical coordinates \\((r,\\theta,\\varphi)\\) the Laplacian acting on a scalar \\(\\psi(r,\\theta,\\varphi)\\) reads\n\\[\n\\nabla^2 \\psi\n= \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial \\psi}{\\partial r}\\Big)\n+ \\frac{1}{r^2}\\Bigg[\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial \\psi}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2\\psi}{\\partial\\varphi^2}\\Bigg].\n\\]\nRecall the angular momentum squared operator in coordinate representation:\n\\[\n\\hat L^2 = -\\hbar^2\\left[\n\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\!\\Big(\\sin\\theta\\frac{\\partial}{\\partial\\theta}\\Big)\n+ \\frac{1}{\\sin^2\\theta}\\frac{\\partial^2}{\\partial\\varphi^2}\n\\right].\n\\]\nComparing the two expressions gives the useful identity (acting on any \\(\\psi\\))\n\\[\n\\nabla^2 = \\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big) - \\frac{1}{\\hbar^2 r^2}\\,\\hat L^2 .\n\\]\nInsert this into the kinetic term of the Hamiltonian to obtain\n\\[\n\\begin{aligned}\n-\\frac{\\hbar^2}{2\\mu}\\nabla^2\n&= -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2}.\n\\end{aligned}\n\\]\nTherefore the full Hamiltonian becomes\n\\[\n\\hat H = -\\frac{\\hbar^2}{2\\mu}\\frac{1}{r^2}\\frac{\\partial}{\\partial r}\\!\\Big(r^2\\frac{\\partial}{\\partial r}\\Big)\n+ \\frac{\\hat L^2}{2 \\mu r^2} + V(r)\n\\]",
     "crumbs": [
       "Home",
-      "Hydrogen (Basics)"
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
+    "href": "mod3/hydrogen.html#the-rotational-centrifugal-barrier",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "2.1 The rotational (centrifugal) barrier",
+    "text": "2.1 The rotational (centrifugal) barrier\nThe term\n\\[\n\\frac{\\hbar^2 \\ell(\\ell+1)}{2 \\mu r^2}\n\\]\noriginates from the angular part of the kinetic energy. It acts like an effective potential that depends on \\(\\ell\\).\n\nFor \\(\\ell=0\\), this term vanishes, and the particle can access the region near \\(r=0\\).\n\nFor \\(\\ell&gt;0\\), the term grows rapidly as \\(r\\to 0\\), suppressing the radial wavefunction in the vicinity of the origin.\n\nThis is often called the centrifugal barrier. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
+    "href": "mod3/hydrogen.html#convert-to-the-reduced-radial-equation",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "2.2 Convert to the reduced radial equation",
+    "text": "2.2 Convert to the reduced radial equation\nDefine the reduced radial function\n\\[\nu(r) = r\\, R(r).\n\\]\nIt is straightforward to check that\n\\[\n\\frac{1}{r^2}\\frac{d}{dr}\\!\\Big(r^2\\frac{dR}{dr}\\Big)\n= \\frac{1}{r}\\frac{d^2}{dr^2}\\big(r R\\big)\n= \\frac{1}{r}\\frac{d^2 u}{dr^2}.\n\\]\nSubstituting into the radial equation gives the convenient one-dimensional form\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2}\n+ \\left[V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}\\right] u(r) = E\\, u(r).\n\\]\nThis is exactly the time-independent Schrödinger equation for a one-dimensional motion of \\(u(r)\\) on the half-line \\(r\\in(0,\\infty)\\) with the effective potential\n\\[\nV_{\\text{eff}}(r) = V(r) + \\frac{\\hbar^2 \\ell(\\ell+1)}{2\\mu r^2}.\n\\]\nThe boundary condition at the origin is \\(u(0)=0\\) (regularity) and \\(u(r)\\) must be square integrable on \\((0,\\infty)\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters (scaled units: ħ = m = k = 1)\nhbar = 1\nm = 1\nk = 1   # corresponds to e^2/(4πϵ0)\n\n# Define radial coordinate\nr = np.linspace(0.1, 30, 1000)  # avoid r=0 to prevent singularity\n\ndef V_eff(r, ell):\n    centrifugal = hbar**2 * ell * (ell + 1) / (2 * m * r**2)\n    coulomb = -k / r\n    return coulomb + centrifugal\n\n# Plot effective potentials for different l\nells = [0, 1, 2, 3]\nplt.figure(figsize=(8,6))\n\nfor ell in ells:\n    plt.plot(r, V_eff(r, ell), label=f\"$\\ell={ell}$\")\n\nplt.ylim(-0.5, 0.5)\nplt.xlim(0, 30)\nplt.axhline(0, color='black', linewidth=0.8)\nplt.title(\"Effective Radial Potential $V_{eff}(r)$\")\nplt.xlabel(\"r (arb. units)\")\nplt.ylabel(\"$V_{eff}(r)$ (arb. units)\")\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Effective radial Coulomb potential for different angular momenta.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#asymptotic-behavior",
+    "href": "mod3/hydrogen.html#asymptotic-behavior",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.1 Asymptotic behavior",
+    "text": "3.1 Asymptotic behavior\nAs \\(r\\to\\infty\\): the Coulomb potential is negligible compared to \\(E&lt;0\\), so the equation approximates\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} \\approx E\\, u .\n\\]\nSince \\(E&lt;0\\), set\n\\[\n\\kappa = \\sqrt{\\frac{-2\\mu E}{\\hbar^2}}\\quad (&gt;0),\n\\]\nand \\(u(r)\\sim e^{-\\kappa r}\\) as \\(r\\to\\infty\\) (the exponentially growing solution is discarded for normalizability).\nAs \\(r\\to 0\\): the dominant term is the centrifugal term \\(\\propto 1/r^2\\). Neglecting the Coulomb term for small \\(r\\) gives\n\\[\n-\\frac{\\hbar^2}{2\\mu}\\frac{d^2 u}{dr^2} + \\frac{\\hbar^2\\ell(\\ell+1)}{2\\mu r^2} u \\approx 0.\n\\]\nSolving the indicial equation yields the leading behavior \\(u(r)\\sim r^{\\ell+1}\\) (the second independent solution behaves like \\(r^{-\\ell}\\) and is non-physical because it is not regular at the origin). Therefore\n\\[\nR(r) = \\frac{u(r)}{r} \\sim r^{\\ell} \\quad (r\\to 0).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
+    "href": "mod3/hydrogen.html#polynomial-ansatz-and-reduced-equation",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.2 Polynomial Ansatz and reduced equation",
+    "text": "3.2 Polynomial Ansatz and reduced equation\nFrom the asymptotic analysis we propose\n\\[\nu(r) = r^{\\ell+1} e^{-\\kappa r} v(r),\n\\]\nwhere \\(v(r)\\) should be regular everywhere. Substituting this form into the full radial equation and using the dimensionless variable\n\\[\n\\rho = 2\\kappa r,\n\\]\none finds that \\(v(\\rho)\\) satisfies\n\\[\n\\rho \\frac{d^2 v}{d\\rho^2} + (2\\ell + 2 - \\rho)\\frac{dv}{d\\rho} +\n\\left( \\frac{Z e^2}{2\\pi \\varepsilon_0 \\hbar}\\frac{\\mu}{\\kappa} - \\ell - 1 \\right) v = 0.\n\\]\nThis is of the confluent hypergeometric form.\nTo solve, assume \\(v(\\rho)\\) can be expressed as a power series:\n\\[\nv(\\rho) = \\sum_{j=0}^{\\infty} a_j \\rho^j.\n\\]\nSubstituting this into the differential equation leads to a recurrence relation between coefficients:\n\\[\na_{j+1} = \\frac{j + \\ell + 1 - \\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa}}{(j+1)(j+2\\ell+2)}\\, a_j.\n\\]\n\nTermination condition\n\nIf the series does not terminate, the coefficients \\(a_j\\) fall off too slowly and \\(v(\\rho)\\) grows exponentially, which spoils normalizability.\n\nNormalizable solutions exist only if the numerator vanishes for some finite \\(j=n_r\\) (the radial quantum number). This forces the series to terminate, producing a polynomial.\n\nThus the termination condition is:\n\\[\n\\frac{\\mu Z e^2}{2\\pi \\varepsilon_0 \\hbar^2 \\kappa} = n_r + \\ell + 1 \\equiv n, \\qquad n=1,2,3,\\dots\n\\]\nwhere \\(n\\) is the principal quantum number.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
+    "href": "mod3/hydrogen.html#energy-quantization-and-the-principal-quantum-number",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "3.3 Energy quantization and the principal quantum number",
+    "text": "3.3 Energy quantization and the principal quantum number\nThe requirement that the power-series solution terminates at a finite order fixes the parameter \\(\\kappa\\). Using \\(\\kappa^2 = \\tfrac{-2\\mu E}{\\hbar^2}\\), the allowed bound-state energies are\n\n\n\n\n\n\nTipBound-state energies\n\n\n\n\\[\nE_n = - \\frac{\\mu e^4 Z^2}{2(4\\pi\\varepsilon_0)^2 \\hbar^2}\\,\\frac{1}{n^2}\n= -\\frac{R_\\mathrm{y} Z^2}{n^2}, \\qquad n = 1,2,3,\\dots\n\\]\n\n\nwhere\n\\[\nR_\\mathrm{y} = \\frac{\\mu e^4}{2(4\\pi\\varepsilon_0)^2\\hbar^2}\n\\]\nis the Rydberg energy (\\(R_\\mathrm{y} \\approx 13.6057\\ \\text{eV}\\)).\nIt is convenient to introduce the Bohr radius\n\\[\na_0 = \\frac{4\\pi\\varepsilon_0 \\hbar^2}{\\mu e^2},\n\\]\nso that the energy can also be written as\n\\[\nE_n = -\\frac{1}{2}\\frac{\\mu e^4 Z^2}{(4\\pi\\varepsilon_0)^2 \\hbar^2}\\frac{1}{n^2}\n= -\\frac{Z^2}{2}\\,\\frac{\\hbar^2}{\\mu a_0^2}\\,\\frac{1}{n^2}\n= -\\frac{Z^2}{n^2}\\,\\frac{e^2}{8\\pi\\varepsilon_0 a_0}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
+    ]
+  },
+  {
+    "objectID": "mod3/hydrogen.html#explicit-low-n-examples",
+    "href": "mod3/hydrogen.html#explicit-low-n-examples",
+    "title": "Hydrogen atom — Schrödinger equation and radial solutions",
+    "section": "4.1 Explicit low-\\(n\\) examples",
+    "text": "4.1 Explicit low-\\(n\\) examples\n\n1s state \\((n=1,\\ell=0)\\):\n\\[\nR_{10}(r) = 2 \\,a_0^{-3/2}\\, e^{-r/a_0}.\n\\]\n2s state \\((n=2,\\ell=0)\\):\n\\[\nR_{20}(r) = \\frac{1}{2\\sqrt{2}}\\, a_0^{-3/2} \\Big(2 - \\frac{r}{a_0}\\Big)\\, e^{-r/(2 a_0)}.\n\\]\n2p states \\((n=2,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{21}(r) = \\frac{1}{2\\sqrt{6}}\\, a_0^{-3/2}\\, \\frac{r}{a_0}\\, e^{-r/(2 a_0)}\n\\]\n\n\n\n3s state \\((n=3,\\ell=0)\\):\n\\[\nR_{30}(r) = \\frac{2}{81\\sqrt{3}}\\, a_0^{-3/2} \\Big(27 - 18 \\tfrac{r}{a_0} + 2 \\big(\\tfrac{r}{a_0}\\big)^2\\Big) e^{-r/(3a_0)}.\n\\]\n3p states \\((n=3,\\ell=1)\\); e.g. \\(m=0\\):\n\\[\nR_{31}(r) = \\frac{4}{81\\sqrt{6}}\\, a_0^{-3/2} \\Big(6 - \\tfrac{r}{a_0}\\Big)\\, \\frac{r}{a_0}\\, e^{-r/(3a_0)}.\n\\]\n3d states \\((n=3,\\ell=2)\\); e.g. \\(m=0\\):\n\\[\nR_{32}(r) = \\frac{4}{81\\sqrt{30}}\\, a_0^{-3/2} \\Big(\\tfrac{r}{a_0}\\Big)^2 e^{-r/(3a_0)}.\n\\]\n\n\nThese explicit forms are obtained by substituting \\(n,\\ell\\) into the general hydrogen radial wavefunction formula and using the associated Laguerre polynomials for small \\(n\\).\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Define the Bohr radius\na0 = 1.0\n\ndef R_10(r):\n    \"\"\"\n    1s radial wavefunction.\n    \"\"\"\n    return 2 * (a0**(-1.5)) * np.exp(-r / a0)\n\ndef R_20(r):\n    \"\"\"\n    2s radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(2))) * (a0**(-1.5)) * (2 - r / a0) * np.exp(-r / (2 * a0))\n\ndef R_21(r):\n    \"\"\"\n    2p radial wavefunction.\n    \"\"\"\n    return (1 / (2 * np.sqrt(6))) * (a0**(-1.5)) * (r / a0) * np.exp(-r / (2 * a0))\n\ndef R_30(r):\n    \"\"\"\n    3s radial wavefunction.\n    \"\"\"\n    return (2 / (81 * np.sqrt(3))) * (a0**(-1.5)) * (27 - 18 * (r / a0) + 2 * (r / a0)**2) * np.exp(-r / (3 * a0))\n\ndef R_31(r):\n    \"\"\"\n    3p radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(6))) * (a0**(-1.5)) * (6 - r / a0) * (r / a0) * np.exp(-r / (3 * a0))\n\ndef R_32(r):\n    \"\"\"\n    3d radial wavefunction.\n    \"\"\"\n    return (4 / (81 * np.sqrt(30))) * (a0**(-1.5)) * (r / a0)**2 * np.exp(-r / (3 * a0))\n\ndef P(R, r):\n    \"\"\"\n    Calculates the radial probability density P(r) = r^2 * |R(r)|^2\n    \"\"\"\n    return r**2 * np.abs(R)**2\n\n# Create a range of r values\nr_values = np.linspace(0, 25 * a0, 500)\n\n# Set up the plot\nfig, axes = plt.subplots(3, 2, figsize=(8, 8))\nfig.suptitle(\"Hydrogen Radial Wave Functions $R_{n\\ell}(r)$ and Probability Densities $P_{n\\ell}(r)$\", fontsize=16)\n\n# Plot for 1s state\nax1 = axes[0, 0]\nax1.set_title(\"1s State\")\nax1.plot(r_values, R_10(r_values), label='$R_{10}(r)$', color='blue')\nax1.plot(r_values, P(R_10(r_values), r_values), label='$P_{10}(r)$', color='red', linestyle='--')\nax1.set_xlabel('$r/a_0$')\nax1.set_xlim(0, 25)\nax1.legend()\nax1.grid(True)\n\n# Plot for 2s state\nax2 = axes[0, 1]\nax2.set_title(\"2s State\")\nax2.plot(r_values, R_20(r_values), label='$R_{20}(r)$', color='blue')\nax2.plot(r_values, P(R_20(r_values), r_values), label='$P_{20}(r)$', color='red', linestyle='--')\nax2.set_xlabel('$r/a_0$')\nax2.set_xlim(0, 25)\nax2.legend()\nax2.grid(True)\n\n# Plot for 2p state\nax3 = axes[1, 0]\nax3.set_title(\"2p State\")\nax3.plot(r_values, R_21(r_values), label='$R_{21}(r)$', color='blue')\nax3.plot(r_values, P(R_21(r_values), r_values), label='$P_{21}(r)$', color='red', linestyle='--')\nax3.set_xlabel('$r/a_0$')\nax3.set_xlim(0, 25)\nax3.legend()\nax3.grid(True)\n\n# Plot for 3s state\nax4 = axes[1, 1]\nax4.set_title(\"3s State\")\nax4.plot(r_values, R_30(r_values), label='$R_{30}(r)$', color='blue')\nax4.plot(r_values, P(R_30(r_values), r_values), label='$P_{30}(r)$', color='red', linestyle='--')\nax4.set_xlabel('$r/a_0$')\nax4.set_xlim(0, 25)\nax4.legend()\nax4.grid(True)\n\n# Plot for 3p state\nax5 = axes[2, 0]\nax5.set_title(\"3p State\")\nax5.plot(r_values, R_31(r_values), label='$R_{31}(r)$', color='blue')\nax5.plot(r_values, P(R_31(r_values), r_values), label='$P_{31}(r)$', color='red', linestyle='--')\nax5.set_xlabel('$r/a_0$')\nax5.set_xlim(0, 25)\nax5.legend()\nax5.grid(True)\n\n# Plot for 3d state\nax6 = axes[2, 1]\nax6.set_title(\"3d State\")\nax6.plot(r_values, R_32(r_values), label='$R_{32}(r)$', color='blue')\nax6.plot(r_values, P(R_32(r_values), r_values), label='$P_{32}(r)$', color='red', linestyle='--')\nax6.set_xlabel('$r/a_0$')\nax6.set_xlim(0, 25)\nax6.legend()\nax6.grid(True)\n\n# Adjust layout and show the plot\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 2: Radial wave functions and probability densities for low-\\(n\\) states.\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.constants import physical_constants\nfrom scipy.special import genlaguerre, factorial\n\n# Constants\na0 = physical_constants[\"Bohr radius\"][0]      # Bohr radius [m]\nEh = physical_constants[\"Hartree energy\"][0]   # Hartree energy [J]\neV = physical_constants[\"electron volt\"][0]    # 1 eV in J\n\nnmax = 4\n\n# General hydrogen radial wavefunction R_{nl}(r)\ndef R_nl(r, n, l):\n    if l &gt;= n or l &lt; 0:\n        raise ValueError(\"Quantum number l must satisfy 0 &lt;= l &lt; n\")\n    rho = 2 * r / (n * a0)\n    norm = np.sqrt((2/(n*a0))**3 * factorial(n-l-1)/(2*n*factorial(n+l)))\n    return norm * rho**l * np.exp(-rho/2) * genlaguerre(n-l-1, 2*l+1)(rho)\n\n# Radial probability densities P(r) = r^2 |R_{nl}(r)|^2\ndef P_n(r, n, l):\n    R = R_nl(r, n, l)\n    return r**2 * np.abs(R)**2\n\n# Energy levels [J]\ndef energy_n(n):\n    return -Eh / (2 * n**2)\n\n# Effective potential (Coulomb + centrifugal)\ndef V_r(r, l):\n    return -Eh * a0 / r + Eh * a0**2 * l*(l+1) / (2 * r**2)\n\n# Prepare data\nr = np.linspace(0.01*a0, 60*a0, 2000)  # radial range\n\n# Colors\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\n# Set up 2x2 subplots\nfig, axes = plt.subplots(2, 2, figsize=(11, 10), sharex=True, sharey=True)\naxes = axes.flatten()\n\nfor idx, myell in enumerate(range(4)):   # l = 0,1,2,3\n    ax = axes[idx]\n\n    # Effective potential\n    V = V_r(r, myell) / eV\n    ax.plot(r/a0, V, 'k', label=\"Effective potential\")\n\n    # Energy levels + radial probabilities\n    for i, n in enumerate(range(myell+1, nmax+1)):\n        E = energy_n(n)/eV\n        ax.hlines(E, 0, 40, colors=colors[n-1], linestyles='--', label=f\"n={n} level\")\n\n        P = P_n(r, n, myell)\n        P_scaled = (P/np.max(P)) * 5 + E  # scale & shift to energy level\n        ax.plot(r/a0, P_scaled, colors[n-1], label=f\"$P(r)$ for n={n}\")\n\n    # E=0 line\n    ax.axhline(0, color='gray', linewidth=1.2)\n\n    ax.set_xlim(0, 45)\n    ax.set_ylim(-20, 10)\n    ax.set_title(fr\"$\\ell={myell}$\", pad=10)\n    ax.grid(True)\n\n# Force ticks to show up only where wanted\nfor ax in axes:\n    ax.tick_params(labelbottom=False, labelleft=False)  # start blank\n\n# left column: y labels\naxes[0].tick_params(labelleft=True)\naxes[2].tick_params(labelleft=True)\n\n# bottom row: x labels\naxes[2].tick_params(labelbottom=True)\naxes[3].tick_params(labelbottom=True)\n\n# Shared axis labels (outside the plots)\nfig.text(0.5, 0.01, r\"$r/a_0$ (Bohr radii)\", ha=\"center\", fontsize=12)\nfig.text(0.01, 0.5, \"Energy (eV)\", va=\"center\", rotation=\"vertical\", fontsize=12)\n\n# Legend only in bottom-left subplot\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[2].legend(handles, labels, loc=\"lower left\", fontsize=10)\n\nfig.suptitle(\"Effective Potential and Hydrogen Atom Radial Probabilities\", fontsize=16)\nplt.tight_layout(rect=[0.04,0.04,1,0.95])\nplt.show()\n\n\n\n\n\n\n\n\nFigure 3: Radial wave probability densities in the effective potential for different \\(\\ell\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Basics)",
+      "Hydrogen atom — Schrödinger equation and radial solutions"
     ]
   },
   {
