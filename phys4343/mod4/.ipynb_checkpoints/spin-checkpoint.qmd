@@ -21,8 +21,77 @@ By the end of this chapter, the student should be able to describe the spin of t
 
 ---
 
+# 1. Historical Pretext
 
-# 1. The Electron Spin
+Before introducing the modern concept of electron spin, it is useful to recall two classic experiments that shaped our understanding of angular momentum and magnetic moments in atoms: the **Stern–Gerlach experiment** (1922) and the **Einstein–de Haas experiment** (1915).
+
+These experiments predate the explicit formulation of electron spin, and neither was originally interpreted in terms of spin. Nevertheless, they demonstrated crucial features of angular momentum quantization and the connection between angular momentum and magnetism.
+
+## 1.1 The Stern–Gerlach Experiment
+
+In 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an **inhomogeneous magnetic field** ([Stern & Gerlach, 1922](https://doi.org/10.1007%2FBF01326983){target="_blank"}).  
+
+- **Setup**: A heated oven produces a **jet of silver atoms**, which is then collimated into a narrow beam. The beam enters a region between specially shaped **magnet poles**, arranged so that the magnetic field is not uniform but has a strong vertical gradient.  
+- After passing through the magnet, the atoms travel to a distant **detection screen**, where their spatial distribution can be recorded.
+
+**What happens physically?**  
+The silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete
+values — the phenomenon of **spatial quantization** (Richtungsquantelung).
+
+![Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).](stern-gerlach.png){width=50% fig-alt="Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum."}
+
+---
+
+## 1.2 The Einstein–de Haas Experiment
+
+Several years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum ([Einstein & de Haas, 1915](https://dwc.knaw.nl/DL/publications/PU00012546.pdf){target="_blank"}).
+
+- **Setup**: A **ferromagnetic cylinder** (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.  
+- Around the cylinder is a **coil of wire** wound on a ferromagnetic core.  
+- When a current is switched on in the coil, it changes the **magnetization** of the cylinder.  
+- A **small mirror** is attached to the suspension, so that the mechanical rotation of the cylinder can be detected optically using a reflected probe light beam.
+
+**What happens physically?**  
+When the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that **magnetization arises from angular momentum**. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.
+
+![Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.](edehaas.png){width=50% fig-alt="Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light."}
+
+---
+
+## 1.3 Historical Perspective
+
+At the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of **orbital angular momentum** and the then-prevailing Bohr–Sommerfeld model of the atom.
+
+### The Stern–Gerlach experiment
+
+Stern and Gerlach themselves interpreted their observation of beam splitting as evidence for the **quantization of orbital angular momentum** along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the $z$-axis should then yield discrete values, consistent with their result.  
+
+What is striking in hindsight is that the silver atom has only a single valence electron in an $s$-orbital ($\ell = 0$). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict **no orbital magnetic moment at all** in this case, and thus no splitting. Yet Stern and Gerlach observed **two distinct components**, not more and not less.  
+
+This outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin $s = \tfrac{1}{2}$.
+
+### The Einstein–de Haas experiment
+
+Einstein and de Haas (1915) were motivated by the idea of **ring currents** — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between **magnetic moments and angular momentum**.  
+
+However, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about **twice** the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.  
+
+It was only later, with the recognition that the electron carries an intrinsic spin with $g \approx 2$, that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s $g$-factor without knowing that spin existed.
+
+### Synthesis
+
+From today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:  
+
+- **Stern–Gerlach**: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.  
+- **Einstein–de Haas**: seen as proof that magnetism stems from angular momentum, though the anomalous factor of two hinted at a hidden degree of freedom.  
+
+Only with Pauli’s exclusion principle (1925) and the proposal of electron spin by Uhlenbeck and Goudsmit (1925) were these puzzles fully understood. The reinterpretation of these classic experiments thus marks a turning point in atomic physics — from the orbital models of Bohr–Sommerfeld to the modern framework of quantum mechanics with spin.
+
+
+---
+
+
+# 2. The Electron Spin
 
 Electrons possess an **intrinsic angular momentum** called **spin** ($\hat{\vec{S}}$). Unlike orbital angular momentum, spin has **no classical analog**: it is a purely quantum property that must be described algebraically.  
 
@@ -51,7 +120,7 @@ m_s &= \pm \tfrac{1}{2}
 \end{align}
 $$
 
-## 1.1 Notation
+## 2.1 Notation
 
 It is conventional to introduce the shorthand:
 
@@ -60,7 +129,7 @@ It is conventional to introduce the shorthand:
 
 Unlike orbital states, there is **no spatial wavefunction representation** for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.  
 
-## 1.2 Spin Operators
+## 2.2 Spin Operators
 
 To satisfy the eigenvalue and commutation relations, the spin operators are represented using the **Pauli matrices**, which provide a concrete $2\times 2$ matrix representation of spin-$\tfrac{1}{2}$ systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.
 
@@ -193,7 +262,7 @@ $\Rightarrow \hat{S}_z |s,m_s\rangle = \hbar m\,|s,m_s\rangle.$
 These steps explicitly show the commutation relations and eigenvalues for spin-$\frac{1}{2}$ operators.
 :::
 
-## 1.3 Spin in Hydrogen States
+## 2.3 Spin in Hydrogen States
 
 When spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers $(n, \ell, m_\ell)$ but also by the spin quantum numbers $(s, m_s)$.  
 
@@ -214,7 +283,7 @@ This notation emphasizes that the electron’s state is a **tensor product** of 
 
 ---
 
-# 2. Magnetic Moments
+# 3. Magnetic Moments
 
 The angular momentum of an electron is associated with a magnetic moment $\vec \mu$. There are two contributions:
 
@@ -236,9 +305,9 @@ For the electron spin, $g_s \approx 2$, which **cannot be explained classically*
 
 ---
 
-# 3. The Fine Structure Interaction
+# 4. The Fine Structure Interaction
 
-## 3.1 Spin–Orbit Interaction and the Hamiltonian
+## 4.1 Spin–Orbit Interaction and the Hamiltonian
 
 Because both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional **spin–orbit term**, $\hat{H}_{\rm SO}$, to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential $V(\hat{\vec r})$ is
 
@@ -326,7 +395,7 @@ $$
 Because $\hat{L}_z$ and $\hat{S}_z$ do not commute with the Hamiltonian containing
 spin–orbit coupling, the state $|n, \ell, m_\ell, s, m_s\rangle$ is not an eigenstate of the Hamiltonian anymore and the quantum numbers $m_\ell$ and $m_s$ are no longer conserved.  
 
-## 3.2 The Total Electron Angular Momentum
+## 4.2 The Total Electron Angular Momentum
 
 The solution is to introduce the **total electron angular momentum**, $\hat{\vec{J}} = \hat{\vec{L}} + \hat{\vec{S}}$. We can express the interaction term using the total angular momentum:
 
@@ -366,7 +435,7 @@ $$
 \end{align}
 $$
 
-![Illustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red (from https://commons.wikimedia.org/wiki/File:LS_coupling_(corrected).png).](./LS_coupling_(corrected).png){fig-alt="Illustration of L–S coupling depicting J, L, and S vectors." fig-align="center" width=30%}
+![Illustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red ([LS_coupling_(corrected)](https://commons.wikimedia.org/wiki/File:LS_coupling_(corrected).png){target="_blank"} by AnotherFlake under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en){target="_blank"})](./LS_coupling_(corrected).png){fig-alt="Illustration of L–S coupling depicting J, L, and S vectors." fig-align="center" width=30%}
 
 
 The new eigenstates can also be written as linear combinations of the "old" basis states $|n,\ell,m_\ell,s,m_s\rangle$, where the orbital and spin angular momenta were treated separately.  
@@ -417,7 +486,7 @@ $$
 This is how the new coupled states $|n,\ell,s,j,m_j\rangle$ can be expressed as superpositions of the old ones.
 :::
 
-## 3.3 Eigenenergies
+## 4.3 Eigenenergies
 
 If we include the spin–orbit interaction in the Hamiltonian
 
@@ -450,7 +519,7 @@ The above energies depend only on $n$ and $j$. Thus, while the Schrödinger equa
 
 ---
 
-## 3.4 Fine-Structure Energy Shift
+## 4.4 Fine-Structure Energy Shift
 
 It is often more useful to consider the **fine-structure shift** rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:
 
@@ -479,7 +548,7 @@ $$
 
 ---
 
-# 4. Term Symbols and Naming Conventions
+# 5. Term Symbols and Naming Conventions
 
 In atomic and molecular physics (AMO), **term symbols** are used to describe the electronic states, including the splitting due to the fine structure. The general notation is:
 
