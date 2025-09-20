@@ -296,190 +296,301 @@
     ]
   },
   {
-    "objectID": "mod4/spin.html",
-    "href": "mod4/spin.html",
-    "title": "Electron Spin and Fine Structure",
+    "objectID": "mod4/fields.html",
+    "href": "mod4/fields.html",
+    "title": "Hydrogen in Static External Fields",
     "section": "",
-    "text": "This chapter introduces the concept of electron spin and its consequences for the energy structure of atoms, particularly the hydrogen atom. We discuss how spin interacts with orbital angular momentum to produce fine structure in atomic spectra and how relativistic corrections refine the energy levels.\nThe specific goals for this chapter are:\n\nIntroduce the electron spin operator \\(\\hat{\\vec S}\\), its eigenvalues, and its commutation relations, highlighting the analogy to orbital angular momentum.\nPresent the Pauli matrix representation of spin-\\(\\tfrac{1}{2}\\) systems and demonstrate explicitly the commutator relations and eigenvalue equations.\nDescribe how the spin of the electron is combined with orbital angular momentum to define the total angular momentum \\(\\hat{\\vec J} = \\hat{\\vec L} + \\hat{\\vec S}\\).\nDerive the form of the spin–orbit interaction in the Hamiltonian and show how it modifies the conserved quantum numbers.\nExplain how the new complete set of quantum numbers \\(|n, \\ell, s, j, m_j\\rangle\\) is constructed using Clebsch–Gordan coefficients and the concept of the identity operator in a complete basis.\nDiscuss the fine-structure energy shifts, their origin from spin–orbit coupling and relativistic corrections, and the connection to the Dirac equation results.\nIntroduce term symbols (\\({ }^{2S+1}L_J\\)) and their use in describing atomic states, including the labeling of fine-structure-split energy levels.\n\nBy the end of this chapter, the student should be able to describe the spin of the electron, understand its contribution to the fine structure of atomic spectra, and connect the quantum numbers of total angular momentum to the observed energy level splittings.",
+    "text": "This chapter collects commonly used formulae and order-of-magnitude estimates for how a hydrogenic atom responds to static external fields. We concentrate on the Zeeman effect (magnetic fields) and the leading quadratic Stark effect (electric fields), emphasising the interplay with fine and hyperfine structure and which quantum numbers remain “good” in the different parameter regimes.\nThe presentation is perturbative: choose the largest interaction as the unperturbed Hamiltonian and treat smaller interactions as perturbations. Where a derivation is somewhat lengthy it is placed in a collapsible note.",
     "crumbs": [
       "Home",
       "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
+      "Hydrogen in Static External Fields"
     ]
   },
   {
-    "objectID": "mod4/spin.html#the-sterngerlach-experiment",
-    "href": "mod4/spin.html#the-sterngerlach-experiment",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.1 The Stern–Gerlach Experiment",
-    "text": "1.1 The Stern–Gerlach Experiment\nIn 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an inhomogeneous magnetic field (Stern & Gerlach, 1922).\n\nSetup: A heated oven produces a jet of silver atoms, which is then collimated into a narrow beam. The beam enters a region between specially shaped magnet poles, arranged so that the magnetic field is not uniform but has a strong vertical gradient.\n\nAfter passing through the magnet, the atoms travel to a distant detection screen, where their spatial distribution can be recorded.\n\nWhat happens physically?\nThe silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete values — the phenomenon of spatial quantization (Richtungsquantelung).\n\n\n\nStern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#the-einsteinde-haas-experiment",
-    "href": "mod4/spin.html#the-einsteinde-haas-experiment",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.2 The Einstein–de Haas Experiment",
-    "text": "1.2 The Einstein–de Haas Experiment\nSeveral years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum (Einstein & de Haas, 1915).\n\nSetup: A ferromagnetic cylinder (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.\n\nAround the cylinder is a coil of wire wound on a ferromagnetic core.\n\nWhen a current is switched on in the coil, it changes the magnetization of the cylinder.\n\nA small mirror is attached to the suspension, so that the mechanical rotation of the cylinder can be detected optically using a reflected probe light beam.\n\nWhat happens physically?\nWhen the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that magnetization arises from angular momentum. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.\n\n\n\nEinstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#historical-perspective",
-    "href": "mod4/spin.html#historical-perspective",
-    "title": "Electron Spin and Fine Structure",
-    "section": "1.3 Historical Perspective",
-    "text": "1.3 Historical Perspective\nAt the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of orbital angular momentum and the then-prevailing Bohr–Sommerfeld model of the atom.\n\nThe Stern–Gerlach experiment\nStern and Gerlach themselves interpreted their observation of beam splitting as evidence for the quantization of orbital angular momentum along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the \\(z\\)-axis should then yield discrete values, consistent with their result.\nWhat is striking in hindsight is that the silver atom has only a single valence electron in an \\(s\\)-orbital (\\(\\ell = 0\\)). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict no orbital magnetic moment at all in this case, and thus no splitting. Yet Stern and Gerlach observed two distinct components, not more and not less.\nThis outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin \\(s = \\tfrac{1}{2}\\).\n\n\nThe Einstein–de Haas experiment\nEinstein and de Haas (1915) were motivated by the idea of ring currents — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between magnetic moments and angular momentum.\nHowever, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about twice the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.\nIt was only later, with the recognition that the electron carries an intrinsic spin with \\(g \\approx 2\\), that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s \\(g\\)-factor without knowing that spin existed.\n\n\nSynthesis\nFrom today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:\n\nStern–Gerlach: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.\n\nEinstein–de Haas: seen as proof that magnetism stems from angular momentum, though the anomalous factor of two hinted at a hidden degree of freedom.\n\nOnly with Pauli’s exclusion principle (1925) and the proposal of electron spin by Uhlenbeck and Goudsmit (1925) were these puzzles fully understood. The reinterpretation of these classic experiments thus marks a turning point in atomic physics — from the orbital models of Bohr–Sommerfeld to the modern framework of quantum mechanics with spin.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#notation",
-    "href": "mod4/spin.html#notation",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.1 Notation",
-    "text": "2.1 Notation\nIt is conventional to introduce the shorthand:\n\nSpin-up: \\(|\\tfrac{1}{2}, +\\tfrac{1}{2}\\rangle \\equiv |\\uparrow\\rangle \\equiv \\begin{pmatrix}1 \\\\ 0\\end{pmatrix}\\)\nSpin-down: \\(|\\tfrac{1}{2}, -\\tfrac{1}{2}\\rangle \\equiv |\\downarrow\\rangle \\equiv \\begin{pmatrix}0 \\\\ 1\\end{pmatrix}\\)\n\nUnlike orbital states, there is no spatial wavefunction representation for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spin-operators",
-    "href": "mod4/spin.html#spin-operators",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.2 Spin Operators",
-    "text": "2.2 Spin Operators\nTo satisfy the eigenvalue and commutation relations, the spin operators are represented using the Pauli matrices, which provide a concrete \\(2\\times 2\\) matrix representation of spin-\\(\\tfrac{1}{2}\\) systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.\n\\[\n\\hat{S}_x = \\frac{\\hbar}{2}\\,\\sigma_x,\n\\qquad\n\\hat{S}_y = \\frac{\\hbar}{2}\\,\\sigma_y,\n\\qquad\n\\hat{S}_z = \\frac{\\hbar}{2}\\,\\sigma_z,\n\\]\nwhere\n\\[\n\\sigma_x = \\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}, \\quad\n\\sigma_y = \\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}, \\quad\n\\sigma_z = \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\n\n1. Commutator relations\nWe want to show that \\[\n[\\hat{S}_i, \\hat{S}_j] = i \\hbar \\, \\varepsilon_{ijk} \\hat{S}_k\n\\] for \\(i,j,k = x,y,z\\).\nStep 1: Write \\(\\hat{S}_i = \\frac{\\hbar}{2}\\sigma_i\\), then \\[\n[\\hat{S}_i, \\hat{S}_j] = \\frac{\\hbar^2}{4} [\\sigma_i, \\sigma_j].\n\\]\nStep 2: Recall the Pauli matrix commutators: \\[\n[\\sigma_x, \\sigma_y] = 2i \\sigma_z, \\quad\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\nStep 2: Compute the commutators of the Pauli matrices.\n\nExample: compute \\([\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x\\): \\[\n\\sigma_x \\sigma_y =\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n=\n\\begin{pmatrix} i & 0 \\\\ 0 & -i \\end{pmatrix} = i \\sigma_z,\n\\]\n\n\\[\n\\sigma_y \\sigma_x =\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n=\n\\begin{pmatrix}-i & 0 \\\\ 0 & i \\end{pmatrix} = -i \\sigma_z.\n\\]\n\nTherefore, \\[\n[\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x = i\\sigma_z - (-i\\sigma_z) = 2i \\sigma_z.\n\\]\nSimilarly, \\[\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\n\nThis shows explicitly how the commutators arise directly from the matrix multiplication.\nStep 3: Multiply by \\(\\frac{\\hbar^2}{4}\\): \\[\n[\\hat{S}_x, \\hat{S}_y] = \\frac{\\hbar^2}{4} \\cdot 2i \\sigma_z = i\\hbar \\hat{S}_z,\n\\] and similarly for the other pairs.\n\n\n\n2. Squared spin operator \\(\\hat{\\mathbf{S}}^2\\)\n\\(\\hat{\\mathbf{S}}^2 = \\hat{S}_x^2 + \\hat{S}_y^2 + \\hat{S}_z^2\\).\nStep 1: Substitute the Pauli matrices: \\[\n\\hat{S}_x^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_x^2, \\quad\n\\hat{S}_y^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_y^2, \\quad\n\\hat{S}_z^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_z^2.\n\\]\nStep 2: Use \\(\\sigma_i^2 = I_2\\) for all Pauli matrices: \\[\n\\hat{\\mathbf{S}}^2 = \\frac{\\hbar^2}{4} (I_2 + I_2 + I_2) = \\frac{3}{4} \\hbar^2 I_2.\n\\]\nStep 3: Action on spinors: \\[\n\\hat{\\mathbf{S}}^2 |\\uparrow\\rangle = \\frac{3}{4}\\hbar^2 |\\uparrow\\rangle, \\quad\n\\hat{\\mathbf{S}}^2 |\\downarrow\\rangle = \\frac{3}{4}\\hbar^2 |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{\\mathbf{S}}^2 |s,m_s\\rangle = \\hbar^2 s(s+1)\\,|s,m_s\\rangle.\\)\n\n\n\n3. z-component \\(\\hat{S}_z\\)\n\\(\\hat{S}_z = \\frac{\\hbar}{2} \\sigma_z = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}\\).\nStep 1: Apply to spin-up: \\[\n\\hat{S}_z |\\uparrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} |\\uparrow\\rangle\n\\]\nStep 2: Apply to spin-down: \\[\n\\hat{S}_z |\\downarrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}0 \\\\ 1\\end{pmatrix} = -\\frac{\\hbar}{2} |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{S}_z |s,m_s\\rangle = \\hbar m\\,|s,m_s\\rangle.\\)\nThese steps explicitly show the commutation relations and eigenvalues for spin-\\(\\frac{1}{2}\\) operators.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spin-in-hydrogen-states",
-    "href": "mod4/spin.html#spin-in-hydrogen-states",
-    "title": "Electron Spin and Fine Structure",
-    "section": "2.3 Spin in Hydrogen States",
-    "text": "2.3 Spin in Hydrogen States\nWhen spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers \\((n, \\ell, m_\\ell)\\) but also by the spin quantum numbers \\((s, m_s)\\).\nA complete basis state can thus be written as\n\\[\n|n, \\ell, m_\\ell, s, m_s\\rangle,\n\\]\nwhere:\n- \\(n\\) is the principal quantum number,\n- \\(\\ell\\) is the orbital angular momentum quantum number,\n- \\(m_\\ell\\) is the magnetic quantum number of orbital angular momentum,\n- \\(s = \\tfrac{1}{2}\\) for an electron,\n- \\(m_s = \\pm \\tfrac{1}{2}\\) is the spin projection.\nThis notation emphasizes that the electron’s state is a tensor product of its orbital part \\(|n,\\ell,m_\\ell\\rangle\\) and its spin part \\(|s,m_s\\rangle\\).",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
-    "href": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.1 Spin–Orbit Interaction and the Hamiltonian",
-    "text": "4.1 Spin–Orbit Interaction and the Hamiltonian\nBecause both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional spin–orbit term, \\(\\hat{H}_{\\rm SO}\\), to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential \\(V(\\hat{\\vec r})\\) is\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nwhere \\(\\hat{\\mathbf p}\\) is the momentum operator, \\(\\mu\\) the (reduced) mass, and \\(\\hat{H}_{\\rm SO}\\) denotes the spin–orbit interaction, which arises due to the interaction of the magnetic moments and is\n\\[\n\\hat{H}_{\\rm SO} \\propto \\hat{\\vec{\\mu}}_\\ell \\cdot \\hat{\\vec{\\mu}}_s \\propto \\hat{\\vec{L}} \\cdot \\hat{\\vec{S}} = \\hat{L}_x\\hat{S}_x + \\hat{L}_y\\hat{S}_y + \\hat{L}_z\\hat{S}_z.\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nFor a central potential \\(V(r)\\) the standard spin–orbit term (obtained from the Dirac equation or from semi-classical Thomas-corrected arguments) can be written as\n\\[\n\\hat{H}_{\\rm SO} \\;=\\; \\frac{1}{2m^2 c^2}\\,\\frac{1}{r}\\frac{dV}{dr}\\;\\hat{\\vec L}\\!\\cdot\\!\\hat{\\vec S},\n\\]\nwhere \\(r=|\\hat{\\vec r}|\\), \\(\\hat{\\vec L}\\) is the orbital angular momentum operator and \\(\\hat{\\mathbf S}\\) the spin operator. (For the Coulomb potential \\(V(r)=-\\dfrac{Ze^2}{4\\pi\\varepsilon_0 r}\\) the radial factor becomes proportional to \\(1/r^3\\); here we keep the general \\(V(r)\\) form.)\n\n\n\nBecause \\(\\hat{H}_{\\rm SO}\\) contains \\(\\hat{\\mathbf L}\\cdot\\hat{\\mathbf S}\\), the full Hamiltonian no longer commutes with \\(\\hat{L}_z\\) or \\(\\hat{S}_z\\) separately. Formally,\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{L}_z] \\quad\\text{and}\\quad\n[\\hat{H},\\hat{S}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{S}_z].\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nTo see that these commutators are nonzero, compute (componentwise) the commutator of \\(\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S}\\) with \\(\\hat{L}_z\\):\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{L}_z\\big]\n&= \\big[L_x S_x + L_y S_y + L_z S_z,\\; L_z\\big] \\\\\n&= [L_x,L_z]\\,S_x + [L_y,L_z]\\,S_y + [L_z,L_z]\\,S_z \\\\\n&= -i\\hbar\\,L_y S_x - i\\hbar\\,L_x S_y \\\\\n&= -i\\hbar\\,(L_y S_x + L_x S_y),\n\\end{aligned}\n\\]\nwhich is generally nonzero (it vanishes only for special states). Hence\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{L}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\nSimilarly, using \\([S_i,S_j]=i\\hbar\\varepsilon_{ijk}S_k\\),\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{S}_z\\big]\n&= L_x\\,[S_x,S_z] + L_y\\,[S_y,S_z] + L_z\\,[S_z,S_z] \\\\\n&= -i\\hbar\\,L_x S_y + i\\hbar\\,L_y S_x \\\\\n&= i\\hbar\\,(L_y S_x - L_x S_y),\n\\end{aligned}\n\\]\nso\n\\[\n[\\hat{H},\\hat{S}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{S}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\n\n\n\nBecause \\(\\hat{L}_z\\) and \\(\\hat{S}_z\\) do not commute with the Hamiltonian containing spin–orbit coupling, the state \\(|n, \\ell, m_\\ell, s, m_s\\rangle\\) is not an eigenstate of the Hamiltonian anymore and the quantum numbers \\(m_\\ell\\) and \\(m_s\\) are no longer conserved.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#the-total-electron-angular-momentum",
-    "href": "mod4/spin.html#the-total-electron-angular-momentum",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.2 The Total Electron Angular Momentum",
-    "text": "4.2 The Total Electron Angular Momentum\nThe solution is to introduce the total electron angular momentum, \\(\\hat{\\vec{J}} = \\hat{\\vec{L}} + \\hat{\\vec{S}}\\). We can express the interaction term using the total angular momentum:\n\\[\n\\hat{\\vec{J}}^2 = \\hat{\\vec{L}}^2 + \\hat{\\vec{S}}^2 + 2\\,\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}}\n\\quad\\Longrightarrow\\quad\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big).\n\\]\nThe operators \\(\\hat{J}^2\\) and \\(\\hat{J}_z\\) commute with the Hamiltonian, so the quantum numbers \\(j\\) and \\(m_j\\) are now conserved. Their eigenvalues follow the standard angular momentum relations:\n\\[\n\\begin{align}\n\\hat{\\vec{J}}^2|j,m_j\\rangle &= \\hbar^2 j(j+1)|j,m_j\\rangle\\\\\n\\hat{J}_z|j,m_j\\rangle &= \\hbar m_j|j,m_j\\rangle\n\\end{align}\n\\]\nThe possible values for \\(j\\) are given by the Clebsch-Gordan series:\n\\[|\\ell-s| \\le j \\le \\ell+s.\\]\nThe new complete set of quantum numbers for the hydrogen atom, when spin is included, is\n\\[\n|n,\\ell,s,j,m_j\\rangle.\n\\]\nThese states are eigenstates of the Hamiltonian, and therefore provide the most convenient description of the system. The eigenvalue relation of the spin-orbit operator follows\n\\[\n\\begin{align}\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} |n,\\ell,s,j,m_j\\rangle = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big) |n,\\ell,s,j,m_j\\rangle\\\\\n= \\frac{\\hbar^2}{2}(j(j+1)-\\ell(\\ell+1)-s(s+1))|n,\\ell,s,j,m_j\\rangle.\n\\end{align}\n\\]\n\n\n\nIllustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red (LS_coupling_(corrected) by AnotherFlake under CC BY-SA 4.0)\n\n\nThe new eigenstates can also be written as linear combinations of the “old” basis states \\(|n,\\ell,m_\\ell,s,m_s\\rangle\\), where the orbital and spin angular momenta were treated separately.\nTo make this connection, we insert the identity operator expressed in the \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) basis:\n\\[\n|n,\\ell,s,j,m_j\\rangle\n= \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle\n\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle.\n\\]\nThe overlap coefficients\n\\[\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle\\]\nare precisely the Clebsch–Gordan coefficients, which describe how to combine orbital and spin angular momenta into total angular momentum.\nThus, the new basis states are superpositions of the old \\(|m_\\ell, m_s\\rangle\\) states, weighted by these coefficients.\n\n\n\n\n\n\nNoteNote: The Identity Operator in a Complete Basis\n\n\n\n\n\nIn quantum mechanics, a set of states \\(\\{|a_i\\rangle\\}\\) is called a complete orthonormal basis if:\n\n\\(\\langle a_i | a_j \\rangle = \\delta_{ij}\\) (orthonormality)\n\nThe set spans the whole Hilbert space (completeness).\n\nFor such a basis, the identity operator can be written as:\n\\[\n\\hat{I} = \\sum_i |a_i\\rangle \\langle a_i|.\n\\]\nThis operator acts like the “do nothing” operator, since for any state \\(|\\psi\\rangle\\):\n\\[\n\\hat{I}|\\psi\\rangle = \\sum_i |a_i\\rangle \\langle a_i|\\psi\\rangle = |\\psi\\rangle.\n\\]\nIn our case, the “old” states \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) form a complete basis, so we may freely insert\n\\[\n\\hat{I} = \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle \\langle n,\\ell,m_\\ell,s,m_s|.\n\\]\nThis is how the new coupled states \\(|n,\\ell,s,j,m_j\\rangle\\) can be expressed as superpositions of the old ones.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#eigenenergies",
-    "href": "mod4/spin.html#eigenenergies",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.3 Eigenenergies",
-    "text": "4.3 Eigenenergies\nIf we include the spin–orbit interaction in the Hamiltonian\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nthen the energy levels can no longer be labeled only by \\(n\\).\nInstead, they split according to the total angular momentum quantum number \\(j\\) and the orbital angular momentum quantum number \\(\\ell\\), so the eigenenergies depend on the set \\((n, \\ell, j)\\).\nHowever, this approach is incomplete. A fully consistent calculation of the fine structure requires additional relativistic corrections, which we do not discuss here in detail:\n\nthe Darwin term, arising from the “zitterbewegung” of the electron,\n\nand the Thomas precession correction, which modifies the effective strength of the spin–orbit interaction.\n\nWhen these effects are combined with the spin–orbit coupling, the result is the same fine structure spectrum that is obtained directly from the Dirac equation.\nIn the Dirac theory, the energy levels of hydrogen-like atoms (including the rest energy of the electron) are given by\n\\[\nE_{n,j} \\;=\\; m c^2 \\left[ 1 +\n\\left( \\frac{Z \\alpha}{n - (j + \\tfrac{1}{2}) + \\sqrt{(j+\\tfrac{1}{2})^2 - (Z\\alpha)^2}} \\right)^2\n\\right]^{-\\tfrac{1}{2}} ,\n\\]\nwhere \\(\\alpha\\) (\\(\\alpha=\\tfrac{1}{137}\\)) is the fine-structure constant and \\(Z\\) is the nuclear charge.\nThe above energies depend only on \\(n\\) and \\(j\\). Thus, while the Schrödinger equation with spin–orbit interaction suggests a dependence on \\(\\ell\\), the full relativistic treatment (or including the missing correction terms) removes this \\(\\ell\\)-dependence.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/spin.html#fine-structure-energy-shift",
-    "href": "mod4/spin.html#fine-structure-energy-shift",
-    "title": "Electron Spin and Fine Structure",
-    "section": "4.4 Fine-Structure Energy Shift",
-    "text": "4.4 Fine-Structure Energy Shift\nIt is often more useful to consider the fine-structure shift rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:\n\\[\nE_n^{(0)} = - \\frac{\\mu c^2 (Z\\alpha)^2}{2 n^2},\n\\]\nwhere \\(\\mu\\) is the reduced mass of the electron. To leading order in \\((Z\\alpha)^2\\), the shift due to relativistic effects and spin–orbit interaction becomes\n\\[\n\\Delta E_{n,j}^{\\rm FS} = E_n^{(0)} \\, (Z\\alpha)^2 \\left( \\frac{1}{n} \\frac{1}{j + 1/2} - \\frac{3}{4 n^2} \\right).\n\\]\nThus, the total energy including fine structure is\n\\[\nE_{n,j} \\approx E_n^{(0)} + \\Delta E_{n,j}^{\\rm FS}.\n\\]\nNotes:\n\nThe first term in parentheses arises from the spin–orbit interaction.\n\nThe second term arises from the relativistic correction to the kinetic energy.\n\nAs in the full Dirac theory, the energy now depends on \\(n\\) and \\(j\\), but not on \\(\\ell\\) individually, consistent with experiment.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "Electron Spin and Fine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/index.html",
-    "href": "mod4/index.html",
-    "title": "Hydrogen (Details)",
+    "objectID": "mod4/fields.html#quick-review-magnetic-moments-and-interaction-hamiltonian",
+    "href": "mod4/fields.html#quick-review-magnetic-moments-and-interaction-hamiltonian",
+    "title": "Hydrogen in Static External Fields",
     "section": "",
-    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
+    "text": "The (atomic) magnetic moment relevant for Zeeman physics comes from electronic orbital and spin angular momenta and, if desired, the nuclear moment. Working in units \\(\\hbar=1\\) (often convenient in atomic physics) we write\n\\[\n\\vec{\\mu} = -\\mu_B \\,\\hat{L} - g_s \\mu_B \\,\\hat{S} + g_I \\mu_N \\,\\hat{I},\n\\]\nwhere\n- \\(\\mu_B=\\dfrac{e\\hbar}{2m_e}\\) is the Bohr magneton,\n- \\(g_s\\) is the electron spin \\(g\\)-factor (\\(\\approx 2.0023\\); often approximated as \\(2\\)),\n- \\(\\mu_N=\\dfrac{e\\hbar}{2m_p}\\) is the nuclear magneton,\n- \\(g_I\\) is the nuclear \\(g\\)-factor (proton \\(g_p\\approx 5.5857\\) but the nuclear contribution is suppressed by \\(\\mu_N/\\mu_B\\approx m_e/m_p\\sim 1/1836\\)).\nAn external magnetic field \\(\\vec{B}=B_z \\hat{z}\\) couples via\n\\[\n\\hat{H}_{\\mathrm{ZE}} = -\\hat{\\mu}_z B_z\n= \\mu_B B_z \\big( \\hat{L}_z + g_s \\hat{S}_z \\big) - g_I \\mu_N B_z \\hat{I}_z.\n\\]\nBecause \\(\\mu_N\\ll\\mu_B\\) the last term is usually negligible for first-order electron Zeeman shifts (but can be relevant in high-precision hyperfine work).",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
     ]
   },
   {
-    "objectID": "mod4/index.html#introduction",
-    "href": "mod4/index.html#introduction",
-    "title": "Hydrogen (Details)",
+    "objectID": "mod4/fields.html#why-eigenstates-change-noncommuting-parts-of-the-hamiltonian",
+    "href": "mod4/fields.html#why-eigenstates-change-noncommuting-parts-of-the-hamiltonian",
+    "title": "Hydrogen in Static External Fields",
     "section": "",
-    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
+    "text": "Important commutators:\n\n\\([\\hat{L}_z,\\ \\vec{L}\\cdot\\vec{S}]\\neq 0\\) and \\([\\hat{S}_z,\\ \\vec{L}\\cdot\\vec{S}]\\neq 0\\). Thus states diagonal in \\(|L,M_L\\rangle\\) and \\(|S,M_S\\rangle\\) are not simultaneously eigenstates of fine structure (spin–orbit) terms.\nSimilarly, \\([\\hat{I}_z,\\ \\hat{I}\\cdot\\hat{J}]\\neq0\\). Therefore hyperfine eigenstates \\(|F,M_F\\rangle\\) are not eigenstates when the Zeeman interaction is comparable to or exceeds the hyperfine coupling.\n\nConsequence. Depending on the relative sizes of the Zeeman splitting \\(\\Delta E_{\\rm ZE}\\), the fine-structure splitting \\(\\Delta E_{\\rm FS}\\) and the hyperfine splitting \\(\\Delta E_{\\rm HF}\\) different bases are convenient. We treat these by perturbation theory in the obvious way: choose the largest piece as zeroth order and treat smaller interactions as perturbations.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
     ]
   },
   {
-    "objectID": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
-    "href": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
-    "title": "Hydrogen (Details)",
-    "section": "A closer look — why the simple picture fails",
-    "text": "A closer look — why the simple picture fails\nHigh-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are shifted and split by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:\n\nSpin and Fine Structure — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the fine structure.\n\nThe Lamb Shift — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.\n\nHyperfine Structure — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.\n\nEach of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.",
+    "objectID": "mod4/fields.html#regimes-and-what-good-quantum-numbers-are",
+    "href": "mod4/fields.html#regimes-and-what-good-quantum-numbers-are",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "We consider three practical regimes (for hydrogen-like atoms):\n\nWeak fields relative to fine structure: \\(\\Delta E_{\\rm ZE} \\ll \\Delta E_{\\rm FS}\\).\nNatural basis: \\(|n,\\ell,s,j,m_j\\rangle\\). The fine-structure (spin–orbit) coupling fixes \\(\\vec J\\), and the Zeeman term is treated perturbatively using \\(\\hat{J}\\cdot\\vec{B}\\) and the Landé \\(g_J\\).\nIntermediate fields but weak relative to hyperfine: \\(\\Delta E_{\\rm ZE} &lt; \\Delta E_{\\rm HF}\\).\nNatural basis: \\(|F,M_F\\rangle\\). Hyperfine coupling fixes \\(\\vec F\\); Zeeman shifts are proportional to \\(g_F \\mu_B B M_F\\).\nStrong fields (Paschen–Back / Hyperfine Paschen–Back): \\(\\Delta E_{\\rm ZE} \\gg \\Delta E_{\\rm HF}\\).\nThe electronic and nuclear angular momenta decouple: use \\(|J,M_J; I,M_I\\rangle\\). Hyperfine coupling is treated as a perturbation; energy is primarily \\(E\\approx g_J \\mu_B B M_J\\) plus small hyperfine corrections.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
     ]
   },
   {
-    "objectID": "mod4/index.html#quick-comment-on-notation",
-    "href": "mod4/index.html#quick-comment-on-notation",
-    "title": "Hydrogen (Details)",
-    "section": "Quick comment on notation",
-    "text": "Quick comment on notation\nIn this chapter we will use the following conventions:\n\n\\(n,\\ell,m_\\ell\\) for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).\n\n\\(s\\) for the electron spin (for a single electron \\(s=\\tfrac{1}{2}\\)).\n\n\\(j\\) for the single-electron total angular momentum \\(j=\\ell+s\\).\n\n\\(I\\) for the nuclear spin and \\(F\\) for the total atomic angular momentum \\(F=J+I\\).\n\n(If a section couples many electrons, capital \\(L,S,J\\) denote the total orbital, total spin, and total electronic angular momentum.)",
+    "objectID": "mod4/fields.html#case-1-i0-or-delta-e_rm-zelldelta-e_rm-fs-landé-g_j",
+    "href": "mod4/fields.html#case-1-i0-or-delta-e_rm-zelldelta-e_rm-fs-landé-g_j",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "If the fine-structure makes \\(\\vec J\\) a good quantum number, the electronic Zeeman Hamiltonian can be written approximately as\n\\[\n\\hat{H}_{\\rm ZE} \\approx g_J \\mu_B B_z \\hat{J}_z = g_J \\mu_B B_z M_J,\n\\]\nwith the Landé factor\n\\[\ng_J \\equiv \\frac{\\langle \\hat{L}\\cdot\\hat{J}\\rangle + g_s\\langle\\hat{S}\\cdot\\hat{J}\\rangle}{J(J+1)}.\n\\]\nUsing the vector identities (with \\(\\vec J=\\vec L+\\vec S\\)),\n\\[\n\\langle\\hat{L}\\cdot\\hat{J}\\rangle=\\frac{J(J+1)+L(L+1)-S(S+1)}{2}, \\qquad\n\\langle\\hat{S}\\cdot\\hat{J}\\rangle=\\frac{J(J+1)-L(L+1)+S(S+1)}{2},\n\\]\none obtains the standard (general) form\n\\[\ng_J = \\frac{1}{2J(J+1)}\\Big[ (1) \\big(J(J+1)-S(S+1)+L(L+1)\\big)\n+ g_s\\big(J(J+1)+S(S+1)-L(L+1)\\big)\\Big].\n\\]\nFor \\(g_s\\approx 2\\), this reduces to the commonly used Landé formula\n\\[\ng_J = 1 + \\frac{J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}.\n\\]",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
     ]
   },
   {
-    "objectID": "mod4/index.html#summary",
-    "href": "mod4/index.html#summary",
-    "title": "Hydrogen (Details)",
-    "section": "Summary",
-    "text": "Summary\nThe Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.",
+    "objectID": "mod4/fields.html#case-2-weak-fields-relative-to-hyperfine-g_f-and-hyperfine-zeeman-shifts",
+    "href": "mod4/fields.html#case-2-weak-fields-relative-to-hyperfine-g_f-and-hyperfine-zeeman-shifts",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "If hyperfine coupling dominates, the total atomic angular momentum \\(\\vec F=\\vec J+\\vec I\\) is a good quantum number. The Zeeman shift (first order) is\n\\[\n\\hat{H}_{\\rm ZE} \\approx g_F \\mu_B B_z \\hat{F}_z = g_F \\mu_B B_z M_F,\n\\]\nwith\n\\[\ng_F = g_J\\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}\n+ g_I\\frac{\\mu_N}{\\mu_B}\\frac{F(F+1)+I(I+1)-J(J+1)}{2F(F+1)}.\n\\]\nBecause \\(\\mu_N/\\mu_B\\ll1\\) the second (nuclear) term is usually negligible and one often uses the approximation\n\\[\ng_F \\approx g_J\\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}.\n\\]",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)"
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#case-3-strong-fields-hyperfine-paschenback-limit",
+    "href": "mod4/fields.html#case-3-strong-fields-hyperfine-paschenback-limit",
+    "title": "Hydrogen in Static External Fields",
+    "section": "2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit",
+    "text": "2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit\nWhen the Zeeman splitting greatly exceeds the hyperfine coupling, the electronic and nuclear moments decouple. The dominant energy is\n\\[\nE \\approx g_J \\mu_B B M_J + g_I \\mu_N B M_I,\n\\]\nand hyperfine coupling can be treated perturbatively, giving small \\(M_I M_J\\)-dependent shifts:\n\\[\nE \\approx g_J \\mu_B B M_J + A M_I M_J + \\mathcal{O}\\!\\left(\\frac{A^2}{g_J\\mu_B B}\\right).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#the-breitrabi-formula-hydrogen-ground-state",
+    "href": "mod4/fields.html#the-breitrabi-formula-hydrogen-ground-state",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "For hydrogen ground state (\\(n=1,\\ J=\\tfrac12,\\ I=\\tfrac12\\)) the Zeeman + hyperfine Hamiltonian can be diagonalized exactly within the two \\(2\\times2\\) subspaces. The resulting energy dependence \\(E(B)\\) is the Breit–Rabi formula.\nThe zero-field hyperfine splitting is the famous 21-cm line at frequency\n\\[\n\\nu_{\\rm hfs} \\approx 1420.405751768\\ \\text{MHz},\n\\]\nwith energy\n\\[\n\\Delta E_{\\rm hfs}=h\\nu_{\\rm hfs}\\approx 5.87\\times10^{-6}\\ \\text{eV}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#order-of-magnitude-numbers",
+    "href": "mod4/fields.html#order-of-magnitude-numbers",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "Bohr magneton:\n\n\\[\n\\mu_B \\approx 9.274010078\\times10^{-24}\\ \\mathrm{J/T} \\approx 5.7883818\\times10^{-5}\\ \\mathrm{eV/T}.\n\\]\n\nFrequency per tesla:\n\n\\[\n\\frac{\\mu_B}{h} \\approx 13.996244936\\ \\text{GHz/T}.\n\\]\n\nCrossover field:\n\n\\[\nB_{\\rm crossover} \\approx \\frac{\\nu_{\\rm hfs}}{\\mu_B/h} \\approx 0.1015\\ \\text{T}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#spectroscopic-consequences-and-selection-rules",
+    "href": "mod4/fields.html#spectroscopic-consequences-and-selection-rules",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "\\(\\Delta m = 0,\\pm1\\) for dipole transitions.\n\n\\(\\Delta m=0\\): \\(\\pi\\) transitions (linear polarization along \\(B\\)).\n\n\\(\\Delta m=\\pm1\\): \\(\\sigma^\\pm\\) transitions (circular polarization).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#atoms-in-electric-fields-quadratic-stark-effect",
+    "href": "mod4/fields.html#atoms-in-electric-fields-quadratic-stark-effect",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "For hydrogen ground state \\(1s\\), there is no linear Stark effect. The leading effect is quadratic:\n\\[\n\\Delta E = -\\frac{1}{2}\\,\\alpha\\,\\mathcal{E}^2,\n\\]\nwith polarizability\n\\[\n\\alpha(1s) \\approx 4.5\\,a_0^3.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#worked-example",
+    "href": "mod4/fields.html#worked-example",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "Take \\(\\nu_{\\rm hfs}=1.4204058\\ \\text{GHz}\\), \\(\\mu_B/h\\approx 13.9962449\\ \\text{GHz/T}\\). Then\n\\[\nB_{\\rm crossover} \\approx \\frac{1.4204}{13.9962}\\ \\text{T} \\approx 0.1015\\ \\text{T}.\n\\]\nAt \\(1\\ \\text{T}\\), the Zeeman frequency shift is \\(\\approx 14\\ \\mathrm{GHz}\\) (energy \\(\\approx 5.8\\times10^{-5}\\) eV).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#exercises",
+    "href": "mod4/fields.html#exercises",
+    "title": "Hydrogen in Static External Fields",
+    "section": "",
+    "text": "Derive the Landé \\(g_J\\) formula.\n\nFor hydrogen \\(1s\\) (\\(I=1/2,J=1/2\\)), compute Breit–Rabi energies vs \\(B\\).\n\nCompute quadratic Stark shift for \\(\\mathcal{E}=10^6\\ \\mathrm{V/m}\\) using \\(\\alpha=4.5a_0^3\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/summary.html",
+    "href": "mod4/summary.html",
+    "title": "Summary — energy-level splitting",
+    "section": "",
+    "text": "The figure below summarizes the progressive refinements to the hydrogen energy-level picture:\n\nLeft: Bohr energies (nonrelativistic Schrödinger / Bohr model) that depend only on the principal quantum number \\(n\\).\n\nCenter-left: Dirac/relativistic corrections (fine structure) that split levels by total electronic angular momentum \\(j\\) (relativistic kinetic + spin–orbit + Darwin).\n\nCenter-right: Radiative QED corrections (Lamb shifts) which lift degeneracies not removed by Dirac theory (notably the \\(2S_{1/2}\\)–\\(2P_{1/2}\\) splitting).\n\nRight: Hyperfine structure due to coupling of the electron angular momentum to the nuclear spin (e.g. the \\(1S\\) ground-state doublet that gives the 21-cm line).\n\n\n\n\nEnergy-level refinements for hydrogen: Bohr (left) → Dirac/fine structure (center-left) → Lamb shifts (center-right) → hyperfine splitting (right). (Figure translated to english from Wasserstoff_Aufspaltung by Ellarie under CC BY-SA 3.0.)",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Summary — energy-level splitting"
+    ]
+  },
+  {
+    "objectID": "mod4/summary.html#summary-energy-level-splitting-bohr-dirac-lamb-hyperfine",
+    "href": "mod4/summary.html#summary-energy-level-splitting-bohr-dirac-lamb-hyperfine",
+    "title": "Summary — energy-level splitting",
+    "section": "",
+    "text": "The figure below summarizes the progressive refinements to the hydrogen energy-level picture:\n\nLeft: Bohr energies (nonrelativistic Schrödinger / Bohr model) that depend only on the principal quantum number \\(n\\).\n\nCenter-left: Dirac/relativistic corrections (fine structure) that split levels by total electronic angular momentum \\(j\\) (relativistic kinetic + spin–orbit + Darwin).\n\nCenter-right: Radiative QED corrections (Lamb shifts) which lift degeneracies not removed by Dirac theory (notably the \\(2S_{1/2}\\)–\\(2P_{1/2}\\) splitting).\n\nRight: Hyperfine structure due to coupling of the electron angular momentum to the nuclear spin (e.g. the \\(1S\\) ground-state doublet that gives the 21-cm line).\n\n\n\n\nEnergy-level refinements for hydrogen: Bohr (left) → Dirac/fine structure (center-left) → Lamb shifts (center-right) → hyperfine splitting (right). (Figure translated to english from Wasserstoff_Aufspaltung by Ellarie under CC BY-SA 3.0.)",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Summary — energy-level splitting"
+    ]
+  },
+  {
+    "objectID": "mod4/summary.html#representative-numerical-magnitudes",
+    "href": "mod4/summary.html#representative-numerical-magnitudes",
+    "title": "Summary — energy-level splitting",
+    "section": "Representative numerical magnitudes",
+    "text": "Representative numerical magnitudes\nThe table below lists representative energy differences for the lowest levels. Values are given both in electron-volts (eV) and in megahertz (MHz), since spectroscopy normally reports frequencies.\n\n\n\n\n\n\n\n\nEffect / transition\n\\(n=1\\) (ground)\n\\(n=2\\) (representative)\n\n\n\n\nDirac / fine-structure (typical)\n\\(\\Delta E_\\mathrm{fs}\\,(1S_{1/2}) \\approx 1.8\\times10^{-4}\\ \\mathrm{eV}\\) \\(\\approx 4.35\\times10^{4}\\ \\mathrm{MHz}\\)\nsplitting \\(2P_{3/2}-2P_{1/2}\\) \\(\\approx 4.5\\times10^{-5}\\ \\mathrm{eV}\\) \\(\\approx 1.09\\times10^{4}\\ \\mathrm{MHz}\\)\n\n\nLamb shift (radiative)\n\\(1S\\) Lamb contribution \\(\\approx 3.6\\times10^{-5}\\ \\mathrm{eV}\\) \\(\\approx 8.70\\times10^{3}\\ \\mathrm{MHz}\\)\nsplitting \\(2S_{1/2}-2P_{1/2}\\) \\(\\approx 4.4\\times10^{-6}\\ \\mathrm{eV}\\) \\(\\approx 1.06\\times10^{3}\\ \\mathrm{MHz}\\)\n\n\nHyperfine splitting (magnetic dipole)\nground \\(1S\\) (21-cm): \\(\\approx 5.8\\times10^{-6}\\ \\mathrm{eV}\\) \\(\\approx 1.40\\times10^{3}\\ \\mathrm{MHz}\\)\n\\(2S\\) hyperfine \\(\\approx 7.3\\times10^{-7}\\ \\mathrm{eV}\\) \\(\\approx 1.77\\times10^{2}\\ \\mathrm{MHz}\\)\n\n\n\nConversion note. \\(1\\ \\mathrm{eV}\\approx 2.41799\\times 10^{8}\\ \\mathrm{MHz}\\) was used to produce the frequency entries.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Summary — energy-level splitting"
+    ]
+  },
+  {
+    "objectID": "mod4/summary.html#short-interpretive-comment",
+    "href": "mod4/summary.html#short-interpretive-comment",
+    "title": "Summary — energy-level splitting",
+    "section": "Short interpretive comment",
+    "text": "Short interpretive comment\nAlthough the Lamb shift and hyperfine splitting are tiny compared with the Bohr energies, they were historically decisive: measurement of the Lamb shift required a theoretical framework (renormalized QED) capable of producing finite radiative corrections, and hyperfine structure revealed the crucial role of nuclear spin and electron magnetic moments in atomic spectra. Today, these small shifts are used both to test QED at high precision and to determine fundamental constants.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Summary — energy-level splitting"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html",
+    "href": "mod4/hfs.html",
+    "title": "The Hyperfine Structure",
+    "section": "",
+    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
+    "title": "The Hyperfine Structure",
+    "section": "2.1 Worked numerical/physical example (sketch)",
+    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#operator-identities",
+    "href": "mod4/hfs.html#operator-identities",
+    "title": "The Hyperfine Structure",
+    "section": "3.1 Operator identities",
+    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
+    "href": "mod4/hfs.html#new-atomic-eigenstates",
+    "title": "The Hyperfine Structure",
+    "section": "3.2 New atomic eigenstates",
+    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
+    "title": "The Hyperfine Structure",
+    "section": "3.3 Eigenvalue relations and energy formula",
+    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#possible-f-values",
+    "href": "mod4/hfs.html#possible-f-values",
+    "title": "The Hyperfine Structure",
+    "section": "3.4 Possible \\(F\\) values",
+    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
+    "title": "The Hyperfine Structure",
+    "section": "4.1 Comments on the sign and ordering",
+    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "The Hyperfine Structure"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Atomic, Molecular, and Optical Physics",
+    "section": "",
+    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
+    "crumbs": [
+      "Home"
     ]
   },
   {
@@ -627,145 +738,190 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Atomic, Molecular, and Optical Physics",
+    "objectID": "mod4/index.html",
+    "href": "mod4/index.html",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "Welcome\nThese notes accompany the course PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics, taught at Missouri University of Science and Technology (Missouri S&T) in Fall 2025 by Daniel Fischer.\n\n\n\nPrerequisites\nTo benefit most from this course, students are expected to have completed:\n\nMathematics\n\nLinear Algebra\n\nCalculus (single- and multivariable)\n\nDifferential Equations\n\nPhysics\n\nIntroduction to Classical Mechanics\n\nIntroduction to Electromagnetism\n\nIntroduction to Modern Physics\n\n\n\n\n\nDisclaimer\nThis lecture is intended as an introductory-level course in AMO physics.\nQuantum mechanics is used throughout.\n\nA formal course in quantum mechanics is not required, but many ideas and techniques of QM will appear repeatedly.\n\nFor this reason, a very brief introduction to some quantum mechanical concepts is included.\n\nThese remarks are not comprehensive and are meant only to provide enough background to follow the AMO applications.\n\n\n\n\nA Few Words about AMO Physics\nAtomic, Molecular, and Optical physics is one of the most dynamic areas of modern physics.\n\nIt connects fundamental quantum concepts with cutting-edge experiments.\n\nIt has direct applications in laser physics, precision spectroscopy, quantum optics, quantum information, and ultracold matter.\n\nAMO physics combines the clarity of well-understood model systems (like the hydrogen atom) with the excitement of current research that pushes the boundaries of technology and fundamental science.\n\nWhether your interest lies in the foundations of quantum theory, the applications in modern technology, or simply the beauty of light–matter interaction, AMO physics offers a rich and fascinating journey.\n\n\nThese notes are living documents — they are intended to support your learning, not to replace textbooks or original research articles. Use them actively, question them, and enjoy exploring the physics of the microscopic world.",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
-      "Home"
+      "Home",
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html",
-    "href": "mod4/hfs.html",
-    "title": "The Hyperfine Structure",
+    "objectID": "mod4/index.html#introduction",
+    "href": "mod4/index.html#introduction",
+    "title": "Hydrogen (Details)",
     "section": "",
-    "text": "This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to hyperfine structure (HFS) in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant \\(A\\) and give the hydrogen ground-state as a worked example.\nSpecific goals:\n\nWrite down the multipole structure of the hyperfine Hamiltonian and identify the main contributions (\\(k=1\\) magnetic dipole, \\(k=2\\) electric quadrupole).\n\nDerive the magnetic-dipole hyperfine Hamiltonian in the usual form \\(A\\,\\hat{\\vec I}\\cdot\\hat{\\vec J}\\) and the corresponding energy formula in terms of \\(F\\).\n\nExplain the physical content of the hyperfine constant \\(A\\) (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.\n\nApply the results to the hydrogen ground state (\\(1s_{1/2}\\)) as an instructive example.\n\nBy the end of this section students should be able to write the magnetic-dipole hyperfine Hamiltonian, compute the \\(F\\)-dependent energy shifts, and explain the physical origin and scaling of the hyperfine constant \\(A\\).",
+    "text": "As we have seen in the Hydrogen (Basics) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number \\(n\\):\n\\[\nE_n = -\\frac{13.6\\ \\mathrm{eV}}{n^2}.\n\\]\nIn that approximation the spectrum looks simple: photon energies correspond to energy differences between levels and appear in well known series (see left figure below):\n\nLyman: transitions to \\(n_\\ell=1\\) (ultraviolet)\n\nBalmer: transitions to \\(n_\\ell=2\\) (visible)\n\nPaschen, Brackett, Pfund, …: transitions to \\(n_\\ell=3,4,5,\\dots\\) (infrared)\n\n\n\n\n\n\nIllustration of hydrogen spectral series. (Left) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (Top right) Balmer spectrum. (Middle right) Example of Doppler broadening in a hydrogen line. (Bottom right) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977).",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "href": "mod4/hfs.html#worked-numericalphysical-example-sketch",
-    "title": "The Hyperfine Structure",
-    "section": "2.1 Worked numerical/physical example (sketch)",
-    "text": "2.1 Worked numerical/physical example (sketch)\nTo compute \\(A\\) from first principles (outline):\n\nCompute the electronic wavefunction \\(\\psi(\\mathbf r)\\) (including relativistic effects if required).\n\nEvaluate the electronic magnetic field at the nucleus (Fermi contact term for \\(s\\)-states): integrals of the form \\(\\propto |\\psi(0)|^2\\) or more complicated integrals for non-\\(s\\) states.\n\nMultiply by the nuclear moment \\(g_N\\mu_N\\) and convert to energy units.\n\nIn practice, atomic-structure codes or experimental measurements provide accurate values for \\(A\\).",
+    "objectID": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "href": "mod4/index.html#a-closer-look-why-the-simple-picture-fails",
+    "title": "Hydrogen (Details)",
+    "section": "A closer look — why the simple picture fails",
+    "text": "A closer look — why the simple picture fails\nHigh-resolution and careful experiments show that many spectral lines are not single sharp lines as the simple Schrödinger model predicts. Instead they are shifted and split by small amounts (see right figure above). These discrepancies point to additional physics that is not contained in the nonrelativistic Schrödinger equation:\n\nSpin and Fine Structure — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the fine structure.\n\nThe Lamb Shift — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.\n\nHyperfine Structure — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.\n\nEach of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#operator-identities",
-    "href": "mod4/hfs.html#operator-identities",
-    "title": "The Hyperfine Structure",
-    "section": "3.1 Operator identities",
-    "text": "3.1 Operator identities\nThe squared total angular momentum operator satisfies\n\\[\n\\hat{\\vec{F}}^{\\,2} = \\hat{\\vec{J}}^{\\,2} + \\hat{\\vec{I}}^{\\,2} + 2\\,\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}}.\n\\]\nFrom this we obtain\n\\[\n\\hat{\\vec{J}}\\cdot\\hat{\\vec{I}} \\;=\\; \\tfrac{1}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]\nHence the hyperfine Hamiltonian becomes\n\\[\n\\hat{H}_{\\mathrm{HF}} \\;=\\; A\\,\\hat{\\vec{I}}\\cdot\\hat{\\vec{J}}\n\\;=\\; \\tfrac{A}{2}\\Big(\\hat{\\vec{F}}^{\\,2} - \\hat{\\vec{I}}^{\\,2} - \\hat{\\vec{J}}^{\\,2}\\Big).\n\\]",
+    "objectID": "mod4/index.html#quick-comment-on-notation",
+    "href": "mod4/index.html#quick-comment-on-notation",
+    "title": "Hydrogen (Details)",
+    "section": "Quick comment on notation",
+    "text": "Quick comment on notation\nIn this chapter we will use the following conventions:\n\n\\(n,\\ell,m_\\ell\\) for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).\n\n\\(s\\) for the electron spin (for a single electron \\(s=\\tfrac{1}{2}\\)).\n\n\\(j\\) for the single-electron total angular momentum \\(j=\\ell+s\\).\n\n\\(I\\) for the nuclear spin and \\(F\\) for the total atomic angular momentum \\(F=J+I\\).\n\n(If a section couples many electrons, capital \\(L,S,J\\) denote the total orbital, total spin, and total electronic angular momentum.)",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#new-atomic-eigenstates",
-    "href": "mod4/hfs.html#new-atomic-eigenstates",
-    "title": "The Hyperfine Structure",
-    "section": "3.2 New atomic eigenstates",
-    "text": "3.2 New atomic eigenstates\nBecause \\(\\hat{\\vec F}\\) is the relevant conserved total angular momentum, the natural basis states are\n\\[\n|\\;L, S, J, I;\\; F, M_F\\rangle,\n\\]\nwhere:\n\n\\(F\\) is the quantum number of \\(\\hat{\\vec F}^2\\),\n\n\\(M_F\\) is the quantum number of \\(\\hat F_z\\),\n\n\\(M_J\\) and \\(M_I\\) are no longer individually good quantum numbers once the hyperfine interaction is included.\n\n\nRemark.\n- Lowercase letters (\\(\\ell, s, j\\)) denote quantum numbers for a single electron.\n- \\(\\ell\\) (orbital angular momentum of a single electron).\n- \\(s\\) (spin angular momentum of a single electron).\n- \\(j\\) (total angular momentum of a single electron).\n- Capital letters (\\(L, S, J, F\\)) denote total angular momentum quantum numbers arising from the coupling of multiple components:\n- \\(L\\) (total orbital angular momentum of the electrons).\n- \\(S\\) (total electron spin).\n- \\(J = L+S\\) (total electronic angular momentum).\n- \\(F = J+I\\) (total atomic angular momentum, including nuclear spin \\(I\\)).\n\nThus, the hyperfine eigenstates are labeled by the coupled quantum numbers \\((L, S, J, I, F, M_F)\\), with \\(F\\) and \\(M_F\\) replacing \\(M_J\\) and \\(M_I\\) as the good quantum numbers once hyperfine interactions are included.",
+    "objectID": "mod4/index.html#summary",
+    "href": "mod4/index.html#summary",
+    "title": "Hydrogen (Details)",
+    "section": "Summary",
+    "text": "Summary\nThe Schrödinger solution for hydrogen is an essential starting point, but it is only the beginning. The rich structure of real spectra emerges once spin, relativity, radiative QED effects, and nuclear structure are included. In the sections that follow we will treat these effects one by one and show how they progressively refine the hydrogen spectrum to match experiment.",
     "crumbs": [
       "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
+      "Hydrogen (Details)"
     ]
   },
   {
-    "objectID": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "href": "mod4/hfs.html#eigenvalue-relations-and-energy-formula",
-    "title": "The Hyperfine Structure",
-    "section": "3.3 Eigenvalue relations and energy formula",
-    "text": "3.3 Eigenvalue relations and energy formula\nFor angular momentum operators, the general eigenvalue relation is\n\\[\n\\hat{\\vec F}^{\\,2} \\,|F, M_F\\rangle \\;=\\; F(F+1)\\hbar^2 \\, |F, M_F\\rangle.\n\\]\nAnalogous relations hold for \\(\\hat{\\vec J}^{\\,2}\\) and \\(\\hat{\\vec I}^{\\,2}\\).\nSubstituting the eigenvalues of \\(\\hat{\\vec F}^2, \\hat{\\vec I}^2, \\hat{\\vec J}^2\\) into the Hamiltonian, the hyperfine energy shift for a given \\(F\\) is\n\\[\n\\Delta E_{\\mathrm{HF}}(F) \\;=\\; \\frac{A}{2}\\Big[ F(F+1) - I(I+1) - J(J+1)\\Big].\n\\]",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#possible-f-values",
-    "href": "mod4/hfs.html#possible-f-values",
-    "title": "The Hyperfine Structure",
-    "section": "3.4 Possible \\(F\\) values",
-    "text": "3.4 Possible \\(F\\) values\nThe possible values of \\(F\\) follow the vector addition rule of angular momenta:\n\\[\nF = |I - J|,\\, |I - J|+1, \\dots, I + J.\n\\]\nThus there are \\((2\\,\\min(I,J)+1)\\) hyperfine components for a given electronic level labeled by \\(J\\) and a fixed nucleus with spin \\(I\\).\n\nSummary:\n- Hyperfine structure is obtained by coupling \\(\\vec J\\) and \\(\\vec I\\) in direct analogy with LS coupling.\n- The good quantum numbers are now \\(F\\) and \\(M_F\\).\n- The well-known formula\n\\[\n  \\Delta E_{\\mathrm{HF}}(F) = \\tfrac{A}{2}\\Big[F(F+1) - I(I+1) - J(J+1)\\Big]\n  \\]\ndescribes the zero-field splitting between hyperfine levels.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "href": "mod4/hfs.html#comments-on-the-sign-and-ordering",
-    "title": "The Hyperfine Structure",
-    "section": "4.1 Comments on the sign and ordering",
-    "text": "4.1 Comments on the sign and ordering\nThe sign of \\(A\\) determines which \\(F\\) level lies higher. For hydrogen the \\(F=1\\) level lies above the \\(F=0\\) level (positive \\(A\\)), producing the emitted 21-cm photon for the \\(F=1\\to F=0\\) transition in spontaneous emission.",
-    "crumbs": [
-      "Home",
-      "Hydrogen (Details)",
-      "The Hyperfine Structure"
-    ]
-  },
-  {
-    "objectID": "mod4/summary.html",
-    "href": "mod4/summary.html",
-    "title": "Summary — energy-level splitting",
+    "objectID": "mod4/spin.html",
+    "href": "mod4/spin.html",
+    "title": "Electron Spin and Fine Structure",
     "section": "",
-    "text": "The figure below summarizes the progressive refinements to the hydrogen energy-level picture:\n\nLeft: Bohr energies (nonrelativistic Schrödinger / Bohr model) that depend only on the principal quantum number \\(n\\).\n\nCenter-left: Dirac/relativistic corrections (fine structure) that split levels by total electronic angular momentum \\(j\\) (relativistic kinetic + spin–orbit + Darwin).\n\nCenter-right: Radiative QED corrections (Lamb shifts) which lift degeneracies not removed by Dirac theory (notably the \\(2S_{1/2}\\)–\\(2P_{1/2}\\) splitting).\n\nRight: Hyperfine structure due to coupling of the electron angular momentum to the nuclear spin (e.g. the \\(1S\\) ground-state doublet that gives the 21-cm line).\n\n\n\n\nEnergy-level refinements for hydrogen: Bohr (left) → Dirac/fine structure (center-left) → Lamb shifts (center-right) → hyperfine splitting (right). (Figure translated to english from Wasserstoff_Aufspaltung by Ellarie under CC BY-SA 3.0.)",
+    "text": "This chapter introduces the concept of electron spin and its consequences for the energy structure of atoms, particularly the hydrogen atom. We discuss how spin interacts with orbital angular momentum to produce fine structure in atomic spectra and how relativistic corrections refine the energy levels.\nThe specific goals for this chapter are:\n\nIntroduce the electron spin operator \\(\\hat{\\vec S}\\), its eigenvalues, and its commutation relations, highlighting the analogy to orbital angular momentum.\nPresent the Pauli matrix representation of spin-\\(\\tfrac{1}{2}\\) systems and demonstrate explicitly the commutator relations and eigenvalue equations.\nDescribe how the spin of the electron is combined with orbital angular momentum to define the total angular momentum \\(\\hat{\\vec J} = \\hat{\\vec L} + \\hat{\\vec S}\\).\nDerive the form of the spin–orbit interaction in the Hamiltonian and show how it modifies the conserved quantum numbers.\nExplain how the new complete set of quantum numbers \\(|n, \\ell, s, j, m_j\\rangle\\) is constructed using Clebsch–Gordan coefficients and the concept of the identity operator in a complete basis.\nDiscuss the fine-structure energy shifts, their origin from spin–orbit coupling and relativistic corrections, and the connection to the Dirac equation results.\nIntroduce term symbols (\\({ }^{2S+1}L_J\\)) and their use in describing atomic states, including the labeling of fine-structure-split energy levels.\n\nBy the end of this chapter, the student should be able to describe the spin of the electron, understand its contribution to the fine structure of atomic spectra, and connect the quantum numbers of total angular momentum to the observed energy level splittings.",
     "crumbs": [
       "Home",
       "Hydrogen (Details)",
-      "Summary — energy-level splitting"
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/summary.html#summary-energy-level-splitting-bohr-dirac-lamb-hyperfine",
-    "href": "mod4/summary.html#summary-energy-level-splitting-bohr-dirac-lamb-hyperfine",
-    "title": "Summary — energy-level splitting",
-    "section": "",
-    "text": "The figure below summarizes the progressive refinements to the hydrogen energy-level picture:\n\nLeft: Bohr energies (nonrelativistic Schrödinger / Bohr model) that depend only on the principal quantum number \\(n\\).\n\nCenter-left: Dirac/relativistic corrections (fine structure) that split levels by total electronic angular momentum \\(j\\) (relativistic kinetic + spin–orbit + Darwin).\n\nCenter-right: Radiative QED corrections (Lamb shifts) which lift degeneracies not removed by Dirac theory (notably the \\(2S_{1/2}\\)–\\(2P_{1/2}\\) splitting).\n\nRight: Hyperfine structure due to coupling of the electron angular momentum to the nuclear spin (e.g. the \\(1S\\) ground-state doublet that gives the 21-cm line).\n\n\n\n\nEnergy-level refinements for hydrogen: Bohr (left) → Dirac/fine structure (center-left) → Lamb shifts (center-right) → hyperfine splitting (right). (Figure translated to english from Wasserstoff_Aufspaltung by Ellarie under CC BY-SA 3.0.)",
+    "objectID": "mod4/spin.html#the-sterngerlach-experiment",
+    "href": "mod4/spin.html#the-sterngerlach-experiment",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.1 The Stern–Gerlach Experiment",
+    "text": "1.1 The Stern–Gerlach Experiment\nIn 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an inhomogeneous magnetic field (Stern & Gerlach, 1922).\n\nSetup: A heated oven produces a jet of silver atoms, which is then collimated into a narrow beam. The beam enters a region between specially shaped magnet poles, arranged so that the magnetic field is not uniform but has a strong vertical gradient.\n\nAfter passing through the magnet, the atoms travel to a distant detection screen, where their spatial distribution can be recorded.\n\nWhat happens physically?\nThe silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete values — the phenomenon of spatial quantization (Richtungsquantelung).\n\n\n\nStern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).",
     "crumbs": [
       "Home",
       "Hydrogen (Details)",
-      "Summary — energy-level splitting"
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/summary.html#representative-numerical-magnitudes",
-    "href": "mod4/summary.html#representative-numerical-magnitudes",
-    "title": "Summary — energy-level splitting",
-    "section": "Representative numerical magnitudes",
-    "text": "Representative numerical magnitudes\nThe table below lists representative energy differences for the lowest levels. Values are given both in electron-volts (eV) and in megahertz (MHz), since spectroscopy normally reports frequencies.\n\n\n\n\n\n\n\n\nEffect / transition\n\\(n=1\\) (ground)\n\\(n=2\\) (representative)\n\n\n\n\nDirac / fine-structure (typical)\n\\(\\Delta E_\\mathrm{fs}\\,(1S_{1/2}) \\approx 1.8\\times10^{-4}\\ \\mathrm{eV}\\) \\(\\approx 4.35\\times10^{4}\\ \\mathrm{MHz}\\)\nsplitting \\(2P_{3/2}-2P_{1/2}\\) \\(\\approx 4.5\\times10^{-5}\\ \\mathrm{eV}\\) \\(\\approx 1.09\\times10^{4}\\ \\mathrm{MHz}\\)\n\n\nLamb shift (radiative)\n\\(1S\\) Lamb contribution \\(\\approx 3.6\\times10^{-5}\\ \\mathrm{eV}\\) \\(\\approx 8.70\\times10^{3}\\ \\mathrm{MHz}\\)\nsplitting \\(2S_{1/2}-2P_{1/2}\\) \\(\\approx 4.4\\times10^{-6}\\ \\mathrm{eV}\\) \\(\\approx 1.06\\times10^{3}\\ \\mathrm{MHz}\\)\n\n\nHyperfine splitting (magnetic dipole)\nground \\(1S\\) (21-cm): \\(\\approx 5.8\\times10^{-6}\\ \\mathrm{eV}\\) \\(\\approx 1.40\\times10^{3}\\ \\mathrm{MHz}\\)\n\\(2S\\) hyperfine \\(\\approx 7.3\\times10^{-7}\\ \\mathrm{eV}\\) \\(\\approx 1.77\\times10^{2}\\ \\mathrm{MHz}\\)\n\n\n\nConversion note. \\(1\\ \\mathrm{eV}\\approx 2.41799\\times 10^{8}\\ \\mathrm{MHz}\\) was used to produce the frequency entries.",
+    "objectID": "mod4/spin.html#the-einsteinde-haas-experiment",
+    "href": "mod4/spin.html#the-einsteinde-haas-experiment",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.2 The Einstein–de Haas Experiment",
+    "text": "1.2 The Einstein–de Haas Experiment\nSeveral years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum (Einstein & de Haas, 1915).\n\nSetup: A ferromagnetic cylinder (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.\n\nAround the cylinder is a coil of wire wound on a ferromagnetic core.\n\nWhen a current is switched on in the coil, it changes the magnetization of the cylinder.\n\nA small mirror is attached to the suspension, so that the mechanical rotation of the cylinder can be detected optically using a reflected probe light beam.\n\nWhat happens physically?\nWhen the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that magnetization arises from angular momentum. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.\n\n\n\nEinstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.",
     "crumbs": [
       "Home",
       "Hydrogen (Details)",
-      "Summary — energy-level splitting"
+      "Electron Spin and Fine Structure"
     ]
   },
   {
-    "objectID": "mod4/summary.html#short-interpretive-comment",
-    "href": "mod4/summary.html#short-interpretive-comment",
-    "title": "Summary — energy-level splitting",
-    "section": "Short interpretive comment",
-    "text": "Short interpretive comment\nAlthough the Lamb shift and hyperfine splitting are tiny compared with the Bohr energies, they were historically decisive: measurement of the Lamb shift required a theoretical framework (renormalized QED) capable of producing finite radiative corrections, and hyperfine structure revealed the crucial role of nuclear spin and electron magnetic moments in atomic spectra. Today, these small shifts are used both to test QED at high precision and to determine fundamental constants.",
+    "objectID": "mod4/spin.html#historical-perspective",
+    "href": "mod4/spin.html#historical-perspective",
+    "title": "Electron Spin and Fine Structure",
+    "section": "1.3 Historical Perspective",
+    "text": "1.3 Historical Perspective\nAt the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of orbital angular momentum and the then-prevailing Bohr–Sommerfeld model of the atom.\n\nThe Stern–Gerlach experiment\nStern and Gerlach themselves interpreted their observation of beam splitting as evidence for the quantization of orbital angular momentum along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the \\(z\\)-axis should then yield discrete values, consistent with their result.\nWhat is striking in hindsight is that the silver atom has only a single valence electron in an \\(s\\)-orbital (\\(\\ell = 0\\)). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict no orbital magnetic moment at all in this case, and thus no splitting. Yet Stern and Gerlach observed two distinct components, not more and not less.\nThis outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin \\(s = \\tfrac{1}{2}\\).\n\n\nThe Einstein–de Haas experiment\nEinstein and de Haas (1915) were motivated by the idea of ring currents — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between magnetic moments and angular momentum.\nHowever, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about twice the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.\nIt was only later, with the recognition that the electron carries an intrinsic spin with \\(g \\approx 2\\), that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s \\(g\\)-factor without knowing that spin existed.\n\n\nSynthesis\nFrom today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:\n\nStern–Gerlach: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.\n\nEinstein–de Haas: seen as proof that magnetism stems from angular momentum, though the anomalous factor of two hinted at a hidden degree of freedom.\n\nOnly with Pauli’s exclusion principle (1925) and the proposal of electron spin by Uhlenbeck and Goudsmit (1925) were these puzzles fully understood. The reinterpretation of these classic experiments thus marks a turning point in atomic physics — from the orbital models of Bohr–Sommerfeld to the modern framework of quantum mechanics with spin.",
     "crumbs": [
       "Home",
       "Hydrogen (Details)",
-      "Summary — energy-level splitting"
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#notation",
+    "href": "mod4/spin.html#notation",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.1 Notation",
+    "text": "2.1 Notation\nIt is conventional to introduce the shorthand:\n\nSpin-up: \\(|\\tfrac{1}{2}, +\\tfrac{1}{2}\\rangle \\equiv |\\uparrow\\rangle \\equiv \\begin{pmatrix}1 \\\\ 0\\end{pmatrix}\\)\nSpin-down: \\(|\\tfrac{1}{2}, -\\tfrac{1}{2}\\rangle \\equiv |\\downarrow\\rangle \\equiv \\begin{pmatrix}0 \\\\ 1\\end{pmatrix}\\)\n\nUnlike orbital states, there is no spatial wavefunction representation for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#spin-operators",
+    "href": "mod4/spin.html#spin-operators",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.2 Spin Operators",
+    "text": "2.2 Spin Operators\nTo satisfy the eigenvalue and commutation relations, the spin operators are represented using the Pauli matrices, which provide a concrete \\(2\\times 2\\) matrix representation of spin-\\(\\tfrac{1}{2}\\) systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.\n\\[\n\\hat{S}_x = \\frac{\\hbar}{2}\\,\\sigma_x,\n\\qquad\n\\hat{S}_y = \\frac{\\hbar}{2}\\,\\sigma_y,\n\\qquad\n\\hat{S}_z = \\frac{\\hbar}{2}\\,\\sigma_z,\n\\]\nwhere\n\\[\n\\sigma_x = \\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}, \\quad\n\\sigma_y = \\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}, \\quad\n\\sigma_z = \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\n\n1. Commutator relations\nWe want to show that \\[\n[\\hat{S}_i, \\hat{S}_j] = i \\hbar \\, \\varepsilon_{ijk} \\hat{S}_k\n\\] for \\(i,j,k = x,y,z\\).\nStep 1: Write \\(\\hat{S}_i = \\frac{\\hbar}{2}\\sigma_i\\), then \\[\n[\\hat{S}_i, \\hat{S}_j] = \\frac{\\hbar^2}{4} [\\sigma_i, \\sigma_j].\n\\]\nStep 2: Recall the Pauli matrix commutators: \\[\n[\\sigma_x, \\sigma_y] = 2i \\sigma_z, \\quad\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\nStep 2: Compute the commutators of the Pauli matrices.\n\nExample: compute \\([\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x\\): \\[\n\\sigma_x \\sigma_y =\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n=\n\\begin{pmatrix} i & 0 \\\\ 0 & -i \\end{pmatrix} = i \\sigma_z,\n\\]\n\n\\[\n\\sigma_y \\sigma_x =\n\\begin{pmatrix}0 & -i \\\\ i & 0\\end{pmatrix}\n\\begin{pmatrix}0 & 1 \\\\ 1 & 0\\end{pmatrix}\n=\n\\begin{pmatrix}-i & 0 \\\\ 0 & i \\end{pmatrix} = -i \\sigma_z.\n\\]\n\nTherefore, \\[\n[\\sigma_x, \\sigma_y] = \\sigma_x \\sigma_y - \\sigma_y \\sigma_x = i\\sigma_z - (-i\\sigma_z) = 2i \\sigma_z.\n\\]\nSimilarly, \\[\n[\\sigma_y, \\sigma_z] = 2i \\sigma_x, \\quad\n[\\sigma_z, \\sigma_x] = 2i \\sigma_y.\n\\]\n\nThis shows explicitly how the commutators arise directly from the matrix multiplication.\nStep 3: Multiply by \\(\\frac{\\hbar^2}{4}\\): \\[\n[\\hat{S}_x, \\hat{S}_y] = \\frac{\\hbar^2}{4} \\cdot 2i \\sigma_z = i\\hbar \\hat{S}_z,\n\\] and similarly for the other pairs.\n\n\n\n2. Squared spin operator \\(\\hat{\\mathbf{S}}^2\\)\n\\(\\hat{\\mathbf{S}}^2 = \\hat{S}_x^2 + \\hat{S}_y^2 + \\hat{S}_z^2\\).\nStep 1: Substitute the Pauli matrices: \\[\n\\hat{S}_x^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_x^2, \\quad\n\\hat{S}_y^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_y^2, \\quad\n\\hat{S}_z^2 = \\left(\\frac{\\hbar}{2}\\right)^2 \\sigma_z^2.\n\\]\nStep 2: Use \\(\\sigma_i^2 = I_2\\) for all Pauli matrices: \\[\n\\hat{\\mathbf{S}}^2 = \\frac{\\hbar^2}{4} (I_2 + I_2 + I_2) = \\frac{3}{4} \\hbar^2 I_2.\n\\]\nStep 3: Action on spinors: \\[\n\\hat{\\mathbf{S}}^2 |\\uparrow\\rangle = \\frac{3}{4}\\hbar^2 |\\uparrow\\rangle, \\quad\n\\hat{\\mathbf{S}}^2 |\\downarrow\\rangle = \\frac{3}{4}\\hbar^2 |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{\\mathbf{S}}^2 |s,m_s\\rangle = \\hbar^2 s(s+1)\\,|s,m_s\\rangle.\\)\n\n\n\n3. z-component \\(\\hat{S}_z\\)\n\\(\\hat{S}_z = \\frac{\\hbar}{2} \\sigma_z = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix}\\).\nStep 1: Apply to spin-up: \\[\n\\hat{S}_z |\\uparrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} \\begin{pmatrix}1 \\\\ 0\\end{pmatrix} = \\frac{\\hbar}{2} |\\uparrow\\rangle\n\\]\nStep 2: Apply to spin-down: \\[\n\\hat{S}_z |\\downarrow\\rangle = \\frac{\\hbar}{2} \\begin{pmatrix}1 & 0 \\\\ 0 & -1\\end{pmatrix} \\begin{pmatrix}0 \\\\ 1\\end{pmatrix} = -\\frac{\\hbar}{2} |\\downarrow\\rangle\n\\]\n\\(\\Rightarrow \\hat{S}_z |s,m_s\\rangle = \\hbar m\\,|s,m_s\\rangle.\\)\nThese steps explicitly show the commutation relations and eigenvalues for spin-\\(\\frac{1}{2}\\) operators.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#spin-in-hydrogen-states",
+    "href": "mod4/spin.html#spin-in-hydrogen-states",
+    "title": "Electron Spin and Fine Structure",
+    "section": "2.3 Spin in Hydrogen States",
+    "text": "2.3 Spin in Hydrogen States\nWhen spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers \\((n, \\ell, m_\\ell)\\) but also by the spin quantum numbers \\((s, m_s)\\).\nA complete basis state can thus be written as\n\\[\n|n, \\ell, m_\\ell, s, m_s\\rangle,\n\\]\nwhere:\n- \\(n\\) is the principal quantum number,\n- \\(\\ell\\) is the orbital angular momentum quantum number,\n- \\(m_\\ell\\) is the magnetic quantum number of orbital angular momentum,\n- \\(s = \\tfrac{1}{2}\\) for an electron,\n- \\(m_s = \\pm \\tfrac{1}{2}\\) is the spin projection.\nThis notation emphasizes that the electron’s state is a tensor product of its orbital part \\(|n,\\ell,m_\\ell\\rangle\\) and its spin part \\(|s,m_s\\rangle\\).",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
+    "href": "mod4/spin.html#spinorbit-interaction-and-the-hamiltonian",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.1 Spin–Orbit Interaction and the Hamiltonian",
+    "text": "4.1 Spin–Orbit Interaction and the Hamiltonian\nBecause both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional spin–orbit term, \\(\\hat{H}_{\\rm SO}\\), to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential \\(V(\\hat{\\vec r})\\) is\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nwhere \\(\\hat{\\mathbf p}\\) is the momentum operator, \\(\\mu\\) the (reduced) mass, and \\(\\hat{H}_{\\rm SO}\\) denotes the spin–orbit interaction, which arises due to the interaction of the magnetic moments and is\n\\[\n\\hat{H}_{\\rm SO} \\propto \\hat{\\vec{\\mu}}_\\ell \\cdot \\hat{\\vec{\\mu}}_s \\propto \\hat{\\vec{L}} \\cdot \\hat{\\vec{S}} = \\hat{L}_x\\hat{S}_x + \\hat{L}_y\\hat{S}_y + \\hat{L}_z\\hat{S}_z.\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nFor a central potential \\(V(r)\\) the standard spin–orbit term (obtained from the Dirac equation or from semi-classical Thomas-corrected arguments) can be written as\n\\[\n\\hat{H}_{\\rm SO} \\;=\\; \\frac{1}{2m^2 c^2}\\,\\frac{1}{r}\\frac{dV}{dr}\\;\\hat{\\vec L}\\!\\cdot\\!\\hat{\\vec S},\n\\]\nwhere \\(r=|\\hat{\\vec r}|\\), \\(\\hat{\\vec L}\\) is the orbital angular momentum operator and \\(\\hat{\\mathbf S}\\) the spin operator. (For the Coulomb potential \\(V(r)=-\\dfrac{Ze^2}{4\\pi\\varepsilon_0 r}\\) the radial factor becomes proportional to \\(1/r^3\\); here we keep the general \\(V(r)\\) form.)\n\n\n\nBecause \\(\\hat{H}_{\\rm SO}\\) contains \\(\\hat{\\mathbf L}\\cdot\\hat{\\mathbf S}\\), the full Hamiltonian no longer commutes with \\(\\hat{L}_z\\) or \\(\\hat{S}_z\\) separately. Formally,\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{L}_z] \\quad\\text{and}\\quad\n[\\hat{H},\\hat{S}_z] \\;=\\; [\\hat{H}_{\\rm SO},\\hat{S}_z].\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nTo see that these commutators are nonzero, compute (componentwise) the commutator of \\(\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S}\\) with \\(\\hat{L}_z\\):\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{L}_z\\big]\n&= \\big[L_x S_x + L_y S_y + L_z S_z,\\; L_z\\big] \\\\\n&= [L_x,L_z]\\,S_x + [L_y,L_z]\\,S_y + [L_z,L_z]\\,S_z \\\\\n&= -i\\hbar\\,L_y S_x - i\\hbar\\,L_x S_y \\\\\n&= -i\\hbar\\,(L_y S_x + L_x S_y),\n\\end{aligned}\n\\]\nwhich is generally nonzero (it vanishes only for special states). Hence\n\\[\n[\\hat{H},\\hat{L}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{L}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\nSimilarly, using \\([S_i,S_j]=i\\hbar\\varepsilon_{ijk}S_k\\),\n\\[\n\\begin{aligned}\n\\big[\\hat{\\mathbf L}\\!\\cdot\\!\\hat{\\mathbf S},\\,\\hat{S}_z\\big]\n&= L_x\\,[S_x,S_z] + L_y\\,[S_y,S_z] + L_z\\,[S_z,S_z] \\\\\n&= -i\\hbar\\,L_x S_y + i\\hbar\\,L_y S_x \\\\\n&= i\\hbar\\,(L_y S_x - L_x S_y),\n\\end{aligned}\n\\]\nso\n\\[\n[\\hat{H},\\hat{S}_z] \\;=\\; \\text{(nonzero)} \\quad\\Rightarrow\\quad\n\\hat{S}_z \\text{ is not conserved when } \\hat{H}_{\\rm SO}\\neq 0.\n\\]\n\n\n\nBecause \\(\\hat{L}_z\\) and \\(\\hat{S}_z\\) do not commute with the Hamiltonian containing spin–orbit coupling, the state \\(|n, \\ell, m_\\ell, s, m_s\\rangle\\) is not an eigenstate of the Hamiltonian anymore and the quantum numbers \\(m_\\ell\\) and \\(m_s\\) are no longer conserved.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#the-total-electron-angular-momentum",
+    "href": "mod4/spin.html#the-total-electron-angular-momentum",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.2 The Total Electron Angular Momentum",
+    "text": "4.2 The Total Electron Angular Momentum\nThe solution is to introduce the total electron angular momentum, \\(\\hat{\\vec{J}} = \\hat{\\vec{L}} + \\hat{\\vec{S}}\\). We can express the interaction term using the total angular momentum:\n\\[\n\\hat{\\vec{J}}^2 = \\hat{\\vec{L}}^2 + \\hat{\\vec{S}}^2 + 2\\,\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}}\n\\quad\\Longrightarrow\\quad\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big).\n\\]\nThe operators \\(\\hat{J}^2\\) and \\(\\hat{J}_z\\) commute with the Hamiltonian, so the quantum numbers \\(j\\) and \\(m_j\\) are now conserved. Their eigenvalues follow the standard angular momentum relations:\n\\[\n\\begin{align}\n\\hat{\\vec{J}}^2|j,m_j\\rangle &= \\hbar^2 j(j+1)|j,m_j\\rangle\\\\\n\\hat{J}_z|j,m_j\\rangle &= \\hbar m_j|j,m_j\\rangle\n\\end{align}\n\\]\nThe possible values for \\(j\\) are given by the Clebsch-Gordan series:\n\\[|\\ell-s| \\le j \\le \\ell+s.\\]\nThe new complete set of quantum numbers for the hydrogen atom, when spin is included, is\n\\[\n|n,\\ell,s,j,m_j\\rangle.\n\\]\nThese states are eigenstates of the Hamiltonian, and therefore provide the most convenient description of the system. The eigenvalue relation of the spin-orbit operator follows\n\\[\n\\begin{align}\n\\hat{\\vec{L}}\\cdot\\hat{\\vec{S}} |n,\\ell,s,j,m_j\\rangle = \\tfrac{1}{2}\\big(\\hat{\\vec{J}}^2 - \\hat{\\vec{L}}^2 - \\hat{\\vec{S}}^2\\big) |n,\\ell,s,j,m_j\\rangle\\\\\n= \\frac{\\hbar^2}{2}(j(j+1)-\\ell(\\ell+1)-s(s+1))|n,\\ell,s,j,m_j\\rangle.\n\\end{align}\n\\]\n\n\n\n\n\n\n\nIllustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red (LS_coupling_(corrected) by AnotherFlake under CC BY-SA 4.0)\n\n\nThe new eigenstates can also be written as linear combinations of the “old” basis states \\(|n,\\ell,m_\\ell,s,m_s\\rangle\\), where the orbital and spin angular momenta were treated separately.\nTo make this connection, we insert the identity operator expressed in the \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) basis:\n\\[\n|n,\\ell,s,j,m_j\\rangle\n= \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle\n\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle.\n\\]\nThe overlap coefficients\n\\[\\langle n,\\ell,m_\\ell,s,m_s \\,|\\, n,\\ell,s,j,m_j\\rangle\\]\nare precisely the Clebsch–Gordan coefficients, which describe how to combine orbital and spin angular momenta into total angular momentum.\nThus, the new basis states are superpositions of the old \\(|m_\\ell, m_s\\rangle\\) states, weighted by these coefficients.\n\n\n\n\n\n\nNoteNote: The Identity Operator in a Complete Basis\n\n\n\n\n\nIn quantum mechanics, a set of states \\(\\{|a_i\\rangle\\}\\) is called a complete orthonormal basis if:\n\n\\(\\langle a_i | a_j \\rangle = \\delta_{ij}\\) (orthonormality)\n\nThe set spans the whole Hilbert space (completeness).\n\nFor such a basis, the identity operator can be written as:\n\\[\n\\hat{I} = \\sum_i |a_i\\rangle \\langle a_i|.\n\\]\nThis operator acts like the “do nothing” operator, since for any state \\(|\\psi\\rangle\\):\n\\[\n\\hat{I}|\\psi\\rangle = \\sum_i |a_i\\rangle \\langle a_i|\\psi\\rangle = |\\psi\\rangle.\n\\]\nIn our case, the “old” states \\(\\{|n,\\ell,m_\\ell,s,m_s\\rangle\\}\\) form a complete basis, so we may freely insert\n\\[\n\\hat{I} = \\sum_{m_\\ell,m_s} |n,\\ell,m_\\ell,s,m_s\\rangle \\langle n,\\ell,m_\\ell,s,m_s|.\n\\]\nThis is how the new coupled states \\(|n,\\ell,s,j,m_j\\rangle\\) can be expressed as superpositions of the old ones.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#eigenenergies",
+    "href": "mod4/spin.html#eigenenergies",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.3 Eigenenergies",
+    "text": "4.3 Eigenenergies\nIf we include the spin–orbit interaction in the Hamiltonian\n\\[\n\\hat{H} \\;=\\; \\frac{\\hat{\\vec p}^{\\,2}}{2\\mu} \\;+\\; V(\\hat{\\vec r})\n\\;+\\; \\hat{H}_{\\rm SO},\n\\]\nthen the energy levels can no longer be labeled only by \\(n\\).\nInstead, they split according to the total angular momentum quantum number \\(j\\) and the orbital angular momentum quantum number \\(\\ell\\), so the eigenenergies depend on the set \\((n, \\ell, j)\\).\nHowever, this approach is incomplete. A fully consistent calculation of the fine structure requires additional relativistic corrections, which we do not discuss here in detail:\n\nthe Darwin term, arising from the “zitterbewegung” of the electron,\n\nand the Thomas precession correction, which modifies the effective strength of the spin–orbit interaction.\n\nWhen these effects are combined with the spin–orbit coupling, the result is the same fine structure spectrum that is obtained directly from the Dirac equation.\nIn the Dirac theory, the energy levels of hydrogen-like atoms (including the rest energy of the electron) are given by\n\\[\nE_{n,j} \\;=\\; m c^2 \\left[ 1 +\n\\left( \\frac{Z \\alpha}{n - (j + \\tfrac{1}{2}) + \\sqrt{(j+\\tfrac{1}{2})^2 - (Z\\alpha)^2}} \\right)^2\n\\right]^{-\\tfrac{1}{2}} ,\n\\]\nwhere \\(\\alpha\\) (\\(\\alpha=\\tfrac{1}{137}\\)) is the fine-structure constant and \\(Z\\) is the nuclear charge.\nThe above energies depend only on \\(n\\) and \\(j\\). Thus, while the Schrödinger equation with spin–orbit interaction suggests a dependence on \\(\\ell\\), the full relativistic treatment (or including the missing correction terms) removes this \\(\\ell\\)-dependence.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
+    ]
+  },
+  {
+    "objectID": "mod4/spin.html#fine-structure-energy-shift",
+    "href": "mod4/spin.html#fine-structure-energy-shift",
+    "title": "Electron Spin and Fine Structure",
+    "section": "4.4 Fine-Structure Energy Shift",
+    "text": "4.4 Fine-Structure Energy Shift\nIt is often more useful to consider the fine-structure shift rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:\n\\[\nE_n^{(0)} = - \\frac{\\mu c^2 (Z\\alpha)^2}{2 n^2},\n\\]\nwhere \\(\\mu\\) is the reduced mass of the electron. To leading order in \\((Z\\alpha)^2\\), the shift due to relativistic effects and spin–orbit interaction becomes\n\\[\n\\Delta E_{n,j}^{\\rm FS} = E_n^{(0)} \\, (Z\\alpha)^2 \\left( \\frac{1}{n} \\frac{1}{j + 1/2} - \\frac{3}{4 n^2} \\right).\n\\]\nThus, the total energy including fine structure is\n\\[\nE_{n,j} \\approx E_n^{(0)} + \\Delta E_{n,j}^{\\rm FS}.\n\\]\nNotes:\n\nThe first term in parentheses arises from the spin–orbit interaction.\n\nThe second term arises from the relativistic correction to the kinetic energy.\n\nAs in the full Dirac theory, the energy now depends on \\(n\\) and \\(j\\), but not on \\(\\ell\\) individually, consistent with experiment.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Electron Spin and Fine Structure"
     ]
   },
   {
@@ -1181,6 +1337,102 @@
       "Home",
       "Quantum Mechanics",
       "Time-Independent Perturbation Theory"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#why-eigenstates-change-non-commuting-parts-of-the-hamiltonian",
+    "href": "mod4/fields.html#why-eigenstates-change-non-commuting-parts-of-the-hamiltonian",
+    "title": "Hydrogen in Static External Fields",
+    "section": "1.2 Why eigenstates change: non-commuting parts of the Hamiltonian",
+    "text": "1.2 Why eigenstates change: non-commuting parts of the Hamiltonian\nThe reason different bases become appropriate in different field strengths is that different pieces of the Hamiltonian do not commute. For example (schematically),\n\n\\([\\hat{L}_z,\\ \\hat{\\vec{L}}\\!\\cdot\\!\\hat{\\vec{S}}]\\neq 0\\) and \\([\\hat{S}_z,\\ \\hat{\\vec{L}}\\!\\cdot\\!\\hat{\\vec{S}}]\\neq 0\\) — so states diagonal in \\(|L,M_L\\rangle|S,M_S\\rangle\\) are not simultaneous eigenstates of the spin–orbit (fine structure) term.\n\\([\\hat{I}_z,\\ \\hat{\\vec{I}}\\!\\cdot\\!\\hat{\\vec{J}}]\\neq 0\\) — so hyperfine eigenstates \\(|F,M_F\\rangle\\) are not eigenstates when an external Zeeman interaction is comparable to the hyperfine coupling.\n\nConsequence. Choose the largest energy scale as the zeroth-order Hamiltonian; treat the smaller interactions perturbatively. The “good” quantum numbers are those that label eigenstates of the dominant piece.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#case-1-landé-g_j-and-the-electronic-ls-zeeman-shift",
+    "href": "mod4/fields.html#case-1-landé-g_j-and-the-electronic-ls-zeeman-shift",
+    "title": "Hydrogen in Static External Fields",
+    "section": "2.1 Case 1: Landé \\(g_J\\) and the electronic (LS) Zeeman shift",
+    "text": "2.1 Case 1: Landé \\(g_J\\) and the electronic (LS) Zeeman shift\nIf \\(\\vec J\\) is a good quantum number we can write approximately\n\\[\n\\hat{H}_{\\rm ZE} \\approx g_J \\mu_B B_z \\hat{J}_z,\n\\]\nso the first-order Zeeman shift is\n\\[\n\\Delta E \\approx g_J \\mu_B B\\, m_j.\n\\]\nThe Landé factor \\(g_J\\) (exact for pure LS coupling) is\n\\[\ng_J = \\frac{1}{2J(J+1)}\\Big[\\, (1)\\big(J(J+1)-S(S+1)+L(L+1)\\big)\n+ g_s\\big(J(J+1)+S(S+1)-L(L+1)\\big)\\Big].\n\\]\n\n\n\n\n\n\nNoteDerivation of the Landé \\(g_J\\) (sketch)\n\n\n\n\n\nStart from \\(\\hat{\\vec J}=\\hat{\\vec L}+\\hat{\\vec S}\\). Take expectation values in a \\(|L,S,J,M_J\\rangle\\) eigenstate and use the identities\n\\[\n\\langle\\hat{\\vec L}\\cdot\\hat{\\vec J}\\rangle=\\tfrac{1}{2}\\big(J(J+1)+L(L+1)-S(S+1)\\big),\n\\]\n\\[\n\\langle\\hat{\\vec S}\\cdot\\hat{\\vec J}\\rangle=\\tfrac{1}{2}\\big(J(J+1)-L(L+1)+S(S+1)\\big).\n\\]\nThe Zeeman operator (electronic part) is \\(\\mu_B(\\hat{L}_z + g_s \\hat{S}_z)\\). Projecting onto the \\(\\hat{J}_z\\) direction and solving for \\(g_J\\) (so that \\(\\mu_B g_J \\hat{J}_z\\) reproduces the expectation value) yields the formula above.\nThis derivation assumes LS coupling (good \\(L,S\\)). For cases where \\(L\\) and \\(S\\) are not good quantum numbers, the “effective” \\(g_J\\) must be obtained from the appropriate matrix elements.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#case-2-hyperfine-regime-and-g_f",
+    "href": "mod4/fields.html#case-2-hyperfine-regime-and-g_f",
+    "title": "Hydrogen in Static External Fields",
+    "section": "2.2 Case 2: Hyperfine regime and \\(g_F\\)",
+    "text": "2.2 Case 2: Hyperfine regime and \\(g_F\\)\nIf hyperfine coupling dominates and \\(\\hat{\\vec F}=\\hat{\\vec J}+\\hat{\\vec I}\\) is a good quantum number, the first-order Zeeman shift is\n\\[\n\\hat{H}_{\\rm ZE} \\approx g_F \\mu_B B_z \\hat{F}_z,\n\\qquad\n\\Delta E \\approx g_F \\mu_B B\\, M_F,\n\\]\nwith the standard expression\n\\[\ng_F = g_J\\,\\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}\n+ g_I \\frac{\\mu_N}{\\mu_B}\\frac{F(F+1)+I(I+1)-J(J+1)}{2F(F+1)}.\n\\]\nBecause \\(\\mu_N/\\mu_B\\ll 1\\), the second (nuclear) term is typically negligible and one commonly uses\n\\[\ng_F \\approx g_J\\,\\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#exact-diagonalization-for-hydrogen-ground-state-breitrabi-behaviour",
+    "href": "mod4/fields.html#exact-diagonalization-for-hydrogen-ground-state-breitrabi-behaviour",
+    "title": "Hydrogen in Static External Fields",
+    "section": "3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour",
+    "text": "3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour\nFor the hydrogen ground state (\\(n=1\\), \\(J=\\tfrac12\\), \\(I=\\tfrac12\\)) the hyperfine + Zeeman Hamiltonian can be diagonalized exactly within the two \\(2\\times2\\) subspaces (labelled by \\(m_F=0\\) and \\(m_F=\\pm1\\)). The resulting \\(E(B)\\) dependence is commonly referred to as the Breit–Rabi curve. It captures the gradual transition from hyperfine-dominated eigenstates at low field to Zeeman-dominated eigenstates at high field.\n(For completeness: the full Breit–Rabi formula and its derivation are standard and can be found in many textbooks — see the note below for a compact statement and derivation sketch.)\n\n\n\n\n\n\nNoteThe Breit–Rabi formula (reference and sketch)\n\n\n\n\n\nThe Breit–Rabi formula gives closed expressions for the energy levels of an atom with \\(J=\\tfrac12\\) and arbitrary nuclear spin \\(I\\) in an external magnetic field. For the special case \\(I=\\tfrac12\\) (hydrogen ground state) the formula simplifies considerably and yields the usual two linear Zeeman branches (\\(m_F=\\pm1\\)) and two levels that mix and show the characteristic avoided-crossing behaviour for \\(m_F=0\\).\nDerivation sketch: 1. Write the Hamiltonian in the \\(\\{|m_J,m_I\\rangle\\}\\) product basis. 2. Use that \\(m_F=m_J+m_I\\) is conserved, which decomposes the problem into \\(2\\times2\\) blocks. 3. Diagonalize each \\(2\\times2\\) block to get the analytic expressions.\nFor an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu, and F. Laloë, Quantum Mechanics (Volume II) or the review by Steck (Rubidium data) where the Breit–Rabi formula is written out explicitly and applied to alkali ground states.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#order-of-magnitude-numbers-useful-estimates",
+    "href": "mod4/fields.html#order-of-magnitude-numbers-useful-estimates",
+    "title": "Hydrogen in Static External Fields",
+    "section": "3.2 Order-of-magnitude numbers (useful estimates)",
+    "text": "3.2 Order-of-magnitude numbers (useful estimates)\n\nHyperfine splitting of hydrogen ground state (21-cm line): \\[\\nu_{\\rm hfs} \\approx 1420.405751768\\ \\mathrm{MHz},\\qquad\n\\Delta E_{\\rm hfs}=h\\nu_{\\rm hfs}\\approx 5.87\\times10^{-6}\\ \\mathrm{eV}.\\]\nConvert frequency to effective field: \\[B_{\\rm crossover}\\approx \\frac{\\nu_{\\rm hfs}}{\\mu_B/h}\n\\approx \\frac{1.4204\\ \\mathrm{GHz}}{13.996245\\ \\mathrm{GHz/T}}\n\\approx 0.1015\\ \\mathrm{T}.\\]\nThus around \\(\\sim 0.1\\ \\mathrm{T}\\) the Zeeman splitting becomes comparable to the zero-field hyperfine splitting for hydrogen.\nAt \\(B=1\\ \\mathrm{T}\\) the single-electron Zeeman frequency (in energy units) \\[\\Delta E_{\\rm Z} = \\mu_B B \\approx 5.79\\times10^{-5}\\ \\mathrm{eV}\n\\quad\\Longleftrightarrow\\quad \\frac{\\Delta E_{\\rm Z}}{h}\\approx 13.996\\ \\mathrm{GHz}.\\]\n\nThese numbers help decide which interactions dominate in a given laboratory situation.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#worked-number-crossover-field-revisited",
+    "href": "mod4/fields.html#worked-number-crossover-field-revisited",
+    "title": "Hydrogen in Static External Fields",
+    "section": "5.1 Worked number: crossover field (revisited)",
+    "text": "5.1 Worked number: crossover field (revisited)\nUsing \\(\\nu_{\\rm hfs}=1.420405751768\\ \\mathrm{GHz}\\) and \\(\\mu_B/h\\approx 13.9962449\\ \\mathrm{GHz/T}\\):\n\\[\nB_{\\rm crossover} \\approx \\frac{1.42040575}{13.9962449}\\ \\mathrm{T} \\approx 0.1015\\ \\mathrm{T}.\n\\]\nAt \\(B\\sim 0.1\\ \\mathrm{T}\\) hyperfine and Zeeman energies are comparable for hydrogen ground state; at \\(B\\gg 0.1\\ \\mathrm{T}\\) the hyperfine Paschen–Back limit is approached.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#typical-experimental-magnitudes",
+    "href": "mod4/fields.html#typical-experimental-magnitudes",
+    "title": "Hydrogen in Static External Fields",
+    "section": "5.2 Typical experimental magnitudes",
+    "text": "5.2 Typical experimental magnitudes\n\nWeak laboratory fields (\\(B\\lesssim 1\\ \\mathrm{mT}\\)): Zeeman shifts are tiny; hyperfine structure typically dominates.\nModest fields (\\(B\\sim 0.01\\!-\\!0.2\\ \\mathrm{T}\\)): interesting interplay — use the Breit–Rabi description.\nStrong fields (\\(B\\gtrsim 1\\ \\mathrm{T}\\)): Zeeman splitting dominates; \\(M_J,M_I\\) are the convenient labels.",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
+    ]
+  },
+  {
+    "objectID": "mod4/fields.html#a-note-on-derivations",
+    "href": "mod4/fields.html#a-note-on-derivations",
+    "title": "Hydrogen in Static External Fields",
+    "section": "A note on derivations",
+    "text": "A note on derivations\nWhere a derivation is lengthy (e.g. diagonalising the \\(2\\times2\\) blocks that lead to the Breit–Rabi formula) I placed a callout above with a sketch and references. If you would like, I can add the complete algebraic derivation of the Breit–Rabi formula in an expanded collapsible note (it is straightforward but algebraically tedious). Would you like that added?",
+    "crumbs": [
+      "Home",
+      "Hydrogen (Details)",
+      "Hydrogen in Static External Fields"
     ]
   }
 ]
