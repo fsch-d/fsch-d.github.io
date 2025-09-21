@@ -184,8 +184,8 @@ Hence, we can find simultaneous eigenstates of $\hat L^2$ and one component, usu
 ```{python}
 #| label: fig-momentumvec
 #| fig-format: svg
-#| fig-cap: Momentum Eigenvector in Quantum Mechanics.
-#| fig-alt: Momentum Eigenvector in Quantum Mechanics.
+#| fig-cap: Angular momentum eigenvector in quantum mechanics.
+#| fig-alt: Angular momentum eigenvector in quantum mechanics.
 import matplotlib.pyplot as plt
 import numpy as np
 

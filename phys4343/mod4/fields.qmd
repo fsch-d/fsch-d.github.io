@@ -11,7 +11,7 @@ The presentation is perturbative: choose the largest interaction as the unpertur
 
 ---
 
-# 1. Quick review — magnetic moments and interaction Hamiltonian
+# 1. Zeeman effect: Magnetic interaction Hamiltonian
 
 The magnetic moment operator of an atom has contributions from electronic orbital motion, electronic spin, and the nuclear magnetic moment. In SI units we write
 
@@ -27,14 +27,19 @@ where
 - $g_I$ is the nuclear $g$-factor (proton: $g_p\approx 5.5857$),
 - $\hat{\vec{L}},\hat{\vec{S}},\hat{\vec{I}}$ are the orbital, spin and nuclear spin operators respectively.
 
-An external (static) magnetic field $\vec{B}=B_z\hat{\vec z}$ couples via
+An external (static) magnetic field $\vec{B}=B_z \vec{e}_z$ couples via
 
 $$
 \hat{H}_{\rm ZE} \;=\; -\hat{\vec{\mu}}\cdot\vec{B}
-\;=\; \mu_B B_z\big(\hat{L}_z + g_s \hat{S}_z\big) - g_I\mu_N B_z \hat{I}_z.
+\;=\; \frac{\mu_B}{\hbar} B_z\big(\hat{L}_z + g_s \hat{S}_z\big) - g_I\frac{\mu_N}{\hbar} B_z \hat{I}_z.
 $$
 
-Because $\mu_N/\mu_B \approx m_e/m_p \approx 1/1836$, the direct nuclear Zeeman term is usually negligible for first-order electronic Zeeman shifts (but it does matter for very high precision hyperfine spectroscopy).
+Because $\mu_N/\mu_B \approx m_e/m_p \approx 1/1836$, the direct nuclear Zeeman term is usually negligible for first-order electronic Zeeman shifts (but it does matter for very high precision hyperfine spectroscopy):
+
+$$
+\hat{H}_{\rm ZE} \;\approx\; \frac{\mu_B}{\hbar} B_z\big(\hat{L}_z + g_s \hat{S}_z\big).
+$$
+
 
 **Useful numerical values**
 
@@ -48,109 +53,391 @@ These conversions are handy when comparing Zeeman splittings (in GHz) to hyperfi
 
 ## 1.2 Why eigenstates change: non-commuting parts of the Hamiltonian
 
-The reason different bases become appropriate in different field strengths is that different pieces of the Hamiltonian do **not** commute. For example (schematically),
+Let us write down the interaction Hamiltonians explicitly (schematically, suppressing constants):
 
-- $[\hat{L}_z,\ \hat{\vec{L}}\!\cdot\!\hat{\vec{S}}]\neq 0$ and $[\hat{S}_z,\ \hat{\vec{L}}\!\cdot\!\hat{\vec{S}}]\neq 0$ — so states diagonal in $|L,M_L\rangle|S,M_S\rangle$ are not simultaneous eigenstates of the spin–orbit (fine structure) term.
-- $[\hat{I}_z,\ \hat{\vec{I}}\!\cdot\!\hat{\vec{J}}]\neq 0$ — so hyperfine eigenstates $|F,M_F\rangle$ are not eigenstates when an external Zeeman interaction is comparable to the hyperfine coupling.
+- **Spin–orbit (fine structure):**
+  $$
+  \hat H_{\rm SO} \;\propto\; \hat{\vec L}\cdot\hat{\vec S}.
+  $$
 
-**Consequence.** Choose the largest energy scale as the zeroth-order Hamiltonian; treat the smaller interactions perturbatively. The "good" quantum numbers are those that label eigenstates of the dominant piece.
+- **Hyperfine:**
+  $$
+  \hat H_{\rm HF} \;\propto\; \hat{\vec I}\cdot\hat{\vec J},\qquad \hat{\vec J}=\hat{\vec L}+\hat{\vec S}.
+  $$
+
+- **Zeeman (magnetic field $\vec B \parallel z$):**
+  $$
+  \hat H_{\rm ZE} \;\propto\; \hat L_z + g_s \hat S_z.
+  $$
+
+---
+
+### Step 1. What would be the ideal basis?
+
+If all three Hamiltonians commuted, there would be a common eigenbasis diagonalising them simultaneously. The obvious candidate would be the coupled basis
+$$
+|L,S,J,I;F,M_F\rangle,
+$$
+which diagonalises $\hat L^2,\hat S^2,\hat J^2,\hat I^2,\hat F^2,\hat F_z$.
+
+---
+
+### Step 2. Commutation relations
+
+- $[\hat H_{\rm SO}, \hat H_{\rm HF}] = 0$  
+  **Reason:** Both are *rotational scalars*, i.e. invariant under rotations and independent of the choice of coordinate system.  
+  ⇒ They share common eigenstates $|L,S,J,I;F,M_F\rangle$.
+
+- $[\hat H_{\rm ZE}, \hat H_{\rm SO}] \neq 0$  
+  **Reason:** $\hat H_{\rm ZE}$ singles out the $z$-axis, breaking rotational symmetry, while $\hat H_{\rm SO}$ is rotationally invariant.  
+  ⇒ States $|L,S,J,M_J\rangle$ are no longer exact eigenstates once $\hat H_{\rm ZE}$ is significant.
+
+- $[\hat H_{\rm ZE}, \hat H_{\rm HF}] \neq 0$  
+  **Reason:** $\hat H_{\rm HF}$ is a rotational scalar, but $\hat H_{\rm ZE}$ is not.  
+  ⇒ Hyperfine eigenstates $|F,M_F\rangle$ cease to be eigenstates in the Zeeman regime.
+  
+---
+
+### Step 3. Consequence for basis choice
+
+- If **fine + hyperfine dominate** (Zeeman weak): good basis is $|L,S,J,I;F,M_F\rangle$.  
+- If **Zeeman dominates over hyperfine but not over spin–orbit**: good basis is $|L,S,J,M_J; I,M_I\rangle$.  
+- If **Zeeman dominates completely** (hyperfine Paschen–Back): good basis is closer to the uncoupled product $|L,M_L\rangle|S,M_S\rangle|I,M_I\rangle$.
+
+**Rule of thumb.** Always pick the basis corresponding to the *largest rotationally invariant interaction* (SO or HF), unless the Zeeman term overwhelms it and breaks the symmetry.
+
 
 ---
 
 # 2. Practical regimes (and convenient bases)
 
-Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fine-structure splitting $\Delta E_{\rm FS}$ and hyperfine splitting $\Delta E_{\rm HF}$, different bases are useful:
+Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fine-structure splitting $\Delta E_{\rm FS}$, and hyperfine splitting $\Delta E_{\rm HF}$, different bases are useful:
 
-1. **Weak fields relative to fine structure** ($\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$).  
-   Natural basis: $|n,\ell,s,j,m_j\rangle$. Spin–orbit coupling fixes $\hat{\vec J}$ and we treat the Zeeman term as a perturbation in $\hat{\vec J}\cdot\vec{B}$; this leads to energy shifts proportional to $g_J \mu_B B m_j$.
+1. **Weak fields relative to fine structure** ($\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$, assume $I=0$).  
+   Natural basis: $|L,S,J,M_J\rangle$.  
+   Spin–orbit coupling fixes $\hat{\vec J}$, and the Zeeman term is treated as a perturbation via $\hat{\vec J}\cdot\vec B$.  
+   Energy shifts are proportional to $g_J \mu_B B M_J$.
 
-2. **Fields that are small compared to hyperfine but comparable to fine structure** ($\Delta E_{\rm ZE} < \Delta E_{\rm HF}$).  
-   Natural basis: $|n,\ell,s,j,i; F, M_F\rangle$. Hyperfine coupling fixes $\hat{\vec F}$ and first-order Zeeman shifts are proportional to $g_F\mu_B B M_F$.
+2. **Fields weak compared to hyperfine splitting** ($\Delta E_{\rm ZE} \ll \Delta E_{\rm HF}$, while $\Delta E_{\rm FS}$ remains much larger).  
+   Natural basis: $|L,S,J,I;F,M_F\rangle$.  
+   Hyperfine coupling fixes $\hat{\vec F}$, and the Zeeman effect produces first-order shifts proportional to $g_F \mu_B B M_F$.
 
-3. **Strong fields (Paschen–Back / hyperfine Paschen–Back)** ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$).  
-   Electronic and nuclear angular momenta decouple; a convenient product basis is $|J,M_J; I,M_I\rangle$, and the Zeeman energy is dominated by $g_J\mu_B B M_J$ with nuclear shifts small corrections.
+3. **Strong fields (Paschen–Back / hyperfine Paschen–Back limit)** ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$).  
+   Electronic and nuclear angular momenta decouple.  
+   A convenient product basis is $|J,M_J; I,M_I\rangle$, with dominant energy $E\approx g_J \mu_B B M_J$ plus small nuclear contributions and hyperfine corrections.
 
----
+---  
 
 ## 2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
 
-If $\vec J$ is a good quantum number we can write approximately
+If $\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$ and the nucleus carries no spin ($I=0$), then $M_J$ is a good quantum number and the convenient basis is $|L,S,J,M_J\rangle$.
 
+The Zeeman interaction Hamiltonian (electronic part) is
 $$
-\hat{H}_{\rm ZE} \approx g_J \mu_B B_z \hat{J}_z,
+\hat H_{\rm ZE} \;=\; -\hat{\vec\mu}_e\cdot\vec B
+\;=\; \frac{\mu_B}{\hbar}\,B\;\big(\hat L_z + g_s \hat S_z\big),
+$$
+where $\mu_B=\dfrac{e\hbar}{2m_e}$ is the Bohr magneton and $g_s\approx 2$ is the electron spin $g$-factor.
+
+To first order in [perturbation theory](../mod2/perturb.qmd) the energy shift of an eigenstate $|L,S,J,M_J\rangle$ is
+$$
+\Delta E^{(1)} \;=\; \langle L,S,J,M_J|\hat H_{\rm ZE}|L,S,J,M_J\rangle
+\;=\; \frac{\mu_B}{\hbar}\,B\;\big(\langle \hat L_z\rangle + g_s \langle \hat S_z\rangle\big).
 $$
 
-so the first-order Zeeman shift is
+The expectation values $\langle \hat L_z\rangle$ and $\langle \hat S_z\rangle$ in the coupled state align with the total angular momentum direction. They can be written in the compact form
+$$
+\langle \hat L_z\rangle
+= \frac{\langle \hat{\vec L}\cdot\hat{\vec J}\rangle}{J(J+1)\hbar^2}\; M_J\hbar,
+\qquad
+\langle \hat S_z\rangle
+= \frac{\langle \hat{\vec S}\cdot\hat{\vec J}\rangle}{J(J+1)\hbar^2}\; M_J\hbar,
+$$
+where the scalar products evaluate (on $|L,S,J\rangle$) to
+$$
+\langle \hat{\vec L}\!\cdot\!\hat{\vec J}\rangle
+= \tfrac{\hbar^2}{2}\big[J(J+1)+L(L+1)-S(S+1)\big],
+$$
+$$
+\langle \hat{\vec S}\!\cdot\!\hat{\vec J}\rangle
+= \tfrac{\hbar^2}{2}\big[J(J+1)-L(L+1)+S(S+1)\big].
+$$
 
+Inserting these expressions into the first-order shift leads to the familiar Landé formula in the LS-coupling limit:
+
+::: {.callout-tip}
+### Zeeman shift in the LS-coupling limit
 $$
-\Delta E \approx g_J \mu_B B\, m_j.
+\Delta E^{(1)} = \mu_B\,B\,g_J\,M_J\,
+$$
+with
+$$
+\begin{align}
+g_J =& \frac{1}{2J(J+1)}\Big[ \big(J(J+1)-S(S+1)+L(L+1)\big)\\
+&+ g_s\big(J(J+1)+S(S+1)-L(L+1)\big)\Big].
+\end{align}
 $$
 
-The Landé factor $g_J$ (exact for pure LS coupling) is
+:::
 
-$$
-g_J = \frac{1}{2J(J+1)}\Big[\, (1)\big(J(J+1)-S(S+1)+L(L+1)\big)
-+ g_s\big(J(J+1)+S(S+1)-L(L+1)\big)\Big].
-$$
+Thus, qualitatively: when $\hat{\vec J}$ is fixed by strong spin–orbit coupling, the Zeeman interaction projects onto $\hat J_z$ and produces shifts proportional to $M_J$; the proportionality factor is the Landé $g_J$ which encodes how orbital and spin contributions combine.
 
 ::: {.callout-note collapse="true"}
-### Derivation of the Landé $g_J$ (sketch)
+### Plausibility argument for the projection formulas (sketch)
 
-Start from $\hat{\vec J}=\hat{\vec L}+\hat{\vec S}$. Take expectation values in a $|L,S,J,M_J\rangle$ eigenstate and use the identities
+```{python}
+#| echo: false
+# eval: false
+import subprocess
+import os
 
+# Determine the null device based on the operating system
+null_device = "NUL" if os.name == "nt" else "/dev/null"
+
+# Write the LaTeX code to a temporary file
+latex_code = r"""
+\documentclass[tikz, border=2mm]{standalone}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\usepackage{physics}
+
+
+\begin{document}
+
+\tikzset{>=latex} % for LaTeX arrow head
+\usetikzlibrary{angles,quotes} % for pic
+
+\begin{tikzpicture}[scale=1.2]
+  \coordinate (O) at (0,0);
+  \coordinate (J) at (2,3);
+  \coordinate (L) at (2.2,1.6);
+ 
+  \draw[->,thick,black] (0,0) -- (2,3) node[midway,right=0.1] {$\vec{J}$};
+  \draw[->,thick,black] (0,0) -- (2.2,1.6)node[midway,right=0.3] {$\vec{L}$};
+  \draw[->,thick,black] (2.2,1.6) -- (2,3)node[midway,right=0.15] {$\vec{S}$};
+%\draw pic[->,thick,"$\alpha$",draw=black,angle radius=26,angle eccentricity=1.3]
+%    {angle = L--O--J};
+
+    \draw[rotate=-90+56] (0,2.55) ellipse (0.92 and 0.4);
+
+  \draw[->,thick,red] (-0.05,0.03) -- (1.35,2.15)node[midway,left=0.2] {$\expval{\vec{L}}$};
+  \draw[->,thick,blue] (1.35,2.15) -- (1.93,3.01)node[midway,left=0.2] {$\expval{\vec{S}}$};
+
+\end{tikzpicture}
+
+\end{document}
+"""
+
+with open("soc.tex", "w") as f:
+    f.write(latex_code)
+
+import re
+
+def scale_svg(file_path, factor):
+    """
+    Reads an SVG file and scales its width and height attributes.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+    
+    # Define a function to perform the scaling on matched values
+    def scale_match(match):
+        value = float(match.group(2)) # Fix: changed from group(1) to group(2)
+        new_value = value * factor
+        return f'{match.group(1)}="{new_value:.3f}{match.group(3)}"'
+        
+    # Regex to find width="[number]pt" and height="[number]pt"
+    # and replace them with the scaled value
+    scaled_content = re.sub(r'(width|height)="([\d.]+)(pt|px)?"', scale_match, content)
+
+    with open(file_path, 'w') as f:
+        f.write(scaled_content)
+
+# Define the list of diagram names
+diagram_names = ["vecav"]
+
+# Run the commands, redirecting all output to the null device
+with open(os.devnull, 'w') as FNULL:
+    # Compile the LaTeX file to PDF
+    subprocess.run(["lualatex", "-interaction=nonstopmode", "soc.tex"], stdout=FNULL, stderr=FNULL)
+
+    # Convert the PDF pages to SVG
+    # Use a loop to process each diagram
+    for i, name in enumerate(diagram_names):
+        page_number = i + 1
+        output_svg = f"{name}.svg"
+        
+        # Convert the PDF page to a specific SVG file
+        subprocess.run(["pdf2svg", "soc.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # Scale the newly created SVG file
+        scale_svg(output_svg, 2)
+
+    # Clean up temporary files
+    subprocess.run(["rm", "soc.tex", "soc.pdf", "soc.log", "soc.aux"], stdout=FNULL, stderr=FNULL)
+```
+
+
+We give a heuristic (geometric) justification for the projection results used above — it is intended to build intuition rather than to replace a full operator derivation.
+
+- In the LS coupling regime $\vec L$ and $\vec S$ are well defined in magnitude, and their vector sum is the total electronic angular momentum $\vec J=\vec L+\vec S$. Because of the coupling, the directions of $\vec L$ and $\vec S$ are not sharp: each precesses about the fixed direction of $\vec J$, so their instantaneous orientations fill cones around $\vec J$.
+
+- The *expectation values* $\langle\vec L\rangle$ and $\langle\vec S\rangle$ therefore point along $\vec J$ (by symmetry), i.e., they are proportional to $\vec J$:
+  $$
+  \langle\vec L\rangle = \alpha_L\,\vec J,\qquad
+  \langle\vec S\rangle = \alpha_S\,\vec J.
+  $$
+  The scalars $\alpha_L,\alpha_S$ are fixed by taking scalar products with $\vec J$:
+  $$
+  \langle\vec L\cdot\vec J\rangle = \alpha_L\,|\vec J|^2,\qquad
+  \langle\vec S\cdot\vec J\rangle = \alpha_S\,|\vec J|^2.
+  $$
+  Solving for $\alpha_{L,S}$ and replacing the eigenvalues of $\vec{J}^2$ gives
+  $$
+  \alpha_L = \frac{\langle\vec L\cdot\vec J\rangle}{J(J+1)\hbar^2},\qquad
+  \alpha_S = \frac{\langle\vec S\cdot\vec J\rangle}{J(J+1)\hbar^2}.
+  $$
+
+- Projecting onto the laboratory $z$-axis (the direction of $\vec B$), where $\langle J_z\rangle = M_J\hbar$, yields the projection formulas used in the main text:
+  $$
+  \langle L_z\rangle=\alpha_L\,M_J\hbar,\qquad
+  \langle S_z\rangle=\alpha_S\,M_J\hbar.
+  $$
+
+This geometric picture is illustrated in the figure: the cones of allowed orientations for $\vec L$ and $\vec S$ average to vectors aligned with $\vec J$, and the $z$-component is the corresponding projection. The algebraic operator identities (used in the text) make this intuitive picture precise.
+
+![](./vecav.svg){fig-alt="Vector average: $\langle\vec L\rangle$ and $\langle\vec S\rangle$ project onto $\vec J$." fig-align="center" width=40%}
+
+The scalar product $\langle\vec L\cdot\vec J\rangle$ and $\langle\vec S\cdot\vec J\rangle$ can be rewritten using the identies
 $$
-\langle\hat{\vec L}\cdot\hat{\vec J}\rangle=\tfrac{1}{2}\big(J(J+1)+L(L+1)-S(S+1)\big),
+\begin{align}
+\vec{S}^2 &= (\vec J - \vec L)^2 =\vec{J}^2 + 2\, \vec{L}\cdot\vec{J} - \vec{L}^2\\
+\vec{L}^2 &= (\vec J - \vec S)^2 =\vec{J}^2 + 2\, \vec{S}\cdot\vec{J} - \vec{S}^2
+\end{align}
+$$
+yielding (in operator form):
+$$
+\hat{\vec L}\cdot\hat{\vec J}=\tfrac{1}{2}(\hat J^2+\hat L^2-\hat S^2),
+\qquad
+\hat{\vec S}\cdot\hat{\vec J}=\tfrac{1}{2}(\hat J^2-\hat L^2+\hat S^2).
 $$
 
-$$
-\langle\hat{\vec S}\cdot\hat{\vec J}\rangle=\tfrac{1}{2}\big(J(J+1)-L(L+1)+S(S+1)\big).
-$$
+The Landé factor can the be calculated using the eigenvalues of $\hat J^2,\hat L^2,\hat S^2$.
 
-The Zeeman operator (electronic part) is $\mu_B(\hat{L}_z + g_s \hat{S}_z)$. Projecting onto the $\hat{J}_z$ direction and solving for $g_J$ (so that $\mu_B g_J \hat{J}_z$ reproduces the expectation value) yields the formula above.
-
-This derivation assumes LS coupling (good $L,S$). For cases where $L$ and $S$ are not good quantum numbers, the "effective" $g_J$ must be obtained from the appropriate matrix elements.
 :::
+
+---
+
+**Remarks / assumptions**
+
+* We assumed (i) LS coupling so $L,S,J$ are good quantum numbers, and (ii) the applied field is weak enough that first-order perturbation theory applies (no level mixing beyond perturbative shifts).  
+* The projection argument (expectation of an electronic vector operator is parallel to $\langle\hat{\vec J}\rangle$) follows from rotational symmetry and is a standard Wigner–Eckart result; a short justification is: the only vector available in the $|J,M_J\rangle$ subspace is $\langle\hat{\vec J}\rangle$, so any vector expectation must be proportional to it — the proportionality constant is fixed by taking the scalar product with $\hat{\vec J}$ (done above).
+* If $L,S$ are not good quantum numbers (e.g. strong spin–orbit mixing beyond LS coupling), $g_J$ must be obtained from the appropriate matrix elements in the actual eigenbasis.
+
+
 
 ---
 
 ## 2.2 Case 2: Hyperfine regime and $g_F$
 
-If hyperfine coupling dominates and $\hat{\vec F}=\hat{\vec J}+\hat{\vec I}$ is a good quantum number, the first-order Zeeman shift is
+If hyperfine coupling dominates ($\Delta E_{\rm ZE} \ll \Delta E_{\rm HF}$) and the $z$ component of $\hat{\vec F} = \hat{\vec J} + \hat{\vec I}$ is a good quantum number, the first-order Zeeman shift is
 
 $$
-\hat{H}_{\rm ZE} \approx g_F \mu_B B_z \hat{F}_z,
-\qquad
-\Delta E \approx g_F \mu_B B\, M_F,
+\Delta E^{(1)} \;=\;  \langle L,S,J,F,M_F|\hat H_{\rm ZE}|L,S,J,F,M_F\rangle.
 $$
 
-with the standard expression
+From the previous section we may approximate the Zeeman Hamiltonian as  
 
 $$
-g_F = g_J\,\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}
-+ g_I \frac{\mu_N}{\mu_B}\frac{F(F+1)+I(I+1)-J(J+1)}{2F(F+1)}.
+\hat H_{\rm ZE} \;\approx\; g_J \frac{\mu_B}{\hbar}\,\hat{J}_z\,B.
 $$
 
-Because $\mu_N/\mu_B\ll 1$, the second (nuclear) term is typically negligible and one commonly uses
+Using the same projection argument as in the electronic case, and neglecting the nuclear contribution to the Zeeman interaction, we obtain
 
 $$
-g_F \approx g_J\,\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}.
+\Delta E^{(1)} \;=\; \frac{\mu_B}{\hbar}\,B\,g_J \,\langle \hat J_z\rangle.
 $$
+
+The expectation value $\langle \hat J_z \rangle$ can be expressed in terms of $\vec J$ projected onto $\vec F$, giving
+
+$$
+\langle \hat J_z\rangle \;=\; \frac{\langle \hat{\vec J}\cdot \hat{\vec F}\rangle}{F(F+1)\hbar^2}\;M_F \hbar.
+$$
+
+Inserting this into the expression above yields
+
+$$
+\Delta E^{(1)} \;=\; \mu_B\,B \,\frac{\langle \hat{\vec J}\cdot \hat{\vec F}\rangle}{F(F+1)}\, M_F.
+$$
+
+This can be written compactly as
+
+::: {.callout-tip}
+### Zeeman shift in the hyperfine regime
+$$
+\Delta E^{(1)} \;=\; \mu_B\,B\,g_F\,M_F,
+$$
+
+with the standard result for the hyperfine Landé factor
+
+$$
+g_F \;=\; g_J \,\frac{F(F+1)-I(I+1)+J(J+1)}{2F(F+1)}.
+$$
+
+:::
 
 ---
 
 ## 2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
 
-When the Zeeman splitting greatly exceeds the hyperfine coupling, the electronic and nuclear moments decouple. The dominant energy is
+When the Zeeman splitting is much larger than the hyperfine interaction ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$), the electronic and nuclear moments effectively decouple. In this regime the product basis
 
 $$
-E \approx g_J \mu_B B M_J + g_I \mu_N B M_I,
+|J,M_J; I,M_I\rangle
 $$
 
-and hyperfine coupling can be treated perturbatively, giving small $M_I M_J$-dependent shifts:
+is appropriate (formally identical to Case 1, but now with nuclear spin included explicitly). The dominant Zeeman energy shift is
 
 $$
-E \approx g_J \mu_B B M_J + A M_I M_J + \mathcal{O}\!\left(\frac{A^2}{g_J\mu_B B}\right).
+\Delta E_{\rm ZE} \;=\; \mu_B\,B\,g_J\,M_J,
 $$
+
+where the electronic Landé factor $g_J$ governs the splitting of the electronic angular momentum states.  
+  
+The hyperfine Hamiltonian can then be treated perturbatively. To first order we write
+
+$$
+\Delta E^{(1)}_{\rm HF}
+\;=\; \langle J,M_J; I,M_I|\hat H_{\rm HF}|J,M_J; I,M_I\rangle
+\;=\; A\,\langle \hat{\vec I}\cdot \hat{\vec J}\rangle,
+$$
+
+where $A$ is the hyperfine constant.  
+
+Expanding the scalar product,
+
+$$
+\langle \hat{\vec I}\cdot \hat{\vec J}\rangle
+= \langle \hat I_x \hat J_x\rangle \;+\; \langle \hat I_y \hat J_y\rangle \;+\; \langle \hat I_z \hat J_z\rangle.
+$$
+
+In the strong-field limit, the transverse terms $\langle \hat I_x \hat J_x\rangle$ and $\langle \hat I_y \hat J_y\rangle$ vanish on average. This is because both $\vec I$ and $\vec J$ precess rapidly around the external field axis ($z$), so only the $z$ components remain well defined in expectation values.
+
+Thus, the leading hyperfine contribution reduces to
+
+$$
+\langle \hat{\vec I}\cdot \hat{\vec J}\rangle \;\approx\; \langle \hat I_z \hat J_z\rangle
+\;=\; M_I M_J.
+$$
+
+Accordingly, the hyperfine correction produces only small, $M_I M_J$–dependent energy shifts:
+
+::: {.callout-tip}
+### Hyperfine shift in the LS-coupling limit
+$$
+\Delta E^{(1)}_{\rm HF} \;=\; A\,M_I M_J.
+$$
+
+:::
 
 ---
 
@@ -159,6 +446,116 @@ $$
 ## 3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
 
 For the hydrogen ground state ($n=1$, $J=\tfrac12$, $I=\tfrac12$) the hyperfine + Zeeman Hamiltonian can be diagonalized exactly within the two $2\times2$ subspaces (labelled by $m_F=0$ and $m_F=\pm1$). The resulting $E(B)$ dependence is commonly referred to as the **Breit–Rabi** curve. It captures the gradual transition from hyperfine-dominated eigenstates at low field to Zeeman-dominated eigenstates at high field.
+
+
+```{python}
+#| label: fig-breitrabi
+#| fig-format: svg
+#| fig-cap: Hydrogen ground state energy shifts in a magnetic field.
+#| fig-alt: Hydrogen ground state energy shifts in a magnetic field.
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set the global font size
+plt.rcParams['font.size'] = 14
+
+# Enable LaTeX rendering
+plt.rcParams['text.usetex'] = True
+
+# Optionally, configure the font family to match your LaTeX document
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.serif'] = 'Computer Modern'
+
+# Example LaTeX preambles can be set for more advanced customization
+plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath} \usepackage{physics}'
+
+# --- Physical Constants (in SI units) ---
+h = 6.62607015e-34  # Planck's constant (J·s)
+mu_B = 9.2740100783e-24  # Bohr magneton (J/T)
+g_J = 2.00231930436256  # Electron g-factor
+g_I_proton = 5.585694702  # Proton g-factor
+
+# --- Hydrogen Ground State Parameters ---
+delta_E_hz = 1420.405751768e6  # Hyperfine splitting frequency (Hz)
+delta_E_joules = h * delta_E_hz  # Hyperfine splitting energy (Joules)
+I = 0.5  # Nuclear spin for Hydrogen
+
+# --- Magnetic Field Range (Tesla) ---
+B_field = np.linspace(0, 0.2, 500)  # From 0 to 0.2 Tesla
+
+# --- Breit-Rabi Parameter 'x' ---
+# The parameter x is defined as: x = (g_J * mu_B - g_I * mu_N) * B / delta_E
+# Often, the g_I*mu_N term is neglected as it's much smaller, but let's use the full expression
+# x = (g_J * mu_B * B_field) / delta_E_joules
+# A more common form of x uses the total magnetic moments to be more accurate
+x = (g_J*mu_B + g_I_proton*mu_B/1836.15) * B_field / delta_E_joules
+
+# --- Breit-Rabi Formula Calculation ---
+# For I = 1/2 and S = 1/2, the states are F=1, F=0
+# The formula is E = -delta_E / 4 +- delta_E/2 * sqrt(1 + 2*mF*x + x^2)
+# The '+' is for F=1, the '-' is for F=0, but this is only for the mF=0 states.
+# We must use the general formula from the beginning.
+# The general Breit-Rabi formula is:
+# E_mF = -(delta_E/2) * (1/(2I+1)) +- (delta_E/2)*sqrt(1+x^2 + 4mF*x) for I=1/2
+
+# Let's use the full formula for the four energy levels
+# F=1, m_F=+1 state:
+E1_plus1 = +delta_E_joules/4 + (delta_E_joules/2)*x
+
+# F=1, m_F=0 state:
+E1_0 = -delta_E_joules/4 + (delta_E_joules/2)*np.sqrt(1 + x**2)
+
+# F=0, m_F=0 state:
+E0_0 = -delta_E_joules/4 - (delta_E_joules/2)*np.sqrt(1 + x**2)
+
+# F=1, m_F=-1 state:
+E1_minus1 = delta_E_joules/4 - (delta_E_joules/2)*x
+
+# --- Plotting ---
+plt.figure(figsize=(10, 7))
+
+# Plot the energy levels, converting to GHz for the y-axis
+plt.plot(B_field * 1000, E1_plus1 / h / 1e9, label=r'$F=1, m_F=+1$', color='red', linewidth=3)
+plt.plot(B_field * 1000, E1_0 / h / 1e9, label=r'$F=1, m_F=0$', color='blue', linewidth=3)
+plt.plot(B_field * 1000, E0_0 / h / 1e9, label=r'$F=0, m_F=0$', color='purple', linewidth=3)
+plt.plot(B_field * 1000, E1_minus1 / h / 1e9, label=r'$F=1, m_F=-1$', color='green', linewidth=3)
+
+plt.text(75, 1.2, r'$(M_J=\tfrac{1}{2},M_I=\tfrac{1}{2})$', fontsize=18, color='red', rotation=14)
+plt.text(72, 0.68, r'$(M_J=\tfrac{1}{2},M_I=-\tfrac{1}{2})$', fontsize=18, color='blue', rotation=12)
+plt.text(72, -0.88, r'$(M_J=-\tfrac{1}{2},M_I=\tfrac{1}{2})$', fontsize=18, color='green', rotation=-14)
+plt.text(69, -1.74, r'$(M_J=-\tfrac{1}{2},M_I=-\tfrac{1}{2})$', fontsize=18, color='purple', rotation=-11.5)
+
+plt.text(2, 0.5, r'$(F=1,M_F=1)$', fontsize=18, color='red', rotation=14)
+plt.text(15, 0.2, r'$(F=1,M_F=0)$', fontsize=18, color='blue', rotation=0)
+plt.text(2, -0.25, r'$(F=1,M_F=-1)$', fontsize=18, color='green', rotation=-14)
+plt.text(2, -0.97, r'$(F=0,M_F=0)$', fontsize=18, color='purple', rotation=0)
+
+plt.axvline(x=10 , color='gray', linestyle='--', linewidth=0.8,
+            label=r'low field region')
+plt.axvline(x=53 , color='gray', linestyle='--', linewidth=0.8,
+            label=r'high field region')
+
+plt.text(1, 1.2, r'low field', fontsize=18, rotation=90)
+plt.text(5, 1.2, r'$\ket{F M_F}$', fontsize=18, rotation=90)
+
+plt.text(15, 1.85, r'transition region', fontsize=18)
+plt.text(15, 1.6, r'(mixed states)', fontsize=18)
+
+
+
+plt.text(55, 1.85, r'high field (Paschen--Back)', fontsize=18)
+plt.text(55, 1.6, r'$\ket{J M_J; I M_I}$', fontsize=18)
+
+
+
+plt.xlabel('Magnetic Field B (mT)')
+plt.ylabel('Energy shift (GHz)')
+plt.grid(False)
+#plt.legend()
+plt.xlim(0, 100.0)
+plt.ylim(-2.0, 2.0)
+plt.show()
+```
 
 (For completeness: the full Breit–Rabi formula and its derivation are standard and can be found in many textbooks — see the note below for a compact statement and derivation sketch.)
 
@@ -196,79 +593,123 @@ For an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu,
 
 These numbers help decide which interactions dominate in a given laboratory situation.
 
----
-
-# 4. Atoms in electric fields — quadratic Stark effect
-
-For the hydrogen ground state ($1s$) there is no linear (first-order) Stark effect because the $1s$ orbital has definite parity. The leading response is quadratic in the applied electric field $\mathcal{E}$:
-
-$$
-\Delta E = -\tfrac{1}{2}\,\alpha\,\mathcal{E}^2,
-$$
-
-where $\alpha$ is the static electric polarizability. For hydrogen $1s$:
-
-$$
-\alpha(1s) \approx 4.5\,a_0^3,
-$$
-
-with $a_0$ the Bohr radius. In SI units one can convert $\alpha$ to e.g. J/(V/m)$^2$ if needed.
-
-**Order of magnitude.** For a field of $\mathcal{E}=10^6\ \mathrm{V/m}$ (a large lab field) the energy shift is extremely small:
-
-$$
-\Delta E \sim -\tfrac{1}{2}\,(4.5\,a_0^3)\,(10^6\ \mathrm{V/m})^2 \quad\text{(in SI units after conversion)}.
-$$
-
-Thus the quadratic Stark shift for ground-state hydrogen is tiny compared with hyperfine and typical Zeeman splittings at laboratory fields.
-
-::: {.callout-note collapse="true"}
-### Quick remark on polarizability and units
-
-The quoted polarizability $\alpha(1s)\approx 4.5\,a_0^3$ is often given in atomic units (a.u.). To convert to SI (J m$^2$/V$^2$ or C m$^2$/V) use standard atomic-unit conversion factors. For most conceptual estimates the $a_0^3$ form is sufficient.
-:::
-
----
-
-# 5. Worked examples and useful formulae
-
-## 5.1 Worked number: crossover field (revisited)
-
-Using $\nu_{\rm hfs}=1.420405751768\ \mathrm{GHz}$ and $\mu_B/h\approx 13.9962449\ \mathrm{GHz/T}$:
-
-$$
-B_{\rm crossover} \approx \frac{1.42040575}{13.9962449}\ \mathrm{T} \approx 0.1015\ \mathrm{T}.
-$$
-
-At $B\sim 0.1\ \mathrm{T}$ hyperfine and Zeeman energies are comparable for hydrogen ground state; at $B\gg 0.1\ \mathrm{T}$ the hyperfine Paschen–Back limit is approached.
-
-## 5.2 Typical experimental magnitudes
+### Typical experimental magnitudes
 
 - Weak laboratory fields ($B\lesssim 1\ \mathrm{mT}$): Zeeman shifts are tiny; hyperfine structure typically dominates.
 - Modest fields ($B\sim 0.01\!-\!0.2\ \mathrm{T}$): interesting interplay — use the Breit–Rabi description.
 - Strong fields ($B\gtrsim 1\ \mathrm{T}$): Zeeman splitting dominates; $M_J,M_I$ are the convenient labels.
 
----
-
-# 6. Selection rules and spectroscopy
-
-For electric dipole transitions in the presence of a magnetic field the usual selection rules hold (in the dipole approximation):
-
-- $\Delta m = 0$ ($\pi$ transitions — linear polarisation along $B$),
-- $\Delta m = \pm 1$ ($\sigma^\pm$ transitions — circular polarisation).
-
-When the field mixes states (intermediate regime) one must compute transition matrix elements between the actual eigenstates (e.g. Breit–Rabi eigenstates) to get correct line strengths and polarisation properties.
 
 ---
 
-# 7. Further reading and references
 
-- C. Cohen-Tannoudji, B. Diu, F. Laloë, *Quantum Mechanics*, Vol. II — discussion of the Breit–Rabi problem and atomic interactions with external fields.  
-- H. J. Metcalf & P. van der Straten, *Laser Cooling and Trapping* — practical discussion of energy shifts in spectroscopy.  
-- D. A. Steck, *Quantum and Atom Optics* (online notes) — compact treatments of atom–field interactions and the Breit–Rabi formula (useful for hands-on numbers).
+# 4. Atoms in electric fields — quadratic Stark effect
+
+The interaction of an atom with a static electric field $\vec{\mathcal E}$ is given by
+
+$$
+\hat H_{\rm St} = -\hat{\vec d}\cdot\vec{\mathcal E},
+$$
+
+where $\hat{\vec d} = -e\,\hat{\vec r}$ is the electric dipole operator of the electron.  
+For simplicity we assume the field points along $z$:
+
+$$
+\hat H_{\rm St} = e\,\mathcal E\,\hat z.
+$$
 
 ---
 
-## A note on derivations
+## 4.1 Perturbation theory setup
 
-Where a derivation is lengthy (e.g. diagonalising the $2\times2$ blocks that lead to the Breit–Rabi formula) I placed a callout above with a sketch and references. If you would like, I can add the **complete algebraic derivation** of the Breit–Rabi formula in an expanded collapsible note (it is straightforward but algebraically tedious). Would you like that added?
+We apply time-independent perturbation theory in the basis of hydrogen eigenstates $|n,\ell,m\rangle$. The first- and second-order energy corrections are
+
+$$
+\Delta E^{(1)}_{n\ell m} = \langle n\ell m| e\mathcal E z |n\ell m\rangle,
+$$
+
+$$
+\Delta E^{(2)}_{n\ell m} = \sum_{n'\ell' m' \neq n\ell m}
+\frac{|\langle n'\ell' m'| e\mathcal E z |n\ell m\rangle|^2}{E_{n\ell}-E_{n'\ell'}}.
+$$
+
+---
+
+## 4.2 Why the first order vanishes
+
+For hydrogen eigenstates, the expectation value $\langle n\ell m| z |n\ell m\rangle$ vanishes.  
+This can be seen in two ways:
+
+- **Symmetry argument.** The $z$ operator is odd under inversion $(x,y,z)\mapsto (-x,-y,-z)$. Hydrogen eigenfunctions have definite parity $(-1)^\ell$. Thus the integrand in $\int \psi^*(r)\,z\,\psi(r)\,d^3r$ is odd, and the integral is zero.
+
+- **Physical picture.** Stationary hydrogen states have no permanent dipole moment. The probability distribution is symmetric around the nucleus, so the average $z$ coordinate vanishes.
+
+Therefore, $\Delta E^{(1)}=0$ for all $|n,\ell,m\rangle$ eigenstates.
+
+---
+
+## 4.3 Second-order shift and dipole matrix elements
+
+The leading Stark effect is therefore quadratic, arising from the second-order term. It depends on dipole matrix elements of the form $\langle n'\ell' m'| z |n\ell m\rangle$, which connect states of opposite parity ($\ell'=\ell\pm 1$). These terms encode the atom’s ability to be polarized by the field.
+
+We will not evaluate these matrix elements here — they become central in the discussion of light–matter interaction, where the dipole operator governs optical transitions.
+
+::: {.callout-example}
+### Worked example: $2s$–$2p$ mixing
+
+The $2s$ state has $\ell=0$ (even parity). The operator $z$ connects it to $2p$ states ($\ell=1$), which have odd parity:
+
+$$
+\langle 2p,m|\;z\;|2s\rangle \neq 0.
+$$
+
+Thus the second-order Stark shift of the $2s$ level includes terms like
+
+$$
+\Delta E^{(2)}_{2s} =
+\sum_{m=-1}^{1}\frac{|\langle 2p,m|\,e\mathcal E z\,|2s\rangle|^2}{E_{2s}-E_{2p}}.
+$$
+
+- The numerator is the squared dipole matrix element (strength of $2s\leftrightarrow 2p$ coupling).  
+- The denominator is the energy difference between $2s$ and $2p$ (which is zero in pure Schrödinger theory, but shifted by Lamb shift in reality).
+
+This shows explicitly why the Stark effect is quadratic in $\mathcal E$:  
+the energy correction involves $|\langle\cdot|z|\cdot\rangle|^2\mathcal E^2$.
+:::
+
+---
+
+## 4.4 Result for hydrogen ground state
+
+For the hydrogen ground state ($1s$), the quadratic Stark shift can be summarized as
+
+$$
+\Delta E = -\tfrac{1}{2}\,\alpha\,\mathcal E^2,
+$$
+
+where $\alpha$ is the static electric polarizability. For $1s$ hydrogen:
+
+$$
+\alpha(1s) \approx 4.5\,a_0^3,
+$$
+
+with $a_0$ the Bohr radius. In SI units, $\alpha$ may be converted to J/(V/m)$^2$.
+
+---
+
+## 4.5 Order of magnitude estimate
+
+For a field of $\mathcal E=10^6\ \mathrm{V/m}$ (a large laboratory field) the shift is tiny:
+
+$$
+\Delta E \sim -\tfrac{1}{2}\,(4.5\,a_0^3)\,(10^6\ \mathrm{V/m})^2,
+$$
+
+which is negligible compared with hyperfine and Zeeman splittings under similar conditions.
+
+::: {.callout-note collapse="true"}
+### Quick remark on polarizability and units
+
+The quoted polarizability $\alpha(1s)\approx 4.5\,a_0^3$ is in atomic units. To convert to SI (J m$^2$/V$^2$ or C m$^2$/V), apply the standard atomic-unit conversion factors. For conceptual discussions, the $a_0^3$ form is typically sufficient.
+:::
+
