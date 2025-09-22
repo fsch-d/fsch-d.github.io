@@ -1,0 +1,175 @@
+---
+title: Transition processes and Einstein Coefficients
+author: Daniel Fischer
+---
+
+## Atomic Transitions and Radiation
+
+### What processes result in transitions? How are they related to one another? What are transition rate/probabilities?
+
+When an atom interacts with radiation, there are only three basic processes that can connect two levels $|k\rangle$ (lower) and $|i\rangle$ (upper): **absorption**, **stimulated (induced) emission**, and **spontaneous emission**. These processes are quantified by the *Einstein coefficients*.  
+
+Let us introduce the spectral energy density of the radiation field,
+$$
+\mathcal{w}(\nu) = n(\nu) h\nu,
+$$
+where  
+* $n(\nu)$ is the number of photons per unit volume in the frequency interval $\Delta\nu=1\ \text{s}^{-1}$,  
+* $h\nu$ is the photon energy.  
+
+---
+
+#### 1. Absorption
+When an atom in the lower state $|k\rangle$ absorbs a photon of the right frequency $\nu$, it is promoted to the upper state $|i\rangle$. The transition probability per unit time is
+$$
+\frac{dP_{k\to i}^{\text{abs}}}{dt} = B_{ki}\, \mathcal{W}(\nu),
+$$
+where $B_{ki}$ is the Einstein coefficient for absorption.
+
+---
+
+#### 2. Stimulated (induced) emission
+If an atom is already in the excited state $|i\rangle$, the presence of photons with frequency $\nu$ can stimulate it to decay back to $|k\rangle$, emitting an additional photon *coherent* with the incoming field:
+$$
+\frac{dP_{i\to k}^{\text{ind}}}{dt} = B_{ik}\, \mathcal{W}(\nu),
+$$
+with $B_{ik}$ the Einstein coefficient for induced emission.
+
+---
+
+#### 3. Spontaneous emission
+Even in the absence of radiation, an excited atom will eventually decay. The probability per unit time for this is
+$$
+\frac{dP_{i\to k}^{\text{spont}}}{dt} = A_{ik},
+$$
+where $A_{ik}$ is the Einstein coefficient for spontaneous emission. The emitted photons are isotropic and random in phase and direction.
+
+---
+
+### Visual summary
+*(Insert a simple figure here: two horizontal lines for levels $i$ and $k$. Upward arrow labeled "absorption", downward arrow with label "stimulated emission" parallel to it, and a second downward arrow labeled "spontaneous emission" with random orientation.)*
+
+---
+
+### Connection through thermal equilibrium
+
+Suppose $N_i$ atoms are in the excited state and $N_k$ in the lower state. In the presence of radiation, transitions occur in both directions. At **steady state**, detailed balance requires:
+$$
+B_{ki}\,\mathcal{W}(\nu)\,N_k = \big(B_{ik}\,\mathcal{W}(\nu) + A_{ik}\big)\,N_i. \quad (1)
+$$
+
+On the other hand, in thermal equilibrium at temperature $T$, populations follow the Boltzmann distribution:
+$$
+\frac{N_i}{N_k} = \frac{g_i}{g_k}\, e^{-h\nu/k_B T}, \quad (2)
+$$
+with $g = 2J+1$ the degeneracy factor (statistical weight).
+
+Substituting (2) into (1) and solving for $\mathcal{W}(\nu)$ gives
+$$
+\mathcal{W}(\nu) = \frac{A_{ik}/B_{ik}}{(g_k/g_i)(B_{ki}/B_{ik})\, e^{h\nu/k_B T} - 1}. \quad (3)
+$$
+
+---
+
+### Comparison with Planck’s law
+
+The spectral energy density of thermal radiation is given by Planck’s law:
+$$
+\mathcal{W}(\nu) = \frac{8\pi h\nu^3}{c^3}\,\frac{1}{e^{h\nu/k_B T} - 1}. \quad (4)
+$$
+
+Comparing (3) and (4) yields the fundamental relations between Einstein coefficients:
+
+- **Symmetry relation**  
+$$
+B_{ik} = \frac{g_k}{g_i}\,B_{ki}.
+$$
+
+- **Link between spontaneous and stimulated emission**  
+$$
+A_{ik} = \frac{8\pi h\nu^3}{c^3}\,B_{ik}.
+$$
+
+---
+
+### Physical interpretation
+
+- The factor $\tfrac{8\pi\nu^2}{c^3}$ is the density of electromagnetic modes in the frequency interval $\Delta\nu=1\ \text{s}^{-1}$.  
+- The ratio of induced to spontaneous emission rates into a single mode equals the average photon number in that mode:
+$$
+\frac{P_{i\to k}^{\text{ind}}}{P_{i\to k}^{\text{spont}}} = n(\nu).
+$$
+
+This result has a deep physical meaning:  
+- **Spontaneous emission** can be thought of as emission into the *vacuum fluctuations* of the field (corresponding to $n(\nu)=0$).  
+- **Stimulated emission** becomes dominant once many photons are already present — this is the amplification principle underlying lasers.
+
+---
+
+### What processes result in transitions? How are they related to one another? What are transition rate/probabilities?
+
+Suppose there is a radiation field with spectral energy density $\omega(\nu) = n(\nu)h\nu$.  
+* $n(\nu)$ is the number of photons in a unit volume in the frequency interval $\Delta\nu=1\text{s}^{-1}$.  
+* $h\nu$ is the photon energy.
+
+#### 1. Probability per time for an absorption:
+$$
+\frac{dP_{\text{ki}}^{\text{abs}}}{dt} = B_{\text{ki}} \omega(\nu)
+$$
+$B_{\text{ki}}$: Einstein Coefficient of induced absorption.
+
+#### 2. Probability per time for an induced emission:
+$$
+\frac{dP_{\text{ik}}^{\text{ind}}}{dt} = B_{\text{ik}} \omega(\nu)
+$$
+$B_{\text{ik}}$: Einstein coefficient of induced emission.
+
+#### 3. Probability per time for a spontaneous emission:
+$$
+\frac{dP_{\text{ik}}^{\text{spont}}}{dt} = A_{\text{ik}}
+$$
+$A_{\text{ik}}$: Einstein coefficient for spontaneous emission. These photons are emitted in all directions.
+
+Consider $N_{\text{i}}$ atoms in excited state, $N_{\text{k}}$ atoms in ground state, in a radiation field. In steady state emission and absorption rates are identical:
+$$
+B_{\text{ki}} \omega(\nu) N_{\text{k}} = (B_{\text{ik}} \omega(\nu) + A_{\text{ik}}) N_{\text{i}} \quad (1)
+$$
+At thermal equilibrium, populations follow Boltzmann distribution (no proof here, cf. stat. mech.).
+$$
+\frac{N_{\text{i}}}{N_{\text{k}}} = \frac{g_{\text{i}}}{g_{\text{k}}} e^{-(E_{\text{i}}-E_{\text{k}})/k_{\text{B}}T} = \frac{g_{\text{i}}}{g_{\text{k}}} e^{-h\nu/k_{\text{B}}T} \quad (2)
+$$
+$g = 2J+1$ statistical weight (number of states).
+
+From (2) in (1) and solving for $\omega(\nu)$ yields:
+$$
+\omega_{\nu}(\nu) = \frac{A_{\text{ik}}/B_{\text{ik}}}{(g_{\text{k}}/g_{\text{i}})(B_{\text{ki}}/B_{\text{ik}})e^{h\nu/k_{\text{B}}T} - 1} \quad (3)
+$$
+
+On the other hand, the spectral energy density follows the Planck radiation law:
+$$
+\omega_{\nu}(\nu) = \frac{8\pi h \nu^3}{c^3} \frac{1}{e^{h\nu/k_{\text{B}}T} - 1} \quad (4)
+$$
+
+Comparing (3) and (4) yields the relations:
+$$
+\frac{g_{\text{k}}}{g_{\text{i}}} \cdot B_{\text{ki}} = B_{\text{ik}} \quad \text{and} \quad A_{\text{ik}}/B_{\text{ik}} = \frac{8\pi h \nu^3}{c^3}
+$$
+Or
+$$
+B_{\text{ik}} = \frac{g_{\text{k}}}{g_{\text{i}}} B_{\text{ki}}
+$$
+$$
+A_{\text{ik}} = \frac{8\pi h \nu^3}{c^3} B_{\text{ik}}
+$$
+
+**Note:** $\frac{8\pi \nu^2}{c^3}$ gives the number of modes within the frequency interval $\Delta\nu=1\text{s}^{-1}$.
+
+The ratio of induced to spontaneous emission rates into one mode of the radiation field equals the number of photons in this mode.
+$$
+\frac{P_{\text{ik}}^{\text{ind}}}{P_{\text{ik}}^{\text{spont}}} = \frac{B_{\text{ik}}h\nu}{A_{\text{ik}}(c^3/8\pi h\nu^3)} = n(\nu)
+$$
+
+
+
+
+
