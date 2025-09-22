@@ -1,0 +1,44 @@
+---
+title: About these lecture notes
+author: Daniel Fischer
+---
+
+## License and Copyright
+
+These lecture notes are published under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
+
+[![CC BY 4.0 License](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+This means that you are free to:
+
+- **Share** — copy and redistribute the material in any medium or format.  
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.  
+
+Under the following condition:
+
+- **Attribution** — you must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in a way that suggests the licensor endorses you or your use.
+
+---
+
+## Third-party material
+
+Some parts of these notes include figures, text snippets, or other material where copyright is held by someone else. Such material is clearly indicated in the text or captions.  
+
+For those items, the original copyright and licensing terms apply. Please respect the indicated attributions.
+
+---
+
+## Author
+
+These notes were prepared by **Daniel Fischer** *(Associate Professor for Physics, Missouri University of Science and Technology, Rolla, MO 65409, USA)*   
+✉️ [fsch97@gmail.com](mailto:fsch97@gmail.com)
+
+---
+
+## How to cite
+
+If you use these notes in your own work, please cite them as:
+
+> Daniel Fischer, *Lecture Notes on Introduction into Atomic, Molecular, and Optical Physics* (CC BY 4.0). Available online at: [fsch-d.github.io]
+
+---
