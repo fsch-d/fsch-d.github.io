@@ -7,7 +7,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-#      - about.qmd
+      - href: contents.qmd
+        text: Contents
+      - href: about.qmd
+        text: About
   reader-mode: true
   sidebar:
     style: "floating"

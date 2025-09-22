@@ -1,0 +1,34 @@
+---
+title: Table of Contents
+author: Daniel Fischer
+---
+
+
+This page provides an overview and links to all the sections of the website.
+
+---
+
+## [Quantum Mechanics](mod2/index.html)
+
+* [Wave Mechanics](mod2/wavemechanics.qmd)
+* [Bra–Ket (Dirac) Notation, Operators, and More](mod2/braket.qmd)
+* [Heisenberg's Uncertainty Principle](mod2/heisenberg.qmd)
+* [Time-Independent Perturbation Theory](mod2/perturb.qmd)
+* [Relativistic Wave Equations — the Dirac Equation](mod4/relwaves.qmd)
+
+---
+
+## [Hydrogen (Basics)](mod3/index.html)
+
+* [Orbital Angular Momentum in Quantum Mechanics](mod3/angmom.qmd)
+* [Hydrogen atom — Schrödinger equation and radial solutions](mod3/hydrogen.qmd)
+
+---
+
+## [Hydrogen (Details)](mod4/index.html)
+
+* [Electron Spin and Fine Structure](mod4/spin.qmd)
+* [The Lamb Shift — An Introduction to Quantum Electrodynamics](mod4/lamb.qmd)
+* [The Hyperfine Structure (HFS)](mod4/hfs.qmd)
+* [Summary — energy-level splitting](mod4/summary.qmd)
+* [Hydrogen in Static External Fields](mod4/fields.qmd)
