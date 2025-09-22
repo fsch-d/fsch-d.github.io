@@ -257,6 +257,8 @@ High-resolution and careful experiments show that many spectral lines are not si
 - **[Spin and Fine Structure](./spin.qmd)** — coupling between the electron’s orbital motion and its intrinsic spin produces, along with relativistic effects, the *fine structure*.  
 - **[The Lamb Shift](./lamb.qmd)** — radiative corrections from the quantized electromagnetic field (self-energy and vacuum polarization) shift levels in a way that requires QED to explain.  
 - **[Hyperfine Structure](./hfs.qmd)** — interaction between the electronic magnetic field and the nuclear magnetic moment (nuclear spin) produces very small splittings important for clocks and spectroscopy.  
+- **[Summary of Energy Shifts](./summary.qmd)** — an overview of the level structure and how each correction modifies the spectrum, illustrated step by step.  
+- **[Atoms in External Fields](./fields.qmd)** — the response of hydrogen to static magnetic and electric fields (Zeeman and Stark effects), showing additional characteristic splittings and shifts.  
 
 Each of these effects modifies the spectrum in a characteristic way; together they explain the experimentally observed pattern of lines and their tiny offsets.
 
