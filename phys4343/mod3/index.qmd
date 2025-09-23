@@ -24,7 +24,7 @@ Our goals are:
 - Derive the **hydrogenic eigenenergies** and their degeneracies.  
   See [The Hydrogen Atom](hydrogen.qmd) for the radial equation and energy quantization.  
 - Explore the structure of the **spatial wavefunctions** (orbitals) through graphical representations.  
-  See [Visualizing Hydrogen Orbitals](orbitals.qmd) — *placeholder / forthcoming* (suggested title: “Visualizing Hydrogen Orbitals”).  
+  See [Visualizing Hydrogen Orbitals](orbitals.qmd) — *placeholder / forthcoming*.  
 - Connect angular momentum quantum numbers $(\ell,m)$ with the orbital shapes and nodal structure.  
 
 This material provides the **foundation** for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the [Hydrogen (Details)](../mod4/spin.qmd) chapter.

@@ -35,9 +35,9 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-*... and soon to come:*
-
 ## Emission and Absorption of Radiation  
+
+* [Transition processes and Einstein Coefficients](mod5/einstein.qmd)
 
 ---
 

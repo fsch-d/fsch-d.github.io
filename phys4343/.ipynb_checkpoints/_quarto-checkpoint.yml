@@ -46,6 +46,9 @@ website:
           - mod4/hfs.qmd
           - mod4/summary.qmd
           - mod4/fields.qmd
+      - section: "Absorption and Emission of Radiation"
+        contents:
+          - mod5/einstein.qmd
 
 
 #      - section: advanced.qmd
