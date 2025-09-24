@@ -70,6 +70,17 @@ What is striking in hindsight is that the silver atom has only a single valence 
 
 This outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin $s = \tfrac{1}{2}$.
 
+#### Historical note: A postcard to Bohr
+
+The excitement of the discovery is nicely captured in a postcard Walter Gerlach sent to Niels Bohr on February 8, 1922. On the front was a microphotograph showing the silver-beam deposit without and with a magnetic field. The message reads (in translation):
+
+> *“Dear Professor Bohr, enclosed is the continuation of our work (see Zeitschrift für Physik VIII, p. 110, 1921): the experimental proof of space quantization…. Silver without magnetic field … with field… Congratulations on the confirmation of your theory. Respectfully yours, Walter Gerlach, Frankfurt, 8/2/22.”*
+
+This personal note illustrates how strongly the result was seen as confirming the Bohr–Sommerfeld model. Only later was it understood that the observed splitting in fact revealed a new quantum number — the electron’s spin.
+
+![Postcard from Walter Gerlach to Niels Bohr (1922), showing a microphotograph of the silver-beam deposit without and with a magnetic field.
+*Courtesy of the Niels Bohr Archive, Copenhagen [https://nbarchive.ku.dk/](https://nbarchive.ku.dk/)*](p006.webp){fig-alt="Postcard from Gerlach to Bohr (1922), showing the photographic plate with and without magnetic field."}
+
 ### The Einstein–de Haas experiment
 
 Einstein and de Haas (1915) were motivated by the idea of **ring currents** — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between **magnetic moments and angular momentum**.  
