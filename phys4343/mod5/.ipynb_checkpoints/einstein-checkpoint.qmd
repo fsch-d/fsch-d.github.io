@@ -51,6 +51,94 @@ When an atom interacts with electromagnetic radiation, there are only three fund
 The probabilities of these processes are characterized by the **Einstein coefficients**. These coefficients describe how strongly the atom couples to radiation. The actual transition rates depend on both the atomic coefficients and on how much radiation is present at the relevant frequency.  
 
 
+```{python}
+#| echo: false
+# eval: false
+import subprocess
+import os
+
+# Determine the null device based on the operating system
+null_device = "NUL" if os.name == "nt" else "/dev/null"
+
+# Write the LaTeX code to a temporary file
+latex_code = r"""
+\documentclass[tikz, border=2mm]{standalone}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\usepackage{physics}
+
+
+\begin{document}
+
+\begin{tikzpicture}[>=stealth, scale=1.3]
+  % energy axis
+  \draw[->, thick] (-0.5,-0.5) -- (-0.5,2.5) node[right=0.1] {$E$};
+  % levels
+  \draw[thick] (0,0) -- (5,0) node[right] {$|1\rangle$};
+  \draw[thick] (0,2) -- (5,2) node[right] {$|2\rangle$};
+  % arrows
+  \draw[->, decorate, decoration=snake] (0.3,1) -- (1,1) node[midway,above=0.2] {$h\nu$};
+  \draw[->, thick, blue] (1,0) -- (1,2) node[pos=0.13, right=0.06] {$B_{12}$};
+  \draw[->, decorate, decoration=snake] (1.6,1.5) -- (2.3,1.5);
+  \draw[->, thick, red] (2.3,2) -- (2.3,0) node[pos=0.87, right=0.06] {$B_{21}$};
+  \draw[->, decorate, decoration=snake] (2.3,1.5) -- (3,1.5);
+  \draw[->, decorate, decoration=snake] (2.3,1) -- (3,1);
+  \draw[->, dashed, thick, green!60!black] (3.6,2) -- (3.6,0) node[pos=0.87, right=0.06] {$A_{21}$};
+  \draw[->, decorate, decoration=snake] (3.6,1) -- (4.3,1) node[midway,above=0.2] {$h\nu$};
+\end{tikzpicture}
+
+\end{document}
+"""
+
+with open("diagram.tex", "w") as f:
+    f.write(latex_code)
+
+import re
+
+def scale_svg(file_path, factor):
+    """
+    Reads an SVG file and scales its width and height attributes.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+    
+    # Define a function to perform the scaling on matched values
+    def scale_match(match):
+        value = float(match.group(2)) # Fix: changed from group(1) to group(2)
+        new_value = value * factor
+        return f'{match.group(1)}="{new_value:.3f}{match.group(3)}"'
+        
+    # Regex to find width="[number]pt" and height="[number]pt"
+    # and replace them with the scaled value
+    scaled_content = re.sub(r'(width|height)="([\d.]+)(pt|px)?"', scale_match, content)
+
+    with open(file_path, 'w') as f:
+        f.write(scaled_content)
+
+# Define the list of diagram names
+diagram_names = ["transitions"]
+
+# Run the commands, redirecting all output to the null device
+with open(os.devnull, 'w') as FNULL:
+    # Compile the LaTeX file to PDF
+    subprocess.run(["lualatex", "-interaction=nonstopmode", "diagram.tex"], stdout=FNULL, stderr=FNULL)
+
+    # Convert the PDF pages to SVG
+    # Use a loop to process each diagram
+    for i, name in enumerate(diagram_names):
+        page_number = i + 1
+        output_svg = f"{name}.svg"
+        
+        # Convert the PDF page to a specific SVG file
+        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # Scale the newly created SVG file
+        scale_svg(output_svg, 2)
+
+    # Clean up temporary files
+    subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
+```
+![Transitions in a simple two-level atom. An excited atom can decay to the lower state by spontaneous emission ($A_{21}$). A photon of the right frequency can be absorbed to excite the atom ($B_{12}$), or it can stimulate an excited atom to emit a second, identical photon ($B_{21}$).](./transitions.svg){fig-alt="Diagram of transitions in a two-level system." fig-align="center"}
+
 
 To make this precise, we first introduce the radiation field itself and then define the transition rates for each process.
 
@@ -141,95 +229,6 @@ We have thus defined:
 - $B_{21}$ for stimulated emission.  
 
 Together with the spectral energy density $\mathcal{w}(\nu)$, these coefficients provide a complete statistical description of matter–radiation interaction. In the next step, we will see how their balance in thermal equilibrium leads to Planck’s radiation law.
-
-```{python}
-#| echo: false
-# eval: false
-import subprocess
-import os
-
-# Determine the null device based on the operating system
-null_device = "NUL" if os.name == "nt" else "/dev/null"
-
-# Write the LaTeX code to a temporary file
-latex_code = r"""
-\documentclass[tikz, border=2mm]{standalone}
-\usepackage{tikz-feynman}
-\tikzfeynmanset{compat=1.1.0}
-\usepackage{physics}
-
-
-\begin{document}
-
-\begin{tikzpicture}[>=stealth, scale=1.3]
-  % energy axis
-  \draw[->, thick] (-0.5,-0.5) -- (-0.5,2.5) node[right=0.1] {$E$};
-  % levels
-  \draw[thick] (0,0) -- (5,0) node[right] {$|1\rangle$};
-  \draw[thick] (0,2) -- (5,2) node[right] {$|2\rangle$};
-  % arrows
-  \draw[->, decorate, decoration=snake] (0.3,1) -- (1,1) node[midway,above=0.2] {$h\nu$};
-  \draw[->, thick, blue] (1,0) -- (1,2) node[pos=0.13, right=0.06] {$B_{12}$};
-  \draw[->, decorate, decoration=snake] (1.6,1.5) -- (2.3,1.5);
-  \draw[->, thick, red] (2.3,2) -- (2.3,0) node[pos=0.87, right=0.06] {$B_{21}$};
-  \draw[->, decorate, decoration=snake] (2.3,1.5) -- (3,1.5);
-  \draw[->, decorate, decoration=snake] (2.3,1) -- (3,1);
-  \draw[->, dashed, thick, green!60!black] (3.6,2) -- (3.6,0) node[pos=0.87, right=0.06] {$A_{21}$};
-  \draw[->, decorate, decoration=snake] (3.6,1) -- (4.3,1) node[midway,above=0.2] {$h\nu$};
-\end{tikzpicture}
-
-\end{document}
-"""
-
-with open("diagram.tex", "w") as f:
-    f.write(latex_code)
-
-import re
-
-def scale_svg(file_path, factor):
-    """
-    Reads an SVG file and scales its width and height attributes.
-    """
-    with open(file_path, 'r') as f:
-        content = f.read()
-    
-    # Define a function to perform the scaling on matched values
-    def scale_match(match):
-        value = float(match.group(2)) # Fix: changed from group(1) to group(2)
-        new_value = value * factor
-        return f'{match.group(1)}="{new_value:.3f}{match.group(3)}"'
-        
-    # Regex to find width="[number]pt" and height="[number]pt"
-    # and replace them with the scaled value
-    scaled_content = re.sub(r'(width|height)="([\d.]+)(pt|px)?"', scale_match, content)
-
-    with open(file_path, 'w') as f:
-        f.write(scaled_content)
-
-# Define the list of diagram names
-diagram_names = ["transitions"]
-
-# Run the commands, redirecting all output to the null device
-with open(os.devnull, 'w') as FNULL:
-    # Compile the LaTeX file to PDF
-    subprocess.run(["lualatex", "-interaction=nonstopmode", "diagram.tex"], stdout=FNULL, stderr=FNULL)
-
-    # Convert the PDF pages to SVG
-    # Use a loop to process each diagram
-    for i, name in enumerate(diagram_names):
-        page_number = i + 1
-        output_svg = f"{name}.svg"
-        
-        # Convert the PDF page to a specific SVG file
-        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
-        # Scale the newly created SVG file
-        scale_svg(output_svg, 2)
-
-    # Clean up temporary files
-    subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
-```
-![](./transitions.svg){fig-alt="Diagram of transitions in a two-level system." fig-align="center"}
-
 
 ---
 

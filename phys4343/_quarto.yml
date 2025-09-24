@@ -49,6 +49,7 @@ website:
       - section: "Absorption and Emission of Radiation"
         contents:
           - mod5/einstein.qmd
+          - mod5/dipolematrix.qmd
 
 
 #      - section: advanced.qmd
