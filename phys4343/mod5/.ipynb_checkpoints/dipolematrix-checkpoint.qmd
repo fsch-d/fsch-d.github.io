@@ -1,0 +1,642 @@
+---
+title: "From Relations to Values: Dipole Matrix Elements"
+author: Daniel Fischer
+---
+
+# Dipole Matrix Elements: Overview and Plan
+
+In the previous sections, we established the **relations** between the Einstein coefficients by demanding thermal equilibrium and consistency with Planck’s radiation law. These relations are fundamental, but they do not yet tell us the **absolute values** of the coefficients for a given atomic transition. To make quantitative predictions — e.g. lifetimes of excited states or absorption cross sections — we need explicit formulas for $A_{21}$, $B_{12}$, and $B_{21}$.  
+
+This requires us to connect the statistical picture of Einstein with the **microscopic dynamics of atoms interacting with the electromagnetic field**. The key idea is that the coupling between light and atoms is governed by the **electric dipole interaction**, and the corresponding **matrix elements of the dipole operator** determine the transition probabilities.
+
+The specific goals for this chapter are:
+
+1. Start from the atom–field Hamiltonian and introduce the electric dipole approximation for optical transitions.  
+2. Use time-dependent perturbation theory to compute transition probabilities between stationary states.  
+3. Identify the Einstein coefficients in the perturbative transition rates and thereby obtain explicit expressions for $A_{21}$ and the $B$-coefficients in terms of dipole matrix elements.  
+4. Compare the quantum result to the radiation rate of a classical oscillating dipole and understand the origin of the common prefactors.  
+5. Draw practical conclusions: estimate lifetimes, understand selection rules, and see why simple two-level pumping cannot produce inversion without additional levels or mechanisms.
+
+
+---
+
+## General Strategy
+
+The derivation proceeds in several steps:
+
+1. **Start from classical electrodynamics:** express the atom–field interaction in terms of the electromagnetic potentials.  
+2. **Apply the dipole approximation:** for optical transitions, the wavelength is typically much larger than the atomic dimensions, so the interaction simplifies to $-\hat{\vec{d}}\cdot \vec{E}$, where $\hat{\vec{d}}$ is the electric dipole operator.  
+3. **Use time-dependent perturbation theory:** insert the interaction Hamiltonian into the time-dependent Schrödinger equation and evaluate transition probabilities between quantum states.  
+4. **Extract Einstein coefficients:** compare the resulting transition rates with Einstein’s definitions to identify explicit formulas for $A_{21}$, $B_{12}$, and $B_{21}$.  
+5. **Check against the classical oscillator model:** verify the quantum result by comparing it with the radiation rate of a classical oscillating dipole, providing intuition and consistency.
+
+
+
+```{mermaid}
+---
+config:
+  flowchart:
+    htmlLabels: false
+---
+flowchart LR
+    HO["`<span style="font-size: 24px;">Hamiltonian</span>
+      - generalized momentum`"]
+    SE["`<span style="font-size: 24px;">Time-dependent</span>
+      <span style="font-size: 24px;">Schrödinger Eq.</span>
+      - time-dependent perturbation theory
+      - dipole approximation`"]
+    EC["`<span style="font-size: 24px;">Einstein Coefficients</span>
+      <span style="font-size: 24px;">_A<SUB>ik</SUB>_, _B<SUB>ik</SUB>_, _B<SUB>ki</SUB>_</span>`"]
+    HO --> SE
+    SE --> EC
+```
+
+
+---
+
+In the following sections, we will carry out this program step by step, starting with the derivation of the dipole transition matrix elements and their role in determining the Einstein $A$ and $B$ coefficients.
+
+
+# 1. Hamiltonian for an Atom in an Electromagnetic Field
+
+To derive the interaction between an atom and electromagnetic radiation, we begin with the Hamiltonian for a charged particle of mass $m$ and charge $e$ in the presence of an electromagnetic field. In the minimal-coupling scheme, the canonical momentum $\hat{\vec{p}}$ is replaced by the **generalized momentum**
+
+$$
+\hat{\vec{p}} \;\;\longrightarrow\;\; 
+\hat{\vec{p}} - e\,\vec{A} ,
+$$
+
+where $\vec{A}$ is the vector potential. The Hamiltonian then reads
+
+$$
+\hat{H} \;=\; \frac{1}{2m}\left( \hat{\vec{p}} - e \vec{A} \right)^2 \;+\; V(\vec{r}),
+$$
+
+with $V(\vec{r})$ the Coulomb potential that binds the electron in the atom.
+
+::: {.callout-note collapse="true"}
+### More on the origin of the generalized momentum
+
+
+In classical mechanics, the interaction with the field enters naturally through the **Lagrangian formalism**. There, the canonical momentum is defined as
+
+$$
+\vec{p} = \frac{\partial L}{\partial \dot{\vec{r}}}.
+$$
+
+For a charged particle in an electromagnetic field, the Lagrangian contains not only the kinetic energy but also terms involving the scalar potential $\Phi$ and the vector potential $\vec{A}$. As a result, the canonical momentum differs from the mechanical momentum $m\dot{\vec{r}}$:  
+
+$$
+\vec{p} = m\dot{\vec{r}} - e\,\vec{A}.
+$$
+
+This motivates the **minimal coupling rule** in quantum mechanics, where the canonical momentum operator $\hat{\vec{p}}$ is replaced by the so-called **generalized momentum**:
+
+$$
+\hat{\vec{p}} \;\;\longrightarrow\;\; 
+\hat{\vec{p}} - e\,\vec{A}.
+$$
+
+- The minimal coupling rule is not arbitrary: it ensures that the quantum Hamiltonian remains consistent with **classical electrodynamics**.  
+- If one computes the equations of motion using this Hamiltonian, one recovers the **Lorentz force law** for a charged particle in an electromagnetic field.  
+- In this sense, minimal coupling provides the simplest and most natural way to introduce the electromagnetic interaction while preserving both gauge invariance and correspondence with classical physics.
+:::
+
+---
+
+## 1.1 Simplifications
+
+- **Weak-field limit:**  
+  For optical fields in the perturbative regime, the quadratic term in the vector potential can be neglected, i.e.
+  $$
+  \vec{A}^2 \approx 0.
+  $$
+
+- **Coulomb gauge:**  
+  We choose the gauge condition $\nabla \cdot \vec{A} = 0$.  
+  In this gauge, the scalar potential vanishes and the interaction Hamiltonian reduces to a simple form.
+
+With these assumptions, the interaction part of the Hamiltonian becomes
+
+$$
+\hat{V}(t) \;=\; -\frac{e}{m}\, \vec{A}(t)\cdot \hat{\vec{p}} .
+$$
+
+---
+
+## 1.2 Time-dependent perturbation
+
+We now consider a monochromatic radiation field with angular frequency $\omega$ and polarization vector $\vec{\varepsilon}$. In a quantum mechanical treatment, it is common to model this field within a quantization volume $V$ (e.g., a box with periodic boundary conditions). This leads to the following form for the vector potential:
+
+$$
+\vec{A}(t) \;=\; \sqrt{\frac{\hbar}{2\varepsilon_0 \omega V}}\,\vec{\varepsilon}\, e^{-i(\omega t - \vec{k}\cdot\vec{r})}  + \text{c.c.}
+$$
+
+The first term, with the negative exponent in the time-dependent phase, corresponds to the absorption of a photon, as its frequency term is $−i\omega t$. The complex conjugate (c.c.) term, with a positive exponent, is responsible for stimulated emission. The coefficient is derived from quantizing the electromagnetic field and relates the classical amplitude to the energy of a single photon, $\hbar \omega$.  
+
+This vector potential is then used to construct the interaction Hamiltonian, which describes how the radiation field perturbs an atomic system:
+
+$$
+\hat{V}(t) \;=\; - \frac{e}{m}\,
+\sqrt{\frac{\hbar}{2\varepsilon_0 \omega V}}\, e^{-i(\omega t  - \vec{k}\cdot\vec{r})}\,
+\vec{\varepsilon}\cdot \hat{\vec{p}}.
+$$  {#eq-perturb}
+
+
+This result highlights two key features:
+
+1. The perturbation couples the electromagnetic field polarization to the electron momentum operator.  
+2. The quantization of the field ensures that such an interaction exists **even in the vacuum**, reflecting the presence of vacuum fluctuations of the electromagnetic field.
+
+---
+
+In the next step, we will see how to handle the Schrödinger equation when the Hamiltonian contains a time-dependent perturbation. This will give us the tools to calculate transition amplitudes and probabilities.
+
+---
+
+# 2. Time-Dependent Perturbation Theory
+
+We now want to connect the interaction Hamiltonian with **transition probabilities** between atomic states. The appropriate framework is **time-dependent perturbation theory**, where the Hamiltonian is written as
+
+$$
+\hat{H}(t) = \hat{H}_0 + \hat{V}(t),
+$$
+
+with $\hat{H}_0$ the unperturbed Hamiltonian and $\hat{V}(t)$ a weak, time-dependent perturbation.  
+
+The stationary eigenstates of $\hat{H}_0$ are defined by
+
+$$
+\hat{H}_0 \, \ket{\phi_n} = E_n \, \ket{\phi_n}.
+$$
+
+---
+
+## 2.1 Ansatz for the time-dependent wavefunction
+
+We expand the general solution of the time-dependent Schrödinger equation (TDSE) in terms of the eigenstates of $\hat{H}_0$:
+
+$$
+|\Psi(t)\rangle = \sum_k c_k(t)\, e^{-i\omega_k t}\, \ket{\phi_k},
+$$
+
+where $\omega_k = E_k/\hbar$. The question is: **how do the expansion coefficients $c_k(t)$ evolve in time under the perturbation $\hat{V}(t)$?**
+
+---
+
+## 2.2 Equation of motion for the coefficients
+
+Inserting this ansatz into the TDSE,
+
+$$
+i\hbar \frac{\partial}{\partial t} |\Psi(t)\rangle 
+= \hat{H}(t)|\Psi(t)\rangle,
+$$
+
+we get
+
+$$
+i\hbar \sum_k \dot{c}_k(t)\,|\phi_k\rangle e^{-i\omega_k t}
+= \sum_k c_k(t)\, \hat{V}(t)\,|\phi_k\rangle e^{-i\omega_k t}.
+$$
+
+::: {.callout-note collapse="true"}
+## Intermediate steps  
+
+Substituting the ansatz  
+
+$$
+|\Psi(t)\rangle = \sum_k c_k(t)\,|\phi_k\rangle e^{-i\omega_k t}
+$$  
+
+gives  
+
+$$
+i\hbar \frac{\partial}{\partial t} 
+\left( \sum_k c_k(t)\,|\phi_k\rangle e^{-i\omega_k t} \right)
+= \left( \hat{H}_0 + \hat{V}(t) \right) 
+\sum_k c_k(t)\,|\phi_k\rangle e^{-i\omega_k t}.
+$$
+
+Since $\hat{H}_0|\phi_k\rangle = E_k|\phi_k\rangle = \hbar\omega_k|\phi_k\rangle$, the $\hat{H}_0$ terms cancel with the derivative of $e^{-i\omega_k t}$.  
+
+We are left with
+
+$$
+i\hbar \sum_k \dot{c}_k(t)\,|\phi_k\rangle e^{-i\omega_k t}
+= \sum_k c_k(t)\, \hat{V}(t)\,|\phi_k\rangle e^{-i\omega_k t}.
+$$
+:::
+
+Projecting this onto $\langle \phi_n|$, we obtain the coupled equations
+
+$$
+i\hbar \frac{\partial c_n(t)}{\partial t}
+= \sum_k \langle \phi_n | \hat{V}(t) | \phi_k \rangle \,
+c_k(t)\, e^{i(\omega_n - \omega_k)t}.
+$$
+
+This equation shows explicitly how amplitudes $c_n(t)$ get “fed” from other states $k$ through the perturbation matrix elements $\langle \phi_n|\hat{V}(t)|\phi_k\rangle$.
+
+---
+
+## 2.3 First-order approximation
+
+To make progress, we now look at the **lowest-order approximation** of the coupled equations.  
+We assume the system starts in a specific state $|i\rangle$, which means
+
+$$
+c_i(0) = 1, 
+\qquad c_{k\neq i}(0) = 0.
+$$
+
+This expresses the physical situation: the system is initially in state $|i\rangle$ with full probability, and all other states are unoccupied.
+
+---
+
+### Simplification of the coupled equations
+In the general expression
+
+$$
+i\hbar \frac{\partial c_n(t)}{\partial t}
+= \sum_k \langle \phi_n|\hat{V}(t)|\phi_k\rangle \,
+c_k(t)\, e^{i(\omega_n - \omega_k)t},
+$$
+
+the sum over $k$ contains contributions from *all* states.  
+However, to **first order** in perturbation theory, we only need to keep the term where $k=i$, because all other coefficients $c_k(t)$ remain very small and can be neglected.  
+
+This leads to
+
+$$
+i\hbar \frac{\partial c_n^{(1)}(t)}{\partial t}
+\;\approx\;
+\langle \phi_n|\hat{V}(t)|\phi_i\rangle \,
+c_i(t)\, e^{i(\omega_n - \omega_i)t}.
+$$
+
+Since $c_i(t) \approx 1$ to zeroth order, we arrive at the simple **first-order equation**
+
+$$
+\frac{\partial c_n^{(1)}(t)}{\partial t}
+= \frac{1}{i\hbar}\,
+\langle \phi_n|\hat{V}(t)|\phi_i\rangle \,
+e^{i\omega_{ni}t},
+$$ {#eq-fopert}
+
+where 
+
+$$
+\omega_{ni} = \frac{E_n - E_i}{\hbar}.
+$$
+
+---
+
+This equation tells us how the amplitude of state $|n\rangle$ grows in time due to the perturbation, starting from an initial state $|i\rangle$.
+
+
+
+---
+
+## 2.4 Transition probability for an oscillating perturbation: Fermis Golden Rule
+
+If the perturbation is sinusoidal, for example of the form
+
+$$
+\hat{V}(t) \propto e^{-i\omega t} + e^{+i\omega t},
+$$
+
+one finds that the **transition rate** between states $|i\rangle$ and $|n\rangle$ is given by
+
+::: {.callout-tip}
+## Fermis Golden Rule
+
+$$
+\Gamma_{i\to n}
+= \frac{2\pi}{\hbar} \,
+\big|\langle \phi_n | \hat{V} | \phi_i \rangle\big|^2 \,
+\delta(E_n - E_i - \hbar\omega).
+$$ {#eq-fgr}
+:::
+
+This result is known as **Fermi’s golden rule**.  
+It states that the transition rate is proportional to the square of the matrix element of the perturbation and enforces **energy conservation** through the delta function.
+
+
+::: {.callout-note collapse="true"}
+## Step-by-step derivation of Fermi's Golden Rule
+
+For a sinusoidal perturbation of the form
+
+$$
+\hat{V}(t) \propto e^{-i\omega t} + e^{+i\omega t},
+$$
+
+the matrix elements in the equation for $c_n(t)$ pick up oscillatory time-dependence. Physically, these terms represent the **absorption** (with $e^{-i\omega t}$) and **emission** (with $e^{+i\omega t}$) of photons.
+
+---
+
+### Step 1: Transition amplitude
+For a system that starts in $|i\rangle$ at $t=0$, the first-order expression for the amplitude of finding the system in another state $|n\rangle$ at time $t$ is (from @eq-fopert)
+
+$$
+c_n^{(1)}(t) = \frac{1}{i\hbar} 
+\int_0^t dt'\,
+\langle \phi_n | \hat{V}(t') | \phi_i \rangle
+\, e^{i\omega_{ni}t'},
+$$
+
+where $\omega_{ni} = (E_n - E_i)/\hbar$.
+
+---
+
+### Step 2: Oscillatory integral
+If $\hat{V}(t)$ contains a factor $e^{-i\omega t'}$, the integral becomes
+
+$$
+\int_0^t e^{i(\omega_{ni}-\omega)t'} \, dt'
+= \frac{e^{i(\omega_{ni}-\omega)t} - 1}{i(\omega_{ni}-\omega)}.
+$$
+
+This looks like a ratio of a sine function to its argument when written in real form:
+
+$$
+\frac{e^{i(\omega_{ni}-\omega)t} - 1}{i(\omega_{ni}-\omega)}
+= e^{i(\omega_{ni}-\omega)t/2} 
+\frac{\sin\!\big[(\omega_{ni}-\omega)t/2\big]}{(\omega_{ni}-\omega)/2}.
+$$
+
+---
+
+### Step 3: Probability and the long-time limit
+The **transition probability** is proportional to $|c_n^{(1)}(t)|^2$.  
+This gives a function sharply peaked around resonance ($\omega_{ni} = \omega$):
+
+$$
+P_{i\to n}(t) \propto 
+\frac{\sin^2[(\omega_{ni}-\omega)t/2]}{[(\omega_{ni}-\omega)/2]^2}.
+$$
+
+- For finite $t$, this is a peak of finite width.  
+- For large $t$, the peak becomes extremely sharp and tall.  
+
+In the limit $t \to \infty$, this expression behaves like a **delta function**:
+
+$$
+\lim_{t \to \infty}
+\frac{\sin^2[(\omega_{ni}-\omega)t/2]}{[(\omega_{ni}-\omega)/2]^2}
+= 2\pi t \, \delta(\omega_{ni}-\omega).
+$$
+
+---
+
+### Step 4: Transition rate
+Since the probability grows linearly in time, we define the **rate** as
+
+$$
+\Gamma_{i\to n} 
+= \lim_{t \to \infty} \frac{P_{i\to n}(t)}{t}.
+$$
+
+This gives the celebrated result:
+
+$$
+\Gamma_{i\to n}
+= \frac{2\pi}{\hbar}
+\big|\langle \phi_n | \hat{V} | \phi_i \rangle\big|^2
+\delta(E_n - E_i - \hbar\omega).
+$$
+
+---
+
+### Step 5: Physical interpretation
+- The **matrix element** tells us *how strongly* the perturbation couples the two states.  
+- The **delta function** enforces *energy conservation*: a transition only occurs if the photon energy $\hbar\omega$ exactly matches the energy gap $E_n - E_i$.  
+- The factor $\tfrac{2\pi}{\hbar}$ is a universal constant, giving the overall scale.
+
+---
+
+
+### Technical background: the delta function identity
+The crucial step is recognizing that
+
+$$
+\lim_{t \to \infty}
+\frac{\sin^2(x t/2)}{(x/2)^2}
+= 2\pi t \, \delta(x).
+$$
+
+This is not an ordinary function, but a **distributional limit**.  
+It encodes the fact that oscillatory integrals average to zero, *except* when the frequency mismatch $x$ vanishes.  
+
+In practice, this means:  
+- The system only makes transitions if the driving frequency matches the Bohr frequency between states.  
+- The "infinite time" assumption justifies why real experiments see sharp resonance peaks.
+:::
+
+
+>## Historical aside: Why “golden”?
+>This result was first written down in detail by **Dirac (1927)** in his theory of radiation, and later reformulated by **Enrico Fermi**, who emphasized its practical power.  
+Fermi himself nicknamed it the “golden rule” because it was *universally useful*: with one compact formula, physicists could calculate transition rates for atoms, nuclei, and even particle decays.  
+>
+>It quickly became a **workhorse of quantum mechanics**, showing how microscopic dynamics connect to experimentally measurable rates — from atomic spectroscopy to modern quantum optics.
+
+---
+
+In the next section, we will apply this framework to the **dipole interaction Hamiltonian**, thereby obtaining explicit expressions for the transition matrix elements that determine the Einstein coefficients.
+
+---
+
+# 3. Electric Dipole Matrix Element
+
+In the previous section, we derived **Fermi’s Golden Rule** (-@eq-fgr), which tells us that the transition rate between two atomic states is proportional to the squared modulus of a matrix element of the perturbation Hamiltonian.  
+
+For the atom–light interaction in the minimal-coupling scheme, this gives (for the potential given in @eq-perturb):
+
+$$
+\Gamma_{i \to n} = 
+\frac{\pi e^2}{m^2 \varepsilon_0 \omega V} 
+\Big| \langle \phi_n | e^{-i\vec{k}\cdot\vec{r}} \, 
+\hat{\vec{\varepsilon}}\cdot \hat{\vec{p}} 
+| \phi_i \rangle \Big|^2
+\delta(E_n - E_i \pm \hbar\omega).
+$$
+
+The total rate is obtained by summing over all photon momenta and polarizations:
+
+$$
+\Gamma_{\text{tot}} = \sum_{\vec{k}, \text{pol}} \Gamma_{i \to n}.
+$$
+
+---
+
+## 3.1 Simplifying the matrix element
+
+The central challenge is the matrix element
+
+$$
+\langle \phi_n | e^{-i\vec{k}\cdot\vec{r}} \, \hat{\vec{\varepsilon}} \cdot \hat{\vec{p}} | \phi_i \rangle.
+$$ {#eq-mel}
+
+Two simple but powerful ideas allow us to turn this into something physically transparent:
+
+---
+
+#### 1. Commutator trick
+We recall the commutator between the unperturbed Hamiltonian $\hat{H}_0$ and the position operator $\hat{\vec{r}}$:
+
+$$
+[\hat{H}_0, \hat{\vec{r}}] = \frac{\hbar}{i m}\hat{\vec{p}}.
+$$ {#eq-cancom}
+
+This relation can be derived directly from $\hat{H}_0 = \hat{\vec{p}}^2 / 2m + V(\vec{r})$ and the canonical commutation rules.  
+It effectively tells us that momentum matrix elements can be rewritten in terms of energy differences and position operators.
+
+---
+
+#### 2. Electric dipole approximation
+For visible light, the wavelength ($\lambda \sim 500$ nm) is much larger than the size of an atom ($a_0 \sim 0.05$ nm).  
+Thus, within the atom, the spatial dependence of the electromagnetic field is negligible:
+
+$$
+e^{-i\vec{k}\cdot\vec{r}} \approx 1 - i\vec{k}\cdot \vec{r} + \dots \;\;\approx 1.
+$$ {#eq-daprox}
+
+This is called the **electric dipole approximation**.
+
+---
+
+#### 3. Putting it together
+Using (-@eq-cancom) and (-@eq-daprox), the matrix element (-@eq-mel) reduces to
+
+$$
+\langle \phi_n | e^{-i\vec{k}\cdot\vec{r}} \, 
+\hat{\vec{\varepsilon}}\cdot \hat{\vec{p}} 
+| \phi_i \rangle
+\;\approx\;
+\hat{\vec{\varepsilon}} \cdot \langle \phi_n | \hat{\vec{p}} | \phi_i \rangle.
+$$
+
+Then we apply the commutator relation:
+
+$$
+\hat{\vec{\varepsilon}} \cdot \langle \phi_n | \hat{\vec{p}} | \phi_i \rangle
+= \hat{\vec{\varepsilon}} \cdot \frac{im}{\hbar} \, 
+\langle \phi_n | [\hat{H}_0, \hat{\vec{r}}] | \phi_i \rangle.
+$$
+
+Finally, since $\hat{H}_0|\phi_i\rangle = E_i|\phi_i\rangle$, we find
+
+$$
+= \frac{im}{\hbar} (E_n - E_i) 
+\langle \phi_n | \hat{\vec{\varepsilon}} \cdot \hat{\vec{r}} | \phi_i \rangle.
+$$
+
+---
+
+## 3.2 The dipole matrix element
+
+We have arrived at the compact and physically transparent form:
+
+$$
+\langle \phi_n | e^{-i\vec{k}\cdot\vec{r}} \hat{\vec{\varepsilon}} \cdot \hat{\vec{p}} | \phi_i \rangle
+\;\;\propto\;\;
+\langle \phi_n | \hat{\vec{\varepsilon}} \cdot \hat{\vec{r}} | \phi_i \rangle.
+$$
+
+The quantity
+
+$$
+\langle \phi_n | \hat{\vec{\varepsilon}} \cdot \hat{\vec{r}} | \phi_i \rangle
+$$
+
+is called the **electric dipole matrix element**.  
+It measures how “aligned” the electron’s motion in the atom is with the oscillating electric field.  
+
+- If the dipole matrix element is zero (due to symmetry), the transition is **forbidden** in the dipole approximation.  
+- If it is nonzero, it determines the **strength** of the transition rate, and thus the absolute values of the Einstein $A$ and $B$ coefficients.
+
+---
+
+**In summary:**  
+Fermi’s Golden Rule tells us that transition rates depend on matrix elements of the interaction Hamiltonian. By applying the electric dipole approximation and the commutator relation, these matrix elements reduce to simple position-operator terms. This makes the **electric dipole matrix element** the central quantity for describing atomic transitions induced by light.
+
+
+# 4. Einstein Coefficients from Dipole Matrix Elements
+
+We are now in a position to connect the **microscopic dipole matrix element** to the **macroscopic Einstein coefficients** that describe spontaneous emission, absorption, and stimulated emission.
+
+---
+
+## 4.1 Transition rates in the dipole approximation
+
+From Fermi’s Golden Rule, the transition rate between an initial state $|i\rangle$ and a final state $|n\rangle$ depends on the square of the dipole matrix element:
+
+$$
+\Gamma_{i \to n} \;\propto\;
+|\langle \phi_n | \hat{\vec{\varepsilon}}\cdot \hat{\vec{r}} | \phi_i \rangle|^2.
+$$
+
+Summing over all photon directions and polarizations, one obtains the explicit expressions for the Einstein coefficients.
+
+---
+
+## 4.2 Absorption and stimulated emission coefficients
+
+The absorption coefficient $B_{12}$ and the stimulated emission coefficient $B_{21}$ are given by (for equal degeneracy)
+
+:::{.callout-tip}
+### $B$ coefficients
+$$
+B_{12} = B_{21} =
+\frac{e^2}{6 \varepsilon_0 \hbar^2}
+\, \big|\langle \phi_2 | \hat{\vec{r}} | \phi_1 \rangle\big|^2.
+$$
+:::
+
+
+- The equality $B_{12} = B_{21}$ (up to degeneracy factors) is the **symmetry relation** derived earlier.  
+- The result shows that both coefficients are directly proportional to the squared dipole matrix element.
+
+---
+
+## 4.3 Spontaneous emission coefficient
+
+Using the relation between $A_{21}$ and $B_{21}$ derived from Planck’s law,
+
+
+$$
+A_{21} = \frac{8\pi h\nu^3}{c^3} B_{21},
+$$
+
+we can substitute the microscopic expression for $B_{21}$ and obtain
+
+:::{.callout-tip}
+### $A$ coefficient
+$$
+A_{21} =
+\frac{\omega^3 e^2}{3\pi \varepsilon_0 \hbar c^3}
+\, \big| \langle \phi_1 | \hat{\vec{r}} | \phi_2 \rangle \big|^2,
+$$
+:::
+
+where $\omega = (E_2 - E_1)/\hbar$ is the transition frequency.
+
+---
+
+## 4.4 Physical meaning
+
+- **$B$ coefficients (absorption and stimulated emission):**  
+  measure how strongly the atom couples to an external light field.  
+
+- **$A$ coefficient (spontaneous emission):**  
+  gives the natural decay rate (inverse lifetime) of an excited state, entirely determined by the dipole matrix element and the transition frequency.  
+
+---
+
+# 5. Summary
+
+- The **Einstein coefficients** are no longer just abstract statistical parameters.  
+- They can be **calculated** from quantum mechanics, using the electric dipole matrix element.  
+- This provides the link between the **microscopic wavefunctions of atoms** and the **macroscopic behavior of light and matter**, such as absorption spectra, emission lifetimes, and the operation of lasers.
+
