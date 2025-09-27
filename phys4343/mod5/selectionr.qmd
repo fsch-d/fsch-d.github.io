@@ -1,0 +1,246 @@
+---
+title: Radiation and Selection Rules
+author: Daniel Fischer
+---
+
+
+## Selection Rules and Angular Distributions
+
+In the previous chapter, we derived **Fermi’s Golden Rule** and introduced the concept of dipole matrix elements.  
+In this chapter, we turn to the role of **polarization** and show how it leads to the **dipole selection rules**.
+
+---
+
+### Total Decay Rate
+
+From last time, the total spontaneous decay rate can be written as a sum over photon polarizations and emission angles:
+
+$$
+\Gamma_{\text{tot}} = \sum_{\vec{k}, \text{pol}} \Gamma_{i \to n} 
+= \frac{\alpha \, \omega_{in}^3}{2 \pi c^2} 
+\sum_{\eta} \int d\Omega_{\gamma} \, 
+\big| \langle n | \, \hat{\vec{\epsilon}}^{(\eta)} \cdot \vec{r} \, | i \rangle \big|^2 \, .
+$$
+
+Here:
+- $\omega_{in}$ is the transition frequency,
+- $\hat{\vec{\epsilon}}^{(\eta)}$ denotes the photon polarization vector,
+- $d\Omega_{\gamma}$ is the element of solid angle for photon emission.
+
+---
+
+### Polarization Vectors
+
+The electric field of a photon mode can be written as
+
+$$
+\vec{E}(t) = E_0 \, \hat{\vec{\epsilon}} \, e^{-i \omega t} + \text{c.c.}, \qquad 
+|\hat{\vec{\epsilon}}|^2 = 1 .
+$$
+
+In the Cartesian basis, the polarization is expressed as
+
+$$
+\hat{\vec{\epsilon}} = \epsilon_x \, \hat{e}_x + \epsilon_y \, \hat{e}_y + \epsilon_z \, \hat{e}_z .
+$$
+
+However, it is often more convenient to use a spherical basis:
+
+$$
+\hat{e}_{+} = \tfrac{1}{\sqrt{2}}
+\begin{pmatrix}
+-1 \\ -i \\ 0
+\end{pmatrix},
+\qquad
+\hat{e}_{-} = \tfrac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\ -i \\ 0
+\end{pmatrix},
+\qquad
+\hat{e}_{z} =
+\begin{pmatrix}
+0 \\ 0 \\ 1
+\end{pmatrix}.
+$$
+
+This new basis is **orthonormal** and **complete**, and it allows us to classify polarization states in terms of angular momentum.
+
+---
+
+### Expansion of the Polarization Vector
+
+In this spherical basis, we expand the polarization as
+
+$$
+\hat{\vec{\epsilon}} = 
+\epsilon_{+} \hat{e}_{+} +
+\epsilon_{-} \hat{e}_{-} +
+\epsilon_{z} \hat{e}_{z},
+$$
+
+with the relations
+
+$$
+\epsilon_{+} = \tfrac{1}{\sqrt{2}} \, ( \epsilon_x + i \epsilon_y ), 
+\qquad
+\epsilon_{-} = - \tfrac{1}{\sqrt{2}} \, ( \epsilon_x - i \epsilon_y ).
+$$
+
+---
+
+::: callout-note
+This chapter develops the connection between photon polarization and atomic transitions.  
+By using the spherical polarization basis, we can derive the **dipole selection rules**, which tell us which transitions between quantum states are allowed or forbidden.
+:::
+
+
+### Polarization States
+
+Using the spherical basis vectors $\hat{e}_{+}, \hat{e}_{-}, \hat{e}_{z}$, the corresponding electric fields are
+
+$$
+\vec{E}_{+} = E_0 \, \frac{-1}{\sqrt{2}}
+\begin{pmatrix}
+e^{-i(\omega t + \varphi)} \\
+i \, e^{-i(\omega t + \varphi)} \\
+0
+\end{pmatrix},
+\qquad
+\vec{E}_{-} = E_0 \, \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+e^{-i(\omega t - \varphi)} \\
+- i \, e^{-i(\omega t - \varphi)} \\
+0
+\end{pmatrix},
+\qquad
+\vec{E}_{z} = E_0
+\begin{pmatrix}
+0 \\ 0 \\ e^{-i \omega t}
+\end{pmatrix}.
+$$
+
+These correspond to:
+- $\vec{E}_{+}$: **Right-handed circular polarization (RHC)** or **$\sigma^{+}$ light**,  
+- $\vec{E}_{-}$: **Left-handed circular polarization (LHC)** or **$\sigma^{-}$ light**,  
+- $\vec{E}_{z}$: **Linear polarization** along $z$, or **$\pi$ light**.  
+
+---
+
+### The Dipole Operator
+
+The dipole operator in this basis is written as
+
+$$
+\hat{\vec{\epsilon}} \cdot \vec{r} =
+\epsilon_{x} \, r \sin\theta \cos\varphi +
+\epsilon_{y} \, r \sin\theta \sin\varphi +
+\epsilon_{z} \, r \cos\theta .
+$$
+
+Expressed in terms of spherical harmonics, this becomes
+
+$$
+\hat{\vec{\epsilon}} \cdot \vec{r}
+= \sqrt{\tfrac{4\pi}{3}} \, r \,
+\big( \epsilon_{-} Y_{1,-1}(\theta,\varphi) +
+      \epsilon_{z} Y_{1,0}(\theta,\varphi) +
+      \epsilon_{+} Y_{1,1}(\theta,\varphi) \big).
+$$
+
+---
+
+### Dipole Matrix Elements
+
+The general dipole matrix element is then
+
+$$
+\langle n | \, \hat{\vec{\epsilon}} \cdot \vec{r} \, | i \rangle
+= \sqrt{\tfrac{4\pi}{3}}
+\left( \int r^3 R_{n\ell}(r) R_{n'\ell'}(r) \, dr \right)
+\left( \int d\Omega \, Y_{\ell m}^*(\theta,\varphi)
+\big[ \epsilon_{-} Y_{1,-1} + \epsilon_{z} Y_{1,0} + \epsilon_{+} Y_{1,1} \big]
+Y_{\ell' m'}(\theta,\varphi) \right).
+$$
+
+Here:
+- The **radial integral** determines the radial overlap of the wavefunctions.  
+- The **angular integral** encodes the selection rules.
+
+---
+
+### Selection Rules (from Angular Integral)
+
+The angular integral over spherical harmonics is non-zero **only if**
+
+$$
+\Delta \ell = \ell - \ell' = \pm 1, 
+\qquad
+\Delta m = m - m' = 0, \pm 1.
+$$
+
+Thus, the dipole selection rules are:
+
+- **Change in orbital angular momentum:** $\Delta \ell = \pm 1$  
+- **Change in magnetic quantum number:** $\Delta m = 0, \pm 1$
+
+---
+
+::: callout-note
+By rewriting the dipole operator in the spherical polarization basis, we see that only certain transitions between atomic states are allowed.  
+These **dipole selection rules** reflect angular momentum conservation: a photon carries one unit of angular momentum, so the atomic state must adjust accordingly.  
+This explains why not all transitions seen in energy level diagrams are optically allowed.
+:::
+
+### Summary of Dipole Selection Rules
+
+From the angular momentum algebra and parity considerations, the **electric dipole selection rules** are:
+
+- **Orbital angular momentum:**
+  $$
+  \Delta \ell = \pm 1
+  $$
+
+- **Magnetic quantum number:**
+  $$
+  \Delta m = 0, \pm 1
+  $$
+  - $\Delta m = 0$ corresponds to **$\pi$ transitions** (linear polarization along $z$).  
+  - $\Delta m = +1$ corresponds to **$\sigma^{+}$ transitions** (right-handed circular polarization).  
+  - $\Delta m = -1$ corresponds to **$\sigma^{-}$ transitions** (left-handed circular polarization).  
+
+- **Total angular momentum:**
+  $$
+  \Delta j = 0, \pm 1, \qquad j=0 \nrightarrow j'=0 \;\; \text{is forbidden.}
+  $$
+
+- **Spin:**
+  $$
+  \Delta S = 0
+  $$
+
+---
+
+### Example: Hydrogen $1s \leftrightarrow 2p$ Transitions
+
+For spontaneous emission from the $2p$ state (ignoring fine structure), the possible channels are:
+
+- $m=+1 \;\;\to\;\; 1s$ via $\sigma^{-}$ emission,  
+- $m=0 \;\;\to\;\; 1s$ via $\pi$ emission,  
+- $m=-1 \;\;\to\;\; 1s$ via $\sigma^{+}$ emission.  
+
+Conversely, for absorption from the ground state:
+
+- $\sigma^{+}$ light populates the $m=+1$ sublevel of $2p$,  
+- $\pi$ light populates the $m=0$ sublevel,  
+- $\sigma^{-}$ light populates the $m=-1$ sublevel.  
+
+Thus, the polarization of the electromagnetic field **selectively addresses different magnetic sublevels** of the atom.
+
+---
+
+::: callout-note
+**Key takeaway:**  
+Electric dipole transitions are highly selective. By choosing the polarization of the light field, one can control which magnetic sublevels are populated or depopulated.  
+This is the basis for powerful techniques such as **optical pumping** and **laser cooling**.
+:::
+

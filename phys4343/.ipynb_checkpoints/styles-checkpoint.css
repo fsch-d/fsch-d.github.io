@@ -6,6 +6,9 @@
   width: auto !important;
   height: auto !important;
 }
+.quarto-image-container .lightbox {
+  background-color: white !important;
+}
 img[src$=".svg"] {
   width: auto !important;
   height: auto !important;

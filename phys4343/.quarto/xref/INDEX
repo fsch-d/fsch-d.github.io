@@ -67,5 +67,17 @@
   },
   "mod5/dipolematrix.qmd": {
     "dipolematrix.html": "bdbf3f34"
+  },
+  "mod5/selectionr.qmd": {
+    "selectionr.html": "3fb3b493"
+  },
+  "mod5/visual.qmd": {
+    "visual.html": "5f138db7"
+  },
+  "mod5/lineshape.qmd": {
+    "lineshape.html": "76bd6a64"
+  },
+  "FAQ/orthogonality.qmd": {
+    "orthogonality.html": "1b13fc6e"
   }
 }

@@ -50,6 +50,8 @@ website:
         contents:
           - mod5/einstein.qmd
           - mod5/dipolematrix.qmd
+          - text: "Visualizing Atomic Transitions"
+            href: mod5/visual.qmd
 
 
 #      - section: advanced.qmd

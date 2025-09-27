@@ -1,5 +1,5 @@
 ---
-title: "From Relations to Values: Dipole Matrix Elements"
+title: "Dipole Matrix Elements"
 author: Daniel Fischer
 ---
 
@@ -9,27 +9,12 @@ In the previous sections, we established the **relations** between the Einstein 
 
 This requires us to connect the statistical picture of Einstein with the **microscopic dynamics of atoms interacting with the electromagnetic field**. The key idea is that the coupling between light and atoms is governed by the **electric dipole interaction**, and the corresponding **matrix elements of the dipole operator** determine the transition probabilities.
 
-The specific goals for this chapter are:
+In this chapter you will learn how to:
 
-1. Start from the atom–field Hamiltonian and introduce the electric dipole approximation for optical transitions.  
-2. Use time-dependent perturbation theory to compute transition probabilities between stationary states.  
-3. Identify the Einstein coefficients in the perturbative transition rates and thereby obtain explicit expressions for $A_{21}$ and the $B$-coefficients in terms of dipole matrix elements.  
-4. Compare the quantum result to the radiation rate of a classical oscillating dipole and understand the origin of the common prefactors.  
-5. Draw practical conclusions: estimate lifetimes, understand selection rules, and see why simple two-level pumping cannot produce inversion without additional levels or mechanisms.
-
-
----
-
-## General Strategy
-
-The derivation proceeds in several steps:
-
-1. **Start from classical electrodynamics:** express the atom–field interaction in terms of the electromagnetic potentials.  
-2. **Apply the dipole approximation:** for optical transitions, the wavelength is typically much larger than the atomic dimensions, so the interaction simplifies to $-\hat{\vec{d}}\cdot \vec{E}$, where $\hat{\vec{d}}$ is the electric dipole operator.  
-3. **Use time-dependent perturbation theory:** insert the interaction Hamiltonian into the time-dependent Schrödinger equation and evaluate transition probabilities between quantum states.  
-4. **Extract Einstein coefficients:** compare the resulting transition rates with Einstein’s definitions to identify explicit formulas for $A_{21}$, $B_{12}$, and $B_{21}$.  
-5. **Check against the classical oscillator model:** verify the quantum result by comparing it with the radiation rate of a classical oscillating dipole, providing intuition and consistency.
-
+1. Write down the Hamiltonian that describes how atoms interact with light.  
+2. Use time-dependent perturbation theory to understand Fermi’s Golden Rule, which tells us the probability for an atom to jump between stationary states.  
+3. Apply the electric dipole approximation and see how transition strengths are determined by the dipole matrix element.  
+4. Connect these results to the Einstein coefficients and work out explicit formulas for $A_{21}$ and the $B$-coefficients in terms of dipole matrix elements.
 
 
 ```{mermaid}
@@ -568,22 +553,67 @@ We are now in a position to connect the **microscopic dipole matrix element** to
 
 ---
 
-## 4.1 Transition rates in the dipole approximation
+### 4.1 Transition Rates in the Dipole Approximation
 
-From Fermi’s Golden Rule, the transition rate between an initial state $|i\rangle$ and a final state $|n\rangle$ depends on the square of the dipole matrix element:
+From **Fermi’s Golden Rule**, the transition rate into a final state $|n\rangle$ from an initial state $|i\rangle$ depends on the dipole matrix element projected onto the photon polarization $\hat{\vec{\varepsilon}}$:
 
 $$
-\Gamma_{i \to n} \;\propto\;
-|\langle \phi_n | \hat{\vec{\varepsilon}}\cdot \hat{\vec{r}} | \phi_i \rangle|^2.
+\Gamma_{i \to n}^{(\hat{\varepsilon})} \;\propto\;
+\big| \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle \big|^2 .
 $$
 
-Summing over all photon directions and polarizations, one obtains the explicit expressions for the Einstein coefficients.
+This expression gives the *partial* rate for emission into a fixed polarization and solid angle.  
+The **total transition rate** is obtained by summing over both photon polarizations and all emission directions:
+
+$$
+\Gamma_{i \to n} \;=\;
+\frac{\alpha \, \omega^3}{2 \pi c^2} 
+\sum_{\hat{\vec{\varepsilon}}} \int d\Omega_{\gamma}\,
+\big| \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle \big|^2 .
+$$
+
+Here:  
+- $d\Omega_{\gamma}$ is the solid angle element,  
+- $\alpha=e^2/(4\pi \varepsilon_0\hbar c)$ is the fine-structure constant.  
+
+Carrying out the angular integration and polarization sum yields the compact result:
+
+$$
+\Gamma_{i \to n} \;=\;
+\frac{\omega^3 e^2}{3\pi \varepsilon_0 \hbar c^3}\,
+\big| \langle n | \vec{r} | i \rangle \big|^2 .
+$$
+
+This formula makes explicit that the transition rate grows with $\omega^3$ and is proportional to the square of the dipole matrix element.
 
 ---
 
-## 4.2 Absorption and stimulated emission coefficients
+## 4.2 Spontaneous emission coefficient
 
-The absorption coefficient $B_{12}$ and the stimulated emission coefficient $B_{21}$ are given by (for equal degeneracy)
+The Einstein coefficient for spontaneous emission $A$ is equal to the transition rate we just calculated and it is
+
+:::{.callout-tip}
+### $A$ coefficient
+$$
+A_{21} =
+\frac{\omega^3 e^2}{3\pi \varepsilon_0 \hbar c^3}
+\, \big| \langle \phi_1 | \hat{\vec{r}} | \phi_2 \rangle \big|^2,
+$$
+:::
+
+where $\omega = (E_2 - E_1)/\hbar$ is the transition frequency.
+
+---
+
+## 4.3 Absorption and stimulated emission coefficients
+
+Using the relation between $B_{21}$ and $A_{21}$ derived from Planck’s law,
+
+$$
+A_{21} = \frac{8\pi h\nu^3}{c^3} B_{21},
+$$
+
+we can substitute the microscopic expression for $A_{21}$ and obtain the absorption coefficient $B_{12}$ and the stimulated emission coefficient $B_{21}$ (for equal degeneracy)
 
 :::{.callout-tip}
 ### $B$ coefficients
@@ -596,7 +626,7 @@ $$
 
 
 - The equality $B_{12} = B_{21}$ (up to degeneracy factors) is the **symmetry relation** derived earlier.  
-- The result shows that both coefficients are directly proportional to the squared dipole matrix element.
+- The result shows that all Einstein coefficients are directly proportional to the squared dipole matrix element.
 
 ---
 
