@@ -1,0 +1,382 @@
+---
+title: "Visualizing Atomic Transitions: Intuition, Superposition, and Interference"
+author: "Daniel Fischer"
+---
+
+# Atomic transitions: overview and plan
+
+This chapter provides an intuitive perspective on the **time-dependent process of atomic transitions**. Instead of focusing only on rate equations and Einstein coefficients, we emphasize how the electron’s wavefunction evolves dynamically as the atom emits or absorbs radiation.
+
+The specific goals for this chapter are:
+
+- Motivate why atomic states during a transition are best described as **time-dependent superpositions** of stationary states.  
+- Connect the population dynamics (exponential decay of the excited state) with the **oscillatory phase evolution** that gives rise to interference patterns.  
+- Show how these features manifest in observable quantities such as the **dipole moment** and the **emitted radiation**.  
+- Use **3D visualizations** of hydrogen orbitals to build an intuitive, visual picture of decay and excitation processes.
+
+---
+
+# Intuitive picture of atomic transitions
+
+We consider the **time evolution of the electron’s wavefunction** during an atomic transition.  
+
+The approximate electron probability densities are shown as **3D isosurfaces at 30% of the maximum value**. The animations below illustrate:
+
+- @fig-decay2p0: spontaneous decay from $2p\,(m=0)$ to $1s$.  
+- @fig-exc2p1: excitation from $1s$ to $2p\,(m=1)$.  
+
+The animations reveal **interference patterns** resulting from the **time-dependent superposition** of stationary states. The changing shapes reflect the relative phase evolution of the superposition.
+
+```{python}
+#| eval: false
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from skimage import measure
+from matplotlib.animation import FuncAnimation
+from PIL import Image
+import glob
+import os
+import cmath
+import math
+from sympy import symbols
+import matplotlib.style as mplstyle
+mplstyle.use('fast')
+
+def hydrogen_1s_wavefunction(x, y, z):
+    """
+    Hydrogen 1s wavefunction in Cartesian coordinates
+    ψ₁₀₀ = R₁₀(r) * Y₀⁰(θ,φ)
+    
+    Parameters:
+    x, y, z: Cartesian coordinates (in units of Bohr radius)
+    """
+    # Convert to spherical coordinates
+    r = np.sqrt(x**2 + y**2 + z**2)
+    
+    # Radial part R₁₀(r) = 2 * exp(-r)
+    R10 = 2 * np.exp(-r)
+    
+    # Angular part Y₀⁰(θ,φ) = 1/√(4π) (spherically symmetric)
+    Y00 = 1/np.sqrt(4*np.pi)
+    
+    # Full wavefunction
+    psi = R10 * Y00
+    
+    return psi
+
+def hydrogen_2p_m0_wavefunction(x, y, z):
+    """
+    Hydrogen 2p (m=0) wavefunction in Cartesian coordinates
+    ψ₂₁₀ = R₂₁(r) * Y₁⁰(θ,φ)
+    
+    Parameters:
+    x, y, z: Cartesian coordinates (in units of Bohr radius)
+    """
+    # Convert to spherical coordinates
+    r = np.sqrt(x**2 + y**2 + z**2)
+    
+    # Avoid division by zero at origin
+    r = np.where(r == 0, 1e-10, r)
+    
+    # Radial part R₂₁(r) = (1/(2√6)) * r * exp(-r/2)
+    R21 = (1/(2*np.sqrt(6))) * r * np.exp(-r/2)
+    
+    # Angular part Y₁⁰(θ,φ) = √(3/4π) * cos(θ) = √(3/4π) * z/r
+    Y10 = np.sqrt(3/(4*np.pi)) * z / r
+    
+    # Full wavefunction
+    psi = R21 * Y10
+
+    return psi
+
+
+def hydrogen_2p_m1_wavefunction(x, y, z):
+    """
+    Hydrogen 2p (m=+1) wavefunction (complex form) in Cartesian coordinates
+    ψ₂₁₁ = R₂₁(r) * Y₁¹(θ,φ)
+    
+    Parameters:
+    x, y, z: Cartesian coordinates (in units of Bohr radius)
+    
+    Returns:
+    Complex wavefunction
+    """
+    # Convert to spherical coordinates
+    r = np.sqrt(x**2 + y**2 + z**2)
+    
+    # Avoid division by zero at origin
+    r = np.where(r == 0, 1e-10, r)
+    
+    # Calculate phi (azimuthal angle)
+    phi = np.arctan2(y, x)
+    
+    # Radial part R₂₁(r) = (1/(2√6)) * r * exp(-r/2)
+    R21 = (1/(2*np.sqrt(6))) * r * np.exp(-r/2)
+    
+    # Angular part Y₁¹(θ,φ) = -√(3/8π) * sin(θ) * e^(iφ)
+    # In Cartesian: sin(θ) = sqrt(x²+y²)/r
+    sin_theta = np.sqrt(x**2 + y**2) / r
+    Y11_complex = -np.sqrt(3/(8*np.pi)) * sin_theta * np.exp(1j * phi)
+    
+    # Full wavefunction (complex)
+    psi = R21 * Y11_complex
+    
+    return psi
+
+
+
+## pick 2p state (m=1 or m=0) here
+def superposition(x, y, z, c, t):
+    psi = np.sqrt(c) * hydrogen_1s_wavefunction(x, y, z) + np.sqrt(1-c) * cmath.exp(1j*0.1*2*np.pi*t) * hydrogen_2p_m1_wavefunction(x, y, z)
+    #psi = np.sqrt(c) * hydrogen_1s_wavefunction(x, y, z) + np.sqrt(1-c) * cmath.exp(1j*0.1*2*np.pi*t) * hydrogen_2p_m0_wavefunction(x, y, z)
+    
+    return psi
+
+def superposition_func(x, y, z, t):
+    return superposition(x, y, z, c_f(t), t)
+
+
+def plot_combined_orbitals(t):
+    """Plot both 1s and 2p (m=0) orbitals with 50% probability density isosurfaces"""
+    
+    # Create 3D grid
+    n_points = 100
+    extent = 7  # Range in Bohr radii
+    
+    x = np.linspace(-extent, extent, n_points)
+    y = np.linspace(-extent, extent, n_points)
+    z = np.linspace(-extent, extent, n_points)
+    
+    X, Y, Z = np.meshgrid(x, y, z, indexing='ij')
+    
+    # Calculate wavefunctions
+    psi_1s = hydrogen_1s_wavefunction(X, Y, Z)
+    psi_2p = hydrogen_2p_m0_wavefunction(X, Y, Z)
+    psi_super = superposition_func(X, Y, Z, t)
+    
+    # Calculate probability densities |ψ|²
+    prob_density_1s = np.abs(psi_1s)**2
+    prob_density_2p = np.abs(psi_2p)**2
+    prob_density_super = np.abs(psi_super)**2
+    
+    # Find 50% of maximum probability density for each orbital
+    max_prob_1s = np.max(prob_density_1s)
+    max_prob_2p = np.max(prob_density_2p)
+    max_prob_super = np.max(prob_density_super)
+    isosurface_value_1s = 0.5 * max_prob_1s
+    isosurface_value_2p = 0.5 * max_prob_2p
+    isosurface_value_super = 0.3 * max_prob_super
+    
+    # Create isosurfaces using marching cubes
+    try:
+        # super orbital isosurface
+        verts_super, faces_super, _, _ = measure.marching_cubes(prob_density_super, level=isosurface_value_super, 
+                                                         spacing=(x[1]-x[0], y[1]-y[0], z[1]-z[0]))
+        verts_super[:, 0] += x[0]
+        verts_super[:, 1] += y[0] 
+        verts_super[:, 2] += z[0]
+        
+    except ValueError as e:
+        print(f"Error creating isosurface: {e}")
+        print("Try adjusting the grid resolution or extent")
+        return None
+    
+    # Create 3D plot with clean white background
+    fig = plt.figure(figsize=(12, 10), facecolor='white')
+    ax = fig.add_subplot(111, projection='3d', facecolor='white')
+    
+    face_centers_super = np.mean(verts_super[faces_super], axis=1)
+    distances_super = np.linalg.norm(face_centers_super, axis=1)
+    lighting_super = 1.0 - (distances_super - np.min(distances_super)) / (np.max(distances_super) - np.min(distances_super)) * 0.3
+    
+
+    # Plot super orbital (dumbbell, blue color)
+    mesh_super = ax.plot_trisurf(verts_super[:, 0], verts_super[:, 1], verts_super[:, 2], 
+                             triangles=faces_super, 
+                             color='lightblue',  # Blue for 2p
+                             alpha=0.8,
+                             linewidth=0,
+                             antialiased=True,
+                             shade=True)
+    mesh_super.set_array(lighting_super)
+    
+    # Remove all axes, labels, and grid
+    ax.set_axis_off()
+    
+    # Set equal aspect ratio with clean bounds
+    max_range = extent * 0.7
+    ax.set_xlim([-max_range, max_range])
+    ax.set_ylim([-max_range, max_range])
+    ax.set_zlim([-max_range, max_range])
+    
+    # Remove background panes
+    ax.xaxis.pane.fill = False
+    ax.yaxis.pane.fill = False
+    ax.zaxis.pane.fill = False
+    
+    # Make pane edges invisible
+    ax.xaxis.pane.set_edgecolor('none')
+    ax.yaxis.pane.set_edgecolor('none')
+    ax.zaxis.pane.set_edgecolor('none')
+    
+    # Set optimal viewing angle for 3D effect
+    ax.view_init(elev=25, azim=45)
+    
+    # Add subtle depth by adjusting the plot margins
+    fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
+    
+    plt.tight_layout()
+    
+    # Remove margins for full-screen effect
+    plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
+    
+    return fig
+
+
+### Pick here if calculating decay or excitation 
+def c_f(t):
+    result = np.exp(-t/20)  #excitation
+    #result = 1 -  np.exp(-t/1000)   #decay
+    return result
+
+
+
+
+# Create and display the visualization
+for t in range(188,201)
+    fig = plot_combined_orbitals(t)
+    fig.savefig(f'frame_{t:03d}.png')
+    plt.close(fig) # Close the figure to free up memory   else:
+    print(t, end="\t")
+
+
+print("frames created!")
+
+
+# Get all the saved image filenames
+image_files = glob.glob('frame_*.png')
+image_files.sort() # Sort the files to ensure correct order
+
+# Create a list of image objects
+images = [Image.open(f) for f in image_files]
+
+# Save the images as an animated GIF
+images[0].save(
+    'animated_isosurface.gif',
+    save_all=True,
+    append_images=images[1:],
+    duration=100, # Duration for each frame in milliseconds
+    loop=0 # Loop forever
+)
+
+print("GIF created successfully!")
+
+# Delete the temporary PNG files
+for file in image_files:
+    os.remove(file)
+
+print("Temporary image files deleted.")
+```
+
+::: {#fig-decay2p0}
+<p style="text-align:center;">
+  <img src="./decay_2p0_cropped_smart.gif" alt="Animation: decay from 2p(m=0) to 1s (electron position probability density)" style="max-width:85%; height:auto; display:block; margin:0.4em auto;">
+</p>
+
+Decay animation of the hydrogen transition $2p(m=0) \to 1s$. Electron position probability density $|\psi(\vec{r}, t)|^2$ is shown over time. The oscillation frequency $\omega_{21}$ is slowed by a factor of ~80 000 relative to the decay rate $\Gamma$ to make the interference patterns visible.  
+:::
+
+::: {#fig-exc2p1}
+<p style="text-align:center;">
+  <img src="./excitation_2p1_compressed.gif" alt="Animation: excitation from 1s to 2p(m=1) (electron position probability density)" style="max-width:85%; height:auto; display:block; margin:0.4em auto;">
+</p>
+
+Excitation animation of the hydrogen transition $1s \to 2p(m=1)$. The probability density $|\psi(\vec{r}, t)|^2$ is shown. The oscillation frequency $\omega_{21}$ is slowed by a factor of ~4×10⁶ to better illustrate the evolving interference pattern.  
+:::
+
+---
+
+## Qualitative motivation
+
+During a transition, the atomic state is **not instantaneously in either the ground or excited state**, but can be described as a **coherent superposition** of stationary eigenstates:
+
+$$
+|\psi(t)\rangle
+= c_1(t)\,|1\rangle\,e^{-i\omega_1 t}
++ c_2(t)\,|2\rangle\,e^{-i\omega_2 t},
+$$
+
+with normalization:
+
+$$
+|c_1(t)|^2 + |c_2(t)|^2 = 1.
+$$
+
+Here:  
+- $|1\rangle, |2\rangle$ are stationary eigenstates (e.g., $1s$ and $2p$).  
+- $\omega_i = E_i/\hbar$ are the associated angular frequencies.  
+- The complex amplitudes $c_i(t)$ encode **populations and coherence** and evolve according to the Schrödinger equation (or phenomenologically via Einstein’s rate equations).
+
+---
+
+### Population dynamics
+
+For spontaneous decay, the probability to find the atom in the excited state decreases exponentially:
+
+$$
+P_2(t) = |c_2(t)|^2 = e^{-\Gamma t},
+$$
+
+where $\Gamma$ is the decay rate (inverse lifetime).  
+
+The exponential envelope describes how the excited-state population vanishes over time, while the oscillatory phase produces **interference with the ground-state component**.
+
+---
+
+### Observable oscillations
+
+The **electric dipole moment** is defined as:
+
+$$
+\vec{d}(t) = -e \langle \psi(t)| \vec{r} | \psi(t)\rangle,
+$$
+
+where $e$ is the elementary charge.  
+
+Because $|\psi(t)\rangle$ is a coherent superposition, $\vec{d}(t)$ contains an **oscillating component at frequency** $\omega_{21} = \omega_2 - \omega_1$, modulated by the exponential decay envelope.  
+
+This oscillating dipole drives the emission or absorption of radiation and produces the interference patterns visible in the animations.
+
+---
+
+## Connection to radiation patterns and polarization
+
+The animations also illustrate how the atom couples to the electromagnetic field via the **dipole moment $\vec{d}(t)$**, which behaves as a microscopic antenna.
+
+### Decay from 2p($m=0$) → 1s
+
+For the $2p(m=0)$ decay, the dipole oscillates along the $z$–axis. This corresponds to a **linear (Hertz) dipole antenna**:
+
+- Radiation is strongest perpendicular to the dipole axis and zero along it.  
+- Emission is **linearly polarized in the plane perpendicular to the dipole axis**.  
+
+Thus, the decay produces linearly polarized photons consistent with classical dipole radiation.
+
+### Excitation 1s → 2p($m=1$)
+
+Excitation into $2p(m=1)$ involves a dipole rotating in the $xy$–plane, corresponding to a **circularly polarized field** along the $z$–axis:
+
+- The selection rule $\Delta m = +1$ requires absorption of a photon with the appropriate helicity.  
+- The transition is most efficiently driven by **circularly polarized light in the $xy$–plane**, propagating along $z$.  
+
+This shows how orbital orientation and angular momentum determine the polarization requirements of the driving field.
+
+---
+
+## Visual summary
+
+- The animations (@fig-decay2p0 and @fig-exc2p1) show the **isosurface of $|\psi(\vec r,t)|^2$** at 30% of the maximum.  
+- **Oscillations** correspond to quantum interference between stationary states.  
+- The **exponential envelope** encodes the finite lifetime of the excited state.  
+- These visualizations provide an intuitive understanding of atomic transitions and their connection to radiation patterns.

@@ -1,0 +1,54 @@
+---
+title: "Orthogonality of Eigenvectors in Quantum Mechanics"
+---
+
+# Why are eigenvectors orthogonal in Quantum Mechanics?
+
+In quantum mechanics, the eigenvectors (or eigenstates) corresponding to different eigenvalues of an observable are orthogonal. This is a fundamental property that arises directly from the mathematical nature of the operators representing physical observables. These operators are **Hermitian**.
+
+## The Hermitian operator
+
+A linear operator $\hat{A}$ is defined as Hermitian if it is equal to its Hermitian conjugate (or adjoint) $\hat{A}^\dagger$. The defining property of a Hermitian operator in bra-ket notation is:
+
+$$ \langle\phi|\hat{A}\psi\rangle = \langle\hat{A}\phi|\psi\rangle $$
+
+for any two state vectors $|\phi\rangle$ and $|\psi\rangle$ in the Hilbert space.
+
+## Proof of orthogonality for distinct eigenvalues
+
+Let's consider a Hermitian operator $\hat{A}$ and two of its eigenstates, $|\psi_1\rangle$ and $|\psi_2\rangle$, with corresponding eigenvalues $\lambda_1$ and $\lambda_2$.
+
+$$ \hat{A}|\psi_1\rangle = \lambda_1|\psi_1\rangle $$
+$$ \hat{A}|\psi_2\rangle = \lambda_2|\psi_2\rangle $$
+
+We can use these relations to prove the orthogonality.
+
+1.  **Start with the inner product involving the operator and the first eigenstate.**
+    
+    $$ \langle\psi_2|\hat{A}|\psi_1\rangle = \langle\psi_2|\lambda_1\psi_1\rangle = \lambda_1\langle\psi_2|\psi_1\rangle $$
+
+2.  **Use the Hermitian property to rewrite the same inner product.**
+    
+    $$ \langle\psi_2|\hat{A}|\psi_1\rangle = \langle\hat{A}\psi_2|\psi_1\rangle $$
+
+3.  **Substitute the second eigenstate equation into the rewritten inner product.** Since eigenvalues of a Hermitian operator are real ($\lambda_2^* = \lambda_2$), we have:
+    
+    $$ \langle\hat{A}\psi_2|\psi_1\rangle = \langle\lambda_2\psi_2|\psi_1\rangle = \lambda_2^*\langle\psi_2|\psi_1\rangle = \lambda_2\langle\psi_2|\psi_1\rangle $$
+
+4.  **Equate the results from steps 1 and 3.**
+    
+    $$ \lambda_1\langle\psi_2|\psi_1\rangle = \lambda_2\langle\psi_2|\psi_1\rangle $$
+
+5.  **Rearrange the equation.**
+    
+    $$ (\lambda_1 - \lambda_2)\langle\psi_2|\psi_1\rangle = 0 $$
+
+6.  **Conclude the orthogonality.** If the eigenvalues are distinct, meaning $\lambda_1 \neq \lambda_2$, then $(\lambda_1 - \lambda_2)$ is a non-zero number. For the equation to hold, the inner product must be zero.
+    
+    $$ \langle\psi_2|\psi_1\rangle = 0 $$
+    
+    This is the definition of orthogonality.
+
+## The physical implication
+
+The orthogonality of eigenstates means that if a quantum system is prepared in a state corresponding to a definite value of an observable (an eigenstate), then a measurement of that observable will always yield that value. The probability of measuring any other value (corresponding to a different eigenstate) is zero. This guarantees that measurement outcomes for distinct eigenvalues are mutually exclusive.

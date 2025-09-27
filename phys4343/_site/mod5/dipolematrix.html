@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>From Relations to Values: Dipole Matrix Elements – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>Dipole Matrix Elements – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -6874,6 +6874,9 @@ max-width: 100% !important;
 width: auto !important;
 height: auto !important;
 }
+.quarto-image-container .lightbox {
+background-color: white !important;
+}
 img[src$=".svg"] {
 width: auto !important;
 height: auto !important;
@@ -6927,7 +6930,7 @@ height: auto !important;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/dipolematrix.html">From Relations to Values: Dipole Matrix Elements</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/dipolematrix.html">Dipole Matrix Elements</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -7080,7 +7083,13 @@ height: auto !important;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod5/dipolematrix.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">From Relations to Values: Dipole Matrix Elements</span></a>
+ <span class="menu-text">Dipole Matrix Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing Atomic Transitions</span></a>
   </div>
 </li>
       </ul>
@@ -7095,10 +7104,7 @@ height: auto !important;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dipole-matrix-elements-overview-and-plan" id="toc-dipole-matrix-elements-overview-and-plan" class="nav-link active" data-scroll-target="#dipole-matrix-elements-overview-and-plan">Dipole Matrix Elements: Overview and Plan</a>
-  <ul class="collapse">
-  <li><a href="#general-strategy" id="toc-general-strategy" class="nav-link" data-scroll-target="#general-strategy">General Strategy</a></li>
-  </ul></li>
+  <li><a href="#dipole-matrix-elements-overview-and-plan" id="toc-dipole-matrix-elements-overview-and-plan" class="nav-link active" data-scroll-target="#dipole-matrix-elements-overview-and-plan">Dipole Matrix Elements: Overview and Plan</a></li>
   <li><a href="#hamiltonian-for-an-atom-in-an-electromagnetic-field" id="toc-hamiltonian-for-an-atom-in-an-electromagnetic-field" class="nav-link" data-scroll-target="#hamiltonian-for-an-atom-in-an-electromagnetic-field">1. Hamiltonian for an Atom in an Electromagnetic Field</a>
   <ul class="collapse">
   <li><a href="#simplifications" id="toc-simplifications" class="nav-link" data-scroll-target="#simplifications">1.1 Simplifications</a></li>
@@ -7121,9 +7127,10 @@ height: auto !important;
   </ul></li>
   <li><a href="#einstein-coefficients-from-dipole-matrix-elements" id="toc-einstein-coefficients-from-dipole-matrix-elements" class="nav-link" data-scroll-target="#einstein-coefficients-from-dipole-matrix-elements">4. Einstein Coefficients from Dipole Matrix Elements</a>
   <ul class="collapse">
-  <li><a href="#transition-rates-in-the-dipole-approximation" id="toc-transition-rates-in-the-dipole-approximation" class="nav-link" data-scroll-target="#transition-rates-in-the-dipole-approximation">4.1 Transition rates in the dipole approximation</a></li>
-  <li><a href="#absorption-and-stimulated-emission-coefficients" id="toc-absorption-and-stimulated-emission-coefficients" class="nav-link" data-scroll-target="#absorption-and-stimulated-emission-coefficients">4.2 Absorption and stimulated emission coefficients</a></li>
-  <li><a href="#spontaneous-emission-coefficient" id="toc-spontaneous-emission-coefficient" class="nav-link" data-scroll-target="#spontaneous-emission-coefficient">4.3 Spontaneous emission coefficient</a></li>
+  <li><a href="#transition-rates-in-the-dipole-approximation" id="toc-transition-rates-in-the-dipole-approximation" class="nav-link" data-scroll-target="#transition-rates-in-the-dipole-approximation">4.1 Transition Rates in the Dipole Approximation</a></li>
+  <li><a href="#spontaneous-emission-coefficient" id="toc-spontaneous-emission-coefficient" class="nav-link" data-scroll-target="#spontaneous-emission-coefficient">4.2 Spontaneous emission coefficient</a></li>
+  <li><a href="#absorption-and-stimulated-emission-coefficients" id="toc-absorption-and-stimulated-emission-coefficients" class="nav-link" data-scroll-target="#absorption-and-stimulated-emission-coefficients">4.3 Absorption and stimulated emission coefficients</a></li>
+  <li><a href="#spontaneous-emission-coefficient-1" id="toc-spontaneous-emission-coefficient-1" class="nav-link" data-scroll-target="#spontaneous-emission-coefficient-1">4.3 Spontaneous emission coefficient</a></li>
   <li><a href="#physical-meaning" id="toc-physical-meaning" class="nav-link" data-scroll-target="#physical-meaning">4.4 Physical meaning</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">5. Summary</a></li>
@@ -7133,9 +7140,9 @@ height: auto !important;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/dipolematrix.html">From Relations to Values: Dipole Matrix Elements</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/dipolematrix.html">Dipole Matrix Elements</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">From Relations to Values: Dipole Matrix Elements</h1>
+<h1 class="title">Dipole Matrix Elements</h1>
 </div>
 
 
@@ -7162,32 +7169,15 @@ height: auto !important;
 <h1>Dipole Matrix Elements: Overview and Plan</h1>
 <p>In the previous sections, we established the <strong>relations</strong> between the Einstein coefficients by demanding thermal equilibrium and consistency with Planck’s radiation law. These relations are fundamental, but they do not yet tell us the <strong>absolute values</strong> of the coefficients for a given atomic transition. To make quantitative predictions — e.g. lifetimes of excited states or absorption cross sections — we need explicit formulas for <span class="math inline">\(A_{21}\)</span>, <span class="math inline">\(B_{12}\)</span>, and <span class="math inline">\(B_{21}\)</span>.</p>
 <p>This requires us to connect the statistical picture of Einstein with the <strong>microscopic dynamics of atoms interacting with the electromagnetic field</strong>. The key idea is that the coupling between light and atoms is governed by the <strong>electric dipole interaction</strong>, and the corresponding <strong>matrix elements of the dipole operator</strong> determine the transition probabilities.</p>
-<p>The specific goals for this chapter are:</p>
+<p>In this chapter you will learn how to:</p>
 <ol type="1">
-<li>Start from the atom–field Hamiltonian and introduce the electric dipole approximation for optical transitions.<br>
+<li>Write down the Hamiltonian that describes how atoms interact with light.<br>
 </li>
-<li>Use time-dependent perturbation theory to compute transition probabilities between stationary states.<br>
+<li>Use time-dependent perturbation theory to understand Fermi’s Golden Rule, which tells us the probability for an atom to jump between stationary states.<br>
 </li>
-<li>Identify the Einstein coefficients in the perturbative transition rates and thereby obtain explicit expressions for <span class="math inline">\(A_{21}\)</span> and the <span class="math inline">\(B\)</span>-coefficients in terms of dipole matrix elements.<br>
+<li>Apply the electric dipole approximation and see how transition strengths are determined by the dipole matrix element.<br>
 </li>
-<li>Compare the quantum result to the radiation rate of a classical oscillating dipole and understand the origin of the common prefactors.<br>
-</li>
-<li>Draw practical conclusions: estimate lifetimes, understand selection rules, and see why simple two-level pumping cannot produce inversion without additional levels or mechanisms.</li>
-</ol>
-<hr>
-<section id="general-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="general-strategy">General Strategy</h2>
-<p>The derivation proceeds in several steps:</p>
-<ol type="1">
-<li><strong>Start from classical electrodynamics:</strong> express the atom–field interaction in terms of the electromagnetic potentials.<br>
-</li>
-<li><strong>Apply the dipole approximation:</strong> for optical transitions, the wavelength is typically much larger than the atomic dimensions, so the interaction simplifies to <span class="math inline">\(-\hat{\vec{d}}\cdot \vec{E}\)</span>, where <span class="math inline">\(\hat{\vec{d}}\)</span> is the electric dipole operator.<br>
-</li>
-<li><strong>Use time-dependent perturbation theory:</strong> insert the interaction Hamiltonian into the time-dependent Schrödinger equation and evaluate transition probabilities between quantum states.<br>
-</li>
-<li><strong>Extract Einstein coefficients:</strong> compare the resulting transition rates with Einstein’s definitions to identify explicit formulas for <span class="math inline">\(A_{21}\)</span>, <span class="math inline">\(B_{12}\)</span>, and <span class="math inline">\(B_{21}\)</span>.<br>
-</li>
-<li><strong>Check against the classical oscillator model:</strong> verify the quantum result by comparing it with the radiation rate of a classical oscillating dipole, providing intuition and consistency.</li>
+<li>Connect these results to the Einstein coefficients and work out explicit formulas for <span class="math inline">\(A_{21}\)</span> and the <span class="math inline">\(B\)</span>-coefficients in terms of dipole matrix elements.</li>
 </ol>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -7218,7 +7208,6 @@ flowchart LR
 </div>
 <hr>
 <p>In the following sections, we will carry out this program step by step, starting with the derivation of the dipole transition matrix elements and their role in determining the Einstein <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> coefficients.</p>
-</section>
 </section>
 <section id="hamiltonian-for-an-atom-in-an-electromagnetic-field" class="level1">
 <h1>1. Hamiltonian for an Atom in an Electromagnetic Field</h1>
@@ -7671,19 +7660,63 @@ Fermi’s Golden Rule tells us that transition rates depend on matrix elements o
 <h1>4. Einstein Coefficients from Dipole Matrix Elements</h1>
 <p>We are now in a position to connect the <strong>microscopic dipole matrix element</strong> to the <strong>macroscopic Einstein coefficients</strong> that describe spontaneous emission, absorption, and stimulated emission.</p>
 <hr>
-<section id="transition-rates-in-the-dipole-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="transition-rates-in-the-dipole-approximation">4.1 Transition rates in the dipole approximation</h2>
-<p>From Fermi’s Golden Rule, the transition rate between an initial state <span class="math inline">\(|i\rangle\)</span> and a final state <span class="math inline">\(|n\rangle\)</span> depends on the square of the dipole matrix element:</p>
+<section id="transition-rates-in-the-dipole-approximation" class="level3">
+<h3 class="anchored" data-anchor-id="transition-rates-in-the-dipole-approximation">4.1 Transition Rates in the Dipole Approximation</h3>
+<p>From <strong>Fermi’s Golden Rule</strong>, the transition rate into a final state <span class="math inline">\(|n\rangle\)</span> from an initial state <span class="math inline">\(|i\rangle\)</span> depends on the dipole matrix element projected onto the photon polarization <span class="math inline">\(\hat{\vec{\varepsilon}}\)</span>:</p>
 <p><span class="math display">\[
-\Gamma_{i \to n} \;\propto\;
-|\langle \phi_n | \hat{\vec{\varepsilon}}\cdot \hat{\vec{r}} | \phi_i \rangle|^2.
+\Gamma_{i \to n}^{(\hat{\varepsilon})} \;\propto\;
+\big| \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle \big|^2 .
 \]</span></p>
-<p>Summing over all photon directions and polarizations, one obtains the explicit expressions for the Einstein coefficients.</p>
+<p>This expression gives the <em>partial</em> rate for emission into a fixed polarization and solid angle.<br>
+The <strong>total transition rate</strong> is obtained by summing over both photon polarizations and all emission directions:</p>
+<p><span class="math display">\[
+\Gamma_{i \to n} \;=\;
+\frac{\alpha \, \omega^3}{2 \pi c^2}
+\sum_{\hat{\vec{\varepsilon}}} \int d\Omega_{\gamma}\,
+\big| \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle \big|^2 .
+\]</span></p>
+<p>Here:<br>
+- <span class="math inline">\(d\Omega_{\gamma}\)</span> is the solid angle element,<br>
+- <span class="math inline">\(\alpha=e^2/(4\pi \varepsilon_0\hbar c)\)</span> is the fine-structure constant.</p>
+<p>Carrying out the angular integration and polarization sum yields the compact result:</p>
+<p><span class="math display">\[
+\Gamma_{i \to n} \;=\;
+\frac{\omega^3 e^2}{3\pi \varepsilon_0 \hbar c^3}\,
+\big| \langle n | \vec{r} | i \rangle \big|^2 .
+\]</span></p>
+<p>This formula makes explicit that the transition rate grows with <span class="math inline">\(\omega^3\)</span> and is proportional to the square of the dipole matrix element.</p>
+<hr>
+</section>
+<section id="spontaneous-emission-coefficient" class="level2">
+<h2 class="anchored" data-anchor-id="spontaneous-emission-coefficient">4.2 Spontaneous emission coefficient</h2>
+<p>The Einstein coefficient for spontaneous emission <span class="math inline">\(A\)</span> is equal to the transition rate we just calculated and it is</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><span class="math inline">\(A\)</span> coefficient
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+A_{21} =
+\frac{\omega^3 e^2}{3\pi \varepsilon_0 \hbar c^3}
+\, \big| \langle \phi_1 | \hat{\vec{r}} | \phi_2 \rangle \big|^2,
+\]</span></p>
+</div>
+</div>
+<p>where <span class="math inline">\(\omega = (E_2 - E_1)/\hbar\)</span> is the transition frequency.</p>
 <hr>
 </section>
 <section id="absorption-and-stimulated-emission-coefficients" class="level2">
-<h2 class="anchored" data-anchor-id="absorption-and-stimulated-emission-coefficients">4.2 Absorption and stimulated emission coefficients</h2>
-<p>The absorption coefficient <span class="math inline">\(B_{12}\)</span> and the stimulated emission coefficient <span class="math inline">\(B_{21}\)</span> are given by (for equal degeneracy)</p>
+<h2 class="anchored" data-anchor-id="absorption-and-stimulated-emission-coefficients">4.3 Absorption and stimulated emission coefficients</h2>
+<p>Using the relation between <span class="math inline">\(B_{21}\)</span> and <span class="math inline">\(A_{21}\)</span> derived from Planck’s law,</p>
+<p><span class="math display">\[
+A_{21} = \frac{8\pi h\nu^3}{c^3} B_{21},
+\]</span></p>
+<p>we can substitute the microscopic expression for <span class="math inline">\(A_{21}\)</span> and obtain the absorption coefficient <span class="math inline">\(B_{12}\)</span> and the stimulated emission coefficient <span class="math inline">\(B_{21}\)</span> (for equal degeneracy)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -7704,12 +7737,12 @@ B_{12} = B_{21} =
 <ul>
 <li>The equality <span class="math inline">\(B_{12} = B_{21}\)</span> (up to degeneracy factors) is the <strong>symmetry relation</strong> derived earlier.<br>
 </li>
-<li>The result shows that both coefficients are directly proportional to the squared dipole matrix element.</li>
+<li>The result shows that all Einstein coefficients are directly proportional to the squared dipole matrix element.</li>
 </ul>
 <hr>
 </section>
-<section id="spontaneous-emission-coefficient" class="level2">
-<h2 class="anchored" data-anchor-id="spontaneous-emission-coefficient">4.3 Spontaneous emission coefficient</h2>
+<section id="spontaneous-emission-coefficient-1" class="level2">
+<h2 class="anchored" data-anchor-id="spontaneous-emission-coefficient-1">4.3 Spontaneous emission coefficient</h2>
 <p>Using the relation between <span class="math inline">\(A_{21}\)</span> and <span class="math inline">\(B_{21}\)</span> derived from Planck’s law,</p>
 <p><span class="math display">\[
 A_{21} = \frac{8\pi h\nu^3}{c^3} B_{21},
