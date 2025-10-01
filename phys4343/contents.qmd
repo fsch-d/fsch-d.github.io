@@ -39,6 +39,9 @@ This page provides an overview and links to all the sections of the website.
 
 * [Transition processes and Einstein Coefficients](mod5/einstein.qmd)
 * [From Relations to Values: Dipole Matrix Elements](mod5/dipolematrix.qmd)
+* [Visualizing Atomic Transitions](mod5/visual.qmd)
+* [Radiation and Selection Rules](mod5/selectionr.qmd)
+
 
 ---
 

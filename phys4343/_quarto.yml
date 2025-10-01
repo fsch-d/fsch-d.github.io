@@ -52,6 +52,7 @@ website:
           - mod5/dipolematrix.qmd
           - text: "Visualizing Atomic Transitions"
             href: mod5/visual.qmd
+          - mod5/selectionr.qmd
 
 
 #      - section: advanced.qmd
