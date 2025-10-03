@@ -339,12 +339,12 @@ The exponential envelope describes how the excited-state population vanishes ove
 The **electric dipole moment** is defined as:
 
 $$
-\vec{d}(t) = -e \langle \psi(t)| \vec{r} | \psi(t)\rangle,
+\vec{D}(t) = -e \langle \psi(t)| \vec{r} | \psi(t)\rangle,
 $$
 
 where $e$ is the elementary charge.  
 
-Because $|\psi(t)\rangle$ is a coherent superposition, $\vec{d}(t)$ contains an **oscillating component at frequency** $\omega_{21} = \omega_2 - \omega_1$, modulated by the exponential decay envelope.  
+Because $|\psi(t)\rangle$ is a coherent superposition, $\vec{D}(t)$ contains an **oscillating component at frequency** $\omega_{21} = \omega_2 - \omega_1$, modulated by the exponential decay envelope.  
 
 This oscillating dipole drives the emission or absorption of radiation and produces the interference patterns visible in the animations.
 
@@ -352,7 +352,7 @@ This oscillating dipole drives the emission or absorption of radiation and produ
 
 ## Connection to radiation patterns and polarization
 
-The animations also illustrate how the atom couples to the electromagnetic field via the **dipole moment $\vec{d}(t)$**, which behaves as a microscopic antenna.
+The animations also illustrate how the atom couples to the electromagnetic field via the **dipole moment $\vec{D}(t)$**, which behaves as a microscopic antenna.
 
 ### Decay from 2p($m=0$) → 1s
 

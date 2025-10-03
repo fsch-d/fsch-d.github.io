@@ -79,5 +79,11 @@
   },
   "FAQ/orthogonality.qmd": {
     "orthogonality.html": "1b13fc6e"
+  },
+  "mod5/spectroscopy.qmd": {
+    "spectroscopy.html": "8d9f8b64"
+  },
+  "mod5/dopplerfree.qmd": {
+    "dopplerfree.html": "aa7dbd3b"
   }
 }

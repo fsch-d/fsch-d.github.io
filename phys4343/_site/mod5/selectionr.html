@@ -4042,6 +4042,9 @@ background-color: white !important;
 img[src$=".svg"] {
 width: auto !important;
 height: auto !important;
+}
+p {
+text-align: justify;
 }</style>
 </head>
 
@@ -4260,6 +4263,12 @@ height: auto !important;
  <span class="menu-text">Radiation and Selection Rules</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4328,8 +4337,7 @@ height: auto !important;
 
 <section id="radiation-and-dipole-selection-rules-overview-and-plan" class="level1">
 <h1>Radiation and Dipole Selection Rules: Overview and Plan</h1>
-<p>This section begins with the role of <strong>light polarization</strong> in atomic transitions:<br>
-how <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> polarizations couple to changes in the magnetic quantum number <span class="math inline">\(M_L\)</span>. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces <span class="math inline">\(\Delta L = \pm 1\)</span>. Finally, we connect these ideas to the general selection rules used in spectroscopy.</p>
+<p>This section begins with the role of <strong>light polarization</strong> in atomic transitions: how <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> polarizations couple to changes in the magnetic quantum number <span class="math inline">\(M_L\)</span>. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces <span class="math inline">\(\Delta L = \pm 1\)</span>. Finally, we connect these ideas to the general selection rules used in spectroscopy.</p>
 <p>Specific goals:</p>
 <ol type="1">
 <li>Explain how <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> polarizations determine the allowed changes in magnetic quantum number <span class="math inline">\(\Delta M = 0, \pm 1\)</span>.<br>
@@ -4834,7 +4842,7 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 <p>In both cases, the essential point is the same: the quantization axis and the photon propagation direction are not independent, and geometry determines which transitions are accessible or visible.</p>
 <p>It is important to see that the words <em>“<span class="math inline">\(\pi\)</span> polarization = <span class="math inline">\(z\)</span>”</em> and <em>“<span class="math inline">\(\sigma\)</span> polarization = <span class="math inline">\(xy\)</span>”</em> are really <strong>shortcuts</strong>. In reality, the distribution of light depends on both the dipole orientation and the photon propagation direction. The simplified picture is correct in the standard geometry but must be applied with care when the light comes in at an angle or when emission is observed in a particular direction.</p>
 <p>Three-dimensional polar plots showing the emission and absorption profiles of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma\)</span> transitions are shown below.</p>
-<div id="6ce7f3fc" class="cell" data-execution_count="1">
+<div id="2d0e38b2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4992,7 +5000,6 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 <section id="an-experimental-example-optical-pumping" class="level1">
 <h1>4. An Experimental Example: Optical Pumping</h1>
 <p>So far we have derived the <strong>dipole selection rules</strong> and discussed how light polarization controls the allowed transitions between quantum states. Let us now see how these rules can be exploited in practice — in particular, how we can use them to <em>align</em> or <em>orient</em> the angular momentum of an ensemble of atoms. The method is known as <strong>optical pumping</strong>.</p>
-<p>, and one of the standard experimental systems is <strong>rubidium-87 (<span class="math inline">\(^{87}\)</span>Rb)</strong> on its D<span class="math inline">\(_2\)</span> line.</p>
 <hr>
 <section id="optical-pumping-of-87rb" class="level2">
 <h2 class="anchored" data-anchor-id="optical-pumping-of-87rb">4.1 Optical pumping of <span class="math inline">\(^{87}\)</span>Rb</h2>

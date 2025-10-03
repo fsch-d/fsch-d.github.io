@@ -13,3 +13,6 @@ img[src$=".svg"] {
   width: auto !important;
   height: auto !important;
 }
+p {
+      text-align: justify;
+    }

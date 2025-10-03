@@ -6,8 +6,7 @@ author: Daniel Fischer
 
 # Radiation and Dipole Selection Rules: Overview and Plan
 
-This section begins with the role of **light polarization** in atomic transitions:  
-how $\pi$ and $\sigma^\pm$ polarizations couple to changes in the magnetic quantum number $M_L$. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces $\Delta L = \pm 1$. Finally, we connect these ideas to the general selection rules used in spectroscopy.
+This section begins with the role of **light polarization** in atomic transitions: how $\pi$ and $\sigma^\pm$ polarizations couple to changes in the magnetic quantum number $M_L$. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces $\Delta L = \pm 1$. Finally, we connect these ideas to the general selection rules used in spectroscopy.
 
 Specific goals:
 
@@ -740,9 +739,6 @@ plt.show()
 
 So far we have derived the **dipole selection rules** and discussed how light polarization controls the allowed transitions between quantum states. Let us now see how these rules can be exploited in practice — in particular, how we can use them to *align* or *orient* the angular momentum of an ensemble of atoms. The method is known as **optical pumping**.
 
-
-
-, and one of the standard experimental systems is **rubidium-87 ($^{87}$Rb)** on its D$_2$ line.
 
 ---
 

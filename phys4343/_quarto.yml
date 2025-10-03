@@ -53,6 +53,7 @@ website:
           - text: "Visualizing Atomic Transitions"
             href: mod5/visual.qmd
           - mod5/selectionr.qmd
+          - mod5/spectroscopy.qmd
 
 
 #      - section: advanced.qmd

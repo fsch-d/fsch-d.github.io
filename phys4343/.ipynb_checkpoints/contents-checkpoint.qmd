@@ -41,7 +41,7 @@ This page provides an overview and links to all the sections of the website.
 * [From Relations to Values: Dipole Matrix Elements](mod5/dipolematrix.qmd)
 * [Visualizing Atomic Transitions](mod5/visual.qmd)
 * [Radiation and Selection Rules](mod5/selectionr.qmd)
-
+* [Spectroscopy and Spectral Line Widths](mod5/spectroscopy.qmd)
 
 ---
 

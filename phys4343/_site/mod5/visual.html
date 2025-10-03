@@ -4017,6 +4017,9 @@ background-color: white !important;
 img[src$=".svg"] {
 width: auto !important;
 height: auto !important;
+}
+p {
+text-align: justify;
 }</style>
 </head>
 
@@ -4235,6 +4238,12 @@ height: auto !important;
  <span class="menu-text">Radiation and Selection Rules</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4318,7 +4327,7 @@ height: auto !important;
 <li><a href="#fig-exc2p1" class="quarto-xref">Figure 2</a>: excitation from <span class="math inline">\(1s\)</span> to <span class="math inline">\(2p\,(m=1)\)</span>.</li>
 </ul>
 <p>The animations reveal <strong>interference patterns</strong> resulting from the <strong>time-dependent superposition</strong> of stationary states. The changing shapes reflect the relative phase evolution of the superposition.</p>
-<div id="cabb6285" class="cell" data-execution_count="1">
+<div id="6a610ba2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4627,17 +4636,17 @@ P_2(t) = |c_2(t)|^2 = e^{-\Gamma t},
 <h3 class="anchored" data-anchor-id="observable-oscillations">Observable oscillations</h3>
 <p>The <strong>electric dipole moment</strong> is defined as:</p>
 <p><span class="math display">\[
-\vec{d}(t) = -e \langle \psi(t)| \vec{r} | \psi(t)\rangle,
+\vec{D}(t) = -e \langle \psi(t)| \vec{r} | \psi(t)\rangle,
 \]</span></p>
 <p>where <span class="math inline">\(e\)</span> is the elementary charge.</p>
-<p>Because <span class="math inline">\(|\psi(t)\rangle\)</span> is a coherent superposition, <span class="math inline">\(\vec{d}(t)\)</span> contains an <strong>oscillating component at frequency</strong> <span class="math inline">\(\omega_{21} = \omega_2 - \omega_1\)</span>, modulated by the exponential decay envelope.</p>
+<p>Because <span class="math inline">\(|\psi(t)\rangle\)</span> is a coherent superposition, <span class="math inline">\(\vec{D}(t)\)</span> contains an <strong>oscillating component at frequency</strong> <span class="math inline">\(\omega_{21} = \omega_2 - \omega_1\)</span>, modulated by the exponential decay envelope.</p>
 <p>This oscillating dipole drives the emission or absorption of radiation and produces the interference patterns visible in the animations.</p>
 <hr>
 </section>
 </section>
 <section id="connection-to-radiation-patterns-and-polarization" class="level2">
 <h2 class="anchored" data-anchor-id="connection-to-radiation-patterns-and-polarization">Connection to radiation patterns and polarization</h2>
-<p>The animations also illustrate how the atom couples to the electromagnetic field via the <strong>dipole moment <span class="math inline">\(\vec{d}(t)\)</span></strong>, which behaves as a microscopic antenna.</p>
+<p>The animations also illustrate how the atom couples to the electromagnetic field via the <strong>dipole moment <span class="math inline">\(\vec{D}(t)\)</span></strong>, which behaves as a microscopic antenna.</p>
 <section id="decay-from-2pm0-1s" class="level3">
 <h3 class="anchored" data-anchor-id="decay-from-2pm0-1s">Decay from 2p(<span class="math inline">\(m=0\)</span>) → 1s</h3>
 <p>For the <span class="math inline">\(2p(m=0)\)</span> decay, the dipole oscillates along the <span class="math inline">\(z\)</span>–axis. This corresponds to a <strong>linear (Hertz) dipole antenna</strong>:</p>
