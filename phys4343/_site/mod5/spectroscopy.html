@@ -4095,7 +4095,7 @@ text-align: justify;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/spectroscopy.html">Spectroscopy and Spectral Line Widths</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/index.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/spectroscopy.html">Spectroscopy and Spectral Line Widths</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4232,7 +4232,7 @@ text-align: justify;
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a href="../mod5/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Absorption and Emission of Radiation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -4267,6 +4267,12 @@ text-align: justify;
   <div class="sidebar-item-container"> 
   <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/dopplerfree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Doppler-Free Saturation Spectroscopy</span></a>
   </div>
 </li>
       </ul>
@@ -4318,7 +4324,7 @@ text-align: justify;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/einstein.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/spectroscopy.html">Spectroscopy and Spectral Line Widths</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod5/index.html">Absorption and Emission of Radiation</a></li><li class="breadcrumb-item"><a href="../mod5/spectroscopy.html">Spectroscopy and Spectral Line Widths</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Spectroscopy and Spectral Line Widths</h1>
 </div>
@@ -4384,7 +4390,7 @@ h\nu = E_2 - E_1,
 <h2 class="anchored" data-anchor-id="line-properties">1.1 Line Properties</h2>
 <p>A spectral line is not infinitely sharp. Instead, it has a finite <strong>profile</strong> centered around the resonance frequency <span class="math inline">\(\nu_0\)</span> with a maximum intensity <span class="math inline">\(P_0\)</span>. The width of this profile contains important physical information.</p>
 <p>The figure below shows a typical line profile (here drawn as a Gaussian). The <strong>full width at half maximum (FWHM)</strong>, denoted <span class="math inline">\(\delta\nu = \nu_2 - \nu_1\)</span>, is the standard measure of line width. The central region is the <strong>line core</strong>, while the tails are called the <strong>line wings</strong>.</p>
-<div id="f146720f" class="cell" data-execution_count="2">
+<div id="cf50162b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4544,7 +4550,7 @@ e^{-i(\omega_2 - \omega_1)t} + \text{c.c.},
 <span class="math display">\[
 c_1^*(t)c_2(t) \sim e^{-\Gamma t/2},
 \]</span> so that <span class="math inline">\(\vec{D}(t)\)</span> resembles a <strong>damped harmonic oscillator</strong>: a sinusoidal oscillation under an exponentially decaying envelope.</p>
-<div id="2e331e9c" class="cell" data-execution_count="3">
+<div id="65b8c416" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4670,7 +4676,7 @@ I(\omega) \;\propto\; \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfra
 <p>This is the <strong>natural line shape</strong>. The full width at half maximum (FWHM) of the Lorentzian is <span class="math display">\[
 \delta\omega = \Gamma,
 \]</span> or equivalently in frequency units <span class="math inline">\(\delta\nu = \Gamma/(2\pi)\)</span>.</p>
-<div id="c4b08b86" class="cell" data-execution_count="4">
+<div id="50e24cce" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

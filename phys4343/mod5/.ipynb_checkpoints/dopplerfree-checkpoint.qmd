@@ -3,6 +3,23 @@ title: Doppler-Free Saturation Spectroscopy
 author: Daniel Fischer
 ---
 
+# Introduction
+
+On the [previous page](spectroscopy.qmd){target="_blank"} we have seen that under typical laboratory conditions, the **Doppler effect** often dominates the achievable resolution in laser spectroscopy.  
+
+Fortunately, there are **experimental techniques** that allow us to avoid this Doppler broadening—even when working with atomic samples at **room temperature** or much hotter.  
+
+In the following sections, we will focus on one specific example: **Doppler-free absorption saturation spectroscopy**. We will see how this method works and how it allows us to measure atomic transitions with much higher precision than what the Doppler effect would normally allow.
+
+
+# 1. Laser Absorption in a Thermal Gas
+
+Let us consider a simple situation: a narrow-band laser beam passing through an atomic gas. We want to see how the **transmitted laser intensity** changes as we scan the laser frequency.  
+
+Below is an interactive diagram to help visualize this process:
+
+
+
 ```{python}
 import numpy as np
 import plotly.graph_objects as go
@@ -329,10 +346,43 @@ fig.add_annotation(
 fig.show()
 ```
 
+### Reading the interactive plot
+
+- **Central plot:** The diagonal line represents the **resonance condition** $\Delta \omega = k v_z$. Only atoms with velocities along this line are in resonance with the laser for the current detuning.  
+- **Right plot:** Shows the **ground-state population** as a function of velocity $v_z$. The horizontal dashed line highlights the velocity class currently excited by the laser. The dip in the curve shows the "hole" burned in the distribution.  
+- **Top plot:** Shows the **transmitted laser intensity**. When atoms are excited and the ground-state population decreases, the transmitted intensity changes accordingly.  
+
+### Resonance and Doppler Shift
+
+Atoms absorb light only if the photon energy matches the energy difference between two atomic states:
+
+$$
+\hbar \omega = E_2 - E_1
+$$
+
+However, because atoms move along the laser beam, each atom experiences a Doppler shift:
+
+$$
+\Delta \omega = k v_z
+$$
+
+- The **central plot** makes this visible: the intersection of the current laser detuning (vertical line) with the diagonal line shows which velocity classes are resonant.  
+- On the **right plot**, this velocity class corresponds to the horizontal dashed line, showing the portion of the ground-state population being depleted.  
+
+### Hole-Burning and Absorption
+
+- The laser **burns a hole** in the ground-state population for the resonant velocities.  
+- The **top plot** reflects the transmitted intensity: it decreases when atoms are excited and increases when fewer atoms can absorb.  
+- By scanning the laser frequency with the slider, you can see how:
+
+  1. The "hole" moves through the velocity distribution on the right plot.  
+  2. The transmitted intensity in the top plot changes accordingly.  
+  3. The resulting absorption profile is **Doppler broadened**, because different velocities correspond to different detunings along the central plot.  
 
 
+# 2. Back-Reflecting the Laser Beam
 
-Back-reflected:
+In the previous section, we considered a single laser beam passing through the gas, which produced a Doppler-broadened absorption profile. Now, we introduce a simple but powerful modification: **back-reflecting the laser beam** so that it passes through the gas in the opposite direction.  
 
 
 ```{python}
@@ -605,9 +655,43 @@ fig.add_annotation( text="ground state<br>population N", xref="paper", yref="pap
 fig.show()
 ```
 
+### Reading the updated plot
+
+- **Central plot:** Now there are **two diagonal lines**, representing the resonance conditions for the forward and backward laser beams:  
+  - $\Delta \omega = k v_z$ (forward beam)  
+  - $\Delta \omega = -k v_z$ (backward beam)  
+  At most detunings, these lines correspond to **different velocity classes**, so the two beams excite **different groups of atoms**.  
+- **Right plot:** Shows the ground-state population as a function of velocity. At each detuning, atoms resonant with either beam are depleted.  
+- **Top plot:** Shows the transmitted intensity. The overall absorption still reflects the Doppler-broadened distribution.  
+
+### Saturation and the Lamb Dip
+
+Something special happens at **zero detuning**:
+
+- At $\Delta \omega = 0$, **both beams are resonant with the same atoms**, namely those with $v_z \approx 0$.  
+- These atoms can only absorb a **limited number of photons**: the transition becomes **saturated**.  
+- As a result, the **overall absorption decreases** at this detuning, creating a **narrow reduction in transmitted intensity** — the **Lamb dip** in the top plot.  
+
+In other words, **the Lamb dip arises because the two beams “share” the same atoms**, and the transition cannot absorb more than its saturation limit. This is why **saturation is essential** for observing the Doppler-free feature.  
+
+### Why the Lamb Dip is Doppler-Free
+
+- Only atoms with $v_z \approx 0$ experience **both beams simultaneously**, so their resonance is **independent of Doppler shifts**.  
+- By focusing on this narrow central feature, we can measure the **natural linewidth of the transition**, without thermal broadening.  
+- The Doppler-broadened wings are still present, but the **Lamb dip at the center** reveals the true atomic resonance.
+
+Use the slider to scan the laser frequency:
+
+1. Observe the **diagonal lines** in the central plot and which velocity classes are excited by each beam.  
+2. Notice that at zero detuning, the **ground-state population** is depleted by both beams, but **saturation limits the total absorption**, producing the Lamb dip.  
+3. Watch the **Lamb dip** emerge in the top plot, at the center of the Doppler-broadened absorption profile.
 
 
-Three-level system
+# 3. Single Laser Beam Absorption of a Three-Level $\Lambda$ System
+
+Many atoms used in laser spectroscopy have **two hyperfine levels in the ground state**, forming a **three-level $\Lambda$ system** when combined with a single excited state. In this situation, a single laser interacts with one of the ground states, but the **population dynamics become more complex**.
+
+
 
 ```{python}
 import numpy as np
@@ -844,9 +928,39 @@ fig.add_annotation( text="ground state<br>populations N<sub>1</sub>, N<sub>2</su
 fig.show()
 ```
 
+### How to read the interactive plot
+
+- **Central plot:** Shows the Doppler shifts for atoms in **both hyperfine ground states**. At a given laser detuning, atoms from either state can be resonant.  
+- **Right plot:** Shows the **ground-state populations** $N_1$ (blue) and $N_2$ (red) as a function of velocity.  
+- **Top plot:** Shows the **transmitted intensity**, which is primarily affected by absorption from whichever ground state is resonant.
+
+### Velocity-dependent population pumping
+
+- Atoms with velocity $v$ in $N_1$ may absorb photons and be excited to the upper state, then decay into $N_2$.
+- Conversely, atoms in $N_2$ with **different velocities** may absorb photons and decay into $N_1$.
+- As a result, the laser **redistributes population between $N_1$ and $N_2$ depending on velocity**.
+- For some velocity classes, atoms accumulate in a ground state that is **off-resonant with the laser** for that velocity. These atoms **stop interacting efficiently with the light** — we can think of them as **dark states**.
+- For other velocities, atoms are still partially resonant with the laser, so they continue to absorb photons until they are eventually pumped into a dark state. These temporarily absorbing atoms are sometimes called **bright states**, but note that this “bright” label is transient and velocity-dependent.
+- This velocity-dependent redistribution explains why the transmitted intensity **varies in a non-uniform way**: some velocity classes stop absorbing (dark), while others still absorb (bright), creating the characteristic features seen in the interactive plot.
+
+### Key points
+
+- The total absorption is reduced because **different velocity classes share the same laser photons**, similar to saturation effects in two-level systems.  
+- The effect depends on experimental parameters: **laser intensity, interaction time, atomic density, and temperature**. The plot shows only the **qualitative behavior**.  
+- This mechanism is central to techniques such as **optical pumping, coherent population trapping, and electromagnetically induced transparency (EIT)**.
+
+### Observing the effect
+
+- Use the slider to scan the laser frequency.  
+- Notice how population is **transferred from $N_1$ to $N_2$ for some velocities and from $N_2$ to $N_1$ for others**.  
+- The resulting dark states reduce absorption for specific velocity classes, affecting the **transmitted intensity** in the top plot.
 
 
-And now 3-level backreflected
+
+## 4. Saturated Absorption and Crossover Peaks in a $\Lambda$ System
+
+When the laser is **back-reflected**, atoms with **small velocities along the beam axis** can interact with **both forward and backward beams simultaneously**. This leads to **narrow saturation features** within the Doppler-broadened profile, analogous to the Lamb dips in a two-level system.
+
 
 
 ```{python}
@@ -1084,3 +1198,31 @@ fig.add_annotation( text="ground state<br>populations N<sub>1</sub>, N<sub>2</su
 
 fig.show()
 ```
+
+
+### 4.1 Lamb dips
+
+- In the $\Lambda$ system, each hyperfine transition shows a Lamb dip at the corresponding resonance frequency.
+- **Due to velocity-dependent population pumping into dark states**, these dips are **less pronounced** than in a simple two-level system.
+- The dip depth and shape depend on experimental parameters such as laser intensity, atomic density, and interaction time.
+
+### 4.2 Crossover peak
+
+- Consider the example in the plot, with two hyperfine ground states $N_1$ and $N_2$:
+
+  - Atoms in $N_1$ with velocity $v$ may absorb photons from the **forward beam** and decay into $N_2$.
+  - Atoms in $N_2$ with the **same velocity** can simultaneously absorb photons from the **backward beam** and decay into $N_1$.
+  - This **repumping process** keeps the atoms **cycling continuously** between ground and excited states at this velocity.
+
+- **Crossover peak:** 
+
+  - There is **one prominent crossover peak** in this example.
+  - It occurs when the forward beam interacts with $N_1$ and the backward beam interacts with $N_2$ at the **same velocity**.
+  - At this velocity, there is effectively **no dark state**: repumping keeps all atoms available for absorption.
+  - As a result, absorption is **enhanced compared to nearby velocities**, producing the narrow Doppler-free crossover peak.
+
+### Key idea
+
+- The crossover peak demonstrates how **velocity-dependent repumping** in a $\Lambda$ system can produce narrow Doppler-free features even when each individual beam is saturated.
+- It highlights that population dynamics depend not just on **saturation**, but also on the interplay of **beam directions, velocity classes, and hyperfine structure**.
+

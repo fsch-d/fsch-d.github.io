@@ -1,0 +1,25 @@
+---
+title: Absorption and Emission of Radiation
+author: Daniel Fischer
+---
+
+
+## Relevance of Radiation in Atomic Physics
+
+Light–matter interaction is at the heart of modern atomic physics. When atoms absorb and emit radiation, they reveal their internal structure: energy levels, angular momentum couplings, and the dynamics of excited states. Spectroscopy—the precise study of these processes—provides the main experimental window into atomic and molecular physics.  
+
+In this module, we develop the theoretical framework for light–atom interaction and connect it to experimentally observed spectra. We begin with the fundamental description of transition rates and Einstein coefficients, then show how dipole matrix elements provide the actual numbers that determine transition probabilities. Next, we discuss polarization and selection rules, which govern which transitions are allowed, and examine how finite lifetimes and atomic motion give rise to spectral line widths and Doppler effects. Finally, we introduce Doppler-free spectroscopy as a powerful technique to resolve fine details beyond thermal broadening.  
+
+## Scope of This Section
+
+- **[Transition processes and Einstein Coefficients](einstein.qmd)** — How absorption, spontaneous emission, and stimulated emission are quantified in terms of Einstein’s $A$ and $B$ coefficients.  
+
+- **[From Relations to Values: Dipole Matrix Elements](dipolematrix.qmd)** — How transition strengths are expressed in terms of dipole matrix elements, moving from general relations to usable numbers.  
+
+- **[Visualizing Atomic Transitions](visual.qmd)** — Using time-dependent superpositions to build intuition for how transitions occur and interfere.  
+
+- **[Radiation and Selection Rules](selectionr.qmd)** — How polarization, parity, and angular momentum conservation determine which transitions are allowed.  
+
+- **[Spectroscopy and Spectral Line Widths](spectroscopy.qmd)** — Why real spectral lines are not infinitely sharp: natural broadening, Doppler effects, and the role of coherence.  
+
+- **[Doppler-Free Saturation Spectroscopy](dopplerfree.qmd)** — Experimental techniques to overcome Doppler broadening and resolve fine spectral details.  

@@ -47,6 +47,7 @@ website:
           - mod4/summary.qmd
           - mod4/fields.qmd
       - section: "Absorption and Emission of Radiation"
+        href: mod5/index.qmd
         contents:
           - mod5/einstein.qmd
           - mod5/dipolematrix.qmd
@@ -54,6 +55,7 @@ website:
             href: mod5/visual.qmd
           - mod5/selectionr.qmd
           - mod5/spectroscopy.qmd
+          - mod5/dopplerfree.qmd
 
 
 #      - section: advanced.qmd
