@@ -76,3 +76,5 @@ format:
     self-contained: true
     fig-alt: true
     html-math-method: mathjax
+    include-in-header:
+      - file: delay-mathjax.js

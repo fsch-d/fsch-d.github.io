@@ -5,12 +5,125 @@ author: Daniel Fischer
 
 # Introduction
 
-On the [previous page](spectroscopy.qmd){target="_blank"} we have seen that under typical laboratory conditions, the **Doppler effect** often dominates the achievable resolution in laser spectroscopy.  
+On the [previous page](spectroscopy.qmd){target="_blank"}, we saw that under typical laboratory conditions, the **Doppler effect** often limits the achievable resolution in laser spectroscopy.  
 
-Fortunately, there are **experimental techniques** that allow us to avoid this Doppler broadening—even when working with atomic samples at **room temperature** or much hotter.  
+Fortunately, there are **experimental techniques** that allow us to overcome Doppler broadening—even when working with atomic samples at **room temperature** or much higher.  
 
-In the following sections, we will focus on one specific example: **Doppler-free absorption saturation spectroscopy**. We will see how this method works and how it allows us to measure atomic transitions with much higher precision than what the Doppler effect would normally allow.
+In the following sections, we will focus on one specific example: **Doppler-free saturation absorption spectroscopy**. We will explore how this method works and how it enables the measurement of atomic transitions with much higher precision than would otherwise be possible.
 
+We will consider two cases:
+
+1. A **two-level system**, where only two states are involved in the interaction between the atom and the radiation field.  
+2. A **three-level system**, where the two lower states are close in energy (but not degenerate) and **direct transitions between them are forbidden**.  
+
+Such three-level systems are commonly referred to as **$\Lambda$ systems** because their level diagram (see figure below) resembles the Greek letter lambda ($\Lambda$). They are **ubiquitous in nature**, often arising due to the **hyperfine splitting** of the atomic ground state.
+
+
+```{python}
+#| eho: false
+# eval: false
+import subprocess
+import os
+
+# Determine the null device based on the operating system
+null_device = "NUL" if os.name == "nt" else "/dev/null"
+
+# Write the LaTeX code to a temporary file
+latex_code = r"""
+\documentclass[tikz, border=2mm]{standalone}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\usepackage{physics}
+
+
+\begin{document}
+
+\tikzset{>=latex} % for LaTeX arrow head
+\usetikzlibrary{angles,quotes} % for pic
+
+\begin{tikzpicture}[>=stealth, scale=1.3]
+  % energy axis
+  \draw[->, thick] (-0.8,-0.5) -- (-0.8,2.5) node[right=0.1] {$E$};
+  % levels
+  \draw[thick] (0,0) -- (0.8,0) node[pos=-0.1, left] {$|1\rangle$};
+  \draw[thick] (0.4,2) -- (1.2,2) node[pos=-0.1, left] {$|2\rangle$};
+
+  \node at (0.5,-0.4) {$\mathrm{two-level}$};
+
+  % arrows
+  \draw[<-, thick, red, dashed] (0.4,0) -- (0.8,2);
+  \draw[->, thick, blue] (0.3,0) -- (0.7,2);
+
+  % levels
+  \draw[thick] (3,0) -- (3.8,0) node[pos=-0.1, left] {$|1\rangle$};
+  \draw[thick] (3.5,2) -- (4.3,2) node[pos=-0.1, left] {$|3\rangle$};
+  \draw[thick] (4,.1) -- (4.8,.1) node[pos=+1, right] {$|2\rangle$};
+
+  % arrows
+  \draw[<-, thick, red, dashed] (3.4,0) -- (3.9,2);
+  \draw[->, thick, blue] (3.3,0) -- (3.8,2);
+
+  \draw[<-, thick, red, dashed] (4.6,0.1) -- (4,2);
+  \draw[->, thick, blue] (4.5,0.1) -- (3.9,2);
+
+
+  \node at (3.9,-0.6) {$\mathrm{three-level}\;\Lambda\mathrm{-system}$};
+
+
+\end{tikzpicture}
+\end{document}
+"""
+
+with open("diagram.tex", "w") as f:
+    f.write(latex_code)
+
+import re
+
+def scale_svg(file_path, factor):
+    """
+    Reads an SVG file and scales its width and height attributes.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+    
+    # Define a function to perform the scaling on matched values
+    def scale_match(match):
+        value = float(match.group(2)) # Fix: changed from group(1) to group(2)
+        new_value = value * factor
+        return f'{match.group(1)}="{new_value:.3f}{match.group(3)}"'
+        
+    # Regex to find width="[number]pt" and height="[number]pt"
+    # and replace them with the scaled value
+    scaled_content = re.sub(r'(width|height)="([\d.]+)(pt|px)?"', scale_match, content)
+
+    with open(file_path, 'w') as f:
+        f.write(scaled_content)
+
+# Define the list of diagram names
+diagram_names = ["tl_lambda"]
+
+# Run the commands, redirecting all output to the null device
+with open(os.devnull, 'w') as FNULL:
+    # Compile the LaTeX file to PDF
+    subprocess.run(["pdflatex", "-interaction=nonstopmode", "diagram.tex"], stdout=FNULL, stderr=FNULL)
+
+    # Convert the PDF pages to SVG
+    # Use a loop to process each diagram
+    for i, name in enumerate(diagram_names):
+        page_number = i + 1
+        output_svg = f"{name}.svg"
+        
+        # Convert the PDF page to a specific SVG file
+        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # Scale the newly created SVG file
+        scale_svg(output_svg, 1.5)
+
+    # Clean up temporary files
+    subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
+```
+![Two-level and three-level $\Lambda$ systems.](./tl_lambda.svg){fig-alt="Two-level and three-level $\Lambda$ systems." fig-align="center" width=40%}
+
+---
 
 # 1. Laser Absorption in a Thermal Gas
 
@@ -379,6 +492,7 @@ $$
   2. The transmitted intensity in the top plot changes accordingly.  
   3. The resulting absorption profile is **Doppler broadened**, because different velocities correspond to different detunings along the central plot.  
 
+---
 
 # 2. Back-Reflecting the Laser Beam
 
@@ -686,6 +800,7 @@ Use the slider to scan the laser frequency:
 2. Notice that at zero detuning, the **ground-state population** is depleted by both beams, but **saturation limits the total absorption**, producing the Lamb dip.  
 3. Watch the **Lamb dip** emerge in the top plot, at the center of the Doppler-broadened absorption profile.
 
+---
 
 # 3. Single Laser Beam Absorption of a Three-Level $\Lambda$ System
 
@@ -955,9 +1070,9 @@ fig.show()
 - Notice how population is **transferred from $N_1$ to $N_2$ for some velocities and from $N_2$ to $N_1$ for others**.  
 - The resulting dark states reduce absorption for specific velocity classes, affecting the **transmitted intensity** in the top plot.
 
+---
 
-
-## 4. Saturated Absorption and Crossover Peaks in a $\Lambda$ System
+# 4. Saturated Absorption and Crossover Peaks in a $\Lambda$ System {#sec-lambdaspec}
 
 When the laser is **back-reflected**, atoms with **small velocities along the beam axis** can interact with **both forward and backward beams simultaneously**. This leads to **narrow saturation features** within the Doppler-broadened profile, analogous to the Lamb dips in a two-level system.
 
@@ -1226,3 +1341,274 @@ fig.show()
 - The crossover peak demonstrates how **velocity-dependent repumping** in a $\Lambda$ system can produce narrow Doppler-free features even when each individual beam is saturated.
 - It highlights that population dynamics depend not just on **saturation**, but also on the interplay of **beam directions, velocity classes, and hyperfine structure**.
 
+---
+
+# 5. Doppler-Free Spectroscopy on Lithium-7
+
+In this section, we look at a concrete experimental example. In the laser-cooling laboratory at Missouri S&T, we use **Doppler-free saturation spectroscopy** on lithium to generate a precise frequency reference.
+
+A photo of the setup is shown below. It features the laser used to cool lithium atoms to millikelvin temperatures. To achieve this, the laser must be **tuned and locked** to a frequency very close to the $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ resonance. The Doppler-free spectroscopy signal provides the **frequency reference and locking signal** needed for this stabilization.
+
+A small fraction of the laser light (the laser is enclosed in the blue box) is separated from the main cooling beam and directed through a **vacuum tube** (visible at the top of the picture) containing lithium vapor heated to about 700 K. The laser beam is **back-reflected**, passing through the vapor a second time before being detected by a **photodiode**, which measures the transmitted laser intensity.
+
+![Setup for Doppler-free saturation absorption spectroscopy of lithium at Missouri S&T.](lilaserspectr_small-fs8.png){fig-alt="Setup for Doppler-free saturation absorption spectroscopy of lithium at Missouri S&T." fig-align="center"}
+
+
+## 5.1 Experimental Data
+
+When the laser frequency is scanned across the resonance, the **photodiode signal**—proportional to the transmitted laser intensity—is recorded as a function of frequency.  
+
+The resulting trace is shown below. You can use the **zoom function** of this interactive plot to examine the different spectral features in more detail.
+
+
+```{python}
+import pandas as pd
+import plotly.graph_objects as go
+
+# Read the CSV file with tab delimiter
+df = pd.read_csv('./DigiLock.csv', sep='\t')
+
+
+# Get the first column (independent variable - time)
+time = df.iloc[:, 0]
+
+# Get the second column (dependent variable - laser intensity)
+laser_intensity = df.iloc[:, 1]
+
+# Create the Plotly line chart
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    x=time,
+    y=laser_intensity,
+    mode='lines',
+    name='Laser Intensity',
+    line=dict(color='blue', width=2)
+))
+
+# Update layout with axis labels, aspect ratio, and box
+fig.update_layout(
+    xaxis_title='Scan Time',
+    yaxis_title='Laser Intensity (Diode Voltage)',
+    template='plotly_white',
+    hovermode='x unified',
+    width=700,
+    height=500,
+    xaxis=dict(
+        showline=True,
+        linewidth=2,
+        linecolor='black',
+        mirror=True
+    ),
+    yaxis=dict(
+        showline=True,
+        linewidth=2,
+        linecolor='black',
+        mirror=True
+    )
+)
+
+fig.add_annotation( text='2 <sup>2</sup>S<sub>1/2</sub> → 2 <sup>2</sup>P<sub>3/2</sub>', xref="x", yref="y", x=0.0367, y=0.85, showarrow=False, font=dict(size=15, color='black'), textangle=-90, xanchor='center')
+fig.add_annotation( text='2 <sup>2</sup>S<sub>1/2</sub> → 2 <sup>2</sup>P<sub>1/2</sub>', xref="x", yref="y", x=0.0143, y=0.85, showarrow=False, font=dict(size=15, color='black'), textangle=-90, xanchor='center')
+
+
+# Show the plot
+fig.show()
+
+# Optionally, save as HTML
+# fig.write_html('laser_intensity_plot.html')
+```
+
+
+
+
+## 5.2 Interpretation of the Experimental Data
+
+In the experimental spectrum, two broad absorption features can be seen. The **left dip** corresponds to the $2\,^2S_{1/2} \rightarrow 2\,^2P_{1/2}$ transition (commonly referred to in spectroscopy as the **D1 line**), and the **right dip** corresponds to the $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ transition (the **D2 line**).  
+
+To understand the finer details of the spectrum, we now examine the **substructure of the energy levels**, shown in the level diagram below.
+
+
+
+```{python}
+#| eho: false
+# eval: false
+import subprocess
+import os
+
+# Determine the null device based on the operating system
+null_device = "NUL" if os.name == "nt" else "/dev/null"
+
+# Write the LaTeX code to a temporary file
+latex_code = r"""
+\documentclass[tikz, border=2mm]{standalone}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\usepackage{physics}
+
+
+\begin{document}
+
+\tikzset{>=latex} % for LaTeX arrow head
+\usetikzlibrary{angles,quotes} % for pic
+
+\begin{tikzpicture}[scale=1.2]
+    
+    % Define vertical positions
+    \def\groundlevel{0}
+    \def\ponelevel{2.5}
+    \def\pthreelevel{3.5}
+    
+    % Ground state 2^2S_{1/2}
+    \draw[thick] (0,\groundlevel) -- (-0.5,\groundlevel);
+    \node[left] at (-.7,\groundlevel) {$2^2S_{1/2}$};
+    
+    % Hyperfine structure ground state
+    \draw[thick] (0.5,\groundlevel-0.3) -- (1.8,\groundlevel-0.3);
+    \draw[thick] (0.5,\groundlevel+0.3) -- (1.8,\groundlevel+0.3);
+    \draw[dashed] (-0.5,\groundlevel) -- (1.8,\groundlevel);
+    \node[font=\scriptsize,right] at (1.85,\groundlevel+0.3) {$F=2$};
+    \node[font=\scriptsize,right] at (1.85,\groundlevel-0.3) {$F=1$};
+    \node[font=\footnotesize,right] at (2.5,\groundlevel) {$803.5\,\mathrm{MHz}$};
+    
+    % Connecting lines ground state
+    \draw (0,\groundlevel) -- (0.5,\groundlevel+0.3);
+    \draw (0,\groundlevel) -- (.5,\groundlevel-0.3);
+    
+    % 2^2P_{1/2} state
+    \draw[thick] (0,\ponelevel) -- (-0.5,\ponelevel);
+    \node[left] at (-0.7,\ponelevel) {$2^2P_{1/2}$};
+    
+    % Hyperfine structure P1/2
+    \draw[thick] (.5,\ponelevel-0.2) -- (1.8,\ponelevel-0.2);
+    \draw[thick] (.5,\ponelevel+0.2) -- (1.8,\ponelevel+0.2);
+    \draw[dashed] (-.5,\ponelevel) -- (1.8,\ponelevel);
+    \node[font=\scriptsize,right] at (1.85,\ponelevel+0.2) {$2$};
+    \node[font=\scriptsize,right] at (1.85,\ponelevel-0.2) {$1$};
+    \node[font=\footnotesize,right] at (2.5,\ponelevel) {$91.8\,\mathrm{MHz}$};
+    
+    % Connecting lines P1/2
+    \draw (0,\ponelevel) -- (0.5,\ponelevel+0.2);
+    \draw (0,\ponelevel) -- (0.5,\ponelevel-0.2);
+    
+    % 2^2P_{3/2} state
+    \draw[thick] (0,\pthreelevel) -- (-0.5,\pthreelevel);
+    \node[left] at (-0.7,\pthreelevel) {$2^2P_{3/2}$};
+    
+    % Hyperfine structure P3/2
+    \draw[thick] (.5,\pthreelevel-0.12) -- (1.8,\pthreelevel-0.12);
+    \draw[thick] (.5,\pthreelevel+0.12) -- (1.8,\pthreelevel+0.12);
+    \draw[thick] (.5,\pthreelevel+0.28) -- (1.8,\pthreelevel+0.28);
+    \draw[thick] (.5,\pthreelevel+0.36) -- (1.8,\pthreelevel+0.36);
+    \draw[dashed] (0,\pthreelevel) -- (1.8,\pthreelevel);
+    
+    \node[font=\scriptsize,right] at (1.85,\pthreelevel+0.42) {$0$};
+    \node[font=\scriptsize,right] at (1.85,\pthreelevel+0.28) {$1$};
+    \node[font=\scriptsize,right] at (1.85,\pthreelevel+0.12) {$2$};
+    \node[font=\scriptsize,right] at (1.85,\pthreelevel-0.12) {$3$};
+    
+    \node[font=\footnotesize,right] at (2.5,\pthreelevel+0.35) {$3.1\,\mathrm{MHz}$};
+    \node[font=\footnotesize,right] at (2.5,\pthreelevel+0.12) {$6.2\,\mathrm{MHz}$};
+    \node[font=\footnotesize,right] at (2.5,\pthreelevel-0.12) {$9.2\,\mathrm{MHz}$};
+    
+    % Connecting lines P3/2
+    \draw (0,\pthreelevel) -- (0.5,\pthreelevel+0.36);
+    \draw (0,\pthreelevel) -- (0.5,\pthreelevel+0.28);
+    \draw (0,\pthreelevel) -- (0.5,\pthreelevel+0.12);
+    \draw (0,\pthreelevel) -- (0.5,\pthreelevel-0.12);
+    
+    % Energy gaps
+    \node[font=\small] at (-.2,{(\ponelevel+\pthreelevel)/2}) {$10.056\,\mathrm{GHz}$};
+    
+    \node[below] at (0.3,\groundlevel-0.8) {$670.961\,\mathrm{nm}$};
+    
+    % Transition arrows
+    % D1 transition
+    \draw[-{Latex[length=2mm]}, red] (0.55,\groundlevel+0.3) -- (0.55,\ponelevel-0.2);
+    \draw[-{Latex[length=2mm]}, red] (0.65,\groundlevel+0.3) -- (0.65,\ponelevel+0.2);
+    
+    \draw[-{Latex[length=2mm]}, red] (0.8,\groundlevel-0.3) -- (0.8,\ponelevel-0.2);
+    \draw[-{Latex[length=2mm]}, red] (0.9,\groundlevel-0.3) -- (0.9,\ponelevel+0.2);
+
+    % D2 transition
+    \draw[red] (1.2,\groundlevel+0.3) -- (1.2,\pthreelevel+0.06);
+    \draw[-{Latex[length=2mm]}, red] (1.2,\pthreelevel+0.06) -- (0.9,\pthreelevel-0.12);
+    \draw[-{Latex[length=2mm]}, red] (1.2,\pthreelevel+0.06) -- (0.9,\pthreelevel+0.12);
+    \draw[-{Latex[length=2mm]}, red] (1.2,\pthreelevel+0.06) -- (0.9,\pthreelevel+0.28);
+
+    \draw[red] (1.5,\groundlevel-0.3) -- (1.5,\pthreelevel+0.18);
+    \draw[-{Latex[length=2mm]}, red] (1.5,\pthreelevel+0.18) -- (1.2,\pthreelevel+0.12);
+    \draw[-{Latex[length=2mm]}, red] (1.5,\pthreelevel+0.18) -- (1.2,\pthreelevel+0.28);
+    \draw[-{Latex[length=2mm]}, red] (1.5,\pthreelevel+0.18) -- (1.2,\pthreelevel+0.36);
+
+    
+\end{tikzpicture}
+
+\end{document}
+"""
+
+with open("diagram.tex", "w") as f:
+    f.write(latex_code)
+
+import re
+
+def scale_svg(file_path, factor):
+    """
+    Reads an SVG file and scales its width and height attributes.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+    
+    # Define a function to perform the scaling on matched values
+    def scale_match(match):
+        value = float(match.group(2)) # Fix: changed from group(1) to group(2)
+        new_value = value * factor
+        return f'{match.group(1)}="{new_value:.3f}{match.group(3)}"'
+        
+    # Regex to find width="[number]pt" and height="[number]pt"
+    # and replace them with the scaled value
+    scaled_content = re.sub(r'(width|height)="([\d.]+)(pt|px)?"', scale_match, content)
+
+    with open(file_path, 'w') as f:
+        f.write(scaled_content)
+
+# Define the list of diagram names
+diagram_names = ["lithiumlevels"]
+
+# Run the commands, redirecting all output to the null device
+with open(os.devnull, 'w') as FNULL:
+    # Compile the LaTeX file to PDF
+    subprocess.run(["pdflatex", "-interaction=nonstopmode", "diagram.tex"], stdout=FNULL, stderr=FNULL)
+
+    # Convert the PDF pages to SVG
+    # Use a loop to process each diagram
+    for i, name in enumerate(diagram_names):
+        page_number = i + 1
+        output_svg = f"{name}.svg"
+        
+        # Convert the PDF page to a specific SVG file
+        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # Scale the newly created SVG file
+        scale_svg(output_svg, 2)
+
+    # Clean up temporary files
+    subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
+```
+![Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale).](./lithiumlevels.svg){fig-alt="Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale)." fig-align="center" width=40%}
+
+
+### The $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ transition
+
+The $2\,^2S_{1/2}$ ground state is split into two hyperfine levels with total angular momenta $F=1$ and $F=2$. Their separation is about $800\,$MHz, which is much larger than both the **natural linewidth** of the transition (approximately $6\,$MHz) and the **experimental resolution**.  
+
+The excited $2\,^2P_{3/2}$ state contains four hyperfine sublevels ($F=0$ to $F=3$). However, their splittings are only a few megahertz—comparable to the natural linewidth—so they **cannot be resolved** in the experiment. This makes the observed system effectively a **three-level $\Lambda$ system**, equivalent to the one discussed in [Section 4 @sec-lambdaspec].
+
+In the experimental spectrum, a **Lamb dip** is observed on each side of the Doppler-broadened absorption profile, corresponding to the two ground-state hyperfine components.  
+Additionally, there is a **strong central feature**—the **crossover peak**—which arises when both counter-propagating laser beams interact with atoms of the same velocity, one via each ground-state hyperfine level.
+
+### The $2\,^2S_{1/2} \rightarrow 2\,^2P_{1/2}$ transition
+
+The excited $2\,^2P_{1/2}$ state exhibits a much larger hyperfine splitting—about $92\,$MHz—than the higher-lying $2\,^2P_{3/2}$ state discussed above.  
+This separation is well within the **experimental resolution**, allowing the individual hyperfine components to be **clearly resolved** in the measured spectrum.  
+
+As a result, the overall spectral structure appears more **complex and detailed**, showing a **further splitting** of both the **Lamb dips** and the **crossover feature**.
