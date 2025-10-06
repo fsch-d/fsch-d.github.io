@@ -3887,10 +3887,6 @@ font-family: inherit;
     "search-label": "Search"
   }
 }</script>
-</head><body class="nav-sidebar floating nav-fixed quarto-light">// delay-mathjax.js
-window.addEventListener(&#39;load&#39;, function () {
-  MathJax.typesetPromise();
-});
 
   <script>/*
  * Polyfill service v3.111.0
@@ -4050,9 +4046,9 @@ height: auto !important;
 p {
 text-align: justify;
 }</style>
+</head>
 
-
-
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4158,8 +4154,20 @@ text-align: justify;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../mod2/amcoupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momenta and Their Couplings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Time-Independent Perturbation Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4281,6 +4289,35 @@ text-align: justify;
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">More than One Electron Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/helium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Helium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/am_coupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momentum Coupling in Many Electron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/hartreefock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Hartree-Fock Approximation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -4394,7 +4431,7 @@ h\nu = E_2 - E_1,
 <h2 class="anchored" data-anchor-id="line-properties">1.1 Line Properties</h2>
 <p>A spectral line is not infinitely sharp. Instead, it has a finite <strong>profile</strong> centered around the resonance frequency <span class="math inline">\(\nu_0\)</span> with a maximum intensity <span class="math inline">\(P_0\)</span>. The width of this profile contains important physical information.</p>
 <p>The figure below shows a typical line profile (here drawn as a Gaussian). The <strong>full width at half maximum (FWHM)</strong>, denoted <span class="math inline">\(\delta\nu = \nu_2 - \nu_1\)</span>, is the standard measure of line width. The central region is the <strong>line core</strong>, while the tails are called the <strong>line wings</strong>.</p>
-<div id="88a760f9" class="cell" data-execution_count="2">
+<div id="f7a74e9b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4554,7 +4591,7 @@ e^{-i(\omega_2 - \omega_1)t} + \text{c.c.},
 <span class="math display">\[
 c_1^*(t)c_2(t) \sim e^{-\Gamma t/2},
 \]</span> so that <span class="math inline">\(\vec{D}(t)\)</span> resembles a <strong>damped harmonic oscillator</strong>: a sinusoidal oscillation under an exponentially decaying envelope.</p>
-<div id="80fbb878" class="cell" data-execution_count="3">
+<div id="b406e48b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4680,7 +4717,7 @@ I(\omega) \;\propto\; \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfra
 <p>This is the <strong>natural line shape</strong>. The full width at half maximum (FWHM) of the Lorentzian is <span class="math display">\[
 \delta\omega = \Gamma,
 \]</span> or equivalently in frequency units <span class="math inline">\(\delta\nu = \Gamma/(2\pi)\)</span>.</p>
-<div id="1ce3d54b" class="cell" data-execution_count="4">
+<div id="914f7d09" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

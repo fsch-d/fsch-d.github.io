@@ -1,0 +1,174 @@
+---
+title: Helium
+author: Daniel Fischer
+---
+
+# Introduction
+
+Helium $(Z=2)$ provides our first look beyond hydrogen. After mastering the hydrogen atom, you might think that adding just one more electron would be a straightforward extension. However, as we'll see, even this seemingly small step introduces fundamental challenges that will shape our understanding of all multi-electron atoms.
+
+In this chapter, we'll start with the helium ion (He$^+$), which we can solve exactly, and then tackle neutral helium, where we'll encounter the limitations of our current methods. This journey will help us appreciate why approximate methods are not just convenient, but absolutely necessary in atomic physics.
+
+# 1. The He$^+$ Ion
+
+We begin with the **helium ion** (He$^+$), which has lost one of its two electrons and therefore has only a single electron orbiting the nucleus. This makes it hydrogen-like, meaning we can use everything we learned about hydrogen with just a minor modification.
+
+The key insight is that for ions with only one electron, we can directly apply the hydrogen atom solutions that we have derived previously. The only change needed is to account for the fact that the nucleus now has a charge of $+2e$ instead of $+e$. Mathematically, this means replacing $e^2 \to Ze^2$ throughout all hydrogen equations, where $Z=2$ for helium.
+
+## 1.1 Energy levels
+
+Let's see how this works for the energy levels. Recall that for hydrogen, we derived:
+$$
+E_n = -\frac{m_e}{2\hbar^2}\left(\frac{e^2}{4\pi\epsilon_0}\right)^2 \frac{1}{n^2}
+$$
+
+For a hydrogenic ion with nuclear charge $Z$, the stronger nuclear attraction pulls the electron in more tightly, and we get:
+$$
+E_n = -\frac{m_e}{2\hbar^2}\left(\frac{Ze^2}{4\pi\epsilon_0}\right)^2 \frac{1}{n^2}
+$$
+
+Notice that the energy scales as $Z^2$. This can be written more compactly as:
+$$
+E_n = -13.6\,\text{eV} \cdot \frac{Z^2}{n^2}
+$$
+
+For **helium** ($Z=2$), the ground state energy becomes:
+$$
+E_1 = -13.6 \times 4\,\text{eV} = -54.4\,\text{eV}
+$$
+
+This is four times deeper than hydrogen's ground state of $-13.6$ eV. The electron is bound much more tightly because it feels the full attraction of two protons in the nucleus.
+
+::: {.callout-note}
+## Reminder: Energy units in atomic physics
+The Rydberg is a convenient energy unit in atomic physics: $1\,\text{Rydberg} = 13.6\,\text{eV}$. In these units, hydrogen's ground state is exactly $-1$ Rydberg, and He$^+$ is $-4$ Rydberg. This makes comparing hydrogenic systems straightforward.
+:::
+
+## 1.2 Bohr radius
+
+The stronger nuclear attraction also affects the size of the electron's orbit. The Bohr radius, which characterizes the typical distance of the electron from the nucleus, also scales with nuclear charge.
+
+For **hydrogen**, recall:
+$$
+a_0 = \frac{4\pi\epsilon_0\hbar^2}{m_e e^2} \approx 0.529\,\text{Å}
+$$
+
+For a **hydrogenic ion** with nuclear charge $Z$:
+$$
+a = \frac{4\pi\epsilon_0\hbar^2}{m_e Ze^2} = \frac{a_0}{Z}
+$$
+
+For helium ($Z=2$), the electron orbit is compressed to half the hydrogen size. This makes physical sense: the stronger nuclear charge pulls the electron closer. The electron cloud in He$^+$ is much more compact than in hydrogen.
+
+## 1.3 Wave functions
+
+The wave functions for hydrogenic ions follow the same functional form as hydrogen, but with the scaled Bohr radius $a = a_0/Z$. This reflects both the tighter binding and the smaller orbital size.
+
+For the **hydrogen ground state**, we had:
+$$
+\psi_{100} = \frac{1}{\sqrt{\pi a_0^3}} e^{-r/a_0}
+$$
+
+For a general **hydrogen-like ion**:
+$$
+\psi_{100} = \sqrt{\frac{Z^3}{\pi a_0^3}} e^{-Zr/a_0}
+$$
+
+Notice two changes: the normalization constant includes a factor of $Z^{3/2}$ (because the orbital is smaller, the wave function is more concentrated), and the exponential decay is faster by a factor of $Z$.
+
+For **helium** (He$^+$) specifically:
+$$
+\psi_{100}^{\text{He}} = \frac{2\sqrt{2}}{\sqrt{\pi a_0^3}} e^{-2r/a_0}
+$$
+
+So far, everything has been straightforward. The He$^+$ ion is completely solved, and we understand it just as well as we understand hydrogen. But now comes the interesting part: what happens when we add back the second electron?
+
+---
+
+# 2. The Neutral Helium Atom
+
+Now we consider **neutral helium** with **two electrons**. You might think we could just put two electrons into the ground state and be done with it. However, there's a complication: the two electrons repel each other. This electron-electron repulsion changes everything and makes the problem impossible to solve exactly.
+
+This is a watershed moment in atomic physics. With hydrogen and hydrogen-like ions, we could write down exact solutions. With helium, we encounter the first system that forces us to approximate.
+
+## 2.1 The Hamiltonian
+
+Let's write down the full Hamiltonian for neutral helium and see what we're up against. We need to include:  
+- The kinetic energy of both electrons  
+- The potential energy of each electron due to the nucleus  
+- The repulsion between the two electrons  
+
+This gives us:
+$$
+\hat{H} = \underbrace{-\frac{\hbar^2}{2m_e}\nabla_1^2}_{\text{KE}_1} + \underbrace{-\frac{\hbar^2}{2m_e}\nabla_2^2}_{\text{KE}_2} 
+- \underbrace{\frac{Ze^2}{4\pi\epsilon_0 r_1}}_{\text{PE}_1} - \underbrace{\frac{Ze^2}{4\pi\epsilon_0 r_2}}_{\text{PE}_2}
++ \underbrace{\frac{e^2}{4\pi\epsilon_0|\vec{r}_1 - \vec{r}_2|}}_{\text{electron repulsion}}
+$$
+
+where:  
+- Subscripts 1 and 2 refer to the two electrons  
+- $r_1 = |\vec{r}_1|$ and $r_2 = |\vec{r}_2|$ are distances from the nucleus  
+- The last term represents the **electron-electron repulsion**
+
+The problem is that last term: $|\vec{r}_1 - \vec{r}_2|$ is the distance between the two electrons, and it couples the motion of the two particles. This term prevents us from separating the Schrödinger equation into two independent one-electron problems. The electrons are entangled—where one electron is affects where the other can be, and vice versa.
+
+It is important to recognize that no exact analytical solution exists for the helium atom. This is not due to insufficient mathematical sophistication, but rather reflects a fundamental property of systems with multiple interacting particles. If the two-electron problem defies exact solution, the situation for heavier atoms—with their many-body interactions—is considerably more challenging. The need for systematic approximation methods thus emerges as a central theme in atomic and molecular physics.
+
+## 2.2 Zeroth-order approximation
+
+Let's make the simplest possible approximation: what if we just ignore the electron-electron repulsion? This is obviously unphysical, but it will give us a baseline to compare against.
+
+If we **ignore the electron repulsion term**, the Hamiltonian separates into two independent hydrogen-like problems, one for each electron:
+$$
+\psi(\vec{r}_1, \vec{r}_2) = \psi_{\text{H-like}}(\vec{r}_1) \psi_{\text{H-like}}(\vec{r}_2)
+$$
+
+For the **ground state**, both electrons occupy the 1s orbital (we'll deal with the Pauli exclusion principle later when we discuss spin):
+$$
+\psi_{100}(\vec{r}_1) \psi_{100}(\vec{r}_2) = \frac{8}{\pi a_0^3} e^{-2(r_1 + r_2)/a_0}
+$$
+
+Each electron contributes $-54.4$ eV (as we calculated for He$^+$), so the total ground state energy in this approximation is:
+$$
+E_{100} = 2 \times (-54.4\,\text{eV}) = -108.8\,\text{eV} \approx -109\,\text{eV}
+$$
+
+## 2.3 Comparison with experiment
+
+Now for the moment of truth: how does our approximation compare to reality? The **experimental value** for the helium ground state is:
+$$
+E_{\text{exp}} \approx -79\,\text{eV}
+$$
+
+We're off by about $30$ eV! That's a huge discrepancy—roughly 40% of the experimental value. This tells us something important: **the interaction term contributes significantly** and cannot be neglected. Our zeroth-order approximation, while instructive, is far too crude.
+
+## 2.4 Physical interpretation
+
+Why is our calculated energy so much more negative (lower) than the experimental value? The answer lies in what we ignored: electron-electron repulsion.
+
+In our approximation, each electron feels the full $Z=2$ nuclear attraction and nothing else. In reality, the two electrons repel each other. This repulsion raises the energy (makes it less negative) compared to the independent-particle picture. 
+
+Think of it this way: the nuclear attraction tries to pull both electrons close to the nucleus, but the electrons push each other away. The actual ground state is a compromise between these competing effects. The electrons can't get as close to the nucleus as they would if they were alone, so the binding energy isn't as deep as our simple model predicts.
+
+The $30$ eV difference is a direct measure of the average electron-electron repulsion energy in the helium ground state. This is a substantial fraction of the total binding energy, showing that electron correlations are crucial in determining atomic structure.
+
+---
+
+# 3. Summary
+
+Let's recap what we've learned:
+
+- **He$^+$ (one electron):** This is exactly solvable as a hydrogen-like ion with $Z=2$. The energy levels scale as $Z^2$, giving a ground state of $E_1 = -54.4\,\text{eV}$. The electron orbits at half the Bohr radius of hydrogen due to the stronger nuclear attraction.
+
+- **Neutral He (two electrons):** The electron-electron repulsion makes exact solution impossible. Our zeroth-order approximation (ignoring repulsion entirely) gives $E \approx -109\,\text{eV}$, while the experimental value is $\sim -79\,\text{eV}$.
+
+- **The gap:** The $\sim 30\,\text{eV}$ discrepancy highlights the critical importance of electron-electron interactions in multi-electron atoms. This is not a small correction—it's a fundamental aspect of the problem.
+
+::: {.callout-important}
+## The challenge ahead
+We do not yet have the tools to calculate the helium ground state more accurately. Simple perturbation theory helps but doesn't get us all the way there. A more sophisticated approach will be introduced when we discuss the [**Hartree-Fock approximation**](./hartreefock.qmd), which systematically accounts for electron-electron interactions in multi-electron systems.
+:::
+
+This helium example illustrates a fundamental challenge in atomic physics: even the simplest multi-electron atom requires approximation methods beyond the exact solutions available for hydrogen-like systems. As we move to heavier atoms, the situation only becomes more complex, with many electrons all interacting with each other. The methods we develop to handle helium will form the foundation for understanding all of chemistry and atomic physics.
+
+The good news is that while we can't solve the many-electron problem exactly, we can develop systematic approximations that work remarkably well. The journey from helium to heavy atoms is one of the great success stories of 20th-century physics.

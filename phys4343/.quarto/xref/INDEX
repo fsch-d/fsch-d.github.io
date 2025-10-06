@@ -88,5 +88,23 @@
   },
   "mod5/index.qmd": {
     "index.html": "3d849432"
+  },
+  "mod2/exchange.qmd": {
+    "exchange.html": "74df85f2"
+  },
+  "mod6/helium.qmd": {
+    "helium.html": "d369817d"
+  },
+  "mod6/am_coupling.qmd": {
+    "am_coupling.html": "a0298a8c"
+  },
+  "mod2/amcoupling.qmd": {
+    "amcoupling.html": "46441e72"
+  },
+  "mod6/harteefock.qmd": {
+    "harteefock.html": "97f8a043"
+  },
+  "mod6/hartreefock.qmd": {
+    "hartreefock.html": "e11e3bda"
   }
 }

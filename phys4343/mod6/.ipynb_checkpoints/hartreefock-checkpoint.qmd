@@ -1,0 +1,31 @@
+---
+title: The Hartree-Fock Approximation
+author: Daniel Fischer
+---
+
+tbd
+
+
+```{mermaid}
+%%| fig-align: center
+%%| fig-alt: Flowchart describing the Hartree-Fock method.
+flowchart TD
+    Start["Trial potential φ⁽⁰⁾(x)"] --> SolveSchrodinger["Solve SE and get φᵢ⁽⁰⁾, Eᵢ⁽⁰⁾<br/>[-ℏ²/2m ∇ᵢ² + φ⁽⁰⁾(xᵢ)] ψᵢ⁽⁰⁾ = Eᵢ⁽⁰⁾ψᵢ⁽⁰⁾"]
+    
+    SolveSchrodinger --> OccupyOrbitals["Occupy orbitals φᵢ⁽⁰⁾ with energy Eᵢ⁽⁰⁾<br/>with all N electrons obeying Pauli exclusion principle"]
+    
+    OccupyOrbitals --> CalcNewPotential["Calculate new average potential φᵢ⁽¹⁾<br/>for i = 1, ..., N<br/>φᵢ⁽¹⁾ = -e/4πε₀ ∫[Σⱼ≠ᵢ (1/|xᵢ - xⱼ|) |ψⱼ⁽⁰⁾(xⱼ)|²dxⱼ]"]
+    
+    CalcNewPotential --> PutInSE["Put in SE and calculate<br/>φᵢ⁽¹⁾, Eᵢ⁽¹⁾"]
+    
+    PutInSE --> CheckConvergence["Check for convergence:<br/>Compare φᵢ⁽ⁿ⁾, Eᵢ⁽ⁿ⁾ with φᵢ⁽ⁿ⁻¹⁾, Eᵢ⁽ⁿ⁻¹⁾"]
+    
+    CheckConvergence --> Decision{"Within<br/>tolerance?"}
+    
+    Decision -->|NO| OccupyOrbitals
+    Decision -->|YES| Result["Result"]
+    
+    style Start fill:#e1f5ff
+    style Result fill:#d4edda
+    style Decision fill:#fff3cd
+```

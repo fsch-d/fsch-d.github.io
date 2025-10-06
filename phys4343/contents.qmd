@@ -13,7 +13,9 @@ This page provides an overview and links to all the sections of the website.
 * [Wave Mechanics](mod2/wavemechanics.qmd)
 * [Bra–Ket (Dirac) Notation, Operators, and More](mod2/braket.qmd)
 * [Heisenberg's Uncertainty Principle](mod2/heisenberg.qmd)
+* [Angular Momenta and Their Couplings](mod2/amcoupling.qmd)
 * [Time-Independent Perturbation Theory](mod2/perturb.qmd)
+* [Exchange Interaction: Fermions and Bosons](mod2/exchange.qmd)
 * [Relativistic Wave Equations — the Dirac Equation](mod4/relwaves.qmd)
 
 ---
@@ -48,6 +50,9 @@ This page provides an overview and links to all the sections of the website.
 
 ## More than One Electron Atoms  
 
+* [Helium](mod6/helium.qmd)
+* [Angular Momentum Coupling in Many Electron Atoms](mod6/am_coupling.qmd)
+* [The Hartree-Fock Approximation](mod6/hartreefock.qmd)
 ---
 
 ## Introduction into Molecular Physics  

@@ -1,0 +1,138 @@
+---
+title: Angular Momentum Coupling in Many Electron Atoms 
+author: Daniel Fischer
+---
+
+# 1. Spin-Spin Coupling in Helium
+
+Having seen that the helium atom cannot be solved exactly, we now turn our attention to another crucial aspect of multi-electron atoms: the spin states. Even in our approximate treatment, we must account for the fact that electrons have spin, and the way these spins combine has profound consequences for the atom's properties.
+
+## 1.1 Two-electron spin states
+
+Each electron has spin $s_1 = s_2 = \frac{1}{2}$. When we have two electrons, we can form a total spin:
+$$
+\vec{S} = \vec{s}_1 + \vec{s}_2
+$$
+
+The natural question is: what values can the total spin quantum number $S$ take? From our study of angular momentum addition (see chapter on [angular momenta](../mod2/amcoupling.qmd){target=_blank}), we know that combining two spin-$\frac{1}{2}$ particles gives:
+$$
+S = 1 \quad \text{or} \quad S = 0
+$$
+
+with corresponding magnetic quantum numbers $M_S = +1, 0$ for $S=1$ and $M_S = 0$ for $S=0$.
+
+## 1.2 Constructing the spin states
+
+Let's explicitly construct these states using the notation $|s_1, m_1\rangle |s_2, m_2\rangle$ or more compactly $|\uparrow\rangle$ for spin-up and $|\downarrow\rangle$ for spin-down.
+
+### The triplet state ($S=1$)
+
+For $S=1$, we have three states (hence "triplet") corresponding to $M_S = +1, 0, -1$:
+
+$$
+\begin{aligned}
+|S=1, M_S=1\rangle &= |\uparrow\uparrow\rangle = |\uparrow\rangle_1|\uparrow\rangle_2 \\
+|S=1, M_S=0\rangle &= \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle\right) \\
+|S=1, M_S=-1\rangle &= |\downarrow\downarrow\rangle = |\downarrow\rangle_1|\downarrow\rangle_2
+\end{aligned}
+$$
+
+The $M_S=0$ state requires special attention. It's a symmetric combination of the two possible arrangements where one electron is up and the other is down. This state is obtained by applying Clebsch-Gordan coefficients or by using raising/lowering operators on the $M_S=\pm 1$ states.
+
+### The singlet state ($S=0$)
+
+For $S=0$, there is only one state (hence "singlet") with $M_S = 0$:
+$$
+|S=0, M_S=0\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle\right)
+$$
+
+This is the antisymmetric combination of the two spin arrangements.
+
+::: {.callout-important}
+## Exchange symmetry
+Notice that the triplet state with $M_S=0$ is symmetric under particle exchange:
+$$
+\hat{P}_{12}\,|S=1, M_S=0\rangle = +|S=1, M_S=0\rangle
+$$
+
+while the singlet state is antisymmetric:
+$$
+\hat{P}_{12}\,|S=0, M_S=0\rangle = -|S=0, M_S=0\rangle
+$$
+
+where $\hat{P}_{12}$ is the permutation operator that exchanges particles 1 and 2. This exchange symmetry property is crucial for understanding the connection to the spatial wave function and the Pauli exclusion principle.
+:::
+
+## 1.3 Graphical representation
+
+It's helpful to visualize these spin states:
+
+- **Triplet states ($S=1$, total spin 1):**
+  - $|\uparrow\uparrow\rangle$: Both spins pointing up along the $z$-axis
+  - $\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle)$: One spin up, one down (superposition)
+  - $|\downarrow\downarrow\rangle$: Both spins pointing down
+
+- **Singlet state ($S=0$, total spin 0):**
+  - $\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle)$: One up, one down (antisymmetric combination)
+
+The key distinction is in the relative phase between $|\uparrow\downarrow\rangle$ and $|\downarrow\uparrow\rangle$ components.
+
+::: {.callout-note}
+## Entangled states
+The states $|10\rangle$ and $|00\rangle$ are **entangled** states. The orientation of the individual spins is undetermined, but their relative orientation is determined. The measurement of one spin "fixes" the other. This is the famous Einstein-Podolsky-Rosen (EPR) paradox applied to spin states.
+:::
+
+## 1.4 Connection to the spatial wave function
+
+Now comes a crucial question that connects spin to the chemistry and spectroscopy of helium:
+
+**Is the ground state of helium a singlet or triplet state?**
+
+The answer depends on the symmetry of the spatial wave function. Recall that the spatial wave function for the ground state is:
+$$
+\Psi_{100}(\vec{r}_1, \vec{r}_2) = \frac{8}{\pi a_0^3} e^{-2(r_1 + r_2)/a_0}
+$$
+
+This spatial wave function has **even exchange symmetry**, meaning:
+$$
+\Psi_{100}(\vec{r}_1, \vec{r}_2) = \Psi_{100}(\vec{r}_2, \vec{r}_1)
+$$
+
+Since electrons are fermions, the **total wave function must be antisymmetric** under particle exchange. If the spatial part is symmetric, the spin part must be antisymmetric:
+$$
+\Psi_{\text{total}} = \Psi_{100}(\vec{r}_1, \vec{r}_2) \times \chi(1,2)
+$$
+
+where $\chi(1,2)$ is the spin wave function. For the total wave function to be antisymmetric:
+$$
+\chi(1,2) = \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle\right) = -\chi(2,1)
+$$
+
+**Therefore, the ground state is a singlet state** ($S=0$).
+
+## 1.5 Excited states
+
+For excited states, things become more interesting. Consider the first excited configuration where one electron is in the $n=1$ state and the other in the $n=2$ state. The spatial wave function can now be either:
+
+- **Symmetric:** $\Psi_S = \frac{1}{\sqrt{2}}(\psi_{100}(\vec{r}_1)\psi_{200}(\vec{r}_2) + \psi_{200}(\vec{r}_1)\psi_{100}(\vec{r}_2))$
+- **Antisymmetric:** $\Psi_A = \frac{1}{\sqrt{2}}(\psi_{100}(\vec{r}_1)\psi_{200}(\vec{r}_2) - \psi_{200}(\vec{r}_1)\psi_{100}(\vec{r}_2))$
+
+Because symmetric and antisymmetric spatial wave functions can be constructed, **excited states can have both singlet and triplet configurations**. The Pauli principle determines which spin state must accompany which spatial state:
+
+- Symmetric spatial → Antisymmetric spin (Singlet, $S=0$, parahelium)
+- Antisymmetric spatial → Symmetric spin (Triplet, $S=1$, orthohelium)
+
+::: {.callout-tip}
+## Nomenclature
+Historically, the singlet and triplet states of helium were thought to be different elements:  
+- **Parahelium**: Singlet states ($S=0$), spin-paired  
+- **Orthohelium**: Triplet states ($S=1$), spins parallel  
+
+Transitions between singlet and triplet states are forbidden (spin-changing transitions are very weak), so these behave almost like separate atomic systems.
+:::
+
+This spin-statistics connection has profound implications for atomic spectra, chemical bonding, and our understanding of quantum statistics. The helium atom thus serves as the simplest laboratory for studying these fundamental quantum mechanical principles.
+
+# 2. Spin and Orbital Angular Momenta in Many Electron Atoms
+## 2.1 $L$-$S$ coupling
+## 2.2 $jj$ coupling

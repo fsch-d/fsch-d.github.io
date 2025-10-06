@@ -31,7 +31,9 @@ website:
           - mod2/wavemechanics.qmd
           - mod2/braket.qmd
           - mod2/heisenberg.qmd
+          - mod2/amcoupling.qmd
           - mod2/perturb.qmd
+          - mod2/exchange.qmd
           - mod4/relwaves.qmd            
       - section: "Hydrogen (Basics)"
         href: mod3/index.qmd
@@ -56,6 +58,12 @@ website:
           - mod5/selectionr.qmd
           - mod5/spectroscopy.qmd
           - mod5/dopplerfree.qmd
+      - section: "More than One Electron Atoms"
+#        href: mod5/index.qmd
+        contents:
+          - mod6/helium.qmd
+          - mod6/am_coupling.qmd
+          - mod6/hartreefock.qmd
 
 
 #      - section: advanced.qmd
@@ -76,5 +84,5 @@ format:
     self-contained: true
     fig-alt: true
     html-math-method: mathjax
-    include-in-header:
-      - file: delay-mathjax.js
+#    include-in-header:
+#      - file: delay-mathjax.js
