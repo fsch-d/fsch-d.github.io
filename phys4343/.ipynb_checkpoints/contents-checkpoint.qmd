@@ -51,8 +51,10 @@ This page provides an overview and links to all the sections of the website.
 ## More than One Electron Atoms  
 
 * [Helium](mod6/helium.qmd)
-* [Angular Momentum Coupling in Many Electron Atoms](mod6/am_coupling.qmd)
-* [The Hartree-Fock Approximation](mod6/hartreefock.qmd)
+* [Two-Electron States in Helium](mod6/twoelectron.qmd)
+* [Theoretical Models for Multielectron Atoms](mod6/hartreefock.qmd)
+* From Few to Many-Electron Atoms
+
 ---
 
 ## Introduction into Molecular Physics  

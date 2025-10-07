@@ -1,0 +1,19 @@
+---
+title: From Few to Many-Electron Atoms 
+author: Daniel Fischer
+---
+
+# Shell model
+
+
+# configurations
+
+
+# How the periodic table fills up
+
+
+# Terms
+
+# 2. Spin and Orbital Angular Momenta in Many Electron Atoms
+## 2.1 $L$-$S$ coupling
+## 2.2 $jj$ coupling

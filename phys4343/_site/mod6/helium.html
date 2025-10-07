@@ -4246,14 +4246,14 @@ text-align: justify;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod6/am_coupling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Angular Momentum Coupling in Many Electron Atoms</span></a>
+  <a href="../mod6/twoelectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two-Electron States in Helium</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod6/hartreefock.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Hartree-Fock Approximation</span></a>
+ <span class="menu-text">Theoretical Models for Multielectron Atoms</span></a>
   </div>
 </li>
       </ul>
@@ -4282,7 +4282,12 @@ text-align: justify;
   <li><a href="#comparison-with-experiment" id="toc-comparison-with-experiment" class="nav-link" data-scroll-target="#comparison-with-experiment">2.3 Comparison with experiment</a></li>
   <li><a href="#physical-interpretation" id="toc-physical-interpretation" class="nav-link" data-scroll-target="#physical-interpretation">2.4 Physical interpretation</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">3. Summary</a></li>
+  <li><a href="#first-order-perturbation-theory" id="toc-first-order-perturbation-theory" class="nav-link" data-scroll-target="#first-order-perturbation-theory">3 First-Order Perturbation Theory</a>
+  <ul class="collapse">
+  <li><a href="#the-first-order-energy-correction" id="toc-the-first-order-energy-correction" class="nav-link" data-scroll-target="#the-first-order-energy-correction">3.1 The First-Order Energy Correction</a></li>
+  <li><a href="#result-and-physical-interpretation" id="toc-result-and-physical-interpretation" class="nav-link" data-scroll-target="#result-and-physical-interpretation">3.2 Result and Physical Interpretation</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">4. Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -4431,13 +4436,48 @@ E_{\text{exp}} \approx -79\,\text{eV}
 <hr>
 </section>
 </section>
+<section id="first-order-perturbation-theory" class="level1">
+<h1>3 First-Order Perturbation Theory</h1>
+<p>To improve upon our crude zeroth-order approximation, we now treat the electron-electron repulsion term as a small perturbation (<span class="math inline">\(H&#39;\)</span>) to the main, solvable Hamiltonian (<span class="math inline">\(H_0\)</span>).</p>
+<p>The full Hamiltonian is: <span class="math display">\[ \hat{H} = \hat{H}_0 + \hat{H}&#39; \]</span></p>
+<p>where the unperturbed Hamiltonian is: <span class="math display">\[ \hat{H}_0 = -\frac{\hbar^2}{2m_e}\nabla_1^2 -\frac{Ze^2}{4\pi\epsilon_0 r_1} - \frac{\hbar^2}{2m_e}\nabla_2^2 -\frac{Ze^2}{4\pi\epsilon_0 r_2} \]</span></p>
+<p>and the perturbation is the electron-electron repulsion term: <span class="math display">\[ \hat{H}&#39; = \frac{e^2}{4\pi\epsilon_0 r_{12}} \]</span></p>
+<section id="the-first-order-energy-correction" class="level2">
+<h2 class="anchored" data-anchor-id="the-first-order-energy-correction">3.1 The First-Order Energy Correction</h2>
+<p>The first-order correction to the ground state energy, <span class="math inline">\(E^{(1)}\)</span>, is the expectation value of the perturbation over the unperturbed ground state wavefunction (<span class="math inline">\(\psi^{(0)}\)</span>): <span class="math display">\[ E^{(1)} = \langle \psi^{(0)} | \hat{H}&#39; | \psi^{(0)} \rangle \]</span></p>
+<p>Our zeroth-order ground state wavefunction is the product of two independent hydrogen-like wavefunctions for <span class="math inline">\(Z=2\)</span>: <span class="math display">\[ \psi^{(0)}(\vec{r}_1, \vec{r}_2) = \psi_{100}(\vec{r}_1) \psi_{100}(\vec{r}_2) \]</span></p>
+<p>The integral for the energy correction becomes: <span class="math display">\[ E^{(1)} = \int\int |\psi_{100}(\vec{r}_1)|^2 |\psi_{100}(\vec{r}_2)|^2 \frac{e^2}{4\pi\epsilon_0 |\vec{r}_1 - \vec{r}_2|} d^3r_1 d^3r_2 \]</span></p>
+<p>This integral is non-trivial but can be solved. Its value is found to be <span class="math inline">\(\frac{5}{8} \frac{Ze^2}{4\pi\epsilon_0 a_0}\)</span>, where <span class="math inline">\(a_0\)</span> is the Bohr radius. Given that the unperturbed ground state energy of a hydrogenic atom is <span class="math inline">\(-13.6 \text{ eV} \cdot Z^2\)</span>, we can re-express the correction in terms of this familiar unit.</p>
+<p>For helium (<span class="math inline">\(Z=2\)</span>): <span class="math display">\[ E^{(1)} = \frac{5}{8} (2) \left( \frac{e^2}{4\pi\epsilon_0 a_0} \right) = \frac{5}{4} \left( 13.6\,\text{eV} \right) = 34.0\,\text{eV} \]</span></p>
+</section>
+<section id="result-and-physical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="result-and-physical-interpretation">3.2 Result and Physical Interpretation</h2>
+<p>The new, first-order approximation for the helium ground state energy is the sum of the zeroth-order energy and the first-order correction: <span class="math display">\[ E^{(1)}_{\text{total}} = E^{(0)} + E^{(1)} = -108.8\,\text{eV} + 34.0\,\text{eV} = -74.8\,\text{eV} \]</span></p>
+<p>This result of <span class="math inline">\(-74.8\,\text{eV}\)</span> is a significant improvement over the zeroth-order value of <span class="math inline">\(-108.8\,\text{eV}\)</span>. It is also much closer to the experimental value of approximately <span class="math inline">\(-79\,\text{eV}\)</span>.</p>
+<p>While much better, our calculated energy is still too high (i.e., less negative). This is because first-order perturbation theory calculates the average electron-electron repulsion using the <em>unperturbed</em> wavefunctions, which do not account for the <strong>screening effect</strong>. In reality, each electron’s wavefunction is distorted by the presence of the other, effectively reducing the nuclear charge they experience. Our calculation overestimates the energy by about 4.2 eV because it fails to capture this subtle, but important, quantum mechanical correlation between the electrons.</p>
+<p>To get even closer to the experimental value, we would need to go to higher orders in perturbation theory or, more effectively, use the variational method.</p>
+<hr>
+</section>
+</section>
 <section id="summary" class="level1">
-<h1>3. Summary</h1>
+<h1>4. Summary</h1>
 <p>Let’s recap what we’ve learned:</p>
 <ul>
 <li><p><strong>He<span class="math inline">\(^+\)</span> (one electron):</strong> This is exactly solvable as a hydrogen-like ion with <span class="math inline">\(Z=2\)</span>. The energy levels scale as <span class="math inline">\(Z^2\)</span>, giving a ground state of <span class="math inline">\(E_1 = -54.4\,\text{eV}\)</span>. The electron orbits at half the Bohr radius of hydrogen due to the stronger nuclear attraction.</p></li>
-<li><p><strong>Neutral He (two electrons):</strong> The electron-electron repulsion makes exact solution impossible. Our zeroth-order approximation (ignoring repulsion entirely) gives <span class="math inline">\(E \approx -109\,\text{eV}\)</span>, while the experimental value is <span class="math inline">\(\sim -79\,\text{eV}\)</span>.</p></li>
-<li><p><strong>The gap:</strong> The <span class="math inline">\(\sim 30\,\text{eV}\)</span> discrepancy highlights the critical importance of electron-electron interactions in multi-electron atoms. This is not a small correction—it’s a fundamental aspect of the problem.</p></li>
+<li><p><strong>Neutral He (two electrons):</strong> The electron-electron repulsion makes an exact solution impossible. We have explored two levels of approximation:</p>
+<ul>
+<li>Our <strong>zeroth-order approximation</strong> (ignoring repulsion) gives a ground state energy of <span class="math inline">\(E^{(0)} \approx -109\,\text{eV}\)</span>.</li>
+<li>Using <strong>first-order perturbation theory</strong> (treating repulsion as a correction), the result improves significantly to <span class="math inline">\(E^{(1)}_{\text{total}} \approx -74.8\,\text{eV}\)</span>.</li>
+</ul></li>
+<li><p><strong>Comparison with Experiment:</strong> The experimental value is <span class="math inline">\(\sim -79\,\text{eV}\)</span>.</p>
+<ul>
+<li>The zeroth-order model has a large discrepancy of <span class="math inline">\(\sim 30\,\text{eV}\)</span>, showing the repulsion cannot be ignored.</li>
+<li>The first-order perturbation theory result is much closer, with a smaller error of <span class="math inline">\(\sim 4.2\,\text{eV}\)</span>.</li>
+</ul></li>
+<li><p><strong>The Gap and its Physical Significance:</strong></p>
+<ul>
+<li>The remaining difference between our best approximation and the experimental value highlights the importance of electron correlation effects, particularly the <strong>screening effect</strong>. Our first-order perturbation theory overestimates the repulsive energy because it doesn’t account for how the electrons’ positions affect each other.</li>
+</ul></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4449,11 +4489,10 @@ E_{\text{exp}} \approx -79\,\text{eV}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We do not yet have the tools to calculate the helium ground state more accurately. Simple perturbation theory helps but doesn’t get us all the way there. A more sophisticated approach will be introduced when we discuss the <a href="../mod6/hartreefock.html"><strong>Hartree-Fock approximation</strong></a>, which systematically accounts for electron-electron interactions in multi-electron systems.</p>
+<p>We do not yet have a method that fully captures the electron correlation effects responsible for the remaining discrepancy. While perturbation theory can be continued to higher orders, a more systematic approach is needed. This will be introduced when we discuss the <a href="../mod6/hartreefock.html"><strong>Hartree-Fock approximation</strong></a>, which accounts for electron-electron interactions more effectively in multi-electron systems by incorporating the idea of an average electric field.</p>
 </div>
 </div>
-<p>This helium example illustrates a fundamental challenge in atomic physics: even the simplest multi-electron atom requires approximation methods beyond the exact solutions available for hydrogen-like systems. As we move to heavier atoms, the situation only becomes more complex, with many electrons all interacting with each other. The methods we develop to handle helium will form the foundation for understanding all of chemistry and atomic physics.</p>
-<p>The good news is that while we can’t solve the many-electron problem exactly, we can develop systematic approximations that work remarkably well. The journey from helium to heavy atoms is one of the great success stories of 20th-century physics.</p>
+<p>This helium example illustrates a fundamental challenge in atomic physics: even the simplest multi-electron atom requires approximation methods beyond the exact solutions available for hydrogen-like systems. As we move to heavier atoms, the situation only becomes more complex, with many electrons all interacting with each other. The methods we develop to handle helium will form the foundation for understanding all of chemistry and atomic physics. The good news is that while we can’t solve the many-electron problem exactly, we can develop systematic approximations that work remarkably well. The journey from helium to heavy atoms is one of the great success stories of 20th-century physics.</p>
 
 
 </section>

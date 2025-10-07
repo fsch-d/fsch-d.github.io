@@ -106,5 +106,11 @@
   },
   "mod6/hartreefock.qmd": {
     "hartreefock.html": "e11e3bda"
+  },
+  "mod6/twoelectron.qmd": {
+    "twoelectron.html": "79022ef9"
+  },
+  "mod6/manye.qmd": {
+    "manye.html": "d44d4054"
   }
 }

@@ -62,7 +62,7 @@ website:
 #        href: mod5/index.qmd
         contents:
           - mod6/helium.qmd
-          - mod6/am_coupling.qmd
+          - mod6/twoelectron.qmd
           - mod6/hartreefock.qmd
 
 

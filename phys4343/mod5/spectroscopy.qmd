@@ -435,6 +435,46 @@ $$
 $$
 or equivalently in frequency units $\delta\nu = \Gamma/(2\pi)$.
 
+::: {.callout-note collapse="true"}
+## Derivation of the Lorentzian from a damped oscillator
+
+The radiated field is proportional to the time-dependent dipole moment, which has the form of a damped harmonic oscillator. We can represent this signal with a complex exponential:
+$$
+\vec{D}(t) \;\propto\; \theta(t) e^{-\Gamma t/2} e^{-i\omega_{21}t}
+$$
+where $\theta(t)$ is the Heaviside step function, which accounts for the fact that the emission starts at $t=0$.
+
+The Fourier transform, $I(\omega)$, of a time-domain signal $f(t)$ is defined as:
+$$
+F(\omega) = \int_{-\infty}^{\infty} f(t) e^{i\omega t} dt
+$$
+Substituting our signal $\vec{D}(t)$ (and ignoring constant prefactors for simplicity) and applying the Heaviside function limit of integration, we get:
+$$
+F(\omega) \;\propto\; \int_0^{\infty} e^{-\Gamma t/2} e^{-i\omega_{21}t} e^{i\omega t} dt
+$$
+Combining the exponential terms:
+$$
+F(\omega) \;\propto\; \int_0^{\infty} e^{-(\Gamma/2 + i(\omega_{21}-\omega))t} dt
+$$
+This is a standard integral of the form $\int e^{-at}dt$, which evaluates to $-\frac{1}{a}e^{-at}$:
+$$
+F(\omega) \;\propto\; \left[ -\frac{e^{-(\Gamma/2 + i(\omega_{21}-\omega))t}}{\Gamma/2 + i(\omega_{21}-\omega)} \right]_0^{\infty}
+$$
+Evaluating the limits:
+$$
+F(\omega) \;\propto\; 0 - \left( -\frac{e^0}{\Gamma/2 + i(\omega_{21}-\omega)} \right) = \frac{1}{\Gamma/2 + i(\omega_{21}-\omega)}
+$$
+The spectral intensity $I(\omega)$ is proportional to the absolute square of the Fourier transform:
+$$
+I(\omega) \;\propto\; |F(\omega)|^2 = \left| \frac{1}{\Gamma/2 + i(\omega_{21}-\omega)} \right|^2
+$$
+$$
+I(\omega) = \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{2})^2}
+$$
+The last step introduces the factor of $\Gamma/2$ to normalize the peak intensity, but the dependence on frequency is the key result. This is exactly the Lorentzian line shape.
+:::
+
+
 
 ```{python}
 #| fig-cap: Lorentzian lineshape. A Gaussian distribution of the same full width at half maximum (FWHM) is shown for reference.

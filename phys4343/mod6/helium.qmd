@@ -154,21 +154,68 @@ The $30$ eV difference is a direct measure of the average electron-electron repu
 
 ---
 
-# 3. Summary
+# 3 First-Order Perturbation Theory
+
+To improve upon our crude zeroth-order approximation, we now treat the electron-electron repulsion term as a small perturbation ($H'$) to the main, solvable Hamiltonian ($H_0$).
+
+The full Hamiltonian is:
+$$ \hat{H} = \hat{H}_0 + \hat{H}' $$
+
+where the unperturbed Hamiltonian is:
+$$ \hat{H}_0 = -\frac{\hbar^2}{2m_e}\nabla_1^2 -\frac{Ze^2}{4\pi\epsilon_0 r_1} - \frac{\hbar^2}{2m_e}\nabla_2^2 -\frac{Ze^2}{4\pi\epsilon_0 r_2} $$
+
+and the perturbation is the electron-electron repulsion term:
+$$ \hat{H}' = \frac{e^2}{4\pi\epsilon_0 r_{12}} $$
+
+## 3.1 The First-Order Energy Correction
+
+The first-order correction to the ground state energy, $E^{(1)}$, is the expectation value of the perturbation over the unperturbed ground state wavefunction ($\psi^{(0)}$):
+$$ E^{(1)} = \langle \psi^{(0)} | \hat{H}' | \psi^{(0)} \rangle $$
+
+Our zeroth-order ground state wavefunction is the product of two independent hydrogen-like wavefunctions for $Z=2$:
+$$ \psi^{(0)}(\vec{r}_1, \vec{r}_2) = \psi_{100}(\vec{r}_1) \psi_{100}(\vec{r}_2) $$
+
+The integral for the energy correction becomes:
+$$ E^{(1)} = \int\int |\psi_{100}(\vec{r}_1)|^2 |\psi_{100}(\vec{r}_2)|^2 \frac{e^2}{4\pi\epsilon_0 |\vec{r}_1 - \vec{r}_2|} d^3r_1 d^3r_2 $$
+
+This integral is non-trivial but can be solved. Its value is found to be $\frac{5}{8} \frac{Ze^2}{4\pi\epsilon_0 a_0}$, where $a_0$ is the Bohr radius. Given that the unperturbed ground state energy of a hydrogenic atom is $-13.6 \text{ eV} \cdot Z^2$, we can re-express the correction in terms of this familiar unit.
+
+For helium ($Z=2$):
+$$ E^{(1)} = \frac{5}{8} (2) \left( \frac{e^2}{4\pi\epsilon_0 a_0} \right) = \frac{5}{4} \left( 13.6\,\text{eV} \right) = 34.0\,\text{eV} $$
+
+## 3.2 Result and Physical Interpretation
+
+The new, first-order approximation for the helium ground state energy is the sum of the zeroth-order energy and the first-order correction:
+$$ E^{(1)}_{\text{total}} = E^{(0)} + E^{(1)} = -108.8\,\text{eV} + 34.0\,\text{eV} = -74.8\,\text{eV} $$
+
+This result of $-74.8\,\text{eV}$ is a significant improvement over the zeroth-order value of $-108.8\,\text{eV}$. It is also much closer to the experimental value of approximately $-79\,\text{eV}$.
+
+While much better, our calculated energy is still too high (i.e., less negative). This is because first-order perturbation theory calculates the average electron-electron repulsion using the *unperturbed* wavefunctions, which do not account for the **screening effect**. In reality, each electron's wavefunction is distorted by the presence of the other, effectively reducing the nuclear charge they experience. Our calculation overestimates the energy by about 4.2 eV because it fails to capture this subtle, but important, quantum mechanical correlation between the electrons.
+
+To get even closer to the experimental value, we would need to go to higher orders in perturbation theory or, more effectively, use the variational method.
+
+---
+
+# 4. Summary
 
 Let's recap what we've learned:
 
 - **He$^+$ (one electron):** This is exactly solvable as a hydrogen-like ion with $Z=2$. The energy levels scale as $Z^2$, giving a ground state of $E_1 = -54.4\,\text{eV}$. The electron orbits at half the Bohr radius of hydrogen due to the stronger nuclear attraction.
 
-- **Neutral He (two electrons):** The electron-electron repulsion makes exact solution impossible. Our zeroth-order approximation (ignoring repulsion entirely) gives $E \approx -109\,\text{eV}$, while the experimental value is $\sim -79\,\text{eV}$.
+- **Neutral He (two electrons):** The electron-electron repulsion makes an exact solution impossible. We have explored two levels of approximation:
+    - Our **zeroth-order approximation** (ignoring repulsion) gives a ground state energy of $E^{(0)} \approx -109\,\text{eV}$.
+    - Using **first-order perturbation theory** (treating repulsion as a correction), the result improves significantly to $E^{(1)}_{\text{total}} \approx -74.8\,\text{eV}$.
 
-- **The gap:** The $\sim 30\,\text{eV}$ discrepancy highlights the critical importance of electron-electron interactions in multi-electron atoms. This is not a small correction—it's a fundamental aspect of the problem.
+- **Comparison with Experiment:** The experimental value is $\sim -79\,\text{eV}$.
+    - The zeroth-order model has a large discrepancy of $\sim 30\,\text{eV}$, showing the repulsion cannot be ignored.
+    - The first-order perturbation theory result is much closer, with a smaller error of $\sim 4.2\,\text{eV}$.
+
+- **The Gap and its Physical Significance:**
+    - The remaining difference between our best approximation and the experimental value highlights the importance of electron correlation effects, particularly the **screening effect**. Our first-order perturbation theory overestimates the repulsive energy because it doesn't account for how the electrons' positions affect each other.
 
 ::: {.callout-important}
 ## The challenge ahead
-We do not yet have the tools to calculate the helium ground state more accurately. Simple perturbation theory helps but doesn't get us all the way there. A more sophisticated approach will be introduced when we discuss the [**Hartree-Fock approximation**](./hartreefock.qmd), which systematically accounts for electron-electron interactions in multi-electron systems.
+We do not yet have a method that fully captures the electron correlation effects responsible for the remaining discrepancy. While perturbation theory can be continued to higher orders, a more systematic approach is needed. This will be introduced when we discuss the [**Hartree-Fock approximation**](./hartreefock.qmd), which accounts for electron-electron interactions more effectively in multi-electron systems by incorporating the idea of an average electric field.
 :::
 
-This helium example illustrates a fundamental challenge in atomic physics: even the simplest multi-electron atom requires approximation methods beyond the exact solutions available for hydrogen-like systems. As we move to heavier atoms, the situation only becomes more complex, with many electrons all interacting with each other. The methods we develop to handle helium will form the foundation for understanding all of chemistry and atomic physics.
-
-The good news is that while we can't solve the many-electron problem exactly, we can develop systematic approximations that work remarkably well. The journey from helium to heavy atoms is one of the great success stories of 20th-century physics.
+This helium example illustrates a fundamental challenge in atomic physics: even the simplest multi-electron atom requires approximation methods beyond the exact solutions available for hydrogen-like systems. As we move to heavier atoms, the situation only becomes more complex, with many electrons all interacting with each other. The methods we develop to handle helium will form the foundation for understanding all of chemistry and atomic physics. The good news is that while we can't solve the many-electron problem exactly, we can develop systematic approximations that work remarkably well. The journey from helium to heavy atoms is one of the great success stories of 20th-century physics.
