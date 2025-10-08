@@ -263,7 +263,7 @@ You can see this visually in [one of the previous sections](../mod3/hydrogen.qmd
 
 ---
 
-## 2.3 Angular Integral and Selection Rules
+## 2.3 Angular Integral and Selection Rules {#sec-selectionrules}
 
 The angular contribution to the dipole matrix element is
 

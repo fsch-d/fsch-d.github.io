@@ -14,6 +14,11 @@ author: Daniel Fischer
 
 # Terms
 
-# 2. Spin and Orbital Angular Momenta in Many Electron Atoms
+
+only open shells contribute 
+
+# 2. Angular Momentum Coupling in Very Large Atoms
 ## 2.1 $L$-$S$ coupling
 ## 2.2 $jj$ coupling
+
+

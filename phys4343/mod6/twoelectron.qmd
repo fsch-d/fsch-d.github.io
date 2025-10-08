@@ -253,3 +253,284 @@ Transitions between singlet and triplet states are forbidden (spin-changing tran
 
 This spin-statistics connection has profound implications for atomic spectra, chemical bonding, and our understanding of quantum statistics. The helium atom thus serves as the simplest laboratory for studying these fundamental quantum mechanical principles.
 
+
+# 2. Dipole Selection Rules and Ortho–Parahelium
+
+The spin and spatial symmetries of the two-electron wave functions in helium have direct consequences for **which transitions are allowed** in the spectrum. To understand the observed spectral lines, we must recall the [**electric dipole selection rules**](../mod5/selectionr.qmd#sec-selectionrules){target=_blank}, which govern spontaneous and stimulated transitions between atomic states.
+
+## 2.1 Electric Dipole Selection Rules
+
+In the electric dipole approximation, a transition between two states $\psi_i$ and $\psi_f$ is allowed only if the electric dipole matrix element is nonzero:
+
+$$
+\langle \psi_f | \hat{\vec{r}} | \psi_i \rangle \neq 0
+$$
+
+The corresponding **selection rules** arise from the symmetries of the angular and spin wave functions:
+
+- **Change of orbital angular momentum:**  
+  $$\Delta \ell = \pm 1$$
+  (because the dipole operator $\vec{r}$ has odd parity)
+
+- **Change of total spin:**  
+  $$\Delta S = 0$$  
+  (the dipole operator does not act on spin)
+
+- **Change of magnetic quantum number:**  
+  $$\Delta m_\ell = 0, \pm 1$$
+
+The rule $\Delta S = 0$ is particularly important in helium:  
+it means that **electric dipole transitions cannot change the total spin**.  
+As a result, **singlet and triplet states form two largely independent systems**.
+
+As mentioned above, these two “spin systems” are called:
+
+- **Parahelium** – singlet states ($S = 0$)  
+- **Orthohelium** – triplet states ($S = 1$)
+
+Transitions between para- and orthohelium are **spin-forbidden**, and hence extremely weak. In a Grotrian diagram (see figure below, these correspond to two separate ladders of energy levels, connected only by very weak intercombination lines.
+
+---
+
+## 2.2 Spectroscopic Series and the Helium Grotrian Diagram
+
+In analogy with hydrogen, helium’s excited states form spectral series such as $1s\,n s$, $1s\,n p$, $1s\,n d$, etc.  
+However, each configuration now occurs in both singlet and triplet form, labeled as ${}^{2S+1}L_J$.  
+For example:
+
+| Configuration | Term Symbol | Common Name |
+|----------------|--------------|---------------|
+| $1s^2$ | ${}^1S_0$ | Ground state (parahelium) |
+| $1s2s$ | ${}^1S_0$, ${}^3S_1$ | Metastable singlet and triplet states |
+| $1s2p$ | ${}^1P_1$, ${}^3P_{0,1,2}$ | Dipole-coupled excited states |
+
+In the **Grotrian diagram**, allowed electric dipole transitions connect levels according to the rules above. Thus, ${}^1P_1 \leftrightarrow {}^1S_0$ is allowed (ΔS = 0, Δℓ = ±1), while ${}^3P_1 \to {}^1S_0$ is strongly suppressed (ΔS ≠ 0).
+
+```{python}
+#| fig-cap: Simplified Grotrian diagram for helium, showing the dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden.
+#| fig-alt: Simplified Grotrian diagram for helium, showing the dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden. 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Rectangle
+
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 10
+
+
+# Energy levels (relative to the continuum at 0 eV) and their positions on the y-axis
+# We use a dictionary to store the energy levels for easy lookup.
+energy_levels_singlet = {
+    '1S': -6.587,  # this is shifted by 18 eV for visibility
+    '2S': -3.97,
+    '2P': -3.37,
+    '3S': -1.67,
+    '3P': -1.5,
+    '3D': -1.51,
+    '4S': -0.913,
+    '4P': -0.845,
+    '4D': -0.851,
+    '4F': -0.850,
+    '5S': -0.576,
+    '5P': -0.541,
+    '5D': -0.544,
+    '5F': -0.544,
+}
+energy_levels_triplet = {
+    '2S': -4.769,
+    '2P': -3.62,
+    '3S': -1.67,
+    '3P': -1.58,
+    '3D': -1.51,
+    '4S': -0.993,
+    '4P': -0.879,
+    '4D': -0.851,
+    '4F': -0.850,
+    '5S': -0.615,
+    '5P': -0.559,
+    '5D': -0.544,
+    '5F': -0.544,
+}
+
+
+
+# x-coordinates for each term (S, P, D, F) to create columns
+# Values are chosen to create a visual separation similar to the Grotrian diagram.
+x_positions_singlet = {
+    'S': 0.5,
+    'P': 1.5,
+    'D': 2.5,
+    'F': 3.5
+}
+
+x_positions_triplet = {
+    'S': 5,
+    'P': 6,
+    'D': 7,
+    'F': 8
+}
+
+# --- Set up the plot ---
+fig, ax = plt.subplots(figsize=(7, 5))
+ax.set_ylim(-8, 1)
+ax.set_xlim(0, 10.5)
+
+# Hide the x-axis ticks and labels as we are creating custom annotations
+y_tick_locations = [i for i in range(-8, 1)]
+y_tick_labels = ['-26','-25','-24','-5','-4','-3','-2','-1','0']
+
+ax.set_yticks(y_tick_locations)
+ax.set_yticklabels(y_tick_labels)
+ax.set_ylabel('energy (eV)')
+ax.set_xticks([])
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+
+# --- Plot the energy level lines and labels ---
+line_length = 0.4
+
+
+for term in energy_levels_singlet:
+    key = term.strip('12345')
+    n = int(term.strip('SPDF'))
+    x=x_positions_singlet[key]
+    j=int(x-0.5)
+    ax.hlines(energy_levels_singlet[term], x - line_length, x + line_length, color='black', linewidth=2)
+    if (n < 4):
+        ax.text(x, energy_levels_singlet[term] - 0.1, f'${n} ^1{key}_{j}$', ha='center', va='top')
+
+for term in energy_levels_triplet:
+    key = term.strip('12345')
+    n = int(term.strip('SPDF'))
+    x=x_positions_triplet[key]
+    j=int(x-4)
+    ax.hlines(energy_levels_triplet[term], x - line_length, x + line_length, color='black', linewidth=2)
+    if (n < 4):
+        if (key == 'S'):
+            ax.text(x, energy_levels_triplet[term] - 0.1, f'${n} ^3{key}_{j}$', ha='center', va='top')
+        else:
+            ax.text(x, energy_levels_triplet[term] - 0.1, f'${n}^3{key}_{{{j-2},{j-1},{j}}}$', ha='center', va='top')
+    
+
+# Custom labels for the columns and energy values
+ax.text(2, 0.5, 'singlet', ha='center', va='center', fontsize=11)
+ax.text(6.5, 0.5, 'triplet', ha='center', va='center', fontsize=11)
+
+# Custom lines and labels for n=5, 4, 3, 2
+#for n, y in [(5, energy_levels['5S']), (4, energy_levels['4S']), (3, energy_levels['3S']), (2, energy_levels['2S'])]:
+for n in range(2,6):
+    y = - 13.6 / n**2
+    ax.text(9.5, y, f'$n={n}$', ha='left', va='center')
+    ax.hlines(y, 0, 9, color='black', ls=':', linewidth=0.3)
+
+
+# He+ + e- continuum
+ax.hlines(0, 0, 9, color='black', linewidth=1.5)
+ax.fill_between(np.linspace(0, 9, 100), 0, 1, color='lightgrey', hatch='///', alpha=0.5)
+ax.text(4.5, 0.2, r'He$^+ + e^{-}$', ha='center', va='bottom', fontsize=11)
+
+# Hydrogen and custom boxes
+ax.text(9.7, 0.5, 'H', ha='center', va='center', fontsize=11)
+ax.hlines(0, 9.2, 10.2, color='black', linewidth=1.5)
+ax.fill_between(np.linspace(9.2, 10.2, 10), 0, 1, color='lightgrey', hatch='///', alpha=0.5)
+
+
+
+# --- Add the fake break here ---
+# Coordinates for the rectangle to hide the middle section
+break_y_min = -5.6
+break_y_max = -5.4
+#break_x_min = -0.1 # x position of left spine
+#break_x_max = 0.3 # Width of the break patch, set slightly larger than the spine
+
+# Add a white rectangle to hide the axis spine in the break region
+#rect = Rectangle((break_x_min, break_y_min), break_x_max, break_y_max - break_y_min,
+#                 facecolor='white', edgecolor='white', zorder=3, transform=ax.transData)
+#ax.add_patch(rect)
+ax.spines['left'].set_visible(False)
+ax.vlines(0,ax.get_ylim()[0], break_y_min, color='black', linewidth=1)
+ax.vlines(0,ax.get_ylim()[1], break_y_max, color='black', linewidth=1)
+
+
+# Add the break symbol "//"
+ax.text(0, (break_y_min + break_y_max) / 2+0.03, r'$//$',
+        ha='center', va='center', fontsize=14, color='black', rotation=90)
+
+
+# --- Plot the transitions (red arrows) ---
+# Format: (start_x, start_y), (end_x, end_y)
+transitions = [
+    # Singlet transitions
+    (x_positions_singlet['P'], energy_levels_singlet['2P'], x_positions_singlet['S'], energy_levels_singlet['1S']),
+    (x_positions_singlet['P'], energy_levels_singlet['3P'], x_positions_singlet['S'], energy_levels_singlet['2S']),
+    (x_positions_singlet['P'], energy_levels_singlet['2P'], x_positions_singlet['S'], energy_levels_singlet['2S']),
+    (x_positions_singlet['P'], energy_levels_singlet['4P'], x_positions_singlet['S'], energy_levels_singlet['2S']),
+    (x_positions_singlet['P'], energy_levels_singlet['4P'], x_positions_singlet['S'], energy_levels_singlet['3S']),
+    (x_positions_singlet['S'], energy_levels_singlet['3S'], x_positions_singlet['P'], energy_levels_singlet['2P']),
+    (x_positions_singlet['S'], energy_levels_singlet['4S'], x_positions_singlet['P'], energy_levels_singlet['2P']),
+    (x_positions_singlet['S'], energy_levels_singlet['4S'], x_positions_singlet['P'], energy_levels_singlet['3P']),
+    (x_positions_singlet['D'], energy_levels_singlet['3D'], x_positions_singlet['P'], energy_levels_singlet['2P']),
+    (x_positions_singlet['D'], energy_levels_singlet['4D'], x_positions_singlet['P'], energy_levels_singlet['3P']),
+    (x_positions_singlet['P'], energy_levels_singlet['4P'], x_positions_singlet['D'], energy_levels_singlet['3D']),
+    (x_positions_singlet['F'], energy_levels_singlet['4F'], x_positions_singlet['D'], energy_levels_singlet['3D']),
+    (x_positions_singlet['P'], energy_levels_singlet['3P'], x_positions_singlet['S'], energy_levels_singlet['1S']),
+    # Triplet transitions
+    (x_positions_triplet['P'], energy_levels_triplet['3P'], x_positions_triplet['S'], energy_levels_triplet['2S']),
+    (x_positions_triplet['P'], energy_levels_triplet['2P'], x_positions_triplet['S'], energy_levels_triplet['2S']),
+    (x_positions_triplet['P'], energy_levels_triplet['4P'], x_positions_triplet['S'], energy_levels_triplet['2S']),
+    (x_positions_triplet['P'], energy_levels_triplet['4P'], x_positions_triplet['S'], energy_levels_triplet['3S']),
+    (x_positions_triplet['S'], energy_levels_triplet['3S'], x_positions_triplet['P'], energy_levels_triplet['2P']),
+    (x_positions_triplet['S'], energy_levels_triplet['4S'], x_positions_triplet['P'], energy_levels_triplet['2P']),
+    (x_positions_triplet['S'], energy_levels_triplet['4S'], x_positions_triplet['P'], energy_levels_triplet['3P']),
+    (x_positions_triplet['D'], energy_levels_triplet['3D'], x_positions_triplet['P'], energy_levels_triplet['2P']),
+    (x_positions_triplet['D'], energy_levels_triplet['4D'], x_positions_triplet['P'], energy_levels_triplet['3P']),
+    (x_positions_triplet['P'], energy_levels_triplet['4P'], x_positions_triplet['D'], energy_levels_triplet['3D']),
+    (x_positions_triplet['F'], energy_levels_triplet['4F'], x_positions_triplet['D'], energy_levels_triplet['3D']),
+
+]
+
+for x1, y1, x2, y2 in transitions:
+    ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
+                arrowprops=dict(arrowstyle="->", color='red', lw=1.5), zorder=0)
+
+plt.show()
+```
+
+
+
+---
+
+## 2.3 Metastable States and Lifetimes
+
+Because triplet–singlet transitions are forbidden, the lowest triplet state  
+$$1s2s\,{}^3S_1$$  
+cannot decay efficiently to the singlet ground state $1s^2\,{}^1S_0$.  
+Its decay must proceed through **magnetic dipole (M1)** or **two-photon** processes, both of which are extremely slow.  
+This makes $1s2s\,{}^3S_1$ one of the most **metastable states** known in atomic physics.
+
+Measured lifetimes:
+
+| State | Dominant decay mechanism | Typical lifetime |
+|:------|:--------------------------|------------------:|
+| $1s2s\,{}^1S_0$ | Two-photon decay → $1s^2\,{}^1S_0$ | ≈ 19.7 ms |
+| $1s2s\,{}^3S_1$ | Magnetic dipole (M1) decay → $1s^2\,{}^1S_0$ | ≈ 7900 s (≈ 2.2 h) |
+
+These long lifetimes make metastable helium ($\mathrm{He}^*$) an ideal system for  
+laser cooling, precision spectroscopy, and cold collision experiments.
+
+---
+
+## 2.4 Summary of Selection-Rule Implications
+
+- Dipole transitions obey $\Delta \ell = \pm 1$ and $\Delta S = 0$.  
+- The singlet and triplet systems are nearly independent, forming parahelium and orthohelium series.  
+- Spin-forbidden transitions give rise to long-lived metastable states,  
+  especially the $1s2s\,{}^3S_1$ triplet state.  
+- Experimental helium spectra thus show **two distinct sets of lines**,  
+  each following hydrogenic-like selection rules, but separated by spin symmetry.
+
+
+
