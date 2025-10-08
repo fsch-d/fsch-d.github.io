@@ -307,8 +307,8 @@ For example:
 In the **Grotrian diagram**, allowed electric dipole transitions connect levels according to the rules above. Thus, ${}^1P_1 \leftrightarrow {}^1S_0$ is allowed (ΔS = 0, Δℓ = ±1), while ${}^3P_1 \to {}^1S_0$ is strongly suppressed (ΔS ≠ 0).
 
 ```{python}
-#| fig-cap: Simplified Grotrian diagram for helium, showing the dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden.
-#| fig-alt: Simplified Grotrian diagram for helium, showing the dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden. 
+#| fig-cap: Simplified Grotrian diagram for helium, showing some dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden.
+#| fig-alt: Simplified Grotrian diagram for helium, showing some dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden. 
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Rectangle
