@@ -50,10 +50,11 @@ This page provides an overview and links to all the sections of the website.
 
 ## More than One Electron Atoms  
 
-* [Helium](mod6/helium.qmd)
+* [Helium (Basics)](mod6/helium.qmd)
 * [Two-Electron States in Helium](mod6/twoelectron.qmd)
-* [Theoretical Models for Multielectron Atoms](mod6/hartreefock.qmd)
-* From Few to Many-Electron Atoms
+* [Calculations for Multielectron Atoms](mod6/hartreefock.qmd)
+* [Shell Model and Periodic Table](mod6/manye.qmd)
+* Angular Momentum Coupling in Many Electron Atoms
 
 ---
 

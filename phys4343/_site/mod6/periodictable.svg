@@ -1,0 +1,616 @@
+<svg viewBox="-10 20 1810 1100"  width="800pt" height="500pt" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .element { stroke: #666; stroke-width: 1; }
+      .s-block { fill: #e6f3ff; }
+      .p-block { fill: #ffe6e6; }
+      .d-block { fill: #fffacd; }
+      .f-block { fill: #e6ffe6; }
+      .symbol { font-size: 28px; font-weight: bold; font-family: Arial, sans-serif; text-anchor: middle; }
+      .number { font-size: 16px; font-family: Arial, sans-serif; fill: #666; }
+      .config { font-size: 22px; font-family: Arial, sans-serif; text-anchor: middle}
+      .group { font-size: 12px; font-family: Arial, sans-serif; fill: #0066cc; font-weight: bold; }
+      .title { font-size: 28px; font-family: Arial, sans-serif; font-weight: bold; text-anchor: middle; }
+    </style>
+  </defs>
+    
+  <!-- Period 1 -->
+  <rect x="0" y="45" width="90" height="90" class="element s-block"/>
+  <text x="5" y="63" class="number">1</text>
+  <text x="45" y="95" class="symbol">H</text>
+  <text x="45" y="125" class="config">1s¹</text>
+  
+  <rect x="1700" y="45" width="90" height="90" class="element s-block"/>
+  <text x="1705" y="63" class="number">2</text>
+  <text x="1745" y="95" class="symbol">He</text>
+  <text x="1745" y="125" class="config">1s²</text>
+  
+  <!-- Period 2 -->
+  <rect x="0" y="145" width="90" height="90" class="element s-block"/>
+  <text x="5" y="163" class="number">3</text>
+  <text x="45" y="195" class="symbol">Li</text>
+  <text x="45" y="225" class="config">2s¹</text>
+  
+  <rect x="100" y="145" width="90" height="90" class="element s-block"/>
+  <text x="105" y="163" class="number">4</text>
+  <text x="145" y="195" class="symbol">Be</text>
+  <text x="145" y="225" class="config">2s²</text>
+  
+  <rect x="1200" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="163" class="number">5</text>
+  <text x="1245" y="195" class="symbol">B</text>
+  <text x="1245" y="225" class="config">2p¹</text>
+  
+  <rect x="1300" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="163" class="number">6</text>
+  <text x="1345" y="195" class="symbol">C</text>
+  <text x="1345" y="225" class="config">2p²</text>
+  
+  <rect x="1400" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="163" class="number">7</text>
+  <text x="1445" y="195" class="symbol">N</text>
+  <text x="1445" y="225" class="config">2p³</text>
+  
+  <rect x="1500" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="163" class="number">8</text>
+  <text x="1545" y="195" class="symbol">O</text>
+  <text x="1545" y="225" class="config">2p⁴</text>
+  
+  <rect x="1600" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="163" class="number">9</text>
+  <text x="1645" y="195" class="symbol">F</text>
+  <text x="1645" y="225" class="config">2p⁵</text>
+  
+  <rect x="1700" y="145" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="163" class="number">10</text>
+  <text x="1745" y="195" class="symbol">Ne</text>
+  <text x="1745" y="225" class="config">2p⁶</text>
+  
+  <!-- Period 3 -->
+  <rect x="0" y="245" width="90" height="90" class="element s-block"/>
+  <text x="5" y="263" class="number">11</text>
+  <text x="45" y="295" class="symbol">Na</text>
+  <text x="45" y="325" class="config">3s¹</text>
+  
+  <rect x="100" y="245" width="90" height="90" class="element s-block"/>
+  <text x="105" y="263" class="number">12</text>
+  <text x="145" y="295" class="symbol">Mg</text>
+  <text x="145" y="325" class="config">3s²</text>
+  
+  <rect x="1200" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="263" class="number">13</text>
+  <text x="1245" y="295" class="symbol">Al</text>
+  <text x="1245" y="325" class="config">3p¹</text>
+  
+  <rect x="1300" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="263" class="number">14</text>
+  <text x="1345" y="295" class="symbol">Si</text>
+  <text x="1345" y="325" class="config">3p²</text>
+  
+  <rect x="1400" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="263" class="number">15</text>
+  <text x="1445" y="295" class="symbol">P</text>
+  <text x="1445" y="325" class="config">3p³</text>
+  
+  <rect x="1500" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="263" class="number">16</text>
+  <text x="1545" y="295" class="symbol">S</text>
+  <text x="1545" y="325" class="config">3p⁴</text>
+  
+  <rect x="1600" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="263" class="number">17</text>
+  <text x="1645" y="295" class="symbol">Cl</text>
+  <text x="1645" y="325" class="config">3p⁵</text>
+  
+  <rect x="1700" y="245" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="263" class="number">18</text>
+  <text x="1745" y="295" class="symbol">Ar</text>
+  <text x="1745" y="325" class="config">3p⁶</text>
+  
+  <!-- Period 4 -->
+  <rect x="0" y="345" width="90" height="90" class="element s-block"/>
+  <text x="5" y="363" class="number">19</text>
+  <text x="45" y="395" class="symbol">K</text>
+  <text x="45" y="425" class="config">4s¹</text>
+  
+  <rect x="100" y="345" width="90" height="90" class="element s-block"/>
+  <text x="105" y="363" class="number">20</text>
+  <text x="145" y="395" class="symbol">Ca</text>
+  <text x="145" y="425" class="config">4s²</text>
+  
+  <rect x="200" y="345" width="90" height="90" class="element d-block"/>
+  <text x="205" y="363" class="number">21</text>
+  <text x="245" y="395" class="symbol">Sc</text>
+  <text x="245" y="425" class="config">3d¹</text>
+  
+  <rect x="300" y="345" width="90" height="90" class="element d-block"/>
+  <text x="305" y="363" class="number">22</text>
+  <text x="345" y="395" class="symbol">Ti</text>
+  <text x="345" y="425" class="config">3d²</text>
+  
+  <rect x="400" y="345" width="90" height="90" class="element d-block"/>
+  <text x="405" y="363" class="number">23</text>
+  <text x="445" y="395" class="symbol">V</text>
+  <text x="445" y="425" class="config">3d³</text>
+  
+  <rect x="500" y="345" width="90" height="90" class="element d-block"/>
+  <text x="505" y="363" class="number">24</text>
+  <text x="545" y="395" class="symbol">Cr</text>
+  <text x="545" y="425" class="config">3d⁵</text>
+  
+  <rect x="600" y="345" width="90" height="90" class="element d-block"/>
+  <text x="605" y="363" class="number">25</text>
+  <text x="645" y="395" class="symbol">Mn</text>
+  <text x="645" y="425" class="config">3d⁵</text>
+  
+  <rect x="700" y="345" width="90" height="90" class="element d-block"/>
+  <text x="705" y="363" class="number">26</text>
+  <text x="745" y="395" class="symbol">Fe</text>
+  <text x="745" y="425" class="config">3d⁶</text>
+  
+  <rect x="800" y="345" width="90" height="90" class="element d-block"/>
+  <text x="805" y="363" class="number">27</text>
+  <text x="845" y="395" class="symbol">Co</text>
+  <text x="845" y="425" class="config">3d⁷</text>
+  
+  <rect x="900" y="345" width="90" height="90" class="element d-block"/>
+  <text x="905" y="363" class="number">28</text>
+  <text x="945" y="395" class="symbol">Ni</text>
+  <text x="945" y="425" class="config">3d⁸</text>
+  
+  <rect x="1000" y="345" width="90" height="90" class="element d-block"/>
+  <text x="1005" y="363" class="number">29</text>
+  <text x="1045" y="395" class="symbol">Cu</text>
+  <text x="1045" y="425" class="config">3d¹⁰</text>
+  
+  <rect x="1100" y="345" width="90" height="90" class="element d-block"/>
+  <text x="1105" y="363" class="number">30</text>
+  <text x="1145" y="395" class="symbol">Zn</text>
+  <text x="1145" y="425" class="config">3d¹⁰</text>
+  
+  <rect x="1200" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="363" class="number">31</text>
+  <text x="1245" y="395" class="symbol">Ga</text>
+  <text x="1245" y="425" class="config">4p¹</text>
+  
+  <rect x="1300" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="363" class="number">32</text>
+  <text x="1345" y="395" class="symbol">Ge</text>
+  <text x="1345" y="425" class="config">4p²</text>
+  
+  <rect x="1400" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="363" class="number">33</text>
+  <text x="1445" y="395" class="symbol">As</text>
+  <text x="1445" y="425" class="config">4p³</text>
+  
+  <rect x="1500" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="363" class="number">34</text>
+  <text x="1545" y="395" class="symbol">Se</text>
+  <text x="1545" y="425" class="config">4p⁴</text>
+  
+  <rect x="1600" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="363" class="number">35</text>
+  <text x="1645" y="395" class="symbol">Br</text>
+  <text x="1645" y="425" class="config">4p⁵</text>
+  
+  <rect x="1700" y="345" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="363" class="number">36</text>
+  <text x="1745" y="395" class="symbol">Kr</text>
+  <text x="1745" y="425" class="config">4p⁶</text>
+  
+  <!-- Period 5 -->
+  <rect x="0" y="445" width="90" height="90" class="element s-block"/>
+  <text x="5" y="463" class="number">37</text>
+  <text x="45" y="495" class="symbol">Rb</text>
+  <text x="45" y="525" class="config">5s¹</text>
+  
+  <rect x="100" y="445" width="90" height="90" class="element s-block"/>
+  <text x="105" y="463" class="number">38</text>
+  <text x="145" y="495" class="symbol">Sr</text>
+  <text x="145" y="525" class="config">5s²</text>
+  
+  <rect x="200" y="445" width="90" height="90" class="element d-block"/>
+  <text x="205" y="463" class="number">39</text>
+  <text x="245" y="495" class="symbol">Y</text>
+  <text x="245" y="525" class="config">4d¹</text>
+  
+  <rect x="300" y="445" width="90" height="90" class="element d-block"/>
+  <text x="305" y="463" class="number">40</text>
+  <text x="345" y="495" class="symbol">Zr</text>
+  <text x="345" y="525" class="config">4d²</text>
+  
+  <rect x="400" y="445" width="90" height="90" class="element d-block"/>
+  <text x="405" y="463" class="number">41</text>
+  <text x="445" y="495" class="symbol">Nb</text>
+  <text x="445" y="525" class="config">4d⁴</text>
+  
+  <rect x="500" y="445" width="90" height="90" class="element d-block"/>
+  <text x="505" y="463" class="number">42</text>
+  <text x="545" y="495" class="symbol">Mo</text>
+  <text x="545" y="525" class="config">4d⁵</text>
+  
+  <rect x="600" y="445" width="90" height="90" class="element d-block"/>
+  <text x="605" y="463" class="number">43</text>
+  <text x="645" y="495" class="symbol">Tc</text>
+  <text x="645" y="525" class="config">4d⁵</text>
+  
+  <rect x="700" y="445" width="90" height="90" class="element d-block"/>
+  <text x="705" y="463" class="number">44</text>
+  <text x="745" y="495" class="symbol">Ru</text>
+  <text x="745" y="525" class="config">4d⁷</text>
+  
+  <rect x="800" y="445" width="90" height="90" class="element d-block"/>
+  <text x="805" y="463" class="number">45</text>
+  <text x="845" y="495" class="symbol">Rh</text>
+  <text x="845" y="525" class="config">4d⁸</text>
+  
+  <rect x="900" y="445" width="90" height="90" class="element d-block"/>
+  <text x="905" y="463" class="number">46</text>
+  <text x="945" y="495" class="symbol">Pd</text>
+  <text x="945" y="525" class="config">4d¹⁰</text>
+  
+  <rect x="1000" y="445" width="90" height="90" class="element d-block"/>
+  <text x="1005" y="463" class="number">47</text>
+  <text x="1045" y="495" class="symbol">Ag</text>
+  <text x="1045" y="525" class="config">4d¹⁰</text>
+  
+  <rect x="1100" y="445" width="90" height="90" class="element d-block"/>
+  <text x="1105" y="463" class="number">48</text>
+  <text x="1145" y="495" class="symbol">Cd</text>
+  <text x="1145" y="525" class="config">4d¹⁰</text>
+  
+  <rect x="1200" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="463" class="number">49</text>
+  <text x="1245" y="495" class="symbol">In</text>
+  <text x="1245" y="525" class="config">5p¹</text>
+  
+  <rect x="1300" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="463" class="number">50</text>
+  <text x="1345" y="495" class="symbol">Sn</text>
+  <text x="1345" y="525" class="config">5p²</text>
+  
+  <rect x="1400" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="463" class="number">51</text>
+  <text x="1445" y="495" class="symbol">Sb</text>
+  <text x="1445" y="525" class="config">5p³</text>
+  
+  <rect x="1500" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="463" class="number">52</text>
+  <text x="1545" y="495" class="symbol">Te</text>
+  <text x="1545" y="525" class="config">5p⁴</text>
+  
+  <rect x="1600" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="463" class="number">53</text>
+  <text x="1645" y="495" class="symbol">I</text>
+  <text x="1645" y="525" class="config">5p⁵</text>
+  
+  <rect x="1700" y="445" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="463" class="number">54</text>
+  <text x="1745" y="495" class="symbol">Xe</text>
+  <text x="1745" y="525" class="config">5p⁶</text>
+  
+  <!-- Period 6 -->
+  <rect x="0" y="545" width="90" height="90" class="element s-block"/>
+  <text x="5" y="563" class="number">55</text>
+  <text x="45" y="595" class="symbol">Cs</text>
+  <text x="45" y="625" class="config">6s¹</text>
+  
+  <rect x="100" y="545" width="90" height="90" class="element s-block"/>
+  <text x="105" y="563" class="number">56</text>
+  <text x="145" y="595" class="symbol">Ba</text>
+  <text x="145" y="625" class="config">6s²</text>
+  
+  <rect x="200" y="545" width="90" height="90" class="element d-block"/>
+  <text x="205" y="563" class="number">57</text>
+  <text x="245" y="595" class="symbol">La</text>
+  <text x="245" y="625" class="config">5d¹</text>
+  
+  <rect x="300" y="545" width="90" height="90" class="element d-block"/>
+  <text x="305" y="563" class="number">72</text>
+  <text x="345" y="595" class="symbol">Hf</text>
+  <text x="345" y="625" class="config">5d²</text>
+  
+  <rect x="400" y="545" width="90" height="90" class="element d-block"/>
+  <text x="405" y="563" class="number">73</text>
+  <text x="445" y="595" class="symbol">Ta</text>
+  <text x="445" y="625" class="config">5d³</text>
+  
+  <rect x="500" y="545" width="90" height="90" class="element d-block"/>
+  <text x="505" y="563" class="number">74</text>
+  <text x="545" y="595" class="symbol">W</text>
+  <text x="545" y="625" class="config">5d⁴</text>
+  
+  <rect x="600" y="545" width="90" height="90" class="element d-block"/>
+  <text x="605" y="563" class="number">75</text>
+  <text x="645" y="595" class="symbol">Re</text>
+  <text x="645" y="625" class="config">5d⁵</text>
+  
+  <rect x="700" y="545" width="90" height="90" class="element d-block"/>
+  <text x="705" y="563" class="number">76</text>
+  <text x="745" y="595" class="symbol">Os</text>
+  <text x="745" y="625" class="config">5d⁶</text>
+  
+  <rect x="800" y="545" width="90" height="90" class="element d-block"/>
+  <text x="805" y="563" class="number">77</text>
+  <text x="845" y="595" class="symbol">Ir</text>
+  <text x="845" y="625" class="config">5d⁷</text>
+  
+  <rect x="900" y="545" width="90" height="90" class="element d-block"/>
+  <text x="905" y="563" class="number">78</text>
+  <text x="945" y="595" class="symbol">Pt</text>
+  <text x="945" y="625" class="config">5d⁹</text>
+  
+  <rect x="1000" y="545" width="90" height="90" class="element d-block"/>
+  <text x="1005" y="563" class="number">79</text>
+  <text x="1045" y="595" class="symbol">Au</text>
+  <text x="1045" y="625" class="config">5d¹⁰</text>
+  
+  <rect x="1100" y="545" width="90" height="90" class="element d-block"/>
+  <text x="1105" y="563" class="number">80</text>
+  <text x="1145" y="595" class="symbol">Hg</text>
+  <text x="1145" y="625" class="config">5d¹⁰</text>
+  
+  <rect x="1200" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="563" class="number">81</text>
+  <text x="1245" y="595" class="symbol">Tl</text>
+  <text x="1245" y="625" class="config">6p¹</text>
+  
+  <rect x="1300" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="563" class="number">82</text>
+  <text x="1345" y="595" class="symbol">Pb</text>
+  <text x="1345" y="625" class="config">6p²</text>
+  
+  <rect x="1400" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="563" class="number">83</text>
+  <text x="1445" y="595" class="symbol">Bi</text>
+  <text x="1445" y="625" class="config">6p³</text>
+  
+  <rect x="1500" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="563" class="number">84</text>
+  <text x="1545" y="595" class="symbol">Po</text>
+  <text x="1545" y="625" class="config">6p⁴</text>
+  
+  <rect x="1600" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="563" class="number">85</text>
+  <text x="1645" y="595" class="symbol">At</text>
+  <text x="1645" y="625" class="config">6p⁵</text>
+  
+  <rect x="1700" y="545" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="563" class="number">86</text>
+  <text x="1745" y="595" class="symbol">Rn</text>
+  <text x="1745" y="625" class="config">6p⁶</text>
+  
+  <!-- Period 7 -->
+  <rect x="0" y="645" width="90" height="90" class="element s-block"/>
+  <text x="5" y="663" class="number">87</text>
+  <text x="45" y="695" class="symbol">Fr</text>
+  <text x="45" y="725" class="config">7s¹</text>
+  
+  <rect x="100" y="645" width="90" height="90" class="element s-block"/>
+  <text x="105" y="663" class="number">88</text>
+  <text x="145" y="695" class="symbol">Ra</text>
+  <text x="145" y="725" class="config">7s²</text>
+  
+  <rect x="200" y="645" width="90" height="90" class="element d-block"/>
+  <text x="205" y="663" class="number">89</text>
+  <text x="245" y="695" class="symbol">Ac</text>
+  <text x="245" y="725" class="config">6d¹</text>
+  
+  <rect x="300" y="645" width="90" height="90" class="element d-block"/>
+  <text x="305" y="663" class="number">104</text>
+  <text x="345" y="695" class="symbol">Rf</text>
+  <text x="345" y="725" class="config">6d²</text>
+  
+  <rect x="400" y="645" width="90" height="90" class="element d-block"/>
+  <text x="405" y="663" class="number">105</text>
+  <text x="445" y="695" class="symbol">Db</text>
+  <text x="445" y="725" class="config">6d³</text>
+  
+  <rect x="500" y="645" width="90" height="90" class="element d-block"/>
+  <text x="505" y="663" class="number">106</text>
+  <text x="545" y="695" class="symbol">Sg</text>
+  <text x="545" y="725" class="config">6d⁴</text>
+  
+  <rect x="600" y="645" width="90" height="90" class="element d-block"/>
+  <text x="605" y="663" class="number">107</text>
+  <text x="645" y="695" class="symbol">Bh</text>
+  <text x="645" y="725" class="config">6d⁵</text>
+  
+  <rect x="700" y="645" width="90" height="90" class="element d-block"/>
+  <text x="705" y="663" class="number">108</text>
+  <text x="745" y="695" class="symbol">Hs</text>
+  <text x="745" y="725" class="config">6d⁶</text>
+  
+  <rect x="800" y="645" width="90" height="90" class="element d-block"/>
+  <text x="805" y="663" class="number">109</text>
+  <text x="845" y="695" class="symbol">Mt</text>
+  <text x="845" y="725" class="config">6d⁷</text>
+  
+  <rect x="900" y="645" width="90" height="90" class="element d-block"/>
+  <text x="905" y="663" class="number">110</text>
+  <text x="945" y="695" class="symbol">Ds</text>
+  <text x="945" y="725" class="config">6d⁸</text>
+  
+  <rect x="1000" y="645" width="90" height="90" class="element d-block"/>
+  <text x="1005" y="663" class="number">111</text>
+  <text x="1045" y="695" class="symbol">Rg</text>
+  <text x="1045" y="725" class="config">6d⁹</text>
+  
+  <rect x="1100" y="645" width="90" height="90" class="element d-block"/>
+  <text x="1105" y="663" class="number">112</text>
+  <text x="1145" y="695" class="symbol">Cn</text>
+  <text x="1145" y="725" class="config">6d¹⁰</text>
+  
+  <rect x="1200" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1205" y="663" class="number">113</text>
+  <text x="1245" y="695" class="symbol">Nh</text>
+  <text x="1245" y="725" class="config">7p¹</text>
+  
+  <rect x="1300" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1305" y="663" class="number">114</text>
+  <text x="1345" y="695" class="symbol">Fl</text>
+  <text x="1345" y="725" class="config">7p²</text>
+  
+  <rect x="1400" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1405" y="663" class="number">115</text>
+  <text x="1445" y="695" class="symbol">Mc</text>
+  <text x="1445" y="725" class="config">7p³</text>
+  
+  <rect x="1500" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1505" y="663" class="number">116</text>
+  <text x="1545" y="695" class="symbol">Lv</text>
+  <text x="1545" y="725" class="config">7p⁴</text>
+  
+  <rect x="1600" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1605" y="663" class="number">117</text>
+  <text x="1645" y="695" class="symbol">Ts</text>
+  <text x="1645" y="725" class="config">7p⁵</text>
+  
+  <rect x="1700" y="645" width="90" height="90" class="element p-block"/>
+  <text x="1705" y="663" class="number">118</text>
+  <text x="1745" y="695" class="symbol">Og</text>
+  <text x="1745" y="725" class="config">7p⁶</text>
+  
+  <!-- Lanthanides -->
+  <rect x="200" y="795" width="90" height="90" class="element f-block"/>
+  <text x="205" y="813" class="number">58</text>
+  <text x="245" y="845" class="symbol">Ce</text>
+  <text x="245" y="875" class="config">4f²</text>
+  
+  <rect x="300" y="795" width="90" height="90" class="element f-block"/>
+  <text x="305" y="813" class="number">59</text>
+  <text x="345" y="845" class="symbol">Pr</text>
+  <text x="345" y="875" class="config">4f³</text>
+  
+  <rect x="400" y="795" width="90" height="90" class="element f-block"/>
+  <text x="405" y="813" class="number">60</text>
+  <text x="445" y="845" class="symbol">Nd</text>
+  <text x="445" y="875" class="config">4f⁴</text>
+  
+  <rect x="500" y="795" width="90" height="90" class="element f-block"/>
+  <text x="505" y="813" class="number">61</text>
+  <text x="545" y="845" class="symbol">Pm</text>
+  <text x="545" y="875" class="config">4f⁵</text>
+  
+  <rect x="600" y="795" width="90" height="90" class="element f-block"/>
+  <text x="605" y="813" class="number">62</text>
+  <text x="645" y="845" class="symbol">Sm</text>
+  <text x="645" y="875" class="config">4f⁶</text>
+  
+  <rect x="700" y="795" width="90" height="90" class="element f-block"/>
+  <text x="705" y="813" class="number">63</text>
+  <text x="745" y="845" class="symbol">Eu</text>
+  <text x="745" y="875" class="config">4f⁷</text>
+  
+  <rect x="800" y="795" width="90" height="90" class="element f-block"/>
+  <text x="805" y="813" class="number">64</text>
+  <text x="845" y="845" class="symbol">Gd</text>
+  <text x="845" y="875" class="config">4f⁷5d¹</text>
+  
+  <rect x="900" y="795" width="90" height="90" class="element f-block"/>
+  <text x="905" y="813" class="number">65</text>
+  <text x="945" y="845" class="symbol">Tb</text>
+  <text x="945" y="875" class="config">4f⁹</text>
+  
+  <rect x="1000" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1005" y="813" class="number">66</text>
+  <text x="1045" y="845" class="symbol">Dy</text>
+  <text x="1045" y="875" class="config">4f¹⁰</text>
+  
+  <rect x="1100" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1105" y="813" class="number">67</text>
+  <text x="1145" y="845" class="symbol">Ho</text>
+  <text x="1145" y="875" class="config">4f¹¹</text>
+  
+  <rect x="1200" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1205" y="813" class="number">68</text>
+  <text x="1245" y="845" class="symbol">Er</text>
+  <text x="1245" y="875" class="config">4f¹²</text>
+  
+  <rect x="1300" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1305" y="813" class="number">69</text>
+  <text x="1345" y="845" class="symbol">Tm</text>
+  <text x="1345" y="875" class="config">4f¹³</text>
+  
+  <rect x="1400" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1405" y="813" class="number">70</text>
+  <text x="1445" y="845" class="symbol">Yb</text>
+  <text x="1445" y="875" class="config">4f¹⁴</text>
+  
+  <rect x="1500" y="795" width="90" height="90" class="element f-block"/>
+  <text x="1505" y="813" class="number">71</text>
+  <text x="1545" y="845" class="symbol">Lu</text>
+  <text x="1545" y="875" class="config">4f¹⁴5d¹</text>
+  
+  <!-- Actinides -->
+  <rect x="200" y="895" width="90" height="90" class="element f-block"/>
+  <text x="205" y="913" class="number">90</text>
+  <text x="245" y="945" class="symbol">Th</text>
+  <text x="245" y="975" class="config">6d²</text>
+  
+  <rect x="300" y="895" width="90" height="90" class="element f-block"/>
+  <text x="305" y="913" class="number">91</text>
+  <text x="345" y="945" class="symbol">Pa</text>
+  <text x="345" y="975" class="config">5f²</text>
+  
+  <rect x="400" y="895" width="90" height="90" class="element f-block"/>
+  <text x="405" y="913" class="number">92</text>
+  <text x="445" y="945" class="symbol">U</text>
+  <text x="445" y="975" class="config">5f³</text>
+  
+  <rect x="500" y="895" width="90" height="90" class="element f-block"/>
+  <text x="505" y="913" class="number">93</text>
+  <text x="545" y="945" class="symbol">Np</text>
+  <text x="545" y="975" class="config">5f⁴</text>
+  
+  <rect x="600" y="895" width="90" height="90" class="element f-block"/>
+  <text x="605" y="913" class="number">94</text>
+  <text x="645" y="945" class="symbol">Pu</text>
+  <text x="645" y="975" class="config">5f⁶</text>
+  
+  <rect x="700" y="895" width="90" height="90" class="element f-block"/>
+  <text x="705" y="913" class="number">95</text>
+  <text x="745" y="945" class="symbol">Am</text>
+  <text x="745" y="975" class="config">5f⁷</text>
+  
+  <rect x="800" y="895" width="90" height="90" class="element f-block"/>
+  <text x="805" y="913" class="number">96</text>
+  <text x="845" y="945" class="symbol">Cm</text>
+  <text x="845" y="975" class="config">5f⁷6d¹</text>
+  
+  <rect x="900" y="895" width="90" height="90" class="element f-block"/>
+  <text x="905" y="913" class="number">97</text>
+  <text x="945" y="945" class="symbol">Bk</text>
+  <text x="945" y="975" class="config">5f⁹</text>
+  
+  <rect x="1000" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1005" y="913" class="number">98</text>
+  <text x="1045" y="945" class="symbol">Cf</text>
+  <text x="1045" y="975" class="config">5f¹⁰</text>
+  
+  <rect x="1100" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1105" y="913" class="number">99</text>
+  <text x="1145" y="945" class="symbol">Es</text>
+  <text x="1145" y="975" class="config">5f¹¹</text>
+  
+  <rect x="1200" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1205" y="913" class="number">100</text>
+  <text x="1245" y="945" class="symbol">Fm</text>
+  <text x="1245" y="975" class="config">5f¹²</text>
+  
+  <rect x="1300" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1305" y="913" class="number">101</text>
+  <text x="1345" y="945" class="symbol">Md</text>
+  <text x="1345" y="975" class="config">5f¹³</text>
+  
+  <rect x="1400" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1405" y="913" class="number">102</text>
+  <text x="1445" y="945" class="symbol">No</text>
+  <text x="1445" y="975" class="config">5f¹⁴</text>
+  
+  <rect x="1500" y="895" width="90" height="90" class="element f-block"/>
+  <text x="1505" y="913" class="number">103</text>
+  <text x="1545" y="945" class="symbol">Lr</text>
+  <text x="1545" y="975" class="config">5f¹⁴6d¹</text>
+  
+</svg>

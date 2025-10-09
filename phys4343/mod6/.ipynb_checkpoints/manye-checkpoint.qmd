@@ -1,19 +1,667 @@
 ---
-title: From Few to Many-Electron Atoms 
+title: Shell Model and Periodic Table
 author: Daniel Fischer
 ---
 
-# Shell model
 
 
-# configurations
+# Introduction
+
+We have seen in the case of hydrogen that, to a very good approximation, the electron binding energy depends primarily on the principal quantum number $n$. 
+In the idealized Coulomb potential, states with the same $n$ but different orbital angular momenta $\ell$ are degenerate, and the Schrödinger equation can be solved analytically. 
+In reality, however, small corrections such as fine structure, the Lamb shift, and hyperfine structure lift this degeneracy slightly.  
+
+For many-electron atoms, the situation becomes far more complex due to the interplay between **nuclear attraction** and **electron–electron repulsion**. As a consequence:
+
+- The effective potential acting on a given electron depends on the distribution of all the others.  
+- The energy levels are no longer degenerate in $\ell$ (the orbital angular momentum quantum number).  
+- The concept of individual quantum numbers must be replaced or supplemented by approximate schemes that take into account **electron correlation**, **exchange symmetry**, and **screening effects**.
+
+In this chapter, we will develop physical approximations that allow us to understand the structure of multi-electron atoms qualitatively and quantitatively. These approximations also form the foundation for interpreting the **periodic table**.
+
+---
+
+# 1. The Shell Model
+
+We have already seen that the **screening** of the nuclear charge by other electrons plays a crucial role in determining the effective potential experienced by each electron. 
+To gain intuition for this, it is helpful to examine the **radial charge density** associated with a bound electron.
+
+## 1.1 Radial charge density
+
+For a single electron in a hydrogen-like orbital, the probability of finding the electron at a distance $r$ from the nucleus is proportional to
+
+$$
+P(r) = r^2 |R_{n\ell}(r)|^2,
+$$
+
+where $R_{n\ell}(r)$ is the radial wave function.  
+If we multiply this probability density by the electron charge $(-e)$, we obtain the **radial charge density**
+
+$$
+\rho_{n\ell}(r) = -e\, r^2 |R_{n\ell}(r)|^2.
+$$
+
+This quantity tells us how the electron’s charge is distributed with distance from the nucleus. 
+Because the expectation value of $r$ increases with the principal quantum number $n$, the distribution $\rho_{n\ell}(r)$ shifts outward for larger $n$.  
+
+Thus, electrons with different $n$ occupy **spatially distinct regions** surrounding the nucleus.
+
+---
+
+## 1.2 The concept of shells
+
+For a given principal quantum number $n$, we can add up the contributions from all possible angular momenta $\ell$ and spin orientations to obtain the total charge density associated with that value of $n$:
+
+$$
+\rho_n(r) \propto - e\, 2n^2 \sum_{\ell=0}^{n-1} |R_{n\ell}(r)|^2.
+$$
+
+Because the summation averages over all angular orientations, this total charge density is **spherically symmetric**. 
+Each $\rho_n(r)$ therefore represents a *concentric distribution of charge* centered on the nucleus — in other words, a **shell**.
+
+These shells form the basis of the **shell model** of atomic structure: electrons group naturally into layers surrounding the nucleus, with inner shells screening the nuclear charge for the outer ones.
+
+For each principal quantum number $n$, there are possible orbital angular momenta $\ell = 0, 1, \dots, n-1$. 
+Each $\ell$ corresponds to $(2\ell + 1)$ magnetic quantum numbers $m_\ell$, and each orbital can hold two spin states ($m_s = \pm \tfrac{1}{2}$). 
+The total number of available states for a given $n$ is therefore
+
+$$
+N_n = 2 \sum_{\ell=0}^{n-1} (2\ell + 1) = 2n^2.
+$$
+
+Thus, a filled shell with principal quantum number $n$ can contain up to $2n^2$ electrons.
+
+## 1.3 Historical shell names
+
+From early X-ray spectroscopy, distinct groups of transitions were observed and labeled with the letters **K**, **L**, **M**, **N**, etc. 
+These correspond to the successive electron shells:
+
+| Shell | $n$ | Maximum electrons |
+|:------|:----|:------------------|
+| K | 1 | 2 |
+| L | 2 | 8 |
+| M | 3 | 18 |
+| N | 4 | 32 |
+| O | 5 | 50 |
+
+The terminology remains in use today, even though we now understand these shells as arising from the quantized hydrogenic orbitals and their associated charge distributions $\rho_n(r)$.
+
+---
 
 
-# How the periodic table fills up
+# 2. Subshells and Electron Configuration
+
+The shell model provides a first, coarse picture of the atomic structure: electrons occupy discrete “shells” around the nucleus characterized by the principal quantum number $n$. 
+Within each shell, however, there are additional distinctions that arise from the **orbital angular momentum** $\ell$. These correspond to what we call **subshells**.
+
+## 2.1 Subshells and quantum numbers
+
+Each shell with principal quantum number $n$ contains subshells corresponding to the allowed values of $\ell = 0, 1, 2, \dots, n-1$. 
+The values of $\ell$ are traditionally labeled using letters that originate from early spectroscopic classifications:
+
+| $\ell$ | Subshell name | Historical origin |
+|:-------:|:--------------|:------------------|
+| 0 | s | sharp |
+| 1 | p | principal |
+| 2 | d | diffuse |
+| 3 | f | fundamental |
+| 4 | g | (continues alphabetically) |
+
+For a given $\ell$, there are $(2\ell + 1)$ possible magnetic quantum numbers $m_\ell$, and each of these orbitals can host two electrons of opposite spin.  
+
+Hence, each subshell can hold a maximum of
+
+$$
+N_{n\ell} = 2(2\ell + 1)
+$$
+
+electrons.
+
+| Subshell | $\ell$ | Maximum electrons |
+|:----------|:-------|:------------------|
+| s | 0 | 2 |
+| p | 1 | 6 |
+| d | 2 | 10 |
+| f | 3 | 14 |
+
+As we will see later, these capacities play a central role in shaping the periodic table and in determining the spectroscopic properties of many-electron atoms.
+
+---
+
+## 2.2 Electron configuration notation
+
+The **electron configuration** specifies how an atom’s electrons are distributed among the available shells characterized by the quantum numbers $(n, \ell)$. 
+Each combination of $(n, \ell)$ is indicated using the letter code introduced above ($s, p, d, f, \dots$), followed by a superscript that gives the number of electrons in that set:
+
+$$
+1s^2 \; 2s^2 \; 2p^6 \; 3s^2 \; 3p^6 \; 4s^2 \; \dots
+$$
+
+For example:
+
+- **Helium:** $1s^2$  
+- **Carbon:** $1s^2\, 2s^2\, 2p^2$  
+- **Neon:** $1s^2\, 2s^2\, 2p^6$  
+- **Iron:** $1s^2\, 2s^2\, 2p^6\, 3s^2\, 3p^6\, 4s^2\, 3d^6$
+
+This notation provides a compact summary of how electrons occupy the various energy levels and angular momentum states.
+
+---
+
+### Shorthand notation for closed shells
+
+For atoms with many electrons, the notation above becomes cumbersome. 
+A convenient shorthand uses the configuration of the **nearest noble gas** to represent a completely filled inner shell. 
+The symbol for that noble gas, enclosed in square brackets, replaces the explicit listing of those closed shells.
+
+For example:
+
+- **Lithium:** [He] $2s^1$ instead of $1s^2\, 2s^1$  
+- **Sodium:** [Ne] $3s^1$ instead of $1s^2\, 2s^2\, 2p^6\, 3s^1$  
+- **Calcium:** [Ar] $4s^2$  
+- **Iron:** [Ar] $4s^2\, 3d^6$
+
+This **core notation** highlights the electrons outside the closed shells — the ones that primarily determine an atom’s spectroscopic and chemical behavior.
 
 
-# Terms
 
-# 2. Spin and Orbital Angular Momenta in Many Electron Atoms
-## 2.1 $L$-$S$ coupling
-## 2.2 $jj$ coupling
+
+---
+
+
+
+# 3. How the Periodic Table Fills Up
+
+We are now looking in detail at how the shells are successively filled up.
+
+## 3.1 Degeneracy and energy ordering
+
+In the hydrogen atom, the dominant dependence of the binding energy is on the principal quantum number $n$, because the potential is purely Coulombic.  
+However, even in hydrogen this degeneracy is only approximate: relativistic **fine structure**, **Lamb shifts**, and **hyperfine interactions** cause small but measurable splittings between levels of different $\ell$ and $j$.
+
+In multi-electron atoms, the situation becomes far more complex.  
+The **electron–electron interaction** modifies the potential felt by each electron, and the **screening** of the nuclear charge depends on the shape of the wavefunction:
+
+- States with $\ell = 0$ penetrate close to the nucleus and experience a relatively large effective nuclear charge $Z_{\mathrm{eff}}$.  
+- States with larger $\ell$ have less penetration and therefore feel a smaller $Z_{\mathrm{eff}}$.
+
+Consequently, the total energy of a state depends on both $n$ and $\ell$, and the hydrogenic degeneracy is lifted:
+
+$$
+E_{n,\ell=0} < E_{n,\ell=1} < E_{n,\ell=2} < \dots
+$$
+
+This energy ordering — which reflects the competition between nuclear attraction and electronic screening — plays a central role in determining the ground-state configurations of many-electron atoms and the structure of the periodic table.
+
+---
+
+## 3.2 The Aufbau Principle and the $n+\ell$ (Madelung) Rule
+
+When we go beyond hydrogen and consider atoms with several electrons, a natural question arises: **In what order do the available quantum states become occupied?**  
+This is where the **Aufbau principle** comes into play. It states that the electronic configuration of the ground state of an atom can be constructed by filling available states starting from the lowest energy and moving upward.
+
+Empirically, this order follows a remarkably simple rule known as the **$n+\ell$ rule**, or **Madelung rule** (after Erwin Madelung, 1936).  
+It states:
+
+> 1. Orbitals are filled in order of increasing $n+\ell$.  
+> 2. For two orbitals with the same value of $n+\ell$, the one with smaller $n$ is filled first.
+
+This rule is not derived from first principles; it is **empirical** and arises from observed regularities in atomic spectra and chemical behavior.  
+Nevertheless, it captures the main trends remarkably well and serves as a powerful organizing principle for the periodic table.
+
+The pattern can be visualized graphically by writing the possible combinations of $n$ and $\ell$ and following diagonal arrows of constant $n+\ell$, as shown below.
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 10
+
+
+# Create the figure and axes
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.set_aspect('equal')
+ax.set_facecolor('white')
+
+# Define orbital text and their positions
+orbitals = [
+    (r'1s', (0.5, 9.5)),
+    (r'2s\; 2p', (0.5, 8.5)),
+    (r'3s\; 3p\; 3d', (0.5, 7.5)),
+    (r'4s\; 4p\; 4d\; 4f', (0.5, 6.5)),
+    (r'5s\; 5p\; 5d\; 5f ...', (0.5, 5.5)),
+    (r'6s\; 6p\; 6d ... ... ...', (0.5, 4.5)),
+]
+
+# Add orbital text to the plot
+for text, pos in orbitals:
+    ax.text(pos[0], pos[1], text, fontsize=24, fontweight='bold', ha='left', va='center')
+
+# Define the coordinates for the red diagonal lines
+lines = [
+    ((1, 9.8), (-0.7,-0.7)),
+    ((1.5, 9.3), (-1.2,-1.2)),
+    ((2, 8.8), (-1.7,-1.7)),
+    ((2.5, 8.3), (-2.2,-2.2)),
+    ((3, 7.8), (-2.7,-2.7)),
+    ((3.5, 7.3), (-3.2,-3.2)),
+    ((4, 6.8), (-2.7,-2.7)),
+    ((4, 5.8), (-1.7,-1.7))
+]
+
+# Plot the red diagonal lines
+for start, dir in lines:
+    ax.quiver(start[0], start[1], dir[0], dir[1], scale=1, scale_units='xy', color='red', width=0.005)
+
+# Define the coordinates and properties for the blue arrow and text
+arrow_start = (1.5, 9.8)
+arrow_end = (5, 6.3)
+arrow_text_pos = (8, 9)
+
+
+ax.quiver(1.5, 9.8, 5, -5, scale=1, scale_units='xy', color='blue', width=0.01)
+
+ax.text(
+    1.7,5.3,
+    r'Direction of increasing $n + \ell$ value',
+    fontsize=18,
+    fontweight='bold',
+    color='blue',
+    rotation=-45 # Set rotation to match the diagonal line
+)
+
+# Set plot limits and hide axes
+ax.set_xlim(-4.5, 7.5)
+ax.set_ylim(4, 10)
+ax.axis('off')
+
+# Display the plot
+plt.show()
+```
+
+---
+
+## 3.3 The Periodic Table and Its Blocks
+
+The successive filling of electronic states according to the Madelung rule leads directly to the **block structure of the periodic table**:
+
+- The **s-block** (groups 1–2) corresponds to states with $\ell = 0$ and can hold up to $2$ electrons.
+- The **p-block** (groups 13–18) corresponds to $\ell = 1$ and can hold $6$ electrons.
+- The **d-block** (transition metals) corresponds to $\ell = 2$ and can hold $10$ electrons.
+- The **f-block** (lanthanides and actinides) corresponds to $\ell = 3$ and can hold $14$ electrons.
+
+This pattern results in the familiar “staggered” filling sequence:
+
+$$
+1s,\, 2s,\, 2p,\, 3s,\, 3p,\, 4s,\, 3d,\, 4p,\, 5s,\, 4d,\, 5p,\, 6s,\, 4f,\, 5d,\, 6p,\, 7s, \dots
+$$
+
+The periodic repetition of chemical properties follows naturally from this stepwise filling of states with similar outer-shell structures.
+
+However, the Madelung rule is **not exact**.  
+In many elements, particularly among the **transition metals** and **lanthanides**, deviations occur due to the subtle interplay of:
+
+- electron–electron repulsion,
+- exchange (Hund’s rule) stabilization, and
+- relativistic effects (especially for heavier elements).
+
+For example:
+
+- **Chromium (Cr)** has the configuration $[{\rm Ar}]\, 3d^5\, 4s^1$ rather than the expected $[{\rm Ar}]\, 3d^4\, 4s^2$.  
+  The half-filled $3d$ subshell is energetically favorable.
+- **Copper (Cu)** similarly adopts $[{\rm Ar}]\, 3d^{10}\, 4s^1$ instead of $3d^9\, 4s^2$.
+- Among the **lanthanides**, the $4f$ and $5d$ levels lie extremely close, leading to irregularities in filling sequences (e.g., Ce, Gd, and Lu).
+- Even in heavier **transition metals** such as Pt and Au, relativistic effects shift $s$ and $d$ levels enough to invert expected orderings.
+
+These deviations highlight that while the Madelung rule provides a convenient and broadly correct roadmap, the true energy ordering results from a complex balance of interactions that can only be captured accurately by detailed quantum-mechanical calculations.
+
+![](./periodictable.svg){fig-alt="The periodic table of elements, showing the s-, p-, d-, and f-block structure."}
+
+
+## 3.4 Atomic Volume and Ionization Potential
+
+Two measurable quantities — **atomic volume** and **ionization potential** — provide direct experimental evidence for the shell structure of atoms. Both properties can be interpreted in terms of the **radial extent** and **binding energy** of the outermost electrons.
+
+
+### Atomic Volume
+
+The **atomic volume** (or atomic radius) is often estimated from the crystal structure of an element. 
+In the plot below, however, it is obtained from **atomic structure calculations**: specifically, from the **radius at which the electron density of the outermost shell reaches its maximum** for an **isolated atom**. 
+This approach provides a measure of the effective spatial extent of the valence electrons, independent of any bonding or solid-state effects.
+
+
+```{python}
+#! fig-alt: "Plot of atomic volume versus atomic number showing periodic oscillations corresponding to shell filling."
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 11
+
+
+# Data for atomic number from 1 to 94
+atomic_number = np.arange(1, 95)
+
+# Data for maximum radial electron density (in picometers) for the outermost orbital.
+# Sourced from scientific literature and calculated using theoretical methods.
+# Note: Values for heavy elements may be estimates.
+rmax_pm = [
+    53,   # H
+    31,   # He
+    167,  # Li
+    112,  # Be
+    87,   # B
+    67,   # C
+    56,   # N
+    48,   # O
+    42,   # F
+    38,   # Ne
+    190,  # Na
+    145,  # Mg
+    118,  # Al
+    111,  # Si
+    106,  # P
+    102,  # S
+    99,   # Cl
+    95,   # Ar
+    243,  # K
+    198,  # Ca
+    162,  # Sc
+    147,  # Ti
+    134,  # V
+    128,  # Cr
+    127,  # Mn
+    126,  # Fe
+    125,  # Co
+    124,  # Ni
+    128,  # Cu
+    134,  # Zn
+    135,  # Ga
+    122,  # Ge
+    120,  # As
+    119,  # Se
+    114,  # Br
+    109,  # Kr
+    265,  # Rb
+    215,  # Sr
+    190,  # Y
+    175,  # Zr
+    164,  # Nb
+    154,  # Mo
+    147,  # Tc
+    146,  # Ru
+    142,  # Rh
+    137,  # Pd
+    145,  # Ag
+    158,  # Cd
+    167,  # In
+    158,  # Sn
+    141,  # Sb
+    141,  # Te
+    141,  # I
+    141,  # Xe
+    298,  # Cs
+    222,  # Ba
+    195,  # La
+    205,  # Ce
+    207,  # Pr
+    206,  # Nd
+    205,  # Pm
+    204,  # Sm
+    204,  # Eu
+    201,  # Gd
+    198,  # Tb
+    197,  # Dy
+    193,  # Ho
+    192,  # Er
+    191,  # Tm
+    194,  # Yb
+    187,  # Lu
+    175,  # Hf
+    170,  # Ta
+    162,  # W
+    162,  # Re
+    162,  # Os
+    159,  # Ir
+    152,  # Pt
+    162,  # Au
+    157,  # Hg
+    170,  # Tl
+    175,  # Pb
+    155,  # Bi
+    167,  # Po
+    172,  # At
+    162,  # Rn
+    308,  # Fr
+    228,  # Ra
+    198,  # Ac
+    179,  # Th
+    163,  # Pa
+    153,  # U
+    135,  # Np
+    130   # Pu
+]
+
+
+
+# Conversion constants
+PM_TO_CM = 1e-10
+BOHR_RADIUS_CM = 5.2917721067e-9  # cm
+BOHR_RADIUS_PM = 52.917721067  # pm
+
+# Calculate the volume of a sphere (4/3 * pi * r^3)
+atomic_volume_bohr3 = [(4/3 * np.pi * (r / BOHR_RADIUS_PM)**3) for r in rmax_pm]
+
+
+# Element symbols for annotations
+element_symbols = [
+    'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+    'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
+    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
+    'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr',
+    'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn',
+    'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd',
+    'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb',
+    'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg',
+    'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th',
+    'Pa', 'U', 'Np', 'Pu'
+]
+
+# Create the plot
+plt.figure(figsize=(8, 5))
+plt.plot(atomic_number, atomic_volume_bohr3, marker='o', linestyle='-', color='b', markersize=5)
+
+# Add annotations for key elements
+important_elements = {
+    'Li': 3, 'Na': 11, 'K': 19, 'Rb': 37, 'Cs': 55, 'Fr': 87,  # Peaks (Alkali metals)
+    'C': 6, 'Fe': 26, 'Os': 76, 'U': 92  # Troughs (Dense elements)
+#    'He': 2, 'Ne': 10, 'Ar': 18, 'Kr': 36, 'Xe': 54, 'Rn': 86  # Noble gases
+}
+
+for symbol, z in important_elements.items():
+    index = z - 1
+    plt.annotate(
+        symbol,
+        (atomic_number[index], atomic_volume_bohr3[index]),
+        textcoords='offset pixels',
+        xytext=(0, 25),
+        ha='center',
+        va='center',
+        fontsize=15,
+        fontweight='bold',
+        color='red'
+    )
+
+# Add title and labels
+plt.xlabel('Atomic Number', fontsize=14)
+plt.ylabel('Atomic Volume ($a_0^3$/atom)', fontsize=14)
+
+# Add grid for better readability
+plt.grid(True, linestyle='--', alpha=0.6)
+
+
+plt.xlim(0, 95)
+plt.ylim(0, 1000)
+
+# Show the plot
+plt.show()
+
+```
+
+
+When plotted as a function of atomic number, the atomic volume exhibits **strong oscillations**:
+
+- **Minima** occur at the noble gases (He, Ne, Ar, Kr, Xe, Rn), where the outermost shell is closed.
+  These atoms have tightly bound, compact electron clouds and thus small volumes.
+
+- **Maxima** occur at the alkali metals (Li, Na, K, Rb, Cs), where the single outer $s$ electron is weakly bound and extends far from the nucleus.
+  This leads to large atomic volumes and metallic softness.
+
+- **Intermediate behavior** is observed for the $p$- and $d$-block elements.
+  In the $p$-block, increasing nuclear charge across the period pulls electrons inward, causing a gradual contraction.
+  In the $d$-block (transition metals), the filling of $d$ orbitals leads to a noticeable inward contraction due to stronger effective nuclear attraction, producing characteristic dips. 
+
+- In the **lanthanides**, a continuous decrease in volume — the **lanthanide contraction** — occurs as the $4f$ orbitals fill, increasing the effective nuclear charge felt by the outer electrons.
+
+Overall, these oscillations in atomic volume are a clear macroscopic signature of **quantized shell filling**.
+
+---
+
+### Ionization Potential
+
+The **first ionization potential** (IP) — the energy required to remove the outermost electron from a neutral atom — provides complementary information.  
+
+```{python}
+#| fig-alt: "ionization potential as a function of atom numbers for the elements hydrogen to plutonium."
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 11
+
+
+# Data compiled from scientific sources, now converted to eV.
+# Some values for radioactive elements may be theoretical or estimated.
+# X-axis: Atomic Number
+atomic_number = np.arange(1, 95)
+
+# Y-axis: First Ionization Potential in eV
+# Conversion factor: 1 eV is approx. 96.485 kJ/mol.
+# The original data in kJ/mol was:
+ionization_potential_kjmol = [
+    1312.0, 2372.3, 520.2, 899.5, 800.6, 1086.5, 1402.3, 1313.9, 1681.0, 2080.7,
+    495.8, 737.7, 577.5, 786.5, 1011.8, 999.6, 1251.2, 1520.6, 418.8, 589.8,
+    633.1, 658.8, 650.9, 652.9, 717.3, 762.5, 760.4, 737.1, 745.5, 906.4,
+    578.8, 762.0, 947.0, 941.0, 1139.9, 1350.8, 403.0, 549.5, 600.0, 640.1,
+    652.1, 684.3, 702.0, 710.2, 719.7, 804.4, 731.0, 867.8, 558.3, 708.6,
+    834.0, 869.3, 1008.4, 1170.4, 375.7, 502.9, 538.1, 534.4, 527.0, 529.6,
+    535.9, 543.9, 546.7, 592.5, 564.6, 571.9, 580.7, 588.7, 596.7, 603.4,
+    523.5, 642.0, 761.0, 770.0, 760.0, 840.0, 880.0, 870.0, 890.1, 1007.0,
+    589.3, 715.5, 703.2, 812.0, 930.0, 1037.0, 400.0, 509.3, 499.0, 587.0,
+    568.0, 584.0, 597.0, 585.0
+]
+
+# Convert the data to eV
+ionization_potential_ev = [val / 96.485 for val in ionization_potential_kjmol]
+
+# Element symbols for annotations
+element_symbols = [
+    'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+    'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
+    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
+    'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr',
+    'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn',
+    'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd',
+    'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb',
+    'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg',
+    'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th',
+    'Pa', 'U', 'Np', 'Pu'
+]
+
+# Create the plot
+plt.figure(figsize=(8, 5))
+plt.plot(atomic_number, ionization_potential_ev, marker='o', linestyle='-', color='b', markersize=5)
+
+# Add annotations for a smaller, representative set of elements for clarity
+important_elements_t = {
+    'He': 2, 'Ne': 10, 'Ar': 18, 'Kr': 36, 'Xe': 54, 'Rn': 86,  # Noble gases
+    'Gd': 64, 'Hg': 80, # Transition metal features
+    'U': 92, 'Pu': 94 # Inner transition metals
+}
+important_elements_b = {
+    'H': 1,  # Noble gases
+    'Li': 3, 'Na': 11, 'K': 19, 'Rb': 37, 'Cs': 55, 'Fr': 87, # Alkali metals
+    'Cr': 24, 'Cu': 29, 'Au': 79, # Transition metal features
+    'La': 57, 'Lu': 71 # Inner transition metals
+}
+
+for symbol, z in important_elements_t.items():
+    index = z - 1
+    plt.annotate(
+        symbol,
+        (atomic_number[index], ionization_potential_ev[index]),
+        textcoords="offset points",
+        xytext=(0, 10),
+        ha='center',
+        fontsize=15,
+        fontweight='bold',
+        color='red'
+    )
+for symbol, z in important_elements_b.items():
+    index = z - 1
+    plt.annotate(
+        symbol,
+        (atomic_number[index], ionization_potential_ev[index]),
+        textcoords="offset points",
+        xytext=(0, -18),
+        ha='center',
+        fontsize=15,
+        fontweight='bold',
+        color='red'
+    )
+
+# Add title and labels
+plt.xlabel('Atomic Number', fontsize=14)
+plt.ylabel('First Ionization Potential (eV)', fontsize=14)
+
+# Add grid for better readability
+plt.grid(True, linestyle='--', alpha=0.6)
+
+# Improve layout
+#plt.legend()
+#plt.tight_layout()
+
+plt.xlim(0, 95)
+plt.ylim(0, 27)
+
+# Show the plot
+plt.show()
+
+```
+
+
+
+When plotted versus atomic number, the ionization potential shows a **periodic sawtooth pattern**:
+
+- **Peaks** correspond to **noble gases**, whose closed shells make them energetically stable and difficult to ionize. 
+  Their electrons are deeply bound, giving large IP values.
+
+- **Valleys** correspond to **alkali metals**, where the single outer electron is weakly bound and easily removed. 
+  These elements thus have very low ionization potentials.
+
+- Across each period, the ionization potential generally **increases** as $Z$ increases, reflecting the stronger Coulomb attraction between electrons and nucleus as the shell fills.
+
+- Local **irregularities** occur in places where new subshells begin to fill (for example, between Mg and Al, or between N and O). 
+  These small deviations reflect the interplay of electron–electron repulsion, spin pairing, and subshell energy ordering — effects that go beyond a simple hydrogen-like picture.
+
+---
+
+Together, the periodic patterns in **atomic volume** and **ionization potential** provide compelling, experimentally accessible evidence of the **shell structure** and **quantum mechanical nature** of atoms. 
+They bridge the microscopic behavior of electrons — governed by quantum numbers $(n, \ell, m, s)$ — with the macroscopic periodicity that underlies the **Periodic Table** itself.
+
+
+
+

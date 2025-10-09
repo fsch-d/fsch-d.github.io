@@ -1,0 +1,12 @@
+---
+title: Angular Momentum Coupling in Many Electron Atoms 
+author: Daniel Fischer
+---
+
+
+# Terms and Angular Momentum Coupling
+
+only open shells contribute 
+
+## 2.1 $L$-$S$ coupling
+## 2.2 $jj$ coupling in very large atoms
