@@ -65,6 +65,7 @@ website:
           - mod6/twoelectron.qmd
           - mod6/hartreefock.qmd
           - mod6/manye.qmd
+          - mod6/coupling.qmd
 
 
 #      - section: advanced.qmd

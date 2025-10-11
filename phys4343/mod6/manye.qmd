@@ -332,7 +332,7 @@ This approach provides a measure of the effective spatial extent of the valence 
 
 
 ```{python}
-#! fig-alt: "Plot of atomic volume versus atomic number showing periodic oscillations corresponding to shell filling."
+#| fig-alt: "Plot of atomic volume versus atomic number showing periodic oscillations corresponding to shell filling."
 import matplotlib.pyplot as plt
 import numpy as np
 
