@@ -256,8 +256,8 @@ That is, if the spatial part is **symmetric**, the spin part must be **antisymme
 
 This requirement links the **allowed combinations of $L$ and $S$**:
 
-- States with **even** spatial symmetry (i.e., even $L$) can only occur with **antisymmetric** spin states.  
-- States with **odd** spatial symmetry (i.e., odd $L$) can only occur with **symmetric** spin states.
+- States with **even** spatial exchange symmetry can only occur with **antisymmetric** spin states.  
+- States with **odd** spatial exchange symmetry can only occur with **symmetric** spin states.
 
 Hence, for two **equivalent electrons** (i.e., electrons in the same subshell with identical $n$ and $\ell$ quantum numbers), **not all combinations of $L$ and $S$ are allowed**. 
 The Pauli principle eliminates those for which the total wavefunction would be symmetric.
