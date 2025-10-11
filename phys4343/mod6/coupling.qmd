@@ -157,52 +157,52 @@ for element, config, level in terms:
         if (connect_to[i]!=0):
             ax.plot([x_pos-.5,x_pos], [connect_to[i], level[i]-mean_e],  color='black', linewidth=0.5, ls=':')
         connect_to[i]=level[i]-mean_e
-        if (element=='C'):
+    if (element=='C'):
+        ax.annotate(
+            r'$^3P_{0,1,2}$',
+            (0.25, level[1]-mean_e),
+            textcoords='offset fontsize',
+            xytext=(0, -1),
+            ha='center',
+            va='center',
+            fontsize=15,
+            fontweight='bold',
+            color='blue'
+        )
+        ax.annotate(
+            r'$^1P_1$',
+            (0.25, level[3]-mean_e),
+            textcoords='offset fontsize',
+            xytext=(0, 1),
+            ha='center',
+            va='center',
+            fontsize=15,
+            fontweight='bold',
+            color='blue'
+        )
+    if (element=='Pb'):
+        J=['0','1','2','1']
+        i=0
+        for jlevel in J:
+            if (i==0): offset=-6
+            elif (i==1): offset=5
+            else: offset=0
             ax.annotate(
-                r'$^3P_{0,1,2}$',
-                (0.25, level[1]-mean_e),
-                textcoords='offset fontsize',
-                xytext=(0, -1),
+                jlevel,
+                (x_pos+0.5, level[i]-mean_e),
+                textcoords='offset pixels',
+                xytext=(40, offset),
                 ha='center',
                 va='center',
-                fontsize=15,
+                fontsize=12,
                 fontweight='bold',
                 color='blue'
             )
-            ax.annotate(
-                r'$^1P_1$',
-                (0.25, level[3]-mean_e),
-                textcoords='offset fontsize',
-                xytext=(0, 1),
-                ha='center',
-                va='center',
-                fontsize=15,
-                fontweight='bold',
-                color='blue'
-            )
-        if (element=='Pb'):
-            J=['0','1','2','1']
-            i=0
-            for jlevel in J:
-                if (i==0): offset=-6
-                elif (i==1): offset=5
-                else: offset=0
-                ax.annotate(
-                    jlevel,
-                    (x_pos+0.5, level[i]-mean_e),
-                    textcoords='offset pixels',
-                    xytext=(40, offset),
-                    ha='center',
-                    va='center',
-                    fontsize=12,
-                    fontweight='bold',
-                    color='blue'
-                )
-                i+=1
-            ax.text(x_pos + 0.7,1.2, r'$J$', ha='center', va='center', color='blue', fontsize=12)
-            ax.text(x_pos + 1.3,1.2, r'$(j_1, j_2)$', ha='center', va='center', color='blue', fontsize=12)
-            ax.text(x_pos + 1.32,.5*(level[2]+level[3])-mean_e, r'$(\frac{3}{2},\frac{1}{2})$', ha='center', va='center', color='blue', fontsize=12)
-            ax.text(x_pos + 1.32,.5*(level[0]+level[1])-mean_e, r'$(\frac{1}{2},\frac{1}{2})$', ha='center', va='center', color='blue', fontsize=12)
+            i+=1
+        ax.text(x_pos + 0.7,1.2, r'$J$', ha='center', va='center', color='blue', fontsize=12)
+        ax.text(x_pos + 1.3,1.2, r'$(j_1, j_2)$', ha='center', va='center', color='blue', fontsize=12)
+        ax.text(x_pos + 1.32,.5*(level[2]+level[3])-mean_e, r'$(\frac{3}{2},\frac{1}{2})$', ha='center', va='center', color='blue', fontsize=12)
+        ax.text(x_pos + 1.32,.5*(level[0]+level[1])-mean_e, r'$(\frac{1}{2},\frac{1}{2})$', ha='center', va='center', color='blue', fontsize=12)
     x_pos +=1
 
 

@@ -1,4 +1,167 @@
 ---
-title: Excited States 
+title: Excitation and Ionization
 author: Daniel Fischer
 ---
+
+
+# Introduction
+
+Atoms can be excited or ionized by:
+
+- **Photons**
+- **Collisions** with electrons or ions
+
+# Single Electron Excitation
+
+The configuration has a single excited electron. This relies on an *independent electron model* (approximation). However, we must keep in mind that changing the state of one electron will also affect the energies of the others due to their interaction.
+
+::: {.callout-note}
+## Example: Beryllium
+
+**Ground state:** $1s^2 2s^2$
+
+Energy levels:
+- **Continuum (9.32 eV)**
+- **5.27 eV** — $2p^1 1s^2 2s^2p$
+- **0 eV** — $1s^2 2s^2$ ($^1S_0$)
+:::
+
+## Typical Lifetimes of Excited States
+
+| Atom/State | Lifetime ($\tau$) | Energy ($\hbar\omega$) |
+|------------|-------------------|------------------------|
+| H ($2^2P_{3/2}$) | $\tau = 1.5$ ns | 10.2 eV |
+| He ($2^1P_1$) | $\tau = 0.5$ ns | 21.2 eV |
+| Na ($3^2P_{1/2}$) | $\tau = 16$ ns | 2.1 eV |
+
+::: {.callout-important}
+## Remember
+
+$$A_{12} \propto \omega^3 |\langle f|\hat{r}|i\rangle|^2 \propto \omega^3 \propto (\hbar\omega)^3$$
+
+In Rydberg/Hartree units: $E_n \propto 1/n^2$
+:::
+
+# Metastable States
+
+| Atom/State | Lifetime ($\tau$) |
+|------------|-------------------|
+| H ($2^2S_{1/2}$) | $\tau = 8$ s |
+| He ($2^1S_0$) | $\tau = 19.6$ ms |
+| He ($2^3S_1$) | $\tau = 7870$ s |
+
+# Doubly Excited States
+
+An atom is **doubly excited** if two electrons are moved from their ground-state configuration.
+
+::: {.callout-note}
+## Example: Beryllium I
+
+**Ground state:** $1s^2 2s^2$
+
+Energy levels:
+- **Continuum (9.32 eV)**
+- **7.85 eV** — $1s^2 2p^2$ ($^1D_2$)
+- **7.85 eV** — $1s^2 2p^2$ ($^1P_1$)
+- **5.27 eV** — $1s^2 2s^2p$ ($^1S_0$)
+- **0 eV** — $1s^2 2s^2$ ($^1S_0$)
+:::
+
+This state can decay via:
+
+- **Two photon decay**, or
+- **Resonance** to a singly excited state
+
+## General Picture
+
+```
+Level 3  —————
+    ↓
+Level 2  —————
+    ↓
+Level 1  —————
+```
+
+::: {.callout-tip}
+This requires a **resonance condition** for discrete states, i.e., the energy of a doubly excited state needs to match the energy of a singly excited one.
+:::
+
+::: {.callout-warning}
+## Important
+
+However, if the doubly excited energy is above the ionization threshold, the resonance condition is always fulfilled.
+:::
+
+::: {.callout-note}
+## Example: Be
+
+Energy levels and decay:
+- **11.05 eV** — $1s^2 2s^2 3p$ ($^1P_1$)
+  - ↓ (auto-ionization)
+- **5.27 eV** — $1s^2 2s^2 2p$
+  - ↓
+- **0 eV** — $1s^2 2s^2$
+
+This state can decay via **auto-ionization**
+:::
+
+# Inner-Shell Excitation and Auger Process
+
+The inner-shell electrons are much tighter bound than valence electrons, because of the smaller principal quantum number and less screening of the nuclear charge. Therefore, photons are typically in the **UV or X-ray region**.
+
+## Bohr Picture
+
+In the Bohr model representation, we can visualize:
+
+- Electron shells: K, L, M
+- **Radiative decay path**
+- **X-ray emission:** $\hbar\omega = E_M - E_K$
+- Observable characteristic X-rays
+
+## Auger Decay Process
+
+Alternative decay pathway showing:
+
+1. One electron fills the inner shell vacancy
+2. Another electron (Auger electron) is ejected: $e^- + e_{nh}$
+
+The process can be described as:
+
+- Molecular Auger electron emission
+- Energy is transferred to eject an outer electron rather than emitting a photon
+
+## Competition Between Processes
+
+These two processes are competing:
+
+- **Typically for $Z < 30$:** Auger dominates
+- **For $Z > 10$:** (and for K-shell holes) fluorescence yield reaches **~80%**
+
+## Two Pathways
+
+The decay can proceed through two interfering pathways:
+
+$$A^{*(Z+2)} \rightarrow A^+ + h\nu_1 + h\nu_2 \rightarrow A^{+(Z+1)} + h\nu_2 \rightarrow A^{+(Z+2)} + e^-$$
+
+$$\searrow A^{+(Z)}e^-$$
+
+These pathways interfere: **"Fano" resonance**
+
+::: {.callout-note}
+## Summary
+
+Inner-shell excitation creates highly unstable states that can decay through:
+
+1. **Photon emission (fluorescence)** - competing X-ray emission
+2. **Auger process** - electron ejection
+
+The competition between these processes depends strongly on atomic number $Z$. For lighter elements, Auger dominates, while heavier elements favor fluorescence.
+:::
+
+# Key Takeaways
+
+- Single electron excitation follows independent electron model (with corrections)
+- Metastable states have significantly longer lifetimes than typical excited states
+- Doubly excited states can decay via two-photon emission or auto-ionization
+- Inner-shell vacancies lead to X-ray emission or Auger electron emission
+- Competition between processes depends on atomic number $Z$
