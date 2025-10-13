@@ -195,21 +195,21 @@ flowchart TD
         --> SolveSE["**Solve Schrödinger equation**<br/>[-ℏ²/2m ∇² + ϕ⁽⁰⁾(r)] ψᵢ⁽⁰⁾ = Eᵢ⁽⁰⁾ ψᵢ⁽⁰⁾"]
 
     SolveSE 
-        --> Occupy["**Occupy orbitals** ψᵢ⁽⁰⁾<br/>according to the Pauli principle<br/>(lowest N energies Eᵢ⁽⁰⁾)"]
+        --> |n=0|Occupy["**Occupy orbitals** ψᵢ⁽ⁿ⁾<br/>according to the Pauli principle<br/>(lowest N energies Eᵢ⁽ⁿ⁾)"]
 
     Occupy 
-        --> CalcPotential["**Compute new average potential** ϕ⁽¹⁾(r)<br/>ϕ⁽¹⁾(rᵢ) = -e/(4πε₀) ∫ Σⱼ≠ᵢ (1/rᵢⱼ)|ψⱼ⁽⁰⁾(rⱼ)|² drⱼ"]
+        --> CalcPotential["**Compute new average potential** ϕ⁽ⁿ⁺¹⁾(r)<br/>ϕ⁽ⁿ⁺¹⁾(rᵢ) = -e/(4πε₀) ∫ Σⱼ≠ᵢ (1/rᵢⱼ)|ψⱼ⁽ⁿ⁾(rⱼ)|² drⱼ"]
 
     CalcPotential 
-        --> Insert["**Insert into Schrödinger equation**<br/>and solve for ψᵢ⁽¹⁾, Eᵢ⁽¹⁾"]
+        --> Insert["**Insert into Schrödinger equation**<br/>and solve for ψᵢ⁽ⁿ⁺¹⁾, Eᵢ⁽ⁿ⁺¹⁾"]
 
     Insert 
-        --> Check["**Check convergence**<br/>Compare ϕ⁽ⁿ⁾, Eᵢ⁽ⁿ⁾ with ϕ⁽ⁿ⁻¹⁾, Eᵢ⁽ⁿ⁻¹⁾"]
+        --> Check["**Check convergence**<br/>Compare ϕ⁽ⁿ⁾, Eᵢ⁽ⁿ⁺¹⁾ with ϕ⁽ⁿ⁻¹⁾, Eᵢ⁽ⁿ⁾"]
 
     Check 
         --> Decision{"**Within tolerance?**"}
 
-    Decision -->|**No**| Occupy
+    Decision -->|**No**, n=n+1| Occupy
     Decision -->|**Yes**| Result["**Converged self-consistent orbitals and energies**"]
 
     %% Styling (consistent with angular momentum diagrams)
