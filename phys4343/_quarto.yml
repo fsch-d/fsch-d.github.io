@@ -59,13 +59,14 @@ website:
           - mod5/spectroscopy.qmd
           - mod5/dopplerfree.qmd
       - section: "More than One Electron Atoms"
-#        href: mod5/index.qmd
+        href: mod6/index.qmd
         contents:
           - mod6/helium.qmd
           - mod6/twoelectron.qmd
           - mod6/hartreefock.qmd
           - mod6/manye.qmd
           - mod6/coupling.qmd
+          - mod6/excited.qmd
 
 
 #      - section: advanced.qmd

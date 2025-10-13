@@ -8,7 +8,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [Quantum Mechanics](mod2/index.html)
+## [Quantum Mechanics](mod2/index.qmd)
 
 * [Wave Mechanics](mod2/wavemechanics.qmd)
 * [Bra–Ket (Dirac) Notation, Operators, and More](mod2/braket.qmd)
@@ -20,7 +20,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [Hydrogen (Basics)](mod3/index.html)
+## [Hydrogen (Basics)](mod3/index.qmd)
 
 * [Orbital Angular Momentum in Quantum Mechanics](mod3/angmom.qmd)
 * [Hydrogen atom — Schrödinger equation and radial solutions](mod3/hydrogen.qmd)
@@ -37,7 +37,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [Absorption and Emission of Radiation](mod5/index.html)  
+## [Absorption and Emission of Radiation](mod5/index.qmd)  
 
 * [Transition processes and Einstein Coefficients](mod5/einstein.qmd)
 * [From Relations to Values: Dipole Matrix Elements](mod5/dipolematrix.qmd)
@@ -48,7 +48,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## More than One Electron Atoms  
+## [More than One Electron Atoms](mod6/index.qmd)  
 
 * [Helium (Basics)](mod6/helium.qmd)
 * [Two-Electron States in Helium](mod6/twoelectron.qmd)

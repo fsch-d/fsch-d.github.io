@@ -1,0 +1,42 @@
+---
+title: "More than One Electron Atoms"
+author: Daniel Fischer
+---
+
+# Beyond Hydrogen
+
+In previous modules, we focused on the **hydrogen atom**, whose single electron allows for an exact analytical solution of the Schrödinger equation. 
+Real atoms, however, contain **two or more electrons**, and their mutual **Coulomb interaction** makes the problem far more complex — and much richer in physics.
+
+In this chapter, we will build on the concepts developed for hydrogen and extend them to **multi-electron atoms**. 
+We will see how the additional electron–electron interactions lead to **energy shifts and complex coupling schemes** that determine the organization of the **periodic table** and the **spectra of real elements**.
+
+---
+
+## Scope of this Section
+
+In this module, we explore the physics of **multi-electron systems**. 
+Our main goals are to:
+
+- Describe how the **Coulomb repulsion** between electrons modifies atomic energies and wavefunctions.  
+- Explain the **helium atom** as the simplest example of a two-electron system.  
+- Understand the concept of **configuration interaction** and **Hartree–Fock theory** as approximations to many-electron systems.  
+- Connect **atomic shell structure** to the organization of the **periodic table**.  
+- Understand how **angular momenta** of multiple electrons combine ($LS$ and $jj$ coupling).  
+- Recognize how **excited states** and **spectral lines** emerge from these multi-electron configurations.
+
+---
+
+## Structure of this Module
+
+* [**Helium (Basics)**](./helium.qmd) – The simplest multi-electron atom and the first example of electron–electron interaction.  
+* [**Two-Electron States in Helium**](./twoelectron.qmd) – Symmetry, spin, and exchange effects in the helium atom.  
+* [**Calculations for Multielectron Atoms**](./hartreefock.qmd) – Approximation methods, including the Hartree and Hartree–Fock approaches.  
+* [**Shell Model and Periodic Table**](./manye.qmd) – How atomic structure leads to the periodic organization of the elements.  
+* [**Angular Momentum Coupling in Many-Electron Atoms**](./coupling.qmd) – $LS$ and $jj$ coupling, term symbols, and selection rules.  
+* [**Excited States**](./excited.qmd) – Understanding optical spectra and transitions in complex atoms.
+
+---
+
+> **Key idea:**  
+> Each step beyond hydrogen introduces a new layer of complexity — but also deeper insight into how **quantum mechanics explains chemical behavior and atomic spectra**.
