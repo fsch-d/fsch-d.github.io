@@ -1,0 +1,314 @@
+---
+title: The Variational Method
+author: Daniel Fischer
+---
+
+# Introduction
+
+The **variational method** is one of the most elegant and broadly useful ideas in quantum mechanics. It provides a way to approximate the energy and wavefunction of a quantum system **without ever solving the Schrödinger equation exactly**.  
+
+The idea originated in classical mechanics with **Lord Rayleigh (1873)**, who used similar reasoning to approximate the frequencies of vibrating systems. In **1909**, **Walther Ritz** adapted this principle to quantum mechanics—long before the Schrödinger equation was formulated. Decades later, it became one of the first practical methods to estimate the **ground-state energy of the helium atom**, achieving impressive accuracy at a time when no numerical computers existed.
+
+At its heart, the variational principle expresses a simple but profound statement:
+
+> Any reasonable guess for a system’s wavefunction will predict an energy **no lower than the true ground-state energy**.
+
+This makes it both a **conceptual tool**—offering insight into why certain wavefunctions “work”—and a **computational strategy**, forming the foundation of modern quantum chemistry and solid-state theory (including Hartree–Fock, configuration interaction, and density functional methods).
+
+In this chapter, we will:  
+- **derive** the variational principle and understand *why* it works,  
+- **practice** applying it through simple examples, and  
+- **connect** it to the systematic **Ritz method**, which generalizes the idea to linear combinations of trial wavefunctions.  
+
+By the end, you’ll see how this principle transforms an impossible differential equation into a solvable problem of **optimization**—a theme that reappears throughout all of modern quantum physics.
+
+
+# 1. The Variational Principle in Quaantum Mechanics
+
+In quantum mechanics, we often seek the **ground-state energy** (lowest possible energy) and its corresponding **wavefunction**. 
+The **variational principle** provides a general and remarkably useful way to approximate both.
+
+:::{.callout-tip}
+## Variational principle
+
+For any trial wavefunction $\psi$, the expectation value of the Hamiltonian satisfies
+
+$$
+\langle E \rangle = 
+\frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle} 
+\ge E_0
+$$
+
+where $E_0$ is the true ground-state energy.
+:::
+
+
+This means: **no matter what function you try**, its energy expectation value can never be below the true ground-state energy. 
+The best possible trial function gives an *upper bound* to $E_0$.
+
+::: {.callout-note}
+Even if your trial function isn’t normalized, the principle still holds as long as you divide by $\langle \psi | \psi \rangle$.
+:::
+
+---
+
+## 1.1 Why It Works
+
+Let $\{|n\rangle\}$ be the complete set of energy eigenstates of $\hat{H}$:
+
+$$
+\hat{H}|n\rangle = E_n |n\rangle, \qquad E_0 \le E_1 \le E_2 \le \dots
+$$
+
+Any normalized state can be written as a superposition:
+
+$$
+|\psi\rangle = \sum_n c_n |n\rangle, \qquad \sum_n |c_n|^2 = 1
+$$
+
+Then the energy expectation value is
+
+$$
+\langle \psi | \hat{H} | \psi \rangle
+  = \sum_n |c_n|^2 E_n
+  \ge E_0 \sum_n |c_n|^2
+  = E_0
+$$
+
+since every $E_n \ge E_0$. 
+Equality holds only when all coefficients except $c_0$ vanish, i.e. $\psi$ *is* the true ground state.
+
+Thus, the variational principle is a direct consequence of the **spectral decomposition** of the Hamiltonian.
+
+---
+
+## 1.2 How to Use It
+
+In practice, the method becomes a systematic algorithm:
+
+1. **Choose a trial wavefunction** $\psi(\mathbf{r};\alpha_1,\alpha_2,\dots)$ 
+   containing one or more adjustable parameters (e.g. width, decay rate).
+
+2. **Compute the expected energy**
+   $$
+   \langle E(\boldsymbol{\alpha}) \rangle
+     = \frac{\int \psi^* \hat{H} \psi\, dV}
+            {\int |\psi|^2\, dV}
+   $$
+
+3. **Minimize** with respect to the parameters:
+   $$
+   \frac{\partial E}{\partial \alpha_i} = 0
+   $$
+
+4. **Interpret the result.**  
+   The minimized $\langle E\rangle$ gives your best approximation to $E_0$ and serves as an *upper bound*. 
+   The optimized parameters yield an approximate ground-state wavefunction.
+
+---
+
+## 1.3 Example: The Hydrogen Ground State
+
+To see the method in action, let’s approximate the ground-state energy of the hydrogen atom without solving Schrödinger’s equation directly.
+
+The exact ground state is known to be an exponential, so we choose a **trial function of the same form but with adjustable decay rate:**
+
+$$
+\psi(r) = N e^{-\alpha r}
+$$
+
+where $\alpha$ is the variational parameter.
+
+### Step 1: Normalize
+$$
+N = \sqrt{\frac{\alpha^3}{\pi}}
+$$
+
+### Step 2: Compute the Energy Expectation
+
+For the hydrogen Hamiltonian,
+$$
+\hat{H} = -\frac{\hbar^2}{2m} \nabla^2 - \frac{e^2}{4\pi\varepsilon_0 r},
+$$
+the expectation value is
+
+$$
+\langle E(\alpha)\rangle =
+\frac{\hbar^2 \alpha^2}{2m} - \frac{e^2\alpha}{4\pi\varepsilon_0}.
+$$
+
+### Step 3: Minimize
+
+Setting $dE/d\alpha=0$ gives
+
+$$
+\alpha_\text{opt} = \frac{m e^2}{4\pi\varepsilon_0 \hbar^2}.
+$$
+
+### Step 4: Evaluate
+
+Substituting $\alpha_\text{opt}$ back in:
+
+$$
+E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
+$$
+
+This is *exactly* the true ground-state energy! 
+Had we chosen a less perfect functional form, the result would still have been an upper bound but slightly above $-13.6$ eV.
+
+---
+
+## 1.4 Summary
+
+| Concept | Formula | Comment |
+|----------|----------|----------|
+| Variational energy | $\displaystyle \langle E \rangle = \frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle}$ | Always ≥ $E_0$ |
+| Minimization | $\displaystyle \frac{\partial E}{\partial \alpha_i}=0$ | Optimize parameters |
+| Physical meaning | “Best guess” wavefunction yields lowest possible energy estimate | Upper bound to $E_0$ |
+
+---
+
+
+
+# 2. Ritz’s Method
+
+The **Ritz variational method** generalizes the basic variational principle into a systematic and computationally tractable form. 
+Instead of relying on a single trial function with a few adjustable parameters, it allows the wavefunction to be expressed as a *flexible linear combination* of simpler building blocks.
+
+---
+
+## 2.1 The Linear Variational Method
+
+Rather than guessing one function $\psi(r)$, we represent the trial wavefunction as a **linear combination of known basis functions**:
+
+$$
+\psi(r) = \sum_{i=1}^{n} c_i\, \phi_i(r)
+$$
+
+The coefficients $c_i$ are unknown and will be determined by minimizing the total energy.
+
+This approach is extremely general:  
+- The basis functions $\{\phi_i\}$ could be **orthonormal** (like sine or spherical harmonics) or **non-orthogonal** (like Gaussian orbitals).  
+- The set can be **finite or infinite**. A larger or more complete basis provides a better approximation to the exact wavefunction.  
+- In the limit of a *complete* basis, the expansion becomes exact and the variational approximation converges to the true eigenvalues and eigenstates.  
+
+In practice, we work with a finite subset that captures the essential physics of the problem while keeping the algebra manageable.
+
+---
+
+## 2.2 Derivation of the Secular Equation
+
+We start with the expectation value of the Hamiltonian using the trial expansion:
+
+$$
+E = 
+\frac{\langle \psi | \hat{H} | \psi \rangle}
+     {\langle \psi | \psi \rangle}
+=
+\frac{\sum_{ij} c_i^* c_j\, H_{ij}}
+     {\sum_{ij} c_i^* c_j\, S_{ij}}
+$$
+
+where we define the **Hamiltonian** and **overlap** matrix elements as
+
+$$
+H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle, 
+\qquad
+S_{ij} = \langle \phi_i | \phi_j \rangle.
+$$
+
+To find the stationary energy with respect to variations in each $c_i^*$, we set
+
+$$
+\frac{\partial}{\partial c_i^*}
+\left(
+\langle \psi | \hat{H} | \psi \rangle
+- E\, \langle \psi | \psi \rangle
+\right)
+= 0.
+$$
+
+Carrying out the derivative gives:
+
+$$
+\sum_{j=1}^n (H_{ij} - E\, S_{ij})\, c_j = 0, 
+\quad i = 1, \ldots, n.
+$$
+
+This is the **secular equation**, a set of $n$ homogeneous linear equations in the coefficients $\{c_j\}$.
+
+For nontrivial solutions to exist, the determinant of the coefficient matrix must vanish:
+
+$$
+\det(H - E S) = 0.
+$$
+
+Solving this equation yields $n$ approximate eigenvalues $E_k$ and corresponding coefficient vectors $\mathbf{c}^{(k)}$.
+
+---
+
+## 2.3 Interpretation and Computational Aspects
+
+The secular equation represents a **generalized eigenvalue problem**:
+
+$$
+H \mathbf{c} = E\, S \mathbf{c}.
+$$
+
+If the basis $\{\phi_i\}$ is orthonormal, then $S = I$ and this reduces to the standard matrix eigenvalue equation:
+
+$$
+H \mathbf{c} = E \mathbf{c}.
+$$
+
+In practice:  
+- $H$ and $S$ are finite-dimensional matrices.  
+- Solving the secular equation corresponds to **diagonalizing the Hamiltonian matrix** in the chosen basis.  
+- The lowest eigenvalue gives the **best variational estimate** of the ground-state energy, and the higher ones approximate **excited states**.  
+
+---
+
+## 2.4 Advantages of the Ritz Approach
+
+1. **Systematic improvement**  
+   Increasing the number of basis functions ($n$) always lowers the ground-state energy estimate, converging toward the exact value.
+
+2. **Access to excited states**  
+   Higher eigenvalues correspond to approximate excited states, often with surprisingly good accuracy.
+
+3. **Flexibility**  
+   Any convenient basis can be used: plane waves for periodic systems, Gaussians for molecules, hydrogenic orbitals for atoms, and so on.
+
+4. **Guaranteed upper bounds**  
+   Each approximate eigenvalue $E_k^{(\text{approx})}$ is an **upper bound** to the corresponding exact eigenvalue $E_k^{(\text{exact})}$.
+
+---
+
+## 2.5 Applications
+
+The Ritz variational method underlies many modern computational frameworks:
+
+- **Hartree–Fock theory:** Represents many-electron wavefunctions as Slater determinants optimized variationally.  
+- **Configuration interaction (CI):** Expands the total wavefunction in a linear combination of electronic configurations.  
+- **Density functional theory (DFT):** Variational in the *electron density* rather than the wavefunction itself.  
+- **Tight-binding and LCAO models:** Use localized atomic orbitals as basis functions to describe solids and molecules.
+
+Together, these methods form the foundation of nearly all modern quantum-chemical and condensed-matter calculations.
+
+---
+
+## 2.6 Summary and Takeaways
+
+| Concept | Formula | Comment |
+|----------|----------|----------|
+| Variational energy | $\displaystyle \langle E \rangle = \frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle}$ | Always ≥ $E_0$ |
+| Minimization condition | $\displaystyle \frac{dE}{d\alpha}=0$ | Optimize parameters |
+| Ritz secular equation | $(H - ES)c = 0$ | Generalized eigenproblem |
+
+---
+
+# 3. Conclusion
+
+The **variational method** is one of the most powerful and conceptually elegant tools in quantum mechanics. 
+Even a rough trial function yields a rigorous **upper bound** to the true energy. 
+Combined with the **Ritz method**, it becomes a general computational strategy — the foundation of modern quantum chemistry and condensed matter physics.
