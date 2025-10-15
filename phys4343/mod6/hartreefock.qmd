@@ -108,6 +108,8 @@ The idea is that near the nucleus, the electron experiences the full nuclear cha
 The diagram below compares the Coulomb potential for different nuclear charges and a **screened potential** that transitions smoothly between them.
 
 ```{python}
+#| fig-align: center
+#| out-width: "100%"
 import numpy as np
 import matplotlib.pyplot as plt
 

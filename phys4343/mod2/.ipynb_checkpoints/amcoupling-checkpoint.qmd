@@ -109,6 +109,7 @@ Although $\vec{j}$ is represented as a vector operator, it does **not** correspo
 
 ```{python}
 #| fig-format: png
+#| out-width: "30%"
 #| fig-align: center
 #| fig-cap: Possible orientations of an angular momentum vector $\vec{j}$ with $j=3$. 
 #| fig-alt: Possible orientations of an angular momentum vector with j=3..
@@ -116,6 +117,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from scipy.spatial.transform import Rotation as R # Used for rotating vectors
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 15
+
+
 
 # --- Define Constants and Initial (Un-rotated) Vectors in the Jz basis ---
 j = 3
@@ -155,14 +162,14 @@ def draw_vector(r, v, color, label):
               color=color, lw=1.2, arrow_length_ratio=0.1)
     
     # Add text label slightly offset from the vector tip
-    ax.text(r[0]+v[0]*1.1, r[1]+v[1]*1.1, r[2]+v[2]*1.1, label, color=color, fontsize=8)
+    ax.text(r[0]+v[0]*1.1, r[1]+v[1]*1.1, r[2]+v[2]*1.1, label, color=color, fontsize=12)
 
 
 
 
 # z axis
 ax.quiver(0, 0, -4, 0, 0, 8, color='k', lw=.6, arrow_length_ratio=0.03)
-ax.text(0.2, 0, 4, s=f'$z$', ha='right', color='k', fontsize=8)
+ax.text(0.2, 0, 4, s=f'$z$', ha='right', color='k', fontsize=12)
 
 
 
@@ -234,7 +241,7 @@ for m in m_arr:
     J = r_euler(J0,m)
     draw_vector(np.zeros(3), J, "green", r"$\vec{j}$") # J starts at origin
     ax.plot([J[0],0], [J[1],0], [J[2],J[2]], linewidth=0.5, linestyle='--', color='k')
-    ax.text(0.2, 0, J[2]-0.1, s=f'${m} \hbar$', ha='right', color='k', fontsize=7)
+    ax.text(0.2, 0, J[2]-0.1, s=f'${m} \hbar$', ha='right', color='k', fontsize=12)
     angle_Jz = np.arccos(J[2] / np.linalg.norm(J))
     if (m==0):
         plot_disk([0, 0, 1], np.linalg.norm(J), "green", alpha=0.15)
@@ -259,12 +266,7 @@ ax.set_box_aspect([1, 1, 1])
 # Set initial viewpoint (optional)
 ax.view_init(elev=20, azim=120)
 
-fig.subplots_adjust(
-    left=0,      # Left margin
-    right=1,     # Right margin
-    bottom=0.35, # Reduce bottom margin (adjust as needed)
-    top=0.65     # Reduce top margin (adjust as needed)
-)
+plt.tight_layout()
 plt.show()
 ```
 

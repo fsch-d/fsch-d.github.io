@@ -38,7 +38,7 @@ In 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms thro
 The silver atom has a single unpaired electron, whose magnetic moment interacts with the field gradient. Classically, one would expect a continuous spread of deflections depending on the orientation of the magnetic moment. Instead, the beam splits cleanly into two spots on the screen. This demonstrates that the angular momentum component along the field axis can take only discrete
 values — the phenomenon of **spatial quantization** (Richtungsquantelung).
 
-![Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).](stern-gerlach.png){width=50% fig-alt="Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum."}
+![Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum. Important components: atomic beam source (left), magnet with N/S poles (center), and detection screen (right).](stern-gerlach.png){width=100% fig-alt="Stern–Gerlach experiment: an atomic beam is split into two distinct components by the inhomogeneous magnetic field, showing discrete orientations of angular momentum."}
 
 ---
 
@@ -54,7 +54,7 @@ Several years earlier, in 1915, Albert Einstein and Wander Johannes de Haas perf
 **What happens physically?**  
 When the magnetization of the cylinder is reversed, its internal electron magnetic moments flip orientation. Because each magnetic moment is associated with angular momentum, conservation of angular momentum requires the cylinder itself to rotate in the opposite direction. The effect is small but measurable, and the mirror–light setup amplifies the detection. The experiment showed that **magnetization arises from angular momentum**. However, the ratio of magnetic moment to angular momentum was found to differ by a factor of two from classical expectations — a puzzle later resolved by the discovery of electron spin.
 
-![Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.](edehaas.png){width=50% fig-alt="Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light."}
+![Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light. Important components: suspended cylinder, surrounding coil, ferromagnetic core, and optical detection system.](edehaas.png){width=100% fig-alt="Einstein–de Haas experiment: reversing the magnetization of a suspended ferromagnetic cylinder induces mechanical rotation, detected via a mirror and probe light."}
 
 ---
 
@@ -446,7 +446,7 @@ $$
 \end{align}
 $$
 
-![Illustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red ([LS_coupling_(corrected)](https://commons.wikimedia.org/wiki/File:LS_coupling_(corrected).png){target="_blank"} by AnotherFlake under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en){target="_blank"})](./LS_coupling_(corrected).png){fig-alt="Illustration of L–S coupling depicting J, L, and S vectors." fig-align="center" width=30%}
+![Illustration of L–S coupling. Total angular momentum J is green, orbital L is blue, and spin S is red ([LS_coupling_(corrected)](https://commons.wikimedia.org/wiki/File:LS_coupling_(corrected).png){target="_blank"} by AnotherFlake under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en){target="_blank"})](./LS_coupling_(corrected).png){fig-alt="Illustration of L–S coupling depicting J, L, and S vectors." fig-align="center" width=60%}
 
 
 The new eigenstates can also be written as linear combinations of the "old" basis states $|n,\ell,m_\ell,s,m_s\rangle$, where the orbital and spin angular momenta were treated separately.  

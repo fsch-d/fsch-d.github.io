@@ -20,7 +20,7 @@ Such three-level systems are commonly referred to as **$\Lambda$ systems** becau
 
 
 ```{python}
-#| eho: false
+#| echo: false
 # eval: false
 import subprocess
 import os
@@ -121,7 +121,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Two-level and three-level $\Lambda$ systems.](./tl_lambda.svg){fig-alt="Two-level and three-level $\Lambda$ systems." fig-align="center" width=40%}
+![Two-level and three-level $\Lambda$ systems.](./tl_lambda.svg){fig-alt="Two-level and three-level $\Lambda$ systems." fig-align="center" width=75%}
 
 ---
 
@@ -1431,7 +1431,7 @@ To understand the finer details of the spectrum, we now examine the **substructu
 
 
 ```{python}
-#| eho: false
+#| echo: false
 # eval: false
 import subprocess
 import os
@@ -1594,7 +1594,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale).](./lithiumlevels.svg){fig-alt="Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale)." fig-align="center" width=40%}
+![Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale).](./lithiumlevels.svg){fig-alt="Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale)." fig-align="center" width=75%}
 
 
 ### The $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ transition

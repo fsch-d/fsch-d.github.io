@@ -194,7 +194,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![](./spinspin.svg){fig-alt="Coupling of two electron spins." fig-align="center" width=40%}
+![](./spinspin.svg){fig-alt="Coupling of two electron spins." fig-align="center" width=100%}
 
 
 ::: {.callout-note}
@@ -308,7 +308,8 @@ In the **Grotrian diagram**, allowed electric dipole transitions connect levels 
 
 ```{python}
 #| fig-cap: Simplified Grotrian diagram for helium, showing some dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden.
-#| fig-alt: Simplified Grotrian diagram for helium, showing some dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden. 
+#| fig-alt: Simplified Grotrian diagram for helium, showing some dipole-allowed transitions within the singlet (parahelium) and triplet (orthohelium) systems. Cross-system transitions are spin-forbidden.
+#| out-width: "100%"
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Rectangle
@@ -496,6 +497,7 @@ for x1, y1, x2, y2 in transitions:
     ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
                 arrowprops=dict(arrowstyle="->", color='red', lw=1.5), zorder=0)
 
+plt.tight_layout()
 plt.show()
 ```
 

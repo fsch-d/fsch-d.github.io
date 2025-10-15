@@ -859,7 +859,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Optical pumping in ${}^{87}\text{Rb}$: $\sigma^+$ light drives population into the stretched ground state $m_F=+2$, which cycles with $m_F'=+3$ and aligns the atomic angular momentum along the quantization axis.](./optpump.svg){fig-alt="Optical pumping in ${}^{87}\text{Rb}$: $\sigma^+$ light drives population into the stretched ground state $m_F=+2$, which cycles with $m_F'=+3$ and aligns the atomic angular momentum along the quantization axis." fig-align="center" width=40%}
+![Optical pumping in ${}^{87}\text{Rb}$: $\sigma^+$ light drives population into the stretched ground state $m_F=+2$, which cycles with $m_F'=+3$ and aligns the atomic angular momentum along the quantization axis.](./optpump.svg){fig-alt="Optical pumping in ${}^{87}\text{Rb}$: $\sigma^+$ light drives population into the stretched ground state $m_F=+2$, which cycles with $m_F'=+3$ and aligns the atomic angular momentum along the quantization axis." fig-align="center" width=80%}
 
 ---
 

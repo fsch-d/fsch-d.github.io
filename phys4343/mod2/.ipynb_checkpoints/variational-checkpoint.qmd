@@ -17,13 +17,14 @@ This makes it both a **conceptual tool**—offering insight into why certain wav
 
 In this chapter, we will:  
 - **derive** the variational principle and understand *why* it works,  
-- **practice** applying it through simple examples, and  
+-
+**practice** applying it through simple examples, and  
 - **connect** it to the systematic **Ritz method**, which generalizes the idea to linear combinations of trial wavefunctions.  
 
 By the end, you’ll see how this principle transforms an impossible differential equation into a solvable problem of **optimization**—a theme that reappears throughout all of modern quantum physics.
 
 
-# 1. The Variational Principle in Quaantum Mechanics
+# 1. The Variational Principle in Quantum Mechanics
 
 In quantum mechanics, we often seek the **ground-state energy** (lowest possible energy) and its corresponding **wavefunction**. 
 The **variational principle** provides a general and remarkably useful way to approximate both.
@@ -198,26 +199,39 @@ In practice, we work with a finite subset that captures the essential physics of
 
 ## 2.2 Derivation of the Secular Equation
 
-We start with the expectation value of the Hamiltonian using the trial expansion:
+We start from the energy expectation value for the trial wavefunction
 
 $$
-E = 
+E =
 \frac{\langle \psi | \hat{H} | \psi \rangle}
      {\langle \psi | \psi \rangle}
 =
 \frac{\sum_{ij} c_i^* c_j\, H_{ij}}
-     {\sum_{ij} c_i^* c_j\, S_{ij}}
+     {\sum_{ij} c_i^* c_j\, S_{ij}},
 $$
 
-where we define the **Hamiltonian** and **overlap** matrix elements as
+with the definitions
 
 $$
-H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle, 
+H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle,
 \qquad
 S_{ij} = \langle \phi_i | \phi_j \rangle.
 $$
 
-To find the stationary energy with respect to variations in each $c_i^*$, we set
+To find the coefficients $\{c_i\}$ that make the energy stationary, 
+we vary $E$ with respect to $c_i^*$ while keeping $E$ itself as an unknown parameter.
+
+Because $E$ is a ratio of two quadratic forms, it is more convenient to consider instead the equivalent condition that the derivative of
+
+$$
+\langle \psi | \hat{H} | \psi \rangle - 
+E\, \langle \psi | \psi \rangle
+$$
+
+with respect to $c_i^*$ vanishes. 
+Here, $E$ is treated as independent of the $c_i$, so this quantity is *not* assumed to be zero in advance.
+
+Setting the derivative to zero gives
 
 $$
 \frac{\partial}{\partial c_i^*}
@@ -228,22 +242,36 @@ $$
 = 0.
 $$
 
-Carrying out the derivative gives:
+Carrying out this differentiation yields
 
 $$
-\sum_{j=1}^n (H_{ij} - E\, S_{ij})\, c_j = 0, 
-\quad i = 1, \ldots, n.
+\sum_{j=1}^n (H_{ij} - E\, S_{ij})\, c_j = 0,
+\qquad i = 1, \ldots, n.
 $$
 
-This is the **secular equation**, a set of $n$ homogeneous linear equations in the coefficients $\{c_j\}$.
+This is the **secular equation**, which in matrix form reads
 
-For nontrivial solutions to exist, the determinant of the coefficient matrix must vanish:
+$$
+(H - E S)\, \mathbf{c} = 0.
+$$
+
+Nontrivial solutions for $\mathbf{c}$ exist only if
 
 $$
 \det(H - E S) = 0.
 $$
 
-Solving this equation yields $n$ approximate eigenvalues $E_k$ and corresponding coefficient vectors $\mathbf{c}^{(k)}$.
+The corresponding values of $E$ are the approximate energy eigenvalues, 
+and the vectors $\mathbf{c}$ give the expansion coefficients of the approximate eigenstates.
+
+::: {.callout-note}
+### Remark:  
+This derivation can also be expressed more formally using the **method of Lagrange multipliers**, 
+where $E$ acts as the multiplier enforcing the normalization condition 
+$\langle \psi | \psi \rangle = 1$. 
+If you are familiar with that formalism, you can verify that it leads to exactly the same secular equation.
+:::
+
 
 ---
 

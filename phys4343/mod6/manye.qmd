@@ -212,6 +212,7 @@ Nevertheless, it captures the main trends remarkably well and serves as a powerf
 The pattern can be visualized graphically by writing the possible combinations of $n$ and $\ell$ and following diagonal arrows of constant $n+\ell$, as shown below.
 
 ```{python}
+#| fig-align: center
 import matplotlib.pyplot as plt
 
 plt.rcParams['text.usetex'] = True
@@ -332,6 +333,7 @@ This approach provides a measure of the effective spatial extent of the valence 
 
 
 ```{python}
+#| fig-align: center
 #| fig-alt: "Plot of atomic volume versus atomic number showing periodic oscillations corresponding to shell filling."
 import matplotlib.pyplot as plt
 import numpy as np
@@ -534,6 +536,7 @@ Overall, these oscillations in atomic volume are a clear macroscopic signature o
 The **first ionization potential** (IP) — the energy required to remove the outermost electron from a neutral atom — provides complementary information.  
 
 ```{python}
+#| fig-align: center
 #| fig-alt: "ionization potential as a function of atom numbers for the elements hydrogen to plutonium."
 import matplotlib.pyplot as plt
 import numpy as np

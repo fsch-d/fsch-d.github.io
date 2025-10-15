@@ -38,7 +38,7 @@ Imagine two identical particles scattering off each other. Classically, there ar
 - **Case 2:** particle 1 is deflected to the left, particle 2 to the right
 
 ```{python}
-#| eho: false
+#| echo: false
 # eval: false
 import subprocess
 import os
@@ -124,7 +124,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![](./exch_scat.svg){fig-alt="Exchange in scattering pathways." fig-align="center" width=40%}  
+![](./exch_scat.svg){fig-alt="Exchange in scattering pathways." fig-align="center" width=70%}  
 
 For identical particles in quantum mechanics, these two alternatives are *indistinguishable*. The total probability amplitude must include **both processes at once**, and the two amplitudes **interfere** with each other. This interference is a hallmark of quantum indistinguishability.
 

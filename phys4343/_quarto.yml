@@ -68,6 +68,9 @@ website:
           - mod6/manye.qmd
           - mod6/coupling.qmd
           - mod6/excited.qmd
+      - section: "Introduction into Molecular Physics"   
+        contents:
+          - mod7/h2plus.qmd
 
 
 #      - section: advanced.qmd

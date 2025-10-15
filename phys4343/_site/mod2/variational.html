@@ -3973,7 +3973,6 @@ window.Quarto = {
 
 .quarto-figure img.figure-img {
 max-width: 100% !important;
-width: auto !important;
 height: auto !important;
 }
 .quarto-image-container .lightbox {
@@ -4282,6 +4281,23 @@ text-align: justify;
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction into Molecular Physics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The H<span class="math inline">\(_2^+\)</span> Molecular Ion</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -4293,7 +4309,7 @@ text-align: justify;
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-variational-principle-in-quaantum-mechanics" id="toc-the-variational-principle-in-quaantum-mechanics" class="nav-link" data-scroll-target="#the-variational-principle-in-quaantum-mechanics">1. The Variational Principle in Quaantum Mechanics</a>
+  <li><a href="#the-variational-principle-in-quantum-mechanics" id="toc-the-variational-principle-in-quantum-mechanics" class="nav-link" data-scroll-target="#the-variational-principle-in-quantum-mechanics">1. The Variational Principle in Quantum Mechanics</a>
   <ul class="collapse">
   <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">1.1 Why It Works</a></li>
   <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link" data-scroll-target="#how-to-use-it">1.2 How to Use It</a></li>
@@ -4362,8 +4378,8 @@ text-align: justify;
 - <strong>connect</strong> it to the systematic <strong>Ritz method</strong>, which generalizes the idea to linear combinations of trial wavefunctions.</p>
 <p>By the end, you’ll see how this principle transforms an impossible differential equation into a solvable problem of <strong>optimization</strong>—a theme that reappears throughout all of modern quantum physics.</p>
 </section>
-<section id="the-variational-principle-in-quaantum-mechanics" class="level1">
-<h1>1. The Variational Principle in Quaantum Mechanics</h1>
+<section id="the-variational-principle-in-quantum-mechanics" class="level1">
+<h1>1. The Variational Principle in Quantum Mechanics</h1>
 <p>In quantum mechanics, we often seek the <strong>ground-state energy</strong> (lowest possible energy) and its corresponding <strong>wavefunction</strong>. The <strong>variational principle</strong> provides a general and remarkably useful way to approximate both.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4535,22 +4551,29 @@ E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
 </section>
 <section id="derivation-of-the-secular-equation" class="level2">
 <h2 class="anchored" data-anchor-id="derivation-of-the-secular-equation">2.2 Derivation of the Secular Equation</h2>
-<p>We start with the expectation value of the Hamiltonian using the trial expansion:</p>
+<p>We start from the energy expectation value for the trial wavefunction</p>
 <p><span class="math display">\[
 E =
 \frac{\langle \psi | \hat{H} | \psi \rangle}
      {\langle \psi | \psi \rangle}
 =
 \frac{\sum_{ij} c_i^* c_j\, H_{ij}}
-     {\sum_{ij} c_i^* c_j\, S_{ij}}
+     {\sum_{ij} c_i^* c_j\, S_{ij}},
 \]</span></p>
-<p>where we define the <strong>Hamiltonian</strong> and <strong>overlap</strong> matrix elements as</p>
+<p>with the definitions</p>
 <p><span class="math display">\[
 H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle,
 \qquad
 S_{ij} = \langle \phi_i | \phi_j \rangle.
 \]</span></p>
-<p>To find the stationary energy with respect to variations in each <span class="math inline">\(c_i^*\)</span>, we set</p>
+<p>To find the coefficients <span class="math inline">\(\{c_i\}\)</span> that make the energy stationary, we vary <span class="math inline">\(E\)</span> with respect to <span class="math inline">\(c_i^*\)</span> while keeping <span class="math inline">\(E\)</span> itself as an unknown parameter.</p>
+<p>Because <span class="math inline">\(E\)</span> is a ratio of two quadratic forms, it is more convenient to consider instead the equivalent condition that the derivative of</p>
+<p><span class="math display">\[
+\langle \psi | \hat{H} | \psi \rangle -
+E\, \langle \psi | \psi \rangle
+\]</span></p>
+<p>with respect to <span class="math inline">\(c_i^*\)</span> vanishes. Here, <span class="math inline">\(E\)</span> is treated as independent of the <span class="math inline">\(c_i\)</span>, so this quantity is <em>not</em> assumed to be zero in advance.</p>
+<p>Setting the derivative to zero gives</p>
 <p><span class="math display">\[
 \frac{\partial}{\partial c_i^*}
 \left(
@@ -4559,17 +4582,33 @@ S_{ij} = \langle \phi_i | \phi_j \rangle.
 \right)
 = 0.
 \]</span></p>
-<p>Carrying out the derivative gives:</p>
+<p>Carrying out this differentiation yields</p>
 <p><span class="math display">\[
 \sum_{j=1}^n (H_{ij} - E\, S_{ij})\, c_j = 0,
-\quad i = 1, \ldots, n.
+\qquad i = 1, \ldots, n.
 \]</span></p>
-<p>This is the <strong>secular equation</strong>, a set of <span class="math inline">\(n\)</span> homogeneous linear equations in the coefficients <span class="math inline">\(\{c_j\}\)</span>.</p>
-<p>For nontrivial solutions to exist, the determinant of the coefficient matrix must vanish:</p>
+<p>This is the <strong>secular equation</strong>, which in matrix form reads</p>
+<p><span class="math display">\[
+(H - E S)\, \mathbf{c} = 0.
+\]</span></p>
+<p>Nontrivial solutions for <span class="math inline">\(\mathbf{c}\)</span> exist only if</p>
 <p><span class="math display">\[
 \det(H - E S) = 0.
 \]</span></p>
-<p>Solving this equation yields <span class="math inline">\(n\)</span> approximate eigenvalues <span class="math inline">\(E_k\)</span> and corresponding coefficient vectors <span class="math inline">\(\mathbf{c}^{(k)}\)</span>.</p>
+<p>The corresponding values of <span class="math inline">\(E\)</span> are the approximate energy eigenvalues, and the vectors <span class="math inline">\(\mathbf{c}\)</span> give the expansion coefficients of the approximate eigenstates.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remark:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This derivation can also be expressed more formally using the <strong>method of Lagrange multipliers</strong>, where <span class="math inline">\(E\)</span> acts as the multiplier enforcing the normalization condition <span class="math inline">\(\langle \psi | \psi \rangle = 1\)</span>. If you are familiar with that formalism, you can verify that it leads to exactly the same secular equation.</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="interpretation-and-computational-aspects" class="level2">

@@ -127,7 +127,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Principle of absorption and fluorescence spectroscopy](./absfluor.svg){fig-alt="Principle of absorption and fluorescence spectroscopy" fig-align="center" width=40%}
+![Principle of absorption and fluorescence spectroscopy](./absfluor.svg){fig-alt="Principle of absorption and fluorescence spectroscopy" fig-align="center" width=70%}
 
 ---
 

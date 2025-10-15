@@ -120,6 +120,7 @@ This smooth transition from the singlet–triplet pattern in carbon to the $jj$-
 
 
 ```{python}
+#| fig-align: center
 #| fig-alt: Energy levels of the excited configurations $np\,(n+1)s$ for group VI elements (C, Si, Ge, Sn, Pb), showing the evolution from L–S coupling (singlet and triplet terms) in light atoms to jj coupling (two doublets) in heavy atoms.
 # label: fig-ls-to-jj-transition
 # fig-cap: Evolution of angular momentum coupling across the $np\,(n+1)s$ configurations of group VI elements. The weak spin–orbit interaction in carbon produces ${}^1P_1$ and ${}^3P_{0,1,2}$ terms typical of $L$–$S$ coupling, whereas the strong spin–orbit splitting in lead results in two $jj$-coupled doublets characterized by $(j_1,j_2) = (1/2,1/2)$ and $(3/2,1/2)$.
@@ -415,6 +416,7 @@ The figure below illustrates how electrons fill the available orbitals for the f
 From these configurations, we will determine the corresponding **ground-state terms** by systematically applying Hund’s rules.
 
 ```{python}
+#| fig-align: center
 #| fig-alt: Diagram showing the $s$ and $p$ subshells for the first ten elements (H–Ne), with electrons represented by up and down arrows. The configurations illustrate how Hund’s rules lead to different ground-state term symbols such as ${}^2S_{1/2}$ for H, ${}^1S_0$ for He, ${}^2P_{1/2}$ for B, ${}^3P_0$ for C, and ${}^3P_2$ for O. 
 # fig-cap: Electron configurations and ground-state terms for H–Ne. Each box represents an orbital (either $s$ or $p$), and arrows denote electron spins. According to Hund’s rules, orbitals are filled to maximize total spin and orbital angular momentum before pairing occurs.
 import matplotlib.pyplot as plt

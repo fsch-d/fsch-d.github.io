@@ -327,7 +327,7 @@ with open(os.devnull, 'w') as FNULL:
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![](./autoionization.svg){fig-alt="Level diagrams for autoionization." fig-align="center" width=40%}
+![](./autoionization.svg){fig-alt="Level diagrams for autoionization." fig-align="center" width=80%}
 
 
 

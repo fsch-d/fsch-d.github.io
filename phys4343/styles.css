@@ -3,7 +3,6 @@
 /* Force Quarto figures to be responsive */
 .quarto-figure img.figure-img {
   max-width: 100% !important;
-  width: auto !important;
   height: auto !important;
 }
 .quarto-image-container .lightbox {
