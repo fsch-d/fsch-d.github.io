@@ -598,7 +598,7 @@ Hund’s rules emerge from the interplay between **electrostatic (Coulomb)** and
 - The **third rule** results from the **magnetic spin–orbit interaction**, which couples each electron’s spin to its orbital motion. 
   For less than half-filled shells, aligning $\vec{L}$ and $\vec{S}$ (large $J$) increases the total energy; for more than half-filled shells, the reverse holds.
 
-As atomic number increases, spin–orbit coupling becomes stronger, and Hund’s rules gradually give way to the **$jj$ coupling** picture discussed in the following section. 
+As atomic number increases, spin–orbit coupling becomes stronger, and Hund’s rules gradually give way to the **$jj$ coupling** picture. 
 Together, these simple rules provide a remarkably accurate guide to the structure of atomic ground states throughout much of the periodic table.
 
 

@@ -9,7 +9,7 @@ The hydrogen molecular ion, H$_2^+$, is the **simplest conceivable molecule**: t
 Despite its simplicity, it is of profound importance in molecular physics.  
 
 - It provides the **first step beyond the hydrogen atom**, introducing the physics of **chemical bonding** within a fully quantum-mechanical framework.  
-- The system’s simplicity allows an almost complete analytical treatment—though not a *fully exact* one—making it an ideal prototype for discussing **approximation methods** such as the **Born–Oppenheimer approximation** and the **variational method**.  
+- The system’s simplicity allows an almost complete analytical treatment—though not a *fully exact* one—making it an ideal prototype for discussing **approximation methods** such as the **Born-Oppenheimer approximation** and the **variational method**.  
 - Remarkably, in **prolate spheroidal (ellipsoidal) coordinates**, the Schrödinger equation becomes **separable**, at least partially, allowing us to identify distinct “radial” and “angular” degrees of freedom.
 
 We will see that the key to understanding H$_2^+$ lies in a clever choice of coordinates and the recognition that the electron experiences the combined Coulomb field of two fixed nuclei.
@@ -378,7 +378,7 @@ $$
 \frac{d}{d\eta}\!\left[(1-\eta^2)\frac{dM}{d\eta}\right] 
 &+ \left(-A - \frac{2R\eta}{a_0} - \frac{m^2}{1-\eta^2} + R^2E(1-\eta^2)\right)M = 0,
 \end{aligned}
-$$
+$${#eq-h2plusdgl}
 
 where $A$ is the **separation constant** introduced during the variable decoupling. 
 These two coupled ordinary differential equations must be solved **simultaneously** for both $A$ and $E$, typically requiring **numerical methods** or **variational approximations**.
@@ -399,9 +399,147 @@ This geometric and algebraic harmony is why **prolate spheroidal coordinates** a
 
 ---
 
-# 4. The Energy Eigenvalues
+# 4. Angular Momentum and Reflection Symmetries in H$_2^+$
 
-While we will not attempt to solve the coupled differential equations explicitly here, we can discuss the structure and qualitative behavior of the energy eigenvalues.
+In the hydrogen atom, the potential depends only on the radial distance $r$, so the Hamiltonian commutes with both $\hat{L}^2$ and $\hat{L}_z$.
+This implies full **rotational symmetry** and allows eigenstates to be labeled by the quantum numbers $(\ell, m)$ of total and projected orbital angular momentum.
+
+For the hydrogen molecular ion H$_2^+$, this symmetry is **partially broken**. 
+The potential
+$$
+V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}\right)
+$$
+depends on the distances to **two fixed nuclei**, not on the total radius $r = |\vec{r}|$ from a single center. 
+As a result, the Hamiltonian is not spherically symmetric but only **axially symmetric** about the internuclear axis (the $z$-axis).
+
+---
+
+## 4.1 Loss of Spherical Symmetry
+
+Mathematically, this means that the total orbital angular momentum operator
+$$
+\hat{L}^2 = -\hbar^2\!\left[
+\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}
+\!\left(\sin\theta \frac{\partial}{\partial\theta}\right)
++ \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}
+\right]
+$$
+**does not commute** with the Hamiltonian:
+$$
+[\hat{H}_e, \hat{L}^2] \neq 0.
+$$
+A simple way to see this is to note that $\hat{L}^2$ generates *any* rotation, whereas the potential is invariant only under **rotations about the $z$-axis**. 
+By **Noether’s theorem**, conservation of a component of angular momentum corresponds to a rotational symmetry. 
+Because the potential loses full spherical symmetry but retains axial symmetry, only **the $z$-component of angular momentum** remains conserved.
+
+---
+
+## 4.2 The Conserved Component $\hat{L}_z$
+
+The $z$-component operator is
+$$
+\hat{L}_z = -i\hbar\frac{\partial}{\partial\phi}.
+$$
+Since $V(\vec{r})$ does not depend on the azimuthal angle $\phi$, we have
+$$
+[\hat{H}_e, \hat{L}_z] = 0.
+$$
+Therefore, the eigenfunctions of the Hamiltonian can be chosen to be **simultaneous eigenfunctions of** $\hat{L}_z$, with eigenvalue
+$$
+\hat{L}_z \psi = \hbar \lambda \psi.
+$$
+
+The corresponding azimuthal dependence is
+$$
+\Phi(\phi) = e^{i\lambda \phi}.
+$$
+Because the potential of H$_2^+$ is invariant under reflection through any plane containing the molecular axis, the states with $\lambda$ and $-\lambda$ are **physically equivalent** and **degenerate**. 
+Hence, it is conventional to define $\lambda$ as a **non-negative integer**:
+$$
+\lambda = 0, 1, 2, \ldots
+$$
+Only the absolute value of the angular momentum projection has physical meaning for this system.
+
+::: {.callout-note collapse="true"}
+### Why $+\lambda$ and $-\lambda$ are equivalent
+
+In H$_2^+$, the electron moves in a potential that is **symmetric around the molecular axis**. This means that “rotating clockwise” around the axis looks just like “rotating counterclockwise” if you flip the view in a mirror plane that contains the axis.  
+
+- The quantum number $\lambda$ tells us how much the electron is “twisting” around the axis.  
+- Flipping the twist from clockwise to counterclockwise just produces a **mirror image**, which is physically the same.  
+- That’s why states with $+\lambda$ and $-\lambda$ have the same energy — they are **degenerate**.  
+
+💡 Note: Angular momentum is a **pseudovector**. This is why its behavior under reflections is a bit unusual: some reflections flip it, some don’t. Here, the mirror plane containing the axis flips the twist, giving the $\pm\lambda$ equivalence.
+:::
+
+
+---
+
+## 4.3 Molecular Angular Momentum Labels
+
+The quantum number $\lambda$ specifies the **magnitude** of the orbital angular momentum projection along the internuclear axis.  
+Since $\lambda \ge 0$ by convention, the total angular momentum quantum number $\ell$ no longer appears explicitly.
+
+Spectroscopically, the values of $\lambda$ are denoted by Greek letters:
+$$
+\begin{array}{c|c}
+\lambda & \text{Label} \\
+\hline
+0 & \sigma \\
+1 & \pi \\
+2 & \delta \\
+3 & \phi \\
+\vdots & \vdots
+\end{array}
+$$
+Thus, $\lambda = 0$ corresponds to a $\sigma$ state, $\lambda = 1$ to a $\pi$ state, and so on.  
+In this chapter we avoid using the symbol $\sigma$ to denote spin (Pauli matrices) to prevent confusion.
+
+
+---
+
+## 4.4 Including Electron Spin
+
+Each electronic state is further characterized by the **spin projection** quantum number $m_s = \pm \tfrac{1}{2}$. 
+The spin and orbital projections are often combined to describe the total angular momentum projection along the molecular axis
+$$
+\Omega = |\lambda + m_s|.
+$$
+For H$_2^+$, which has only one electron, this simply distinguishes spin-up and spin-down components for each orbital state.
+
+---
+
+## 4.5 Reflection symmetry along the midplane (gerade/ungerade)
+
+Another important symmetry in H$_2^+$ comes from reflecting the electron across the **plane halfway between the two nuclei** (perpendicular to the molecular axis).  
+
+- This reflection does **not** change the electron's twist around the axis, so it does **not** affect $\lambda$.  
+- However, it does produce **two types of states**:
+  - **Gerade (g)**: symmetric under the reflection (wavefunction stays the same).  
+  - **Ungerade (u)**: antisymmetric under the reflection (wavefunction changes sign).  
+
+This classification will become useful when we label molecular orbitals. It explains, for example, why some states have a **node at the center** of the molecule while others do not.
+
+---
+
+### Summary
+
+- The H$_2^+$ Hamiltonian is **not spherically symmetric**, so total $L$ is not conserved.  
+- The system remains **axially symmetric**, so $L_z$ *is* conserved.  
+- Molecular states are labeled by the quantum number $\lambda$ (orbital angular momentum projection) and spin projection $m_s$.  
+- The familiar spectroscopic notation ($\sigma$, $\pi$, $\delta$, …) reflects the value of $|\lambda|$.
+
+This framework connects directly to the structure of the **potential energy curves** discussed in the next section.
+
+---
+
+
+
+
+
+# 5. The Energy Eigenvalues
+
+While we will not attempt to solve the coupled differential equations ([-@eq-h2plusdgl]) explicitly here, we can discuss the structure and qualitative behavior of the energy eigenvalues.
 
 Just as in the **atomic hydrogen** problem, the stationary Schrödinger equation admits only **discrete eigenvalues** for bound electronic states. These discrete levels arise because the wavefunction must remain finite and single-valued—boundary conditions that can only be satisfied for specific energy values.
 
@@ -490,6 +628,8 @@ plt.show()
 At small internuclear separations ($R \to 0$), the two nuclei strongly repel each other, and all electronic energies rise steeply. 
 At large separations ($R \to \infty$), each curve asymptotically approaches the energy of a hydrogen atom plus a free proton.
 
-Only the lowest curve, corresponding to the $1\sigma_g$ state, exhibits a **potential minimum**—signifying a bound molecular ion. 
-The excited states ($1\sigma_u$, $2\sigma_g$, $2\sigma_u$) are either weakly bound or entirely repulsive, describing unbound or metastable electronic configurations.
+Only the lowest curve, corresponding to the $1s\sigma_g$ state, exhibits a **potential minimum**—signifying a bound molecular ion. 
+The excited states ($2p\sigma_u$, $2p\pi_u$, $3d\pi_g$) are either weakly bound or entirely repulsive, describing unbound molecular states.
+
+
 
