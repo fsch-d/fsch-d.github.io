@@ -71,6 +71,7 @@ website:
       - section: "Introduction into Molecular Physics"   
         contents:
           - mod7/h2plus.qmd
+          - mod7/lcao.qmd
 
 
 #      - section: advanced.qmd

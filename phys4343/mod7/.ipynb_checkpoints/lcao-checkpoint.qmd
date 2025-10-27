@@ -5,176 +5,641 @@ author: Daniel Fischer
 
 # Introduction
 
-Molecular orbitals (MOs) are central to understanding chemical bonding, spectroscopy, and reactivity in molecules. The **Linear Combination of Atomic Orbitals (LCAO)** method provides a simple yet powerful way to construct MOs by combining atomic orbitals (AOs) from individual atoms.  
+Molecular orbitals (MOs) provide a framework for understanding **how atoms combine to form molecules**, influencing chemical bonding, spectroscopy, and reactivity. The **Linear Combination of Atomic Orbitals (LCAO)** method offers a simple and intuitive way to construct MOs by combining atomic orbitals (AOs) from individual atoms.  
 
-The H$_2^+$ molecular ion is the simplest conceivable molecule: a single electron moving in the field of two protons. Despite its simplicity, it illustrates key concepts of bonding, symmetry, and energy splitting, making it an ideal example for introducing the LCAO method.
+The H$_2^+$ molecular ion—consisting of a single electron in the field of two protons—is the simplest molecule to study. Despite its simplicity, it illustrates key concepts of bonding, symmetry, and energy splitting, making it an ideal example for introducing the LCAO method.
 
----
+### Goals of this Chapter
 
-# 1. Conceptual Overview of LCAO
+By the end of this chapter, you should be able to:
 
-The general idea of LCAO is to approximate a molecular wavefunction as a linear combination of atomic orbitals:
+1. Explain the **LCAO method** and how it transforms the Schrödinger equation into a solvable matrix problem.  
+2. Distinguish **bonding** and **antibonding** molecular orbitals and relate them to constructive and destructive interference of atomic orbitals.  
+3. Understand the role of **symmetry** ($\sigma$, $\pi$, $\delta$; g/u labels) in classifying molecular orbitals.  
+4. Analyze the H$_2^+$ molecular ion as a concrete example, including **1D wavefunctions, electron density, and potential energy curves**.  
+5. Appreciate the **limitations of the simplest LCAO approximation** and how electron density distribution determines bonding strength.
 
-$$
-|\Phi_0\rangle = \sum_i c_i |\phi_i\rangle
-$$
-
-where:  
-- $|\Phi_0\rangle$ is a molecular orbital (MO)  
-- $|\phi_i\rangle$ are atomic orbitals (AOs) from constituent atoms  
-- $c_i$ are coefficients chosen to **minimize the total electronic energy** (variational principle)
-
-Key quantities in the LCAO approach:  
-- **Overlap integral:**  
-  $$
-  S_{AB} = \langle \phi_A | \phi_B \rangle
-  $$  
-  Measures how much the orbitals of two atoms overlap.  
-- **Resonance integral:**  
-  $$
-  H_{AB} = \langle \phi_A | \hat{H} | \phi_B \rangle
-  $$  
-  Describes the interaction energy between orbitals on different atoms.  
-
-By optimizing the coefficients $c_i$, we can construct **bonding** and **anti-bonding** molecular orbitals.
+This chapter combines **analytical derivations, graphical visualizations, and qualitative reasoning** to build both conceptual and practical understanding of molecular orbitals.
 
 ---
 
-# 2. H$_2^+$ Molecular Ion
+# 1. Conceptual Overview of the Linear Combination of Atomic Orbitals (LCAO)
 
-For H$_2^+$, there is a single electron and two protons located at positions $\vec{R}_A$ and $\vec{R}_B$ (internuclear vector $\vec{R} = \vec{R}_B - \vec{R}_A$).  
-
-The relevant atomic orbitals are 1s hydrogen orbitals:
+The central idea of the **Linear Combination of Atomic Orbitals (LCAO)** method is that molecular orbitals can be expressed as a linear combination of atomic orbitals from the constituent atoms. 
+For a diatomic molecule, for instance, we might write
 
 $$
-\phi_A(\vec{r}_A) = \frac{1}{\sqrt{\pi a_0^3}} e^{-r_A/a_0}, \quad
-\phi_B(\vec{r}_B) = \frac{1}{\sqrt{\pi a_0^3}} e^{-r_B/a_0}
+\Phi = c_A \phi_A + c_B \phi_B,
 $$
 
-with $\vec{r}_A = \vec{r} - \vec{R}_A$ and $\vec{r}_B = \vec{r} - \vec{R}_B$.
+where $\phi_A$ and $\phi_B$ are atomic orbitals centered on nuclei $A$ and $B$, and $c_A$, $c_B$ are the corresponding coefficients.
 
-The molecular orbital is a linear combination:
+The idea is simple but powerful: we assume that the true molecular wavefunction can be represented as a combination of known basis functions.
+This transforms the Schrödinger equation from a complicated differential equation into a **set of algebraic equations** for the coefficients $c_A$, $c_B$, etc.
+
+---
+
+## 1.1 From the Variational Principle to the Secular Equation
+
+You have already encountered the [**Ritz variational principle**](../mod2/variational.qmd#sec-ritz){target=_blank}, which states that the best approximate energy within a chosen trial space minimizes the expectation value of the Hamiltonian:
+
+$$
+E = \frac{\langle \Phi | \hat{H} | \Phi \rangle}{\langle \Phi | \Phi \rangle}.
+$$
+
+If we substitute our LCAO form of $\Phi$ and take partial derivatives with respect to the coefficients, we obtain a set of linear equations:
+
+$$
+\sum_j (H_{ij} - E S_{ij}) c_j = 0,
+$$
+
+where
+
+- $H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle$ are **Hamiltonian matrix elements**,  
+- $S_{ij} = \langle \phi_i | \phi_j \rangle$ are **overlap integrals**, and  
+- $c_j$ are the coefficients to be determined.
+
+This is called the **secular equation**.  
+In matrix form, it can be written compactly as
+
+$$
+\mathbf{H} \vec{c} = E\, \mathbf{S} \vec{c}.
+$$
+
+This is a **generalized eigenvalue problem**.  
+For each eigenvalue $E_n$, there is a corresponding eigenvector $\vec{c}_n$ that gives the coefficients of the $n$-th molecular orbital.
+
+
+
+:::{.callout-note}
+In practice, solving the secular (or Roothaan) equations is just solving a set of coupled linear equations for the coefficients $c_j$. 
+This is why matrix methods play such a central role in modern quantum chemistry.
+:::
+
+---
+
+# 2. The H$_2^+$ Molecular Ion
+
+The H$_2^+$ ion is the simplest possible molecule: two protons and one electron.  
+This one-electron system is ideal to study bonding from first principles.
+
+---
+
+## 2.1 Atomic Orbitals
+
+For each hydrogen nucleus, we use the 1s atomic orbital:
+
+$$
+\phi_A(\vec{r}_A) = \frac{1}{\sqrt{\pi a_0^3}} e^{-r_A / a_0}, \quad
+\phi_B(\vec{r}_B) = \frac{1}{\sqrt{\pi a_0^3}} e^{-r_B / a_0}
+$$
+
+The total molecular orbital is written as a superposition:
 
 $$
 \Phi(\vec{r}) = c_1 \phi_A(\vec{r}_A) + c_2 \phi_B(\vec{r}_B)
 $$
 
----
-
-## 2.1 Normalization
-
-The MO must satisfy $\langle \Phi | \Phi \rangle = 1$:
-
-$$
-\langle \Phi | \Phi \rangle = c_1^2 \langle \phi_A | \phi_A \rangle + c_2^2 \langle \phi_B | \phi_B \rangle + 2 c_1 c_2 S_{AB} = 1
-$$
-
-Because of symmetry, $|c_1|^2 = |c_2|^2$, and the coefficients can be chosen as:
-
-$$
-c_1 = \pm c_2
-$$
-
-The **plus sign** gives the **symmetric (bonding) orbital**, the **minus sign** gives the **antisymmetric (anti-bonding) orbital**.
+with $\vec{r}_A = \vec{r} + \frac{\vec{R}}{2}$ and $\vec{r}_B = \vec{r} - \frac{\vec{R}}{2}$, where $\vec{R}$ is the internuclear vector.
 
 ---
 
-## 2.2 Symmetric and Antisymmetric Molecular Orbitals
+## 2.2 Normalization
 
-Normalized MOs:
+The normalization condition reads:
 
 $$
-\Phi_s = \frac{\phi_A + \phi_B}{\sqrt{2 + 2 S_{AB}}}, \quad
-\Phi_a = \frac{\phi_A - \phi_B}{\sqrt{2 - 2 S_{AB}}}
+\langle \Phi | \Phi \rangle = c_1^2 + c_2^2 + 2c_1c_2 S_{AB} = 1
 $$
 
-- **$\Phi_s$ (bonding):** Constructive interference between AOs, increased electron density between nuclei  
-- **$\Phi_a$ (anti-bonding):** Destructive interference, node between nuclei
+where $S_{AB} = \langle \phi_A | \phi_B \rangle$ is the overlap integral.
 
-**Diagram suggestion:** Show electron density along internuclear axis: peak for $\Phi_s$, node for $\Phi_a$.
+Because the system is symmetric, $|c_1| = |c_2|$, and the normalized symmetric and antisymmetric molecular orbitals are:
+
+$$
+|\Phi_g\rangle = \frac{1}{\sqrt{2 + 2S_{AB}}} (|\phi_A\rangle + |\phi_B\rangle)
+$$
+
+$$
+|\Phi_u\rangle = \frac{1}{\sqrt{2 - 2S_{AB}}} (|\phi_A\rangle - |\phi_B\rangle)
+$$
+
+The subscripts $g$ (gerade) and $u$ (ungerade) refer to **inversion symmetry**:  
+- $\Phi_g$ is symmetric (even) under inversion through the midpoint  
+- $\Phi_u$ is antisymmetric (odd)  
+
+The figure shows one-dimensional slices through the molecular orbitals of H$_2^+$ along the internuclear axis. The two vertical dashed lines mark the positions of the nuclei A and B.  
+
+The red curves correspond to the **bonding** (symmetric or gerade) combination of $1s$ wave functions:  
+- The solid red line shows the probability density $|\Phi_g|^2$, which has a pronounced maximum between the nuclei.   
+- The dotted red line shows the corresponding wave function $\Phi_g$, which has the same sign across the whole region between A and B (constructive interference).
+
+The blue curves correspond to the **antibonding** (antisymmetric or ungerade) combination of $1s$ wave functions:  
+- The solid blue line shows $|\Phi_u|^2$, which has a node (zero probability density) midway between the nuclei.   
+- The dotted blue line shows $\Phi_u$, which changes sign at the midpoint (destructive interference).  
+
+This visual comparison highlights how constructive overlap in the bonding orbital increases electron density between the nuclei—leading to attraction and molecular stability—whereas destructive overlap in the antibonding orbital produces a node and repulsion.
+
+
+```{python}
+#| fig-alt: One-dimensional plot showing bonding and antibonding molecular orbitals of H$_2^+$. Two vertical dashed lines mark nuclei A and B. The red bonding curve has no node and higher electron density between the nuclei; the blue antibonding curve has a central node and low density between nuclei.
+#| fig-align: center
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+# parameters (atomic units)
+a0 = 1.0
+R = 2.0  # internuclear separation in Bohr radii
+x = np.linspace(-5, 5, 400)
+
+# hydrogenic 1s orbital centered at ±R/2
+phi_A = np.exp(-np.abs(x + R/2) / a0)
+phi_B = np.exp(-np.abs(x - R/2) / a0)
+
+# normalize roughly for comparison (1D projection only)
+phi_A /= np.sqrt(np.trapz(phi_A**2, x))
+phi_B /= np.sqrt(np.trapz(phi_B**2, x))
+
+# bonding (sigma_g) and antibonding (sigma_u) combinations
+phi_g = (phi_A + phi_B) / np.sqrt(2)
+phi_u = (phi_A - phi_B) / np.sqrt(2)
+
+# probability densities
+rho_g = phi_g**2
+rho_u = phi_u**2
+
+rho_g /= np.mean(rho_g)
+rho_u /= np.mean(rho_u)
+
+y_ticks = [-7.5, -5, -2.5, 0, 2.5, 5, 7.5]
+
+plt.figure(figsize=(7,4))
+plt.yticks(y_ticks, ['', '', '', '0', '', '', ''])
+plt.plot(x, 9*phi_g, label=r'$\Phi_s$ (bonding)', lw=1, ls=':', color='r')
+plt.plot(x, 15*phi_u, label=r'$\Phi_u$ (antibonding)', lw=1, ls=':', color='b')
+plt.plot(x, rho_g, label=r'$|\Phi_s|^2$ (bonding)', lw=2, color='r')
+plt.plot(x, rho_u, label=r'$|\Phi_u|^2$ (antibonding)', lw=2, color='b')
+plt.axvline(-R/2, color='k', ls='--', lw=1)
+plt.axvline(R/2, color='k', ls='--', lw=1)
+plt.axhline(0, color='k', lw=1)
+plt.text(-R/2-0.3, 0.02, 'A', ha='right', fontsize=12)
+plt.text(R/2+0.3, 0.02, 'B', ha='left', fontsize=12)
+#plt.title(r'Electron Density along Internuclear Axis (H$_2^+$)')
+plt.xlabel('$R$  (a.u.)')
+#plt.ylabel(r'|$\Phi(x)$|$^2$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
 
 ---
 
-## 2.3 Energy Expressions
+## 2.3 Energies
 
-Electronic energies can be approximated using the **variational principle**:
+The energies of these molecular orbitals are:
 
 $$
-E_s(R) = \frac{H_{AA} + H_{AB}}{1 + S_{AB}}, \quad
-E_a(R) = \frac{H_{AA} - H_{AB}}{1 - S_{AB}}
+E_g(R) = \frac{H_{AA} + H_{AB}}{1 + S_{AB}}, \qquad
+E_u(R) = \frac{H_{AA} - H_{AB}}{1 - S_{AB}}
 $$
 
-where:
-
+with:
 $$
 H_{AA} = \langle \phi_A | \hat{H} | \phi_A \rangle, \quad
 H_{AB} = \langle \phi_A | \hat{H} | \phi_B \rangle
 $$
 
-Notes:  
-- $S_{AB}$ decreases with increasing $R$, so at large $R$, $E_s \approx E_a \approx H_{AA}$ (isolated atom energy).  
-- $H_{AB}$ is the **resonance integral**, responsible for bonding/anti-bonding splitting.
+Typically, $H_{AB} < 0$, so $E_g < E_u$.  
+The symmetric (gerade) combination therefore has lower energy — it is a **bonding orbital**.
+
+The potential energy curves for H$_2^+$ show that:  
+- $E_g(R)$ has a **minimum** at an equilibrium distance $R_e \approx 2 a_0$  
+- $E_u(R)$ is purely **repulsive**
+
+The plot shows the potential energy curves of the hydrogen molecular ion H$_2^+$ as a function of internuclear distance $R$.  
+
+The **blue solid curve** corresponds to the bonding molecular orbital ($1s\sigma_g$), which has **gerade** (symmetric) parity. 
+The **red dashed curve** corresponds to the antibonding orbital ($1s\sigma_u$), which has **ungerade** (antisymmetric) parity.  
+
+- The bonding curve ($E_g$) exhibits a **minimum** near $R \approx 2.5\,a_0$, corresponding to the most stable (bound) configuration of the molecule.  
+- The antibonding curve ($E_u$) is purely **repulsive**, meaning that no stable molecular state exists for this symmetry.  
+- The gray dashed line marks the dissociation limit, representing a separated hydrogen atom and proton ($H + H^+$) with a total energy of $-0.5$ Hartree — the ground-state energy of atomic hydrogen.  
+
+This figure illustrates that the symmetric combination of atomic orbitals leads to a lower energy and hence molecular binding, whereas the antisymmetric combination leads to repulsion.
+
+```{python}
+# label: fig-h2p-potentials
+# fig-cap: "Potential energy curves of H$_2^+$ calculated using the LCAO approximation with 1s atomic orbitals. The bonding ($1s\sigma_g$) orbital shows a minimum near $R \approx 2.5$ Bohr, while the antibonding ($1s\sigma_u$) orbital is repulsive."
+#| fig-align: center
+#| fig-alt: "Plot showing potential energy curves of H2+ versus internuclear distance R. A blue solid line (bonding) has a minimum at about 2.5 Bohr, and a red dashed line (antibonding) increases monotonically with R. Horizontal and vertical dashed lines mark the dissociation limit and equilibrium bond length."
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+# Define the analytical functions for the integrals
+def S(R):
+    """Overlap Integral"""
+    return np.exp(-R) * (1 + R + (1/3) * R**2)
+
+def J(R):
+    """Coulomb Integral"""
+    return np.exp(-2*R) * (1 + 1/R)
+
+def K(R):
+    """Resonance Integral"""
+    return (S(R)/R) - np.exp(-R) * (1 + R)
+
+# Define the potential energy curves based on LCAO approximation
+def E_gerade(R):
+    """Potential energy for the 1s sigma g (gerade) state"""
+    # Note: A small epsilon is added to avoid division by zero
+    return -0.5 + (J(R) + K(R)) / (1 + S(R))
+
+def E_ungerade(R):
+    """Potential energy for the 1s sigma u (ungerade) state"""
+    # Note: A small epsilon is added to avoid division by zero
+    return -0.5 + (J(R) - K(R)) / (1 - S(R))
+
+# Generate a range of internuclear distances (R)
+R_values = np.linspace(0.1, 10, 500)
+
+# Calculate the potential energies for each state
+E_g = E_gerade(R_values)
+E_u = E_ungerade(R_values)
+
+# Create the plot
+fig, ax = plt.subplots(figsize=(8, 6))
+
+# Plot the curves
+ax.plot(R_values, E_g, label=r'$\sigma_g(1s)$ (gerade)', color='blue')
+ax.plot(R_values, E_u, label=r'$\sigma_u(1s)$ (ungerade)', color='red', linestyle='--')
+
+# Add labels and title
+ax.set_xlabel('Internuclear Distance $R$ (Bohr)')
+ax.set_ylabel('Energy $E$ (Hartree)')
+#ax.set_title(r'Potential Energy Curves for $H_2^+$ (LCAO-MO)')
+ax.legend()
+ax.grid(True, linestyle=':', alpha=0.6)
+
+# Set the y-axis limits to focus on the key regions
+ax.set_ylim(-0.8, 0.4)
+ax.set_xlim(0, 10)
+
+# Highlight key features
+ax.axhline(y=-0.5, color='gray', linestyle='-.', linewidth=0.8, label='Dissociation Limit ($H + H^+$)')
+ax.axvline(x=2.5, color='gray', linestyle='-.', linewidth=0.8, label='Approx. Bond Length (2.5 Bohr)')
+ax.text(9.2, -0.46, r'H(1$s$) + H$^+$', ha='center', color='black')
+
+# Display the plot
+plt.show()
+```
+
+
+The LCAO approximation using **only 1s atomic orbitals** predicts an equilibrium distance of about **$R_e \approx 2.5\,a_0$**, whereas experimentally the true equilibrium is closer to **$R_e \approx 2.0\,a_0$** (roughly 1.06 Å).  
+
+This discrepancy arises because:  
+- The **1s atomic orbitals** are too compact and do not fully adapt to the presence of the second nucleus.  
+- The **LCAO model neglects orbital deformation**—in reality, the electron density distorts and elongates along the internuclear axis to enhance bonding.  
+- Correlation and polarization effects, ignored in the simple 1s-only model, slightly shorten the equilibrium bond length.  
+
+Despite its simplicity, the LCAO picture captures the **qualitative physics of bonding**: constructive interference leads to stabilization, and destructive interference leads to repulsion.
 
 ---
 
 ## 2.4 Qualitative Explanation of Bonding
 
-1. **Electron density between nuclei:** High density pulls nuclei together via Coulomb attraction.  
-   Diagram: $\underset{+}{\text{A}}$ — $(e^-)$ — $\underset{+}{\text{B}}$  
+So far, we have derived molecular orbitals (MOs) for H$_2^+$ using linear combinations of atomic orbitals (LCAO) and found that the **symmetric (gerade)** combination leads to a lower energy — a **bonding orbital** — while the **antisymmetric (ungerade)** combination leads to a higher energy — an **antibonding orbital**.  
+But *why* does combining two 1$s$ atomic orbitals in this way produce an energy difference? We can gain some qualitative insight by thinking in terms of **electron density** and **kinetic energy**.
 
-2. **Kinetic energy reduction:** The MO spreads out more than individual AOs; narrower momentum distribution $\Rightarrow$ lower kinetic energy (Heisenberg uncertainty principle).
+#### (1) Electron density between the nuclei
 
----
+In the bonding ($1s\sigma_g$) orbital, the wave functions from atoms A and B add **constructively** between the nuclei. This increases the **electron density** in that region. Since the electron is negatively charged, it attracts both positively charged nuclei. The result is a **net Coulomb attraction** that pulls the nuclei closer together.
 
-## 2.5 Energy Diagram
-
-```
-E
-│  ╲
-│   ╲ E_a (anti-bonding)
-│    ╲___
-│        
-│─────────→ E_s (bonding)
-│    ╱
-│   ╱
-│  ╱
-└────────────→ R
-
-Re = equilibrium distance
-```
-
-- Minimum of $E_s(R)$ gives **bond length** and **binding energy**.  
-- $E_a(R)$ is always above the separated-atom limit (non-binding).
-
----
-
-## 2.6 Limitations of LCAO
-
-- Single AO per atom is **crude**, especially at short $R$.  
-- Predicts $E(R\to 0) \simeq -3 E_H$ instead of correct helium-like limit.  
-- Corrections: include **variationally optimized orbitals**, multi-center orbitals, or Gaussian basis sets.
-
----
-
-## 2.7 Possible Improvement via Variational Parameters
-
-We can deform orbitals along internuclear axis:
+You can picture it like this:
 
 $$
-\phi_A = C (1 + \lambda z) e^{-\eta(R) r_A / a_0}
+\underset{+}{\text{A}} \; — \; (e^-) \; — \; \underset{+}{\text{B}}
 $$
 
-- $\lambda$ adjusts orbital asymmetry along $z$  
-- $\eta(R)$ tunes orbital width with $R$  
+The electron acts like a “glue” that holds the two protons together.  
+In contrast, in the antibonding ($1s\sigma_u$) orbital, the wave functions **cancel** between the nuclei (there’s a node), so the electron density in that region is *depleted*. Without electron density between the nuclei, there is no attractive “bridge,” and the repulsive nuclear–nuclear force dominates — resulting in a repulsive potential curve.
 
-Variational optimization of $\lambda$ and $\eta(R)$ improves bond energies and electron densities.
+#### (2) Kinetic energy reduction
+
+The bonding orbital is also **more spread out** than a single atomic orbital. Because of the Heisenberg uncertainty principle,
+
+$$
+\Delta x \, \Delta p \ge \frac{\hbar}{2},
+$$
+
+a more extended wave function (larger $\Delta x$) corresponds to a smaller spread in momentum (smaller $\Delta p$). This means the **kinetic energy**, which depends on $p^2$, is slightly **reduced** in the bonding combination.  
+Thus, the stabilization of the bonding orbital arises from both:
+- **Lower potential energy** (more electron density between nuclei), and  
+- **Lower kinetic energy** (broader, smoother wave function).  
+
+Together, these effects explain why $E_g < E_u$ and why the bonding orbital leads to a stable molecule.
+
+::: {.callout-tip}
+### Takeaways  
+
+- Bonding orbitals: **constructive overlap** between nuclei → increased electron density → attraction.  
+- Antibonding orbitals: **node between nuclei** → reduced density → repulsion.  
+- The **location** of constructive interference is key for bonding; constructive overlap outside the internuclear region may **not contribute to bond formation**.
+:::
+
+---
+
+# 3. Molecular Symmetry and Orbital Classification
+
+We have already encountered the essential ideas of molecular orbital symmetry in the context of the [H$_2^+$ molecular ion](h2plus.qmd){target=_blank}. 
+Here, we revisit these ideas more systematically and extend them to include orbitals formed from 2$p$ atomic orbitals.
+
+Diatomic molecular orbitals can be classified by their **symmetry**:
+
+- The symbol $\sigma$ denotes orbitals with zero angular momentum projection along the internuclear axis ($\Lambda = 0$).  
+- $\pi$ orbitals have $\Lambda = 1$, and $\delta$ orbitals have $\Lambda = 2$.  
+- The subscripts **g/u** indicate the parity under inversion through the molecular center:
+  - **g (gerade):** even parity → $\Phi(\vec{r}) = +\Phi(-\vec{r})$  
+  - **u (ungerade):** odd parity → $\Phi(\vec{r}) = -\Phi(-\vec{r})$  
+
+For homonuclear diatomic molecules, these symmetry labels combine with the type of atomic orbital to classify the resulting molecular orbital (MO):
+
+| Atomic orbitals combined | Molecular orbital | Type        | Parity   |
+|---------------------------|------------------|-------------|----------|
+| 1s + 1s                  | $\sigma_g(1s)$        | bonding     | gerade   |
+| 1s – 1s                  | $\sigma_u(1s)$        | antibonding | ungerade |
+| $2p_z + 2p_z$          | $\sigma_g(2p)$        | bonding     | gerade   |
+| $2p_x \pm 2p_x$, $2p_y \pm 2p_y$ | $\pi_u(2p)$, $\pi_g(2p)$ | bonding / antibonding | varies |
+
+
+```{python}
+#| fig-alt: Visualization of bonding and antibonding molecular orbitals (σg, σu, πu, πg) constructed from 1s and 2p atomic orbitals. 
+#|          Red and blue regions indicate opposite phases (positive and negative values) of the wavefunction. 
+#|          In bonding orbitals, wavefunctions add constructively between the nuclei; in antibonding orbitals, a node appears between them.
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from scipy.special import erfc # Import the error function complement
+
+# --- Universal Parameters and Grid ---
+a0 = 1.0
+x = np.linspace(-10, 10, 300)
+z = np.linspace(-10, 10, 300)
+X, Z = np.meshgrid(x, z)
+
+# --- Figure Setup ---
+# 6 rows (one for each MO) and 3 columns (AO_A, AO_B, MO)
+fig, axes = plt.subplots(6, 3, figsize=(7.5, 14), gridspec_kw={'width_ratios': [1, 1, 1.4]})
+plt.rcParams.update({'font.size': 10}) # Adjust font size for more rows
+#fig.suptitle(r'$\mathbf{H}_2^+$ Molecular Orbitals from LCAO', fontsize=16, y=0.985)
+
+# Define separate levels for 1s and 2p to ensure good contour detail in each case
+levels_1s = np.linspace(-1.0, 1.0, 140)
+# Max magnitude for 2p_sigma is around 0.35, for 2p_pi (using Z component) it's similar
+levels_2p = np.linspace(-0.8, 0.8, 140)
+
+# --- Helper Function to Plot a Row ---
+def plot_mo_row(row_idx, ax_row, R, phiA, phiB, phi_MO, levels_AO, levels_MO, mo_label, op_label, AO_B_plot_sign, AO_limits, MO_limits):
+    """Plots a single row of AO_A, AO_B, and MO."""
+
+    # Coordinates for Nuclei
+    rA_coords = (-R / 2, 0)
+    rB_coords = (R / 2, 0)
+    nuclei_coords = [rA_coords, rB_coords]
+
+    # --- Column 1: Atomic Orbital A (phiA) ---
+    ax_row[0].contourf(X, Z, -phiA, levels=levels_AO, cmap='bwr')
+    ax_row[0].scatter([0], [rA_coords[1]], color='k', s=30)
+    ax_row[0].set_aspect('equal')
+    ax_row[0].set_xlim(AO_limits[0])
+    ax_row[0].set_ylim(AO_limits[1])
+    ax_row[0].set_xticks([])
+    ax_row[0].set_yticks([])
+    for spine in ax_row[0].spines.values():
+        spine.set_visible(False)
+    if row_idx == 0:
+        ax_row[0].set_title(r'AO ($\phi_A$)', fontsize=14)
+
+    # --- Column 2: Atomic Orbital B (phiB) ---
+    ax_row[1].contourf(X, Z, AO_B_plot_sign * phiB, levels=levels_AO, cmap='bwr')
+    ax_row[1].scatter([0], [rB_coords[1]], color='k', s=30)
+    ax_row[1].set_aspect('equal')
+    ax_row[1].set_xlim(AO_limits[0])
+    ax_row[1].set_ylim(AO_limits[1])
+    ax_row[1].set_xticks([])
+    ax_row[1].set_yticks([])
+    for spine in ax_row[1].spines.values():
+        spine.set_visible(False)
+    if row_idx == 0:
+        ax_row[1].set_title(r'AO ($\phi_B$)', fontsize=14)
+
+    # --- Column 3: Molecular Orbital (phi_MO) ---
+    ax_row[2].contourf(X, Z, -phi_MO, levels=levels_MO, cmap='bwr')
+    ax_row[2].scatter([n[0] for n in nuclei_coords], [n[1] for n in nuclei_coords], color='k', s=30)
+    ax_row[2].set_aspect('equal')
+    ax_row[2].set_xlim(MO_limits[0])
+    ax_row[2].set_ylim(MO_limits[1])
+    ax_row[2].set_xticks([])
+    ax_row[2].set_yticks([])
+    for spine in ax_row[2].spines.values():
+        spine.set_visible(False)
+
+    # Add MO label to the right
+    ax_row[2].text(MO_limits[0][1] + 1.0, 0, mo_label, fontsize=16, ha='left', va='center') #, bbox=dict(boxstyle="round,pad=0.5", fc="white", alpha=0.6))
+    if row_idx == 0:
+        ax_row[2].set_title(r'MO ($\Phi_{\mathrm{MO}}$)', fontsize=14)
+
+    # Add operation signs to the figure
+    # Calculate the normalized y position for the center of the current row
+    # The figure has 6 rows.
+    row_center_y_norm = 0.85 - (row_idx) / 6.5
+    
+    # + or - sign
+    fig.text(0.275, row_center_y_norm,
+             op_label, fontsize=30, ha='center', va='center')
+    # = sign
+    fig.text(0.56, row_center_y_norm,
+             r'$=$', fontsize=30, ha='center', va='center')
+
+# --- 1. $\sigma_g(1s)$: Bonding MO (R=2.0) ---
+R1 = 2.0
+rA1 = np.sqrt((X + R1 / 2) ** 2 + Z**2)
+rB1 = np.sqrt((X - R1 / 2) ** 2 + Z**2)
+rC1 = np.sqrt(X ** 2 + Z**2)
+phi1sA = np.exp(-rA1 / a0)
+phi1sB = np.exp(-rB1 / a0)
+phi1s = np.exp(-rC1 / a0)
+phi_g1s = phi1sA + phi1sB
+AO_limits_1s = (-5.5, 5.5), (-5, 5)
+MO_limits_1s = (-7, 7), (-5, 5)
+
+plot_mo_row(
+    0, axes[0], R1, phi1s, phi1s, phi_g1s,
+    levels_1s, levels_1s,
+    r'$\sigma_{g}(1s)$', r'$+$', -1,
+    AO_limits_1s, MO_limits_1s
+)
+
+# --- 2. $\sigma_u^\ast(1s)$: Antibonding MO (R=2.0) ---
+phi_u1s = phi1sA - phi1sB
+
+plot_mo_row(
+    1, axes[1], R1, phi1s, phi1s, phi_u1s,
+    levels_1s, levels_1s,
+    r'$\sigma_{u}(1s)$', r'$+$', 1,
+    AO_limits_1s, MO_limits_1s
+)
+
+# --- 3. $\sigma_g(2p)$: Bonding MO (R=3.0) ---
+R2 = 3.0
+rA2 = np.sqrt((X + R2/2)**2 + Z**2)
+rB2 = np.sqrt((X - R2/2)**2 + Z**2)
+
+# --- FADE WEIGHTING (The "Cheat") ---
+rC2 = np.sqrt(X**2 + Z**2)
+fade_radius = 8.5 # The radius where the MO should be fully faded
+fade_sharpness = 0.8 # Controls the steepness of the fade (2.0 is smooth)
+weight = 0.5 * erfc(fade_sharpness * (rC2 - fade_radius))
+
+# $2p\sigma$ orbital (aligned along the internuclear x-axis): $\psi \propto x \cdot e^{-r/2}$
+phi2p_sigA = (X + R2/2) * np.exp(-rA2 / (2*a0))
+phi2p_sigB = (X - R2/2) * np.exp(-rB2 / (2*a0))
+phi2p_sig = (X) * np.exp(-rC2 / (2*a0))
+
+
+phi_g2p = phi2p_sigA + phi2p_sigB
+AO_limits_2p = (-10, 10), (-10, 10)
+MO_limits_2p = (-14, 14), (-10, 10)
+
+levels_2pmo = np.linspace(-np.max(np.abs(phi_g2p)), np.max(np.abs(phi_g2p)), 140)
+
+plot_mo_row(
+    3, axes[3], R2, phi2p_sig*weight, phi2p_sig*weight, phi_g2p*weight,
+    levels_2p, levels_2pmo,
+    r'$\sigma_{u}(2p)$', r'$+$', -1,
+    AO_limits_2p, MO_limits_2p
+)
+
+# --- 4. $\sigma_u^\ast(2p)$: Antibonding MO (R=3.0) ---
+phi_u2p = phi2p_sigA - phi2p_sigB
+
+levels_2pmo = np.linspace(-np.max(np.abs(phi_u2p)), np.max(np.abs(phi_u2p)), 140)
+
+plot_mo_row(
+    2, axes[2], R2, phi2p_sig*weight, phi2p_sig*weight, phi_u2p*weight,
+    levels_2p, levels_2pmo,
+    r'$\sigma_{g}(2p)$', r'$+$', 1,
+    AO_limits_2p, MO_limits_2p
+)
+
+# --- 5. $\pi_u(2p)$: Bonding MO (R=3.0) ---
+# For pi orbitals, we'll use the 2pz type orbitals, which have lobes along the z-axis (perpendicular to internuclear axis)
+# $\psi_{2p\pi} \propto z \cdot e^{-r/2}$
+phi2p_piA = Z * np.exp(-rA2 / (2*a0))
+phi2p_piB = Z * np.exp(-rB2 / (2*a0))
+phi2p_pi = Z * np.exp(-rC2 / (2*a0))
+
+phi_u2p_pi = phi2p_piA + phi2p_piB # This is pi_u (bonding) because combination adds constructively above/below the axis
+# Note the 'u' (ungerade) for bonding pi and 'g' (gerade) for antibonding pi, which is opposite to sigma.
+# This is due to the symmetry of the atomic orbitals themselves.
+
+levels_2pmo = np.linspace(-np.max(np.abs(phi_u2p_pi)), np.max(np.abs(phi_u2p_pi)), 140)
+
+
+plot_mo_row(
+    5, axes[5], R2, phi2p_pi*weight, phi2p_pi*weight, phi_u2p_pi*weight,
+    levels_2p, levels_2pmo,
+    r'$\pi_{u}(2p)$', r'$+$', -1, # Original code used -phiA and -phiMO, let's keep that visual consistency
+    AO_limits_2p, MO_limits_2p
+)
+
+# --- 6. $\pi_g^\ast(2p)$: Antibonding MO (R=3.0) ---
+phi_g2p_pi = phi2p_piA - phi2p_piB # This is pi_g_star (antibonding)
+levels_2pmo = np.linspace(-np.max(np.abs(phi_g2p_pi)), np.max(np.abs(phi_g2p_pi)), 140)
+plot_mo_row(
+    4, axes[4], R2, phi2p_pi*weight, phi2p_pi*weight, phi_g2p_pi*weight,
+    levels_2p, levels_2pmo,
+    r'$\pi_{g}(2p)$', r'$+$', 1,
+    AO_limits_2p, MO_limits_2p
+)
+
+
+# --- Final Adjustments ---
+# Label the columns once at the top
+#fig.text(0.12, 0.965, r'$\mathbf{\psi_A}$', fontsize=14, ha='center', va='center')
+#fig.text(0.40, 0.965, r'$\mathbf{\psi_B}$', fontsize=14, ha='center', va='center')
+#fig.text(0.74, 0.965, r'$\mathbf{\psi_{\mathrm{MO}} = \psi_A \pm \psi_B}$', fontsize=14, ha='center', va='center')
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.show()
+#plt.savefig('combined_molecular_orbitals_6rows.png')
+```
+
+### Interpretation of the Figure
+
+The figure above illustrates how atomic orbitals from atoms A and B combine to form molecular orbitals (MOs):
+
+- **Red** and **blue** regions represent **positive** and **negative** values of the wavefunction, respectively—these indicate opposite **phases** of the orbital.  
+- When orbitals from the two atoms **overlap constructively** (red meets red, or blue meets blue), the wavefunctions add up, increasing electron density in the overlap region.  
+- When they **overlap destructively** (red meets blue), the wavefunctions cancel, creating a **node** between the nuclei where the electron probability is nearly zero.  
+
+Whether this constructive or destructive interference leads to a **bonding** or **antibonding** orbital depends on **where** the overlap occurs. 
+If the increased electron density lies **between the nuclei**, it lowers the potential energy and forms a **bonding** orbital. 
+If the density is located **outside** the internuclear region—as in some π orbitals (e.g., the $2p\pi_u$ state of H$_2^+$)—the overlap is constructive but **does not strengthen the bond**.
+
+Thus, the color contrast in the figure visually encodes **phase interference**, but the *spatial location* of that interference determines whether it contributes to bonding or not.
+
+
+::: {.callout-note}
+### H$_2^+$ Antibonding Orbital: Two Naming Conventions
+
+The first antibonding state of H$_2^+$ is referred to as either **$\sigma_u(1s)$** or **$2p\sigma_u$**, depending on the labeling convention:
+
+**United Atom Convention ($2p\sigma_u$)**  
+- Labels orbitals according to the **united atom limit** (He$^+$).  
+- When the two protons merge, this antibonding orbital correlates with the **$2p$** orbital of He$^+$.  
+- Emphasizes behavior at **small internuclear separations**.  
+- Common in **spectroscopy** literature.  
+
+**Separated Atom Convention ($\sigma_u(1s)$)**  
+- Labels orbitals by the **atomic orbitals they originate from** in the separated atom limit.  
+- The antibonding orbital is constructed from two **$1s$** orbitals, one from each H atom.  
+- Emphasizes the **LCAO construction**.  
+- Common in **chemistry and introductory quantum mechanics**.  
+
+**Why Both Are Valid**  
+In the separated atom view:
+$$
+\Phi_g = 1s_A + 1s_B \quad \text{(bonding, 1sσ}_g\text{)}, \qquad
+\Phi_u = 1s_A - 1s_B \quad \text{(antibonding, 1sσ}_u\text{)}.
+$$
+
+As the nuclei approach, the antibonding combination develops a **node** and acquires **$p$-character**, correlating with a **$2p$** orbital in the united-atom picture. 
+Both conventions describe the *same orbital*—they simply emphasize **different physical limits**.
+:::
+
+
 
 ---
 
 # Key Takeaways
 
-- LCAO provides a **qualitative understanding** of molecular bonding and anti-bonding orbitals.  
-- H$_2^+$ illustrates **bond formation, energy splitting, and equilibrium bond length**.  
-- Symmetry simplifies normalization and coefficients.  
-- Quantitative accuracy requires **variational optimization** or larger basis sets.
+- The **LCAO method** converts the Schrödinger equation into a **matrix eigenvalue problem**, making MO energies and compositions computable.  
+- Constructive overlap of atomic orbitals **increases electron density**, while destructive overlap creates a **node**; whether this results in a bonding or antibonding orbital depends on **where the density is located relative to the nuclei**.  
+- For H$_2^+$:  
+  - The symmetric (gerade) combination of 1s orbitals forms a **bonding orbital**, stabilizing the molecule.  
+  - The antisymmetric (ungerade) combination forms an **antibonding orbital**, which is repulsive.  
+- Molecular symmetry ($\sigma$, $\pi$; g/u) helps classify orbitals and predict **selection rules** for spectroscopy.  
+- Simple 1s-only LCAO captures **qualitative bonding trends**, but more accurate results require **orbital deformation, polarization, and correlation**.  
 

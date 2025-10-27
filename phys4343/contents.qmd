@@ -63,6 +63,7 @@ This page provides an overview and links to all the sections of the website.
 ## Introduction into Molecular Physics  
 
 * [The H$_2^+$ Molecular Ion](mod7/h2plus.qmd)
+* [Molecular Orbitals and the LCAO Method](mod7/lcao.qmd)
 
 ---
 

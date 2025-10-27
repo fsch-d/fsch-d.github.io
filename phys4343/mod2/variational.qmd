@@ -171,7 +171,7 @@ Had we chosen a less perfect functional form, the result would still have been a
 
 
 
-# 2. Ritz’s Method
+# 2. Ritz’s Method {#sec-ritz}
 
 The **Ritz variational method** generalizes the basic variational principle into a systematic and computationally tractable form. 
 Instead of relying on a single trial function with a few adjustable parameters, it allows the wavefunction to be expressed as a *flexible linear combination* of simpler building blocks.
@@ -252,17 +252,17 @@ $$
 This is the **secular equation**, which in matrix form reads
 
 $$
-(H - E S)\, \mathbf{c} = 0.
+(\mathbf{H} - E \mathbf{S})\, \vec{c} = 0.
 $$
 
-Nontrivial solutions for $\mathbf{c}$ exist only if
+Nontrivial solutions for $\vec{c}$ exist only if
 
 $$
-\det(H - E S) = 0.
+\det(\mathbf{H} - E \mathbf{S}) = 0.
 $$
 
 The corresponding values of $E$ are the approximate energy eigenvalues, 
-and the vectors $\mathbf{c}$ give the expansion coefficients of the approximate eigenstates.
+and the vectors $\vec{c}$ give the expansion coefficients of the approximate eigenstates.
 
 ::: {.callout-note}
 ### Remark:  
@@ -280,17 +280,17 @@ If you are familiar with that formalism, you can verify that it leads to exactly
 The secular equation represents a **generalized eigenvalue problem**:
 
 $$
-H \mathbf{c} = E\, S \mathbf{c}.
+\mathbf{H} \vec{c} = E\, \mathbf{S} \vec{c}.
 $$
 
 If the basis $\{\phi_i\}$ is orthonormal, then $S = I$ and this reduces to the standard matrix eigenvalue equation:
 
 $$
-H \mathbf{c} = E \mathbf{c}.
+\mathbf{H} \vec{c} = E \vec{c}.
 $$
 
 In practice:  
-- $H$ and $S$ are finite-dimensional matrices.  
+- $\mathbf{H}$ and $\mathbf{S}$ are finite-dimensional matrices.  
 - Solving the secular equation corresponds to **diagonalizing the Hamiltonian matrix** in the chosen basis.  
 - The lowest eigenvalue gives the **best variational estimate** of the ground-state energy, and the higher ones approximate **excited states**.  
 
@@ -331,7 +331,7 @@ Together, these methods form the foundation of nearly all modern quantum-chemica
 |----------|----------|----------|
 | Variational energy | $\displaystyle \langle E \rangle = \frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle}$ | Always ≥ $E_0$ |
 | Minimization condition | $\displaystyle \frac{dE}{d\alpha}=0$ | Optimize parameters |
-| Ritz secular equation | $(H - ES)c = 0$ | Generalized eigenproblem |
+| Ritz secular equation | $(\mathbf{H} - E\mathbf{S})\vec{c} = 0$ | Generalized eigenproblem |
 
 ---
 

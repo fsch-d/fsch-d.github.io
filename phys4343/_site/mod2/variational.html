@@ -4296,6 +4296,12 @@ text-align: justify;
  <span class="menu-text">The H<span class="math inline">\(_2^+\)</span> Molecular Ion</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/lcao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Orbitals and the LCAO Method</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4322,7 +4328,7 @@ text-align: justify;
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">1.4 Summary</a></li>
   </ul></li>
-  <li><a href="#ritzs-method" id="toc-ritzs-method" class="nav-link" data-scroll-target="#ritzs-method">2. Ritz’s Method</a>
+  <li><a href="#sec-ritz" id="toc-sec-ritz" class="nav-link" data-scroll-target="#sec-ritz">2. Ritz’s Method</a>
   <ul class="collapse">
   <li><a href="#the-linear-variational-method" id="toc-the-linear-variational-method" class="nav-link" data-scroll-target="#the-linear-variational-method">2.1 The Linear Variational Method</a></li>
   <li><a href="#derivation-of-the-secular-equation" id="toc-derivation-of-the-secular-equation" class="nav-link" data-scroll-target="#derivation-of-the-secular-equation">2.2 Derivation of the Secular Equation</a></li>
@@ -4531,7 +4537,7 @@ E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
 <hr>
 </section>
 </section>
-<section id="ritzs-method" class="level1">
+<section id="sec-ritz" class="level1">
 <h1>2. Ritz’s Method</h1>
 <p>The <strong>Ritz variational method</strong> generalizes the basic variational principle into a systematic and computationally tractable form. Instead of relying on a single trial function with a few adjustable parameters, it allows the wavefunction to be expressed as a <em>flexible linear combination</em> of simpler building blocks.</p>
 <hr>
@@ -4589,13 +4595,13 @@ E\, \langle \psi | \psi \rangle
 \]</span></p>
 <p>This is the <strong>secular equation</strong>, which in matrix form reads</p>
 <p><span class="math display">\[
-(H - E S)\, \mathbf{c} = 0.
+(\mathbf{H} - E \mathbf{S})\, \vec{c} = 0.
 \]</span></p>
-<p>Nontrivial solutions for <span class="math inline">\(\mathbf{c}\)</span> exist only if</p>
+<p>Nontrivial solutions for <span class="math inline">\(\vec{c}\)</span> exist only if</p>
 <p><span class="math display">\[
-\det(H - E S) = 0.
+\det(\mathbf{H} - E \mathbf{S}) = 0.
 \]</span></p>
-<p>The corresponding values of <span class="math inline">\(E\)</span> are the approximate energy eigenvalues, and the vectors <span class="math inline">\(\mathbf{c}\)</span> give the expansion coefficients of the approximate eigenstates.</p>
+<p>The corresponding values of <span class="math inline">\(E\)</span> are the approximate energy eigenvalues, and the vectors <span class="math inline">\(\vec{c}\)</span> give the expansion coefficients of the approximate eigenstates.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4615,14 +4621,14 @@ E\, \langle \psi | \psi \rangle
 <h2 class="anchored" data-anchor-id="interpretation-and-computational-aspects">2.3 Interpretation and Computational Aspects</h2>
 <p>The secular equation represents a <strong>generalized eigenvalue problem</strong>:</p>
 <p><span class="math display">\[
-H \mathbf{c} = E\, S \mathbf{c}.
+\mathbf{H} \vec{c} = E\, \mathbf{S} \vec{c}.
 \]</span></p>
 <p>If the basis <span class="math inline">\(\{\phi_i\}\)</span> is orthonormal, then <span class="math inline">\(S = I\)</span> and this reduces to the standard matrix eigenvalue equation:</p>
 <p><span class="math display">\[
-H \mathbf{c} = E \mathbf{c}.
+\mathbf{H} \vec{c} = E \vec{c}.
 \]</span></p>
 <p>In practice:<br>
-- <span class="math inline">\(H\)</span> and <span class="math inline">\(S\)</span> are finite-dimensional matrices.<br>
+- <span class="math inline">\(\mathbf{H}\)</span> and <span class="math inline">\(\mathbf{S}\)</span> are finite-dimensional matrices.<br>
 - Solving the secular equation corresponds to <strong>diagonalizing the Hamiltonian matrix</strong> in the chosen basis.<br>
 - The lowest eigenvalue gives the <strong>best variational estimate</strong> of the ground-state energy, and the higher ones approximate <strong>excited states</strong>.</p>
 <hr>
@@ -4684,7 +4690,7 @@ Each approximate eigenvalue <span class="math inline">\(E_k^{(\text{approx})}\)<
 </tr>
 <tr class="odd">
 <td>Ritz secular equation</td>
-<td><span class="math inline">\((H - ES)c = 0\)</span></td>
+<td><span class="math inline">\((\mathbf{H} - E\mathbf{S})\vec{c} = 0\)</span></td>
 <td>Generalized eigenproblem</td>
 </tr>
 </tbody>
