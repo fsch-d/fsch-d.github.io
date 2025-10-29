@@ -72,6 +72,7 @@ website:
         contents:
           - mod7/h2plus.qmd
           - mod7/lcao.qmd
+          - mod7/beyondh2plus.qmd
 
 
 #      - section: advanced.qmd

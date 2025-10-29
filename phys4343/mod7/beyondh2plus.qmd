@@ -1,0 +1,473 @@
+---
+title: "Beyond H$_2^+$ and LCAO"
+author: Daniel Fischer
+---
+
+
+
+
+# 1. The Hydrogen Molecule (H$_2$)
+
+The hydrogen molecule represents the simplest example of a two-electron system that can form a chemical bond. Despite its simplicity, it already shows the limitations of the molecular orbital (MO) approach and motivates the need for more sophisticated descriptions.
+
+---
+
+## 1.1 Linear Combination of Atomic Orbitals: The MO Approximation for H$_2$
+
+The LCAO–MO approximation provides a simple way to describe bonding in the hydrogen molecule by constructing delocalized molecular orbitals from atomic $1s$ orbitals. In the **molecular orbital (MO)** approximation, we construct orbitals for the entire molecule as linear combinations of atomic orbitals (LCAO). For hydrogen, we use the $1s$ atomic orbitals centered on atoms A and B:
+
+$$
+\phi_s = c_A \, \phi_{1s}(\text{A}) + c_B \, \phi_{1s}(\text{B}) .
+$$
+
+The two-electron wavefunction is approximated as a product of identical one-electron molecular orbitals:
+
+$$
+\Phi^{\text{MO}}(1,2) = \phi_s(1) \, \phi_s(2)
+$$
+
+Expanding this in terms of atomic orbitals gives
+
+$$
+\Phi^{\text{MO}}(1,2) =
+\frac{1}{\sqrt{2 + 2 S_{AB}^2}}
+\left[ \big(\phi_A(1) + \phi_B(1)\big)
+       \big(\phi_A(2) + \phi_B(2)\big) \right]
+$$
+
+Here, the indices **(1)** and **(2)** denote electron labels.  
+Because electrons are **fermions**, the total wavefunction must be **antisymmetric** under particle exchange.  
+Since the spatial part $\Phi^{\text{MO}}(1,2)$ is symmetric, the **spin part** must be antisymmetric — forming a **singlet state**.
+
+::: {.callout-note collapse=true}
+#### Two-electron antisymmetry
+The total two-electron wavefunction is the product of a spatial and a spin part:
+$$
+\Psi(1,2) = \Phi(1,2)\, \chi(1,2)
+$$
+If $\Phi(1,2)$ is symmetric under exchange, then $\chi(1,2)$ must be antisymmetric (singlet).  
+Conversely, a triplet spin function requires an antisymmetric spatial wavefunction.
+:::
+
+#### Energy of the H$_2$ Molecule
+
+The electronic energy is evaluated using the Hamiltonian
+
+$$
+\hat{H} =
+-\frac{\hbar^2}{2m}(\nabla_1^2 + \nabla_2^2)
++ \frac{e^2}{4\pi \varepsilon_0}
+\left(
+  -\frac{1}{r_{A1}} - \frac{1}{r_{B1}}
+  -\frac{1}{r_{A2}} - \frac{1}{r_{B2}}
+  + \frac{1}{r_{12}} + \frac{1}{R}
+\right)
+$$
+
+where $R = r_{AB}$ is the internuclear distance and $r_{ij}$ denotes the distance between any two particles (i, j = A, B, 1, 2).  
+
+```{python}
+#| fig-alt: Geometry of the neutral H$_2$ molecule.
+#| fig-align: center
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+
+# Set up the figure and axes
+fig, ax = plt.subplots(figsize=(7, 5))
+ax.set_aspect('equal', adjustable='box')
+ax.set_xlim(-1, 5)
+ax.set_ylim(-1, 5)
+ax.axis('off')
+
+# Define points
+A = np.array([0, 0])
+B = np.array([4, 0])
+e_minus1 = np.array([3.5, 3.5])
+e_minus2 = np.array([-0.2, 2.8])
+S = np.array([2, 0])
+
+# Draw particles and labels
+ax.plot(A[0], A[1], 'o', color='red', markersize=15, zorder=1)
+ax.text(A[0] - 0.2, A[1] + 0.2, 'A', ha='right', va='bottom', fontsize=12)
+#ax.text(A[0] - 0.2, A[1] - 0.2, '$e^+$', ha='right', va='top', fontsize=12)
+
+ax.plot(B[0], B[1], 'o', color='red', markersize=15, zorder=1)
+ax.text(B[0] + 0.2, B[1] + 0.2, 'B', ha='left', va='bottom', fontsize=12)
+#ax.text(B[0] + 0.2, B[1] - 0.3, '$e^+$', ha='left', va='top', fontsize=12)
+
+ax.plot(e_minus1[0], e_minus1[1], 'o', color='green', markersize=10, zorder=1)
+ax.text(e_minus1[0] + 0.2, e_minus1[1]+0.2, '$e^{-}_1$', ha='left', va='center', fontsize=12)
+ax.plot(e_minus2[0], e_minus2[1], 'o', color='green', markersize=10, zorder=1)
+ax.text(e_minus2[0] - 0.1, e_minus2[1]+0.3, '$e^{-}_2$', ha='left', va='center', fontsize=12)
+
+ax.plot(S[0], S[1], 'x', color='black', markersize=10, zorder=2)
+ax.text(S[0], S[1] - 0.2, 'O', ha='center', va='top', fontsize=12)
+
+# Draw lines and arrows
+#ax.plot([A[0], B[0]], [A[1], B[1]], 'k-', zorder=1)
+#ax.plot([A[0], e_minus1[0]], [A[1], e_minus1[1]], 'k-', zorder=1)
+#ax.plot([B[0], e_minus1[0]], [B[1], e_minus1[1]], 'k-', zorder=1)
+#ax.plot([A[0], e_minus2[0]], [A[1], e_minus2[1]], 'k-', zorder=1)
+#ax.plot([B[0], e_minus2[0]], [B[1], e_minus2[1]], 'k-', zorder=1)
+#ax.plot([S[0], e_minus1[0]], [S[1], e_minus1[1]], 'k-', zorder=1)
+#ax.plot([B[0], B[0]], [B[1], e_minus1[1]], 'k', linestyle=':', zorder=1)
+
+# Annotate vectors with arrows and text
+# R_A vector
+ax.annotate('', xy=(S[0], S[1]), xytext=(A[0], A[1]),
+            arrowprops={'arrowstyle': '<-', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=3)
+ax.text(1, -0.2, r'$\vec{R}_A$', ha='center', va='top', fontsize=12)
+
+# R_B vector
+ax.annotate('', xy=(B[0], B[1]), xytext=(S[0], S[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=3)
+ax.text(3, -0.2, r'$\vec{R}_B$', ha='center', va='top', fontsize=12)
+
+# R vector
+ax.annotate('', xy=(A[0], A[1] - 0.7), xytext=(B[0], B[1] - 0.7),
+            arrowprops={'arrowstyle': '<->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(2, -0.9, r'$\vec{R}$', ha='center', va='top', fontsize=12)
+
+# r_A1 vector
+ax.annotate('', xy=(e_minus1[0], e_minus1[1]), xytext=(A[0], A[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(2.1, 2.4, r'$\vec{r}_{A1}$', ha='center', va='bottom', fontsize=12)
+
+# r_B1 vector
+ax.annotate('', xy=(e_minus1[0], e_minus1[1]), xytext=(B[0], B[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(4, 1.7, r'$\vec{r}_{B1}$', ha='center', va='bottom', fontsize=12)
+
+# r_A2 vector
+ax.annotate('', xy=(e_minus2[0], e_minus2[1]), xytext=(A[0], A[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(-0.4, 1.7, r'$\vec{r}_{A2}$', ha='center', va='bottom', fontsize=12)
+
+
+# r_B2 vector
+ax.annotate('', xy=(e_minus2[0], e_minus2[1]), xytext=(B[0], B[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(0.9, 2.3, r'$\vec{r}_{B2}$', ha='center', va='bottom', fontsize=12)
+
+# r12 vector
+ax.annotate('', xy=(e_minus2[0], e_minus2[1]), xytext=(e_minus1[0], e_minus1[1]),
+            arrowprops={'arrowstyle': '->', 'lw': 1.5, 'color': 'black', 'shrinkA': 0, 'shrinkB': 0}, zorder=1)
+ax.text(1.8, 3.3, r'$\vec{r}_{12}$', ha='center', va='bottom', fontsize=12)
+
+# Show the plot
+plt.show()
+
+```
+
+We write the full (electronic) Hamiltonian for fixed nuclei separated by $R$ as
+
+$$
+\hat H = \hat h(1) + \hat h(2) + \frac{e^2}{4\pi\varepsilon_0}\frac{1}{r_{12}} + \frac{e^2}{4\pi\varepsilon_0}\frac{1}{R},
+$$
+
+The one-electron operator $\hat h(i)$ corresponds to the Hamiltonian of the H$_2^+$ molecular ion (excluding nuclear repulsion)
+
+$$
+\hat h(i) = -\frac{\hbar^2}{2m}\nabla_i^2 -\frac{e^2}{4\pi\varepsilon_0}\frac{1}{r_{A i}}-\frac{e^2}{4\pi\varepsilon_0}\frac{1}{r_{B i}},
+$$
+
+while the final two terms account for electron–electron and nuclear–nuclear repulsion. The nuclear term, $+1/R$, is constant for a fixed $R$ and must be included explicitly, since it is not contained in the one-electron Hamiltonians $\hat h(i)$.
+
+The total energy expectation value can be expressed as
+
+$$
+E(R) = \langle \Phi^{\text{MO}} | \hat{H} | \Phi^{\text{MO}} \rangle .
+$$
+
+For the $1s$ MO product (opposite spins), the total electronic energy is
+
+$$
+E(R)
+= \langle \Phi^{\text{MO}}|\hat h(1)+\hat h(2)+\frac{e^2}{4\pi\varepsilon_0}\tfrac{1}{r_{12}}|\Phi^{\text{MO}}\rangle + \frac{e^2}{4\pi\varepsilon_0}\frac{1}{R}.
+$$
+
+Since the spatial wavefunction factorizes into identical one-electron orbitals, the total energy simplifies to
+
+$$
+E(R)
+= 2\langle \hat h \rangle \;+\; \frac{e^2}{4\pi\varepsilon_0}\langle \frac{1}{r_{12}}\rangle  + \frac{e^2}{4\pi\varepsilon_0}\frac{1}{R},
+$$
+
+with the expected energy of the H$_2^+$ molecular ion
+
+$$
+\langle \hat h \rangle = \langle \Phi | \hat{h} | \Phi \rangle
+$$
+
+and the Coulomb repulsion between the two electron densities
+
+$$
+\langle \frac{1}{r_{12}}\rangle = \iint \frac{|\Phi(\mathbf r_1)|^2\,|\Phi(\mathbf r_2)|^2}{r_{12}}\,d^3r_1\,d^3r_2.
+$$ {#eq-r12coulomb}
+
+(There is **no exchange** term subtracted here because the two electrons occupy the *same spatial orbital* but have opposite spins; the exchange contribution cancels in the singlet product.)
+
+While the MO approximation captures the qualitative existence of a bond, its quantitative accuracy is limited.
+In particular, as we shall see next, it fails to reproduce the correct dissociation behavior of H$_2$.
+
+---
+
+## 1.2 Incorrect Dissociation Limit: Where the MO Approximation Breaks Down
+
+Expanding the two-electron Coulomb term (@eq-r12coulomb) for $\Phi$ expressed as a sum of atomic orbitals produces three distinct types of contributions:
+
+- **Neutral (covalent) contributions** such as $|\phi_A(1)|^2\,|\phi_B(2)|^2$ and $|\phi_B(1)|^2\,|\phi_A(2)|^2$, describing one electron near each nucleus,  
+- **Ionic contributions** such as $|\phi_A(1)|^2\,|\phi_A(2)|^2$ and $|\phi_B(1)|^2\,|\phi_B(2)|^2$, describing both electrons on the *same* nucleus, and  
+- **Cross / overlap terms** involving products like $\phi_A(1)\phi_B(1)\,\phi_A(2)\phi_B(2)$.
+
+Crucially, the MO product ansatz contains **ionic terms with nonzero weight** because of the $\phi_A+\phi_B$ form. Concretely, after expansion
+
+$$
+|\Phi(1)|^2|\Phi(2)|^2 \; = \; \frac{1}{4(1+S)^2}\Big( \cdots 
++ |\phi_A(1)|^2\,|\phi_A(2)|^2
++ |\phi_B(1)|^2\,|\phi_B(2)|^2
++ \cdots \Big),
+$$
+
+so the Coulomb integral contains contributions that represent the energy of configurations where *both* electrons sit on nucleus A or both on B (ionic configurations). These ionic contributions lower the energy at moderate $R$ (they allow additional electrostatic stabilization), but they also imply that the MO ansatz does **not** project purely onto the neutral dissociation channel $H + H$.
+
+Consider the limit $R\to\infty$. Physically, the exact wavefunction for H$_2$ should dissociate into two neutral hydrogen atoms H($1s$):
+
+$$
+\Psi_{\text{exact}}(R\to\infty)\;\longrightarrow\; \phi_A(1)\phi_B(2)\quad\text{(or the exchange)}
+$$
+
+and the energy should tend to $2E_H = 2(-0.5\ \text{Hartree}) = -1.0\ \text{Hartree}$ (plus vanishing interaction terms).
+
+But the MO product expanded into AO products contains the ionic pieces $\phi_A\phi_A$ and $\phi_B\phi_B$ with nonzero coefficients. At large $R$ the covalent cross terms vanish, while the ionic terms survive (because coefficients do not vanish). Therefore the MO energy tends to an average that includes contributions from ionic configurations (effectively giving some weight to $H^-$–like arrangements).
+
+Consequently, the MO product does not approach the correct separated-atom limit as $R \to \infty$. The resulting energy includes spurious contributions from ionic configurations, leading to an **incorrect asymptotic limit** and an **underestimated binding energy**:
+
+$$
+E_b^{\text{(MO)}}(H_2) \approx -2.7\ \text{eV} \qquad \text{(experimental value:}\ -4.74\ \text{eV)}
+$$
+
+---
+
+## 1.3 The Heitler–London Approach
+
+A more accurate description of the H$_2$ molecule was developed by **Heitler and London (1927)**. 
+Instead of assigning electrons to delocalized molecular orbitals, they considered explicitly that **each electron is associated with one nucleus**, leading to the two-electron wavefunction:
+
+$$
+\Phi^{\text{HL}}(1,2) = C \Big[
+  \phi_A(1)\phi_B(2) + \phi_A(2)\phi_B(1)
+\Big]
+$$
+
+where $C$ is a normalization constant,  
+$$
+C = \frac{1}{\sqrt{2 + 2S_{AB}^2}}.
+$$
+
+This form automatically respects **exchange symmetry** and correctly describes the situation at large separations: one electron near A, one near B.  
+
+The Heitler–London model yields a **binding energy of about 3.14 eV**, which is significantly closer to the experimental value. 
+It improves upon the LCAO–MO result because it explicitly incorporates **electron correlation**—the electrons tend to avoid being on the same atom.
+
+
+---
+
+## 1.4 Improved Heitler–London (Ionic–Covalent Mixing) and Hylleraas-Type Wavefunction
+
+The **Heitler–London** wavefunction successfully describes the dissociation of H$_2$ by ensuring that each electron is primarily associated with a different nucleus. However, it neglects possible **ionic configurations** in which both electrons temporarily occupy the same nucleus (A or B). 
+At smaller internuclear separations, these ionic contributions can provide additional **stabilization** due to electrostatic attraction.
+
+To capture this effect, the wavefunction can be generalized to include a controlled amount of **ionic–covalent mixing** through a variational parameter $\lambda$:
+
+$$
+\Psi(\mathbf r_1,\mathbf r_2)
+  = c_3 \Big\{
+      \phi_A(1)\phi_B(2) + \phi_A(2)\phi_B(1)
+      + \lambda\,[\,\phi_A(1)\phi_A(2) + \phi_B(1)\phi_B(2)\,]
+    \Big\},
+$$
+
+where  
+- $\phi_A$ and $\phi_B$ are the $1s$ atomic orbitals centered on nuclei A and B, respectively,  
+- $c_3$ ensures proper normalization, and  
+- $\lambda = \lambda(R)$ is a variational parameter that depends on the internuclear separation $R$.
+
+When $\lambda = 0$, the expression reduces to the **Heitler–London** form, while $\lambda > 0$ introduces a fraction of ionic character. 
+This wavefunction smoothly interpolates between the two limiting cases:  
+- **Heitler–London limit** ($\lambda = 0$): purely covalent, correct dissociation limit.  
+- **Molecular orbital limit** ($\lambda = 1$): symmetric combination, equal weight of covalent and ionic terms.
+
+This functional form is sometimes referred to as a **Hylleraas-type wavefunction**, since Hylleraas later introduced similar parameterized extensions of the Heitler–London model to account for **electron correlation and configuration mixing**. 
+Although Hylleraas is best known for his correlated hydrogen-like wavefunctions involving the interelectronic distance $r_{12}$, the present form shares the same underlying idea — introducing **variational flexibility** through additional terms that reflect physical electron–electron interactions.
+
+The total wavefunction can thus be viewed as a **linear combination of covalent and ionic configurations**:
+
+$$
+\Psi = c_{\text{cov}}\,\Phi_{\text{cov}} + c_{\text{ion}}\,\Phi_{\text{ion}},
+\qquad
+\lambda = \frac{c_{\text{ion}}}{c_{\text{cov}}}.
+$$
+
+The corresponding total energy expectation value is
+
+$$
+E(\lambda) =
+\frac{\langle \Psi(\lambda) | \hat{H} | \Psi(\lambda) \rangle}
+     {\langle \Psi(\lambda) | \Psi(\lambda) \rangle}
+  = \frac{E_{\text{cc}} + 2\lambda E_{\text{ci}} + \lambda^2 E_{\text{ii}}}
+         {N_{\text{cc}} + 2\lambda N_{\text{ci}} + \lambda^2 N_{\text{ii}}},
+$$
+
+where  
+- $E_{\text{cc}} = \langle \Phi_{\text{cov}}|\hat H|\Phi_{\text{cov}}\rangle$ is the covalent contribution,  
+- $E_{\text{ii}} = \langle \Phi_{\text{ion}}|\hat H|\Phi_{\text{ion}}\rangle$ is the ionic contribution,  
+- $E_{\text{ci}}$ describes covalent–ionic coupling, and  
+- $N_{\text{cc}}, N_{\text{ii}}, N_{\text{ci}}$ are the corresponding overlap integrals.
+
+Minimizing $E(\lambda)$ with respect to $\lambda$ gives the **optimal mixing parameter**:
+
+$$
+\frac{dE(\lambda)}{d\lambda} = 0,
+$$
+
+which leads to a quadratic equation in $\lambda$:
+
+$$
+(E_{\text{ci}} - E_{\text{cc}} N_{\text{ci}}) 
++ \lambda (E_{\text{ii}} - E_{\text{cc}} N_{\text{ii}}) 
++ \lambda^2 (E_{\text{ci}} N_{\text{ii}} - E_{\text{ii}} N_{\text{ci}}) = 0.
+$$
+
+Solving this equation yields $\lambda(R)$, the optimal ionic admixture at each internuclear distance. 
+
+The resulting potential energy curve provides a significantly improved fit to experimental data and illustrates how **configuration interaction** and **electron correlation** can be included in a conceptually simple way.
+
+```{python}
+#| fig-alt: "Conceptual schematic comparing the potential energy curves of H$_2$ calculated with different wavefunctions: LCAO–MO (least bound), Heitler–London (intermediate), and improved Hylleraas-type (closest to experimental curve)."
+#| fig-align: center
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+# --- Load benchmark data ---
+# Replace with actual filename / format
+# Suppose data files with columns: R_bohr, E_hartree for various states
+# Example format: "H2p_ground.csv", "H2p_first_excited.csv", etc.
+
+def load_curve(filename):
+    # Allow any whitespace as separator
+    data = np.loadtxt(filename, comments='#')
+    # Handle possible extra columns (some files have >2)
+    R1 = data[0:65, 0]
+    E1 = data[0:65:, 1]
+    R2 = data[66:126, 0]
+    E2 = data[66:126, 1]
+    R3 = data[127:181, 0]
+    E3 = data[127:181, 1]
+    R4 = data[182:-1, 0]
+    E4 = data[182:-1, 1]
+    return R1, E1, R2, E2, R3, E3, R4, E4
+
+
+# Example: you must supply these files
+R1, E1, R2, E2, R3, E3, R4, E4 = load_curve('./h2.csv')
+
+
+# --- Plotting ---
+fig, ax = plt.subplots(figsize=(7,5))
+
+ax.plot(R4, E4, label=r'LCAO', color='orange', lw=2)
+ax.plot(R3, E3, label=r'Heitler--London', color='green', lw=2)
+ax.plot(R2, E2, label=r'Hylleraas-Type', color='red', lw=2)
+ax.plot(R1, E1, label=r'exact', color='blue', lw=2)
+
+ax.set_xlabel(r'Internuclear distance $R$ (Å)')
+ax.set_ylabel(r'Energy (eV)')
+#ax.set_title(r'Potential Energy Curves for H$_2^+$')
+ax.legend()
+#ax.grid(True)
+ax.axhline(0, color='k', lw=0.5)
+ax.plot([0,0.8],[-4.7,-4.7], 'k--', lw=0.5)
+ax.plot([0,0.9],[-3.34,-3.34], 'k--', lw=0.5)
+ax.text(-0.02, -4.7, r'$-4.7$', ha='right', va='center', fontsize=12)
+ax.text(-0.02, -3.34, r'$-3.14$', ha='right', va='center', fontsize=12)
+
+
+ax.set_xlim([0, 2.5])
+ax.set_ylim([-5, 5])
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 1.5 Key Takeaways
+
+- The **MO approach** provides a simple qualitative understanding of bonding but fails at large separations.  
+- The **Heitler–London approach** introduces electron correlation and gives more accurate energies.  
+- **Variational combinations** of MO and HL functions can yield improved results for H$_2$.
+
+---
+
+
+# 2. General Approach in Quantum Chemistry
+
+The general goal of quantum chemistry is to approximate the molecular wave function and energy of a system using a manageable basis set and variational optimization. The main steps can be summarized as follows:
+
+1. **Choose a basis set** of $N$ wave functions $\{\phi_i\}$.
+
+2. **Construct the molecular wave function** as a superposition of product states.
+   For a two-electron system:
+   $$
+   |\Phi(1,2)\rangle = \sum_{i,k=1}^{N} c_{ik}\, |\phi_i(1)\rangle\,|\phi_k(2)\rangle
+   $$
+   where $c_{ik}$ are coefficients to be optimized.
+
+3. **Optimize** the coefficients $c_{ik}$, ensuring the appropriate (anti-)symmetry of the wave function, to minimize the total energy according to the **variational principle**.
+
+4. **Obtain molecular orbitals** as linear combinations of the chosen basis functions.
+
+---
+
+## 2.1 Example: The Hydrogen Molecule ($\mathrm{H_2}$)
+
+When a basis set of $N = 13$ atomic orbitals is used, the resulting binding energy is approximately
+
+$$E_B = -4.69~\text{eV}.$$
+
+Using a larger basis set of $N = 50$ functions yields
+
+$$E_B = -4.7467~\text{eV},$$
+
+which is in excellent agreement with the experimental value
+
+$$E_B^{\text{exp}} = -4.7470(3)~\text{eV}.$$
+
+
+
+---
+
+## 2.2 Task of Quantum Chemistry
+
+The main task of quantum chemistry is to find an **optimal basis set** and calculate molecular energies using **variational methods**.
+
+Atomic orbitals are generally **not the most efficient basis**, and alternative choices — such as **Gaussian functions**, **Slater-type orbitals**, or **hybrid basis sets** — are often more practical. 
+The choice of basis functions relies on **physical intuition**, **computational efficiency**, and **theoretical reasoning**.
+
+---
+
+
+
+

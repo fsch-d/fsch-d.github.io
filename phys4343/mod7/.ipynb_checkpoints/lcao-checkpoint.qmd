@@ -109,12 +109,21 @@ with $\vec{r}_A = \vec{r} + \frac{\vec{R}}{2}$ and $\vec{r}_B = \vec{r} - \frac{
 The normalization condition reads:
 
 $$
-\langle \Phi | \Phi \rangle = c_1^2 + c_2^2 + 2c_1c_2 S_{AB} = 1
+\langle \Phi | \Phi \rangle = c_1^2 + c_2^2 + 2\,\mathrm{Re}\!\left(c_1^* c_2\, S_{AB}\right) = 1
 $$
 
 where $S_{AB} = \langle \phi_A | \phi_B \rangle$ is the overlap integral.
 
-Because the system is symmetric, $|c_1| = |c_2|$, and the normalized symmetric and antisymmetric molecular orbitals are:
+In most diatomic systems, however, the atomic orbitals can be chosen to be **real**. 
+In that case, the expression simplifies to:
+
+$$
+c_1^2 + c_2^2 + 2 c_1 c_2 S_{AB} = 1
+$$
+
+This normalization guarantees that the total molecular orbital $\Phi$ represents a physically valid wavefunction with unit probability.
+
+Because the H$_2^+$ system is symmetric, $|c_1| = |c_2|$, and the normalized symmetric and antisymmetric molecular orbitals are:
 
 $$
 |\Phi_g\rangle = \frac{1}{\sqrt{2 + 2S_{AB}}} (|\phi_A\rangle + |\phi_B\rangle)
@@ -146,11 +155,9 @@ This visual comparison highlights how constructive overlap in the bonding orbita
 #| fig-align: center
 import numpy as np
 import matplotlib.pyplot as plt
-
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.size'] = 12
-
 
 # parameters (atomic units)
 a0 = 1.0
@@ -161,37 +168,42 @@ x = np.linspace(-5, 5, 400)
 phi_A = np.exp(-np.abs(x + R/2) / a0)
 phi_B = np.exp(-np.abs(x - R/2) / a0)
 
-# normalize roughly for comparison (1D projection only)
+# normalize atomic orbitals (1D projection)
 phi_A /= np.sqrt(np.trapz(phi_A**2, x))
 phi_B /= np.sqrt(np.trapz(phi_B**2, x))
 
 # bonding (sigma_g) and antibonding (sigma_u) combinations
-phi_g = (phi_A + phi_B) / np.sqrt(2)
-phi_u = (phi_A - phi_B) / np.sqrt(2)
+# Need to normalize these properly including overlap
+overlap = np.trapz(phi_A * phi_B, x)
+N_g = 1.0 / np.sqrt(2 * (1 + overlap))  # normalization for bonding
+N_u = 1.0 / np.sqrt(2 * (1 - overlap))  # normalization for antibonding
+
+phi_g = N_g * (phi_A + phi_B)
+phi_u = N_u * (phi_A - phi_B)
+
+# verify normalization
+# print(f"Overlap integral: {overlap:.4f}")
+# print(f"Norm of phi_g: {np.trapz(phi_g**2, x):.4f}")
+# print(f"Norm of phi_u: {np.trapz(phi_u**2, x):.4f}")
 
 # probability densities
 rho_g = phi_g**2
 rho_u = phi_u**2
 
-rho_g /= np.mean(rho_g)
-rho_u /= np.mean(rho_u)
-
-y_ticks = [-7.5, -5, -2.5, 0, 2.5, 5, 7.5]
-
+y_ticks = [-0.5, 0, 0.5, 1.0, 1.5]
 plt.figure(figsize=(7,4))
-plt.yticks(y_ticks, ['', '', '', '0', '', '', ''])
-plt.plot(x, 9*phi_g, label=r'$\Phi_s$ (bonding)', lw=1, ls=':', color='r')
-plt.plot(x, 15*phi_u, label=r'$\Phi_u$ (antibonding)', lw=1, ls=':', color='b')
+plt.yticks(y_ticks)
+plt.plot(x, phi_g, label=r'$\Phi_s$ (bonding)', lw=1.5, ls=':', color='r')
+plt.plot(x, phi_u, label=r'$\Phi_a$ (antibonding)', lw=1.5, ls=':', color='b')
 plt.plot(x, rho_g, label=r'$|\Phi_s|^2$ (bonding)', lw=2, color='r')
-plt.plot(x, rho_u, label=r'$|\Phi_u|^2$ (antibonding)', lw=2, color='b')
+plt.plot(x, rho_u, label=r'$|\Phi_a|^2$ (antibonding)', lw=2, color='b')
 plt.axvline(-R/2, color='k', ls='--', lw=1)
 plt.axvline(R/2, color='k', ls='--', lw=1)
 plt.axhline(0, color='k', lw=1)
 plt.text(-R/2-0.3, 0.02, 'A', ha='right', fontsize=12)
 plt.text(R/2+0.3, 0.02, 'B', ha='left', fontsize=12)
-#plt.title(r'Electron Density along Internuclear Axis (H$_2^+$)')
 plt.xlabel('$R$  (a.u.)')
-#plt.ylabel(r'|$\Phi(x)$|$^2$')
+plt.ylabel('Amplitude (a.u.)')
 plt.legend()
 plt.tight_layout()
 plt.show()
@@ -214,23 +226,96 @@ H_{AA} = \langle \phi_A | \hat{H} | \phi_A \rangle, \quad
 H_{AB} = \langle \phi_A | \hat{H} | \phi_B \rangle
 $$
 
-Typically, $H_{AB} < 0$, so $E_g < E_u$.  
+Typically, $H_{AB} < 0$, so $E_g < E_u$. 
 The symmetric (gerade) combination therefore has lower energy — it is a **bonding orbital**.
 
-The potential energy curves for H$_2^+$ show that:  
-- $E_g(R)$ has a **minimum** at an equilibrium distance $R_e \approx 2 a_0$  
-- $E_u(R)$ is purely **repulsive**
+:::{.callout-note collapse=true title="Quick check: Plugging in the normalized $\Phi_g$ and $\Phi_u$ to get $E_g$ and $E_u$"}
+
+We start from the normalized symmetric and antisymmetric molecular orbitals
+
+$$
+\Phi_g=\frac{\phi_A+\phi_B}{\sqrt{2+2S}},\qquad
+\Phi_u=\frac{\phi_A-\phi_B}{\sqrt{2-2S}},
+$$
+
+with $S\equiv S_{AB}=\langle\phi_A|\phi_B\rangle$.  
+Assume identical centres so that $H_{AA}=H_{BB}$ and $H_{AB}=H_{BA}$, where $H_{ij}=\langle\phi_i|\hat H|\phi_j\rangle$.
+
+---
+
+### Bonding (symmetric) case
+
+Compute the expectation value
+
+$$
+\langle\Phi_g|\hat H|\Phi_g\rangle
+= \frac{\langle\phi_A+\phi_B|\hat H|\phi_A+\phi_B\rangle}{2+2S}.
+$$
+
+Expand the numerator:
+
+$$
+\begin{aligned}
+\langle\phi_A+\phi_B|\hat H|\phi_A+\phi_B\rangle
+&= \langle\phi_A|\hat H|\phi_A\rangle
++ \langle\phi_A|\hat H|\phi_B\rangle \\
+&\quad + \langle\phi_B|\hat H|\phi_A\rangle
++ \langle\phi_B|\hat H|\phi_B\rangle \\
+&= H_{AA} + H_{AB} + H_{AB} + H_{AA} \\
+&= 2H_{AA} + 2H_{AB}.
+\end{aligned}
+$$
+
+Therefore
+
+$$
+E_g(R)=\frac{\langle\Phi_g|\hat H|\Phi_g\rangle}{\langle\Phi_g|\Phi_g\rangle}
+= \frac{2H_{AA}+2H_{AB}}{2+2S}
+= \frac{H_{AA}+H_{AB}}{1+S}.
+$$
+
+---
+
+### Antibonding (antisymmetric) case
+
+Similarly,
+
+$$
+\langle\Phi_u|\hat H|\Phi_u\rangle
+= \frac{\langle\phi_A-\phi_B|\hat H|\phi_A-\phi_B\rangle}{2-2S}.
+$$
+
+Expand the numerator:
+
+$$
+\begin{aligned}
+\langle\phi_A-\phi_B|\hat H|\phi_A-\phi_B\rangle
+&= H_{AA} - H_{AB} - H_{AB} + H_{AA} \\
+&= 2H_{AA} - 2H_{AB}.
+\end{aligned}
+$$
+
+Thus
+
+$$
+E_u(R)=\frac{2H_{AA}-2H_{AB}}{2-2S}
+= \frac{H_{AA}-H_{AB}}{1-S}.
+$$
+
+---
+
+These two short calculations show directly (without invoking the secular determinant) that taking the expectation value of $\hat H$ with the normalized symmetric or antisymmetric LCAO ansatz yields the familiar formulas
+
+$$
+E_g(R)=\frac{H_{AA}+H_{AB}}{1+S},\qquad
+E_u(R)=\frac{H_{AA}-H_{AB}}{1-S}.
+$$
+
+:::
+
 
 The plot shows the potential energy curves of the hydrogen molecular ion H$_2^+$ as a function of internuclear distance $R$.  
 
-The **blue solid curve** corresponds to the bonding molecular orbital ($1s\sigma_g$), which has **gerade** (symmetric) parity. 
-The **red dashed curve** corresponds to the antibonding orbital ($1s\sigma_u$), which has **ungerade** (antisymmetric) parity.  
-
-- The bonding curve ($E_g$) exhibits a **minimum** near $R \approx 2.5\,a_0$, corresponding to the most stable (bound) configuration of the molecule.  
-- The antibonding curve ($E_u$) is purely **repulsive**, meaning that no stable molecular state exists for this symmetry.  
-- The gray dashed line marks the dissociation limit, representing a separated hydrogen atom and proton ($H + H^+$) with a total energy of $-0.5$ Hartree — the ground-state energy of atomic hydrogen.  
-
-This figure illustrates that the symmetric combination of atomic orbitals leads to a lower energy and hence molecular binding, whereas the antisymmetric combination leads to repulsion.
 
 ```{python}
 # label: fig-h2p-potentials
@@ -304,6 +389,14 @@ ax.text(9.2, -0.46, r'H(1$s$) + H$^+$', ha='center', color='black')
 plt.show()
 ```
 
+The **blue solid curve** corresponds to the bonding molecular orbital ($1s\sigma_g$), which has **gerade** (symmetric) parity. 
+The **red dashed curve** corresponds to the antibonding orbital ($1s\sigma_u$), which has **ungerade** (antisymmetric) parity.  
+
+- The bonding curve ($E_g$) exhibits a **minimum** near $R \approx 2.5\,a_0$, corresponding to the most stable (bound) configuration of the molecule.  
+- The antibonding curve ($E_u$) is purely **repulsive**, meaning that no stable molecular state exists for this symmetry.  
+- The gray dashed line marks the dissociation limit, representing a separated hydrogen atom and proton ($H + H^+$) with a total energy of $-0.5$ Hartree — the ground-state energy of atomic hydrogen.  
+
+This figure illustrates that the symmetric combination of atomic orbitals leads to a lower energy and hence molecular binding, whereas the antisymmetric combination leads to repulsion.
 
 The LCAO approximation using **only 1s atomic orbitals** predicts an equilibrium distance of about **$R_e \approx 2.5\,a_0$**, whereas experimentally the true equilibrium is closer to **$R_e \approx 2.0\,a_0$** (roughly 1.06 Å).  
 
