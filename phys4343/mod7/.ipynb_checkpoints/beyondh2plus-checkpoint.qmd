@@ -4,7 +4,26 @@ author: Daniel Fischer
 ---
 
 
+# Introduction
 
+Building on the fundamental ideas of the H$_2^+$ molecular ion, this chapter extends the discussion of **molecular structure and bonding** to more complex diatomic systems. While H$_2^+$ revealed how molecular orbitals (MOs) arise from the superposition of atomic orbitals, real molecules exhibit additional layers of complexity — including **electron–electron interactions, multiple bonding mechanisms, and state symmetries**.
+
+In these systems, each molecule can be described by a set of **potential energy curves** $E_i(R)$ that depend on the internuclear distance $R$. These curves encode the stability and possible electronic states of the molecule, linking microscopic wavefunctions to macroscopic observables such as **bond lengths, dissociation energies, and spectroscopic transitions**.
+
+### Goals of this Chapter
+
+By the end of this chapter, you should be able to:
+
+1. Interpret **potential energy curves** for diatomic molecules and relate them to different **electronic states**.  
+2. Understand the **naming conventions and term symbols** used to classify molecular states (e.g., $^{2S+1}\Lambda_\Omega^{(\pm)}$ (g/u)).  
+3. Describe how **angular momentum** and **spin coupling** determine the structure of molecular terms.  
+4. Recognize the role of **symmetry** — reflection and inversion — in labeling diatomic molecular states.  
+5. Distinguish among the main **types of chemical bonds** (covalent, ionic, and van-der-Waals) as limiting cases of molecular interaction.  
+6. Connect the **quantum-mechanical description** of molecules with their **chemical and spectroscopic behavior**.
+
+This chapter bridges **quantum mechanics and chemical intuition**, emphasizing how abstract quantum numbers translate into measurable physical and chemical properties.
+
+---
 
 # 1. The Hydrogen Molecule (H$_2$)
 
@@ -14,10 +33,12 @@ The hydrogen molecule represents the simplest example of a two-electron system t
 
 ## 1.1 Linear Combination of Atomic Orbitals: The MO Approximation for H$_2$
 
-The LCAO–MO approximation provides a simple way to describe bonding in the hydrogen molecule by constructing delocalized molecular orbitals from atomic $1s$ orbitals. In the **molecular orbital (MO)** approximation, we construct orbitals for the entire molecule as linear combinations of atomic orbitals (LCAO). For hydrogen, we use the $1s$ atomic orbitals centered on atoms A and B:
+The LCAO–MO approximation provides a simple way to describe bonding in the hydrogen molecule by constructing delocalized molecular orbitals from atomic $1s$ orbitals. In the **molecular orbital (MO)** approximation, we construct orbitals for the entire molecule as linear combinations of atomic orbitals (LCAO). 
+
+For the hydrogen ground state, we take the $1s$ atomic orbitals $\phi_\text{A}$ and $\phi_\text{B}$ centered on nuclei A and B, respectively, and form a molecular orbital as
 
 $$
-\phi_s = c_A \, \phi_{1s}(\text{A}) + c_B \, \phi_{1s}(\text{B}) .
+\phi_s = c_A \, \phi_\text{A} + c_B \, \phi_\text{B} .
 $$
 
 The two-electron wavefunction is approximated as a product of identical one-electron molecular orbitals:
@@ -202,13 +223,13 @@ $$
 with the expected energy of the H$_2^+$ molecular ion
 
 $$
-\langle \hat h \rangle = \langle \Phi | \hat{h} | \Phi \rangle
+\langle \hat h \rangle = \langle \phi_s | \hat{h} | \phi_s \rangle
 $$
 
 and the Coulomb repulsion between the two electron densities
 
 $$
-\langle \frac{1}{r_{12}}\rangle = \iint \frac{|\Phi(\mathbf r_1)|^2\,|\Phi(\mathbf r_2)|^2}{r_{12}}\,d^3r_1\,d^3r_2.
+\langle \frac{1}{r_{12}}\rangle = \iint \frac{|\phi_s(1)|^2\,|\phi_s(2)|^2}{r_{12}}\,d^3r_1\,d^3r_2.
 $$ {#eq-r12coulomb}
 
 (There is **no exchange** term subtracted here because the two electrons occupy the *same spatial orbital* but have opposite spins; the exchange contribution cancels in the singlet product.)
@@ -229,7 +250,7 @@ Expanding the two-electron Coulomb term (@eq-r12coulomb) for $\Phi$ expressed as
 Crucially, the MO product ansatz contains **ionic terms with nonzero weight** because of the $\phi_A+\phi_B$ form. Concretely, after expansion
 
 $$
-|\Phi(1)|^2|\Phi(2)|^2 \; = \; \frac{1}{4(1+S)^2}\Big( \cdots 
+|\phi_s(1)|^2|\phi_s(2)|^2 \; = \; \frac{1}{4(1+S)^2}\Big( \cdots 
 + |\phi_A(1)|^2\,|\phi_A(2)|^2
 + |\phi_B(1)|^2\,|\phi_B(2)|^2
 + \cdots \Big),
@@ -240,7 +261,7 @@ so the Coulomb integral contains contributions that represent the energy of conf
 Consider the limit $R\to\infty$. Physically, the exact wavefunction for H$_2$ should dissociate into two neutral hydrogen atoms H($1s$):
 
 $$
-\Psi_{\text{exact}}(R\to\infty)\;\longrightarrow\; \phi_A(1)\phi_B(2)\quad\text{(or the exchange)}
+\Phi_{\text{exact}}(R\to\infty)\;\longrightarrow\; \phi_A(1)\phi_B(2)\quad\text{(or the exchange)}
 $$
 
 and the energy should tend to $2E_H = 2(-0.5\ \text{Hartree}) = -1.0\ \text{Hartree}$ (plus vanishing interaction terms).
@@ -421,10 +442,13 @@ plt.show()
 
 ---
 
+To extend this approach beyond H$_2$, we now discuss how molecular orbitals are generally constructed and solved in quantum chemistry.
+
+---
 
 # 2. General Approach in Quantum Chemistry
 
-The general goal of quantum chemistry is to approximate the molecular wave function and energy of a system using a manageable basis set and variational optimization. The main steps can be summarized as follows:
+The general goal of quantum chemistry is to approximate the molecular wave function and energy of a system using a manageable basis set and variational optimization. This transforms the Schrödinger equation from a complicated differential equation into a linear-algebra problem. The main steps can be summarized as follows:
 
 1. **Choose a basis set** of $N$ wave functions $\{\phi_i\}$.
 
@@ -435,7 +459,7 @@ The general goal of quantum chemistry is to approximate the molecular wave funct
    $$
    where $c_{ik}$ are coefficients to be optimized.
 
-3. **Optimize** the coefficients $c_{ik}$, ensuring the appropriate (anti-)symmetry of the wave function, to minimize the total energy according to the **variational principle**.
+3. **Optimize** the coefficients $c_{ik}$, ensuring the appropriate (anti-)symmetry of the wave function, to minimize the total energy according to the [**variational principle**](../mod2/variational.qmd){target=_blank}.
 
 4. **Obtain molecular orbitals** as linear combinations of the chosen basis functions.
 
@@ -468,6 +492,481 @@ The choice of basis functions relies on **physical intuition**, **computational 
 
 ---
 
+# 3. Naming Conventions for Diatomic Molecules
+
+Having introduced how molecular orbitals are formed and combined, we now turn to how the resulting molecular states are classified and labeled according to their quantum numbers and symmetries.
+
+The calculation of molecular orbitals (MOs) for diatomic molecules yields **potential energy curves** $E_i(R)$, where $R$ is the internuclear distance. 
+Each curve corresponds to a particular **electronic state**, labeled by several characteristic quantum properties.  
+
+For example, the potential energy curves of Li$_2$ display multiple such states, each with distinct symmetry and energy behavior.
+
+![Potential energy curves for the Li₂ molecule. Reproduced from N. Kurz, D. Fischer, et al., "Reaction microscope for investigating ionization dynamics of weakly bound alkali dimers," *Review of Scientific Instruments* **92**, 123202 (2021), [https://doi.org/10.1063/5.0069506](https://doi.org/10.1063/5.0069506), under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).](Li2.jpeg){fig-alt="Graph showing potential energy curves for lithium dimer (Li2) molecule. The x-axis represents internuclear distance and the y-axis shows energy. Multiple curves are plotted representing different electronic states, with the lowest curve being the ground state potential well. Higher energy curves show various excited states with different bonding and antibonding characteristics. The curves are labeled with their respective electronic state designations."}
+
+---
+
+Each potential curve $E_i(R)$ represents a distinct **molecular electronic state**. 
+Different states are distinguished by several criteria:
+
+a) **Energetic order** — the relative energy of each potential curve $E_i(R)$.  
+b) **Symmetry properties** of the molecular wavefunction.  
+c) **Angular momentum and spin**, and their projections along the internuclear axis.  
+d) **Atomic states** into which the molecule dissociates as $R \to \infty$.
+
+In the following, we will examine these criteria in more detail.
+
+---
+
+## 3.1 Energy Ordering and Quantum Labels
+
+Each electronic state $E_i(R)$ can be labeled by an index 
+$i = (n, \ell, \Lambda, S)$, 
+which specifies the corresponding **quantum numbers**.
+
+For atoms, the principal quantum number $n$ largely determines the energy order of electronic states. 
+For molecules, however, this correspondence generally **does not hold**, since the energy ordering depends on both internuclear separation and molecular symmetry.
+
+Traditionally, electronic states have been labeled based on **spectroscopic notation**:  
+- **Singlet states:** X, A, B, …  
+- **Triplet states:** a, b, c, …
+
+The **ground state** is denoted by X.  
+
+> *Note:* In some cases, excited states were discovered after this nomenclature was established.
+
+---
+
+## 3.2 Symmetry Properties
+
+Symmetry plays a central role in molecular labeling and determines many selection rules in spectroscopy. 
+For diatomic molecules, two symmetry operations are particularly important: **reflection** and **inversion**.
+
+### Reflection Symmetry
+
+A key geometric operation is **reflection** ($\sigma$) through a plane containing the internuclear axis.  
+
+For a wavefunction $\lvert \Phi \rangle$:
+
+$$
+\sigma \lvert \Phi \rangle = \pm \lvert \Phi \rangle,
+\qquad \text{since } \sigma^2 \lvert \Phi \rangle = \lvert \Phi \rangle.
+$$
+
+- **Positive symmetry** ($+$): even under reflection  
+- **Negative symmetry** ($-$): odd under reflection
+
+This distinction is physically meaningful only for $\Sigma$ states, because only in this case is reflection through a plane containing the internuclear axis a valid symmetry operation of the wavefunction.
+
+For states with $\Lambda > 0$ (e.g., $\Pi$, $\Delta$, …), the wavefunction depends on $\phi$ as $e^{\pm i\Lambda\phi}$. 
+A reflection through a plane containing the internuclear axis transforms these two components into one another:
+
+$$
+e^{-i\Lambda\phi} \;\longleftrightarrow\; e^{+i\Lambda\phi}.
+$$
+
+Because this reflection **mixes** the two degenerate components, it is not a symmetry operation with a definite sign. 
+Hence, the “$+$” or “$-$” labels are **not defined** for $\Lambda > 0$.
+
+A single electron in a $\Sigma$ orbital is always symmetric under reflection through any plane containing the molecular axis. However, when multiple electrons are present, the **total wavefunction** can be antisymmetric under reflection even though the individual angular momentum components cancel to give $\Lambda = 0$ (a $\Sigma$ state).
+
+#### How $\Sigma^-$ States Arise
+
+Consider two electrons in degenerate $\pi$ orbitals (e.g., $\pi_x$ and $\pi_y$) with triplet spin:  
+
+Since the triplet spin function is symmetric under electron exchange, the Pauli principle requires the spatial wavefunction to be antisymmetric:
+
+$$\Phi_{\text{spatial}} = \frac{1}{\sqrt{2}}[\pi_x(1)\pi_y(2) - \pi_y(1)\pi_x(2)]$$
+
+Under reflection through the $xz$-plane (containing the molecular axis):  
+- $\pi_x$ is symmetric: $\sigma(\pi_x) = +\pi_x$  
+- $\pi_y$ is antisymmetric: $\sigma(\pi_y) = -\pi_y$
+
+Therefore:
+$$\sigma \Phi_{\text{spatial}} = \frac{1}{\sqrt{2}}[\pi_x(1)(-\pi_y(2)) - (-\pi_y(1))\pi_x(2)] = -\Phi_{\text{spatial}}$$
+
+The wavefunction changes sign under reflection, yielding a **${}^3\Sigma^-$ state**.
+
+The ground state of O$_2$ has configuration $(\pi_g^*)^2$ with two electrons in antibonding $\pi$ orbitals. Since one $\pi_g^*$ orbital is symmetric and the other antisymmetric under reflection through a plane containing the nuclei, the triplet state is ${}^3\Sigma_g^-$.
+
+::: {.callout-warning}
+### Notation Caveat
+The symbol $\Sigma$ appears in several contexts:  
+- $\Sigma$ (uppercase Greek sigma) refers to molecular states with $\Lambda = 0$  
+- $\sigma$ (lowercase sigma) is often used for **atomic orbitals** aligned along the molecular axis (e.g., $1s\sigma_g$)  
+- $\sigma$ is *also* used for the **spin projection quantum number** ($S_z = \sigma\hbar$)
+
+These usages are **historical** and can be confusing. 
+The meaning must always be inferred from context.
+:::
+
+---
+
+### Parity and Homonuclear Molecules
+
+Parity is a good quantum number **only for homonuclear diatomic molecules** ($Z_A = Z_B$). 
+It describes how the electronic wavefunction behaves under **inversion** through the molecular center:
+
+- **Even parity** → *gerade* (g): 
+  the wavefunction remains unchanged under inversion.  
+
+- **Odd parity** → *ungerade* (u): 
+  the wavefunction changes sign under inversion.
+
+These labels (*g* and *u*) are essential for describing selection rules and distinguishing bonding/antibonding states in molecules such as H$_2$, O$_2$, or N$_2$.
+
+---
+
+## 3.3 Angular Momentum in Diatomic Molecules
+
+In diatomic systems, angular momenta are best described relative to the **internuclear axis**, which defines a natural $z$-axis.
+
+### Orbital and Spin Angular Momenta
+
+Each electron possesses:  
+- **Orbital angular momentum** $\vec{\ell}_i$  
+- **Spin angular momentum** $\vec{s}_i$
+
+Their projections on the molecular axis are quantized as
+
+$$
+\ell_{z,i} = m_{\ell_i} \hbar, \qquad s_{z,i} = m_{s_i} \hbar.
+$$
+
+We define
+
+$$
+\lambda_i = |m_{\ell_i}|, \qquad \sigma_i = m_{s_i}.
+$$
+
+The total projections for all electrons are
+
+$$
+L_z = \Lambda \hbar = \sum_i m_{\ell_i} \hbar, \qquad
+S_z = \Sigma \hbar = \sum_i m_{s_i} \hbar.
+$$
+
+Here:  
+- $\Lambda$ describes the **projection of total orbital angular momentum** $\vec{L}$ on the internuclear axis,  
+- $\Sigma$ describes the **projection of total spin** $\vec{S}$ on the same axis.
+
+---
+
+### Total Angular Momentum and Molecular Term Symbols
+
+The **total electronic angular momentum** is the vector sum
+
+$$
+\vec{J} = \vec{L} + \vec{S},
+$$
+
+with projection
+
+$$
+J_z = \Omega \hbar, \qquad \Omega = \Lambda + \Sigma.
+$$
+
+$\Omega$ is the molecular analogue of $M_J$ in atomic systems. 
+In most light molecules, **LS coupling** (or **Russell–Saunders coupling**) provides a good approximation, where $\vec{L}$ and $\vec{S}$ couple first to form $\vec{J}$.
+
+---
+
+#### Molecular Term Symbols
+
+The full label of a diatomic molecular state combines these angular momentum and symmetry properties:
+
+$$
+^{2S+1}\Lambda_{\Omega}^{(\pm)} \text{(g/u)}.
+$$
+
+| Symbol | Meaning | Notes |
+|:--:|:--|:--|
+| $^{2S+1}$ | Spin multiplicity | singlet (1), doublet (2), triplet (3), etc. |
+| $\Lambda$ | Projection of $\vec{L}$ on the molecular axis | 0 = $\Sigma$, 1 = $\Pi$, 2 = $\Delta$, 3 = $\Phi$, … |
+| $\Omega$ | Projection of total $\vec{J}$ | $\Omega = \Lambda + \Sigma$ |
+| $(\pm)$ | Reflection symmetry (only for $\Sigma$ states) | $\Sigma^+$ = even, $\Sigma^-$ = odd |
+| (g/u) | Inversion symmetry | *gerade* / *ungerade* (only for homonuclear molecules) |
+
+---
+
+## 3.4 Molecular Configurations
+
+Electronic configurations of diatomic molecules are often expressed in terms of **molecular orbitals (MOs)** such as:  
+$$
+1s\sigma, \quad 2s\sigma, \quad 2p\sigma, \quad 2p\pi, \quad 3s\sigma, \quad 3p\sigma, \quad 3p\pi, \quad 3d\sigma, \quad 3d\pi, \quad 3d\delta, \ldots
+$$
+
+### Notation Convention
+
+The notation **[n][atomic orbital][molecular symmetry]** (e.g., $2p\pi$) can be ambiguous:
+
+- **United atom limit**: When the principal quantum number and atomic orbital type are written first, this often refers to the orbital in the **united atom limit** ($R \rightarrow 0$) that the MO correlates to.  
+
+- **Dissociated atom limit**: A clearer notation specifies the symmetry first, then the atomic orbitals from which the MO is formed:  
+  - $\sigma_g(1s)$ = bonding MO from 1s atomic orbitals of separated atoms  
+  - $\pi_u(2p)$ = antibonding MO from 2p atomic orbitals of separated atoms
+
+### Alternative Approach
+
+It is common to first specify the **angular momentum symmetry** ($\sigma$, $\pi$, $\delta$, etc.) with **parity** ($g$/$u$), and then indicate which **dissociated atomic orbitals** combine to form the MO:
+
+$$
+\sigma_g, \sigma_u, \pi_g, \pi_u, \delta_g, \delta_u, \ldots
+$$
+
+Each configuration contributes to the formation of a total electronic state, characterized by a specific term symbol and corresponding potential curve $E_i(R)$.
+
+::: {.callout-note}
+## Correlation Diagrams
+To understand how molecular orbitals evolve from the dissociated atom limit ($R \rightarrow \infty$) to the united atom limit ($R \rightarrow 0$), correlation diagrams are essential tools. This topic is not covered in these notes, but students interested in a deeper understanding of molecular orbital evolution are encouraged to explore this in molecular spectroscopy textbooks.
+:::
+
+
+---
+
+## 3.5 Summary and Examples
+
+The full label of a diatomic molecular state encodes:
+
+$$
+\text{Label}\ ^{2S+1}\Lambda_{\Omega}^{(\pm)} \text{(g/u)}
+$$
+
+capturing:  
+- **Energy ordering**  
+- **Spin multiplicity** ($S$)  
+- **Orbital projection** ($\Lambda$)  
+- **Total projection** ($\Omega$)  
+- **Reflection symmetry** (±)  
+- and, for homonuclear molecules, **parity** (*g/u*)
+
+---
+
+### Examples
+
+1. **Ground state of H₂:**
+
+$$
+X\,{}^1\Sigma_g^+
+$$
+
+- X → lowest (ground) state  
+- $^1$ → singlet ($S = 0$)  
+- $\Sigma$ → $\Lambda = 0$ (no angular momentum about the molecular axis)  
+- g → even parity (wavefunction symmetric under inversion)  
+- + → even under reflection through a plane containing the axis
+
+---
+
+2. **Excited triplet state of O₂:**
+
+$$
+a\,{}^3\Sigma_g^-
+$$
+
+- $a$: first triplet excited state  
+- $^3$: triplet ($S=1$)  
+- $\Sigma$: $\Lambda=0$  
+- g: gerade parity  
+- $-$: antisymmetric under reflection
+
+---
+
+This systematic nomenclature connects **quantum mechanical structure** with **spectroscopic observation**, allowing each potential curve $E_i(R)$ to be uniquely identified and compared across different diatomic systems.
+
+
+---
+
+
+# 4 Different Types of Bonds
+
+Having established how electronic states are labeled, we now connect these states to the types of bonding they represent. 
+In molecular physics, we distinguish three main types of chemical bonds based on the nature of the interaction between atoms: **covalent**, **ionic**, and **van der Waals** bonds. Each has characteristic features in terms of **electron distribution**, **bond strength**, and **equilibrium distance**.
+
+---
+
+## 4.1 Covalent Bond
+
+A covalent bond forms due to the overlapping of atomic orbitals from two atoms. When the internuclear distance $R$ is less than the sum of the atomic radii ($R < r_A + r_B$), the atomic orbitals overlap significantly, and the potential energy behaves exponentially with distance.
+
+Near the equilibrium distance $R_e$, the potential well exhibits parabolic (harmonic oscillator) behavior. At larger distances, the potential rises to approach the dissociation energy $E_B$.
+
+#### Morse Potential
+
+A realistic model for covalent bonds is the Morse potential:
+
+$$E_{\text{pot}}(R) = E_B \left(1 - e^{-a(R-R_e)}\right)^2$$
+
+where $E_B$ is the binding energy (depth of the potential well), $R_e$ is the equilibrium internuclear distance, and $a$ is a parameter that controls the width of the potential well. As $R \to \infty$, the potential approaches the dissociation limit $E_B$.
+
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: Diagram showing a covalent bond between atoms A and B, with overlapping electron densities in blue. The nuclei are shown as red circles, and a double-headed arrow indicates significant orbital overlap.
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Ellipse
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+def draw_atom(ax, x, y, radius, label, color='lightblue'):
+    circle = Circle((x, y), radius, fill=True, color=color, alpha=0.3, ec='black', lw=2)
+    ax.add_patch(circle)
+    ax.text(x, y, label, ha='center', va='center', fontsize=16, fontweight='bold')
+
+def draw_density(ax, x, y, width, height, color='blue', alpha=0.2):
+    ellipse = Ellipse((x, y), width, height, fill=True, color=color, alpha=alpha)
+    ax.add_patch(ellipse)
+
+draw_density(ax, 4, 0, 3.5, 3, 'blue', 0.3)
+draw_density(ax, 6, 0, 3.5, 3, 'blue', 0.3)
+draw_atom(ax, 4, 0, 0.8, 'A', 'lightcoral')
+draw_atom(ax, 6, 0, 0.8, 'B', 'lightcoral')
+
+ax.annotate('', xy=(5.5, -1.5), xytext=(4.5, -1.5),
+            arrowprops=dict(arrowstyle='<->', color='red', lw=2))
+ax.text(5, -1.8, 'Significant overlap', ha='center', fontsize=11, color='red')
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Covalent Bond - Orbital Overlap', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+
+---
+
+## 4.2 Ionic Bond
+
+Some heteronuclear molecules dissociate into ion pairs rather than neutral atoms. A classic example is sodium iodide:
+
+$$\text{NaI} : \quad \text{Na} + \text{I} \to \text{Na}^+ + \text{I}^-$$
+
+The interaction energy between the ions is dominated by the Coulomb potential, which falls off as $\frac{1}{R}$. This is much slower than the exponential decay of covalent bonds. 
+
+The potential energy curve for ionic bonding typically lies below the covalent curve at large distances but may cross at intermediate separations. Experimentally observed potentials often show a combination of both ionic and covalent character.
+
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: "Diagram showing an ionic bond between Na and I. Electron density is concentrated near I (blue), while Na is depleted. Charges are labeled: Na$^+$ and I$^-$."
+fig, ax = plt.subplots(figsize=(8, 4))
+
+draw_density(ax, 2.5, 0, 2, 1.5, 'blue', 0.15)
+draw_density(ax, 7.5, 0, 4, 3, 'blue', 0.4)
+
+draw_atom(ax, 2.5, 0, 0.8, 'Na', 'lightyellow')
+draw_atom(ax, 7.5, 0, 0.8, 'I', 'lightgreen')
+
+ax.text(3.5, 0.5, '+', fontsize=20, color='red', fontweight='bold')
+ax.text(8.5, 0.5, '−', fontsize=20, color='blue', fontweight='bold')
+
+ax.text(5, -1.5, 'Na$^+$ + I$^-$', ha='center', fontsize=12)
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Ionic Bond - Electron Transfer', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+
+---
+
+## 4.3 Van der Waals Bond (Induced)
+
+Van der Waals bonds form between two neutral, polarized atoms at relatively large equilibrium distances. These bonds arise from dipole-dipole interactions and induced dipole moments.
+
+In van der Waals bonding, the probability density of electrons is low in the region between the nuclei and high near each individual nucleus. This reflects the weak overlap of atomic orbitals. The interaction potential falls off as $\frac{1}{R^6}$ at large distances.
+
+#### Lennard-Jones Potential
+
+A common model for van der Waals interactions is the Lennard-Jones potential:
+
+$$E_{\text{pot}} = \frac{a}{R^{12}} - \frac{b}{R^6}$$
+
+The $R^{-12}$ term represents the short-range repulsion when atoms are pushed too close together, while the $R^{-6}$ term describes the long-range attractive van der Waals force. This potential features a shallow well at moderate distances and a steep repulsive wall at small $R$.
+
+Examples of molecules bound primarily by van der Waals forces include Mg$_2^+$, He$_2^+$, and noble gas dimers.
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: Diagram showing a van der Waals bond between atoms A and B at large distance. Minimal orbital overlap is shown, with an instantaneous dipole on A inducing a dipole on B.
+fig, ax = plt.subplots(figsize=(8, 4))
+
+draw_density(ax, 1.7, 0, 3, 2, 'blue', 0.3)
+draw_density(ax, 7.7, 0, 3, 2, 'blue', 0.3)
+
+draw_atom(ax, 2, 0, 0.8, 'A', 'lavender')
+draw_atom(ax, 8, 0, 0.8, 'B', 'lavender')
+
+ax.annotate('', xy=(7, -1.5), xytext=(3, -1.5),
+            arrowprops=dict(arrowstyle='<->', color='gray', lw=2))
+ax.text(5, -1.8, 'Large distance, minimal overlap', ha='center', fontsize=11, color='gray')
+ax.text(1.7, 1.4, 'instantaneous dipole', ha='center', fontsize=11, color='gray')
+ax.text(7.7, 1.4, 'induced dipole', ha='center', fontsize=11, color='gray')
+
+ax.text(0.5, 0.2, '−', fontsize=20, color='blue', fontweight='bold')
+ax.text(6.5, 0.2, '−', fontsize=20, color='blue', fontweight='bold')
+ax.text(3.4, -0.2, '+', fontsize=20, color='red', fontweight='bold')
+ax.text(9.4, -0.2, '+', fontsize=20, color='red', fontweight='bold')
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Van der Waals Bond - Induced Dipoles', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+---
+
+# Key Takeaways
+
+- The **potential energy curves** $E_i(R)$ describe how the total molecular energy varies with internuclear distance and define the stable configurations and excited states of a molecule.  
+
+- Each curve corresponds to a specific **electronic state**, characterized by a set of **quantum numbers** and **symmetry labels** that capture the essential physics of the system.  
+
+- **Diatomic molecular states** are identified by the term symbol  
+  $$
+  ^{2S+1}\Lambda_\Omega^{(\pm)} \text{(g/u)},
+  $$
+  which encodes:
+  - Spin multiplicity ($S$),  
+  - Orbital angular momentum projection ($\Lambda$),  
+  - Total angular momentum projection ($\Omega$),  
+  - Reflection symmetry ($\pm$), and  
+  - Inversion parity (g/u, for homonuclear molecules).  
+
+- **Symmetry operations** — reflection through a plane and inversion through the molecular center — determine the allowed forms of molecular wavefunctions and lead to characteristic **selection rules** in spectroscopy.  
+
+- The **LCAO–MO approximation**, when extended beyond H$_2^+$, provides a framework for understanding how electron configurations such as 
+  $1s\sigma$, $2p\pi$, or $3d\delta$ 
+  contribute to the formation of different states and bonding types.  
+
+- **Angular momentum coupling** ($\vec{L} + \vec{S} = \vec{J}$) explains the fine-structure splitting of electronic states, while the **projection quantum numbers** ($\Lambda$, $\Sigma$, $\Omega$) describe how these quantities relate to the internuclear axis.  
+
+- **Chemical bonding** arises as a continuum between idealized limits:
+  - **Covalent bonding** — equal sharing of electrons,
+  - **Ionic bonding** — complete charge transfer, and
+  - **Van-der-Waals bonding** — partial charge separation.
+
+- The framework developed here connects **quantum-mechanical structure**, **molecular symmetry**, and **observable chemical behavior**, forming the conceptual bridge between the simple H$_2^+$ model and real molecular systems.
 
 
 
