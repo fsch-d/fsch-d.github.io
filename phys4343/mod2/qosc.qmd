@@ -1,0 +1,685 @@
+---
+title: "The One-Dimensional Quantum Harmonic Oscillator"
+author: Daniel Fischer
+---
+
+
+# Introduction
+
+The **harmonic oscillator** is one of the most fundamental problems in physics. 
+It appears not only in **quantum mechanics**, but also in **molecular vibrations**, **phonons**, **field quantization**, and even **quantum information theory**.
+
+Its importance stems from the fact that **any potential** that is smooth near its equilibrium point can be approximated as quadratic — and hence locally behaves like a harmonic oscillator.  
+
+There are several ways to solve the Schrödinger equation for the harmonic oscillator:
+
+- The **differential equation method**, which solves the Schrödinger equation directly in coordinate space.
+- The **algebraic (operator) method**, which uses **creation and annihilation operators** to derive energies and wavefunctions in a more elegant, general, and physically transparent way.
+
+In this chapter, we focus on the **algebraic method**, which introduces concepts that are also crucial in:  
+- the **quantization of the electromagnetic field**,  
+- **angular momentum algebra**, and  
+- **many-body quantum theory**.
+
+---
+
+# 1. The Hamiltonian, Ladder , and Number Operators
+
+The one-dimensional harmonic oscillator describes a particle of mass $m$ moving in a quadratic potential:
+
+$$
+\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2.
+$$
+
+Here, $\hat{x}$ and $\hat{p}$ are the position and momentum operators, satisfying the **canonical commutation relation**:
+
+$$
+[\hat{x}, \hat{p}] = i\hbar.
+$$
+
+---
+
+## 1.1 The Ladder Operators
+
+To simplify the algebra, we introduce **ladder operators** (also called **annihilation** and **creation** operators):
+
+$$
+\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\,\hat{x} + \frac{i}{\sqrt{2m\hbar\omega}}\,\hat{p}, \qquad
+\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\,\hat{x} - \frac{i}{\sqrt{2m\hbar\omega}}\,\hat{p}.
+$$
+
+Note that $\hat{a}$ and $\hat{a}^\dagger$ are Hermitian conjugates of each other. They satisfy the simple commutation relation (easily derived from the canonical commutator):
+
+$$
+[\hat{a}, \hat{a}^\dagger] = 1.
+$$
+
+The Hamiltonian can now be rewritten in a remarkably compact form:
+
+$$
+\hat{H} = \hbar \omega \left( \hat{a}^\dagger \hat{a} + \frac{1}{2} \right).
+$$
+
+::: {.callout-note collapse=true}
+#### Derivation sketch
+Starting from the definition of $\hat{a}$ and $\hat{a}^\dagger$, you can show that:
+
+$$
+\hat{a}^\dagger \hat{a} = \frac{m\omega}{2\hbar}\hat{x}^2 + \frac{1}{2m\hbar\omega}\hat{p}^2 - \frac{i}{2\hbar}(\hat{x}\hat{p}-\hat{p}\hat{x})
+= \frac{1}{2\hbar\omega}\left(\frac{\hat{p}^2}{m} + m\omega^2 \hat{x}^2\right) - \frac{1}{2}.
+$$
+
+Rearranging gives:
+$$
+\hat{H} = \hbar\omega\left(\hat{a}^\dagger \hat{a} + \frac{1}{2}\right).
+$$
+:::
+
+The operators $\hat{a}^\dagger$ and $\hat{a}$ act as **raising** and **lowering** operators on energy eigenstates. To demonstrate explicitly how they raise and lower energy eigenstates, we compute the commutator (using $[\hat{a},\hat{a}^\dagger]=1$):
+$$
+\begin{aligned} 
+\left[ \hat{H}, \hat{a}^\dagger \right]
+&=\hbar\omega\big[\hat{a}^\dagger\hat{a}+\tfrac{1}{2},\hat{a}^\dagger\big] \\
+&=\hbar\omega\big(\hat{a}^\dagger[\hat{a},\hat{a}^\dagger]+[\hat{a}^\dagger,\hat{a}^\dagger]\hat{a}\big) \\
+&=\hbar\omega\,\hat{a}^\dagger\cdot 1 \;=\; \hbar\omega\,\hat{a}^\dagger.
+\end{aligned}
+$$
+
+We can now use this commutator to move $\hat{H}$ past $\hat{a}^\dagger$ when acting on an energy eigenstate $|n\rangle$ with $\hat H|n\rangle=E_n|n\rangle$:
+
+$$
+\begin{aligned}
+\hat{H}\big(\hat{a}^\dagger|n\rangle\big)
+&=\big([\hat{H},\hat{a}^\dagger]+\hat{a}^\dagger\hat{H}\big)|n\rangle \\
+&=(\hbar\omega\,\hat{a}^\dagger+\hat{a}^\dagger E_n)|n\rangle \\
+&=(E_n+\hbar\omega)\,\hat{a}^\dagger|n\rangle.
+\end{aligned}
+$$ {#eq-hadagger}
+
+Thus, $\hat{a}^\dagger|n\rangle$ is an eigenvector of $\hat{H}$ with energy $E_n + \hbar\omega$. We therefore label this higher-lying state as $|n+1\rangle$, such that
+$$
+\hat{a}^\dagger|n\rangle \propto |n+1\rangle.
+$$
+
+In the same way, using the commutator $[\hat{H}, \hat{a}] = -\hbar\omega \hat{a}$, we obtain
+$$
+\hat{H}\big(\hat{a}|n\rangle\big)=(E_n-\hbar\omega)\,\hat{a}|n\rangle,
+$$ {#eq-ha}
+which shows that $\hat{a}|n\rangle$ is an eigenstate with lower energy. We label this state $|n-1\rangle$,
+$$
+\hat a|n\rangle\propto |n-1\rangle.
+$$
+
+As we will see below, with proper normalization we obtain
+
+$$
+\hat{a}^\dagger|n\rangle = \sqrt{n+1}\, |n+1\rangle ,
+$$ {#eq-adagger}
+
+and similarly,
+$$
+\hat a|n\rangle= \sqrt{n}\, |n-1\rangle \qquad(n\ge1).
+$$ {#eq-a}
+
+---
+
+## 1.2 The Number Operator
+
+We introduce the **number operator**
+
+$$
+\hat{N} = \hat{a}^\dagger \hat{a}.
+$$
+
+We will now **prove** that $\hat{N}$ acts as a counting operator, that is,
+$$
+\hat{N}|n\rangle = n\,|n\rangle,
+$$
+for all nonnegative integers $n$.
+
+
+### Proof (by induction)
+
+**Base case:**  
+Since energy cannot be negative, there must exist a lowest-energy state $|0\rangle$ (the **ground state**) such that:
+
+$$
+\hat{a}|0\rangle = 0.
+$$
+Applying $\hat{N}$ gives  
+$$
+\hat{N}|0\rangle = \hat{a}^\dagger \hat{a}|0\rangle = 0,
+$$  
+so the statement is true for $n=0$.
+
+**Induction hypothesis:**  
+Assume $\hat{N}|n\rangle = n|n\rangle$ holds for some $n$.
+
+**Induction step:**  
+Using the commutation relation $[\hat{N}, \hat{a}^\dagger] = \hat{a}^\dagger\, \hat{a}\, \hat{a}^\dagger\, -\, \hat{a}^\dagger\, \hat{a}^\dagger\, \hat{a} = \hat{a}^\dagger [\hat{a}, \hat{a}^\dagger] = \hat{a}^\dagger$, we find
+$$
+\begin{aligned}
+\hat{N}(\hat{a}^\dagger|n\rangle)
+&= (\hat{a}^\dagger \hat{N} + [\hat{N}, \hat{a}^\dagger])|n\rangle \\
+&= n\,\hat{a}^\dagger|n\rangle + \hat{a}^\dagger|n\rangle \\
+&= (n+1)\,\hat{a}^\dagger|n\rangle.
+\end{aligned}
+$$  
+Thus, if the statement holds for $n$, it also holds for $n+1$.  
+By mathematical induction, $\hat{N}|n\rangle = n|n\rangle$ for all $n$.
+
+
+
+### Determining the normalization factors of the ladder operators
+
+To determine the correct normalization constants stated in @eq-adagger and @eq-a, we now use the number operator.
+
+1. **Unnormalized definition**
+
+   We know that $\hat a^\dagger$ raises the state:
+   $$
+   \hat a^\dagger |n\rangle = C_{n+1}\,|n+1\rangle.
+   $$
+
+2. **Take the inner product**
+
+   $$
+   \langle n| \hat a \hat a^\dagger |n\rangle = |C_{n+1}|^2.
+   $$
+
+3. **Use the commutation relation**
+
+   Since $\hat a \hat a^\dagger = \hat a^\dagger \hat a + [ \hat a, \hat a^\dagger] = \hat a^\dagger \hat a + 1 = \hat N + 1$,
+   $$
+   |C_{n+1}|^2 = \langle n|(\hat N + 1)|n\rangle = n + 1.
+   $$
+
+4. **Extract the constant**
+
+   $$
+   C_{n+1} = \sqrt{n+1}.
+   $$
+
+Hence,
+$$
+\hat a^\dagger |n\rangle = \sqrt{n+1}\,|n+1\rangle,
+$$
+and similarly,
+$$
+\hat a |n\rangle = \sqrt{n}\,|n-1\rangle.
+$$
+
+
+---
+
+# 2. Energy Eigenvalues
+
+Let $|n\rangle$ be an energy eigenstate of the oscillator, defined by:
+
+$$
+\hat{H}|n\rangle = E_n |n\rangle.
+$$
+
+First consider the **lowest-energy state** $|0\rangle$ (the **ground state**), which satisfies 
+
+$$
+\hat{a}|0\rangle = 0.
+$$
+
+Applying the Hamiltonian yields:
+
+$$
+\hat{H}|0\rangle = \hbar \omega \left( \hat{a}^\dagger \hat{a} + \frac{1}{2} \right)|0\rangle = \frac{1}{2}\hbar\omega\,|0\rangle.
+$$
+
+Hence, the **ground-state energy** is:
+
+$$
+E_0 = \frac{1}{2}\hbar\omega.
+$$
+
+
+We have already seen that the operator $\hat{a}^\dagger$ *raises* the energy (cf. @eq-hadagger):
+
+$$
+\hat{H}(\hat{a}^\dagger|n\rangle) = (E_n + \hbar\omega)(\hat{a}^\dagger|n\rangle),
+$$
+
+
+Therefore, each application of $\hat{a}^\dagger$ increases the energy by one quantum $\hbar\omega$, leading to the complete **energy spectrum**:
+
+$$
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
+$$
+
+::: {.callout-note collapse=true}
+#### Why is this the **complete** spectrum?
+
+A natural question arises: could there be "hidden" energy eigenstates between the levels we've constructed? The answer is no, and here's why:
+
+Suppose $|\psi\rangle$ is *any* energy eigenstate with energy $E$. Since $\hat{H} = \hbar\omega(\hat{N} + \frac{1}{2})$, we have:
+$$
+\hat{N}|\psi\rangle = \left(\frac{E}{\hbar\omega} - \frac{1}{2}\right)|\psi\rangle \equiv \lambda\, |\psi\rangle.
+$$
+
+The eigenvalue $\lambda$ must satisfy two constraints:
+
+1. **Non-negativity**: Since $\hat{N} = \hat{a}^\dagger \hat{a}$, we have $\langle \psi | \hat{N} | \psi \rangle = \|\hat{a}|\psi\rangle\|^2 \geq 0$, so $\lambda \geq 0$.
+
+2. **Integrality**: Repeatedly applying $\hat{a}$ decreases the eigenvalue by 1 each time (since $[\hat{N}, \hat{a}] = -\hat{a}$). This process must terminate at the ground state where $\hat{a}|0\rangle = 0$. Since we cannot have negative eigenvalues, $\lambda$ must be a nonnegative integer.
+
+Therefore, every energy eigenstate must correspond to $\hat{N}$ eigenvalue $n \in \{0, 1, 2, \ldots\}$, and we've already constructed all such states. The spectrum is complete—no intermediate energies exist.
+:::
+
+---
+
+# 3. Finding the Wavefunctions
+
+To find the explicit forms of the wavefunctions, we can apply the lowering operator definition to the coordinate representation.
+
+In position space, the ground state $|0\rangle$ satisfies:
+
+$$
+\hat{a}\psi_0(x) = 0.
+$$
+
+Using
+
+$$
+\hat{p} = -i\hbar \frac{d}{dx},
+$$
+
+this condition becomes:
+
+$$
+\left(\sqrt{\frac{m\omega}{2\hbar}}\,x + \frac{\hbar}{\sqrt{2m\hbar\omega}}\frac{d}{dx}\right)\psi_0(x) = 0.
+$$
+
+Solving gives:
+
+$$
+\psi_0(x) = A_0\, e^{-\frac{m\omega x^2}{2\hbar}},
+$$
+
+where $A_0 = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}$ ensures normalization.
+
+Higher-order states are obtained by applying $\hat{a}^\dagger$ repeatedly:
+
+$$
+\psi_n(x) = \frac{1}{\sqrt{n!}}\left(\hat{a}^\dagger\right)^n \psi_0(x),
+$$
+
+which leads to the standard Hermite polynomial form:
+
+$$
+\psi_n(x) =
+\frac{1}{\sqrt{2^n n!}}
+\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+H_n\!\left(\sqrt{\frac{m\omega}{\hbar}}\,x\right)
+e^{-\frac{m\omega x^2}{2\hbar}}.
+$$
+
+```{python}
+#| fig-alt: "Wavefunctions of the first seven harmonic oscillator states."
+#| fig-align: center
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.special import hermite
+from scipy.special import factorial
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+# Parameters
+m = 1.0  # mass
+omega = 1.0  # angular frequency
+hbar = 1.0  # reduced Planck constant
+x = np.linspace(-5, 5, 1000)
+
+# Harmonic oscillator potential
+V = 0.5 * m * omega**2 * x**2
+
+# Wavefunction for the n-th energy level
+def psi_n(n, x, m=1.0, omega=1.0, hbar=1.0):
+    """Calculate the n-th energy eigenstate wavefunction"""
+    alpha = np.sqrt(m * omega / hbar)
+    normalization = (alpha / np.pi)**0.25 / np.sqrt(2**n * factorial(n))
+    H_n = hermite(n)
+    return normalization * np.exp(-alpha**2 * x**2 / 2) * H_n(alpha * x)
+
+# Energy levels
+def E_n(n, omega=1.0, hbar=1.0):
+    """Energy of the n-th level"""
+    return hbar * omega * (n + 0.5)
+
+# Create figure
+fig, ax = plt.subplots(figsize=(7.5, 6))
+
+# Plot potential
+ax.plot(x, V, 'k-', linewidth=1.5, alpha=0.3, label='Potential V(x)')
+
+# Number of levels to plot
+n_levels = 8
+colors = plt.cm.Set2(np.linspace(0, 1, n_levels))
+
+# Plot energy levels and wavefunctions
+scale = 0.8  # scale factor for wavefunction amplitude
+
+for n in range(n_levels):
+    E = E_n(n, omega, hbar)
+    
+    # Plot energy level line
+    ax.axhline(y=E, color='gray', linestyle='-', linewidth=0.8, alpha=0.5)
+    
+    # Calculate and plot wavefunction
+    psi = psi_n(n, x, m, omega, hbar)
+    
+    # Scale and shift wavefunction to sit on energy level
+    psi_scaled = scale * psi + E
+    
+    # Fill the wavefunction with color
+    ax.fill_between(x, E, psi_scaled, alpha=0.6, color=colors[n], 
+                     where=(psi_scaled >= E), interpolate=True)
+    ax.fill_between(x, E, psi_scaled, alpha=0.6, color=colors[n], 
+                     where=(psi_scaled < E), interpolate=True)
+    
+    # Plot the wavefunction line
+    ax.plot(x, psi_scaled, color=colors[n], linewidth=1.5, alpha=0.8)
+    
+    # Add energy level labels
+    ax.text(-5.2, E+0.07, f'$E_{n}$', fontsize=12, va='bottom', ha='right')
+    
+    # Add wavefunction labels
+    ax.text(5.2, E+0.07, f'$\\psi_{n}(x)$', fontsize=11, va='bottom', ha='left')
+
+# Add energy spacing annotation
+E0 = E_n(0, omega, hbar)
+E1 = E_n(1, omega, hbar)
+ax.annotate('', xy=(-4.5, E1), xytext=(-4.5, E0),
+            arrowprops=dict(arrowstyle='<->', color='black', lw=1.5))
+ax.text(-4.8, (E0 + E1)/2, r'$\hbar\omega$', fontsize=13, va='center', ha='right')
+
+# Add half energy spacing annotation
+ax.annotate('', xy=(-4.5, E0), xytext=(-4.5, 0),
+            arrowprops=dict(arrowstyle='<->', color='black', lw=1.5))
+ax.text(-4.8, E0/2, r'$\hbar\omega/2$', fontsize=13, va='center', ha='right')
+
+# Vertical axis at x=0
+ax.plot([0,0], [0,E_n(n_levels-1) + 0.7], color='black', linewidth=1, alpha=0.7)
+
+# Horizontal axis
+ax.axhline(y=0, color='black', linewidth=1.0, alpha=0.5)
+
+# Formatting
+ax.set_xlim(-5.5, 5.5)
+ax.set_ylim(-0.5, E_n(n_levels-1) + 0.7)
+ax.set_xlabel('x', fontsize=14, loc='right')
+#ax.set_ylabel('$\\psi(x)$', fontsize=14, loc='top', rotation=0)
+ax.yaxis.set_label_coords(0.02, 0.98)
+
+# Remove ticks
+ax.set_xticks([0])
+ax.set_yticks([])
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_position('zero')
+
+# Add arrow to x-axis
+ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False, markersize=8)
+
+# Title
+#ax.set_title('Quantum Harmonic Oscillator: Energy Levels and Wavefunctions', 
+#             fontsize=14, pad=20, fontweight='bold')
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# 4. Coherent States
+
+Although our focus is the stationary states of the harmonic oscillator, there exists a special class of **non-stationary states** — the **coherent states** — that behave most like classical oscillations.
+
+A **coherent state** $|\alpha\rangle$ is defined as the **eigenstate** of the annihilation operator:
+
+$$
+\hat{a}|\alpha\rangle = \alpha|\alpha\rangle,
+$$
+
+where $\alpha$ is a complex number. 
+Its wavefunction in position space is a **displaced Gaussian** that oscillates without changing shape.
+
+In the energy basis, it can be expanded as:
+
+$$
+|\alpha\rangle = e^{-|\alpha|^2/2}\sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}}|n\rangle.
+$$
+
+The expectation values of position and momentum evolve as:
+
+$$
+\langle \hat{x}(t) \rangle = \sqrt{\frac{2\hbar}{m\omega}}\;\text{Re}\big[\alpha e^{-i\omega t}\big],
+$$
+$$
+\langle \hat{p}(t) \rangle = \sqrt{2m\hbar\omega}\;\text{Im}\big[\alpha e^{-i\omega t}\big],
+$$
+
+showing that the **center of the wave packet** oscillates just like a **classical particle**.
+
+The following animation illustrates the structure and dynamics of a coherent state. 
+Each stationary wavefunction $\psi_n(x)$ is plotted at its corresponding energy level $E_n$, scaled according to the coefficient $|c_n| = e^{-|\alpha|^2/2} |\alpha|^n / \sqrt{n!}$ appearing in the coherent-state superposition. 
+The red curve represents the **time-dependent probability density** $|\psi_\alpha(x, t)|^2$ of the coherent state, which oscillates back and forth in the harmonic potential without changing shape — a uniquely quantum realization of a classical oscillation.
+
+
+```{python}
+#| fig-alt: "Animated Gaussian wavepacket moving back and forth within a parabolic potential, illustrating classical-like motion."
+#| fig-align: center
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.special import hermite
+from scipy.special import factorial
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+# Parameters
+m = 1.0  # mass
+omega = 1.0  # angular frequency
+hbar = 1.0  # reduced Planck constant
+x = np.linspace(-5, 5, 1000)
+
+# Harmonic oscillator potential
+V = 0.5 * m * omega**2 * x**2
+
+# Wavefunction for the n-th energy level
+def psi_n(n, x, m=1.0, omega=1.0, hbar=1.0):
+    """Calculate the n-th energy eigenstate wavefunction"""
+    alpha = np.sqrt(m * omega / hbar)
+    normalization = (alpha / np.pi)**0.25 / np.sqrt(2**n * factorial(n))
+    H_n = hermite(n)
+    return normalization * np.exp(-alpha**2 * x**2 / 2) * H_n(alpha * x)
+
+# Energy levels
+def E_n(n, omega=1.0, hbar=1.0):
+    """Energy of the n-th level"""
+    return hbar * omega * (n + 0.5)
+
+# Coherent state coefficients
+def coherent_state_coeff(n, alpha):
+    """Coefficient c_n for coherent state |alpha>"""
+    return np.exp(-abs(alpha)**2 / 2) * alpha**n / np.sqrt(factorial(n))
+
+# Coherent state wavefunction
+def coherent_state_psi(x, alpha, t, n_max=30, m=1.0, omega=1.0, hbar=1.0):
+    """Time-dependent coherent state wavefunction"""
+    psi = np.zeros_like(x, dtype=complex)
+    for n in range(n_max):
+        c_n = coherent_state_coeff(n, alpha)
+        E = E_n(n, omega, hbar)
+        phase = np.exp(-1j * E * t / hbar)
+        psi += c_n * psi_n(n, x, m, omega, hbar) * phase
+    return psi
+
+# Find alpha for desired coherent state energy
+def find_alpha_for_energy(E_coh, omega=1.0, hbar=1.0):
+    """Find alpha such that <E> = E_coh"""
+    # For coherent state: <E> = hbar*omega*(|alpha|^2 + 1/2)
+    # E_coh = hbar*omega*(|alpha|^2 + 1/2)
+    # |alpha|^2 = E_coh/(hbar*omega) - 1/2
+    alpha_squared = E_coh / (hbar * omega) - 0.5
+    return np.sqrt(max(0, alpha_squared))
+
+# Setup
+n_levels = 8
+E_coh = (E_n(0) + E_n(3)) / 2  # Energy between E_0 and E_7
+alpha = find_alpha_for_energy(E_coh, omega, hbar)
+
+#print(f"Coherent state energy: E_coh = {E_coh:.2f}")
+#print(f"Alpha parameter: α = {alpha:.2f}")
+#print(f"Average quantum number: <n> = |α|² = {alpha**2:.2f}")
+
+# Create figure
+fig, ax = plt.subplots(figsize=(7.5, 6))
+
+# Plot potential
+ax.plot(x, V, 'k-', linewidth=1.5, alpha=0.3)
+
+# Colors for eigenstates
+colors = plt.cm.Set2(np.linspace(0, 1, n_levels))
+
+# Plot energy levels and scaled wavefunctions
+scale = 0.3
+eigenstate_plots = []
+
+for n in range(n_levels):
+    E = E_n(n, omega, hbar)
+    
+    # Plot energy level line
+    ax.axhline(y=E, color='gray', linestyle='-', linewidth=0.8, alpha=0.5)
+    
+    # Calculate wavefunction and coherent state coefficient
+    psi = psi_n(n, x, m, omega, hbar)
+    c_n = coherent_state_coeff(n, alpha)
+    
+    # Scale by coherent state coefficient (use absolute value for scaling)
+    scaling_factor = abs(c_n) * 5  # Extra factor for visibility
+    psi_scaled = scale * scaling_factor * psi + E
+    
+    # Fill and plot
+    fill = ax.fill_between(x, E, psi_scaled, alpha=0.6, color=colors[n])
+    line, = ax.plot(x, psi_scaled, color=colors[n], linewidth=1.5, alpha=0.8)
+    
+    eigenstate_plots.append((fill, line))
+    
+    # Add energy level labels
+    ax.text(-5.2, E+0.07, f'$E_{n}$', fontsize=12, va='bottom', ha='right')
+    
+    # Add wavefunction labels
+    ax.text(5.2, E+0.07, f'$\\psi_{n}(x)$', fontsize=11, va='bottom', ha='left')
+
+# Add energy spacing annotations
+E0 = E_n(0, omega, hbar)
+E1 = E_n(1, omega, hbar)
+ax.annotate('', xy=(-4.5, E1), xytext=(-4.5, E0),
+            arrowprops=dict(arrowstyle='<->', color='black', lw=1.5))
+ax.text(-4.8, (E0 + E1)/2, r'$\hbar\omega$', fontsize=13, va='center', ha='right')
+
+ax.annotate('', xy=(-4.5, E0), xytext=(-4.5, 0),
+            arrowprops=dict(arrowstyle='<->', color='black', lw=1.5))
+ax.text(-4.8, E0/2, r'$\hbar\omega/2$', fontsize=13, va='center', ha='right')
+
+# Mark coherent state energy level
+ax.axhline(y=E_coh, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
+ax.text(-5.2, E_coh+0.07, r'$E_{{coh}}=\langle \hat H \rangle$', fontsize=12, va='bottom', ha='right', color='red')
+
+# Initialize coherent state plot
+coh_scale = 3  # Scale for coherent state probability density
+psi_coh_t0 = coherent_state_psi(x, alpha, 0, n_max=30, m=m, omega=omega, hbar=hbar)
+prob_density = np.abs(psi_coh_t0)**2
+prob_scaled = coh_scale * prob_density + E_coh
+
+coherent_fill = ax.fill_between(x, E_coh, prob_scaled, alpha=0.7, color='red', label='Coherent state')
+coherent_line, = ax.plot(x, prob_scaled, 'r-', linewidth=2, alpha=0.9)
+
+# Axes formatting
+ax.plot([0,0], [0,E_n(n_levels-1) + 0.7], color='black', linewidth=1, alpha=0.7)
+ax.axhline(y=0, color='black', linewidth=1.0, alpha=0.5)
+
+ax.set_xlim(-5.5, 5.5)
+ax.set_ylim(-0.5, E_n(n_levels-1) + 0.7)
+ax.set_xlabel('x', fontsize=14, loc='right')
+#ax.set_ylabel('$\\psi(x)$', fontsize=14, loc='top', rotation=0)
+ax.yaxis.set_label_coords(0.02, 0.98)
+
+ax.set_xticks([0])
+ax.set_yticks([])
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_position('zero')
+
+ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False, markersize=8)
+
+time_text = ax.text(0.02, 1, '', transform=ax.transAxes, fontsize=12, 
+                    verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+
+#ax.set_title('Quantum Harmonic Oscillator: Coherent State Evolution', 
+#             fontsize=14, pad=20, fontweight='bold')
+
+# Animation
+def animate(frame):
+    t = frame  # Time step
+    # Update coherent state
+    psi_coh = coherent_state_psi(x, alpha, t, n_max=30, m=m, omega=omega, hbar=hbar)
+    prob_density = np.abs(psi_coh)**2
+    prob_scaled = coh_scale * prob_density + E_coh
+    
+    # Update coherent state plot
+    coherent_line.set_ydata(prob_scaled)
+    
+    # Update fill
+    global coherent_fill
+    coherent_fill.remove()
+    coherent_fill = ax.fill_between(x, E_coh, prob_scaled, alpha=0.7, color='red')
+    
+    # Update time text
+    time_text.set_text(f't = {t:.1f}')
+    
+    return coherent_line, time_text
+
+
+t_max = 37.8
+frames = [i * 0.2 for i in range(int(t_max/0.2)+1)]
+anim = FuncAnimation(fig, animate, frames=frames, interval=50, blit=False)
+
+plt.tight_layout()
+plt.close()
+
+# Display as HTML5 video in Jupyter
+HTML(anim.to_html5_video())
+```
+
+Coherent states thus form a conceptual bridge between **quantum** and **classical mechanics**, and they play a crucial role in **quantum optics** and **field theory**.
+
+---
+
+# Key Takeaways
+
+- The **algebraic method** provides an elegant and general solution to the harmonic oscillator problem.  
+- **Ladder operators** simplify the derivation of the entire energy spectrum.  
+- The **ground-state wavefunction** is a Gaussian, and higher states are obtained using Hermite polynomials.  
+- **Coherent states** link quantum oscillations to classical motion.
+
+---
+

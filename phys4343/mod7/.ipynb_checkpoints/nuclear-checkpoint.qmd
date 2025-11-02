@@ -1,0 +1,231 @@
+---
+title: "Nuclear Motion in the Born-Oppenheimer Approximation"
+author: Daniel Fischer
+---
+
+# Introduction
+
+So far, only electronic states were considered, and the nuclear coordinates $\vec{R}$ entered only as parameters. We now consider the complete molecular Hamiltonian, including both electronic and nuclear degrees of freedom.
+
+The Born-Oppenheimer approximation provides a powerful framework for separating the fast electronic motion from the slower nuclear motion, allowing us to treat molecular vibrations and rotations as quantum mechanical problems in effective potential energy surfaces determined by the electronic structure.
+
+# 1. The Born-Oppenheimer Approximation
+
+## 1.1 The Complete Hamiltonian
+
+The complete molecular Hamiltonian can be written as:
+
+$$\hat{H} = \hat{H}_0 + \hat{T}_N$$
+
+where:
+- $\hat{H}_0$ is the electronic Hamiltonian (including nuclear repulsion)
+- $\hat{T}_N$ is the kinetic energy operator for the nuclei
+
+The $\hat{T}_N$ term represents a small perturbation to the electronic problem.
+
+## 1.2 The Born-Oppenheimer Ansatz
+
+We write the total wavefunction as a product:
+
+$$\Psi(\vec{r}_i, \vec{R}_k) = \chi(\vec{R}_k) \cdot \Phi(\vec{r}_i, \vec{R}_k)$$
+
+where:
+- $\chi(\vec{R}_k)$ describes the nuclear motion (vibrational-rotational wavefunction)
+- $\Phi(\vec{r}_i, \vec{R}_k)$ is the electronic wavefunction (parametrically dependent on nuclear coordinates)
+
+**Key assumption:** Electrons move much faster than nuclei, and they adjust instantaneously to changes in the nuclear potential. This implies that electronic and nuclear motions are independent, and their coupling can be neglected. (Note: Vibration does not change the electronic state.)
+
+## 1.3 The Effective Nuclear Schrödinger Equation
+
+Substituting the ansatz into the Schrödinger equation gives two equations. For the unperturbed electronic problem, we have already discussed:
+
+$$\hat{H}_0 \Phi_n^{el}(\vec{r}_i, \vec{R}_k) = E_n^{(0)}(\vec{R}_k) \Phi_n^{el}(\vec{r}_i, \vec{R}_k)$$
+
+This yields the potential energy curve $E_n^{(0)}(\vec{R}_k)$ for each electronic state.
+
+The nuclear motion is then described by:
+
+$$\left[\hat{T}_N + E_{\text{pot}}^{(n)}(\vec{R}_k)\right] \chi_{nm}(\vec{R}_k) = E_{nm} \chi_{nm}(\vec{R}_k)$$
+
+where the potential energy curve from the electronic problem becomes the effective potential for nuclear motion.
+
+## 1.4 Total Energy
+
+The total energy of the molecule is:
+
+$$E_{\text{tot}} = E_n^{el} + (E_{\text{vib}} + E_{\text{rot}})$$
+
+where:
+- $E_n^{el}$ is the electronic energy
+- $E_{\text{vib}}$ is the vibrational energy
+- $E_{\text{rot}}$ is the rotational energy
+
+The dissociation energy of the molecule is measured from the zero-point energy (lowest vibrational level) to the dissociation limit.
+
+---
+
+# 2. Molecular Rotation: The Rigid Rotor
+
+## 2.1 Classical Description
+
+Classically, the rotational energy of a rigid diatomic molecule is:
+
+$$E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{J^2}{2I}$$
+
+where:
+- $I = M_A R_A^2 + M_B R_B^2 = M R^2$ is the moment of inertia (perpendicular to the molecular axis)
+- $M = \frac{M_A M_B}{M_A + M_B}$ is the reduced mass
+- $R = R_B - R_A$ is the internuclear distance (at the center-of-mass)
+- $J$ is the angular momentum
+
+## 2.2 Quantum Mechanical Treatment
+
+Quantum mechanically, the eigenvalues of the angular momentum operator are:
+
+$$|\vec{J}|^2 = J(J+1) \hbar^2$$
+
+where $J = 0, 1, 2, 3, \ldots$ is the rotational quantum number.
+
+The rotational energy levels are:
+
+$$E_{\text{rot}} = \frac{J(J+1) \hbar^2}{2M R_e^2}$$
+
+where $R_e$ is the equilibrium distance.
+
+## 2.3 Energy Level Spacing
+
+The spacing between two neighboring rotational states is:
+
+$$\Delta E_{\text{rot}} = \frac{(J+1) \hbar^2}{M R_e^2}$$
+
+Rotational energies of diatomic molecules are in the range $(10^{-4} - 10^{-2})$ eV or $J(J+1)$ eV. Rotational transitions and excitations occur in the wavelength range $10^{-5} - 10^{-1}$ m, i.e., in the **microwave region**.
+
+## 2.4 Selection Rules and Symmetry Considerations
+
+### Nuclear Spin Statistics
+
+Consider the special case of homonuclear diatomic molecules like H$_2$:
+
+**Ortho-H$_2$**: Nuclear spin state is symmetric $(\uparrow\uparrow)$, with total nuclear spin $I = 1$
+
+**Para-H$_2$**: Nuclear spin state is antisymmetric $(\uparrow\downarrow)$, with total nuclear spin $I = 0$
+
+The parity of the total nuclear wavefunction under inversion is $(-1)^N$, where $N$ is the total number of identical nuclei. The inversion reflection is identical to the exchange of nuclei.
+
+For **ortho-H$_2$**: only odd $J$ allowed
+For **para-H$_2$**: only even $J$ allowed
+
+**Question for heteronuclear molecules:** What happens for D$_2$ (spin of D nucleus is $I = 1$)?
+
+### Centrifugal Distortion
+
+There is a centrifugal distortion: for large $J$, the molecule stretches, and the moment of inertia gets larger. This results in a shift of the rotational lines.
+
+### Rotational Selection Rules
+
+For a full consideration, electron angular momentum needs to be included:
+- Molecular rotations occur mainly around the $x$ and $y$ axes
+- Electronic motion is around the $z$-axis
+- Nuclear rotational quantum number is $N$
+
+**Important notes:**
+
+1. There is a centrifugal distortion: for large $J$, the molecule stretches and the moment of inertia increases, causing a shift in the rotational lines.
+
+2. For a complete treatment, electron angular momentum must be included. Molecular rotations are mainly around the $x$ and $y$ axes, while electronic motion is around the $z$-axis. The nuclear rotational quantum number is denoted by $N$.
+
+3. Interactions with electromagnetic radiation typically require an electric dipole moment. Therefore, there are **no rotational lines observed in homonuclear molecules** (except for very weak quadrupole transitions).
+
+---
+
+# 3. Molecular Vibration
+
+## 3.1 Connection to the Hydrogen Atom Problem
+
+Equation (1) from the nuclear motion problem is very similar to the hydrogen atom problem, because it describes one particle in a spherically symmetric potential.
+
+Analogous to the single-electron atom, we use the ansatz:
+
+$$\chi(R, \vartheta, \varphi) = S(R) \cdot Y(\vartheta, \varphi)$$
+
+where $Y(\vartheta, \varphi)$ are the spherical harmonics we have discussed before.
+
+## 3.2 The Radial Equation
+
+The separation yields two differential equations. The radial equation is:
+
+$$\frac{1}{R^2} \frac{d}{dR}\left(R^2 \frac{dS}{dR}\right) + \frac{2M}{\hbar^2}\left[E - E_{\text{pot}}(R) - \frac{J(J+1)\hbar^2}{2MR^2}\right] S = 0 \quad (2)$$
+
+and the angular equation is:
+
+$$\frac{1}{\sin\vartheta} \frac{\partial}{\partial\vartheta}\left(\sin\vartheta \frac{\partial Y}{\partial\vartheta}\right) + \frac{1}{\sin^2\vartheta} \frac{\partial^2 Y}{\partial\varphi^2} + J(J+1)Y = 0 \quad (3)$$
+
+where:
+- Equation (2) describes vibrational motion
+- Equation (3) describes rotational motion
+
+## 3.3 Harmonic Oscillator Approximation
+
+Near the equilibrium distance $R_e$, we can expand the potential energy in a Taylor series:
+
+$$E_{\text{pot}}(R) \approx E_{\text{pot}}(R_e) + \frac{1}{2}k(R - R_e)^2$$
+
+where $k$ is the force constant (spring constant). This is the **harmonic oscillator approximation**.
+
+For small displacements from equilibrium, we can neglect the centrifugal term $\frac{J(J+1)\hbar^2}{2MR^2}$ in equation (2). The vibrational Schrödinger equation becomes:
+
+$$-\frac{\hbar^2}{2M}\frac{d^2\psi}{dR^2} + \frac{1}{2}k(R-R_e)^2\psi = E_{\text{vib}}\psi$$
+
+This is the standard quantum harmonic oscillator with solutions:
+
+$$E_{\text{vib}} = \hbar\omega\left(v + \frac{1}{2}\right)$$
+
+where $v = 0, 1, 2, 3, \ldots$ is the vibrational quantum number and $\omega = \sqrt{k/M}$ is the classical oscillation frequency.
+
+## 3.4 Energy Level Structure
+
+The vibrational energy levels are equally spaced with spacing $\Delta E = \hbar\omega$. The lowest level ($v = 0$) has energy $E_0 = \frac{1}{2}\hbar\omega$, which is the **zero-point energy**.
+
+Vibrational energies are typically in the range of $(10^{-2} - 10^{-1})$ eV, corresponding to infrared wavelengths.
+
+---
+
+# 4. Spectroscopy
+
+## 4.1 Energy Scale Hierarchy
+
+The energy scales for molecular motion follow the hierarchy:
+
+$$E_{\text{electronic}} \gg E_{\text{vibrational}} \gg E_{\text{rotational}}$$
+
+Typical values:
+- Electronic transitions: visible to UV region (eV scale)
+- Vibrational transitions: infrared region (10$^{-2}$ - 10$^{-1}$ eV)
+- Rotational transitions: microwave region (10$^{-4}$ - 10$^{-2}$ eV)
+
+## 4.2 Vibrational-Rotational Spectroscopy
+
+In practice, vibrational and rotational motions are often observed together in **ro-vibrational spectra**. A transition between vibrational levels is accompanied by changes in rotational levels, leading to characteristic band structures.
+
+The combined energy is:
+
+$$E_{v,J} = \hbar\omega\left(v + \frac{1}{2}\right) + \frac{J(J+1)\hbar^2}{2MR_e^2}$$
+
+## 4.3 Selection Rules
+
+For electric dipole transitions:
+
+**Vibrational selection rule:** $\Delta v = \pm 1$ (for harmonic oscillator)
+
+**Rotational selection rule:** $\Delta J = \pm 1$
+
+These selection rules lead to characteristic P-branch ($\Delta J = -1$) and R-branch ($\Delta J = +1$) structures in ro-vibrational spectra.
+
+## 4.4 Summary
+
+The Born-Oppenheimer approximation allows us to separate the molecular Hamiltonian into electronic and nuclear parts. The nuclear motion can be further separated into:
+
+1. **Rotation**: Treated as a rigid rotor with quantized angular momentum
+2. **Vibration**: Treated as a harmonic oscillator (to first approximation) with quantized energy levels
+
+This framework provides a comprehensive understanding of molecular spectra and the structure of molecular energy levels.

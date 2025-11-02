@@ -32,6 +32,7 @@ website:
           - mod2/braket.qmd
           - mod2/heisenberg.qmd
           - mod2/amcoupling.qmd
+          - mod2/qosc.qmd
           - mod2/perturb.qmd
           - mod2/exchange.qmd
           - mod2/variational.qmd
@@ -73,6 +74,7 @@ website:
           - mod7/h2plus.qmd
           - mod7/lcao.qmd
           - mod7/beyondh2plus.qmd
+          - mod7/nuclear.qmd
 
 
 #      - section: advanced.qmd

@@ -14,6 +14,7 @@ This page provides an overview and links to all the sections of the website.
 * [Bra–Ket (Dirac) Notation, Operators, and More](mod2/braket.qmd)
 * [Heisenberg's Uncertainty Principle](mod2/heisenberg.qmd)
 * [Angular Momenta and Their Couplings](mod2/amcoupling.qmd)
+* [The One-Dimensional Quantum Harmonic Oscillator](mod2/qosc.qmd)
 * [Time-Independent Perturbation Theory](mod2/perturb.qmd)
 * [Exchange Interaction: Fermions and Bosons](mod2/exchange.qmd)
 * [The Variational Method](mod2/variational.qmd)
@@ -65,6 +66,7 @@ This page provides an overview and links to all the sections of the website.
 * [The H$_2^+$ Molecular Ion](mod7/h2plus.qmd)
 * [Molecular Orbitals and the LCAO Method](mod7/lcao.qmd)
 * [Beyond H$_2^+$ and LCAO](mod7/beyondh2plus.qmd)
+* [Nuclear Motion in the Born-Oppenheimer Approximation](mod7/nuclear.qmd)
 
 ---
 
