@@ -1,0 +1,210 @@
+---
+title: "Molecular Transitions and Spectroscopy"
+author: Daniel Fischer
+---
+
+
+### Dipole Selection Rules for Rotational Transitions
+
+Transitions between rotational states are induced by interaction with electromagnetic radiation. The most important mechanism is electric dipole absorption, which requires the molecule to possess a **permanent electric dipole moment**. 
+
+For electric dipole transitions, the selection rule is:
+
+$$\Delta J = \pm 1$$
+
+This has an important consequence: **homonuclear diatomic molecules** (such as H$_2$, N$_2$, O$_2$) have no permanent dipole moment due to symmetry, and therefore exhibit **no pure rotational spectrum** in the microwave region. Only heteronuclear molecules (such as HCl, CO, NO) show rotational absorption lines.
+
+(Very weak rotational transitions can occur in homonuclear molecules via electric quadrupole or magnetic dipole interactions, but these are typically several orders of magnitude weaker and require specialized experimental techniques to observe.)
+
+---
+
+
+**Selection rules:** Due to anharmonicity, the strict $\Delta v = \pm 1$ selection rule of the harmonic oscillator is relaxed. Weak overtone transitions with $\Delta v = \pm 2, \pm 3, \ldots$ become allowed (though much weaker than the fundamental $\Delta v = \pm 1$ transitions).
+
+
+---
+
+# 5. Rovibrational Spectroscopy
+
+---
+
+## 5.1 Transition Rates and Selection Rules
+
+Spectroscopic transitions between rovibrational states occur when a molecule interacts with electromagnetic radiation. Consider a transition from an initial state $E_i(v_i, J_i, \ldots)$ in electronic state $i$ to a final state $E_k(v_k, J_k, \ldots)$ in electronic state $k$.
+
+The **transition rate** for spontaneous decay (emission) is given by the **Einstein coefficient**:
+
+$$A_{ik} = \frac{2\omega_{ik}^3}{3\varepsilon_0 c^3 \hbar} |M_{ik}|^2$$
+
+where $\omega_{ik} = (E_k - E_i)/\hbar$ is the transition frequency and $M_{ik}$ is the **transition dipole matrix element**:
+
+$$M_{ik} = \langle \Psi_k | \hat{\vec{\mu}} | \Psi_i \rangle$$
+
+This is an integral over all electronic and nuclear coordinates.
+
+The dipole moment operator can be written as:
+
+$$\hat{\vec{\mu}} = -e\sum_i \vec{r}_i + e\sum_A Z_A \vec{R}_A = \hat{\vec{\mu}}_{el} + \hat{\vec{\mu}}_N$$
+
+where the first term represents the electronic contribution and the second the nuclear contribution.
+
+### Decomposition of the Transition Dipole Moment
+
+Using the Born-Oppenheimer separation $\Psi = \chi(R) \Phi(\vec{r}; R)$, the transition dipole matrix element can be decomposed:
+
+$$M_{ik} = \int d^3R \, \chi_i^*(R) \rho_{ik}(R) \chi_k(R) \cdot \mathcal{T}_{vib}
++ \int d^3R \, \chi_i^*(R) \hat{\vec{\mu}}_N \chi_k(R) \cdot [\int d^3r \, \Phi_i^*(\vec{r};R) \Phi_k(\vec{r};R)]$$
+
+where:  
+$$\rho_{ik}(R) = \int d^3r \, \Phi_i^*(\vec{r};R) \hat{\vec{\mu}}_{el} \Phi_k(\vec{r};R)$$
+
+is the **electronic transition dipole moment**, which depends parametrically on the nuclear coordinates.
+
+**Interpretation:**  
+- **First term**: Electronic transitions, weighted by vibrational-rotational overlap (Franck-Condon factors)  
+- **Second term**: Vibrational-rotational transitions within the same electronic state
+
+**Important note:** For homonuclear diatomic molecules, the nuclear dipole moment $\hat{\vec{\mu}}_N = 0$ due to symmetry. Therefore, there are **no pure vibrational-rotational transitions** in homonuclear molecules (no infrared spectrum). Only heteronuclear molecules exhibit vibrational-rotational spectra.
+
+---
+
+## 5.2 Selection Rules for Vibrational-Rotational Transitions
+
+For vibrational-rotational transitions within the same electronic state, we focus on the case where there is no electronic transition (molecule remains in the ground electronic state).
+
+### The Transition Dipole Moment
+
+For a diatomic molecule, the dipole moment vector lies along the molecular axis. In the molecular frame, we can write:
+
+$$\hat{\vec{\mu}}(R) = \mu(R) \hat{z}_{\text{mol}}$$
+
+where $\mu(R)$ is the magnitude of the dipole moment (depending on internuclear distance) and $\hat{z}_{\text{mol}}$ is the unit vector along the molecular axis expressed in the space-fixed coordinate system.
+
+The transition dipole matrix element is:
+
+$$M_{ik} = \int \chi_{v_i J_i}^*(R,\theta,\phi) \mu(R) \hat{z}_{\text{mol}} \chi_{v_k J_k}(R,\theta,\phi) d^3R$$
+
+Using the factorization $\chi(R,\theta,\phi) = \frac{u(R)}{R} Y_{J,M}(\theta,\phi)$, this becomes:
+
+$$M_{ik} = \left[\int u_{v_i}^*(R) \mu(R) u_{v_k}(R) \frac{dR}{R^2}\right] \times \left[\int Y_{J_i M_i}^*(\theta,\phi) \cos\theta \, Y_{J_k M_k}(\theta,\phi) d\Omega\right]$$
+
+The factor $\cos\theta$ appears because $\hat{z}_{\text{mol}}$ expressed in spherical coordinates gives the projection along the space-fixed $z$-axis. Since $\cos\theta \propto Y_{1,0}(\theta,\phi)$, the angular integral involves the product of three spherical harmonics.
+
+The transition moment thus separates into:  
+- A **radial (vibrational) integral** depending on vibrational quantum numbers  
+- An **angular (rotational) integral** depending on rotational quantum numbers
+
+### Vibrational Selection Rules
+
+For the radial integral, we expand the dipole moment near equilibrium:
+
+$$\mu(R) \approx \mu_e + \left(\frac{d\mu}{dR}\right)_{R_e}(R - R_e) + \ldots$$
+
+In the **harmonic approximation**, only the linear term contributes to transitions. The radial integral becomes:
+
+$$\int u_{v_i}^*(R) (R - R_e) u_{v_k}(R) \frac{dR}{R^2}$$
+
+Using the properties of harmonic oscillator wavefunctions, where the position operator $(R - R_e)$ can be expressed in terms of ladder operators $\hat{a}$ and $\hat{a}^\dagger$, this integral is non-zero only when:
+
+$$\Delta v = \pm 1$$
+
+This is the **vibrational selection rule** in the harmonic approximation.
+
+For **anharmonic potentials** (like the Morse potential), higher-order terms in the expansion of $\mu(R)$ become important, and **overtone transitions** with $\Delta v = \pm 2, \pm 3, \ldots$ become weakly allowed. These overtone bands are much weaker than the fundamental ($\Delta v = \pm 1$) transitions, with intensities decreasing rapidly with increasing $|\Delta v|$.
+
+### Rotational Selection Rules
+
+The angular integral:
+
+$$\int Y_{J_i M_i}^*(\theta,\phi) \cos\theta \, Y_{J_k M_k}(\theta,\phi) d\Omega$$
+
+involves the product of three spherical harmonics (since $\cos\theta \propto Y_{1,0}$). Using the **Wigner-Eckart theorem** or explicit calculation with spherical harmonic properties, this integral is non-zero only when:
+
+$$\Delta J = 0, \pm 1$$
+
+with the additional constraint that $J_i = 0 \to J_k = 0$ is forbidden.
+
+However, for **diatomic molecules in $\Sigma$ states** (no electronic orbital angular momentum along the molecular axis), the $\Delta J = 0$ transition is **forbidden** due to parity conservation. The parity of a rotational state is $(-1)^J$, and the dipole operator has odd parity. Therefore, transitions can only occur between states of opposite parity, requiring $\Delta J = \pm 1$.
+
+This leaves only:  
+- $\Delta J = -1$: **P-branch** (transitions to lower $J$)  
+- $\Delta J = +1$: **R-branch** (transitions to higher $J$)
+
+**Summary of selection rules for heteronuclear diatomic molecules:**  
+
+$$\boxed{\Delta v = \pm 1 \quad \text{(harmonic approximation)}, \qquad \Delta J = \pm 1}$$
+
+**Important note:** For homonuclear diatomic molecules, $\mu(R) = 0$ for all $R$ due to symmetry. Therefore, there are **no vibrational-rotational transitions** in homonuclear molecules—they have no infrared absorption spectrum for pure vibrational-rotational transitions.
+
+---
+
+## 5.3 Rovibrational Spectrum Structure
+
+A typical infrared absorption spectrum of a diatomic molecule shows a characteristic **band structure** consisting of:
+
+1. **P-branch** ($\Delta J = -1$): Lines at frequencies lower than the band center  
+2. **Band center** (gap): Corresponds to the pure vibrational transition (forbidden)  
+3. **R-branch** ($\Delta J = +1$): Lines at frequencies higher than the band center  
+
+[FIGURE: FTIR spectrum of HCl showing P-branch and R-branch with characteristic splitting]
+
+### Analysis of Line Positions
+
+For a transition $v_i \to v_k$ with simultaneous rotational transition $J_i \to J_k$, the photon energy is:
+
+$$h\nu = E(v_k, J_k) - E(v_i, J_i)$$
+
+For the fundamental vibrational transition ($v = 0 \to v = 1$) in the ground electronic state:
+
+**R-branch** ($\Delta J = +1$, $J_k = J_i + 1$):
+
+$$\nu_R(J) = \nu_0 + B_1(J+1)(J+2) - B_0 J(J+1) = \nu_0 + 2B_1 + (3B_1 - B_0)J + (B_1 - B_0)J^2$$
+
+**P-branch** ($\Delta J = -1$, $J_k = J_i - 1$):
+
+$$\nu_P(J) = \nu_0 + B_1 J(J-1) - B_0 J(J+1) = \nu_0 - (B_1 + B_0)J + (B_1 - B_0)J^2$$
+
+where:  
+- $\nu_0 = \omega_e(1 - 2\chi_e)$ is the band origin (pure vibrational frequency)  
+- $B_0$ and $B_1$ are the rotational constants for $v = 0$ and $v = 1$, respectively  
+- $J$ denotes the initial rotational quantum number $J_i$  
+
+### Key Spectroscopic Features
+
+From the HCl spectrum, we can observe:
+
+1. **Line spacing**: The spacing between adjacent lines in each branch is approximately $2B$ (the rotational constant)
+
+2. **Band center gap**: No transition appears at $\nu_0$ due to the $\Delta J = 0$ selection rule
+
+3. **Asymmetry**: The R-branch and P-branch are not perfectly symmetric due to:  
+   - Vibration-rotation coupling: $B_1 < B_0$ (typically $B_1 \approx B_0 - \alpha_e$)  
+   - Centrifugal distortion effects
+
+4. **Isotope splitting**: HCl naturally contains two isotopes ($^{35}$Cl and $^{37}$Cl in roughly 3:1 ratio). Each line appears as a doublet because:  
+   - Different reduced masses: $\mu_{35} \neq \mu_{37}$  
+   - Different rotational constants: $B \propto 1/\mu$  
+   - Slightly different vibrational frequencies: $\omega \propto 1/\sqrt{\mu}$  
+
+5. **Line intensity variation**: The intensity of rotational lines depends on:  
+   - The Boltzmann population of the initial state: $\propto (2J+1)e^{-E(J)/k_BT}$  
+   - The transition dipole moment squared: $|M_{ik}|^2 \propto J$ or $(J+1)$
+   
+   This leads to a maximum intensity at intermediate $J$ values, with intensity falling off at high $J$ due to decreasing thermal population.
+
+---
+
+## 5.4 Information from Rovibrational Spectra
+
+High-resolution rovibrational spectroscopy provides detailed molecular information:
+
+- **Vibrational frequency** $\omega_e$: Force constant and bond strength  
+- **Anharmonicity** $\omega_e\chi_e$: Shape of the potential energy curve  
+- **Rotational constant** $B_e$: Equilibrium bond length ($R_e = \sqrt{\hbar^2/(2\mu B_e)}$)  
+- **Vibration-rotation coupling** $\alpha_e$: Bond length change with vibrational excitation  
+- **Centrifugal distortion** $D_J$: Bond stiffness under rotational stress  
+- **Isotope effects**: Precise determination of atomic masses and isotope ratios  
+
+The ability to resolve individual rotational lines (typically spaced by $\sim 1$–$10$ cm$^{-1}$) requires high-resolution spectrometers, such as FTIR (Fourier Transform Infrared) instruments with resolution better than $0.1$ cm$^{-1}$.
+
+

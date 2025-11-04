@@ -139,5 +139,8 @@
   },
   "mod2/qosc.qmd": {
     "qosc.html": "5e4c7fd7"
+  },
+  "mod7/moltransitions.qmd": {
+    "moltransitions.html": "5899b950"
   }
 }

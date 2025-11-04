@@ -6,6 +6,7 @@ author: Daniel Fischer
 
 # Introduction
 
+
 Building on the fundamental ideas of the H$_2^+$ molecular ion, this chapter extends the discussion of **molecular structure and bonding** to more complex diatomic systems. While H$_2^+$ revealed how molecular orbitals (MOs) arise from the superposition of atomic orbitals, real molecules exhibit additional layers of complexity — including **electron–electron interactions, multiple bonding mechanisms, and state symmetries**.
 
 In these systems, each molecule can be described by a set of **potential energy curves** $E_i(R)$ that depend on the internuclear distance $R$. These curves encode the stability and possible electronic states of the molecule, linking microscopic wavefunctions to macroscopic observables such as **bond lengths, dissociation energies, and spectroscopic transitions**.

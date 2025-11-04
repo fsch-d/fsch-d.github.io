@@ -1,231 +1,1222 @@
 ---
-title: "Nuclear Motion in the Born-Oppenheimer Approximation"
+title: "Nuclear Motion in Molecules"
 author: Daniel Fischer
 ---
 
 # Introduction
 
-So far, only electronic states were considered, and the nuclear coordinates $\vec{R}$ entered only as parameters. We now consider the complete molecular Hamiltonian, including both electronic and nuclear degrees of freedom.
+Having established how electronic states define the potential energy landscape of a molecule, we now turn to the **motion of the nuclei** within this landscape. While electrons adjust almost instantaneously to nuclear positions, the heavier nuclei move much more slowly — a separation of timescales that forms the basis of the **Born–Oppenheimer approximation**.
 
-The Born-Oppenheimer approximation provides a powerful framework for separating the fast electronic motion from the slower nuclear motion, allowing us to treat molecular vibrations and rotations as quantum mechanical problems in effective potential energy surfaces determined by the electronic structure.
+This approximation allows us to treat the electrons and nuclei **adiabatically**: the electrons define an effective potential energy surface on which the nuclei move. Within this framework, molecular spectroscopy becomes a study of **nuclear motion** — rotations and vibrations — superimposed on the electronic structure.
+
+For diatomic molecules, these nuclear motions are especially transparent: the system reduces to a single **internuclear coordinate** $R$, and the resulting dynamics explain the **fine structure** observed in molecular spectra. Rotational and vibrational energy levels reveal the geometry and stiffness of chemical bonds, providing a direct link between **quantum mechanics and measurable molecular properties**.
+
+### Goals of this Chapter
+
+By the end of this chapter, you should be able to:
+
+1. Explain the **Born–Oppenheimer approximation** and its physical justification.  
+2. Derive the **electronic** and **nuclear Schrödinger equations** by separating electronic and nuclear motion.  
+3. Understand how **potential energy curves** act as effective potentials for nuclear dynamics.  
+4. Describe the **rotational** and **vibrational** motions of diatomic molecules using quantum-mechanical models.  
+5. Interpret how these motions give rise to **rotational–vibrational spectra** and characteristic energy scales.  
+6. Recognize the role of **nuclear spin statistics** in determining the population of molecular levels.
+
+The concepts introduced here — quantized nuclear motion and potential energy surfaces — form the basis for understanding **rotational–vibrational spectra** and their experimental interpretation.
+
+---
 
 # 1. The Born-Oppenheimer Approximation
 
+Understanding molecular vibrations and rotations requires us to solve the Schrödinger equation for a many-body system containing both electrons and nuclei. The complete quantum mechanical treatment of this problem is extremely complex, as all particles are coupled through Coulombic interactions. However, the large mass difference between electrons and nuclei ($M_{\text{nucleus}}/m_e \sim 10^3$–$10^5$) suggests a natural separation: electrons move much faster than nuclei and can adjust almost instantaneously to changes in nuclear positions. This physical insight forms the basis of the **Born-Oppenheimer approximation**, which allows us to treat electronic and nuclear motion separately. We first solve for the electronic structure at fixed nuclear geometries, and then use the resulting electronic energy as an effective potential governing nuclear motion.
+
+---
+
 ## 1.1 The Complete Hamiltonian
 
-The complete molecular Hamiltonian can be written as:
+The complete molecular Hamiltonian describes both electronic and nuclear degrees of freedom. We can write it as:  
 
 $$\hat{H} = \hat{H}_0 + \hat{T}_N$$
 
-where:
-- $\hat{H}_0$ is the electronic Hamiltonian (including nuclear repulsion)
-- $\hat{T}_N$ is the kinetic energy operator for the nuclei
+where $\hat{H}_0$ is the electronic Hamiltonian (including nuclear-nuclear repulsion) and $\hat{T}_N$ is the kinetic energy operator for the nuclei.
 
-The $\hat{T}_N$ term represents a small perturbation to the electronic problem.
+The electronic Hamiltonian is given by:
+
+$$\hat{H}_0 = \hat{T}_e + \hat{V}_{eN} + \hat{V}_{ee} + V_{NN}$$
+
+where $\hat{T}_e$ is the electronic kinetic energy, $\hat{V}_{eN}$ is the electron-nuclear attraction, $\hat{V}_{ee}$ is the electron-electron repulsion, and $V_{NN}$ is the nuclear-nuclear repulsion (which depends only on nuclear coordinates).
+
+The nuclear kinetic energy operator is explicitly:
+
+$$\hat{T}_N = -\sum_{k=1}^{N_{\text{nuc}}} \frac{\hbar^2}{2M_k} \nabla_k^2$$
+
+where the sum runs over all nuclei, $M_k$ is the mass of nucleus $k$.
+
+Since nuclear masses are much larger than the electron mass ($M_k \gg m_e$, typically by a factor of $10^3$ to $10^5$), the $\hat{T}_N$ term represents a small perturbation to the electronic problem. This mass difference is the physical basis for treating nuclear and electronic motion separately.
+
+---
 
 ## 1.2 The Born-Oppenheimer Ansatz
 
-We write the total wavefunction as a product:
+We have already employed a separation of variables approach when solving for electronic wavefunctions—we separated the electronic coordinates from the nuclear coordinates by treating the nuclei as fixed. The Born-Oppenheimer approximation formalizes this idea by writing the total wavefunction as a product:
 
 $$\Psi(\vec{r}_i, \vec{R}_k) = \chi(\vec{R}_k) \cdot \Phi(\vec{r}_i, \vec{R}_k)$$
 
-where:
-- $\chi(\vec{R}_k)$ describes the nuclear motion (vibrational-rotational wavefunction)
-- $\Phi(\vec{r}_i, \vec{R}_k)$ is the electronic wavefunction (parametrically dependent on nuclear coordinates)
+where:  
+- $\vec{r}_i$ denotes the coordinates of all electrons ($i = 1, \ldots, N_e$)  
+- $\vec{R}_k$ denotes the coordinates of all nuclei ($k = 1, \ldots, N_{\text{nuc}}$)  
+- $\chi(\vec{R}_k)$ describes the nuclear motion (the vibrational-rotational wavefunction)    
+- $\Phi(\vec{r}_i, \vec{R}_k)$ is the electronic wavefunction
 
-**Key assumption:** Electrons move much faster than nuclei, and they adjust instantaneously to changes in the nuclear potential. This implies that electronic and nuclear motions are independent, and their coupling can be neglected. (Note: Vibration does not change the electronic state.)
+The electronic wavefunction $\Phi(\vec{r}_i, \vec{R}_k)$ is said to be **parametrically dependent** on the nuclear coordinates $\vec{R}_k$. This means that for each fixed configuration of the nuclei, we solve the electronic Schrödinger equation to obtain $\Phi$ as a function of the electronic coordinates $\vec{r}_i$. The nuclear positions appear as parameters in this electronic problem, not as dynamical variables. As the nuclei move, the electronic wavefunction adjusts to the new nuclear configuration, but we treat each nuclear geometry separately.
+
+**Key assumption:** Electrons move much faster than nuclei (due to their much smaller mass), and they adjust essentially instantaneously to changes in the nuclear configuration. This implies that electronic and nuclear motions can be treated as independent to a good approximation, and their coupling can be neglected. In other words, vibrations and rotations do not induce transitions between different electronic states (non-adiabatic effects are neglected).
+
+---
 
 ## 1.3 The Effective Nuclear Schrödinger Equation
 
-Substituting the ansatz into the Schrödinger equation gives two equations. For the unperturbed electronic problem, we have already discussed:
+To derive the equations governing electronic and nuclear motion, we substitute the Born-Oppenheimer ansatz into the time-independent Schrödinger equation:
 
-$$\hat{H}_0 \Phi_n^{el}(\vec{r}_i, \vec{R}_k) = E_n^{(0)}(\vec{R}_k) \Phi_n^{el}(\vec{r}_i, \vec{R}_k)$$
+$$\hat{H}\Psi = E\Psi$$
 
-This yields the potential energy curve $E_n^{(0)}(\vec{R}_k)$ for each electronic state.
+$$(\hat{H}_0 + \hat{T}_N)[\chi(\vec{R}_k) \Phi(\vec{r}_i, \vec{R}_k)] = E\,\chi(\vec{R}_k) \Phi(\vec{r}_i, \vec{R}_k)$$
 
-The nuclear motion is then described by:
+Let us examine how $\hat{T}_N$ acts on the product $\chi(\vec{R}_k) \Phi(\vec{r}_i, \vec{R}_k)$. For a single nucleus $k$:
 
-$$\left[\hat{T}_N + E_{\text{pot}}^{(n)}(\vec{R}_k)\right] \chi_{nm}(\vec{R}_k) = E_{nm} \chi_{nm}(\vec{R}_k)$$
+$$-\frac{\hbar^2}{2M_k}\nabla_k^2[\chi \Phi] = -\frac{\hbar^2}{2M_k}[\underbrace{(\nabla_k^2\chi)\Phi}_{\text{Term I}} + \underbrace{2(\nabla_k\chi)\cdot(\nabla_k\Phi)}_{\text{Term II}} + \underbrace{\chi(\nabla_k^2\Phi)}_{\text{Term III}}]$$
 
-where the potential energy curve from the electronic problem becomes the effective potential for nuclear motion.
+The Born-Oppenheimer approximation consists of neglecting the last two terms, which represent the coupling between nuclear and electronic motion. These terms are small because $\Phi$ varies slowly with nuclear coordinates (the electrons adjust adiabatically). Thus:
 
-## 1.4 Total Energy
+$$\hat{T}_N[\chi \Phi] \approx [\hat{T}_N\chi]\Phi$$
 
-The total energy of the molecule is:
+::: {.callout-note collapse="true"}
+#### Why Terms II and III are Neglected
+The justification for setting **Term II** (coupling) and **Term III** (diagonal correction) to zero relies on the **vast difference in mass** between the nuclei ($M_k$) and the electrons ($m_e$).
 
-$$E_{\text{tot}} = E_n^{el} + (E_{\text{vib}} + E_{\text{rot}})$$
+* **Small Magnitude:** Both neglected terms scale with the **inverse of the large nuclear mass, $\mathbf{1/M_k}$**. While Term I also scales with $1/M_k$ (it's the nuclear kinetic energy), Terms II and III are small coupling effects. Because $M_k$ is thousands of times greater than $m_e$, the contributions of Terms II and III are negligible compared to the large electronic energy terms (scaled by $1/m_e$) that are retained in the overall Hamiltonian.
+* **Decoupling:** Neglecting these small terms is the foundational step that allows the $\text{MO}$ problem to be **separated** into independent electronic and nuclear Schrödinger equations, dramatically simplifying the solution.
+:::
 
-where:
-- $E_n^{el}$ is the electronic energy
-- $E_{\text{vib}}$ is the vibrational energy
-- $E_{\text{rot}}$ is the rotational energy
+Substituting this approximation, we obtain:
 
-The dissociation energy of the molecule is measured from the zero-point energy (lowest vibrational level) to the dissociation limit.
+$$\hat{H}_0\Phi \cdot \chi + \Phi \cdot \hat{T}_N\chi = E\,\chi\Phi$$
+
+Dividing by $\chi\Phi$:
+
+$$\frac{1}{\Phi}\hat{H}_0\Phi + \frac{1}{\chi}\hat{T}_N\chi = E$$
+
+Since the first term depends only on electronic coordinates (with $\vec{R}_k$ as parameters) and the second only on nuclear coordinates, each must equal a constant for the equation to hold for all values of the coordinates. This yields two separate equations.
+
+#### Electronic Schrödinger equation:
+
+$$\hat{H}_0 \Phi_n^{el}(\vec{r}_i; \vec{R}_k) = E_n^{el}(\vec{R}_k) \Phi_n^{el}(\vec{r}_i; \vec{R}_k)$$
+
+For each fixed nuclear geometry $\vec{R}_k$, we solve this equation to obtain the electronic energy $E_n^{el}(\vec{R}_k)$ and wavefunction $\Phi_n^{el}$. The electronic energy depends on the nuclear coordinates and defines the **potential energy surface** for nuclear motion. (We use semicolon notation to emphasize that $\vec{R}_k$ are parameters, not dynamical variables.)
+
+#### Nuclear Schrödinger equation:
+
+$$\left[\hat{T}_N + E_n^{el}(\vec{R}_k)\right] \chi_{n}(\vec{R}_k) = E_{n} \chi_{n}(\vec{R}_k)$$
+
+The electronic energy curve $E_n^{el}(\vec{R}_k)$ from the electronic problem now acts as the effective potential energy for nuclear motion. The eigenvalues $E_n$ of this equation give the total energies of vibrational and rotational states within electronic state $n$.
+
+---
+
+## 1.4 Separation of Vibrational and Rotational Motion: The Diatomic Case
+
+For a diatomic molecule, we can further separate the nuclear motion into vibrational and rotational components. Let us denote the internuclear distance as $R = |\vec{R}_2 - \vec{R}_1|$ and introduce center-of-mass and relative coordinates.
+
+The nuclear kinetic energy operator for a diatomic molecule can be written in terms of the reduced mass $\mu = \frac{M_1 M_2}{M_1 + M_2}$:
+
+$$\hat{T}_N = -\frac{\hbar^2}{2\mu}\nabla^2$$
+
+where the Laplacian is with respect to the relative coordinate $\vec{R} = \vec{R}_2 - \vec{R}_1$.
+
+#### Transformation to spherical coordinates:
+
+In spherical coordinates $(R, \theta, \phi)$, the Laplacian takes the form:
+
+$$\nabla^2 = \frac{1}{R^2}\frac{\partial}{\partial R}\left(R^2 \frac{\partial}{\partial R}\right) + \frac{1}{R^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{R^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}$$
+
+We recognize that the angular part is related to the squared angular momentum operator:
+
+$$\hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]$$
+
+Therefore, the kinetic energy operator becomes:
+
+$$
+\hat{T}_N = -\frac{\hbar^2}{2\mu R^2}\frac{\partial}{\partial R}\left(R^2 \frac{\partial}{\partial R}\right) + \frac{\hat{L}^2}{2\mu R^2}
+$${#eq-nuclhamil}
+
+The first term is the **radial kinetic energy** (vibrational), and the second term is the **rotational kinetic energy**.
+
+#### Separation of variables:
+
+We write the nuclear wavefunction as:
+
+$$\chi(R, \theta, \phi) = \frac{u(R)}{R} Y_{J,M}(\theta, \phi)$$
+
+where $Y_{J,M}(\theta, \phi)$ are spherical harmonics (eigenfunctions of $\hat{L}^2$ with eigenvalue $J(J+1)\hbar^2$), and the factor $1/R$ simplifies the radial equation.
+
+Substituting into the nuclear Schrödinger equation:
+
+$$\left[-\frac{\hbar^2}{2\mu R^2}\frac{\partial}{\partial R}\left(R^2 \frac{\partial}{\partial R}\right) + \frac{\hat{L}^2}{2\mu R^2} + E_n^{el}(R)\right]\frac{u(R)}{R} Y_{J,M} = E\,\frac{u(R)}{R} Y_{J,M}$$
+
+Using $\hat{L}^2 Y_{J,M} = J(J+1)\hbar^2 Y_{J,M}$ and simplifying the radial derivative:
+
+$$-\frac{\hbar^2}{2\mu R^2}\frac{d}{dR}\left(R^2 \frac{d}{dR}\frac{u}{R}\right) = -\frac{\hbar^2}{2\mu}\frac{d^2u}{dR^2}$$
+
+we obtain the **radial Schrödinger equation**:
+
+$$\left[-\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2} + \frac{J(J+1)\hbar^2}{2\mu R^2} + E_n^{el}(R)\right]u(R) = E_{nJ}\,u(R)$$
+
+This equation describes vibration in an effective potential:
+
+$$V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}$$
+
+The second term is the **centrifugal potential**, which depends on the rotational quantum number $J$.
+
 
 ---
 
 # 2. Molecular Rotation: The Rigid Rotor
 
-## 2.1 Classical Description
+The final step in the Born-Oppenheimer approximation for diatomic molecules, as shown in the previous section, is the separation of the nuclear motion into vibrational (radial) and rotational (angular) components. We now proceed to simplify and solve the angular part of the nuclear Schrödinger equation by employing the **rigid rotor approximation**.
 
-Classically, the rotational energy of a rigid diatomic molecule is:
+```{python}
+#| fig-align: center
+#| fig-alt: "Diagram of two masses, M1 and M2, connected by a bond (R) and rotating around a perpendicular axis passing through their center of mass (COM). M2 is visibly larger than M1. The COM is marked with a red 'X' and is closer to M2 (the heavier mass). The distance from M1 to the COM is labeled R1, and the distance from M2 to the COM is labeled R2, such that R = R1 + R2. A dashed red line indicates the axis of rotation, and a red arrow shows the elliptical path of rotation around this axis."
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
 
-$$E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{J^2}{2I}$$
+# --- Functional Fits (Based on Known Theoretical Results) ---
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
 
-where:
-- $I = M_A R_A^2 + M_B R_B^2 = M R^2$ is the moment of inertia (perpendicular to the molecular axis)
-- $M = \frac{M_A M_B}{M_A + M_B}$ is the reduced mass
-- $R = R_B - R_A$ is the internuclear distance (at the center-of-mass)
-- $J$ is the angular momentum
 
-## 2.2 Quantum Mechanical Treatment
+fig, ax = plt.subplots(1, 1, figsize=(6, 3))
 
-Quantum mechanically, the eigenvalues of the angular momentum operator are:
+# Positions
+M1_pos = 2.5
+M2_pos = 9.5
+COM_pos = (M1_pos * 1 + M2_pos * 4) / 5
 
-$$|\vec{J}|^2 = J(J+1) \hbar^2$$
 
-where $J = 0, 1, 2, 3, \ldots$ is the rotational quantum number.
+# Draw elliptical rotation arrow around the center of mass
+theta = np.linspace(0.6 * np.pi, 2.3 * np.pi, 100)  # 1.7*pi to leave gap for arrowhead
+ellipse_a = 0.4  # semi-major axis (horizontal)
+ellipse_b = 0.25  # semi-minor axis (vertical)
+x_ellipse = COM_pos + ellipse_a * np.cos(theta)
+y_ellipse = 3.1 + ellipse_b * np.sin(theta)
 
-The rotational energy levels are:
+ax.plot(x_ellipse, y_ellipse, 'r-', linewidth=1.5, alpha=0.7, zorder=1)
 
-$$E_{\text{rot}} = \frac{J(J+1) \hbar^2}{2M R_e^2}$$
+# Add arrowhead at the end of the ellipse
+arrow_x = COM_pos + ellipse_a * np.cos(2.3 * np.pi)
+arrow_y = 3.1 + ellipse_b * np.sin(2.3 * np.pi)
+# Direction tangent to ellipse
+dx = -ellipse_a * np.sin(2.3 * np.pi)
+dy = ellipse_b * np.cos(2.3 * np.pi)
+# Normalize
+norm = np.sqrt(dx**2 + dy**2)
+dx, dy = dx/norm * 0.02, dy/norm * 0.02
 
-where $R_e$ is the equilibrium distance.
+ax.arrow(arrow_x, arrow_y, dx, dy, head_width=0.15, head_length=0.1, 
+         fc='red', ec='red', linewidth=1.5, alpha=0.7, zorder=1)
 
-## 2.3 Energy Level Spacing
 
-The spacing between two neighboring rotational states is:
+# Draw rotation axis (dashed red line)
+ax.axvline(COM_pos, ymin=0.16, ymax=0.84, color='#CC0000', 
+           linewidth=2, linestyle='--', zorder=1)
 
-$$\Delta E_{\text{rot}} = \frac{(J+1) \hbar^2}{M R_e^2}$$
+# Draw bond line
+ax.plot([M1_pos, M2_pos], [2.5, 2.5], 'k-', linewidth=2.5, zorder=2)
 
-Rotational energies of diatomic molecules are in the range $(10^{-4} - 10^{-2})$ eV or $J(J+1)$ eV. Rotational transitions and excitations occur in the wavelength range $10^{-5} - 10^{-1}$ m, i.e., in the **microwave region**.
+# Draw atoms
+# Smaller atom (M1)
+circle1 = patches.Circle((M1_pos, 2.5), 0.45, color='lightgray', 
+                         ec='#333', linewidth=2, zorder=3)
+ax.add_patch(circle1)
+ax.plot(M1_pos, 2.5, 'ko', markersize=3, zorder=4)
 
-## 2.4 Selection Rules and Symmetry Considerations
+# Larger atom (M2)
+circle2 = patches.Circle((M2_pos, 2.5), 0.85, color='darkgray', 
+                         ec='#333', linewidth=2, zorder=3)
+ax.add_patch(circle2)
+ax.plot(M2_pos, 2.5, 'ko', markersize=3, zorder=4)
 
-### Nuclear Spin Statistics
+# Center of mass marker (red X)
+ax.plot(COM_pos, 2.5, 'rx', markersize=12, markeredgewidth=2.5, zorder=5)
 
-Consider the special case of homonuclear diatomic molecules like H$_2$:
+# Extension lines (dashed, thin)
+for pos in [M1_pos, COM_pos, M2_pos]:
+    ax.plot([pos, pos], [2.5, 4.0], 'k--', linewidth=0.5, alpha=0.4)
+for pos in [M1_pos, M2_pos]:
+    ax.plot([pos, pos], [2.5, 1.0], 'k--', linewidth=0.5, alpha=0.4)
 
-**Ortho-H$_2$**: Nuclear spin state is symmetric $(\uparrow\uparrow)$, with total nuclear spin $I = 1$
+# Arrows
+arrow_props = dict(arrowstyle='<->', color='black', lw=1.5, 
+                   shrinkA=0, shrinkB=0, mutation_scale=15)
 
-**Para-H$_2$**: Nuclear spin state is antisymmetric $(\uparrow\downarrow)$, with total nuclear spin $I = 0$
+# R1 arrow
+ax.annotate('', xy=(COM_pos, 3.8), xytext=(M1_pos, 3.8), arrowprops=arrow_props)
+ax.text((M1_pos + COM_pos)/2, 4.15, r'$R_1$', fontsize=16, 
+        ha='center', va='bottom', style='italic')
 
-The parity of the total nuclear wavefunction under inversion is $(-1)^N$, where $N$ is the total number of identical nuclei. The inversion reflection is identical to the exchange of nuclei.
+# R2 arrow
+ax.annotate('', xy=(M2_pos, 3.8), xytext=(COM_pos, 3.8), arrowprops=arrow_props)
+ax.text((COM_pos + M2_pos)/2, 4.15, r'$R_2$', fontsize=16, 
+        ha='center', va='bottom', style='italic')
 
-For **ortho-H$_2$**: only odd $J$ allowed
-For **para-H$_2$**: only even $J$ allowed
+# R arrow
+ax.annotate('', xy=(M2_pos, 1.2), xytext=(M1_pos, 1.2), arrowprops=arrow_props)
+ax.text((M1_pos + M2_pos)/2, 0.85, r'$R$', fontsize=16, 
+        ha='center', va='top', style='italic')
 
-**Question for heteronuclear molecules:** What happens for D$_2$ (spin of D nucleus is $I = 1$)?
+# Labels
+ax.text(M1_pos, 0.4, r'$M_1$', fontsize=16, ha='center', va='top', style='italic')
+ax.text(M2_pos, 0.4, r'$M_2$', fontsize=16, ha='center', va='top', style='italic')
+ax.text(COM_pos - 0.35, 2.5, 'O', fontsize=14, ha='center', va='bottom', 
+        color='#CC0000', weight='bold')
 
-### Centrifugal Distortion
+# Axis settings
+ax.set_xlim(1, 11)
+ax.set_ylim(0, 5)
+ax.set_aspect('equal')
+ax.axis('off')
 
-There is a centrifugal distortion: for large $J$, the molecule stretches, and the moment of inertia gets larger. This results in a shift of the rotational lines.
+plt.tight_layout()
+plt.show()
+```
 
-### Rotational Selection Rules
+---
 
-For a full consideration, electron angular momentum needs to be included:
-- Molecular rotations occur mainly around the $x$ and $y$ axes
-- Electronic motion is around the $z$-axis
-- Nuclear rotational quantum number is $N$
+## 2.1 Rotational Energy Levels
 
-**Important notes:**
+From the previous section, we saw that the nuclear Hamiltonian for a diatomic molecule (see @eq-nuclhamil) contains the term:
 
-1. There is a centrifugal distortion: for large $J$, the molecule stretches and the moment of inertia increases, causing a shift in the rotational lines.
+$$\hat{H}_{\text{rot}} = \frac{\hat{L}^2}{2\mu R^2}$$
 
-2. For a complete treatment, electron angular momentum must be included. Molecular rotations are mainly around the $x$ and $y$ axes, while electronic motion is around the $z$-axis. The nuclear rotational quantum number is denoted by $N$.
+which represents the rotational kinetic energy. In the **rigid rotor approximation**, we assume that the molecule does not vibrate, i.e., the internuclear distance $R$ is fixed at its equilibrium value $R_e$. This decouples rotation from vibration and allows us to treat the rotational problem independently.
 
-3. Interactions with electromagnetic radiation typically require an electric dipole moment. Therefore, there are **no rotational lines observed in homonuclear molecules** (except for very weak quadrupole transitions).
+With $I = \mu R_e^2$ (the moment of inertia), we can write:
+
+$$\hat{H}_{\text{rot}} = \frac{\hat{L}^2}{2I},$$
+
+which has the same form as the classical expression $E_{\text{rot}} = J^2/2I$.
+
+The eigenfunctions of $\hat{L}^2$ are the spherical harmonics $Y_{J,M}(\theta, \phi)$, with eigenvalues:
+
+$$\hat{L}^2 Y_{J,M} = J(J+1)\hbar^2 Y_{J,M}$$
+
+where $J = 0, 1, 2, 3, \ldots$ is the **rotational quantum number**, and $M = -J, -J+1, \ldots, J-1, J$ is the projection of angular momentum along the space-fixed $z$-axis.
+
+The rotational energy levels are therefore:
+
+$$E_{\text{rot}}(J) = \frac{J(J+1)\hbar^2}{2I} = B J(J+1)$$
+
+where we have introduced the **rotational constant**:
+
+$$B = \frac{\hbar^2}{2I} = \frac{\hbar^2}{2\mu R_e^2}$$
+
+Each energy level with quantum number $J$ is $(2J+1)$-fold degenerate due to the different possible values of $M$.
+
+**Energy spacing:**
+The spacing between adjacent rotational levels increases linearly with $J$:
+
+$$\Delta E = E(J+1) - E(J) = 2B(J+1)$$
+
+Typical values of the rotational constant $B$ are in the range of $10^{-4}$ to $10^{-2}$ eV, corresponding to rotational transition energies in the **microwave and far-infrared region** (wavelengths $\sim 10^{-5}$ to $10^{-1}$ m). This is much smaller than vibrational energies ($\sim 0.1$–$0.5$ eV) and electronic energies ($\sim 1$–$10$ eV).
+
+---
+
+## 2.2 Nuclear Spin Statistics in Homonuclear Molecules
+
+For homonuclear diatomic molecules, an constraint arises from the symmetry properties of identical nuclei. Consider the example of H$_2$, where both nuclei are protons.
+
+Protons are fermions with spin $I = 1/2$. The Pauli exclusion principle requires that the total wavefunction (including nuclear spin) must be **antisymmetric** under exchange of the two identical nuclei.
+
+#### Spin exchange symmetry:
+
+The nuclear spin wavefunctions can be combined into symmetric and antisymmetric combinations:  
+- **Symmetric (triplet, $I_{\text{tot}} = 1$)**: Three states with parallel spins, e.g., $|\uparrow\uparrow\rangle$, $|\downarrow\downarrow\rangle$, and $\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle)$. These are called **ortho-H$_2$**.  
+- **Antisymmetric (singlet, $I_{\text{tot}} = 0$)**: One state $\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle)$. This is called **para-H$_2$**.
+
+
+#### Spatial exchange symmetry:
+
+For a homonuclear diatomic molecule, exchanging the two nuclei is equivalent to a rotation of 180° about an axis perpendicular to the molecular axis (or equivalently, to a spatial inversion through the center of mass). For rotational wavefunctions (spherical harmonics $Y_{J,M}$), the parity is $(-1)^J$. Therefore:  
+- **Even $J$**: rotational wavefunction is symmetric under exchange  
+- **odd $J$**: rotational wavefunction is antisymmetric under exchange
+
+#### Total exchange symmetry:
+
+To satisfy the Pauli principle (total wavefunction antisymmetric):  
+- **Ortho-H$_2$** (symmetric nuclear spin): requires **odd $J$** (antisymmetric spatial wavefunction)  
+- **Para-H$_2$** (antisymmetric nuclear spin): requires **even $J$** (symmetric spatial wavefunction)
+
+These are distinct molecular species that do not interconvert easily (the conversion requires a nuclear spin flip, which is very slow). At room temperature, the equilibrium mixture is 3:1 ortho:para, reflecting the statistical weights (3 triplet states vs. 1 singlet state). At low temperatures, para-H$_2$ dominates because the lowest rotational state is $J = 0$.
+
+#### Example: D$_2$ (deuterium molecule)
+
+Deuterium nuclei are bosons with spin $I = 1$. Bosons require a **symmetric** total wavefunction. Following similar logic:  
+- **Symmetric nuclear spin states** ($I_{\text{tot}} = 0, 2$, 6 states total): require **even $J$** (symmetric spatial wavefunction)  
+- **Antisymmetric nuclear spin state** ($I_{\text{tot}} = 1$, 3 states): require **odd $J$** (antisymmetric spatial wavefunction)  
+
+The equilibrium ratio at high temperature is 6:3 or 2:1 (ortho:para).
+
+---
+
+## 2.3 Rotational Degrees of Freedom in Diatomic Molecules
+
+A diatomic molecule has only **two rotational degrees of freedom**, corresponding to rotations about axes perpendicular to the internuclear axis. To understand this, consider the molecular axis as the $z$-axis:
+
+- **Rotations about the $x$ and $y$ axes**: These change the orientation of the molecule in space and correspond to genuine rotational motion with significant moment of inertia $I = \mu R_e^2$.
+
+- **Rotation about the $z$-axis (molecular axis)**: For a diatomic molecule consisting of spherically symmetric atoms, rotation about the internuclear axis does not change the nuclear configuration. The moment of inertia about this axis is negligible (essentially zero for point-like nuclei). Therefore, this degree of freedom does not contribute to the classical or quantum rotational energy.
+
+When electronic angular momentum is present (in electronically excited states), the rotational situation becomes more complex. Electronic motion can be thought of as occurring **"around" the molecular axis** (the $z$-axis in the molecular frame), characterized by the quantum number **$\Lambda$** (the projection of the electronic orbital angular momentum onto the molecular axis). This electronic rotation is **carried along** when the molecule rotates, contributing energy to the total angular motion. The total angular momentum, $\vec{J}$, is the vector sum of the nuclear rotational angular momentum ($\vec{N}$, from the rotation of the nuclear framework) and the electronic angular momentum.
+
+* **For $\Sigma$ states ($\Lambda = 0$):** There is no electronic rotation about the axis. The total angular momentum $\vec{J}$ is simply equal to the nuclear rotational angular momentum $\vec{N}$ ($\mathbf{J=N}$), and the simple $E_J = B J(J+1)$ treatment applies directly.  
+* **For states with $\Lambda > 0$ (e.g., $\Pi$ states):** The persistent electronic angular momentum $\Lambda$ is coupled to $\vec{N}$. This coupling **lifts the rotational ground state** and forces the rotational quantum number $J$ to start from $J = \Lambda, \Lambda+1, \Lambda+2, \dots$ (instead of $J=0$), effectively adding the electronic energy contribution into the molecular rotation.
+
+This vector coupling of electronic and nuclear angular momenta is described by **Hund's coupling cases** (a-e).
+
+::: {.callout-note}
+#### 💡 Thermodynamics: Rotational Energy and Equipartition
+
+The rotational motion of molecules is directly relevant to their **heat capacity** and **internal thermal energy**.
+
+According to the **Equipartition Theorem**, at high enough temperatures ($T \gg \Theta_{\text{rot}}$, where $\Theta_{\text{rot}} = B/k_B$ is the characteristic rotational temperature), every translational and rotational degree of freedom contributes $\mathbf{\frac{1}{2} k_B T}$ to the average thermal energy of a molecule.
+
+* **Linear Molecules (Diatomics):** Have **two** rotational degrees of freedom. They contribute $\mathbf{k_B T}$ to the total thermal energy.  
+* **Non-linear Molecules:** Have **three** rotational degrees of freedom. They contribute $\mathbf{\frac{3}{2} k_B T}$ to the total thermal energy.
+
+This theorem provides a powerful link between quantum mechanical degrees of freedom and macroscopic thermodynamic properties.
+:::
+
+---
+
+## 2.4 Centrifugal Distortion
+
+The rigid rotor approximation breaks down at high rotational quantum numbers. As $J$ increases, the centrifugal force stretches the bond, increasing the moment of inertia $I$ and decreasing the rotational constant. This leads to a **centrifugal distortion correction**:
+
+$$E_{\text{rot}}(J) = BJ(J+1) - D_J [J(J+1)]^2$$
+
+where $D_J$ is the centrifugal distortion constant, typically much smaller than $B$ (by a factor of $\sim 10^{-3}$ to $10^{-6}$). This correction becomes significant only for high $J$ values and is important for precision spectroscopy.
+
+
 
 ---
 
 # 3. Molecular Vibration
 
-## 3.1 Connection to the Hydrogen Atom Problem
+From Section 1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule:
+$$\left[-\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2} + \frac{J(J+1)\hbar^2}{2\mu R^2} + E_n^{el}(R)\right]u(R) = E_{nJ}\,u(R)$$
 
-Equation (1) from the nuclear motion problem is very similar to the hydrogen atom problem, because it describes one particle in a spherically symmetric potential.
+This equation describes the vibrational motion in the effective potential:
+$$V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}$$
 
-Analogous to the single-electron atom, we use the ansatz:
-
-$$\chi(R, \vartheta, \varphi) = S(R) \cdot Y(\vartheta, \varphi)$$
-
-where $Y(\vartheta, \varphi)$ are the spherical harmonics we have discussed before.
-
-## 3.2 The Radial Equation
-
-The separation yields two differential equations. The radial equation is:
-
-$$\frac{1}{R^2} \frac{d}{dR}\left(R^2 \frac{dS}{dR}\right) + \frac{2M}{\hbar^2}\left[E - E_{\text{pot}}(R) - \frac{J(J+1)\hbar^2}{2MR^2}\right] S = 0 \quad (2)$$
-
-and the angular equation is:
-
-$$\frac{1}{\sin\vartheta} \frac{\partial}{\partial\vartheta}\left(\sin\vartheta \frac{\partial Y}{\partial\vartheta}\right) + \frac{1}{\sin^2\vartheta} \frac{\partial^2 Y}{\partial\varphi^2} + J(J+1)Y = 0 \quad (3)$$
-
-where:
-- Equation (2) describes vibrational motion
-- Equation (3) describes rotational motion
-
-## 3.3 Harmonic Oscillator Approximation
-
-Near the equilibrium distance $R_e$, we can expand the potential energy in a Taylor series:
-
-$$E_{\text{pot}}(R) \approx E_{\text{pot}}(R_e) + \frac{1}{2}k(R - R_e)^2$$
-
-where $k$ is the force constant (spring constant). This is the **harmonic oscillator approximation**.
-
-For small displacements from equilibrium, we can neglect the centrifugal term $\frac{J(J+1)\hbar^2}{2MR^2}$ in equation (2). The vibrational Schrödinger equation becomes:
-
-$$-\frac{\hbar^2}{2M}\frac{d^2\psi}{dR^2} + \frac{1}{2}k(R-R_e)^2\psi = E_{\text{vib}}\psi$$
-
-This is the standard quantum harmonic oscillator with solutions:
-
-$$E_{\text{vib}} = \hbar\omega\left(v + \frac{1}{2}\right)$$
-
-where $v = 0, 1, 2, 3, \ldots$ is the vibrational quantum number and $\omega = \sqrt{k/M}$ is the classical oscillation frequency.
-
-## 3.4 Energy Level Structure
-
-The vibrational energy levels are equally spaced with spacing $\Delta E = \hbar\omega$. The lowest level ($v = 0$) has energy $E_0 = \frac{1}{2}\hbar\omega$, which is the **zero-point energy**.
-
-Vibrational energies are typically in the range of $(10^{-2} - 10^{-1})$ eV, corresponding to infrared wavelengths.
+The first term is the electronic potential energy surface, and the second is the centrifugal potential arising from rotation. There is no general analytical solution to this equation because it depends on the specific form of $E_n^{el}(R)$. However, analytical solutions exist for certain approximations to the potential energy curve. We will examine two key analytical models: the **Harmonic Oscillator** and the more realistic **Morse Potential**.
 
 ---
 
-# 4. Spectroscopy
+## 3.1 The Harmonic Approximation
 
-## 4.1 Energy Scale Hierarchy
+Near the equilibrium distance $R_e$, we can expand the electronic potential energy in a Taylor series. Since $E_n^{el}(R)$ has a minimum at $R_e$, the first derivative vanishes and we obtain:
 
-The energy scales for molecular motion follow the hierarchy:
+$$E_n^{el}(R) \approx E_n^{el}(R_e) + \frac{1}{2}k(R - R_e)^2 + \mathcal{O}[(R-R_e)^3]$$
 
-$$E_{\text{electronic}} \gg E_{\text{vibrational}} \gg E_{\text{rotational}}$$
+where $k = \left.\frac{d^2 E_n^{el}}{dR^2}\right|_{R=R_e}$ is the **force constant**. This is the **harmonic oscillator approximation**.
 
-Typical values:
-- Electronic transitions: visible to UV region (eV scale)
-- Vibrational transitions: infrared region (10$^{-2}$ - 10$^{-1}$ eV)
-- Rotational transitions: microwave region (10$^{-4}$ - 10$^{-2}$ eV)
+For small vibrational amplitudes and low rotational quantum numbers, we can also neglect the centrifugal term. Setting $x = R - R_e$ and shifting the energy zero to $E_n^{el}(R_e)$, the radial equation becomes:
 
-## 4.2 Vibrational-Rotational Spectroscopy
+$$-\frac{\hbar^2}{2\mu}\frac{d^2u}{dx^2} + \frac{1}{2}kx^2 u = E_{\text{vib}}\,u$$
 
-In practice, vibrational and rotational motions are often observed together in **ro-vibrational spectra**. A transition between vibrational levels is accompanied by changes in rotational levels, leading to characteristic band structures.
+This is the standard quantum harmonic oscillator equation. As we have seen previously, the energy eigenvalues are:
 
-The combined energy is:
+$$E_{\text{vib}}(v) = \hbar\omega\left(v + \frac{1}{2}\right), \qquad v = 0, 1, 2, \ldots$$
 
-$$E_{v,J} = \hbar\omega\left(v + \frac{1}{2}\right) + \frac{J(J+1)\hbar^2}{2MR_e^2}$$
+where $v$ is the **vibrational quantum number** and:
 
-## 4.3 Selection Rules
+$$\omega = \sqrt{\frac{k}{\mu}}$$
 
-For electric dipole transitions:
+is the classical oscillation frequency.
 
-**Vibrational selection rule:** $\Delta v = \pm 1$ (for harmonic oscillator)
+**Key features:**  
 
-**Rotational selection rule:** $\Delta J = \pm 1$
+* The vibrational levels are **equally spaced** with spacing $\Delta E = \hbar\omega$  
 
-These selection rules lead to characteristic P-branch ($\Delta J = -1$) and R-branch ($\Delta J = +1$) structures in ro-vibrational spectra.
+* The **zero-point energy** is $E_0 = \frac{1}{2}\hbar\omega$ (the molecule vibrates even in its lowest state)   
 
-## 4.4 Summary
+* Typical vibrational energies are in the range $(0.01 - 0.5)$ eV, corresponding to **infrared wavelengths** ($\sim 1$–$100$ μm)  
 
-The Born-Oppenheimer approximation allows us to separate the molecular Hamiltonian into electronic and nuclear parts. The nuclear motion can be further separated into:
+* The selection rule for vibrational transitions (in the harmonic approximation) is $\Delta v = \pm 1$  
 
-1. **Rotation**: Treated as a rigid rotor with quantized angular momentum
-2. **Vibration**: Treated as a harmonic oscillator (to first approximation) with quantized energy levels
+The harmonic approximation works well for low vibrational levels but fails at higher energies where anharmonic effects become important and eventually as the molecule approaches dissociation.
 
-This framework provides a comprehensive understanding of molecular spectra and the structure of molecular energy levels.
+---
+
+## 3.2 The Morse Potential
+
+A more realistic description of molecular vibrations includes **anharmonicity**—the fact that the potential energy curve is not perfectly parabolic. As the bond stretches, it becomes easier to stretch further (the restoring force weakens), and eventually the molecule dissociates when $R \to \infty$.
+
+The **Morse potential** provides an excellent analytical model that captures these features:
+
+$$V_{\text{Morse}}(R) = E_B\left[1 - e^{-a(R-R_e)}\right]^2$$
+
+where:  
+- $E_B$ is the **binding energy** (depth of the potential well measured from the minimum)  
+- $R_e$ is the equilibrium bond length  
+- $a = \sqrt{\frac{k}{2E_B}}$ is a parameter that determines the "width" of the potential (related to the force constant $k$)  
+
+The radial Schrödinger equation with the Morse potential (neglecting the centrifugal term for simplicity) has **analytical solutions**. The energy eigenvalues are:
+
+$$E_{\text{vib}}(v) = \hbar\omega\left(v + \frac{1}{2}\right) - \chi_e\hbar\omega\left(v + \frac{1}{2}\right)^2$$
+
+where:
+
+$$\omega = a\sqrt{\frac{2E_B}{\mu}}$$
+
+is related to the harmonic frequency, and:
+
+$$\chi_e = \frac{\hbar\omega}{4E_B}$$
+
+is the **anharmonicity constant** (typically $\chi_e \approx 0.01$–$0.05$ for most diatomic molecules).
+
+**Key features of the Morse oscillator:**
+
+* The energy levels are **not equally spaced**—the spacing decreases as $v$ increases:
+
+    $$\Delta E(v \to v+1) = \hbar\omega[1 - 2\chi_e(v+1)]$$
+
+* There is a **finite number of bound vibrational states**. The maximum vibrational quantum number is approximately:
+
+    $$v_{\max} \approx \frac{1}{2\chi_e} - 1 = \frac{E_B}{\hbar\omega} - 1$$
+
+  This limit occurs because the energy spacing $\Delta E$ approaches zero. For any level $v$ where the derived spacing $\Delta E(v \to v+1)$ would become **negative**, the state is unphysical and not bound, thus setting the maximum possible bound state at $v_{\max}$.
+
+* For $v > v_{\max}$, the energy exceeds the dissociation limit and the molecule is no longer bound.
+
+* The dissociation energy measured from the ground state is:
+
+    $$D_0 = E_B - E_{\text{vib}}(v=0) = E_B - \frac{1}{2}\hbar\omega(1 - \chi_e/2)$$
+
+The Morse potential provides an excellent description of real molecular potentials for most diatomic molecules, especially for vibrational levels up to dissociation. It is widely used in molecular spectroscopy to analyze vibrational structure.
+
+---
+
+The figure below visually contrasts the Morse potential and the Harmonic approximation potential energy curves for a diatomic molecule. The blue solid line represents the Morse potential, which is asymmetric and flattens out to a Dissociation Limit as the internuclear distance ($R$) increases. The blue horizontal lines show the Morse vibrational energy levels, demonstrating the effect of anharmonicity: the spacing between adjacent levels decreases as the vibrational quantum number $v$ increases. In contrast, the red dashed line (Harmonic approximation) is a perfect parabola, and its corresponding energy levels (red dashed horizontal lines) are equally spaced and incorrectly extend indefinitely beyond the true dissociation limit. The figure also clarifies the difference between the binding energy ($E_B$) at the potential minimum and the spectroscopic dissociation energy ($D_0$) measured from the zero-point energy ($v=0$).
+
+
+
+```{python}
+#| fig-align: center
+#| fig-alt: A plot comparing the potential energy and vibrational levels of a diatomic molecule using the **Morse potential** (blue solid line) and the **Harmonic approximation** (red dashed line) as a function of internuclear distance $R$. The **Harmonic potential** is a symmetrical parabola with equally spaced vibrational energy levels. The more realistic **Morse potential** is asymmetric, flattening out toward a **Dissociation Limit** at high $R$. The vibrational energy levels in the Morse potential are clearly shown to **converge** (get closer together) as the quantum number $v$ increases, illustrating **anharmonicity**. The plot also labels the equilibrium distance $R_e$ and the ground state dissociation energy $D_0$.
+import matplotlib.pyplot as plt
+import numpy as np
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+
+def find_turning_points(R, V, E_v):
+    """
+    Find inner and outer classical turning points where V(R) = E_v
+    Returns (R_min, R_max) or (None, None) if not found
+    """
+    diff = V - E_v
+    # Find where sign changes (crossing points)
+    sign_changes = np.where(np.diff(np.sign(diff)))[0]
+    
+    if len(sign_changes) >= 2:
+        # Inner turning point (first crossing)
+        R_min = R[sign_changes[0]]
+        # Outer turning point (last crossing)
+        R_max = R[sign_changes[-1]]
+        return R_min, R_max
+    else:
+        R_min = R[sign_changes[0]]
+        return R_min, 5
+
+# Set up the figure
+fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+
+# Parameters for the potentials
+R_e = 1.0  # equilibrium distance (arbitrary units)
+E_B = 5.0  # binding energy (eV)
+k = 50.0   # force constant
+mu = 120.0   # reduced mass (arbitrary units)
+hbar = 1.0 # set to 1 for simplicity
+
+# Calculate derived parameters
+a = np.sqrt(k / (2 * E_B))
+omega = np.sqrt(k / mu)
+chi_e = (hbar * omega) / (4 * E_B)
+
+# R values for plotting
+R = np.linspace(0.5, 3.0, 500)
+
+# Morse potential
+V_morse = E_B * (1 - np.exp(-a * (R - R_e)))**2
+
+# Harmonic potential
+V_harmonic = 0.5 * k * (R - R_e)**2
+
+# Plot potentials
+ax.plot(R, V_morse, 'b-', linewidth=2.5, label='Morse potential', zorder=2)
+ax.plot(R, V_harmonic, 'r--', linewidth=2, label='Harmonic approximation', zorder=2)
+
+# Plot vibrational levels for Morse potential
+n_levels_morse = int(1 / (2 * chi_e))  # maximum number of levels
+v_values_morse = np.arange(0, n_levels_morse) # min(n_levels_morse, 15))  # limit to 15 for clarity
+
+for v in v_values_morse:
+    E_v = hbar * omega * (v + 0.5) - chi_e * hbar * omega * (v + 0.5)**2
+    if E_v < E_B:  # only plot bound states
+        R_min, R_max = find_turning_points(R, V_morse, E_v)
+        if R_min is not None and R_max is not None:
+            ax.hlines(E_v, R_min, R_max, colors='blue', linewidth=1.5, 
+                     alpha=0.6, zorder=3)
+            # Add quantum number label for first few levels
+            if v < 8:
+                ax.text(R_max + 0.05, E_v, f'$v={v}$', fontsize=10, 
+                       va='center', color='blue')
+
+
+# Plot vibrational levels for harmonic potential
+n_levels_harmonic = 18  # show fewer levels since they extend beyond binding energy
+for v in range(n_levels_harmonic):
+    E_v = hbar * omega * (v + 0.5)
+    if E_v < E_B+1.1:
+        R_min, R_max = find_turning_points(R, V_harmonic, E_v)
+        
+        if R_min is not None and R_max is not None:
+            ax.hlines(E_v, R_min, R_max, colors='red', linewidth=1.5, 
+                     alpha=0.5, linestyle='--', zorder=3)
+
+# Mark equilibrium distance
+ax.axvline(R_e, color='gray', linestyle=':', linewidth=1, alpha=0.5, zorder=1)
+ax.text(R_e, -0.3, r'$R_e$', fontsize=12, ha='center', va='top')
+
+# Mark binding energy
+ax.axhline(E_B, color='gray', linestyle=':', linewidth=1, alpha=0.5, zorder=1)
+
+# Mark dissociation limit
+ax.axhline(E_B, xmin=0.7, xmax=0.95, color='green', linewidth=2, 
+          alpha=0.7, zorder=1)
+ax.text(2.7, E_B + 0.15, 'Dissociation limit', fontsize=11, 
+       ha='right', va='bottom', color='green', style='italic')
+
+# Mark ground state and D_0
+E_0_morse = hbar * omega * 0.5 - chi_e * hbar * omega * 0.25
+ax.annotate('', xy=(0.6, E_B), xytext=(0.6, E_0_morse),
+            arrowprops=dict(arrowstyle='<->', color='green', lw=2))
+ax.text(0.5, (E_B + E_0_morse)/2, r'$D_0$', fontsize=12, 
+       ha='left', va='center', color='green', fontweight='bold')
+ax.hlines(E_0_morse,0,1, color='k', linestyle=':', linewidth=1, alpha=0.5, zorder=1)
+ax.hlines(0,1,1.6, color='k', linestyle=':', linewidth=1, alpha=0.5, zorder=1)
+ax.text(1.52, 0.1, r'$E_B$', fontsize=12, ha='left', va='bottom')
+
+
+
+# Labels and formatting
+ax.set_xlabel('Internuclear distance $R$ (arbitrary units)', fontsize=13)
+ax.set_ylabel('Potential energy (arb. units)', fontsize=13)
+#ax.set_title('Molecular Potential Energy Curves and Vibrational Levels', 
+#            fontsize=14, fontweight='bold', pad=15)
+ax.legend(loc='upper right', fontsize=11, framealpha=0.9)
+ax.set_xlim(0.5, 3.0)
+ax.set_ylim(-0.5, 6.5)
+ax.grid(True, alpha=0.2, linestyle='-', linewidth=0.5)
+
+# Get current y-axis tick locations
+yticks = ax.get_yticks()
+ax.set_yticks(yticks)
+# Set new labels (shifted)
+ax.set_yticklabels([f'{y - 5:.1f}' for y in yticks])
+
+
+# Add text annotation explaining anharmonicity
+ax.text(2.3, 3.5, 'Anharmonic spacing\n(levels converge)', 
+       fontsize=10, ha='center', va='top', 
+       bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', 
+                 edgecolor='orange', alpha=0.8))
+
+# Add arrow pointing to level convergence
+ax.annotate('', xy=(2.35, 3.8), xytext=(2.35, 4.5),
+            arrowprops=dict(arrowstyle='->', color='orange', lw=1.5))
+
+plt.tight_layout()
+#plt.savefig('molecular_potentials.png', dpi=300, bbox_inches='tight', 
+#           facecolor='white')
+plt.show()
+```
+
+---
+
+# 4. Coupling Between Rotation and Vibration
+
+In our treatment so far, we have largely treated rotation and vibration as independent degrees of freedom. However, in reality, these motions are **coupled**, leading to a continuous exchange of energy between them in a vibrating molecule.
+
+The total energy of the molecule (excluding electronic and translational components) can be written as the sum of the two distinct quantized motions:
+
+$$E_{\text{nJ}} \approx E_{\text{vib}}(v) + E_{\text{rot}}(J)$$
+
+The reason this approximation breaks down is that the **moment of inertia ($I$)** depends on the instantaneous internuclear distance $R(t)$, which varies during vibration. As the bond stretches (vibrates), the moment of inertia changes, thus directly affecting the rotational energy. Conversely, rotation imposes a centrifugal force that affects the effective vibrational potential. This interdependent relationship constitutes the **rovibrational coupling**.
+
+
+```{python}
+#| fig-alt: Schematic showing energy exchange between rotational and vibrational energy during molecular vibration.
+#| fig-align: center
+import matplotlib.pyplot as plt
+import numpy as np
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 16
+
+fig, ax = plt.subplots(1, 1, figsize=(4, 4))
+
+# Center position
+center_x, center_y = 0, 0
+
+# Draw the "trajectory" cloud (oscillating rotation path)
+# This represents the trajectory of the molecule as it rotates and vibrates
+n_snapshots = 120
+angles = np.linspace(0, 2*np.pi, n_snapshots) # , endpoint=False)
+
+# Parameters for oscillation
+R_min = 0.45  # minimum bond length
+R_max = 0.55 # maximum bond length
+n_osc =  8
+
+# draw circle
+x_circle= 0.5 * np.cos(angles)
+y_circle= 0.5 * np.sin(angles)
+ax.plot(x_circle, y_circle, 'k:', lw = 1) 
+
+# draw oscillating circle
+midpoint = (R_min + R_max) / 2 
+ampl = (R_max - R_min) / 2
+x_osccircle=  (midpoint + ampl*np.cos(angles*n_osc))* np.cos(angles)
+y_osccircle= (midpoint + ampl*np.cos(angles*n_osc)) * np.sin(angles)
+ax.plot(x_osccircle, y_osccircle, 'r--', lw = 1) 
+
+
+# Draw the outer "cloud" boundary (dashed red line)
+theta = np.linspace(0, 2*np.pi, 100)
+
+# Draw the current molecule position (solid)
+current_angle = np.pi / 4  # 45 degrees
+current_R = midpoint + ampl*np.cos(current_angle*n_osc)
+
+# Atom positions
+x1_current = -1 * current_R * np.cos(current_angle)
+y1_current = -1 * current_R * np.sin(current_angle)
+x2_current = current_R * np.cos(current_angle)
+y2_current = current_R * np.sin(current_angle)
+
+# Draw bond
+ax.plot([x1_current, x2_current], [y1_current, y2_current], 
+        'k-', linewidth=3, zorder=10)
+
+# Draw atoms
+ax.plot(x1_current, y1_current, 'o', color='lightgray', 
+        markersize=18, markeredgecolor='black', markeredgewidth=2, zorder=11)
+ax.plot(x2_current, y2_current, 'o', color='lightgray', 
+        markersize=18, markeredgecolor='black', markeredgewidth=2, zorder=11)
+
+# Draw center of mass
+com_x = 0 # 0.25 * current_R * np.cos(current_angle)
+com_y = 0 # 0.25 * current_R * np.sin(current_angle)
+ax.plot(com_x, com_y, 'rx', markersize=12, markeredgewidth=3, zorder=12)
+
+
+# Draw arrows showing R(t) (bond length)
+mid_x = (x1_current + x2_current) / 2
+mid_y = (y1_current + y2_current) / 2
+
+# Arrow from center to bond midpoint
+ax.annotate('', xy=(mid_x, mid_y), xytext=(com_x, com_y),
+            arrowprops=dict(arrowstyle='<->', color='black', lw=1.5))
+
+# Label R(t)
+#label_x = (mid_x + com_x) / 2 + 0.1
+#label_y = (mid_y + com_y) / 2 - 0.15
+#ax.text(label_x, label_y, r'$R(t)$', fontsize=14, ha='center', va='top')
+
+
+# Draw R(t) arrow
+offset=0.05
+off_x = -np.sin(current_angle)*offset
+off_y = np.cos(current_angle)*offset
+ax.annotate('', xy=(x2_current + off_x, y2_current + off_y), xytext=(com_x + off_x, com_y + off_y), color='red',
+            arrowprops=dict(arrowstyle='<->', color='red', lw=1.5), zorder=15)
+ax.text(x2_current/2 + off_x, y2_current/2 + off_y, r'$R(t)$', 
+        ha='right', va='bottom', color='red')
+
+
+
+# Draw R_e arrow (equilibrium distance) - horizontal reference
+R_e_end_x = com_x + 0.5
+ax.annotate('', xy=(R_e_end_x, com_y), xytext=(com_x, com_y),
+            arrowprops=dict(arrowstyle='<->', color='blue', lw=1.5))
+ax.text(com_x + 0.25, com_y-0.03, r'$R_e$', 
+        ha='center', va='top', color='blue')
+
+# Draw curved arrow to indicate rotation
+arc_radius = 0.8
+arc_theta = np.linspace(current_angle - 0.5, current_angle + 0.5, 30)
+arc_x = com_x + arc_radius * np.cos(arc_theta)
+arc_y = com_y + arc_radius * np.sin(arc_theta)
+ax.plot(arc_x, arc_y, 'g-', linewidth=2, alpha=0.7)
+
+# Add arrowhead to rotation arc
+arrow_tip_x = arc_x[-1]
+arrow_tip_y = arc_y[-1]
+arrow_dir_x = -np.sin(arc_theta[-1])
+arrow_dir_y = np.cos(arc_theta[-1])
+ax.arrow(arrow_tip_x - 0.08*arrow_dir_x, arrow_tip_y - 0.08*arrow_dir_y, 
+         0.0001*arrow_dir_x, 0.0001*arrow_dir_y,
+         head_width=0.1, head_length=0.08, fc='green', ec='green', 
+         linewidth=2, alpha=1)
+
+# Axis settings
+ax.set_xlim(-0.6, 0.8)
+ax.set_ylim(-0.6, 0.8)
+ax.set_aspect('equal')
+ax.axis('off')
+
+# Optional: Add title
+# ax.set_title('Vibrating and Rotating Diatomic Molecule', fontsize=14, pad=20)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 4.1 Effect of Vibration on Rotational Energy
+
+During vibration, the internuclear distance oscillates around the equilibrium value $R_e$. Since the rotational energy depends on the moment of inertia $I = \mu R^2$, the rotational energy varies with the vibrational motion:
+
+$$E_{\text{rot}} = \frac{J(J+1)\hbar^2}{2\mu R^2}$$
+
+As shown in the figure, when the molecule is compressed ($R < R_e$), the moment of inertia decreases and the rotational energy increases. Conversely, when the molecule is stretched ($R > R_e$), the moment of inertia increases and the rotational energy decreases.
+
+The **time-averaged** value of $\langle R^{-2} \rangle$ over a vibrational period is not equal to $R_e^{-2}$. Due to the anharmonicity of the potential, the molecule spends more time at larger values of $R$, leading to:
+
+$$\left\langle \frac{1}{R^2} \right\rangle \approx \frac{1}{R_e^2} - \frac{1}{R_e^4}\langle (R-R_e)^2 \rangle$$
+
+This results in an **effective rotational constant** that depends on the vibrational quantum number:
+
+$$B_v = B_e - \alpha_e\left(v + \frac{1}{2}\right)$$
+
+where $B_e = \frac{\hbar^2}{2\mu R_e^2}$ is the rotational constant at equilibrium, and $\alpha_e > 0$ is the vibration-rotation coupling constant. Generally, $\alpha_e \sim 0.01 B_e$.
+
+**Physical interpretation:** As the vibrational quantum number $v$ increases, the average bond length increases due to the anharmonicity of the potential. This increases the average moment of inertia and decreases the effective rotational constant. Consequently, **rovibrational energy levels depend on both $v$ and $J$**.
+
+The physical effect described by the $\alpha_e$ term can be visualized by examining the quantum mechanical properties of the vibrating molecule. The figure below plots the Morse potential and the calculated wavefunctions for several vibrational states, $v$. The red circles mark the effective bond length $R_{\text{eff}} = \langle R^{-2} \rangle^{-1/2}$ for each level. This visualization demonstrates that as $v$ increases, the probability density shifts toward larger internuclear distances, causing $R_{\text{eff}}$ to increase significantly and resulting in a smaller rotational constant $B_v$.
+
+```{python}
+#| fig-align: center
+#| fig-alt: A plot showing the Morse potential energy curve and its vibrational energy levels, with the corresponding wavefunctions filled in color. The wavefunction probability density shifts to the right (larger R) as the vibrational quantum number $v$ increases. Superimposed on the plot are red circles connected by a red line, marking the **effective bond length** ($R_{\mathrm{eff}} = \langle 1/R^2 \rangle^{-1/2}$) for each level. These red points show that $R_{\mathrm{eff}}$ systematically increases with $v$, confirming that the average bond length increases with vibrational excitation due to the anharmonic nature of the potential.
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.special import genlaguerre, gamma
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+def find_turning_points(R, V, E_v):
+    """
+    Find inner and outer classical turning points where V(R) = E_v
+    Returns (R_min, R_max) or (None, None) if not found
+    """
+    diff = V - E_v
+    # Find where sign changes (crossing points)
+    sign_changes = np.where(np.diff(np.sign(diff)))[0]
+    
+    if len(sign_changes) >= 2:
+        # Inner turning point (first crossing)
+        R_min = R[sign_changes[0]]
+        # Outer turning point (last crossing)
+        R_max = R[sign_changes[-1]]
+        return R_min, R_max
+    else:
+        R_min = R[sign_changes[0]]
+        return R_min, 5
+
+def morse_wavefunction(R, v, R_e, a, mu, E_B, hbar=1.0):
+    """
+    Calculate the Morse oscillator wavefunction for quantum number v
+    
+    Parameters:
+    -----------
+    R : array
+        Internuclear distance
+    v : int
+        Vibrational quantum number
+    R_e : float
+        Equilibrium distance
+    a : float
+        Morse potential parameter
+    mu : float
+        Reduced mass
+    E_B : float
+        Binding energy (dissociation energy)
+    hbar : float
+        Reduced Planck constant
+    
+    Returns:
+    --------
+    psi : array
+        Wavefunction values
+    """
+    # Morse potential parameters
+    lambda_param = np.sqrt(2 * mu * E_B) / (a * hbar)
+    
+    # Dimensionless coordinate
+    z = 2 * lambda_param * np.exp(-a * (R - R_e))
+    
+    # Maximum quantum number
+    v_max = int(lambda_param - 0.5)
+    
+    if v > v_max:
+        return np.zeros_like(R)
+    
+    # Normalization constant
+    N_v = np.sqrt(
+        (2 * lambda_param - 2 * v - 1) * a * gamma(v + 1) / gamma(2 * lambda_param - v)
+    )
+    
+    # Generalized Laguerre polynomial
+    L = genlaguerre(v, 2 * lambda_param - 2 * v - 1)
+    
+    # Wavefunction
+    psi = N_v * z**(lambda_param - v - 0.5) * np.exp(-z / 2) * L(z)
+    
+    return psi
+
+# Set up the figure
+fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+
+# Parameters for the potentials
+R_e = 1.0  # equilibrium distance (arbitrary units)
+E_B = 5.0  # binding energy (eV)
+k = 50.0   # force constant
+mu = 30.0   # reduced mass (arbitrary units)
+hbar = 1.0 # set to 1 for simplicity
+
+# Calculate derived parameters
+a = np.sqrt(k / (2 * E_B))
+omega = np.sqrt(k / mu)
+chi_e = (hbar * omega) / (4 * E_B)
+
+# R values for plotting
+R = np.linspace(0.5, 3.0, 1000)
+
+# Morse potential
+V_morse = E_B * (1 - np.exp(-a * (R - R_e)))**2
+
+# Plot potential
+ax.plot(R, V_morse, 'k-', linewidth=2, alpha=0.4, label='Morse potential', zorder=2)
+
+# Plot vibrational levels and wavefunctions for Morse potential
+n_levels_morse = int(1 / (2 * chi_e))  # maximum number of levels
+v_values_morse = np.arange(0, min(n_levels_morse, 12))  # limit for clarity
+
+# Color map for wavefunctions
+colors = plt.cm.Set2(np.linspace(0, 1, len(v_values_morse)))
+
+# Scale factor for wavefunction amplitude
+scale = 0.2
+
+for i, v in enumerate(v_values_morse):
+    E_v = hbar * omega * (v + 0.5) - chi_e * hbar * omega * (v + 0.5)**2
+    
+    if E_v < E_B:  # only plot bound states
+        # Calculate wavefunction
+        psi = morse_wavefunction(R, v, R_e, a, mu, E_B, hbar)
+        
+        # Scale and shift wavefunction to energy level
+        psi_scaled = scale * psi + E_v
+        
+        # Find turning points for horizontal line
+        R_min, R_max = find_turning_points(R, V_morse, E_v)
+        
+        # Plot energy level line (only between turning points)
+        if R_min is not None and R_max is not None:
+            # Create mask for region between turning points
+            mask = (R >= R_min) & (R <= R_max)
+            
+            # Plot horizontal line only in classical region
+            ax.hlines(E_v, R_min, R_max, colors='gray', linewidth=1, 
+                     alpha=0.5, zorder=3)
+        
+        # Fill wavefunction
+        ax.fill_between(R, E_v, psi_scaled, alpha=0.6, color=colors[i],
+                       where=(psi_scaled >= E_v), interpolate=True)
+        ax.fill_between(R, E_v, psi_scaled, alpha=0.6, color=colors[i],
+                       where=(psi_scaled < E_v), interpolate=True)
+        
+        # Plot wavefunction line
+        ax.plot(R, psi_scaled, color=colors[i], linewidth=1.5, alpha=0.8, zorder=4)
+        
+        # Add quantum number labels
+        ax.text(2.98, E_v+0.05, f'$v={v}$', fontsize=10, va='bottom', ha='right')
+
+
+
+# Use finer grid for integration
+R_int = np.linspace(0.3, 5.0, 5000)
+
+# Store values for plotting
+R_eff_list = []
+R_mean_list = []
+E_v_list = []
+
+for v in range(min(7, n_levels_morse)):
+    E_v = hbar * omega * (v + 0.5) - chi_e * hbar * omega * (v + 0.5)**2
+    
+    if E_v < E_B:
+        # Calculate wavefunction
+        psi = morse_wavefunction(R_int, v, R_e, a, mu, E_B, hbar)
+        
+        # Calculate <1/R^2> = ∫ ψ*(R) (1/R²) ψ(R) dR
+        integrand = psi**2 / R_int**2
+        integrand2 = psi**2 * R_int
+        
+        # Numerical integration using trapezoidal rule
+        expectation_value = np.trapz(integrand, R_int)
+        R_mean = np.trapz(integrand2, R_int)
+        R_eff = np.sqrt(1/expectation_value)
+        
+        # Store for plotting
+        R_eff_list.append(R_eff)
+        R_mean_list.append(R_mean)
+        E_v_list.append(E_v)
+        
+
+# Plot R_eff and <R> on the existing figure
+R_eff_array = np.array(R_eff_list)
+R_mean_array = np.array(R_mean_list)
+E_v_array = np.array(E_v_list)
+
+# Plot points and connecting lines
+ax.plot(R_eff_array, E_v_array, 'o-', color='red', linewidth=1.5, 
+        markersize=4, label=r'$R_{\mathrm{eff}} = \langle 1/R^2 \rangle^{-1/2}$', 
+        zorder=10, markeredgecolor='darkred', markeredgewidth=1)
+
+
+
+# Labels and formatting
+ax.set_xlabel('Internuclear distance $R$ (arbitrary units)', fontsize=13)
+ax.set_ylabel('Potential energy (arb. units)', fontsize=13)
+ax.legend(loc='upper right', fontsize=11, framealpha=0.9)
+ax.set_xlim(0.4, 3.0)
+ax.set_ylim(-0.5, 6.5)
+ax.grid(True, alpha=0.2, linestyle='-', linewidth=0.5)
+
+# Get current y-axis tick locations
+yticks = ax.get_yticks()
+ax.set_yticks(yticks)
+
+# Set new labels (shifted)
+ax.set_yticklabels([f'{y - 5:.1f}' for y in yticks])
+
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 4.2 Effect of Rotation on the Effective Potential
+
+The centrifugal force arising from rotation modifies the effective potential experienced during vibration. The **rotational barrier** adds a term to the potential:
+
+$$V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}$$
+
+
+```{python}
+#| fig-align: center
+#| fig-alt: Effective potential curves for different values of $J$, showing how the centrifugal barrier raises the potential and can lead to dissociation at high $J$.
+import numpy as np
+import matplotlib.pyplot as plt
+
+# --- Potential functions ---
+def morse_potential(R, Eb, Re, a):
+    """
+    Calculates the potential energy using the Morse potential function.
+    
+    Args:
+        R (float or np.ndarray): Internuclear distance.
+        Eb (float): Dissociation energy (depth of the well).
+        Re (float): Equilibrium bond length.
+        a (float): Constant that controls the width of the potential curve.
+        
+    Returns:
+        float or np.ndarray: Potential energy E at distance R.
+    """
+    return Eb * (1 - np.exp(-a * (R - Re)))**2 - Eb
+
+def rot_barrier(R, J, M):
+    return 27.2*J*(J+1)/((1836*M)*(R*1.9)**2) # in eV
+
+
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+
+# --- Define parameters for the potentials ---
+# Parameters for NaCl using Morse and Born-Mayer potentials
+# Note: These values are simplified and may need unit conversions for physical accuracy.
+# Morse potential parameters for NaCl (approximate)
+morse_Eb = 2.651  # eV, bond dissociation energy
+morse_Re = 1.058  # Å, equilibrium bond length
+morse_a = 1.338   # Å^-1, width parameter
+
+rot_J = 35
+rot_m = 1
+
+# --- Generate data points ---
+# Create an array of internuclear distances (R)
+R = np.linspace(0.001, 20, 500)
+#R2 = np.linspace(0.5, 100, 500)
+
+# Calculate the potential energy for each model
+E_morse = morse_potential(R, morse_Eb, morse_Re, morse_a)
+E_rot = rot_barrier(R,rot_J,rot_m) 
+
+# --- Plotting ---
+fig, ax = plt.subplots(figsize=(7,5))
+
+ax.plot([1.5,10],[0.2,0.2], color='k', lw=0.5, linestyle=':')
+ax.plot([1.5,2.8],[0.2,0.2], color='k', lw=1, linestyle='-')
+ax.plot([5,9],[0.2,0.2], color='k', lw=1, linestyle='-')
+ax.plot(9, 0.2, ">k", clip_on=False, markersize=8)
+ax.text(8, 0.2+0.05, r'Predissociation', fontsize=13, va='bottom', ha='center')
+
+
+# Plot the Morse potential
+ax.plot(R, E_morse, label=r'Morse Potential', color='blue', lw=2)
+ax.plot(R, E_morse+rot_barrier(R,15,rot_m) , label=r'$J=15$', color='g', lw=1)
+ax.plot(R, E_morse+rot_barrier(R,25,rot_m) , label=r'$J=25$', color='m', lw=1)
+ax.plot(R, E_morse+E_rot, label=r'$J=35$', color='r', lw=1)
+
+
+
+# Set plot labels and title
+ax.set_xlabel(r'Internuclear distance $R$ (arbitrary units)')
+ax.set_ylabel(r'Energy (arb. units)')
+#ax.set_title(r'Comparison of Morse and Born-Mayer Potentials (NaCl approx.)')
+
+# Add a legend to distinguish the curves
+ax.legend(loc='lower right')
+
+# Add a horizontal line at E=0 for reference
+ax.axhline(0, color='k', lw=0.5, linestyle='--')
+
+# Set plot limits
+ax.set_xlim([0, 10])
+ax.set_ylim([-3, 1])
+
+plt.tight_layout()
+plt.show()
+
+```
+
+
+For $J = 0$, the effective potential is simply the electronic potential energy curve. As $J$ increases, the centrifugal term becomes more significant, especially at small $R$ where the $R^{-2}$ dependence dominates. This has several consequences:
+
+1. **Raising of the potential minimum**: The equilibrium distance shifts to slightly larger values as $J$ increases  
+2. **Reduction in well depth**: The effective dissociation energy decreases with increasing $J$  
+3. **Predissociation**: At sufficiently high $J$ values, the centrifugal barrier can become so large that the molecule can **predissociate**—the effective potential well becomes so shallow that bound vibrational states cease to exist, even though the electronic state itself is bound
+
+**Summary:** Vibrational levels generally depend on the rotational quantum number $J$. The coupling between rotation and vibration leads to:  
+- A $v$-dependent rotational constant: $B_v = B_e - \alpha_e(v + \frac{1}{2})$  
+- A $J$-dependent effective potential that can limit the number of bound states at high angular momentum
+
+---
+
+## 4.3 Spectroscopic Consequences
+
+The coupling between rotation and vibration has important consequences for molecular spectroscopy. If the Morse potential description is valid, the rovibrational energies can be expressed using five molecular constants:  
+
+$$E(v,J) = T_e + \omega_e\left(v + \frac{1}{2}\right) - \omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2$$
+
+where:  
+- $T_e$ is the term value (electronic energy origin)  
+- $\omega_e$ is the harmonic vibrational frequency  
+- $\omega_e\chi_e$ characterizes the anharmonicity  
+- $B_v = B_e - \alpha_e(v + \frac{1}{2})$ is the vibration-dependent rotational constant  
+- $D_J$ accounts for centrifugal distortion  
+
+These five constants ($T_e$, $\omega_e$, $\omega_e\chi_e$, $B_e$, $\alpha_e$, plus $D_J$ if needed) can be determined from high-resolution rovibrational spectra and provide a complete characterization of the molecular potential energy curve near its minimum.
+
+The analysis of rovibrational spectra thus provides detailed information about:  
+- The shape of the potential energy curve  
+- The bond strength (dissociation energy)  
+- The equilibrium bond length  
+- The force constant and anharmonicity  
+- Coupling effects between different degrees of freedom
+
+---
+
+# Key Takeaways
+
+- The **Born–Oppenheimer approximation** exploits the large mass difference between nuclei and electrons to separate their motions. Electrons adjust almost instantaneously to the nuclear configuration, defining **potential energy surfaces** on which the nuclei move.
+
+- The **electronic Schrödinger equation** yields potential energy curves $E^{el}(R)$ that serve as **effective potentials** for the nuclear motion. 
+  The resulting **nuclear Schrödinger equation** describes vibrations and rotations on these surfaces.
+
+- For a diatomic molecule, the nuclear motion reduces to the **radial coordinate** $R$ and the **angular momentum** associated with rotation. 
+  The nuclear Hamiltonian takes the form  
+
+  $$
+  \hat{H}_{\text{nuc}} = -\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2}
+  + \frac{\hbar^2 J(J+1)}{2\mu R^2} + E^{el}(R),
+  $$
+  where $\mu$ is the reduced mass and $J$ the rotational quantum number.
+
+- The **rigid-rotor model** predicts discrete rotational energies 
+  $E_J = B J(J+1)$ with $B = \hbar^2/(2I)$. 
+  Transitions follow the selection rule $\Delta J = \pm 1$, giving rise to evenly spaced rotational spectra.
+
+- The **harmonic-oscillator model** describes small-amplitude vibrations with quantized energies  
+  $E_v = \hbar \omega (v + \tfrac{1}{2})$.  
+  Real molecules exhibit **anharmonic corrections** that lead to unequal level spacings and finite dissociation energies.
+
+- **Rotational–vibrational coupling** slightly modifies the spacing of rotational lines with increasing vibrational excitation, reflecting bond stretching at higher vibrational states.
+
+- **Nuclear spin statistics** determine which rotational levels are allowed for homonuclear molecules, leading to the familiar **ortho–para forms** (e.g., ortho- and para-hydrogen).
+
+---
+
+### Typical Energy Scales
+
+| Type of motion | Typical energy spacing | Wavelength region | Example |
+|-----------------|-----------------------:|------------------:|:--------|
+| **Electronic**  | 1–10 eV               | 100–1000 nm (UV/visible) | Electronic transitions in H₂ |
+| **Vibrational** | 0.1 eV (≈1000 cm⁻¹)   | 2–20 µm (infrared) | Stretching mode of CO |
+| **Rotational**  | 10⁻³ eV (≈1–10 cm⁻¹)  | 0.3–3 mm (microwave) | Pure rotational lines of HCl |
+
+---
+
+Together, these results link the microscopic quantum-mechanical description of the molecule to its **spectroscopic signatures**, completing the physical picture of the diatomic molecule as a quantized, rotating, and vibrating system.
+
+
