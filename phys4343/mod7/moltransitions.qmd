@@ -389,6 +389,11 @@ $$
 
 Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can be Raman active.
 
+
+![Raman energy level diagram illustrating Stokes and anti-Stokes scattering.  
+*(Image: Dake / Wikimedia Commons, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/){target="_blank"}, [source file](https://commons.wikimedia.org/wiki/File:Raman_energy_levels.svg){target="_blank"})*](./Raman_energy_levels.svg){#fig-raman-energy width=70% fig-alt="Energy level diagram showing Stokes and anti-Stokes Raman scattering with vibrational transitions."}
+
+
 ---
 
 ## 3.1 IR vs. Raman Activity
@@ -405,40 +410,108 @@ Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can
 
 ---
 
-## 3.2 Qualitative Picture of Polarizability
 
-The **polarizability $\alpha$** describes how the electron cloud of a molecule is distorted by an external electric field $\vec E$:
+## 3.2 Polarizability and the Origin of Raman Scattering
+
+In Raman scattering, the **electric field of the incident light** induces an **oscillating dipole moment** in the molecule.
+If the molecule’s **polarizability** depends on its **nuclear configuration**, this induced dipole can oscillate not only at the frequency of the incoming light but also at **shifted frequencies** corresponding to molecular vibrations.
+
+The **induced dipole moment** is given by
 
 $$
-\vec p_{\rm ind} = \alpha \vec E
+\vec p_{\rm ind}(t) = \alpha(t) \, \vec E(t),
 $$
 
-- Vibrational or rotational motion can modulate the electron distribution, producing a time-dependent $\alpha$.  
-- Raman scattering occurs because the oscillating field of the incoming photon induces a dipole $\vec p_{\rm ind}$ that can re-emit light at shifted frequencies.  
+where $\alpha$ is the molecular **polarizability tensor** and $\vec E(t)$ the electric field of the light wave. 
+For a monochromatic field,
 
-**Theoretical treatment:**  
+$$
+\vec E(t) = \vec E_0 \cos(\omega_{\rm in} t).
+$$
 
-1. Expand the polarizability as a function of the normal coordinates $Q_k$:
+---
 
-   $$
-   \alpha = \alpha_0 + \sum_k \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_k + \dots
-   $$
+### Vibrational Dependence of Polarizability
 
-2. Only modes for which $\partial \alpha / \partial Q_k \neq 0$ are **Raman active**.  
-3. This parallels the IR formalism, where $\mu(R)$ plays the analogous role.
+The polarizability depends on the molecular geometry and thus on the **normal coordinates** $Q_k$ of the vibrations:
+
+$$
+\alpha = \alpha_0 + \sum_k \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_k + \dots
+$$
+
+::: {.callout-note}
+## Normal Coordinates
+The complex, coupled motion of all atoms in a molecule can be mathematically simplified using **normal coordinates** ($Q_k$). These coordinates represent **independent, fundamental vibrational modes** where all atoms move in-phase and oscillate at a single, characteristic frequency ($\omega_k$).
+:::
+
+If we approximate one vibrational mode as
+
+$$
+Q_k(t) = Q_{k0} \cos(\omega_k t),
+$$
+
+then inserting this into the first-order expansion gives
+
+$$
+\alpha(t) = \alpha_0 + \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_{k0} \cos(\omega_k t).
+$$
+
+Combining this with $\vec E(t)$ yields an induced dipole moment that oscillates at **sum and difference frequencies**:
+
+$$
+\vec p_{\rm ind}(t) = 
+\underbrace{\alpha_0 \vec E_0 \cos(\omega_{\rm in} t)}_{\text{Rayleigh scattering}}
++ 
+\underbrace{\frac{1}{2} \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_{k0} \vec E_0 
+\left[ \cos((\omega_{\rm in} + \omega_k)t) + \cos((\omega_{\rm in} - \omega_k)t) \right]}_{\text{Raman scattering (Stokes and anti-Stokes)}}.
+$$
+
+- The **first term** corresponds to **elastic (Rayleigh)** scattering.  
+- The **second term** leads to **frequency-shifted components** at $\omega_{\rm in} \pm \omega_k$, corresponding to **Raman lines**.
+
+A vibrational mode $Q_k$ is **Raman active** if its motion changes the polarizability, i.e.
+
+$$
+\left( \frac{\partial \alpha}{\partial Q_k} \right)_0 \neq 0.
+$$
+
+---
+
+### Quantum-Mechanical Picture
+
+In quantum terms, Raman scattering is a **second-order transition process** involving a **virtual intermediate state**:
+
+$$
+M_{fi} \sim 
+\sum_m
+\frac{
+\langle f | \vec \mu \cdot \vec E_{\rm out} | m \rangle
+\langle m | \vec \mu \cdot \vec E_{\rm in} | i \rangle
+}{
+E_i + \hbar \omega_{\rm in} - E_m + i\Gamma_m
+}.
+$$
+
+Here:
+
+- $|i\rangle$ and $|f\rangle$ are the initial and final molecular states (differing in vibrational energy).  
+- $|m\rangle$ is a virtual electronic state.  
+- $\vec \mu$ is the dipole operator.  
+- The denominator expresses the **off-resonant nature** of the process.
+
+In the **far off-resonant limit**, this second-order interaction effectively reduces to the **polarizability tensor** $\alpha_{ij}$, connecting the semi-classical and quantum viewpoints.
+
+---
+
+> **Summary:**  
+> Raman scattering arises because molecular vibrations modulate the polarizability, allowing the oscillating induced dipole to reradiate light at shifted frequencies. A mode is Raman active if it changes how the molecule’s electron cloud responds to an electric field.
+
 
 ---
 
 ## 3.3 Relevance of Raman Spectroscopy for Chemistry
 
 Raman spectroscopy is widely used in chemistry for **molecular identification**, **structure determination**, and **reaction monitoring**. It is particularly valuable for **symmetric molecules** that are IR-inactive but Raman-active, providing complementary vibrational information. Raman can probe **bond strengths**, **molecular symmetry**, and **phase changes** in solids, liquids, and gases.
-
----
-
-## 3.4 Example Figure
-
-![Raman energy level diagram illustrating Stokes and anti-Stokes scattering.  
-*(Image: Dake / Wikimedia Commons, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/){target="_blank"}, [source file](https://commons.wikimedia.org/wiki/File:Raman_energy_levels.svg){target="_blank"})*](./Raman_energy_levels.svg){#fig-raman-energy width=70% fig-alt="Energy level diagram showing Stokes and anti-Stokes Raman scattering with vibrational transitions."}
 
 
 
