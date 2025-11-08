@@ -142,5 +142,11 @@
   },
   "mod7/moltransitions.qmd": {
     "moltransitions.html": "5899b950"
+  },
+  "mod7/molfound.qmd": {
+    "molfound.html": "88f5f3f7"
+  },
+  "mod7/index.qmd": {
+    "index.html": "6b8a820d"
   }
 }

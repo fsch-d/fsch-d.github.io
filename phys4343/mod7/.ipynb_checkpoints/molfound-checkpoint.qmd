@@ -1,0 +1,340 @@
+---
+title: "Foundations of Molecular Bonding"
+author: Daniel Fischer
+---
+
+# Introduction
+
+Before exploring molecular orbitals, spectroscopy, and quantitative models, it is useful to develop a **qualitative understanding of chemical bonding**. Why do atoms stick together? How does the potential energy depend on the distance between nuclei? Which types of bonds exist, and what are their characteristic energies and lengths?
+
+In this chapter, we will explore:
+
+- The **origin of chemical bonds** from electronic interactions  
+- **Potential energy curves** and their relation to molecular stability  
+- The main **types of chemical bonds**: covalent, ionic, and van der Waals  
+- A **first look at molecular orbitals** and bonding/antibonding concepts  
+
+This foundation provides the conceptual framework for the more quantitative treatments in later chapters, including H$_2^+$, LCAO, and molecular spectroscopy.
+
+---
+
+# 1. Formation of Molecular Bonds and Potential Energy Curves
+
+Molecules form because the **total energy of a system of atoms decreases** when they approach each other to a suitable distance.
+The total energy contains several competing contributions:
+
+1. **Electron–nucleus attractions** — lower the energy and favor bonding  
+2. **Electron–electron repulsions** — increase the energy  
+3. **Nucleus–nucleus repulsions** — increase the energy  
+4. **Electron kinetic energy** — increases with spatial confinement (Heisenberg uncertainty principle)
+
+The balance of these effects determines whether the overall energy decreases upon approach.  
+
+---
+
+## 1.1 Potential Energy Curves
+
+To describe how the total energy changes with the **internuclear distance** $R$, we define a **potential energy curve** — the energy of the molecule as a function of $R$.
+
+- At **large $R$**, the atoms are essentially independent; the energy approaches the **dissociation limit**.  
+- As the atoms move closer, **attraction between electrons and nuclei** dominates, and the total energy decreases.  
+- At some point, these attractive effects are balanced by **repulsive interactions** between overlapping electron clouds and the positively charged nuclei.  
+- The **minimum of the potential curve** marks the **equilibrium distance** $R_e$, where the molecule is most stable.  
+
+This characteristic shape — steeply repulsive at short distances, attractive at intermediate ones, and flat at large separations — explains why molecules exist with definite bond lengths and binding energies.
+
+::: {.callout-note title="Example: Potential Energy Curves for Bonding and Antibonding States"}
+
+The figure below shows schematic potential energy curves for a diatomic molecule.
+The **bonding** configuration has a distinct energy minimum at the equilibrium distance $R_e$, while the **antibonding** configuration remains repulsive and asymptotically approaches the dissociation limit.
+
+```{python}
+#| fig-align: center
+#| fig-alt: Schematic potential energy curves (bonding and antibonding) with correct asymptotic behavior.
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+R = np.linspace(0.6, 6.0, 800)
+
+# Bonding: shifted Morse potential (min = -D at R = Re, dissociation -> 0)
+D = 1.0        # binding energy (arbitrary units)
+a = 1.5        # width parameter
+Re = 1.2       # equilibrium distance
+V_bond = D*(1 - np.exp(-a*(R - Re)))**2 - D
+
+# Antibonding: positive (repulsive) curve that -> 0 for large R
+A = 0.9        # amplitude of short-range positive exponential
+alpha = 1.0
+R0 = 1.5
+B = 0.05       # coefficient for steep short-range repulsion ~ 1/R^12
+V_anti = A * np.exp(-alpha*(R - R0)) + B / R**12
+
+fig, ax = plt.subplots(figsize=(7,4.2))
+
+ax.plot(R, V_bond, label='Bonding (Morse-like)', linewidth=2)
+ax.plot(R, V_anti, label='Antibonding (repulsive)', linestyle='--', linewidth=2)
+
+# Dissociation limit (zero)
+ax.axhline(0, color='gray', linewidth=0.8, zorder=-1)
+ax.text(5.95, 0.05, 'Dissociation limit', va='bottom', ha='right') # , color='gray', fontsize=10)
+
+# Mark equilibrium
+R_eq = Re
+V_eq = D*(1 - np.exp(-a*(R_eq - Re)))**2 - D  # = -D
+ax.scatter([R_eq], [V_eq], color='black', s=25)
+ax.text(R_eq + 0.12, V_eq - 0.12, r'$R_e$', fontsize=12)
+
+# Labels and legend
+ax.set_xlabel(r'Internuclear distance $R$ (arb.\ units)')
+ax.set_ylabel('Potential energy (arb.\ units)')
+# ax.set_title('Schematic Potential Energy Curves — Bonding vs. Antibonding')
+ax.set_xlim(0.6, 6.0)
+ax.set_ylim(-1.2, 1.2)
+ax.legend(frameon=False)
+ax.grid(axis='y', linestyle=':', linewidth=0.5, alpha=0.6)
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+---
+
+## 1.2 The Concept of Molecular Orbitals
+
+The shape of a potential energy curve can be understood in terms of how **atomic orbitals** from neighboring atoms combine to form **molecular orbitals**.
+
+An **atomic orbital** describes the probability density of finding an electron around a single nucleus (for instance, the hydrogen 1s orbital).
+When two atoms come close, their orbitals overlap and combine to form new orbitals that extend over both nuclei. These are called **molecular orbitals**.
+
+Two qualitatively different combinations are possible:
+
+- **Bonding orbital:**  
+  The wave functions of the two atoms add *constructively*, increasing the **electron density between the nuclei**.
+  This enhances the attractive electron–nucleus interactions and lowers the total energy.
+
+- **Antibonding orbital:**  
+  The wave functions add *destructively*, creating a **node** (a region of zero electron density) between the nuclei.
+  The resulting decrease in electron density in the bonding region and the increased confinement of the electron raise the total energy.
+
+---
+
+## 1.3 Why Bonding Lowers Energy
+
+The stabilization of a bonding molecular orbital has two main origins:
+
+1. **Potential energy reduction:**  
+   More electron density between the nuclei means the negative electron charge more effectively screens the repulsion between positively charged nuclei.
+
+2. **Kinetic energy reduction:**  
+   The bonding orbital is more spatially extended than the original atomic orbitals. 
+   Because of the Heisenberg uncertainty relation,
+   $$
+   \Delta x \, \Delta p \ge \frac{\hbar}{2},
+   $$
+   a larger spatial spread ($\Delta x$) implies a smaller momentum spread ($\Delta p$), and hence lower average kinetic energy.
+
+Together, these effects explain why the **bonding molecular orbital** has **lower energy** and forms a stable bond, while the **antibonding orbital** leads to repulsion and dissociation.
+
+---
+
+## 1.4 Summary of the Qualitative Picture
+
+| Feature | Bonding Orbital | Antibonding Orbital |
+|----------|----------------|---------------------|
+| Wave function combination | Constructive | Destructive |
+| Electron density between nuclei | High | Low (node) |
+| Potential energy | Decreases | Increases |
+| Kinetic energy | Decreases slightly | Increases |
+| Overall effect | Stabilization → bond formation | Destabilization → repulsion |
+
+This qualitative picture already captures the essential reason why **molecules exist**:  
+under certain conditions, **sharing or redistributing electron density** allows the system to achieve a lower total energy than the separated atoms.
+
+
+---
+
+# 2. Different Types of Bonds
+
+Molecular bonds can be classified based on **how electrons are distributed** and the **nature of the interaction**. In this section, we discuss covalent, ionic, and van der Waals bonds with qualitative explanations and visualizations.
+
+---
+
+## 2.1 Covalent Bond
+
+A **covalent bond** forms when **atomic orbitals from two atoms overlap significantly**.  
+
+- Let $r_A$ and $r_B$ denote the **approximate sizes (radii of the atomic orbitals)** of atoms A and B.  
+- When the internuclear distance $R$ becomes smaller than $r_A + r_B$, orbitals overlap, and the energy drops due to the attraction of electrons to both nuclei.  
+
+Near the equilibrium distance $R_e$, the potential well can be approximated by a **harmonic shape**, while at larger distances, the energy approaches the dissociation limit $E_B$.
+
+#### Morse Potential
+
+A realistic model for covalent bonds is the Morse potential:
+
+$$
+E_{\rm pot}(R) = E_B \left(1 - e^{-a(R-R_e)}\right)^2
+$$
+
+- $E_B$ : depth of the potential well (binding energy)  
+- $R_e$ : equilibrium bond distance  
+- $a$ : controls width of the potential well  
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: Diagram showing a covalent bond between atoms A and B, with overlapping electron densities in blue. The nuclei are shown as red circles, and a double-headed arrow indicates significant orbital overlap.
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Ellipse
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 12
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+def draw_atom(ax, x, y, radius, label, color='lightblue'):
+    circle = Circle((x, y), radius, fill=True, color=color, alpha=0.3, ec='black', lw=2)
+    ax.add_patch(circle)
+    ax.text(x, y, label, ha='center', va='center', fontsize=16, fontweight='bold')
+
+def draw_density(ax, x, y, width, height, color='blue', alpha=0.2):
+    ellipse = Ellipse((x, y), width, height, fill=True, color=color, alpha=alpha)
+    ax.add_patch(ellipse)
+
+draw_density(ax, 4, 0, 3.5, 3, 'blue', 0.3)
+draw_density(ax, 6, 0, 3.5, 3, 'blue', 0.3)
+draw_atom(ax, 4, 0, 0.8, 'A', 'lightcoral')
+draw_atom(ax, 6, 0, 0.8, 'B', 'lightcoral')
+
+ax.annotate('', xy=(5.5, -1.5), xytext=(4.5, -1.5),
+            arrowprops=dict(arrowstyle='<->', color='red', lw=2))
+ax.text(5, -1.8, 'Significant overlap', ha='center', fontsize=11, color='red')
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Covalent Bond - Orbital Overlap', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+---
+
+## 2.2 Ionic Bond
+
+Ionic bonds occur when one atom **transfers an electron** to another, forming a **cation and an anion**:
+
+$$
+\text{NaI} : \quad \text{Na} + \text{I} \to \text{Na}^+ + \text{I}^-
+$$
+
+In this case, the sodium atom loses an electron to become positively charged, while iodine gains an electron to become negatively charged. The resulting **electrostatic attraction** between the oppositely charged ions pulls them together, forming a bond.  
+
+- Unlike covalent bonds, the electron is **localized primarily on one atom**, rather than being shared equally.  
+- The **potential energy** falls off more slowly with distance than in covalent bonds, because the Coulomb attraction $\sim 1/R$ is long-range.  
+- Ionic bonds are **typically stronger than van der Waals bonds**, and their equilibrium distances are usually larger than covalent bond lengths for similar elements.  
+- Real ionic molecules often show some **covalent character**, especially if the atoms have similar electronegativities, but the dominant interaction is electrostatic.
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: "Diagram showing an ionic bond between Na and I. Electron density is concentrated near I (blue), while Na is depleted. Charges are labeled: Na$^+$ and I$^-$."
+fig, ax = plt.subplots(figsize=(8, 4))
+
+draw_density(ax, 2.5, 0, 2, 1.5, 'blue', 0.15)
+draw_density(ax, 7.5, 0, 4, 3, 'blue', 0.4)
+
+draw_atom(ax, 2.5, 0, 0.8, 'Na', 'lightyellow')
+draw_atom(ax, 7.5, 0, 0.8, 'I', 'lightgreen')
+
+ax.text(3.5, 0.5, '+', fontsize=20, color='red', fontweight='bold')
+ax.text(8.5, 0.5, '−', fontsize=20, color='blue', fontweight='bold')
+
+ax.text(5, -1.5, 'Na$^+$ + I$^-$', ha='center', fontsize=12)
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Ionic Bond - Electron Transfer', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+---
+
+## 2.3 Van der Waals Bond
+
+Van der Waals bonds arise between **neutral atoms or molecules** due to **instantaneous or induced dipoles**. These are the **weakest type of bond**, but they play a crucial role in **condensed phases** such as liquids, solids, and biological molecules.
+
+- Even when atoms are neutral, **fluctuations in electron density** can induce a temporary dipole in one atom, which then induces a dipole in a neighboring atom.  
+- This interaction leads to a **weak attractive force** that falls off as $1/R^6$ at large distances.  
+- At very short distances, **electron cloud overlap** produces a strong **repulsive interaction** ($\sim 1/R^{12}$), preventing atoms from collapsing into each other.  
+- The net effect is a **shallow potential well**, with a relatively large equilibrium separation and low binding energy compared to covalent or ionic bonds.
+
+#### Lennard-Jones Potential
+
+$$
+E_{\rm pot}(R) = \frac{a}{R^{12}} - \frac{b}{R^6}
+$$
+
+- $R^{-12}$ term: short-range repulsion  
+- $R^{-6}$ term: long-range attraction  
+
+#### Visualization
+
+```{python}
+#| fig-align: center
+#| fig-alt: Diagram showing a van der Waals bond between atoms A and B at large distance. Minimal orbital overlap is shown, with an instantaneous dipole on A inducing a dipole on B.
+fig, ax = plt.subplots(figsize=(8, 4))
+
+draw_density(ax, 1.7, 0, 3, 2, 'blue', 0.3)
+draw_density(ax, 7.7, 0, 3, 2, 'blue', 0.3)
+
+draw_atom(ax, 2, 0, 0.8, 'A', 'lavender')
+draw_atom(ax, 8, 0, 0.8, 'B', 'lavender')
+
+ax.annotate('', xy=(7, -1.5), xytext=(3, -1.5),
+            arrowprops=dict(arrowstyle='<->', color='gray', lw=2))
+ax.text(5, -1.8, 'Large distance, minimal overlap', ha='center', fontsize=11, color='gray')
+ax.text(1.7, 1.4, 'instantaneous dipole', ha='center', fontsize=11, color='gray')
+ax.text(7.7, 1.4, 'induced dipole', ha='center', fontsize=11, color='gray')
+
+ax.text(0.5, 0.2, '−', fontsize=20, color='blue', fontweight='bold')
+ax.text(6.5, 0.2, '−', fontsize=20, color='blue', fontweight='bold')
+ax.text(3.4, -0.2, '+', fontsize=20, color='red', fontweight='bold')
+ax.text(9.4, -0.2, '+', fontsize=20, color='red', fontweight='bold')
+
+ax.set_xlim(-1, 11)
+ax.set_ylim(-2, 3)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title('Van der Waals Bond - Induced Dipoles', fontsize=14, fontweight='bold')
+
+plt.show()
+```
+
+Even though van der Waals bonds are weak, they are **ubiquitous**. They determine the properties of **noble gas solids**, **molecular crystals**, and contribute to **protein folding** and **molecular recognition** in biology.
+
+
+---
+
+# Summary
+
+- **Bonds lower the total energy** by combining attractive and kinetic effects  
+- **Potential energy curves** define equilibrium distances and stability  
+- Three major bond types: **covalent, ionic, van der Waals**  
+- Early **molecular orbital concepts** explain bonding and antibonding behavior qualitatively  
+
+This qualitative foundation sets the stage for the **quantitative treatment** of molecules in subsequent chapters.

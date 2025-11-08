@@ -1,5 +1,5 @@
 ---
-title: "Nuclear Motion in Molecules"
+title: "Rotation and Vibration"
 author: Daniel Fischer
 ---
 
@@ -1153,11 +1153,11 @@ For $J = 0$, the effective potential is simply the electronic potential energy c
 
 ---
 
-## 4.3 Spectroscopic Consequences
+## 4.3 Spectroscopic Consequences {#sec-speccons}
 
 The coupling between rotation and vibration has important consequences for molecular spectroscopy. If the Morse potential description is valid, the rovibrational energies can be expressed using five molecular constants:  
 
-$$E(v,J) = T_e + \omega_e\left(v + \frac{1}{2}\right) - \omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2$$
+$$E(v,J) = T_e + \hbar\omega_e\left(v + \frac{1}{2}\right) - \hbar\omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2$$
 
 where:  
 - $T_e$ is the term value (electronic energy origin)  

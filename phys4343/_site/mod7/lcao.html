@@ -4094,7 +4094,7 @@ text-align: justify;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/h2plus.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/lcao.html">Molecular Orbitals and the LCAO Method</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/lcao.html">Molecular Orbitals and the LCAO Method</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4349,13 +4349,19 @@ text-align: justify;
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction into Molecular Physics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/molfound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations of Molecular Bonding</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
@@ -4377,7 +4383,13 @@ text-align: justify;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod7/nuclear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nuclear Motion in Molecules</span></a>
+ <span class="menu-text">Rotation and Vibration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Transitions and Spectroscopy</span></a>
   </div>
 </li>
       </ul>
@@ -4418,7 +4430,7 @@ text-align: justify;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/h2plus.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/lcao.html">Molecular Orbitals and the LCAO Method</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/lcao.html">Molecular Orbitals and the LCAO Method</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Molecular Orbitals and the LCAO Method</h1>
 </div>
@@ -4564,7 +4576,7 @@ c_1^2 + c_2^2 + 2 c_1 c_2 S_{AB} = 1
 - The solid blue line shows <span class="math inline">\(|\Phi_u|^2\)</span>, which has a node (zero probability density) midway between the nuclei.<br>
 - The dotted blue line shows <span class="math inline">\(\Phi_u\)</span>, which changes sign at the midpoint (destructive interference).</p>
 <p>This visual comparison highlights how constructive overlap in the bonding orbital increases electron density between the nuclei—leading to attraction and molecular stability—whereas destructive overlap in the antibonding orbital produces a node and repulsion.</p>
-<div id="2284bb9d" class="cell" data-execution_count="1">
+<div id="f4c4a54e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4722,7 +4734,7 @@ E_u(R)=\frac{H_{AA}-H_{AB}}{1-S}.
 </div>
 </div>
 <p>The plot shows the potential energy curves of the hydrogen molecular ion H<span class="math inline">\(_2^+\)</span> as a function of internuclear distance <span class="math inline">\(R\)</span>.</p>
-<div id="41a0734d" class="cell" data-execution_count="2">
+<div id="6550f497" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># label: fig-h2p-potentials</span></span>
@@ -4926,7 +4938,7 @@ Thus, the stabilization of the bonding orbital arises from both: - <strong>Lower
 </tr>
 </tbody>
 </table>
-<div id="cba10a3d" class="cell" data-execution_count="3">
+<div id="b7315180" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

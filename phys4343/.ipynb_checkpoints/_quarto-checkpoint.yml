@@ -70,11 +70,14 @@ website:
           - mod6/coupling.qmd
           - mod6/excited.qmd
       - section: "Introduction into Molecular Physics"   
+        href: mod7/index.qmd
         contents:
+          - mod7/molfound.qmd
           - mod7/h2plus.qmd
           - mod7/lcao.qmd
           - mod7/beyondh2plus.qmd
           - mod7/nuclear.qmd
+          - mod7/moltransitions.qmd
 
 
 #      - section: advanced.qmd

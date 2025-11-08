@@ -1,0 +1,56 @@
+---
+title: "Introduction into Molecular Physics"
+author: Daniel Fischer
+---
+
+# From Atoms to Molecules
+
+Having understood how electrons behave in atoms, we now extend our view to **molecules** — systems in which two or more atoms share or exchange electrons. 
+The transition from isolated atoms to bound molecules introduces new layers of complexity: the **interaction between nuclei**, the **redistribution of electron density**, and the resulting **collective quantum motion** that defines chemical bonds.
+
+At the molecular level, **quantum mechanics becomes chemistry**. 
+The same principles that determine atomic orbitals now explain **bond formation, bond strength, and molecular geometry**. 
+Moreover, because molecules possess internal degrees of freedom — **rotation, vibration, and electronic excitation** — their spectra reveal rich fingerprints that connect theory to observation.
+
+---
+
+## Scope of this Section
+
+This module provides the foundation for understanding **molecular structure and spectroscopy**. 
+Building on atomic physics, we will explore how electrons and nuclei together determine molecular properties.
+
+By the end of this module, you should be able to:
+
+- Explain how **chemical bonds** arise from the interplay of attractive and repulsive interactions between atoms.  
+- Describe the **Born–Oppenheimer approximation** and how it separates electronic and nuclear motion.  
+- Understand the concept of **potential energy curves** and how they determine molecular stability.  
+- Construct simple **molecular orbitals** using the **linear combination of atomic orbitals (LCAO)** approach.  
+- Analyze the **rotational and vibrational motion** of diatomic molecules.  
+- Distinguish between **infrared** and **Raman spectroscopy**, and understand what each reveals about molecular structure.
+
+---
+
+## Structure of this Module
+
+* [**Foundations of Molecular Bonding**](./molfound.qmd) – Why molecules form: qualitative picture of bonding, potential energy curves, and the idea of bonding vs. antibonding orbitals.  
+* [**The H$_2^+$ Molecular Ion**](./h2plus.qmd) – The simplest possible molecule: exact solution and insights into electronic bonding.  
+* [**Molecular Orbitals and the LCAO Method**](./lcao.qmd) – Building approximate molecular orbitals from atomic ones.  
+* [**Beyond H$_2^+$ and LCAO**](./beyondh2plus.qmd) – Refinements and limitations of simple bonding models.  
+* [**Rotation and Vibration**](./nuclear.qmd) – Nuclear motion on potential energy surfaces: rotational and vibrational quantization.  
+* [**Molecular Transitions and Spectroscopy**](./moltransitions.qmd) – How light interacts with molecules: selection rules, infrared absorption, and Raman scattering.
+
+---
+
+## Further Reading and Connections
+
+To deepen your understanding, you may consult:
+
+- B.H. Bransden and C.J. Joachain, *Physics of Atoms and Molecules* — Chapters on molecular bonding and spectroscopy.  
+- J. Levine, *Quantum Chemistry* — Conceptual and mathematical treatment of bonding and molecular orbitals.  
+- P. Atkins & R. Friedman, *Molecular Quantum Mechanics* — Detailed discussion of potential energy surfaces and the Born–Oppenheimer approximation.  
+- C.N. Banwell & E.M. McCash, *Fundamentals of Molecular Spectroscopy* — A concise and clear guide to infrared and Raman spectra.  
+
+---
+
+> **Key idea:**  
+> Molecules are *quantum systems of coupled electrons and nuclei*. Their structure and spectra emerge from the same principles as atoms — but now enriched by the physics of **bonding, motion, and interaction**.

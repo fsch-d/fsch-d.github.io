@@ -61,12 +61,14 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## Introduction into Molecular Physics  
+## [Introduction into Molecular Physics](mod7/index.qmd)  
 
+* [Foundations of Molecular Bonding](mod7/molfound.qmd)
 * [The H$_2^+$ Molecular Ion](mod7/h2plus.qmd)
 * [Molecular Orbitals and the LCAO Method](mod7/lcao.qmd)
 * [Beyond H$_2^+$ and LCAO](mod7/beyondh2plus.qmd)
-* [Nuclear Motion in Molecules](mod7/nuclear.qmd)
+* [Rotation and Vibration](mod7/nuclear.qmd)
+* [Molecular Transitions and Spectroscopy](mod7/moltransitions.qmd)
 
 ---
 

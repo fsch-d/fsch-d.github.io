@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>Nuclear Motion in Molecules – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>Rotation and Vibration – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4094,7 +4094,7 @@ text-align: justify;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/h2plus.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/nuclear.html">Nuclear Motion in Molecules</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/nuclear.html">Rotation and Vibration</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4349,13 +4349,19 @@ text-align: justify;
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction into Molecular Physics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/molfound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations of Molecular Bonding</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
@@ -4377,7 +4383,13 @@ text-align: justify;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod7/nuclear.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Nuclear Motion in Molecules</span></a>
+ <span class="menu-text">Rotation and Vibration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Transitions and Spectroscopy</span></a>
   </div>
 </li>
       </ul>
@@ -4419,7 +4431,7 @@ text-align: justify;
   <ul class="collapse">
   <li><a href="#effect-of-vibration-on-rotational-energy" id="toc-effect-of-vibration-on-rotational-energy" class="nav-link" data-scroll-target="#effect-of-vibration-on-rotational-energy">4.1 Effect of Vibration on Rotational Energy</a></li>
   <li><a href="#effect-of-rotation-on-the-effective-potential" id="toc-effect-of-rotation-on-the-effective-potential" class="nav-link" data-scroll-target="#effect-of-rotation-on-the-effective-potential">4.2 Effect of Rotation on the Effective Potential</a></li>
-  <li><a href="#spectroscopic-consequences" id="toc-spectroscopic-consequences" class="nav-link" data-scroll-target="#spectroscopic-consequences">4.3 Spectroscopic Consequences</a></li>
+  <li><a href="#sec-speccons" id="toc-sec-speccons" class="nav-link" data-scroll-target="#sec-speccons">4.3 Spectroscopic Consequences</a></li>
   </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a>
   <ul class="collapse">
@@ -4431,9 +4443,9 @@ text-align: justify;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/h2plus.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/nuclear.html">Nuclear Motion in Molecules</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/nuclear.html">Rotation and Vibration</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Nuclear Motion in Molecules</h1>
+<h1 class="title">Rotation and Vibration</h1>
 </div>
 
 
@@ -4597,7 +4609,7 @@ text-align: justify;
 <section id="molecular-rotation-the-rigid-rotor" class="level1">
 <h1>2. Molecular Rotation: The Rigid Rotor</h1>
 <p>The final step in the Born-Oppenheimer approximation for diatomic molecules, as shown in the previous section, is the separation of the nuclear motion into vibrational (radial) and rotational (angular) components. We now proceed to simplify and solve the angular part of the nuclear Schrödinger equation by employing the <strong>rigid rotor approximation</strong>.</p>
-<div id="514ff0b0" class="cell" data-execution_count="1">
+<div id="9e219a1e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4869,7 +4881,7 @@ text-align: justify;
 <p>The Morse potential provides an excellent description of real molecular potentials for most diatomic molecules, especially for vibrational levels up to dissociation. It is widely used in molecular spectroscopy to analyze vibrational structure.</p>
 <hr>
 <p>The figure below visually contrasts the Morse potential and the Harmonic approximation potential energy curves for a diatomic molecule. The blue solid line represents the Morse potential, which is asymmetric and flattens out to a Dissociation Limit as the internuclear distance (<span class="math inline">\(R\)</span>) increases. The blue horizontal lines show the Morse vibrational energy levels, demonstrating the effect of anharmonicity: the spacing between adjacent levels decreases as the vibrational quantum number <span class="math inline">\(v\)</span> increases. In contrast, the red dashed line (Harmonic approximation) is a perfect parabola, and its corresponding energy levels (red dashed horizontal lines) are equally spaced and incorrectly extend indefinitely beyond the true dissociation limit. The figure also clarifies the difference between the binding energy (<span class="math inline">\(E_B\)</span>) at the potential minimum and the spectroscopic dissociation energy (<span class="math inline">\(D_0\)</span>) measured from the zero-point energy (<span class="math inline">\(v=0\)</span>).</p>
-<div id="e41b76f4" class="cell" data-execution_count="2">
+<div id="3ab1caa1" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5031,7 +5043,7 @@ text-align: justify;
 <p>The total energy of the molecule (excluding electronic and translational components) can be written as the sum of the two distinct quantized motions:</p>
 <p><span class="math display">\[E_{\text{nJ}} \approx E_{\text{vib}}(v) + E_{\text{rot}}(J)\]</span></p>
 <p>The reason this approximation breaks down is that the <strong>moment of inertia (<span class="math inline">\(I\)</span>)</strong> depends on the instantaneous internuclear distance <span class="math inline">\(R(t)\)</span>, which varies during vibration. As the bond stretches (vibrates), the moment of inertia changes, thus directly affecting the rotational energy. Conversely, rotation imposes a centrifugal force that affects the effective vibrational potential. This interdependent relationship constitutes the <strong>rovibrational coupling</strong>.</p>
-<div id="c9a45f92" class="cell" data-execution_count="3">
+<div id="9c45cbf4" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5181,7 +5193,7 @@ text-align: justify;
 <p>where <span class="math inline">\(B_e = \frac{\hbar^2}{2\mu R_e^2}\)</span> is the rotational constant at equilibrium, and <span class="math inline">\(\alpha_e &gt; 0\)</span> is the vibration-rotation coupling constant. Generally, <span class="math inline">\(\alpha_e \sim 0.01 B_e\)</span>.</p>
 <p><strong>Physical interpretation:</strong> As the vibrational quantum number <span class="math inline">\(v\)</span> increases, the average bond length increases due to the anharmonicity of the potential. This increases the average moment of inertia and decreases the effective rotational constant. Consequently, <strong>rovibrational energy levels depend on both <span class="math inline">\(v\)</span> and <span class="math inline">\(J\)</span></strong>.</p>
 <p>The physical effect described by the <span class="math inline">\(\alpha_e\)</span> term can be visualized by examining the quantum mechanical properties of the vibrating molecule. The figure below plots the Morse potential and the calculated wavefunctions for several vibrational states, <span class="math inline">\(v\)</span>. The red circles mark the effective bond length <span class="math inline">\(R_{\text{eff}} = \langle R^{-2} \rangle^{-1/2}\)</span> for each level. This visualization demonstrates that as <span class="math inline">\(v\)</span> increases, the probability density shifts toward larger internuclear distances, causing <span class="math inline">\(R_{\text{eff}}\)</span> to increase significantly and resulting in a smaller rotational constant <span class="math inline">\(B_v\)</span>.</p>
-<div id="d51529a2" class="cell" data-execution_count="4">
+<div id="6777cec7" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5408,7 +5420,7 @@ text-align: justify;
 <h2 class="anchored" data-anchor-id="effect-of-rotation-on-the-effective-potential">4.2 Effect of Rotation on the Effective Potential</h2>
 <p>The centrifugal force arising from rotation modifies the effective potential experienced during vibration. The <strong>rotational barrier</strong> adds a term to the potential:</p>
 <p><span class="math display">\[V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}\]</span></p>
-<div id="f38a09e2" class="cell" data-execution_count="5">
+<div id="d427f112" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -5518,10 +5530,10 @@ text-align: justify;
 - A <span class="math inline">\(J\)</span>-dependent effective potential that can limit the number of bound states at high angular momentum</p>
 <hr>
 </section>
-<section id="spectroscopic-consequences" class="level2">
-<h2 class="anchored" data-anchor-id="spectroscopic-consequences">4.3 Spectroscopic Consequences</h2>
+<section id="sec-speccons" class="level2">
+<h2 class="anchored" data-anchor-id="sec-speccons">4.3 Spectroscopic Consequences</h2>
 <p>The coupling between rotation and vibration has important consequences for molecular spectroscopy. If the Morse potential description is valid, the rovibrational energies can be expressed using five molecular constants:</p>
-<p><span class="math display">\[E(v,J) = T_e + \omega_e\left(v + \frac{1}{2}\right) - \omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2\]</span></p>
+<p><span class="math display">\[E(v,J) = T_e + \hbar\omega_e\left(v + \frac{1}{2}\right) - \hbar\omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2\]</span></p>
 <p>where:<br>
 - <span class="math inline">\(T_e\)</span> is the term value (electronic energy origin)<br>
 - <span class="math inline">\(\omega_e\)</span> is the harmonic vibrational frequency<br>
