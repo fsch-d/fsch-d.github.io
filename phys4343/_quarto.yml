@@ -69,7 +69,7 @@ website:
           - mod6/manye.qmd
           - mod6/coupling.qmd
           - mod6/excited.qmd
-      - section: "Introduction into Molecular Physics"   
+      - section: "Introduction to Molecular Physics"   
         href: mod7/index.qmd
         contents:
           - mod7/molfound.qmd
@@ -78,6 +78,10 @@ website:
           - mod7/beyondh2plus.qmd
           - mod7/nuclear.qmd
           - mod7/moltransitions.qmd
+      - section: "Introduction to Quantum Optics"   
+        href: mod8/index.qmd
+        contents:
+          - mod8/twoleveltheory.qmd
 
 
 #      - section: advanced.qmd

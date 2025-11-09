@@ -1,0 +1,179 @@
+---
+title: "Two-Level Systems — The Theoretical Framework"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+# Introduction
+
+In this section, we develop the theoretical framework for describing **two-level systems**, which are the simplest quantum systems that can interact with light or other external fields. 
+Despite their apparent simplicity, two-level models are of fundamental importance in **quantum optics**, **atomic and molecular physics**, **magnetic resonance**, and **quantum information science**. 
+They provide a minimal yet powerful platform for studying the **dynamics of coherent interactions**, **population transfer**, and **quantum superposition**, and they form the basis for understanding more complex multi-level and many-body systems.
+
+---
+
+# 1. Two-Level Systems
+
+We consider an atom with a ground state $\ket{g}$ and an excited state $\ket{e}$, which are eigenstates of the atomic Hamiltonian $\hat{H}_A$, satisfying the time-independent Schrödinger equation:
+
+$$
+\hat{H}_A\ket{e} = E_e\ket{e}, \qquad \hat{H}_A\ket{g} = E_g\ket{g}.
+$$
+
+The two states are orthonormal, i.e. $\braket{e}{g} = 0$ and $\braket{e}{e} = \braket{g}{g} = 1$. 
+Their corresponding wavefunctions are $\psi_e(\vec{r}) = \braket{\vec{r}}{e}$ and $\psi_g(\vec{r}) = \braket{\vec{r}}{g}$.
+
+These two states form a **two-dimensional subspace** of the (infinite-dimensional) Hilbert space that describes all atomic states. 
+We now assume that interaction with the laser field transfers population only between these two states, so we can restrict our analysis to this subspace.
+
+For all times $t$, the system’s state $\ket{\psi}$ can be expressed as a superposition
+
+$$
+\ket{\psi} = c_e(t)\ket{e} + c_g(t)\ket{g},
+$$
+
+subject to the normalization condition $|c_e(t)|^2 + |c_g(t)|^2 = 1$. 
+Here, $|c_e(t)|^2$ and $|c_g(t)|^2$ represent the probabilities to find the system in the excited and ground states, respectively.
+
+---
+
+![Energy diagram of a two-level system.](two-level.svg){#fig-two-level width=50% fig-align="center" fig-alt="Energy diagram of a two-level system."}
+
+
+---
+
+## 1.1 Matrix Representation
+
+Because the system is two-dimensional, we can represent the basis states as column vectors in $\mathbb{C}^2$:
+
+$$
+\ket{e} \rightarrow \begin{pmatrix}1\\0\end{pmatrix}, \quad
+\ket{g} \rightarrow \begin{pmatrix}0\\1\end{pmatrix}, \quad
+\ket{\psi} \rightarrow \begin{pmatrix}c_e(t)\\c_g(t)\end{pmatrix}.
+$$
+
+
+In this representation, any linear operator acting on the two-level system becomes a $2\times 2$ matrix. 
+For example, the atomic Hamiltonian can be written as
+
+$$
+\hat{H}_A = E_e\ketbra{e} + E_g\ketbra{g} =
+\begin{pmatrix}
+E_e & 0 \\ 0 & E_g
+\end{pmatrix}.
+$$
+
+More generally, a linear operator $\hat{A}$ takes the form
+
+$$
+\hat{A} =
+\begin{pmatrix}
+a_{ee} & a_{eg} \\
+a_{ge} & a_{gg}
+\end{pmatrix}
+= a_{ee}\ketbra{e} + a_{eg}\ketbra{e}{g} + a_{ge}\ketbra{g}{e} + a_{gg}\ketbra{g}.
+$$
+
+---
+
+## 1.2 Operator Basis and Pauli Matrices
+
+A convenient set of linearly independent operators for the two-level system is given by:
+
+$$
+\begin{aligned}
+\mathbb{1} &= \ketbra{e} + \ketbra{g} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}, \\
+\hat{\sigma}_z &= \ketbra{e} - \ketbra{g} = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}, \\
+\hat{\sigma}_+ &= \ketbra{e}{g} = \begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix}, \\
+\hat{\sigma}_- &= \ketbra{g}{e} = \begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix}.
+\end{aligned}
+$$
+
+These four operators span the full space of $2\times2$ matrices. 
+The operators $\hat{\sigma}_+$ and $\hat{\sigma}_-$ are non-Hermitian and often replaced by the **Pauli matrices**
+
+$$
+\hat{\sigma}_x = \hat{\sigma}_+ + \hat{\sigma}_-, \qquad
+\hat{\sigma}_y = -i\hat{\sigma}_+ + i\hat{\sigma}_-.
+$$
+
+---
+
+## 1.3 Physical Interpretation
+
+The action of these operators on the general state $\ket{\psi} = c_e\ket{e} + c_g\ket{g}$ is:
+
+$$
+\begin{aligned}
+\hat{\sigma}_+\ket{\psi} &= c_g\ket{e}, \\
+\hat{\sigma}_-\ket{\psi} &= c_e\ket{g}, \\
+\hat{\sigma}_z\ket{\psi} &= c_e\ket{e} - c_g\ket{g}.
+\end{aligned}
+$$
+
+Hence:  
+- $\hat{\sigma}_+$ is the **raising operator**, inducing the transition $\ket{g} \to \ket{e}$.  
+- $\hat{\sigma}_-$ is the **lowering operator**, inducing the transition $\ket{e} \to \ket{g}$.  
+- $\hat{\sigma}_z$ is Hermitian and represents the **inversion operator** of the system:  
+  
+  $$
+  w = \mel{\psi}{\hat{\sigma}_z}{\psi} = |c_e|^2 - |c_g|^2.
+  $$
+  
+  The inversion $w$ equals $+1$ for the excited state, $-1$ for the ground state, and $0$ when both states are equally populated.  
+
+---
+
+## 1.4 Commutation and Anticommutation Relations
+
+The Pauli operators satisfy the following relations:
+
+$$
+\begin{aligned}
+\left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i\,\varepsilon_{ijk}\,\hat{\sigma}_k, \quad i,j,k \in \{x,y,z\}, \\
+[\hat{\sigma}_+, \hat{\sigma}_-] &= \hat{\sigma}_z, \\
+[\hat{\sigma}_+, \hat{\sigma}_z] &= -2\hat{\sigma}_+, \\
+[\hat{\sigma}_-, \hat{\sigma}_z] &= 2\hat{\sigma}_-, \\
+\{\hat{\sigma}_+, \hat{\sigma}_-\} &= \mathbb{1}, \\
+\{\hat{\sigma}_+, \hat{\sigma}_z\} &= \{\hat{\sigma}_-, \hat{\sigma}_z\} = 0, \\
+\hat{\sigma}_+ \hat{\sigma}_+ &= \hat{\sigma}_- \hat{\sigma}_- = 0.
+\end{aligned}
+$$
+
+---
+
+## 1.5 Atomic Hamiltonian in Pauli Representation
+
+Using the operator basis above, the atomic Hamiltonian can be rewritten as:
+
+$$
+\hat{H}_A = \frac{E_e + E_g}{2}\,\mathbb{1} + \frac{E_e - E_g}{2}\,\hat{\sigma}_z.
+$$
+
+The first term corresponds to a uniform energy offset that does not affect the system’s dynamics. 
+We can therefore redefine the zero of energy such that it lies midway between the two states (see [@fig-two-level]), which simplifies the Hamiltonian to
+
+$$
+\hat{H}_A = \frac{\hbar\omega_0}{2}\,\hat{\sigma}_z
+= \frac{\hbar}{2}
+\begin{pmatrix}
+\omega_0 & 0 \\
+0 & -\omega_0
+\end{pmatrix},
+$$
+
+where $\omega_0 = (E_e - E_g)/\hbar$ is the **resonance frequency** of the transition.
+
+---
+
+# Summary
+
+- A **two-level system** is the simplest non-trivial quantum system and serves as a universal model for light–matter interaction, spin dynamics, and qubit physics.  
+- Any quantum state can be written as a **superposition** of the ground and excited states, described by time-dependent amplitudes $c_g(t)$ and $c_e(t)$.  
+- The dynamics of such systems can be represented compactly using **Pauli matrices**, which form a complete operator basis in two dimensions.  
+- The **raising** ($\hat{\sigma}_+$) and **lowering** ($\hat{\sigma}_-$) operators describe transitions between the two states, while $\hat{\sigma}_z$ gives the population inversion.  
+- The **atomic Hamiltonian** can be written as $\hat{H}_A = \frac{\hbar\omega_0}{2}\hat{\sigma}_z$, with $\omega_0$ being the resonance frequency between the two states.  
+- This formalism provides the foundation for describing **coherent driving**, **Rabi oscillations**, and **optical Bloch equations**, which will be introduced in the next sections.
+
+---

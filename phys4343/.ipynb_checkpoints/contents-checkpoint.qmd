@@ -61,7 +61,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [Introduction into Molecular Physics](mod7/index.qmd)  
+## [Introduction to Molecular Physics](mod7/index.qmd)  
 
 * [Foundations of Molecular Bonding](mod7/molfound.qmd)
 * [The H$_2^+$ Molecular Ion](mod7/h2plus.qmd)
@@ -72,4 +72,6 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## Light-matter interaction / coupled two-level systems  
+## [Introduction to Quantum Optics](mod8/index.qmd) 
+
+* [Two-Level Systems — The Theoretical Framework](mod8/twoleveltheory.qmd)

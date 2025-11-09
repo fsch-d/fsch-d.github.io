@@ -4094,7 +4094,7 @@ text-align: justify;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/moltransitions.html">Molecular Transitions and Spectroscopy</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction to Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/moltransitions.html">Molecular Transitions and Spectroscopy</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4350,7 +4350,7 @@ text-align: justify;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction into Molecular Physics</span></a>
+ <span class="menu-text">Introduction to Molecular Physics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4390,6 +4390,23 @@ text-align: justify;
   <div class="sidebar-item-container"> 
   <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Molecular Transitions and Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod8/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Quantum Optics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/twoleveltheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two-Level Systems — The Theoretical Framework</span></a>
   </div>
 </li>
       </ul>
@@ -4445,7 +4462,7 @@ text-align: justify;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction into Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/moltransitions.html">Molecular Transitions and Spectroscopy</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod7/index.html">Introduction to Molecular Physics</a></li><li class="breadcrumb-item"><a href="../mod7/moltransitions.html">Molecular Transitions and Spectroscopy</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Molecular Transitions and Spectroscopy</h1>
 </div>
@@ -4592,9 +4609,10 @@ Electric dipole transitions must change parity:<br>
 </section>
 <section id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state" class="level3">
 <h3 class="anchored" data-anchor-id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state">(B) Vibrational / rovibrational transitions within the same electronic state (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> same electronic state)</h3>
-<p>For transitions within the same electronic state, we set <span class="math inline">\(\Phi_k = \Phi_i \equiv \Phi_0\)</span>. The <strong>total transition dipole matrix element</strong> then reads</p>
+<p>For transitions within the same electronic state, we set <span class="math inline">\(\Phi_k = \Phi_i \equiv \Phi_0\)</span>. The <strong>total transition dipole matrix element</strong> is then</p>
 <p><span class="math display">\[
-M_{v&#39;J&#39;,\,vJ} = \int d^3R\; \chi_{v&#39;J&#39;}^*(R,\Omega)\,
+M_{v&#39;J&#39;,\,vJ} = \int d^3R\;
+\chi_{v&#39;J&#39;}^*(R,\Omega)\,
 \langle \Phi_0 | \hat{\vec \mu} | \Phi_0 \rangle_{\mathbf r}\,
 \chi_{vJ}(R,\Omega),
 \]</span></p>
@@ -4605,17 +4623,28 @@ M_{v&#39;J&#39;,\,vJ} = \int d^3R\; \chi_{v&#39;J&#39;}^*(R,\Omega)\,
 \hat{\vec \mu}_{\rm el} = -e \sum_i \vec r_i, \;\;
 \hat{\vec \mu}_N = e \sum_A Z_A \vec R_A.
 \]</span></p>
-<p>Using the usual separation <span class="math inline">\(\chi(R,\Omega) = \frac{u_v(R)}{R} Y_{JM}(\Omega)\)</span>, and noting that the dipole vector lies along the molecular axis, the matrix element <strong>factors</strong> into a <strong>radial (vibrational) integral</strong> and an <strong>angular (rotational) integral</strong>:</p>
+<p>The electronic expectation value of the dipole operator is a <strong>vector</strong> that depends on the internuclear distance <span class="math inline">\(R\)</span>:</p>
+<p><span class="math display">\[
+\langle \Phi_0 | \hat{\vec \mu} | \Phi_0 \rangle_{\mathbf r}
+= \mu(R)\, \hat z_{\rm mol}.
+\]</span></p>
+<p>Here, <span class="math inline">\(\hat z_{\rm mol}\)</span> denotes the unit vector along the molecular axis, and <span class="math inline">\(\mu(R)\)</span> is the <strong>signed</strong> projection of the permanent dipole moment onto this axis (it can be positive or negative depending on which atom carries the partial negative charge).</p>
+<p>Using the separation <span class="math inline">\(\chi(R,\Omega) = \dfrac{u_v(R)}{R} Y_{JM}(\Omega)\)</span> and noting that the dipole vector lies along the molecular axis, the matrix element <strong>factors</strong> into a <strong>radial (vibrational)</strong> and an <strong>angular (rotational)</strong> part:</p>
 <p><span class="math display">\[
 M_{v&#39;J&#39;,vJ}
-= \underbrace{\int_0^\infty u_{v&#39;}(R)\,\mu(R)\,u_{v}(R)\,\frac{dR}{R^{2}}}_{\text{vibrational (radial) factor}}
-\;\times\;
-\underbrace{\int Y_{J&#39;M&#39;}^*(\Omega)\,\cos\theta\,Y_{JM}(\Omega)\,d\Omega}_{\text{rotational (angular) factor}},
+= \underbrace{\int_0^\infty
+u_{v&#39;}(R)\,\mu(R)\,u_v(R)\,\frac{dR}{R^{2}}}_{\text{vibrational (radial) factor}}
+\times
+\underbrace{\int
+Y_{J&#39;M&#39;}^*(\Omega)\,\cos\theta\,Y_{JM}(\Omega)\,d\Omega}_{\text{rotational (angular) factor}}.
 \]</span></p>
-<p>where</p>
-<p><span class="math display">\[
-\mu(R) \equiv \langle \Phi_0 | \hat{\vec \mu} | \Phi_0 \rangle_{\mathbf r}.
-\]</span></p>
+<p>The angular factor arises because <span class="math inline">\(\hat z_{\rm mol} \cdot \hat z_{\rm space} = \cos\theta\)</span>. It is important to retain the sign of <span class="math inline">\(\mu(R)\)</span>, as it determines the <strong>direction</strong> of the permanent dipole and thus affects interference and transition intensities. For homonuclear diatomics, <span class="math inline">\(\mu(R) \equiv 0\)</span> by symmetry, so electric-dipole vibrational transitions are forbidden.</p>
+<blockquote class="blockquote">
+<p><em>Remark:</em><br>
+In electronic structure calculations, <span class="math inline">\(\mu(R)\)</span> can be obtained as the expectation value <span class="math display">\[
+\mu(R) = \int \Phi_0^*(\vec r;R)\, \hat{\vec \mu}\!\cdot\!\hat z_{\rm mol}\, \Phi_0(\vec r;R)\, d^3r.
+\]</span> The sign of <span class="math inline">\(\mu(R)\)</span> depends on the chosen coordinate origin and molecular orientation; using the center of nuclear charge as the origin provides a consistent convention.</p>
+</blockquote>
 <p><strong>Consequences:</strong></p>
 <ul>
 <li><p>The <strong>radial integral</strong> determines the <strong>vibrational selection rules</strong>.<br>
@@ -4729,7 +4758,7 @@ E(v, J) \approx
 </li>
 <li><strong>R-branch</strong> (<span class="math inline">\(\Delta J = +1\)</span>): Lines at frequencies higher than the band center</li>
 </ol>
-<div id="1bdd9db2" class="cell" data-execution_count="1">
+<div id="d47d2017" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

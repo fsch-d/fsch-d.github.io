@@ -148,5 +148,11 @@
   },
   "mod7/index.qmd": {
     "index.html": "6b8a820d"
+  },
+  "mod8/index.qmd": {
+    "index.html": "a75a38c8"
+  },
+  "mod8/twoleveltheory.qmd": {
+    "twoleveltheory.html": "2140d834"
   }
 }

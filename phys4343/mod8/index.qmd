@@ -1,0 +1,56 @@
+---
+title: "Introduction to Quantum Optics"
+author: Daniel Fischer
+---
+
+# Interaction of Atoms with Coherent Light
+
+In atomic physics, the interaction of atoms with **coherent radiation**, such as laser light, plays a central role in many modern experimental techniques. 
+Examples include **laser spectroscopy**, **atom trapping and cooling**, **atomic clocks**, **optical lattices**, and various schemes in **quantum optics**.
+
+In earlier modules, we described light–atom interaction in terms of **Einstein coefficients** within **time-dependent perturbation theory**. 
+However, for intense and coherent laser fields, the perturbative approach breaks down — the field can drive transitions strongly enough that we must treat the **atom–light interaction non-perturbatively**.
+
+---
+
+## Scope and Simplifying Assumptions
+
+To make progress, we adopt a few well-justified approximations that capture the essential physics:
+
+1. **Classical, monochromatic radiation field**  
+   The electromagnetic field is coherent and treated classically — photon quantization is ignored. 
+   The electric field is written as  
+   $$
+   \vec E(t) = \tfrac{1}{2}\left( \vec E_0 e^{-i\omega_L t} + \text{c.c.} \right),
+   $$
+   where $\omega_L$ is the laser frequency and *c.c.* denotes the complex conjugate.
+
+2. **Electric dipole approximation**  
+   The interaction between the atom and the electromagnetic field is dominated by the electric component:  
+   - The **magnetic field** of the wave is neglected.  
+   - The **spatial dependence** of the field, expressed as a phase factor $e^{-ikz}$, is assumed constant across the atom. 
+     This is valid when the wavelength $\lambda$ is much larger than the atomic size, allowing us to set $e^{-ikz} = 1$.
+     Thus, the atom experiences a spatially uniform oscillating electric field.
+
+3. **Two-level approximation**  
+   Only two atomic states are considered — a **ground state** $\ket{g}$ and an **excited state** $\ket{e}$, separated by an energy $\hbar\omega_0$.
+   While a real atom possesses infinitely many states, this simplification is reasonable if the field couples most strongly to this specific transition (i.e., when $\omega_L \approx \omega_0$).  
+
+---
+
+## Broader Relevance
+
+The formalism developed here has applications that extend far beyond atomic physics. 
+It provides the conceptual foundation for a wide range of phenomena and technologies, including:
+
+- **Laser cooling and trapping**, which allow the creation of ultracold atomic gases and optical lattices.  
+- **Atomic clocks**, where coherent Rabi oscillations define the world’s most precise frequency standards.  
+- **Coherent population transfer** and **stimulated Raman adiabatic passage (STIRAP)**, essential tools in precision spectroscopy and quantum control.  
+- **Quantum information processing**, where two-level systems (qubits) interact with electromagnetic fields in a fully analogous way.  
+- **Magnetic resonance phenomena**, such as **nuclear magnetic resonance (NMR)** and **electron spin resonance (ESR)**, which are mathematically equivalent to light–atom interactions.  
+- **Nonlinear and quantum optics**, where extensions of the two-level model describe photon–atom entanglement and light–matter coherence.
+
+---
+
+> **Key idea:**  
+> The two-level system interacting with a coherent field is a universal model in physics — simple enough to solve analytically, yet rich enough to describe the foundations of **quantum optics** and **quantum control**.
