@@ -82,6 +82,7 @@ website:
         href: mod8/index.qmd
         contents:
           - mod8/twoleveltheory.qmd
+          - mod8/rwa_rabi.qmd
 
 
 #      - section: advanced.qmd

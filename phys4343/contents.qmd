@@ -74,4 +74,6 @@ This page provides an overview and links to all the sections of the website.
 
 ## [Introduction to Quantum Optics](mod8/index.qmd) 
 
-* [Two-Level Systems — The Theoretical Framework](mod8/twoleveltheory.qmd)
+* [Two-Level Systems — The Theoretical Framework](mod8/twoleveltheory.qmd
+* [Rotating Wave Approximation and Rabi Oscillations](mod8/rwa-rabi.qmd
+

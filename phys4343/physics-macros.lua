@@ -65,13 +65,88 @@ local function expand_macros(s)
         end
       end,
       mel = function(args)
-        return "\\left\\langle " .. args[1] .. " \\middle| " .. args[2] .. " \\middle| " .. args[3] .. " \\right\\rangle"      end,
+         return string.format("\\left\\langle %s \\middle| %s \\middle| %s \\right\\rangle", 
+                       args[1], args[2], args[3])
+      end,
       comm = function(args)
         return "\\left[ " .. args[1] .. " , " .. args[2] .. " \\right]"
       end,
       expval = function(args)
         return "\\left\\langle " .. args[1] .. " \\right\\rangle"
-      end
+      end,
+
+        -- Quantity command: \qty{value}{unit}
+-- Example: \qty{5}{m/s} -> 5\,\text{m/s}
+-- Quantity command with optional parentheses
+-- \qty{value}{unit} -> value\,unit
+-- \qty[]{value}{unit} -> (value)\,unit
+-- \qty[()]{value}{unit} -> (value)\,unit
+-- \qty[[]]{value}{unit} -> [value]\,unit
+-- \qty[{}]{value}{unit} -> {value}\,unit
+qty = function(args)
+  if #args == 2 then
+    -- No brackets: \qty{value}{unit}
+    return args[1] .. "\\," .. "\\text{" .. args[2] .. "}"
+  elseif #args == 3 then
+    -- With brackets: \qty[type]{value}{unit}
+    local bracket_type = args[1]
+    local value = args[2]
+    local unit = args[3]
+    
+    local left_bracket, right_bracket
+    
+    if bracket_type == "" or bracket_type == "()" then
+      left_bracket = "("
+      right_bracket = ")"
+    elseif bracket_type == "[]" then
+      left_bracket = "["
+      right_bracket = "]"
+    elseif bracket_type == "{}" then
+      left_bracket = "\\{"
+      right_bracket = "\\}"
+    else
+      -- Default to parentheses for unknown types
+      left_bracket = "("
+      right_bracket = ")"
+    end
+    
+    return left_bracket .. value .. right_bracket .. "\\," .. "\\text{" .. unit .. "}"
+  else
+    return "\\text{[qty: invalid args]}"
+  end
+end,
+
+-- Partial derivative: \pdv{f}{x} or \pdv[n]{f}{x} or \pdv{f}{x}{y}
+-- Examples:
+-- \pdv{f}{x} -> \frac{\partial f}{\partial x}
+-- \pdv[2]{f}{x} -> \frac{\partial^2 f}{\partial x^2}
+-- \pdv{f}{x}{y} -> \frac{\partial^2 f}{\partial x \partial y}
+pdv = function(args)
+  if #args == 1 then
+    -- \pdv{t}
+    return "\\frac{\\partial}{\\partial " .. args[1] .. "}"
+  elseif #args == 2 then
+    -- \pdv{f}{x}
+    return "\\frac{\\partial " .. args[1] .. "}{\\partial " .. args[2] .. "}"
+  elseif #args == 3 then
+    -- Check if first arg is a number (order) or a variable (mixed partial)
+    local first = args[1]
+    if tonumber(first) then
+      -- \pdv[n]{f}{x} -> \frac{\partial^n f}{\partial x^n}
+      local order = first
+      return "\\frac{\\partial^{" .. order .. "} " .. args[2] .. "}{\\partial " .. args[3] .. "^{" .. order .. "}}"
+    else
+      -- \pdv{f}{x}{y} -> \frac{\partial^2 f}{\partial x \partial y}
+      return "\\frac{\\partial^2 " .. first .. "}{\\partial " .. args[2] .. " \\partial " .. args[3] .. "}"
+    end
+  elseif #args == 4 then
+    -- \pdv[n]{f}{x}{y} with explicit order (less common)
+    local order = args[1]
+    return "\\frac{\\partial^{" .. order .. "} " .. args[2] .. "}{\\partial " .. args[3] .. " \\partial " .. args[4] .. "}"
+  else
+    return "\\text{[pdv: invalid args]}"
+  end
+end,
     }
 
     if not handler[name] then

@@ -495,7 +495,7 @@ is the **anharmonicity constant** (typically $\chi_e \approx 0.01$–$0.05$ for 
 
 * There is a **finite number of bound vibrational states**. The maximum vibrational quantum number is approximately:
 
-    $$v_{\max} \approx \frac{1}{2\chi_e} - 1 = \frac{E_B}{\hbar\omega} - 1$$
+    $$v_{\max} \approx \frac{1}{2\chi_e} - 1 = \frac{2E_B}{\hbar\omega} - 1$$
 
   This limit occurs because the energy spacing $\Delta E$ approaches zero. For any level $v$ where the derived spacing $\Delta E(v \to v+1)$ would become **negative**, the state is unphysical and not bound, thus setting the maximum possible bound state at $v_{\max}$.
 
