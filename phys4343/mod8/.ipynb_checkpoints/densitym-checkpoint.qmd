@@ -1,0 +1,226 @@
+---
+title: "The Density Matrix Formalism"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+# Introduction
+
+Up to this point, we have assumed that the two–level system is always in a pure quantum state that can be written as a *coherent superposition* of the bare states. This is expressed as
+
+$$
+\ket{\psi}
+  = c_e \ket{e} + c_g \ket{g}
+  = \lvert c_e\rvert e^{-i\varphi_e}\ket{e}
+    + \lvert c_g\rvert e^{-i\varphi_g}\ket{g}.
+$${#eq-cohst}
+
+In such a description the complex amplitudes $c_e$ and $c_g$ are assumed to have **well-defined magnitudes and phases** at all times. The phase difference between the two components determines, for example, the ability of the system to undergo *coherent population transfer* via Rabi oscillations.
+
+However, real physical systems are rarely perfectly isolated. Effects such as **spontaneous decay**, collisions, fluctuations of external fields, or more generally any coupling to unobserved degrees of freedom (the “environment”) lead to a **loss of phase information**, commonly referred to as *decoherence*. 
+After sufficiently long times, the phases $\varphi_e$ and $\varphi_g$ become unknown or fluctuate so strongly that the system can no longer be represented by a single coherent wavefunction. Instead, it must be regarded as being in a **statistical mixture** of ground and excited states:
+
+> The wavefunction formalism alone is not capable of simultaneously describing 
+> (i) coherent dynamics (Rabi oscillations) ***and*** 
+> (ii) incoherent processes (population decay, decoherence).
+
+To handle both aspects within one unified framework, we turn to the **density matrix formalism**.
+
+By the end of this chapter, you should be able to:
+
+- Understand why the wavefunction description is insufficient for open quantum systems.  
+- Define and interpret the **density operator** and the **density matrix**.  
+- Distinguish clearly between **pure** and **mixed** states and understand how each appears in the density matrix.  
+- Compute expectation values using the trace rule,  
+  $$\expval{\hat A} = \operatorname{Tr}(\hat\rho \hat A).$$
+- Derive the equation of motion for the density matrix,  
+  $$\dot{\hat\rho} = \frac{1}{i\hbar}[\hat H,\hat \rho],$$  
+  known as the **Liouville–von Neumann equation**.
+- Prepare for the introduction of *dissipative* terms and the optical Bloch equations in later sections.
+
+---
+
+# 1. The density matrix formalism
+
+A powerful and conceptually elegant solution to the limitations of the wavefunction description is the **density matrix** (or *density operator*) formalism. Instead of describing a state by a vector in Hilbert space, we represent the state by an operator:
+
+$$
+\hat{\rho} = \ketbra{\psi}.
+$$
+
+This object contains full information about:
+
+- **Populations** of the basis states (diagonal elements).  
+- **Coherences**, i.e., the phase relations between basis states (off-diagonal elements).  
+
+For the present two–level system we can write, using the operator matrix elements defined earlier (see [Equation 1 in *Two–Level Systems — The Theoretical Framework*](twoleveltheory.qmd#eq-opmatrix){target=blank_}):
+
+$$
+\hat{\rho}
+  = \begin{pmatrix}
+      \rho_{ee} & \rho_{eg} \\
+      \rho_{ge} & \rho_{gg}
+    \end{pmatrix}
+  = \begin{pmatrix}
+      \lvert c_e\rvert^2 & c_e c_g^\ast \\
+      c_e^\ast c_g & \lvert c_g\rvert^2
+    \end{pmatrix}.
+$${#eq-defdm}
+
+At this stage the density matrix is simply a rewriting of our familiar wavefunction. Its power becomes clear when we consider states that cannot be represented by a single pure state $\ket{\psi}$.
+
+---
+
+## 1.1 Pure states
+
+A **pure state** is one that can be written as a coherent superposition such as @eq-cohst. 
+In this case, the density matrix is constructed directly from the state vector, so its elements have a *strict and unambiguous* interpretation:
+
+- The **diagonal elements** are the populations of the excited and ground states *in that specific state vector*:
+
+  $$
+  \rho_{ee} = \lvert c_e\rvert^2,\qquad
+  \rho_{gg} = \lvert c_g\rvert^2,\qquad
+  \rho_{ee} + \rho_{gg} = 1.
+  $$
+
+  These numbers come from the amplitudes $c_e$ and $c_g$ and therefore describe a single quantum state, not an ensemble.
+
+- The **off-diagonal elements** encode the *phase relation* between the amplitudes and therefore quantify coherence:
+
+  $$
+  \rho_{eg} = c_e c_g^\ast
+            = \lvert c_e\rvert \lvert c_g\rvert \, e^{-i(\varphi_e - \varphi_g)}.
+  $$
+
+  These off-diagonal terms vanish *only* when the system is in an eigenstate ($\ket{e}$ or $\ket{g}$) and are otherwise nonzero. 
+  As long as $\rho_{eg}\neq 0$, the system retains well-defined phase information and can undergo **coherent dynamics**, such as Rabi oscillations.
+
+---
+
+## 1.2 Mixed states
+
+A **mixed state** represents an ensemble of systems or repeated preparations in which the state is *not* given by a single wavefunction. 
+The density matrix still has the same mathematical form, but its entries have a **different physical meaning**:
+
+- The diagonal elements now represent **ensemble probabilities**:
+
+  $$
+  \rho_{ee} = p_e,\qquad
+  \rho_{gg} = p_g,\qquad
+  p_e + p_g = 1,
+  $$
+
+  where $p_e$ and $p_g$ are the classical probabilities of finding the system in $\ket e$ or $\ket g$. 
+  These are *not* $\lvert c_e\rvert^2$ and $\lvert c_g\rvert^2$ because there is no single underlying state vector in a mixed state.
+
+- The **off-diagonal elements**, which in a pure state carry coherent phase information, now vanish:
+
+  $$
+  \langle \rho_{eg} \rangle
+    = \big\langle
+        \lvert c_e\rvert \lvert c_g\rvert e^{-i(\varphi_e - \varphi_g)}
+      \big\rangle
+    = 0.
+  $$
+
+  The reason is that the relative phase $\varphi_{eg}$ varies randomly across realizations of the ensemble and therefore averages out. 
+  Thus, a mixed state can still have a definite population imbalance ($p_e\neq p_g$), but it carries **no coherence**.
+
+---
+
+## 1.3 Experimental distinction between pure and mixed states
+
+How can one tell experimentally whether a state is pure or mixed?
+
+- **Pure states** can undergo coherent evolution.  
+  If the system is pure ($\rho_{eg}\neq 0$), applying a resonant coherent field produces **Rabi oscillations**. By choosing the pulse area appropriately one can rotate the state vector to any point on the Bloch sphere, including a full transfer to $\ket g$ or $\ket e$.
+
+- **Mixed states** cannot support coherent dynamics.  
+  When driven with the same coherent field, a mixed state (with $\rho_{eg}=0$) shows *no oscillations*. The populations evolve only incoherently (e.g., due to optical pumping or spontaneous decay), and the system remains a probabilistic mixture rather than a coherent superposition.
+
+This operational difference—**coherent vs. incoherent response to a resonant field**—provides a direct experimental signature distinguishing pure from mixed quantum states.
+
+
+## 1.4 Partially coherent states
+
+In real systems the loss of coherence is usually gradual rather than sudden.
+A state with 
+
+$$
+0 < \lvert\rho_{eg}\rvert < \sqrt{\rho_{ee}\rho_{gg}}
+$$
+
+is neither fully coherent nor fully incoherent; it retains some phase information but not enough to behave like a pure state.
+Such states appear naturally in open quantum systems and
+their dynamics exhibit damped Rabi oscillations whose decay rate reflects the loss of coherence.
+
+---
+
+# 2. Expectation values from the density matrix
+
+One of the most useful features of the density matrix is that it provides a **basis-independent** formula for expectation values.  
+
+Starting from
+
+$$
+\hat\rho = \ketbra{\psi},
+$$
+
+consider the expectation value of a linear operator $\hat{A}$:
+
+$$
+\begin{aligned}
+\langle \hat{A} \rangle
+ &= \langle \psi | \hat{A} \mathbb{1} | \psi \rangle \\
+ &= \langle \psi | \hat{A}(\ketbra{e} + \ketbra{g}) | \psi \rangle \\
+ &= \langle \psi | \hat{A} | e \rangle \langle e | \psi \rangle
+   + \langle \psi | \hat{A} | g \rangle \langle g | \psi \rangle \\
+ &= \langle e | \left( | \psi \rangle  \langle \psi | \hat{A} \right) | e \rangle 
+   + \langle g | \left( | \psi \rangle \langle \psi | \hat{A} \right) | g \rangle \\
+ &= \operatorname{Tr}(\hat{\rho}\hat{A}),
+\end{aligned}
+$$
+
+where `Tr` denotes the trace (sum of diagonal elements). 
+This trace rule remains valid whether the state is pure or mixed.
+
+---
+
+# 3. Time evolution: the Liouville–von Neumann equation
+
+To derive the equation of motion for the density matrix, we start from the Schrödinger equation,
+
+$$
+i\hbar \frac{\partial}{\partial t}\ket{\psi} = \hat{H}\ket{\psi},
+\qquad
+-i\hbar \frac{\partial}{\partial t}\bra{\psi} = \bra{\psi}\hat{H}.
+$$
+
+Taking the time derivative of $\hat\rho = \ketbra{\psi}$ gives:
+
+$$
+\frac{\partial}{\partial t}\hat{\rho}
+  = \frac{\partial}{\partial t} \left( \ketbra{\psi}{\psi} \right)
+  = \frac{1}{i\hbar} \bigl( \hat{H}\ketbra{\psi}{\psi} - \ketbra{\psi}{\psi}\hat{H} \bigr)
+  = \frac{1}{i\hbar} [\hat{H}, \hat{\rho}].
+$${#eq-sedm}
+
+This is the **Liouville–von Neumann equation**, the analogue of the Schrödinger equation in the density-matrix formalism. 
+It describes *unitary*, fully coherent time evolution. 
+In later chapters we will extend it by including additional terms that model spontaneous decay and dephasing, leading to the **optical Bloch equations**.
+
+---
+
+# Key Takeaways
+
+- The wavefunction formalism cannot describe decoherence or statistical mixtures.  
+- The **density matrix** captures both *populations* and *coherences* in a unified framework.  
+- Pure states have nonzero off-diagonal elements; mixed states do not.  
+- Expectation values of observables are computed via  
+  $$\expval{\hat A} = \operatorname{Tr}(\hat\rho\,\hat A).$$  
+- The density matrix obeys the **Liouville–von Neumann equation**  
+  $$\dot{\hat\rho} = \frac{1}{i\hbar}[\hat H,\hat\rho].$$  
+- This framework is essential for describing open-system dynamics and for understanding real optical systems with decay, dephasing, and noise.
+

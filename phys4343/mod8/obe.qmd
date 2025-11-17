@@ -1,0 +1,408 @@
+---
+title: "The Optical Bloch Equations"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+# Introduction
+
+The **Optical Bloch Equations (OBEs)** provide a complete dynamical description of a
+two-level quantum system interacting with a coherent electromagnetic field.
+Unlike the wavefunction picture—where a single state vector evolves according to the
+Schrödinger equation—the density-matrix formalism describes both **pure and mixed
+states**, making it ideally suited for open quantum systems that undergo **spontaneous
+emission**, **dephasing**, and **population relaxation**.
+
+In the previous section we introduced the density matrix of a two-level atom and
+distinguished among pure, mixed, and partially coherent states. 
+We now extend this framework by including
+
+- coherent driving by a monochromatic laser field,  
+- spontaneous decay of the excited state, and  
+- the associated loss of coherence.
+
+Starting from the Hamiltonian in the rotating frame and augmenting the Liouville–von
+Neumann equation with phenomenological relaxation terms, we arrive at a closed set of
+coupled differential equations for the density-matrix elements. 
+These equations—known collectively as the **Optical Bloch Equations**—form the basis for
+understanding Rabi oscillations, saturation, steady-state optical pumping, and the
+response of atoms to resonant and off-resonant light.
+
+In the following section, we derive the OBEs explicitly and discuss their physical
+content.
+
+---
+
+# 1. The Optical Bloch Equations (OBEs)
+
+The time evolution of the density matrix of the two-level system in a laser field
+can now be obtained by inserting the Hamiltonian from Equation 5 on the page about the
+[*Rotating Wave Approximation*](rwa_rabi.qmd#eq-serwarotl){target=blank_} into the
+[*Liouville–von Neumann equation*](densitym.qmd#eq-sedm){target=blank_}.  
+
+We already know that spontaneous decay is not contained in the Hamiltonian, but we can
+account for this effect by modifying the Liouville–von Neumann equation with a
+phenomenological relaxation term.
+
+Without an external field, the excited-state population decays exponentially with the
+spontaneous decay rate $\gamma = 1/\tau$:
+
+$$
+\rho_{ee}(t) = \rho_{ee}(0)\, e^{-\gamma t}.
+$$
+
+In differential form, the contribution of spontaneous decay to the diagonal
+density-matrix elements is therefore
+
+$$
+\left(\frac{\partial \rho_{ee}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\left(\frac{\partial \rho_{gg}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\gamma \rho_{ee}.
+$$
+
+The relaxation of the off-diagonal elements $\rho_{eg}$ and $\rho_{ge}$ is less
+obvious, but we also expect exponential damping. Without derivation 
+(a rigorous treatment requires a quantized-field description), we take
+
+$$
+\left(\frac{\partial \rho_{eg}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\frac{\gamma}{2}\rho_{eg},
+\qquad
+\left(\frac{\partial \rho_{ge}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\frac{\gamma}{2}\rho_{ge}.
+$$
+
+Including spontaneous emission in the
+[*Liouville–von Neumann equation*](densitym.qmd#eq-sedm){target=blank_} yields
+
+$$
+\frac{\partial \hat\rho}{\partial t}
+ = \frac{1}{i\hbar}[\hat H,\hat\rho]
+ + \begin{pmatrix}
+   -\gamma\rho_{ee} & -\tfrac{\gamma}{2}\rho_{eg} \\
+   -\tfrac{\gamma}{2}\rho_{ge} & \gamma\rho_{ee}
+   \end{pmatrix}.
+$${#eq-sesd}
+
+Using the [Hamiltonian in the laser-rotating frame](rwa_rabi.qmd#eq-serwarotl){target=blank_},
+we first compute the commutator:
+
+$$
+\frac{2}{\hbar}[\hat H,\hat\rho]
+ = \begin{pmatrix}
+   \Omega_0^\ast \rho_{eg} - \Omega_0 \rho_{ge}
+   & \Omega_0(\rho_{ee}-\rho_{gg}) - 2\delta\rho_{eg} \\
+   -\Omega_0^\ast(\rho_{ee}-\rho_{gg}) + 2\delta\rho_{ge}
+   & \Omega_0 \rho_{ge} - \Omega_0^\ast \rho_{eg}
+   \end{pmatrix}.
+$$
+
+Inserting this expression into @eq-sesd gives
+
+$$
+\frac{\partial}{\partial t}
+\begin{pmatrix}
+\rho_{ee} & \rho_{eg} \\
+\rho_{ge} & \rho_{gg}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\tfrac{i}{2}(\Omega_0^\ast\rho_{eg}-\Omega_0\rho_{ge}) - \gamma\rho_{ee}
+&
+-\tfrac{i\Omega_0}{2}(\rho_{ee}-\rho_{gg}) + i\delta\rho_{eg} - \tfrac{\gamma}{2}\rho_{eg}
+\\[6pt]
+\tfrac{i\Omega_0^\ast}{2}(\rho_{ee}-\rho_{gg}) - i\delta\rho_{ge} - \tfrac{\gamma}{2}\rho_{ge}
+&
+\tfrac{i}{2}(\Omega_0^\ast\rho_{eg}-\Omega_0\rho_{ge}) + \gamma\rho_{ee}
+\end{pmatrix}.
+$${#eq-obematrix}
+
+In the literature, @eq-obematrix is often written component-wise:
+
+$$
+\frac{\partial\rho_{ee}}{\partial t}
+  = -\frac{i}{2}(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) - \gamma\rho_{ee},
+$${#eq-obe11}
+
+$$
+\frac{\partial\rho_{gg}}{\partial t}
+  =  \frac{i}{2}(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) + \gamma\rho_{ee},
+$${#eq-obe12}
+
+$$
+\frac{\partial\rho_{eg}}{\partial t}
+  = -\frac{i\Omega_0}{2}(\rho_{ee}-\rho_{gg})
+    + i\delta\rho_{eg}
+    - \frac{\gamma}{2}\rho_{eg},
+$${#eq-obe13}
+
+$$
+\frac{\partial\rho_{ge}}{\partial t}
+  = \frac{i\Omega_0^\ast}{2}(\rho_{ee}-\rho_{gg})
+    - i\delta\rho_{ge}
+    - \frac{\gamma}{2}\rho_{ge}.
+$${#eq-obe14}
+
+These equations are known as the **Optical Bloch Equations** (OBEs).  
+
+Because the density matrix satisfies $\rho_{ee} + \rho_{gg} = 1$ and
+$\rho_{eg} = \rho_{ge}^\ast$, the system contains redundant information and
+can be reduced to two differential equations.
+
+Introducing the **inversion**
+
+$$
+w = \rho_{ee} - \rho_{gg},
+$${#eq-inv}
+
+we obtain
+
+$$
+\frac{\partial\rho_{eg}}{\partial t}
+ = -\frac{i\Omega_0}{2}\, w + \left(i\delta - \frac{\gamma}{2}\right)\rho_{eg},
+$${#eq-becoh}
+
+$$
+\frac{\partial w}{\partial t}
+ = -i(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) - \gamma(w+1).
+$${#eq-beinv}
+
+The first equation is identical to @eq-obe13 (and the complex conjugate of @eq-obe14). The second equation follows from subtracting @eq-obe12 from @eq-obe11 and using
+
+$$
+w = \rho_{ee}-\rho_{gg}
+  = \rho_{ee}-(1-\rho_{ee})
+  = 2\rho_{ee}-1
+  \quad\Rightarrow\quad
+  \rho_{ee} = \tfrac12(w+1).
+$${#eq-eew}
+
+
+
+
+
+---
+
+# Introduction
+
+The **Optical Bloch Equations (OBEs)** provide a complete dynamical description of a
+two-level quantum system interacting with a coherent electromagnetic field.
+Unlike the wavefunction picture—where a single state vector evolves according to the
+Schrödinger equation—the density-matrix formalism can describe both **pure and mixed
+states**, making it ideally suited for open quantum systems that undergo **spontaneous
+emission**, **dephasing**, and **population relaxation**.
+
+In the previous section we introduced the density matrix of a two-level atom and
+distinguished among pure, mixed, and partially coherent states. 
+We now extend this framework by including:
+
+- coherent driving by a monochromatic laser field,  
+- spontaneous decay of the excited state, and  
+- the corresponding loss of coherence.
+
+Starting from the Hamiltonian in the rotating frame and augmenting the Liouville–von
+Neumann equation with phenomenological relaxation terms, we arrive at a closed set of
+coupled differential equations for the density-matrix elements. 
+These equations—known collectively as the **Optical Bloch Equations**—form the basis for
+understanding Rabi oscillations, saturation, steady-state optical pumping, and the
+response of atoms to resonant and off-resonant light.
+
+In the following section, we derive the OBEs explicitly and discuss their physical
+content.
+
+
+---
+
+# 1. The Optical Bloch Equations (OBEs)
+
+The time evolution of the density matrix of the two-level system in a laser field
+can now be calculated by inserting the Hamiltonian from Equation 5 on the page about the [*Rotating Wave Approximation*](rwa_rabi.qmd#eq-serwarotl){target=blank_} into the [*Liouville–von Neumann equation*](densitym.qmd#eq-sedm){target=blank_}. We already know that spontaneous decay is not included in the Hamiltonian,
+but we can account for this effect by modifying the *Liouville–von Neumann equation* with a phenomenological
+relaxation term.
+
+Without an external field, the excited-state population decays exponentially with
+spontaneous decay rate $\gamma = 1/\tau$:
+
+$$
+\rho_{ee}(t) = \rho_{ee}(0)\, e^{-\gamma t}.
+$$
+
+In differential form, the temporal change of the diagonal density-matrix elements
+due to spontaneous decay is therefore
+
+$$
+\left(\frac{\partial \rho_{ee}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\left(\frac{\partial \rho_{gg}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\gamma \rho_{ee}.
+$$
+
+The relaxation of the off-diagonal elements $\rho_{eg}$ and $\rho_{ge}$ is less
+obvious, but we also expect exponential damping. Without derivation  
+(a rigorous treatment requires a quantized-field description), we take
+
+$$
+\left(\frac{\partial \rho_{eg}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\frac{\gamma}{2}\rho_{eg},
+\qquad
+\left(\frac{\partial \rho_{ge}}{\partial t}\right)_{\mathrm{spont.dec.}}
+  = -\frac{\gamma}{2}\rho_{ge}.
+$$
+
+Including spontaneous emission in the [*Liouville–von Neumann equation*](densitym.qmd#eq-sedm){target=blank_} yields
+
+$$
+\frac{\partial \hat\rho}{\partial t}
+ = \frac{1}{i\hbar}[\hat H,\hat\rho]
+ + \begin{pmatrix}
+   -\gamma\rho_{ee} & -\tfrac{\gamma}{2}\rho_{eg} \\
+   -\tfrac{\gamma}{2}\rho_{ge} & \gamma\rho_{ee}
+   \end{pmatrix},
+$${#eq-sesd}
+
+Using the [Hamiltonian in the laser-rotating frame](rwa_rabi.qmd#eq-serwarotl){target=blank_}, we first compute
+the commutator:
+
+$$
+\frac{2}{\hbar}[\hat H,\hat\rho]
+ = \begin{pmatrix}
+   \Omega_0^\ast \rho_{eg} - \Omega_0 \rho_{ge}
+   & \Omega_0(\rho_{ee}-\rho_{gg}) - 2\delta\rho_{eg} \\
+   -\Omega_0^\ast(\rho_{ee}-\rho_{gg}) + 2\delta\rho_{ge}
+   & \Omega_0 \rho_{ge} - \Omega_0^\ast \rho_{eg}
+   \end{pmatrix}.
+$$
+
+Inserting this into @eq-sesd gives
+
+$$
+\frac{\partial}{\partial t}
+\begin{pmatrix}
+\rho_{ee} & \rho_{eg} \\
+\rho_{ge} & \rho_{gg}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\tfrac{i}{2}(\Omega_0^\ast\rho_{eg}-\Omega_0\rho_{ge}) - \gamma\rho_{ee}
+&
+-\tfrac{i\Omega_0}{2}(\rho_{ee}-\rho_{gg}) + i\delta\rho_{eg} - \tfrac{\gamma}{2}\rho_{eg}
+\\[6pt]
+\tfrac{i\Omega_0^\ast}{2}(\rho_{ee}-\rho_{gg}) - i\delta\rho_{ge} - \tfrac{\gamma}{2}\rho_{ge}
+&
+\tfrac{i}{2}(\Omega_0^\ast\rho_{eg}-\Omega_0\rho_{ge}) + \gamma\rho_{ee}
+\end{pmatrix}.
+$${#eq-obematrix}
+
+In the literature, @eq-obematrix is often written component-wise:
+
+$$
+\frac{\partial\rho_{ee}}{\partial t}
+  = -\frac{i}{2}(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) - \gamma\rho_{ee},
+$${#eq-obe11}
+
+$$
+\frac{\partial\rho_{gg}}{\partial t}
+  = \frac{i}{2}(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) + \gamma\rho_{ee},
+$${#eq-obe12}
+
+$$
+\frac{\partial\rho_{eg}}{\partial t}
+  = -\frac{i\Omega_0}{2}(\rho_{ee}-\rho_{gg})
+    + i\delta\rho_{eg}
+    - \frac{\gamma}{2}\rho_{eg},
+$${#eq-obe13}
+
+$$
+\frac{\partial\rho_{ge}}{\partial t}
+  = \frac{i\Omega_0^\ast}{2}(\rho_{ee}-\rho_{gg})
+    - i\delta\rho_{ge}
+    - \frac{\gamma}{2}\rho_{ge}.
+$${#eq-obe14}
+
+These equations are known as the **Optical Bloch Equations** (OBEs).  
+Because the density matrix satisfies $\rho_{ee} + \rho_{gg} = 1$ and
+$\rho_{eg} = \rho_{ge}^\ast$, the system contains redundant information and
+can be reduced to two differential equations.
+
+Introducing the **inversion**
+
+$$
+w = \rho_{ee} - \rho_{gg},
+$${#eq-inv}
+
+we obtain
+
+$$
+\frac{\partial\rho_{eg}}{\partial t}
+ = -\frac{i\Omega_0}{2} w + \left(i\delta - \frac{\gamma}{2}\right)\rho_{eg},
+$${#eq-becoh}
+
+$$
+\frac{\partial w}{\partial t}
+ = -i(\Omega_0^\ast\rho_{eg} - \Omega_0\rho_{ge}) - \gamma(w+1).
+$${#eq-beinv}
+
+The second equation follows from subtracting @eq-obe12 from @eq-obe11 and using
+
+$$
+w = \rho_{ee}-\rho_{gg}
+  = 2\rho_{ee}-1
+  \quad\Rightarrow\quad
+  \rho_{ee} = \tfrac{1}{2}(w+1).
+$${#eq-eew}
+
+
+---
+
+# 2. Solutions of the Optical Bloch Equations
+
+::: {#fig-dampRabi .figure}
+![](dampedRabi){width=80%}
+
+**Figure:** Calculated excited-state population vs.\ time obtained by numerically
+solving @eq-obe11–@eq-obe14 (Runge–Kutta).  
+The laser is resonant ($\delta=0$).  
+Curves show $\gamma=\Omega_0/10$ (solid red), $\gamma=\Omega_0/5$ (dashed blue),
+and $\gamma=\Omega_0$ (dash-dotted green).
+:::
+
+Generally, the OBEs must be solved numerically. As seen in @fig-dampRabi,
+spontaneous emission damps the Rabi oscillations. Two time regimes appear:
+
+- **$t \ll 1/\gamma$:** spontaneous decay has little effect; Rabi oscillations occur
+  if $\Omega_0 > \gamma$.
+
+- **$t \gg 1/\gamma$:** the system reaches a steady state; populations stop evolving.
+
+In many situations, it is useful to introduce parameters that are experimentally
+accessible and that characterize the regime of operation. Using
+@eq-rabidef–@eq-gammadef, we define:
+
+$$
+I_{sat} = \frac{\hbar\omega_0^3 \gamma}{12\pi c^2}
+        = \frac{\pi h c}{3\lambda^3 \tau},
+$$
+
+$$
+S_0 = \frac{I}{I_{sat}}
+    = \frac{2|\Omega_0|^2}{\gamma^2},
+$$
+
+$$
+S = \frac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}
+  = \frac{S_0}{1 + 4\delta^2/\gamma^2}.
+$$
+@eq-satpar
+
+Interpretation:
+
+- **Saturation intensity $I_{sat}$:** transition property;
+  for $I < I_{sat}$ no visible Rabi oscillations; for alkali atoms,
+  typically $1$–$10$ mW/cm².
+
+- **Resonant saturation parameter $S_0$:** experimentally controlled; $S_0=1$ for
+  $I=I_{sat}$.
+
+- **Saturation parameter $S$:** includes detuning; equal to $S_0$ when $\delta=0$.
+  Rabi oscillations emerge for $S \gtrsim 1$.
+

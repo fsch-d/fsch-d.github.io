@@ -67,13 +67,20 @@ $$
 More generally, a linear operator $\hat{A}$ takes the form
 
 $$
-\hat{A} =
+\begin{align}
+\hat{A} =&
+a_{ee}\ketbra{e} + a_{eg}\ketbra{e}{g} + a_{ge}\ketbra{g}{e} + a_{gg}\ketbra{g} \\
+=&
 \begin{pmatrix}
 a_{ee} & a_{eg} \\
 a_{ge} & a_{gg}
-\end{pmatrix}
-= a_{ee}\ketbra{e} + a_{eg}\ketbra{e}{g} + a_{ge}\ketbra{g}{e} + a_{gg}\ketbra{g}.
-$$
+\end{pmatrix} =  
+\begin{pmatrix}
+\langle e | \hat A | e \rangle & \langle e | \hat A | g \rangle \\
+\langle g | \hat A | e \rangle & \langle g | \hat A | g \rangle
+\end{pmatrix}.
+\end{align}
+$${#eq-opmatrix}
 
 ---
 

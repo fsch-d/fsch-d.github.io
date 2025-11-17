@@ -86,13 +86,13 @@ $$
 In the $\{\ket{e}, \ket{g}\}$ basis, the **diagonal dipole matrix elements** vanish for non-degenerate atomic eigenstates of definite parity, because the integrand is odd:
 
 $$
-\mel{e}{\hat{\vec{d}}}{e} = \mel{g}{\hat{\vec{d}}}{g} = 0.
+\langle e | \hat{\vec{d}} | e \rangle = \langle g | \hat{\vec{d}} | g \rangle  = 0.
 $$
 
 The only non-zero matrix elements are **off-diagonal**:
 
 $$
-\vec{d}_{eg} \equiv \mel{e}{\hat{\vec{d}}}{g}, \qquad
+\vec{d}_{eg} \equiv \langle e | \hat{\vec{d}} | g \rangle , \qquad
 \vec{d}_{ge} = \vec{d}_{eg}^*.
 $$
 
@@ -121,7 +121,7 @@ It is convenient to introduce the **(complex) Rabi frequency**
 
 $$
 \Omega_0 = \frac{\vec{d}_{eg}\cdot\vec{E}_0}{\hbar}, \qquad
-\Omega_0^* = \frac{\vec{d}_{eg}\cdot\vec{E}_0^*}{\hbar}.
+\tilde \Omega_0 = \frac{\vec{d}_{eg}\cdot\vec{E}_0^*}{\hbar}.
 $$
 
 With this, the interaction Hamiltonian reads
@@ -130,8 +130,8 @@ $$
 \hat{H}_I(t) =
 -\frac{\hbar}{2}
 \begin{pmatrix}
-0 & \Omega_0 e^{-i \omega_L t} + \Omega_0^* e^{i \omega_L t} \\
-\Omega_0 e^{-i \omega_L t} + \Omega_0^* e^{i \omega_L t} & 0
+0 & \Omega_0 e^{-i \omega_L t} + \tilde \Omega_0 e^{i \omega_L t} \\
+\tilde \Omega_0^* e^{-i \omega_L t} + \Omega_0^* e^{i \omega_L t} & 0
 \end{pmatrix}.
 $$
 
@@ -158,8 +158,8 @@ i\hbar \frac{d}{dt}
 \begin{pmatrix} c_e \\ c_g \end{pmatrix}
 = \frac{\hbar}{2}
 \begin{pmatrix}
-\omega_0 & -(\Omega_0 e^{-i\omega_L t} + \Omega_0^* e^{i\omega_L t}) \\
--(\Omega_0 e^{-i\omega_L t} + \Omega_0^* e^{i\omega_L t}) & -\omega_0
+\omega_0 & -(\Omega_0 e^{-i\omega_L t} + \tilde \Omega_0 e^{i\omega_L t}) \\
+-(\tilde \Omega_0^* e^{-i\omega_L t} + \Omega_0^* e^{i\omega_L t}) & -\omega_0
 \end{pmatrix}
 \begin{pmatrix} c_e \\ c_g \end{pmatrix}.
 $${#eq-seraw}
@@ -207,11 +207,11 @@ i\hbar\frac{d}{dt}
 -\frac{\hbar}{2}
 \begin{pmatrix}
 0 &
-\Omega_{0}^{*}e^{i(\omega_{L}-\omega_{0})t}
-+ \Omega_{0}^{*}e^{i(\omega_{L}+\omega_{0})t}
-\\[1em]
 \Omega_{0}e^{-i(\omega_{L}-\omega_{0})t}
-+ \Omega_{0}e^{-i(\omega_{L}+\omega_{0})t}
++ \tilde \Omega_{0}e^{i(\omega_{L}+\omega_{0})t}
+\\[1em]
+\tilde \Omega_{0}^* e^{-i(\omega_{L}+\omega_{0})t}
++ \Omega_{0}^* e^{i(\omega_{L}-\omega_{0})t}
 & 0
 \end{pmatrix}
 \begin{pmatrix}\tilde{c}_{e}\\ \tilde{c}_{g}\end{pmatrix}.
@@ -256,11 +256,11 @@ i\hbar \hat U^\dagger \left( \frac{d\hat U}{dt}\tilde{\vec c} + \hat U \frac{d\t
 = \hat U^\dagger (\hat H_A + \hat H_I)\hat U \tilde{\vec c}.
 $$
 
-Rearrange to isolate the time derivative of $\tilde{\vec c}$:
+Rearrange to isolate the time derivative of $\tilde{\vec c}$ and use $\hat U^\dagger \hat H_A \hat U = \hat H_A$:
 
 $$
 i\hbar \frac{d\tilde{\vec c}}{dt}
-= \hat U^\dagger (\hat H_A + \hat H_I)\hat U \tilde{\vec c}
+= \hat H_A \tilde{\vec c} + \hat U^\dagger \hat H_I \hat U \tilde{\vec c}
 - i\hbar \hat U^\dagger \frac{d\hat U}{dt} \tilde{\vec c}.
 $$
 
@@ -314,11 +314,13 @@ $$
 = -\frac{\hbar}{2}
 \begin{pmatrix}
 0 &
-\Omega_{0}^{*}e^{i(\omega_{L}-\omega_{0})t} + \Omega_{0}^{*}e^{i(\omega_{L}+\omega_{0})t}
+\Omega_{0}e^{-i(\omega_{L}-\omega_{0})t}
++ \tilde \Omega_{0}e^{i(\omega_{L}+\omega_{0})t}
 \\[1em]
-\Omega_{0}e^{-i(\omega_{L}-\omega_{0})t} + \Omega_{0}e^{-i(\omega_{L}+\omega_{0})t}
+\tilde \Omega_{0}^* e^{-i(\omega_{L}+\omega_{0})t}
++ \Omega_{0}^* e^{i(\omega_{L}-\omega_{0})t}
 & 0
-\end{pmatrix}.
+\end{pmatrix}
 $$
 
 Substituting this back yields the rotating-frame Schrödinger equation quoted above.
@@ -473,7 +475,7 @@ Before discussing the energy structure, we start with the simplest yet fundament
 
 ---
 
-## 2.1 Resonant case: $\delta=0$ and Rabi oscillations
+## 2.1 Resonant case: $\delta=0$ and Rabi oscillations {#sec-rabires}
 
 Set $\delta=0$ in @eq-serwarotl. For simplicity we also take $\Omega_0$ real (one can always absorb a global phase into the definition of $\ket{g}$ or $\ket{e}$).
 
@@ -732,7 +734,7 @@ $$
 \end{pmatrix}
 &= E_\pm^{2}-\frac{\hbar^{2}\delta^{2}}{4}-\frac{\hbar^{2}|\Omega_{0}|^{2}}{4} = 0 \\[4pt]
 \Rightarrow\quad
-E_\pm &= \pm \frac{\hbar}{2}\sqrt{\delta^{2}+|\Omega_{0}|^{2}}.
+E_\pm &= \pm \frac{\hbar}{2}\sqrt{\delta^{2}+|\Omega_{0}|^{2}} =  \pm \frac{\hbar}{2} \Omega.
 \end{align}
 $${#eq-dresse}
 
@@ -952,7 +954,11 @@ I=\frac{1}{2}c\varepsilon_0E_0^2,\qquad
 \gamma=\frac{d_{eg}^2\omega_0^3}{3\pi\varepsilon_0\hbar c^3},
 $$
 
-the AC–Stark shift can also be expressed in terms of experimentally accessible parameters:
+twhere  
+- **$I$** is the laser intensity (directly measurable), and  
+- **$\gamma = 1/\tau$** is the natural linewidth of the transition (measured from the spontaneous decay rate $\tau^{-1}$),
+
+the AC–Stark shift can be written entirely in terms of experimentally accessible quantities:
 
 $$
 \Delta E_{\text{AC}}=\frac{3\pi c^2}{2\omega_0^3}\frac{\gamma}{\delta}I.

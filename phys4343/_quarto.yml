@@ -83,6 +83,8 @@ website:
         contents:
           - mod8/twoleveltheory.qmd
           - mod8/rwa_rabi.qmd
+          - mod8/densitym.qmd
+          - mod8/obe.qmd
 
 
 #      - section: advanced.qmd
