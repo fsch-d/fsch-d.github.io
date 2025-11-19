@@ -954,7 +954,7 @@ I=\frac{1}{2}c\varepsilon_0E_0^2,\qquad
 \gamma=\frac{d_{eg}^2\omega_0^3}{3\pi\varepsilon_0\hbar c^3},
 $$
 
-twhere  
+where  
 - **$I$** is the laser intensity (directly measurable), and  
 - **$\gamma = 1/\tau$** is the natural linewidth of the transition (measured from the spontaneous decay rate $\tau^{-1}$),
 
