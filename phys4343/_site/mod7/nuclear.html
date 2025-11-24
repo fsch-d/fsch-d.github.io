@@ -4397,7 +4397,7 @@ text-align: justify;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod8/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Quantum Optics</span></a>
+ <span class="menu-text">Laser–Atom Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4425,6 +4425,24 @@ text-align: justify;
   <div class="sidebar-item-container"> 
   <a href="../mod8/obe.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Optical Bloch Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/cooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laser Cooling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/bloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Bloch Sphere Representation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/ramsey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ramsey Spectroscopy and Atomic Clocks</span></a>
   </div>
 </li>
       </ul>
@@ -4644,7 +4662,7 @@ text-align: justify;
 <section id="molecular-rotation-the-rigid-rotor" class="level1">
 <h1>2. Molecular Rotation: The Rigid Rotor</h1>
 <p>The final step in the Born-Oppenheimer approximation for diatomic molecules, as shown in the previous section, is the separation of the nuclear motion into vibrational (radial) and rotational (angular) components. We now proceed to simplify and solve the angular part of the nuclear Schrödinger equation by employing the <strong>rigid rotor approximation</strong>.</p>
-<div id="d53d7ae8" class="cell" data-execution_count="1">
+<div id="227e0ae8" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4916,7 +4934,7 @@ text-align: justify;
 <p>The Morse potential provides an excellent description of real molecular potentials for most diatomic molecules, especially for vibrational levels up to dissociation. It is widely used in molecular spectroscopy to analyze vibrational structure.</p>
 <hr>
 <p>The figure below visually contrasts the Morse potential and the Harmonic approximation potential energy curves for a diatomic molecule. The blue solid line represents the Morse potential, which is asymmetric and flattens out to a Dissociation Limit as the internuclear distance (<span class="math inline">\(R\)</span>) increases. The blue horizontal lines show the Morse vibrational energy levels, demonstrating the effect of anharmonicity: the spacing between adjacent levels decreases as the vibrational quantum number <span class="math inline">\(v\)</span> increases. In contrast, the red dashed line (Harmonic approximation) is a perfect parabola, and its corresponding energy levels (red dashed horizontal lines) are equally spaced and incorrectly extend indefinitely beyond the true dissociation limit. The figure also clarifies the difference between the binding energy (<span class="math inline">\(E_B\)</span>) at the potential minimum and the spectroscopic dissociation energy (<span class="math inline">\(D_0\)</span>) measured from the zero-point energy (<span class="math inline">\(v=0\)</span>).</p>
-<div id="31e0b3b9" class="cell" data-execution_count="2">
+<div id="b7410588" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5078,7 +5096,7 @@ text-align: justify;
 <p>The total energy of the molecule (excluding electronic and translational components) can be written as the sum of the two distinct quantized motions:</p>
 <p><span class="math display">\[E_{\text{nJ}} \approx E_{\text{vib}}(v) + E_{\text{rot}}(J)\]</span></p>
 <p>The reason this approximation breaks down is that the <strong>moment of inertia (<span class="math inline">\(I\)</span>)</strong> depends on the instantaneous internuclear distance <span class="math inline">\(R(t)\)</span>, which varies during vibration. As the bond stretches (vibrates), the moment of inertia changes, thus directly affecting the rotational energy. Conversely, rotation imposes a centrifugal force that affects the effective vibrational potential. This interdependent relationship constitutes the <strong>rovibrational coupling</strong>.</p>
-<div id="ab4947f2" class="cell" data-execution_count="3">
+<div id="3e6309ea" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5228,7 +5246,7 @@ text-align: justify;
 <p>where <span class="math inline">\(B_e = \frac{\hbar^2}{2\mu R_e^2}\)</span> is the rotational constant at equilibrium, and <span class="math inline">\(\alpha_e &gt; 0\)</span> is the vibration-rotation coupling constant. Generally, <span class="math inline">\(\alpha_e \sim 0.01 B_e\)</span>.</p>
 <p><strong>Physical interpretation:</strong> As the vibrational quantum number <span class="math inline">\(v\)</span> increases, the average bond length increases due to the anharmonicity of the potential. This increases the average moment of inertia and decreases the effective rotational constant. Consequently, <strong>rovibrational energy levels depend on both <span class="math inline">\(v\)</span> and <span class="math inline">\(J\)</span></strong>.</p>
 <p>The physical effect described by the <span class="math inline">\(\alpha_e\)</span> term can be visualized by examining the quantum mechanical properties of the vibrating molecule. The figure below plots the Morse potential and the calculated wavefunctions for several vibrational states, <span class="math inline">\(v\)</span>. The red circles mark the effective bond length <span class="math inline">\(R_{\text{eff}} = \langle R^{-2} \rangle^{-1/2}\)</span> for each level. This visualization demonstrates that as <span class="math inline">\(v\)</span> increases, the probability density shifts toward larger internuclear distances, causing <span class="math inline">\(R_{\text{eff}}\)</span> to increase significantly and resulting in a smaller rotational constant <span class="math inline">\(B_v\)</span>.</p>
-<div id="12a38870" class="cell" data-execution_count="4">
+<div id="326a1b0e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5455,7 +5473,7 @@ text-align: justify;
 <h2 class="anchored" data-anchor-id="effect-of-rotation-on-the-effective-potential">4.2 Effect of Rotation on the Effective Potential</h2>
 <p>The centrifugal force arising from rotation modifies the effective potential experienced during vibration. The <strong>rotational barrier</strong> adds a term to the potential:</p>
 <p><span class="math display">\[V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}\]</span></p>
-<div id="ba783021" class="cell" data-execution_count="5">
+<div id="90ce04c4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

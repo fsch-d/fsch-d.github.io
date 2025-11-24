@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Quantum Optics"
+title: "Laser–Atom Interactions"
 author: Daniel Fischer
 ---
 

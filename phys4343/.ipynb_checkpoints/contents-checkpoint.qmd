@@ -72,10 +72,13 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [Introduction to Quantum Optics](mod8/index.qmd) 
+## [Laser–Atom Interactions](mod8/index.qmd) 
 
 * [Two-Level Systems — The Theoretical Framework](mod8/twoleveltheory.qmd)
 * [Rotating Wave Approximation and Rabi Oscillations](mod8/rwa_rabi.qmd)
 * [The Density Matrix Formalism](mod8/densitym.qmd)
 * [The Optical Bloch Equations](mod8/obe.qmd)
+* [Laser Cooling](mod8/cooling.qmd)
+* [The Bloch Sphere Representation](mod8/bloch.qmd)
+* [Ramsey Spectroscopy and Atomic Clocks](mod8/ramsey.qmd)
 

@@ -1,0 +1,43 @@
+---
+title: "The Bloch Sphere Representation"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+
+
+
+::: {.callout-note title="Conventions for inversion and Bloch coordinates"}
+In this lecture script we have defined the population inversion as  
+$$
+w = \rho_{ee} - \rho_{gg},
+$$  
+so that $w=+1$ corresponds to the excited state and $w=-1$ to the ground state.  
+This is the standard sign convention in atomic and optical Bloch–equation
+treatments.
+
+However, many Bloch-sphere presentations—especially in quantum information—
+use the opposite sign for the vertical coordinate, placing the ground state at
+the **north pole**.  In that convention the Bloch vector of the density matrix  
+$$
+\rho=\tfrac12(\mathbb 1 + x\sigma_x + y\sigma_y + z\sigma_z)
+$$
+is given by
+$$
+x = 2\Re(\rho_{ge}), \qquad
+y = -2\Im(\rho_{ge}), \qquad
+z = \rho_{gg} - \rho_{ee}.
+$$
+
+Consequently,
+$$
+z = -\, w
+$$
+
+If a Bloch-sphere representation with $z=+1$ for the ground state is desired,
+simply use $z=-w$ when plotting or interpreting the inversion.  
+All dynamical results remain unchanged—this is purely a matter of sign
+convention—but consistency is crucial when drawing Bloch spheres or labeling
+the poles.
+:::

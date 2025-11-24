@@ -163,5 +163,14 @@
   },
   "mod8/obe.qmd": {
     "obe.html": "5ba32bba"
+  },
+  "mod8/cooling.qmd": {
+    "cooling.html": "9a354332"
+  },
+  "mod8/ramsey.qmd": {
+    "ramsey.html": "89ed35c5"
+  },
+  "mod8/bloch.qmd": {
+    "bloch.html": "4cb638c1"
   }
 }

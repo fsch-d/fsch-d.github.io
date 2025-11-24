@@ -78,13 +78,16 @@ website:
           - mod7/beyondh2plus.qmd
           - mod7/nuclear.qmd
           - mod7/moltransitions.qmd
-      - section: "Introduction to Quantum Optics"   
+      - section: "Laser–Atom Interactions"   
         href: mod8/index.qmd
         contents:
           - mod8/twoleveltheory.qmd
           - mod8/rwa_rabi.qmd
           - mod8/densitym.qmd
           - mod8/obe.qmd
+          - mod8/cooling.qmd
+          - mod8/bloch.qmd
+          - mod8/ramsey.qmd
 
 
 #      - section: advanced.qmd
