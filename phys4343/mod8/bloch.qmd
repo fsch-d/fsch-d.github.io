@@ -5,6 +5,103 @@ filters:
   - ../physics-macros.lua
 ---
 
+# Introduction
+
+In the previous chapters, we explored several complementary ways to describe the state and dynamics of a two-level quantum system.  
+In Sec.~\ref{sec:tls}, pure states were written as vectors in $\mathbb{C}^2$, whose components represent the complex probability amplitudes of the ground and excited states.  
+Later, in Sec.~\ref{sec:densitym}, the density matrix formalism was introduced, allowing us to treat not only coherent superpositions but also statistical mixtures and dissipative processes.  
+Building on these tools, we derived the Optical Bloch Equations (OBEs) and applied them to laser cooling mechanisms such as optical molasses and magneto-optical traps.
+
+In this chapter we introduce a third representation that is especially intuitive for visualizing two-level dynamics: the **Bloch vector**.  
+This representation associates every pure or mixed state with a unique vector in real three-dimensional space, $\mathbb{R}^3$.  
+Pure states correspond to vectors of unit length on the surface of the *Bloch sphere*, while mixed states lie inside it.  
+Bloch vectors are widely used in quantum optics, magnetic resonance, and quantum information processing, because they turn the abstract evolution of density matrices into the motion of a 3D vector obeying geometrically intuitive equations of motion.
+
+The following sections define Bloch vectors, relate them to the density matrix, and develop the Optical Bloch Equations in this representation.  
+This will allow us to describe phenomena such as Rabi oscillations, relaxation, and dephasing in terms of simple rotations and contractions of a vector in $\mathbb{R}^3$.
+
+---
+
+# 1. Definition of Bloch Vectors
+
+
+---
+
+## 1.1 Bloch vectors for pure states
+
+Consider a coherent superposition of the excited and ground states,
+$$
+\ket{\psi} = C_e \ket{e} + C_g \ket{g},
+$$
+with normalization $|C_e|^2 + |C_g|^2 = 1$.  
+Any pure state of a two-level system can be parameterized using two angles $\vartheta$ and $\varphi$ as
+$$
+\ket{\psi}
+= 
+\begin{pmatrix}
+C_e \\ C_g
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\!\left(\frac{\vartheta}{2}\right) \\
+e^{i\varphi}\sin\!\left(\frac{\vartheta}{2}\right)
+\end{pmatrix},
+\qquad
+0 \le \vartheta \le \pi,\quad 0 \le \varphi < 2\pi,
+$$
+where the amplitude $C_e$ has been chosen real without loss of generality.  
+Thus, every pure state corresponds uniquely to a point on the unit sphere parameterized by polar angle $\vartheta$ and azimuthal angle $\varphi$.
+
+These angles define the **Bloch vector**
+$$
+\vec{b} =
+\begin{pmatrix}
+u \\ v \\ w
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\varphi \sin\vartheta \\
+\sin\varphi \sin\vartheta \\
+\cos\vartheta
+\end{pmatrix},
+$$
+a vector of unit length whose direction encodes the state of the system.  
+The north pole ($w = +1$) corresponds to the excited state, the south pole ($w = -1$) to the ground state, and points on the equator correspond to equal-weight superpositions.  
+The longitudinal component $w = \cos\vartheta$ equals the inversion of the system, while the azimuthal angle $\varphi$ represents the relative phase between $C_e$ and $C_g$.
+
+The phase $\varphi$ has a direct physical meaning: it determines the instantaneous phase of the atomic dipole oscillation relative to the external driving field.  
+A Bloch vector pointing along $+u$ corresponds to a dipole oscillating in phase with the field, whereas a vector along $+v$ indicates a phase shift of $\pi/2$.  
+Thus, the geometry of the Bloch sphere mirrors the interference and coherence properties of the two-level system.
+
+---
+
+## 1.2 General definition from the density matrix
+
+The Bloch vector formalism naturally extends to mixed states by expressing the density matrix $\hat{\rho}$ in the basis of Pauli matrices:
+$$
+\hat{\rho}
+= \frac{1}{2}\!\left(\mathbb{1} + \vec{b}\cdot\hat{\vec{\sigma}}\right)
+= \frac{1}{2}
+\begin{pmatrix}
+1 + w & u - iv \\
+u + iv & 1 - w
+\end{pmatrix}.
+$$
+From this relation, the components of the Bloch vector follow as
+$$
+u = 2\,\Re(\rho_{eg}), \qquad
+v = 2\,\Im(\rho_{ge}), \qquad
+w = \rho_{ee} - \rho_{gg}.
+$$
+
+For pure states, these expressions reproduce the unit-length Bloch vectors defined above.  
+For mixed states, however, decoherence reduces the transverse components $u$ and $v$, yielding a vector of length strictly less than one.  
+Geometrically, mixed states occupy the interior of the Bloch sphere, with the completely mixed state located at the origin.
+
+---
+
+
+
 
 
 
