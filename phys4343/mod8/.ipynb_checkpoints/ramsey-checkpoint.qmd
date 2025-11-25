@@ -46,6 +46,8 @@ This pulse–drift–pulse sequence creates quantum interference fringes that al
 The Bloch-vector description provides a simple geometric interpretation of the Ramsey sequence. 
 We now walk through the evolution of the Bloch vector step by step.
 
+---
+
 ## 2.1 Initial State
 
 Atoms emerge from the source in the lower hyperfine level $F=3$. 
@@ -57,6 +59,8 @@ $$
 0 \\ 0 \\ -1
 \end{pmatrix}.
 $$
+
+---
 
 ## 2.2 Step 1 — First $\pi/2$ pulse
 
@@ -78,6 +82,64 @@ $$
 $$
 
 The atom is now in an equal superposition of ground and excited states.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import qutip as qt
+from qutip import Bloch
+from mpl_toolkits.mplot3d import Axes3D
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 14
+
+fig = plt.figure(figsize=(5, 5))
+
+ax = fig.add_subplot(111, projection='3d')
+
+
+b = Bloch(axes=ax)
+b.add_states([qt.basis(2, 1), 1.3* (1 * qt.basis(2, 0) + 1*qt.basis(2, 1)).unit(), (1 * qt.basis(2, 0) - 1j*qt.basis(2, 1)).unit()])
+b.vector_color = ['#FF9999', 'b', 'r']
+b.vector_width = 2
+
+# Using QuTiP's built-in state evolution
+# Rabi oscillation with detuning
+H = -1*qt.sigmax() #- 1* qt.sigmaz()  # Hamiltonian (Pauli X)
+psi0 = qt.basis(2, 1)  # Initial state |0⟩
+times = np.linspace(0, np.pi/2, 15)
+result = qt.sesolve(H.unit(), psi0, times)
+
+
+for i in range(len(result.states)-2):
+    b.add_arc(result.states[i], result.states[i+1], fmt="r", zorder=10, lw=1)
+    #b.add_states(result.states[i], colors='r')
+
+#result2=qt.sesolve(H.unit(), result.states[-2], [0,1.5*np.pi/14])
+#b.add_arc(result.states[-2], result2.states[1], fmt="r", zorder=10, lw=1)
+#b.add_states(result.states[-2], colors='r')
+
+
+b.xlabel = ['','']
+b.ylabel = [r'$v$','']
+b.zlabel = [r'$w$','']
+b.render()
+
+new_arrowhead = qt.bloch.Arrow3D(xs=[-1, -1], ys=[0, 0], zs=[-0.1, 0],
+                    mutation_scale=b.vector_mutation,
+                    lw=1, arrowstyle=b.vector_style, color='r', zorder=15)
+ax.add_artist(new_arrowhead)
+ax.text(-.1,-1.1,0,r'$u$',ha='center', va='center', fontsize='20')
+ax.text(-.15,-1.5,0,r'$\vec{\Omega}$',ha='center', va='center', fontsize='20')
+
+plt.show()
+
+```
+
+---
+
 
 ## 2.3 Step 2 — Field-free propagation
 
