@@ -9,13 +9,14 @@ filters:
 # Introduction
 
 In this chapter, we apply the Bloch-vector formalism to one of its most important real-world uses: **Ramsey interferometry**, the core operating principle behind modern **atomic clocks**.  
+
 We focus on cesium–133, the atom that defines the SI second through the frequency of its hyperfine transition. By describing Ramsey spectroscopy using Bloch vectors, the underlying physics becomes intuitive and geometrically transparent.
 
 ---
 
 # 1. Experimental Setup
 
-Cesium is an alkali atom with electronic ground state configuration [Xe]$6s$ and total angular momentum $F=3$ or $F=4$ due to hyperfine coupling with its nuclear spin $I = 7/2$.  
+Cesium is an alkali atom with electronic ground state configuration [Xe]$6s$ and total angular momentum $F=3$ or $F=4$ due to hyperfine coupling with its nuclear spin $I = 7/2$. 
 The transition between these two hyperfine states has a frequency
 
 $$
@@ -23,9 +24,10 @@ $$
 $$
 
 a number so stable that it *defines* the second in the SI system.  
+
 Because the hyperfine states have an essentially infinite natural lifetime, damping in the Bloch equations can be neglected.
 
-In a Ramsey experiment (Fig. @fig-ramseyexp), an atomic beam passes through:
+In a Ramsey experiment (@fig-ramseyexp), an atomic beam passes through:
 
 1. **First microwave interaction zone** (first “$\pi/2$ pulse”),  
 2. **Field-free drift region** of duration $T$,  
@@ -34,20 +36,19 @@ In a Ramsey experiment (Fig. @fig-ramseyexp), an atomic beam passes through:
 
 This pulse–drift–pulse sequence creates quantum interference fringes that allow extremely precise determination of $\omega_0$.
 
-```{#fig-ramseyexp fig-cap="Schematic of a Ramsey experiment." fig-alt="Two interaction zones separated by a drift region"}
-![](ramseyexp.svg){width=60%}
-```
+![Schematic of a Ramsey experiment.](ramseyexp.svg){#fig-ramseyexp fig-alt="Two interaction zones separated by a drift region" fig-align="center" width="50%"}
+
 
 ---
 
 # 2. Bloch Vector Dynamics in Ramsey Spectroscopy
 
-The Bloch-vector description provides a simple geometric interpretation of the Ramsey sequence.  
+The Bloch-vector description provides a simple geometric interpretation of the Ramsey sequence. 
 We now walk through the evolution of the Bloch vector step by step.
 
 ## 2.1 Initial State
 
-Atoms emerge from the source in the lower hyperfine level $F=3$.  
+Atoms emerge from the source in the lower hyperfine level $F=3$. 
 In Bloch-vector representation this is the south pole of the Bloch sphere:
 
 $$
@@ -59,14 +60,14 @@ $$
 
 ## 2.2 Step 1 — First $\pi/2$ pulse
 
-In the first interaction zone, the microwave field is tuned such that the Rabi frequency satisfies  
+In the first interaction zone, the microwave field is tuned such that the Rabi frequency satisfies 
 $\Omega_0 \tau = \pi/2$ and $\Omega_0 \gg \delta$, so the Rabi vector points nearly along the $u$-axis.
 
 Using the undamped Bloch equation  
 $$
 \frac{d\vec b}{dt} = -\vec{\Omega} \times \vec b,
 $$  
-the Bloch vector rotates by $\pi/2$ around the (negative) $u$-axis.  
+the Bloch vector rotates by $\pi/2$ around the (negative) $u$-axis. 
 Thus,
 
 $$
@@ -80,7 +81,7 @@ The atom is now in an equal superposition of ground and excited states.
 
 ## 2.3 Step 2 — Field-free propagation
 
-During the drift time $T$, the atoms evolve freely at their eigenfrequency $\omega_0$.  
+During the drift time $T$, the atoms evolve freely at their eigenfrequency $\omega_0$. 
 The driving field in the two interaction zones has frequency $\omega_L$, so the two accumulate a **relative phase** at the detuning
 
 $$
@@ -107,12 +108,14 @@ Special cases:
   $$
   \vec b_1 = (0,\,-1,\,0)^\top.
   $$
+  In this situation, the field and the atomic dipole are **in phase** after an integer number of full precession cycles. The Bloch vector therefore returns to its original azimuthal angle in the equatorial plane.
 
 - **Case 2: $\delta T = (2n+1)\pi$**  
   The vector becomes  
   $$
   \vec b_2 = (0,\,+1,\,0)^\top.
   $$
+  Here, the field and the atomic dipole are **out of phase** by $\pi$ after the evolution time. As a result, the Bloch vector points to the opposite azimuthal direction in the equatorial plane.
 
 Any other detuning produces an intermediate azimuthal angle in the equatorial plane.
 
@@ -144,7 +147,7 @@ Intermediate angles lead to partial population transfer, generating the Ramsey i
 
 ---
 
-# 3. Spectrum and Interpretation
+# 3. Ramsey Spectrum and Interpretation
 
 The excited-state population after the second pulse oscillates as a function of detuning:
 
@@ -152,19 +155,198 @@ $$
 P_e(\delta) = \cos^2\!\left(\frac{\delta T}{2}\right).
 $$
 
-This produces the characteristic **Ramsey fringes**, shown in Fig. @fig-ramseyfringes.
+This produces the characteristic **Ramsey fringes**, shown in @fig-ramseyfringes.
 
-```{#fig-ramseyfringes fig-cap="Ramsey fringes compared with single-pulse excitation." fig-alt="Excited-state population vs detuning showing narrow Ramsey pattern."}
-![](ramsey.png){width=80%}
+```{python}
+#| label: fig-ramseyfringes 
+#| fig-cap: "Ramsey fringes compared with single-pulse excitation." 
+#| fig-alt: "Excited-state population vs detuning showing narrow Ramsey pattern."
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+import qutip as qt
+
+# --- Set up plot styling ---
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 14
+
+# Define projection operators
+Pg = qt.basis(2, 0) * qt.basis(2, 0).dag()  # Ground state |g⟩⟨g|
+Pe = qt.basis(2, 1) * qt.basis(2, 1).dag()  # Excited state |e⟩⟨e|
+
+def propagate_state(state_in, Omega0, delta, t):
+    """
+    Single pulse evolution (for comparison with Ramsey)
+    """
+    H = -delta/2 * qt.sigmaz() - Omega0/2 * qt.sigmax()
+    
+    # Time evolution with expectation value
+    result = qt.sesolve(H, state_in, [0, t], e_ops=[Pe])
+       
+    return result.expect[0][-1]
+
+
+def propagate_state_Ramsey(state_in, Omega0, delta, t_pulse, tau):
+    """
+    Ramsey spectroscopy sequence:
+    1. Apply π/2 pulse (creates superposition)
+    2. Free evolution for time tau (accumulates phase)
+    3. Apply second π/2 pulse (converts phase to population)
+    """
+    # Hamiltonians
+    H_off = -delta/2 * qt.sigmaz()  # Free evolution (laser off)
+    H_on = H_off - Omega0/2 * qt.sigmax()  # Driven evolution (laser on)
+    
+    # Step 1: First π/2 pulse
+    state1 = qt.sesolve(H_on, state_in, [0, t_pulse]).states[-1]
+    
+    # Step 2: Free evolution for time tau
+    state2 = qt.sesolve(H_off, state1, [0, tau]).states[-1]
+    
+    # Step 3: Second π/2 pulse
+    state3 = qt.sesolve(H_on, state2, [0, t_pulse]).states[-1]
+    
+    # Measure excited state population
+    population = qt.expect(Pe, state3)
+       
+    return population
+
+
+# Initial state: ground state |g⟩
+psi0 = qt.basis(2, 0)  # |g⟩ = |0⟩
+
+# Parameters
+Omega0 = 1.0  # Rabi frequency
+t_pi_half = np.pi / 2  # π/2 pulse duration at resonance
+
+# Scan over detuning
+delta_values = np.linspace(-10, 10, 1000)
+
+# Calculate populations for different free evolution times
+tau_values = [10*np.pi]   # e.g., long drift time
+
+# Create figure
+fig, ax = plt.subplots(figsize=(7.5, 5))
+
+# Single π/2 pulse
+populations_single = []
+for delta in delta_values:
+    pop = propagate_state(psi0, Omega0, delta, t_pi_half)
+    populations_single.append(pop)
+populations_single = np.array(populations_single)
+
+# Ramsey
+colors = ['blue']
+for tau, color in zip(tau_values, colors):
+    populations_ramsey = []
+    for delta in delta_values:
+        pop = propagate_state_Ramsey(psi0, Omega0, delta, t_pi_half, tau)
+        populations_ramsey.append(pop)
+    populations_ramsey = np.array(populations_ramsey)
+    
+    ax.plot(delta_values, populations_ramsey, color=color, linewidth=1, 
+             label=f'$T = 20\\tau$')
+
+ax.plot(delta_values, populations_single, 'k-', linewidth=2, label='Single $\\pi/2$ pulse')
+
+ax.axvline(x=0, color='r', linestyle='--', alpha=0.5, label='Resonance')
+ax.set_xlabel(r'Detuning $\delta$ (units of $\Omega_0$)', fontsize=14)
+ax.set_ylabel(r'Excited State Population', fontsize=14)
+ax.grid(True, alpha=0.3)
+ax.legend()
+ax.set_ylim(0, 1.05)
+ax.set_xlim(-10, 10)
+
+plt.tight_layout()
+plt.show()
 ```
 
-Compared with single-pulse excitation:
+---
 
-- **Ramsey fringes are much narrower**, allowing highly precise determination of the resonance frequency.
-- Inhomogeneities in field strength or atomic velocity affect mainly the *contrast*, not the position, of the fringes → **reduced systematic errors**.
-- Extending the drift time $T$ increases the fringe density → **higher resolution**.
+## 3.1 What is actually happening physically?
 
-These features make Ramsey interferometry the foundation of precision timekeeping.
+Traditional laser spectroscopy measures how strongly a monochromatic field can drive transitions between two states. In that case, the **width of the excitation line** is fundamentally limited by the **interaction time**: a short pulse produces a broad line (Fourier limit), and only by making the interaction longer can the resonance be determined more precisely.
+
+**Ramsey spectroscopy works differently.**
+Instead of driving the atom continuously, we apply two short $\pi/2$ pulses separated by a long “free evolution” time $T$. The key idea is:
+
+> **Between the pulses, the atom and the field evolve independently. After the second pulse, we compare how much phase each has accumulated.**
+
+If the laser frequency matches the atomic transition exactly, the relative phase stays constant, and the second pulse always produces the same final population. 
+If there is a small detuning $\delta$, however, the atomic dipole accumulates phase at a slightly different rate than the laser. After time $T$, the phase mismatch is
+
+$$
+\Delta\varphi = \delta T,
+$$
+
+and the second $\pi/2$ pulse converts this accumulated phase difference into a measurable change in population. When plotted versus $\delta$, this produces the **narrow Ramsey fringe pattern**.
+
+### Why are Ramsey fringes so narrow?
+
+Because the “frequency measurement” is based on how much phase difference builds up during the long time $T$ — not on how strongly the atom is driven. This means:
+
+- **The longer you wait, the more phase accumulates**,  
+  → the fringes get narrower,  
+  → the frequency resolution improves.
+
+In fact, the fringe spacing is approximately
+
+$$
+\Delta\delta \sim \frac{2\pi}{T}.
+$$
+
+So the resolution is directly set by how long the atom is allowed to precess freely.
+
+---
+
+## 3.2 Comparison with traditional single-pulse (Rabi) spectroscopy
+
+**Rabi (continuous-wave or long-pulse) spectroscopy:**
+
+- Resolution is limited by the Fourier width of the pulse.  
+- To improve resolution, you must **increase pulse duration**.  
+- Increasing the duration requires much more stable intensity and phase.  
+- The atom is always being driven → the drive itself broadens the line.  
+
+**Ramsey spectroscopy:**
+
+- The two pulses can be very short — their only job is to prepare and read out the superposition.  
+- The long drift time $T$ determines the resolution, not the pulse length.  
+- During the free evolution, the atom is **undisturbed**, so the interference pattern reflects the true phase accumulation with minimal broadening.  
+- Imperfections in the drive field mostly reduce contrast but do **not** shift the fringe positions.
+
+This makes Ramsey’s method fundamentally better for high-precision measurements.
+
+---
+
+## 3.3 Why this matters
+
+Ramsey interferometry provides:
+
+- **Extremely sharp spectral features**, vastly narrower than Rabi lines.  
+- **High immunity to drive-field imperfections** (only the contrast suffers).  
+- **Direct phase-comparison measurement**, which is much more sensitive than amplitude-based excitation measurement.  
+- A strategy for achieving arbitrarily high resolution simply by increasing the free-evolution time.  
+
+These properties are why the Ramsey method underlies modern atomic clocks, molecular beam resonance experiments, and nearly all precision measurements of fundamental constants.
+
+### How this leads to an actual clock
+
+To see how one *builds a clock* from such a spectroscopy experiment, it helps to recall that the goal of any atomic clock is to stabilize a local oscillator—typically a microwave or optical field—so that its frequency matches the natural transition frequency of the atom. The Ramsey sequence provides the crucial error signal needed for this stabilization.
+
+The basic idea is:
+
+1. **Run the Ramsey sequence repeatedly** while scanning or dithering the oscillator frequency slightly around a chosen value.  
+2. **Measure the population in the excited state** (or equivalently the position of the Bloch vector) after each cycle.  
+3. Because the Ramsey fringe pattern has a very steep slope near its central fringe, **small changes in frequency produce measurable changes in excitation probability**.  
+4. The sign of this change tells you whether the oscillator is **above** or **below** the atomic resonance.  
+5. Feeding this information back into a servo loop allows the oscillator frequency to be continuously adjusted so that it stays locked to the atomic transition.
+
+In this way, the atoms act as a **phase reference**: the accumulated phase during the free-evolution time compares the oscillator’s frequency to the atomic frequency. Any mismatch produces a measurable phase shift, and the servo system corrects it. When locked, the oscillator inherits the stability and accuracy of the atomic transition, forming the basis of an atomic clock.
+
+
 
 ---
 
@@ -173,12 +355,12 @@ These features make Ramsey interferometry the foundation of precision timekeepin
 Modern atomic clocks build on the Ramsey principle but incorporate additional innovations:
 
 - **Cesium fountain clocks (e.g., NIST-F2)**  
-  Laser-cooled cesium atoms are launched upward, pass twice through a microwave cavity, and experience two $\pi/2$ pulses in free fall.  
+  Laser-cooled cesium atoms are launched upward, pass twice through a microwave cavity, and experience two $\pi/2$ pulses in free fall. 
   Cooling dramatically reduces velocity spread, enabling uncertainties at the level of **1 second per 300 million years**.
 
 - **Optical clocks**  
-  Replace microwave transitions with optical ones ($\sim 10^{14}$–$10^{15}\,\mathrm{Hz}$).  
-  Higher frequency → proportionally higher precision.  
+  Replace microwave transitions with optical ones ($\sim 10^{14}$–$10^{15}\,\mathrm{Hz}$). 
+  Higher frequency → proportionally higher precision. 
   State-of-the-art optical clocks (Yb, Sr, Al$^+$) now surpass cesium fountains in stability and accuracy.
 
 - **Advanced Ramsey schemes**  
