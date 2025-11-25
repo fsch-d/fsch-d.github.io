@@ -4,3 +4,195 @@ author: Daniel Fischer
 filters:
   - ../physics-macros.lua
 ---
+
+
+# Introduction
+
+In this chapter, we apply the Bloch-vector formalism to one of its most important real-world uses: **Ramsey interferometry**, the core operating principle behind modern **atomic clocks**.  
+We focus on cesium–133, the atom that defines the SI second through the frequency of its hyperfine transition. By describing Ramsey spectroscopy using Bloch vectors, the underlying physics becomes intuitive and geometrically transparent.
+
+---
+
+# 1. Experimental Setup
+
+Cesium is an alkali atom with electronic ground state configuration [Xe]$6s$ and total angular momentum $F=3$ or $F=4$ due to hyperfine coupling with its nuclear spin $I = 7/2$.  
+The transition between these two hyperfine states has a frequency
+
+$$
+\omega_0 = 2\pi \times 9{,}192{,}631{,}770\ \mathrm{s^{-1}},
+$$
+
+a number so stable that it *defines* the second in the SI system.  
+Because the hyperfine states have an essentially infinite natural lifetime, damping in the Bloch equations can be neglected.
+
+In a Ramsey experiment (Fig. @fig-ramseyexp), an atomic beam passes through:
+
+1. **First microwave interaction zone** (first “$\pi/2$ pulse”),  
+2. **Field-free drift region** of duration $T$,  
+3. **Second interaction zone** (second “$\pi/2$ pulse”),  
+4. **Detection region**, where populations are measured.
+
+This pulse–drift–pulse sequence creates quantum interference fringes that allow extremely precise determination of $\omega_0$.
+
+```{#fig-ramseyexp fig-cap="Schematic of a Ramsey experiment." fig-alt="Two interaction zones separated by a drift region"}
+![](ramseyexp.svg){width=60%}
+```
+
+---
+
+# 2. Bloch Vector Dynamics in Ramsey Spectroscopy
+
+The Bloch-vector description provides a simple geometric interpretation of the Ramsey sequence.  
+We now walk through the evolution of the Bloch vector step by step.
+
+## 2.1 Initial State
+
+Atoms emerge from the source in the lower hyperfine level $F=3$.  
+In Bloch-vector representation this is the south pole of the Bloch sphere:
+
+$$
+\vec b_0 = 
+\begin{pmatrix}
+0 \\ 0 \\ -1
+\end{pmatrix}.
+$$
+
+## 2.2 Step 1 — First $\pi/2$ pulse
+
+In the first interaction zone, the microwave field is tuned such that the Rabi frequency satisfies  
+$\Omega_0 \tau = \pi/2$ and $\Omega_0 \gg \delta$, so the Rabi vector points nearly along the $u$-axis.
+
+Using the undamped Bloch equation  
+$$
+\frac{d\vec b}{dt} = -\vec{\Omega} \times \vec b,
+$$  
+the Bloch vector rotates by $\pi/2$ around the (negative) $u$-axis.  
+Thus,
+
+$$
+\vec b_1 =
+\begin{pmatrix}
+0 \\ -1 \\ 0
+\end{pmatrix}.
+$$
+
+The atom is now in an equal superposition of ground and excited states.
+
+## 2.3 Step 2 — Field-free propagation
+
+During the drift time $T$, the atoms evolve freely at their eigenfrequency $\omega_0$.  
+The driving field in the two interaction zones has frequency $\omega_L$, so the two accumulate a **relative phase** at the detuning
+
+$$
+\delta = \omega_L - \omega_0.
+$$
+
+The Bloch vector now rotates around the (negative) $w$-axis with angular velocity $\delta$:
+
+$$
+\vec b_1 \xrightarrow{\text{drift}} 
+\vec b(T)
+=
+\begin{pmatrix}
+-\sin(\delta T) \\[4pt]
+-\cos(\delta T) \\[4pt]
+0
+\end{pmatrix}.
+$$
+
+Special cases:
+
+- **Case 1: $\delta T = 2\pi n$**  
+  The vector returns to  
+  $$
+  \vec b_1 = (0,\,-1,\,0)^\top.
+  $$
+
+- **Case 2: $\delta T = (2n+1)\pi$**  
+  The vector becomes  
+  $$
+  \vec b_2 = (0,\,+1,\,0)^\top.
+  $$
+
+Any other detuning produces an intermediate azimuthal angle in the equatorial plane.
+
+## 2.4 Step 3 — Second $\pi/2$ pulse
+
+In the second interaction zone, the same $\pi/2$ pulse rotates the Bloch vector by $-\pi/2$ around the $u$-axis.
+
+- **Case 1 ($\delta T = 2\pi n$):**
+
+  $$
+  (0,\,-1,\,0)^\top
+  \ \xrightarrow{\ -\pi/2\ }
+  \ (0,\,0,\,1)^\top,
+  $$
+
+  meaning *complete transfer to the excited state*.
+
+- **Case 2 ($\delta T=(2n+1)\pi$):**
+
+  $$
+  (0,\,+1,\,0)^\top
+  \ \xrightarrow{\ -\pi/2\ }
+  \ (0,\,0,\,-1)^\top,
+  $$
+
+  meaning *return to the ground state*.
+
+Intermediate angles lead to partial population transfer, generating the Ramsey interference pattern.
+
+---
+
+# 3. Spectrum and Interpretation
+
+The excited-state population after the second pulse oscillates as a function of detuning:
+
+$$
+P_e(\delta) = \cos^2\!\left(\frac{\delta T}{2}\right).
+$$
+
+This produces the characteristic **Ramsey fringes**, shown in Fig. @fig-ramseyfringes.
+
+```{#fig-ramseyfringes fig-cap="Ramsey fringes compared with single-pulse excitation." fig-alt="Excited-state population vs detuning showing narrow Ramsey pattern."}
+![](ramsey.png){width=80%}
+```
+
+Compared with single-pulse excitation:
+
+- **Ramsey fringes are much narrower**, allowing highly precise determination of the resonance frequency.
+- Inhomogeneities in field strength or atomic velocity affect mainly the *contrast*, not the position, of the fringes → **reduced systematic errors**.
+- Extending the drift time $T$ increases the fringe density → **higher resolution**.
+
+These features make Ramsey interferometry the foundation of precision timekeeping.
+
+---
+
+# 4. Further Developments
+
+Modern atomic clocks build on the Ramsey principle but incorporate additional innovations:
+
+- **Cesium fountain clocks (e.g., NIST-F2)**  
+  Laser-cooled cesium atoms are launched upward, pass twice through a microwave cavity, and experience two $\pi/2$ pulses in free fall.  
+  Cooling dramatically reduces velocity spread, enabling uncertainties at the level of **1 second per 300 million years**.
+
+- **Optical clocks**  
+  Replace microwave transitions with optical ones ($\sim 10^{14}$–$10^{15}\,\mathrm{Hz}$).  
+  Higher frequency → proportionally higher precision.  
+  State-of-the-art optical clocks (Yb, Sr, Al$^+$) now surpass cesium fountains in stability and accuracy.
+
+- **Advanced Ramsey schemes**  
+  Composite pulses, phase-modulated interrogation, and spin-echo–like techniques further suppress systematic shifts.
+
+---
+
+# Key Takeaways
+
+- Ramsey spectroscopy uses two $\pi/2$ pulses separated by free evolution to create quantum interference sensitive to detuning.
+- The Bloch-vector description makes the dynamics intuitive: successive rotations around the $u$- and $w$-axes map directly onto population outcomes.
+- The excited-state probability oscillates as  
+  $$P_e(\delta) = \cos^2\!\left(\frac{\delta T}{2}\right),$$  
+  producing narrow fringes ideal for precision metrology.
+- The exceptional accuracy of modern atomic clocks stems from long coherence times, reduced systematic effects, and the ability to increase the free-evolution time.
+- Ramsey interferometry remains a central technique in frequency metrology and underlies both microwave and optical atomic clocks.
+
