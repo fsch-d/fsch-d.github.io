@@ -15,3 +15,8 @@ img[src$=".svg"] {
 p {
       text-align: justify;
     }
+
+.aligned-equations .math.display {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}

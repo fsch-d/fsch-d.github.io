@@ -239,7 +239,7 @@ w = \rho_{ee}-\rho_{gg}
   \rho_{ee} = \tfrac12(w+1).
 $${#eq-eew}
 
-### Reduced-form OBEs
+### Reduced-form OBEs {#sec-reducedformobes}
 
 Then the OBEs reduce to the pair
 

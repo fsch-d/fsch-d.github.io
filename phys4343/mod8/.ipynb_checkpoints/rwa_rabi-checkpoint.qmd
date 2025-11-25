@@ -537,7 +537,7 @@ However, the effects of spontaneous decay still remain to be included in this mo
 
 ---
 
-## 2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer
+## 2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer {#sec-offresrabi}
 
 For the general case of nonzero detuning $\delta\neq 0$ and (again) constant $\Omega_0$ (possibly complex, with phase conventions fixed later), the exact solution of @eq-serwarotl for arbitrary initial amplitudes $C_e(0)$ and $C_g(0)$ is given by (see box below for proof)
 
