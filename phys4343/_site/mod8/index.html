@@ -3984,6 +3984,10 @@ height: auto !important;
 }
 p {
 text-align: justify;
+}
+.aligned-equations .math.display {
+margin-top: 0.25em;
+margin-bottom: 0.25em;
 }</style>
 </head>
 
@@ -4400,6 +4404,7 @@ text-align: justify;
   <li><a href="#interaction-of-atoms-with-coherent-light" id="toc-interaction-of-atoms-with-coherent-light" class="nav-link active" data-scroll-target="#interaction-of-atoms-with-coherent-light">Interaction of Atoms with Coherent Light</a>
   <ul class="collapse">
   <li><a href="#scope-and-simplifying-assumptions" id="toc-scope-and-simplifying-assumptions" class="nav-link" data-scroll-target="#scope-and-simplifying-assumptions">Scope and Simplifying Assumptions</a></li>
+  <li><a href="#structure-of-this-module" id="toc-structure-of-this-module" class="nav-link" data-scroll-target="#structure-of-this-module">Structure of This Module</a></li>
   <li><a href="#broader-relevance" id="toc-broader-relevance" class="nav-link" data-scroll-target="#broader-relevance">Broader Relevance</a></li>
   </ul></li>
   </ul>
@@ -4455,8 +4460,22 @@ The interaction between the atom and the electromagnetic field is dominated by t
 <li>The <strong>spatial dependence</strong> of the field, expressed as a phase factor <span class="math inline">\(e^{-ikz}\)</span>, is assumed constant across the atom. This is valid when the wavelength <span class="math inline">\(\lambda\)</span> is much larger than the atomic size, allowing us to set <span class="math inline">\(e^{-ikz} = 1\)</span>. Thus, the atom experiences a spatially uniform oscillating electric field.</li>
 </ul></li>
 <li><p><strong>Two-level approximation</strong><br>
-Only two atomic states are considered — a <strong>ground state</strong> <span class="math inline">\(\ket{g}\)</span> and an <strong>excited state</strong> <span class="math inline">\(\ket{e}\)</span>, separated by an energy <span class="math inline">\(\hbar\omega_0\)</span>. While a real atom possesses infinitely many states, this simplification is reasonable if the field couples most strongly to this specific transition (i.e., when <span class="math inline">\(\omega_L \approx \omega_0\)</span>).</p></li>
+Only two atomic states are considered — a <strong>ground state</strong> <span class="math inline">\(\ket{g}\)</span> and an <strong>excited state</strong> <span class="math inline">\(\ket{e}\)</span>, separated by an energy <span class="math inline">\(\hbar\omega_0\)</span>. — While a real atom possesses infinitely many states, this simplification is reasonable if the field couples most strongly to this specific transition (i.e., when <span class="math inline">\(\omega_L \approx \omega_0\)</span>).</p></li>
 </ol>
+<hr>
+</section>
+<section id="structure-of-this-module" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-this-module">Structure of This Module</h2>
+<p>This module is organized into a sequence of chapters that gradually develop the theoretical tools needed to understand coherent light–atom interactions and their experimental applications:</p>
+<ul>
+<li><p><strong><a href="../mod8/twoleveltheory.html">Two-Level Systems — The Theoretical Framework</a></strong> — Introduces the basic Hamiltonian and the dynamics of a driven two-level atom.</p></li>
+<li><p><strong><a href="../mod8/rwa_rabi.html">Rotating Wave Approximation and Rabi Oscillations</a></strong> — Derives the Rabi model and analyzes population oscillations under near-resonant driving.</p></li>
+<li><p><strong><a href="../mod8/densitym.html">The Density Matrix Formalism</a></strong> — Provides the tools for treating decoherence, relaxation, and statistical mixtures.</p></li>
+<li><p><strong><a href="../mod8/obe.html">The Optical Bloch Equations</a></strong> — Combines coherent driving with damping to describe real experimental evolution.</p></li>
+<li><p><strong><a href="../mod8/cooling.html">Laser Cooling</a></strong> — Applies the OBEs to momentum exchange, Doppler cooling, and sub-Doppler mechanisms.</p></li>
+<li><p><strong><a href="../mod8/bloch.html">The Bloch Sphere Representation</a></strong> — Offers a geometric interpretation of two-level dynamics and coherence.</p></li>
+<li><p><strong><a href="../mod8/ramsey.html">Ramsey Spectroscopy and Atomic Clocks</a></strong> — Explores phase-sensitive interferometry and its role in precision metrology.</p></li>
+</ul>
 <hr>
 </section>
 <section id="broader-relevance" class="level2">
