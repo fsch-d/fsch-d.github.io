@@ -3984,6 +3984,10 @@ height: auto !important;
 }
 p {
 text-align: justify;
+}
+.aligned-equations .math.display {
+margin-top: 0.25em;
+margin-bottom: 0.25em;
 }</style>
 </head>
 
@@ -4507,7 +4511,7 @@ At the end, we set <span class="math inline">\(\lambda=1\)</span>.</p>
 \sum_{k&#39; \neq n} c_{nk&#39;}^{(1)} \hat{H}_0 \left\lvert k&#39;^{(0)} \right\rangle+ \hat{V}\left\lvert n^{(0)} \right\rangle=
 \sum_{k&#39; \neq n} c_{nk&#39;}^{(1)} E_n^{(0)} \left\lvert k&#39;^{(0)} \right\rangle+ E_n^{(1)} \left\lvert n^{(0)} \right\rangle.
 \]</span></p>
-<p>Taking the inner product with <span class="math inline">\(\left\langle k^{(0)} \right\rvert\)</span> and using orthonormality <span class="math inline">\(\left\langle k^{(0)} \mid n^{(0)} \right\rangle= \delta_{nk}\)</span> gives</p>
+<p>Taking the inner product with <span class="math inline">\(\left\langle k^{(0)} \right\rvert\)</span> and using orthonormality <span class="math inline">\(\left\langle k^{(0)} \middle| n^{(0)} \right\rangle= \delta_{nk}\)</span> gives</p>
 <p><span class="math display">\[
 c_{nk}^{(1)} E_k^{(0)} + \left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \delta_{nk}.
 \]</span></p>
@@ -4557,7 +4561,7 @@ E_n^{(2)} = \sum_{k \neq n} \frac{|\left\langle k^{(0)} \right\rvert\hat{V} \lef
 <li>The perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.<br>
 </li>
 <li>The normalization factor <span class="math inline">\(N(1)\)</span> must be chosen such that <span class="math display">\[
-\left\langle n \mid n \right\rangle= 1.
+\left\langle n \middle| n \right\rangle= 1.
 \]</span></li>
 </ul>
 <hr>

@@ -2,7 +2,7 @@
 title: Time-Independent Perturbation Theory
 author: Daniel Fischer
 filters:
-  - physics-macros.lua
+  - ../physics-macros.lua
 ---
 
 ## Time-independent (and non-degenerate) perturbation theory

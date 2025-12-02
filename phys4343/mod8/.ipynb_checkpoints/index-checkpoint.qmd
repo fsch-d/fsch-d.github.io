@@ -42,19 +42,19 @@ To make progress, we adopt a few well-justified approximations that capture the 
 
 This module is organized into a sequence of chapters that gradually develop the theoretical tools needed to understand coherent light–atom interactions and their experimental applications:
 
-- **[Two-Level Systems — The Theoretical Framework](twoleveltheory.qmd)** — 
+- [Two-Level Systems — The Theoretical Framework](twoleveltheory.qmd) — 
   Introduces the basic Hamiltonian and the dynamics of a driven two-level atom.  
-- **[Rotating Wave Approximation and Rabi Oscillations](rwa_rabi.qmd)** — 
+- [Rotating Wave Approximation and Rabi Oscillations](rwa_rabi.qmd) — 
   Derives the Rabi model and analyzes population oscillations under near-resonant driving.  
-- **[The Density Matrix Formalism](densitym.qmd)** — 
+- [The Density Matrix Formalism](densitym.qmd) — 
   Provides the tools for treating decoherence, relaxation, and statistical mixtures.  
-- **[The Optical Bloch Equations](obe.qmd)** — 
+- [The Optical Bloch Equations](obe.qmd) — 
   Combines coherent driving with damping to describe real experimental evolution.  
-- **[Laser Cooling](cooling.qmd)** — 
+- [Laser Cooling](cooling.qmd) — 
   Applies the OBEs to momentum exchange, Doppler cooling, and sub-Doppler mechanisms.  
-- **[The Bloch Sphere Representation](bloch.qmd)** — 
+- [The Bloch Sphere Representation](bloch.qmd) — 
   Offers a geometric interpretation of two-level dynamics and coherence.  
-- **[Ramsey Spectroscopy and Atomic Clocks](ramsey.qmd)** — 
+- [Ramsey Spectroscopy and Atomic Clocks](ramsey.qmd) — 
   Explores phase-sensitive interferometry and its role in precision metrology.
 
 ---

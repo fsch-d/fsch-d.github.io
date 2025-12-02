@@ -2,7 +2,7 @@
 title: "Exchange Interaction: Fermions and Bosons"
 author: Daniel Fischer
 filters:
-  - physics-macros.lua
+  - ../physics-macros.lua
 ---
 
 # 1. Indistinguishability of Identical Particles

@@ -32,7 +32,7 @@
     "href": "mod2/perturb.html",
     "title": "Time-Independent Perturbation Theory",
     "section": "",
-    "text": "We consider a system whose Hamiltonian is given by\n\\[\n\\hat{H} = \\hat{H}_0 + \\hat{V},\n\\]\nwhere \\(\\hat{V}\\) is a weak perturbation of the system.\nThe eigenstates \\(\\left\\lvert n^{(0)} \\right\\rangle\\) and eigenenergies \\(E_n^{(0)}\\) of the unperturbed system are assumed to be known, i.e.\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nQuestion: How does the perturbation \\(\\hat{V}\\) modify the eigenenergies and eigenstates?\n\n\n\n\nWe introduce a real-valued “tuning” parameter \\(\\lambda\\) (between 0 and 1) to interpolate between the unperturbed (\\(\\lambda=0\\)) and the fully perturbed (\\(\\lambda=1\\)) system:\n\\[\n\\hat{H} = \\hat{H}_0 + \\lambda \\hat{V}.\n\\]\nWe then expand the eigenenergies and eigenstates in powers of \\(\\lambda\\):\n\\[\nE_n = E_n^{(0)} + \\lambda E_n^{(1)} + \\lambda^2 E_n^{(2)} + \\lambda^3 E_n^{(3)} + \\dots\n\\]\n\\[\n\\left\\lvert n \\right\\rangle= N(\\lambda)\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{k \\neq n} c_{nk}(\\lambda) \\left\\lvert k^{(0)} \\right\\rangle\\right),\n\\]\nwith expansion coefficients\n\\[\nc_{nk}(\\lambda) = \\lambda c_{nk}^{(1)} + \\lambda^2 c_{nk}^{(2)} + \\lambda^3 c_{nk}^{(3)} + \\dots\n\\]\n\n\n\n\nWe plug this expansion into the Schrödinger equation:\n\\[\n(\\hat{H}_0 + \\lambda \\hat{V})\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right)\n=\n\\left( \\sum_{i\\geq 0} \\lambda^i E_n^{(i)} \\right)\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right).\n\\]\nBy comparing powers of \\(\\lambda\\) on both sides, we obtain recursive equations for the corrections \\(E_n^{(i)}\\) and \\(c_{nk}^{(i)}\\).\nAt the end, we set \\(\\lambda=1\\).\n\nRemark. This method works because the perturbation is assumed small. If \\(\\hat{V}\\) is comparable to \\(\\hat{H}_0\\) in magnitude, the perturbation expansion does not converge.\n\n\n\n\n\nAt order \\(\\lambda^0\\) we recover the unperturbed Schrödinger equation:\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle,\n\\]\nwhich is already solved.\n\n\n\n\nAt order \\(\\lambda^1\\) we find\n\\[\n\\sum_{k' \\neq n} c_{nk'}^{(1)} \\hat{H}_0 \\left\\lvert k'^{(0)} \\right\\rangle+ \\hat{V}\\left\\lvert n^{(0)} \\right\\rangle=\n\\sum_{k' \\neq n} c_{nk'}^{(1)} E_n^{(0)} \\left\\lvert k'^{(0)} \\right\\rangle+ E_n^{(1)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nTaking the inner product with \\(\\left\\langle k^{(0)} \\right\\rvert\\) and using orthonormality \\(\\left\\langle k^{(0)} \\mid n^{(0)} \\right\\rangle= \\delta_{nk}\\) gives\n\\[\nc_{nk}^{(1)} E_k^{(0)} + \\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \\delta_{nk}.\n\\]\n\n\nFor \\(n=k\\), this reduces to:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nSo the energy to first order is:\n\\[\nE_n \\approx E_n^{(0)} + \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\n\n\n\nFor \\(k \\neq n\\), we obtain:\n\\[\nc_{nk}^{(1)} = \\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThus the perturbed state (to first order) becomes:\n\\[\n\\left\\lvert n \\right\\rangle\\approx N(1) \\left(\n\\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}\n\\right).\n\\]\n\nRemark. Notice the denominators \\(E_n^{(0)} - E_k^{(0)}\\).\nIf two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need degenerate perturbation theory in those cases.\n\n\n\n\n\n\nAt second order, one finds for the energy correction:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThis expression shows that states closer in energy contribute more strongly.\n\n\n\n\n\nThe perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.\n\nThe normalization factor \\(N(1)\\) must be chosen such that \\[\n\\left\\langle n \\mid n \\right\\rangle= 1.\n\\]\n\n\n\n\n\n\nFirst-order correction to the energy:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nFirst-order correction to the state:\n\\[\n\\left\\lvert n \\right\\rangle\\approx \\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nSecond-order correction to the energy:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]",
+    "text": "We consider a system whose Hamiltonian is given by\n\\[\n\\hat{H} = \\hat{H}_0 + \\hat{V},\n\\]\nwhere \\(\\hat{V}\\) is a weak perturbation of the system.\nThe eigenstates \\(\\left\\lvert n^{(0)} \\right\\rangle\\) and eigenenergies \\(E_n^{(0)}\\) of the unperturbed system are assumed to be known, i.e.\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nQuestion: How does the perturbation \\(\\hat{V}\\) modify the eigenenergies and eigenstates?\n\n\n\n\nWe introduce a real-valued “tuning” parameter \\(\\lambda\\) (between 0 and 1) to interpolate between the unperturbed (\\(\\lambda=0\\)) and the fully perturbed (\\(\\lambda=1\\)) system:\n\\[\n\\hat{H} = \\hat{H}_0 + \\lambda \\hat{V}.\n\\]\nWe then expand the eigenenergies and eigenstates in powers of \\(\\lambda\\):\n\\[\nE_n = E_n^{(0)} + \\lambda E_n^{(1)} + \\lambda^2 E_n^{(2)} + \\lambda^3 E_n^{(3)} + \\dots\n\\]\n\\[\n\\left\\lvert n \\right\\rangle= N(\\lambda)\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{k \\neq n} c_{nk}(\\lambda) \\left\\lvert k^{(0)} \\right\\rangle\\right),\n\\]\nwith expansion coefficients\n\\[\nc_{nk}(\\lambda) = \\lambda c_{nk}^{(1)} + \\lambda^2 c_{nk}^{(2)} + \\lambda^3 c_{nk}^{(3)} + \\dots\n\\]\n\n\n\n\nWe plug this expansion into the Schrödinger equation:\n\\[\n(\\hat{H}_0 + \\lambda \\hat{V})\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right)\n=\n\\left( \\sum_{i\\geq 0} \\lambda^i E_n^{(i)} \\right)\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right).\n\\]\nBy comparing powers of \\(\\lambda\\) on both sides, we obtain recursive equations for the corrections \\(E_n^{(i)}\\) and \\(c_{nk}^{(i)}\\).\nAt the end, we set \\(\\lambda=1\\).\n\nRemark. This method works because the perturbation is assumed small. If \\(\\hat{V}\\) is comparable to \\(\\hat{H}_0\\) in magnitude, the perturbation expansion does not converge.\n\n\n\n\n\nAt order \\(\\lambda^0\\) we recover the unperturbed Schrödinger equation:\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle,\n\\]\nwhich is already solved.\n\n\n\n\nAt order \\(\\lambda^1\\) we find\n\\[\n\\sum_{k' \\neq n} c_{nk'}^{(1)} \\hat{H}_0 \\left\\lvert k'^{(0)} \\right\\rangle+ \\hat{V}\\left\\lvert n^{(0)} \\right\\rangle=\n\\sum_{k' \\neq n} c_{nk'}^{(1)} E_n^{(0)} \\left\\lvert k'^{(0)} \\right\\rangle+ E_n^{(1)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nTaking the inner product with \\(\\left\\langle k^{(0)} \\right\\rvert\\) and using orthonormality \\(\\left\\langle k^{(0)} \\middle| n^{(0)} \\right\\rangle= \\delta_{nk}\\) gives\n\\[\nc_{nk}^{(1)} E_k^{(0)} + \\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \\delta_{nk}.\n\\]\n\n\nFor \\(n=k\\), this reduces to:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nSo the energy to first order is:\n\\[\nE_n \\approx E_n^{(0)} + \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\n\n\n\nFor \\(k \\neq n\\), we obtain:\n\\[\nc_{nk}^{(1)} = \\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThus the perturbed state (to first order) becomes:\n\\[\n\\left\\lvert n \\right\\rangle\\approx N(1) \\left(\n\\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}\n\\right).\n\\]\n\nRemark. Notice the denominators \\(E_n^{(0)} - E_k^{(0)}\\).\nIf two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need degenerate perturbation theory in those cases.\n\n\n\n\n\n\nAt second order, one finds for the energy correction:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThis expression shows that states closer in energy contribute more strongly.\n\n\n\n\n\nThe perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.\n\nThe normalization factor \\(N(1)\\) must be chosen such that \\[\n\\left\\langle n \\middle| n \\right\\rangle= 1.\n\\]\n\n\n\n\n\n\nFirst-order correction to the energy:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nFirst-order correction to the state:\n\\[\n\\left\\lvert n \\right\\rangle\\approx \\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nSecond-order correction to the energy:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -44,7 +44,7 @@
     "href": "mod2/perturb.html#time-independent-and-non-degenerate-perturbation-theory",
     "title": "Time-Independent Perturbation Theory",
     "section": "",
-    "text": "We consider a system whose Hamiltonian is given by\n\\[\n\\hat{H} = \\hat{H}_0 + \\hat{V},\n\\]\nwhere \\(\\hat{V}\\) is a weak perturbation of the system.\nThe eigenstates \\(\\left\\lvert n^{(0)} \\right\\rangle\\) and eigenenergies \\(E_n^{(0)}\\) of the unperturbed system are assumed to be known, i.e.\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nQuestion: How does the perturbation \\(\\hat{V}\\) modify the eigenenergies and eigenstates?\n\n\n\n\nWe introduce a real-valued “tuning” parameter \\(\\lambda\\) (between 0 and 1) to interpolate between the unperturbed (\\(\\lambda=0\\)) and the fully perturbed (\\(\\lambda=1\\)) system:\n\\[\n\\hat{H} = \\hat{H}_0 + \\lambda \\hat{V}.\n\\]\nWe then expand the eigenenergies and eigenstates in powers of \\(\\lambda\\):\n\\[\nE_n = E_n^{(0)} + \\lambda E_n^{(1)} + \\lambda^2 E_n^{(2)} + \\lambda^3 E_n^{(3)} + \\dots\n\\]\n\\[\n\\left\\lvert n \\right\\rangle= N(\\lambda)\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{k \\neq n} c_{nk}(\\lambda) \\left\\lvert k^{(0)} \\right\\rangle\\right),\n\\]\nwith expansion coefficients\n\\[\nc_{nk}(\\lambda) = \\lambda c_{nk}^{(1)} + \\lambda^2 c_{nk}^{(2)} + \\lambda^3 c_{nk}^{(3)} + \\dots\n\\]\n\n\n\n\nWe plug this expansion into the Schrödinger equation:\n\\[\n(\\hat{H}_0 + \\lambda \\hat{V})\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right)\n=\n\\left( \\sum_{i\\geq 0} \\lambda^i E_n^{(i)} \\right)\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right).\n\\]\nBy comparing powers of \\(\\lambda\\) on both sides, we obtain recursive equations for the corrections \\(E_n^{(i)}\\) and \\(c_{nk}^{(i)}\\).\nAt the end, we set \\(\\lambda=1\\).\n\nRemark. This method works because the perturbation is assumed small. If \\(\\hat{V}\\) is comparable to \\(\\hat{H}_0\\) in magnitude, the perturbation expansion does not converge.\n\n\n\n\n\nAt order \\(\\lambda^0\\) we recover the unperturbed Schrödinger equation:\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle,\n\\]\nwhich is already solved.\n\n\n\n\nAt order \\(\\lambda^1\\) we find\n\\[\n\\sum_{k' \\neq n} c_{nk'}^{(1)} \\hat{H}_0 \\left\\lvert k'^{(0)} \\right\\rangle+ \\hat{V}\\left\\lvert n^{(0)} \\right\\rangle=\n\\sum_{k' \\neq n} c_{nk'}^{(1)} E_n^{(0)} \\left\\lvert k'^{(0)} \\right\\rangle+ E_n^{(1)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nTaking the inner product with \\(\\left\\langle k^{(0)} \\right\\rvert\\) and using orthonormality \\(\\left\\langle k^{(0)} \\mid n^{(0)} \\right\\rangle= \\delta_{nk}\\) gives\n\\[\nc_{nk}^{(1)} E_k^{(0)} + \\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \\delta_{nk}.\n\\]\n\n\nFor \\(n=k\\), this reduces to:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nSo the energy to first order is:\n\\[\nE_n \\approx E_n^{(0)} + \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\n\n\n\nFor \\(k \\neq n\\), we obtain:\n\\[\nc_{nk}^{(1)} = \\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThus the perturbed state (to first order) becomes:\n\\[\n\\left\\lvert n \\right\\rangle\\approx N(1) \\left(\n\\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}\n\\right).\n\\]\n\nRemark. Notice the denominators \\(E_n^{(0)} - E_k^{(0)}\\).\nIf two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need degenerate perturbation theory in those cases.\n\n\n\n\n\n\nAt second order, one finds for the energy correction:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThis expression shows that states closer in energy contribute more strongly.\n\n\n\n\n\nThe perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.\n\nThe normalization factor \\(N(1)\\) must be chosen such that \\[\n\\left\\langle n \\mid n \\right\\rangle= 1.\n\\]\n\n\n\n\n\n\nFirst-order correction to the energy:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nFirst-order correction to the state:\n\\[\n\\left\\lvert n \\right\\rangle\\approx \\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nSecond-order correction to the energy:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]",
+    "text": "We consider a system whose Hamiltonian is given by\n\\[\n\\hat{H} = \\hat{H}_0 + \\hat{V},\n\\]\nwhere \\(\\hat{V}\\) is a weak perturbation of the system.\nThe eigenstates \\(\\left\\lvert n^{(0)} \\right\\rangle\\) and eigenenergies \\(E_n^{(0)}\\) of the unperturbed system are assumed to be known, i.e.\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nQuestion: How does the perturbation \\(\\hat{V}\\) modify the eigenenergies and eigenstates?\n\n\n\n\nWe introduce a real-valued “tuning” parameter \\(\\lambda\\) (between 0 and 1) to interpolate between the unperturbed (\\(\\lambda=0\\)) and the fully perturbed (\\(\\lambda=1\\)) system:\n\\[\n\\hat{H} = \\hat{H}_0 + \\lambda \\hat{V}.\n\\]\nWe then expand the eigenenergies and eigenstates in powers of \\(\\lambda\\):\n\\[\nE_n = E_n^{(0)} + \\lambda E_n^{(1)} + \\lambda^2 E_n^{(2)} + \\lambda^3 E_n^{(3)} + \\dots\n\\]\n\\[\n\\left\\lvert n \\right\\rangle= N(\\lambda)\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{k \\neq n} c_{nk}(\\lambda) \\left\\lvert k^{(0)} \\right\\rangle\\right),\n\\]\nwith expansion coefficients\n\\[\nc_{nk}(\\lambda) = \\lambda c_{nk}^{(1)} + \\lambda^2 c_{nk}^{(2)} + \\lambda^3 c_{nk}^{(3)} + \\dots\n\\]\n\n\n\n\nWe plug this expansion into the Schrödinger equation:\n\\[\n(\\hat{H}_0 + \\lambda \\hat{V})\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right)\n=\n\\left( \\sum_{i\\geq 0} \\lambda^i E_n^{(i)} \\right)\n\\left( \\left\\lvert n^{(0)} \\right\\rangle+ \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\left\\lvert k^{(0)} \\right\\rangle\\right).\n\\]\nBy comparing powers of \\(\\lambda\\) on both sides, we obtain recursive equations for the corrections \\(E_n^{(i)}\\) and \\(c_{nk}^{(i)}\\).\nAt the end, we set \\(\\lambda=1\\).\n\nRemark. This method works because the perturbation is assumed small. If \\(\\hat{V}\\) is comparable to \\(\\hat{H}_0\\) in magnitude, the perturbation expansion does not converge.\n\n\n\n\n\nAt order \\(\\lambda^0\\) we recover the unperturbed Schrödinger equation:\n\\[\n\\hat{H}_0 \\left\\lvert n^{(0)} \\right\\rangle= E_n^{(0)} \\left\\lvert n^{(0)} \\right\\rangle,\n\\]\nwhich is already solved.\n\n\n\n\nAt order \\(\\lambda^1\\) we find\n\\[\n\\sum_{k' \\neq n} c_{nk'}^{(1)} \\hat{H}_0 \\left\\lvert k'^{(0)} \\right\\rangle+ \\hat{V}\\left\\lvert n^{(0)} \\right\\rangle=\n\\sum_{k' \\neq n} c_{nk'}^{(1)} E_n^{(0)} \\left\\lvert k'^{(0)} \\right\\rangle+ E_n^{(1)} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nTaking the inner product with \\(\\left\\langle k^{(0)} \\right\\rvert\\) and using orthonormality \\(\\left\\langle k^{(0)} \\middle| n^{(0)} \\right\\rangle= \\delta_{nk}\\) gives\n\\[\nc_{nk}^{(1)} E_k^{(0)} + \\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \\delta_{nk}.\n\\]\n\n\nFor \\(n=k\\), this reduces to:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nSo the energy to first order is:\n\\[\nE_n \\approx E_n^{(0)} + \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\n\n\n\nFor \\(k \\neq n\\), we obtain:\n\\[\nc_{nk}^{(1)} = \\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThus the perturbed state (to first order) becomes:\n\\[\n\\left\\lvert n \\right\\rangle\\approx N(1) \\left(\n\\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}\n\\right).\n\\]\n\nRemark. Notice the denominators \\(E_n^{(0)} - E_k^{(0)}\\).\nIf two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need degenerate perturbation theory in those cases.\n\n\n\n\n\n\nAt second order, one finds for the energy correction:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThis expression shows that states closer in energy contribute more strongly.\n\n\n\n\n\nThe perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.\n\nThe normalization factor \\(N(1)\\) must be chosen such that \\[\n\\left\\langle n \\middle| n \\right\\rangle= 1.\n\\]\n\n\n\n\n\n\nFirst-order correction to the energy:\n\\[\nE_n^{(1)} = \\left\\langle n^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle.\n\\]\nFirst-order correction to the state:\n\\[\n\\left\\lvert n \\right\\rangle\\approx \\left\\lvert n^{(0)} \\right\\rangle+\n\\sum_{k \\neq n} \\left\\lvert k^{(0)} \\right\\rangle\\frac{\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nSecond-order correction to the energy:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\left\\langle k^{(0)} \\right\\rvert\\hat{V} \\left\\lvert n^{(0)} \\right\\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -4006,7 +4006,7 @@
     "href": "mod2/braket.html#bra-vectors",
     "title": "Bra–Ket (Dirac) Notation, Operators, and More",
     "section": "Bra-vectors",
-    "text": "Bra-vectors\nA bra vector \\(\\left\\langle \\beta \\right\\rvert\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\left\\langle \\beta \\mid \\alpha \\right\\rangle\\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\left\\lvert \\psi \\right\\rangle\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\left\\langle \\vec{r} \\mid \\psi \\right\\rangle= \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\left\\langle \\phi \\mid \\psi \\right\\rangle= \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
+    "text": "Bra-vectors\nA bra vector \\(\\left\\langle \\beta \\right\\rvert\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\left\\langle \\beta \\middle| \\alpha \\right\\rangle\\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\left\\lvert \\psi \\right\\rangle\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\left\\langle \\vec{r} \\middle| \\psi \\right\\rangle= \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle= \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -4018,7 +4018,7 @@
     "href": "mod2/braket.html#linear-operators",
     "title": "Bra–Ket (Dirac) Notation, Operators, and More",
     "section": "Linear operators",
-    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\left\\lvert \\psi \\right\\rangle= \\left\\lvert \\phi \\right\\rangle.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\left\\lvert \\psi \\right\\rangle+\\left\\lvert \\phi \\right\\rangle) = \\hat{O}\\left\\lvert \\psi \\right\\rangle+ \\hat{O}\\left\\lvert \\phi \\right\\rangle\\)\n\n\\(\\hat{O}c\\left\\lvert \\psi \\right\\rangle= c\\hat{O}\\left\\lvert \\psi \\right\\rangle\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\left\\langle \\psi \\mid \\psi \\right\\rangle} \\left\\lvert \\phi \\right\\rangle\\left\\langle \\psi \\right\\rvert.\n\\]\nIf \\(\\{\\left\\lvert \\phi_i \\right\\rangle\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\left\\langle \\phi_j \\mid \\hat{O} \\mid \\phi_i \\right\\rangle.\n\\]",
+    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\left\\lvert \\psi \\right\\rangle= \\left\\lvert \\phi \\right\\rangle.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\left\\lvert \\psi \\right\\rangle+\\left\\lvert \\phi \\right\\rangle) = \\hat{O}\\left\\lvert \\psi \\right\\rangle+ \\hat{O}\\left\\lvert \\phi \\right\\rangle\\)\n\n\\(\\hat{O}c\\left\\lvert \\psi \\right\\rangle= c\\hat{O}\\left\\lvert \\psi \\right\\rangle\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\left\\langle \\psi \\middle| \\psi \\right\\rangle} \\left\\lvert \\phi \\right\\rangle\\!\\!\\left\\langle \\psi \\right\\rvert.\n\\]\nIf \\(\\{\\left\\lvert \\phi_i \\right\\rangle\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\left\\langle \\phi_j \\middle| \\hat{O} \\middle| \\phi_i \\right\\rangle.\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -4030,7 +4030,7 @@
     "href": "mod2/braket.html#hermitian-conjugates",
     "title": "Bra–Ket (Dirac) Notation, Operators, and More",
     "section": "Hermitian conjugates",
-    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\left\\lvert \\psi \\right\\rangle^\\dagger = \\left\\langle \\psi \\right\\rvert\\) and \\(\\left\\langle \\psi \\right\\rvert^\\dagger = \\left\\lvert \\psi \\right\\rangle\\)\n\n\\(\\big(c_1\\left\\lvert \\psi_1 \\right\\rangle+ c_2\\left\\lvert \\psi_2 \\right\\rangle\\big)^\\dagger = c_1^\\ast \\left\\langle \\psi_1 \\right\\rvert+ c_2^\\ast \\left\\langle \\psi_2 \\right\\rvert\\)\n\n\\(\\big(\\left\\langle \\psi \\mid \\phi \\right\\rangle\\big)^\\dagger = \\left\\langle \\psi \\mid \\phi \\right\\rangle^\\ast = \\left\\langle \\phi \\mid \\psi \\right\\rangle\\)\n\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{A} \\mid \\phi \\right\\rangle\\)\nand\n\\(\\big(\\left\\langle \\phi \\mid \\hat{A}^\\dagger \\hat{B}^\\dagger \\mid \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\mid \\hat{B}\\hat{A} \\mid \\phi \\right\\rangle\\)",
+    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\left\\lvert \\psi \\right\\rangle^\\dagger = \\left\\langle \\psi \\right\\rvert\\) and \\(\\left\\langle \\psi \\right\\rvert^\\dagger = \\left\\lvert \\psi \\right\\rangle\\)\n\n\\(\\big(c_1\\left\\lvert \\psi_1 \\right\\rangle+ c_2\\left\\lvert \\psi_2 \\right\\rangle\\big)^\\dagger = c_1^\\ast \\left\\langle \\psi_1 \\right\\rvert+ c_2^\\ast \\left\\langle \\psi_2 \\right\\rvert\\)\n\n\\(\\big(\\left\\langle \\psi \\middle| \\phi \\right\\rangle\\big)^\\dagger = \\left\\langle \\psi \\middle| \\phi \\right\\rangle^\\ast = \\left\\langle \\phi \\middle| \\psi \\right\\rangle\\)\n\n\\(\\big(\\left\\langle \\phi \\middle| \\hat{A}^\\dagger \\middle| \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\middle| \\hat{A} \\middle| \\phi \\right\\rangle\\)\nand\n\\(\\big(\\left\\langle \\phi \\middle| \\hat{A}^\\dagger \\hat{B}^\\dagger \\middle| \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\middle| \\hat{B}\\hat{A} \\middle| \\phi \\right\\rangle\\)",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -4042,7 +4042,7 @@
     "href": "mod2/braket.html#observables",
     "title": "Bra–Ket (Dirac) Notation, Operators, and More",
     "section": "Observables",
-    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\left\\lvert \\alpha \\right\\rangle= a\\left\\lvert \\alpha \\right\\rangle\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\left\\lvert n \\right\\rangle= a_n\\left\\lvert n \\right\\rangle\\) (discrete spectrum) or \\(\\hat{A}\\left\\lvert k \\right\\rangle= k\\left\\lvert k \\right\\rangle\\) (continuous spectrum).\n\nOrthonormality: \\(\\left\\langle n' \\mid n \\right\\rangle= \\delta_{n'n}\\) or \\(\\left\\langle k_i \\mid k_j \\right\\rangle= \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\left\\lvert \\psi \\right\\rangle\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\left\\lvert \\psi \\right\\rangle= \\sum_n c_n\\left\\lvert n \\right\\rangle\\) or \\(\\left\\lvert \\psi \\right\\rangle= \\int c(k)\\left\\lvert k \\right\\rangle\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\left\\lvert n \\right\\rangle\\left\\langle n \\right\\rvert\\) or \\(\\mathbb{1} = \\int \\left\\lvert k \\right\\rangle\\left\\langle k \\right\\rvert\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\left\\lvert \\alpha \\right\\rangle\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\left\\lvert \\psi \\right\\rangle\\), then:\n\nThe probability of finding the system in state \\(\\left\\lvert \\alpha \\right\\rangle\\) is\n\\[\nP = \\left|\\left\\langle \\alpha \\mid \\psi \\right\\rangle\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\left\\langle \\psi \\mid \\hat{A} \\mid \\psi \\right\\rangle.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
+    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\left\\lvert \\alpha \\right\\rangle= a\\left\\lvert \\alpha \\right\\rangle\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\left\\lvert n \\right\\rangle= a_n\\left\\lvert n \\right\\rangle\\) (discrete spectrum) or \\(\\hat{A}\\left\\lvert k \\right\\rangle= k\\left\\lvert k \\right\\rangle\\) (continuous spectrum).\n\nOrthonormality: \\(\\left\\langle n' \\middle| n \\right\\rangle= \\delta_{n'n}\\) or \\(\\left\\langle k_i \\middle| k_j \\right\\rangle= \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\left\\lvert \\psi \\right\\rangle\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\left\\lvert \\psi \\right\\rangle= \\sum_n c_n\\left\\lvert n \\right\\rangle\\) or \\(\\left\\lvert \\psi \\right\\rangle= \\int c(k)\\left\\lvert k \\right\\rangle\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\left\\lvert n \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert\\) or \\(\\mathbb{1} = \\int \\left\\lvert k \\right\\rangle\\!\\!\\left\\langle k \\right\\rvert\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\left\\lvert \\alpha \\right\\rangle\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\left\\lvert \\psi \\right\\rangle\\), then:\n\nThe probability of finding the system in state \\(\\left\\lvert \\alpha \\right\\rangle\\) is\n\\[\nP = \\left|\\left\\langle \\alpha \\middle| \\psi \\right\\rangle\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\left\\langle \\psi \\middle| \\hat{A} \\middle| \\psi \\right\\rangle.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -4718,6 +4718,498 @@
     "crumbs": [
       "Home",
       "Laser–Atom Interactions"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#ket-vectors",
+    "href": "mod2/amcoupling.html#ket-vectors",
+    "title": "Wave Mechanics",
+    "section": "Ket-vectors",
+    "text": "Ket-vectors\nA ket vector \\(\\ket{\\alpha}\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#bra-vectors",
+    "href": "mod2/amcoupling.html#bra-vectors",
+    "title": "Wave Mechanics",
+    "section": "Bra-vectors",
+    "text": "Bra-vectors\nA bra vector \\(\\bra{\\beta}\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\braket{\\beta}{\\alpha} \\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\ket{\\psi}\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\braket{\\vec{r}}{\\psi} = \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\braket{\\phi}{\\psi} = \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#linear-operators",
+    "href": "mod2/amcoupling.html#linear-operators",
+    "title": "Wave Mechanics",
+    "section": "Linear operators",
+    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\ket{\\psi} = \\ket{\\phi}.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\ket{\\psi}+\\ket{\\phi}) = \\hat{O}\\ket{\\psi} + \\hat{O}\\ket{\\phi}\\)\n\n\\(\\hat{O}c\\ket{\\psi} = c\\hat{O}\\ket{\\psi}\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\braket{\\psi}{\\psi}} \\ketbra{\\phi}{\\psi}.\n\\]\nIf \\(\\{\\ket{\\phi_i}\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\mel{\\phi_j}{\\hat{O}}{\\phi_i}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#hermitian-conjugates",
+    "href": "mod2/amcoupling.html#hermitian-conjugates",
+    "title": "Wave Mechanics",
+    "section": "Hermitian conjugates",
+    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\ket{\\psi}^\\dagger = \\bra{\\psi}\\) and \\(\\bra{\\psi}^\\dagger = \\ket{\\psi}\\)\n\n\\(\\big(c_1\\ket{\\psi_1} + c_2\\ket{\\psi_2}\\big)^\\dagger = c_1^\\ast \\bra{\\psi_1} + c_2^\\ast \\bra{\\psi_2}\\)\n\n\\(\\big(\\braket{\\psi}{\\phi}\\big)^\\dagger = \\braket{\\psi}{\\phi}^\\ast = \\braket{\\phi}{\\psi}\\)\n\n\\(\\big(\\mel{\\phi}{\\hat{A}^\\dagger}{\\psi}\\big)^\\ast = \\mel{\\psi}{\\hat{A}}{\\phi}\\)\nand\n\\(\\big(\\mel{\\phi}{\\hat{A}^\\dagger \\hat{B}^\\dagger}{\\psi}\\big)^\\ast = \\mel{\\psi}{\\hat{B}\\hat{A}}{\\phi}\\)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#observables",
+    "href": "mod2/amcoupling.html#observables",
+    "title": "Wave Mechanics",
+    "section": "Observables",
+    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\ket{\\alpha} = a\\ket{\\alpha}\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\ket{n} = a_n\\ket{n}\\) (discrete spectrum) or \\(\\hat{A}\\ket{k} = k\\ket{k}\\) (continuous spectrum).\n\nOrthonormality: \\(\\braket{n'}{n} = \\delta_{n'n}\\) or \\(\\braket{k_i}{k_j} = \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\ket{\\psi}\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\ket{\\psi} = \\sum_n c_n\\ket{n}\\) or \\(\\ket{\\psi} = \\int c(k)\\ket{k}\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\ketbra{n}{n}\\) or \\(\\mathbb{1} = \\int \\ketbra{k}{k}\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\ket{\\alpha}\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\ket{\\psi}\\), then:\n\nThe probability of finding the system in state \\(\\ket{\\alpha}\\) is\n\\[\nP = \\left|\\braket{\\alpha}{\\psi}\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\mel{\\psi}{\\hat{A}}{\\psi}.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#product-states-and-indistinguishability",
+    "href": "mod2/amcoupling.html#product-states-and-indistinguishability",
+    "title": "Wave Mechanics",
+    "section": "1.1 Product States and Indistinguishability",
+    "text": "1.1 Product States and Indistinguishability\nSuppose particle 1 (with coordinate \\(\\vec{r}_1\\)) is in state \\(\\psi_a\\),\nand particle 2 (with coordinate \\(\\vec{r}_2\\)) is in state \\(\\psi_b\\).\nIf we ignore spin for now, a naive approach would be to write the total wavefunction as a product of single-particle wavefunctions:\n\\[\n\\Psi(\\vec{r}_1, \\vec{r}_2) = \\psi_a(\\vec{r}_1)\\, \\psi_b(\\vec{r}_2).\n\\]\n\nNote of caution:\nIn general, two-particle states cannot always be written as simple products.\nSuch product states are only a useful starting point for understanding the basic symmetry properties.\n\nThis expression assumes we can tell which particle is “particle 1” and which is “particle 2.” That assumption is fine in classical mechanics, where particles follow well-defined trajectories. But in quantum mechanics, identical particles have no individual identity — exchanging them cannot lead to a physically new state.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#example-scattering-of-indistinguishable-particles",
+    "href": "mod2/amcoupling.html#example-scattering-of-indistinguishable-particles",
+    "title": "Wave Mechanics",
+    "section": "1.2 Example: Scattering of Indistinguishable Particles",
+    "text": "1.2 Example: Scattering of Indistinguishable Particles\nImagine two identical particles scattering off each other. Classically, there are two possible paths:\n\nCase 1: particle 1 is deflected to the right, particle 2 to the left\n\nCase 2: particle 1 is deflected to the left, particle 2 to the right\n\n#| echo: false\n# eval: false\nimport subprocess\nimport os\n\n# Determine the null device based on the operating system\nnull_device = \"NUL\" if os.name == \"nt\" else \"/dev/null\"\n\n# Write the LaTeX code to a temporary file\nlatex_code = r\"\"\"\n\\documentclass[tikz, border=2mm]{standalone}\n\\usepackage{tikz-feynman}\n\\tikzfeynmanset{compat=1.1.0}\n\\usepackage{physics}\n\n\n\\begin{document}\n\n\\tikzset{&gt;=latex} % for LaTeX arrow head\n\\usetikzlibrary{angles,quotes} % for pic\n\n\\begin{tikzpicture}[&gt;=Stealth]\n  % Bent arrow\n  \\draw[-&gt;, thick, rounded corners=8pt] \n    (0,0) -- (1.5,0) -- (3,-1)  node[right=+0.2] {$1$};\n  \\draw[-&gt;, thick, rounded corners=8pt] \n    (3,0) -- (1.5,0) -- (0,1)  node[left=-0.2, above=+.2] {$2$};\n  \\draw[-&gt;, thick, rounded corners=8pt] \n    (5,0) -- (6.5,0) -- (5,1)   node[left=-0.2, above=+.2] {$1$};\n  \\draw[-&gt;, thick, rounded corners=8pt] \n    (8,0) -- (6.5,0) -- (8,-1)  node[right=+0.2] {$2$};\n  \\node at (1.5,-1.4) {$\\mathrm{case 1}$};\n  \\node at (6.5,-1.4) {$\\mathrm{case 2}$};\n\n\n\\end{tikzpicture}\n\\end{document}\n\"\"\"\n\nwith open(\"diagram.tex\", \"w\") as f:\n    f.write(latex_code)\n\nimport re\n\ndef scale_svg(file_path, factor):\n    \"\"\"\n    Reads an SVG file and scales its width and height attributes.\n    \"\"\"\n    with open(file_path, 'r') as f:\n        content = f.read()\n    \n    # Define a function to perform the scaling on matched values\n    def scale_match(match):\n        value = float(match.group(2)) # Fix: changed from group(1) to group(2)\n        new_value = value * factor\n        return f'{match.group(1)}=\"{new_value:.3f}{match.group(3)}\"'\n        \n    # Regex to find width=\"[number]pt\" and height=\"[number]pt\"\n    # and replace them with the scaled value\n    scaled_content = re.sub(r'(width|height)=\"([\\d.]+)(pt|px)?\"', scale_match, content)\n\n    with open(file_path, 'w') as f:\n        f.write(scaled_content)\n\n# Define the list of diagram names\ndiagram_names = [\"exch_scat\"]\n\n# Run the commands, redirecting all output to the null device\nwith open(os.devnull, 'w') as FNULL:\n    # Compile the LaTeX file to PDF\n    subprocess.run([\"pdflatex\", \"-interaction=nonstopmode\", \"diagram.tex\"], stdout=FNULL, stderr=FNULL)\n\n    # Convert the PDF pages to SVG\n    # Use a loop to process each diagram\n    for i, name in enumerate(diagram_names):\n        page_number = i + 1\n        output_svg = f\"{name}.svg\"\n        \n        # Convert the PDF page to a specific SVG file\n        subprocess.run([\"pdf2svg\", \"diagram.pdf\", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        \n        # Scale the newly created SVG file\n        scale_svg(output_svg, 1.5)\n\n    # Clean up temporary files\n    subprocess.run([\"rm\", \"diagram.tex\", \"diagram.pdf\", \"diagram.log\", \"diagram.aux\"], stdout=FNULL, stderr=FNULL)\n\n\n\n\n\nFor identical particles in quantum mechanics, these two alternatives are indistinguishable. The total probability amplitude must include both processes at once, and the two amplitudes interfere with each other. This interference is a hallmark of quantum indistinguishability.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#the-exchange-operator",
+    "href": "mod2/amcoupling.html#the-exchange-operator",
+    "title": "Wave Mechanics",
+    "section": "2.1 The Exchange Operator",
+    "text": "2.1 The Exchange Operator\nWe define the permutation (or exchange) operator \\(P_{12}\\), which swaps the coordinates of the two particles:\n\\[\nP_{12}\\,|\\vec{r}_1, \\vec{r}_2\\rangle = |\\vec{r}_2, \\vec{r}_1\\rangle.\n\\]\nIf the particles have additional quantum numbers (such as spin, magnetic quantum number, etc.), the operator also swaps those quantities.\nBecause exchanging twice returns the system to its original configuration, the operator satisfies:\n\\[\nP_{12}^2 = \\hat{I}.\n\\]\nMoreover, since the Hamiltonian \\(\\hat{H}\\) of a system of identical particles does not depend on labeling, the exchange operator commutes with it:\n\\[\n[P_{12}, \\hat{H}] = 0.\n\\]\nThis means that we can find states that are simultaneous eigenstates of both \\(\\hat{H}\\) and \\(P_{12}\\). The eigenvalues of \\(P_{12}\\) can only be \\(\\pm 1\\):\n\\[\nP_{12}\\Psi(\\vec{r}_1, \\vec{r}_2) =\n\\begin{cases}\n+\\Psi(\\vec{r}_1, \\vec{r}_2), & \\text{for symmetric wavefunctions}, \\\\\n-\\Psi(\\vec{r}_1, \\vec{r}_2), & \\text{for antisymmetric wavefunctions.}\n\\end{cases}\n\\]\nThese two possibilities correspond to two fundamentally different kinds of particles.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#symmetrized-and-antisymmetrized-states",
+    "href": "mod2/amcoupling.html#symmetrized-and-antisymmetrized-states",
+    "title": "Wave Mechanics",
+    "section": "2.2 Symmetrized and Antisymmetrized States",
+    "text": "2.2 Symmetrized and Antisymmetrized States\nFor two identical particles, we cannot meaningfully assign labels “1” and “2.” The wavefunction must reflect this symmetry by being either symmetric or antisymmetric under exchange.\nWe can construct the two possibilities as follows:\n\\[\n\\Psi_+(\\vec{r}_1, \\vec{r}_2)\n= A \\big[\\, \\psi_a(\\vec{r}_1)\\psi_b(\\vec{r}_2)\n+ \\psi_b(\\vec{r}_1)\\psi_a(\\vec{r}_2) \\big],\n\\]\n\\[\n\\Psi_-(\\vec{r}_1, \\vec{r}_2)\n= A \\big[\\, \\psi_a(\\vec{r}_1)\\psi_b(\\vec{r}_2)\n- \\psi_b(\\vec{r}_1)\\psi_a(\\vec{r}_2) \\big],\n\\]\nwhere \\(A\\) is a normalization constant ensuring that \\(\\int |\\Psi|^2 \\, d^3r_1\\, d^3r_2 = 1\\).\n\n\\(\\Psi_+\\) is symmetric: exchanging the two particles leaves it unchanged.\n\n\\(\\Psi_-\\) is antisymmetric: exchanging the two particles changes its sign.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#spin-and-statistics",
+    "href": "mod2/amcoupling.html#spin-and-statistics",
+    "title": "Wave Mechanics",
+    "section": "2.3 Spin and Statistics",
+    "text": "2.3 Spin and Statistics\nIn non-relativistic quantum mechanics, we take as an axiom the following rule:\n\n\n\n\n\n\nTipSpin–statistics\n\n\n\n\nParticles with integer spin are bosons, and their total wavefunction is symmetric under exchange.\n\nParticles with half-integer spin are fermions, and their total wavefunction is antisymmetric under exchange.\n\n\n\nThis fundamental connection between spin and exchange symmetry is a consequence of the spin–statistics theorem, a deep result from relativistic quantum field theory. For our purposes, we take it as an experimentally verified fact.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#the-pauli-exclusion-principle",
+    "href": "mod2/amcoupling.html#the-pauli-exclusion-principle",
+    "title": "Wave Mechanics",
+    "section": "2.4 The Pauli Exclusion Principle",
+    "text": "2.4 The Pauli Exclusion Principle\nLet’s consider two identical fermions that try to occupy the same one-particle state \\(\\psi_a\\):\n\\[\n\\Psi_-(\\vec{r}_1, \\vec{r}_2)\n= A\\big[\\psi_a(\\vec{r}_1)\\psi_a(\\vec{r}_2)\n- \\psi_a(\\vec{r}_1)\\psi_a(\\vec{r}_2)\\big] = 0.\n\\]\nThe antisymmetric wavefunction vanishes identically, meaning that such a configuration is forbidden.\nThis is the Pauli exclusion principle:\n\n\n\n\n\n\nTipPauli Exclusion Principle\n\n\n\nNo two fermions can occupy the same quantum state.\n\n\nThis principle explains the structure of the periodic table, the stability of matter, and the behavior of electrons in solids.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#key-properties-of-commutators",
+    "href": "mod2/amcoupling.html#key-properties-of-commutators",
+    "title": "Wave Mechanics",
+    "section": "Key Properties of Commutators",
+    "text": "Key Properties of Commutators\n\nTwo observables \\(\\hat{A}\\) and \\(\\hat{B}\\) have a complete set of common eigenstates\nif and only if their commutator vanishes: \\[\n\\comm{\\hat{A}}{\\hat{B}} = \\hat{0}.\n\\]\nIf \\(\\comm{\\hat{A}}{\\hat{B}} \\neq \\hat{0}\\), the observables are called incompatible.\nThey cannot, in general, be measured sharply at the same time.\n\nThis incompatibility is made quantitative by the Heisenberg uncertainty principle: \\[\n\\sigma_A \\, \\sigma_B \\;\\geq\\; \\tfrac{1}{2}\\,\\big|\\langle \\comm{\\hat{A}}{\\hat{B}} \\rangle\\big|,\n\\] where \\(\\sigma_A\\) and \\(\\sigma_B\\) denote the standard deviations of observables \\(A\\) and \\(B\\).\n\n\n\n\n\n\n\nNoteProof of the Uncertainty Principle\n\n\n\n\n\nLet \\(\\hat{A}\\) and \\(\\hat{B}\\) be Hermitian operators.\nDefine centered operators \\[\n\\Delta \\hat{A} = \\hat{A} - \\langle \\hat{A} \\rangle, \\qquad\n\\Delta \\hat{B} = \\hat{B} - \\langle \\hat{B} \\rangle.\n\\]\nFor any real number \\(\\lambda\\), consider the inner product \\[\n\\langle \\psi | (\\Delta \\hat{A} + i \\lambda \\Delta \\hat{B})^\\dagger (\\Delta \\hat{A} + i \\lambda \\Delta \\hat{B}) | \\psi \\rangle \\;\\geq\\; 0.\n\\]\n\nRemark. This is just \\(\\| (\\Delta \\hat{A} + i \\lambda \\Delta \\hat{B}) |\\psi\\rangle \\|^2\\),\nthe squared norm of a vector in Hilbert space.\nSince norms are always nonnegative, the whole expression is \\(\\geq 0\\).\n\nExpanding gives \\[\n\\langle (\\Delta \\hat{A})^2 \\rangle\n+ \\lambda^2 \\langle (\\Delta \\hat{B})^2 \\rangle\n+ i \\lambda \\langle [\\Delta \\hat{A}, \\Delta \\hat{B}] \\rangle \\;\\geq\\; 0.\n\\]\nThe expression \\[\nf(\\lambda) = \\langle (\\Delta \\hat{A})^2 \\rangle\n+ \\lambda^2 \\langle (\\Delta \\hat{B})^2 \\rangle\n+ i \\lambda \\langle [\\Delta \\hat{A}, \\Delta \\hat{B}] \\rangle\n\\] is a quadratic function of the real variable \\(\\lambda\\).\n\nRemark. The coefficient of \\(\\lambda^2\\) is \\(\\langle (\\Delta \\hat{B})^2 \\rangle = \\sigma_B^2\\),\nwhich is strictly positive unless the state is an exact eigenstate of \\(\\hat{B}\\).\nTherefore \\(f(\\lambda)\\) is a parabola that opens upwards, ensuring that it has a unique global minimum.\n\nIts minimum value occurs at \\[\n\\lambda_{\\min} = -\\, \\frac{i \\langle [\\Delta \\hat{A}, \\Delta \\hat{B}] \\rangle}{2 \\langle (\\Delta \\hat{B})^2 \\rangle}.\n\\]\nSubstituting back: \\[\nf(\\lambda_{\\min}) = \\langle (\\Delta \\hat{A})^2 \\rangle\n- \\frac{1}{4 \\langle (\\Delta \\hat{B})^2 \\rangle}\n\\, \\big| \\langle [\\Delta \\hat{A}, \\Delta \\hat{B}] \\rangle \\big|^2 \\;\\geq\\; 0.\n\\]\nRearranging gives \\[\n\\langle (\\Delta \\hat{A})^2 \\rangle \\, \\langle (\\Delta \\hat{B})^2 \\rangle\n\\;\\geq\\; \\tfrac{1}{4} \\big| \\langle [\\hat{A}, \\hat{B}] \\rangle \\big|^2.\n\\]\nSince \\(\\sigma_A^2 = \\langle (\\Delta \\hat{A})^2 \\rangle\\) and\n\\(\\sigma_B^2 = \\langle (\\Delta \\hat{B})^2 \\rangle\\), we finally obtain \\[\n\\sigma_A \\, \\sigma_B \\;\\geq\\; \\tfrac{1}{2} \\, \\big| \\langle [\\hat{A}, \\hat{B}] \\rangle \\big|.\n\\]\nThis is the Heisenberg uncertainty principle.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#important-examples",
+    "href": "mod2/amcoupling.html#important-examples",
+    "title": "Wave Mechanics",
+    "section": "Important Examples",
+    "text": "Important Examples\n\nPosition–Momentum Commutator\n\\[\n\\comm{\\hat{r}_i}{\\hat{p}_j} = i\\hbar \\, \\delta_{ij},\n\\] where \\(i,j\\) label Cartesian components.\nThis leads directly to the familiar uncertainty relation \\[\n\\sigma_x \\, \\sigma_{p_x} \\geq \\tfrac{\\hbar}{2}.\n\\]\n\n\nAngular Momentum Commutators\nThe components of angular momentum form a Lie algebra: \\[\n\\comm{\\hat{L}_x}{\\hat{L}_y} = i\\hbar \\hat{L}_z, \\qquad\n\\comm{\\hat{L}_y}{\\hat{L}_z} = i\\hbar \\hat{L}_x, \\qquad\n\\comm{\\hat{L}_z}{\\hat{L}_x} = i\\hbar \\hat{L}_y.\n\\]\n\n\nCommuting Quantities\nSome pairs of operators do commute, which means they can be simultaneously diagonalized: \\[\n\\comm{\\hat{\\vec L}^2}{\\hat{L}_z} = \\hat{0}, \\qquad\n\\comm{\\hat{\\vec L}^2}{\\hat{H}} = \\hat{0}.\n\\]\n\n\n\n\n\n\n\nNoteRemark\n\n\n\n\nThe uncertainty principle is not about experimental imperfections.\nIt is a fundamental feature of quantum mechanics: non-commuting observables simply do not admit sharp simultaneous values.\nThe stronger the commutator, the stronger the tradeoff between precisions of measurement.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#why-quantum-mechanics",
+    "href": "mod2/amcoupling.html#why-quantum-mechanics",
+    "title": "Wave Mechanics",
+    "section": "Why Quantum Mechanics?",
+    "text": "Why Quantum Mechanics?\nAtomic, molecular, and optical (AMO) physics is built on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#scope-of-this-section",
+    "href": "mod2/amcoupling.html#scope-of-this-section",
+    "title": "Wave Mechanics",
+    "section": "Scope of this Section",
+    "text": "Scope of this Section\nThis section collects the quantum mechanics background needed for the rest of the course. It is not a complete QM class, but rather a streamlined toolkit. We will revisit some basic principles and then highlight those aspects most directly relevant for AMO physics.\nTopics covered here include:\n\nWave mechanics and the Schrödinger equation\n\nDirac’s bra–ket notation\n\nThe Heisenberg uncertainty principle\n\nPerturbation theory\n\nRelativistic wave equations (as a first step toward fine structure)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#level-and-assumptions",
+    "href": "mod2/amcoupling.html#level-and-assumptions",
+    "title": "Wave Mechanics",
+    "section": "Level and Assumptions",
+    "text": "Level and Assumptions\nThese notes are introductory. We will use quantum mechanics throughout, but the aim is to supply just enough formalism to follow the physics.\n\nIf you have had a previous QM course: this will feel like a refresher.\n\nIf you have not: this section contains short introductions to the essential concepts and techniques.\nThese are by no means comprehensive, but they should be sufficient background for the AMO material.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#a-final-remark",
+    "href": "mod2/amcoupling.html#a-final-remark",
+    "title": "Wave Mechanics",
+    "section": "A Final Remark",
+    "text": "A Final Remark\nQuantum mechanics is often seen as abstract or counterintuitive. Here, it becomes a practical tool: the language in which atoms, molecules, and light must be described. With this section, you should feel prepared to tackle the rich structure of hydrogen, the origins of spectra, and the foundations of modern AMO physics.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#time-independent-and-non-degenerate-perturbation-theory",
+    "href": "mod2/amcoupling.html#time-independent-and-non-degenerate-perturbation-theory",
+    "title": "Wave Mechanics",
+    "section": "Time-independent (and non-degenerate) perturbation theory",
+    "text": "Time-independent (and non-degenerate) perturbation theory\n\nProblem setup\nWe consider a system whose Hamiltonian is given by\n\\[\n\\hat{H} = \\hat{H}_0 + \\hat{V},\n\\]\nwhere \\(\\hat{V}\\) is a weak perturbation of the system.\nThe eigenstates \\(\\ket{n^{(0)}}\\) and eigenenergies \\(E_n^{(0)}\\) of the unperturbed system are assumed to be known, i.e.\n\\[\n\\hat{H}_0 \\ket{n^{(0)}} = E_n^{(0)} \\ket{n^{(0)}}.\n\\]\nQuestion: How does the perturbation \\(\\hat{V}\\) modify the eigenenergies and eigenstates?\n\n\n\nAnsatz\nWe introduce a real-valued “tuning” parameter \\(\\lambda\\) (between 0 and 1) to interpolate between the unperturbed (\\(\\lambda=0\\)) and the fully perturbed (\\(\\lambda=1\\)) system:\n\\[\n\\hat{H} = \\hat{H}_0 + \\lambda \\hat{V}.\n\\]\nWe then expand the eigenenergies and eigenstates in powers of \\(\\lambda\\):\n\\[\nE_n = E_n^{(0)} + \\lambda E_n^{(1)} + \\lambda^2 E_n^{(2)} + \\lambda^3 E_n^{(3)} + \\dots\n\\]\n\\[\n\\ket{n} = N(\\lambda)\\left( \\ket{n^{(0)}} + \\sum_{k \\neq n} c_{nk}(\\lambda) \\ket{k^{(0)}} \\right),\n\\]\nwith expansion coefficients\n\\[\nc_{nk}(\\lambda) = \\lambda c_{nk}^{(1)} + \\lambda^2 c_{nk}^{(2)} + \\lambda^3 c_{nk}^{(3)} + \\dots\n\\]\n\n\n\nSolution strategy\nWe plug this expansion into the Schrödinger equation:\n\\[\n(\\hat{H}_0 + \\lambda \\hat{V})\n\\left( \\ket{n^{(0)}} + \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\ket{k^{(0)}} \\right)\n=\n\\left( \\sum_{i\\geq 0} \\lambda^i E_n^{(i)} \\right)\n\\left( \\ket{n^{(0)}} + \\sum_{\\substack{k\\neq n \\\\ i \\geq 1}} \\lambda^i c_{nk}^{(i)} \\ket{k^{(0)}} \\right).\n\\]\nBy comparing powers of \\(\\lambda\\) on both sides, we obtain recursive equations for the corrections \\(E_n^{(i)}\\) and \\(c_{nk}^{(i)}\\).\nAt the end, we set \\(\\lambda=1\\).\n\nRemark. This method works because the perturbation is assumed small. If \\(\\hat{V}\\) is comparable to \\(\\hat{H}_0\\) in magnitude, the perturbation expansion does not converge.\n\n\n\n\nZeroth order (\\(\\lambda^0\\))\nAt order \\(\\lambda^0\\) we recover the unperturbed Schrödinger equation:\n\\[\n\\hat{H}_0 \\ket{n^{(0)}} = E_n^{(0)} \\ket{n^{(0)}},\n\\]\nwhich is already solved.\n\n\n\nFirst order (\\(\\lambda^1\\))\nAt order \\(\\lambda^1\\) we find\n\\[\n\\sum_{k' \\neq n} c_{nk'}^{(1)} \\hat{H}_0 \\ket{k'^{(0)}} + \\hat{V}\\ket{n^{(0)}}\n=\n\\sum_{k' \\neq n} c_{nk'}^{(1)} E_n^{(0)} \\ket{k'^{(0)}} + E_n^{(1)} \\ket{n^{(0)}}.\n\\]\nTaking the inner product with \\(\\bra{k^{(0)}}\\) and using orthonormality \\(\\braket{k^{(0)}}{n^{(0)}} = \\delta_{nk}\\) gives\n\\[\nc_{nk}^{(1)} E_k^{(0)} + \\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}\n= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \\delta_{nk}.\n\\]\n\nFirst-order energy correction\nFor \\(n=k\\), this reduces to:\n\\[\nE_n^{(1)} = \\bra{n^{(0)}} \\hat{V} \\ket{n^{(0)}}.\n\\]\nSo the energy to first order is:\n\\[\nE_n \\approx E_n^{(0)} + \\bra{n^{(0)}} \\hat{V} \\ket{n^{(0)}}.\n\\]\n\n\nFirst-order correction to the state\nFor \\(k \\neq n\\), we obtain:\n\\[\nc_{nk}^{(1)} = \\frac{\\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThus the perturbed state (to first order) becomes:\n\\[\n\\ket{n} \\approx N(1) \\left(\n\\ket{n^{(0)}} +\n\\sum_{k \\neq n} \\ket{k^{(0)}} \\frac{\\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}\n\\right).\n\\]\n\nRemark. Notice the denominators \\(E_n^{(0)} - E_k^{(0)}\\).\nIf two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need degenerate perturbation theory in those cases.\n\n\n\n\n\nSecond order (\\(\\lambda^2\\))\nAt second order, one finds for the energy correction:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nThis expression shows that states closer in energy contribute more strongly.\n\n\n\nAdditional notes\n\nThe perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.\n\nThe normalization factor \\(N(1)\\) must be chosen such that \\[\n\\braket{n}{n} = 1.\n\\]\n\n\n\n\nSummary\n\nFirst-order correction to the energy:\n\\[\nE_n^{(1)} = \\bra{n^{(0)}} \\hat{V} \\ket{n^{(0)}}.\n\\]\nFirst-order correction to the state:\n\\[\n\\ket{n} \\approx \\ket{n^{(0)}} +\n\\sum_{k \\neq n} \\ket{k^{(0)}} \\frac{\\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.\n\\]\nSecond-order correction to the energy:\n\\[\nE_n^{(2)} = \\sum_{k \\neq n} \\frac{|\\bra{k^{(0)}} \\hat{V} \\ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#the-ladder-operators",
+    "href": "mod2/amcoupling.html#the-ladder-operators",
+    "title": "Wave Mechanics",
+    "section": "1.1 The Ladder Operators",
+    "text": "1.1 The Ladder Operators\nTo simplify the algebra, we introduce ladder operators (also called annihilation and creation operators):\n\\[\n\\hat{a} = \\sqrt{\\frac{m\\omega}{2\\hbar}}\\,\\hat{x} + \\frac{i}{\\sqrt{2m\\hbar\\omega}}\\,\\hat{p}, \\qquad\n\\hat{a}^\\dagger = \\sqrt{\\frac{m\\omega}{2\\hbar}}\\,\\hat{x} - \\frac{i}{\\sqrt{2m\\hbar\\omega}}\\,\\hat{p}.\n\\]\nNote that \\(\\hat{a}\\) and \\(\\hat{a}^\\dagger\\) are Hermitian conjugates of each other. They satisfy the simple commutation relation (easily derived from the canonical commutator):\n\\[\n[\\hat{a}, \\hat{a}^\\dagger] = 1.\n\\]\nThe Hamiltonian can now be rewritten in a remarkably compact form:\n\\[\n\\hat{H} = \\hbar \\omega \\left( \\hat{a}^\\dagger \\hat{a} + \\frac{1}{2} \\right).\n\\]\n\n\n\n\n\n\nNoteDerivation sketch\n\n\n\n\n\nStarting from the definition of \\(\\hat{a}\\) and \\(\\hat{a}^\\dagger\\), you can show that:\n\\[\n\\hat{a}^\\dagger \\hat{a} = \\frac{m\\omega}{2\\hbar}\\hat{x}^2 + \\frac{1}{2m\\hbar\\omega}\\hat{p}^2 - \\frac{i}{2\\hbar}(\\hat{x}\\hat{p}-\\hat{p}\\hat{x})\n= \\frac{1}{2\\hbar\\omega}\\left(\\frac{\\hat{p}^2}{m} + m\\omega^2 \\hat{x}^2\\right) - \\frac{1}{2}.\n\\]\nRearranging gives: \\[\n\\hat{H} = \\hbar\\omega\\left(\\hat{a}^\\dagger \\hat{a} + \\frac{1}{2}\\right).\n\\]\n\n\n\nThe operators \\(\\hat{a}^\\dagger\\) and \\(\\hat{a}\\) act as raising and lowering operators on energy eigenstates. To demonstrate explicitly how they raise and lower energy eigenstates, we compute the commutator (using \\([\\hat{a},\\hat{a}^\\dagger]=1\\)): \\[\n\\begin{aligned}\n\\left[ \\hat{H}, \\hat{a}^\\dagger \\right]\n&=\\hbar\\omega\\big[\\hat{a}^\\dagger\\hat{a}+\\tfrac{1}{2},\\hat{a}^\\dagger\\big] \\\\\n&=\\hbar\\omega\\big(\\hat{a}^\\dagger[\\hat{a},\\hat{a}^\\dagger]+[\\hat{a}^\\dagger,\\hat{a}^\\dagger]\\hat{a}\\big) \\\\\n&=\\hbar\\omega\\,\\hat{a}^\\dagger\\cdot 1 \\;=\\; \\hbar\\omega\\,\\hat{a}^\\dagger.\n\\end{aligned}\n\\]\nWe can now use this commutator to move \\(\\hat{H}\\) past \\(\\hat{a}^\\dagger\\) when acting on an energy eigenstate \\(|n\\rangle\\) with \\(\\hat H|n\\rangle=E_n|n\\rangle\\):\n\\[\n\\begin{aligned}\n\\hat{H}\\big(\\hat{a}^\\dagger|n\\rangle\\big)\n&=\\big([\\hat{H},\\hat{a}^\\dagger]+\\hat{a}^\\dagger\\hat{H}\\big)|n\\rangle \\\\\n&=(\\hbar\\omega\\,\\hat{a}^\\dagger+\\hat{a}^\\dagger E_n)|n\\rangle \\\\\n&=(E_n+\\hbar\\omega)\\,\\hat{a}^\\dagger|n\\rangle.\n\\end{aligned}\n\\tag{1}\\]\nThus, \\(\\hat{a}^\\dagger|n\\rangle\\) is an eigenvector of \\(\\hat{H}\\) with energy \\(E_n + \\hbar\\omega\\). We therefore label this higher-lying state as \\(|n+1\\rangle\\), such that \\[\n\\hat{a}^\\dagger|n\\rangle \\propto |n+1\\rangle.\n\\]\nIn the same way, using the commutator \\([\\hat{H}, \\hat{a}] = -\\hbar\\omega \\hat{a}\\), we obtain \\[\n\\hat{H}\\big(\\hat{a}|n\\rangle\\big)=(E_n-\\hbar\\omega)\\,\\hat{a}|n\\rangle,\n\\tag{2}\\] which shows that \\(\\hat{a}|n\\rangle\\) is an eigenstate with lower energy. We label this state \\(|n-1\\rangle\\), \\[\n\\hat a|n\\rangle\\propto |n-1\\rangle.\n\\]\nAs we will see below, with proper normalization we obtain\n\\[\n\\hat{a}^\\dagger|n\\rangle = \\sqrt{n+1}\\, |n+1\\rangle ,\n\\tag{3}\\]\nand similarly, \\[\n\\hat a|n\\rangle= \\sqrt{n}\\, |n-1\\rangle \\qquad(n\\ge1).\n\\tag{4}\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#the-number-operator",
+    "href": "mod2/amcoupling.html#the-number-operator",
+    "title": "Wave Mechanics",
+    "section": "1.2 The Number Operator",
+    "text": "1.2 The Number Operator\nWe introduce the number operator\n\\[\n\\hat{N} = \\hat{a}^\\dagger \\hat{a}.\n\\]\nWe will now prove that \\(\\hat{N}\\) acts as a counting operator, that is, \\[\n\\hat{N}|n\\rangle = n\\,|n\\rangle,\n\\] for all nonnegative integers \\(n\\).\n\nProof (by induction)\nBase case:\nSince energy cannot be negative, there must exist a lowest-energy state \\(|0\\rangle\\) (the ground state) such that:\n\\[\n\\hat{a}|0\\rangle = 0.\n\\] Applying \\(\\hat{N}\\) gives\n\\[\n\\hat{N}|0\\rangle = \\hat{a}^\\dagger \\hat{a}|0\\rangle = 0,\n\\]\nso the statement is true for \\(n=0\\).\nInduction hypothesis:\nAssume \\(\\hat{N}|n\\rangle = n|n\\rangle\\) holds for some \\(n\\).\nInduction step:\nUsing the commutation relation \\([\\hat{N}, \\hat{a}^\\dagger] = \\hat{a}^\\dagger\\, \\hat{a}\\, \\hat{a}^\\dagger\\, -\\, \\hat{a}^\\dagger\\, \\hat{a}^\\dagger\\, \\hat{a} = \\hat{a}^\\dagger [\\hat{a}, \\hat{a}^\\dagger] = \\hat{a}^\\dagger\\), we find \\[\n\\begin{aligned}\n\\hat{N}(\\hat{a}^\\dagger|n\\rangle)\n&= (\\hat{a}^\\dagger \\hat{N} + [\\hat{N}, \\hat{a}^\\dagger])|n\\rangle \\\\\n&= n\\,\\hat{a}^\\dagger|n\\rangle + \\hat{a}^\\dagger|n\\rangle \\\\\n&= (n+1)\\,\\hat{a}^\\dagger|n\\rangle.\n\\end{aligned}\n\\]\nThus, if the statement holds for \\(n\\), it also holds for \\(n+1\\).\nBy mathematical induction, \\(\\hat{N}|n\\rangle = n|n\\rangle\\) for all \\(n\\).\n\n\nDetermining the normalization factors of the ladder operators\nTo determine the correct normalization constants stated in Equation 3 and Equation 4, we now use the number operator.\n\nUnnormalized definition\nWe know that \\(\\hat a^\\dagger\\) raises the state: \\[\n\\hat a^\\dagger |n\\rangle = C_{n+1}\\,|n+1\\rangle.\n\\]\nTake the inner product\n\\[\n\\langle n| \\hat a \\hat a^\\dagger |n\\rangle = |C_{n+1}|^2.\n\\]\nUse the commutation relation\nSince \\(\\hat a \\hat a^\\dagger = \\hat a^\\dagger \\hat a + [ \\hat a, \\hat a^\\dagger] = \\hat a^\\dagger \\hat a + 1 = \\hat N + 1\\), \\[\n|C_{n+1}|^2 = \\langle n|(\\hat N + 1)|n\\rangle = n + 1.\n\\]\nExtract the constant\n\\[\nC_{n+1} = \\sqrt{n+1}.\n\\]\n\nHence, \\[\n\\hat a^\\dagger |n\\rangle = \\sqrt{n+1}\\,|n+1\\rangle,\n\\] and similarly, \\[\n\\hat a |n\\rangle = \\sqrt{n}\\,|n-1\\rangle.\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#why-it-works",
+    "href": "mod2/amcoupling.html#why-it-works",
+    "title": "Wave Mechanics",
+    "section": "1.1 Why It Works",
+    "text": "1.1 Why It Works\nLet \\(\\{|n\\rangle\\}\\) be the complete set of energy eigenstates of \\(\\hat{H}\\):\n\\[\n\\hat{H}|n\\rangle = E_n |n\\rangle, \\qquad E_0 \\le E_1 \\le E_2 \\le \\dots\n\\]\nAny normalized state can be written as a superposition:\n\\[\n|\\psi\\rangle = \\sum_n c_n |n\\rangle, \\qquad \\sum_n |c_n|^2 = 1\n\\]\nThen the energy expectation value is\n\\[\n\\langle \\psi | \\hat{H} | \\psi \\rangle\n  = \\sum_n |c_n|^2 E_n\n  \\ge E_0 \\sum_n |c_n|^2\n  = E_0\n\\]\nsince every \\(E_n \\ge E_0\\). Equality holds only when all coefficients except \\(c_0\\) vanish, i.e. \\(\\psi\\) is the true ground state.\nThus, the variational principle is a direct consequence of the spectral decomposition of the Hamiltonian.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#how-to-use-it",
+    "href": "mod2/amcoupling.html#how-to-use-it",
+    "title": "Wave Mechanics",
+    "section": "1.2 How to Use It",
+    "text": "1.2 How to Use It\nIn practice, the method becomes a systematic algorithm:\n\nChoose a trial wavefunction \\(\\psi(\\mathbf{r};\\alpha_1,\\alpha_2,\\dots)\\) containing one or more adjustable parameters (e.g. width, decay rate).\nCompute the expected energy \\[\n\\langle E(\\boldsymbol{\\alpha}) \\rangle\n  = \\frac{\\int \\psi^* \\hat{H} \\psi\\, dV}\n         {\\int |\\psi|^2\\, dV}\n\\]\nMinimize with respect to the parameters: \\[\n\\frac{\\partial E}{\\partial \\alpha_i} = 0\n\\]\nInterpret the result.\nThe minimized \\(\\langle E\\rangle\\) gives your best approximation to \\(E_0\\) and serves as an upper bound. The optimized parameters yield an approximate ground-state wavefunction.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#example-the-hydrogen-ground-state",
+    "href": "mod2/amcoupling.html#example-the-hydrogen-ground-state",
+    "title": "Wave Mechanics",
+    "section": "1.3 Example: The Hydrogen Ground State",
+    "text": "1.3 Example: The Hydrogen Ground State\nTo see the method in action, let’s approximate the ground-state energy of the hydrogen atom without solving Schrödinger’s equation directly.\nThe exact ground state is known to be an exponential, so we choose a trial function of the same form but with adjustable decay rate:\n\\[\n\\psi(r) = N e^{-\\alpha r}\n\\]\nwhere \\(\\alpha\\) is the variational parameter.\n\nStep 1: Normalize\n\\[\nN = \\sqrt{\\frac{\\alpha^3}{\\pi}}\n\\]\n\n\nStep 2: Compute the Energy Expectation\nFor the hydrogen Hamiltonian, \\[\n\\hat{H} = -\\frac{\\hbar^2}{2m} \\nabla^2 - \\frac{e^2}{4\\pi\\varepsilon_0 r},\n\\] the expectation value is\n\\[\n\\langle E(\\alpha)\\rangle =\n\\frac{\\hbar^2 \\alpha^2}{2m} - \\frac{e^2\\alpha}{4\\pi\\varepsilon_0}.\n\\]\n\n\nStep 3: Minimize\nSetting \\(dE/d\\alpha=0\\) gives\n\\[\n\\alpha_\\text{opt} = \\frac{m e^2}{4\\pi\\varepsilon_0 \\hbar^2}.\n\\]\n\n\nStep 4: Evaluate\nSubstituting \\(\\alpha_\\text{opt}\\) back in:\n\\[\nE_\\text{min} = -\\frac{m e^4}{2(4\\pi\\varepsilon_0)^2 \\hbar^2} = -13.6\\ \\text{eV}.\n\\]\nThis is exactly the true ground-state energy! Had we chosen a less perfect functional form, the result would still have been an upper bound but slightly above \\(-13.6\\) eV.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#summary-2",
+    "href": "mod2/amcoupling.html#summary-2",
+    "title": "Wave Mechanics",
+    "section": "1.4 Summary",
+    "text": "1.4 Summary\n\n\n\n\n\n\n\n\nConcept\nFormula\nComment\n\n\n\n\nVariational energy\n\\(\\displaystyle \\langle E \\rangle = \\frac{\\langle \\psi | \\hat{H} | \\psi \\rangle}{\\langle \\psi | \\psi \\rangle}\\)\nAlways ≥ \\(E_0\\)\n\n\nMinimization\n\\(\\displaystyle \\frac{\\partial E}{\\partial \\alpha_i}=0\\)\nOptimize parameters\n\n\nPhysical meaning\n“Best guess” wavefunction yields lowest possible energy estimate\nUpper bound to \\(E_0\\)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#the-linear-variational-method",
+    "href": "mod2/amcoupling.html#the-linear-variational-method",
+    "title": "Wave Mechanics",
+    "section": "2.1 The Linear Variational Method",
+    "text": "2.1 The Linear Variational Method\nRather than guessing one function \\(\\psi(r)\\), we represent the trial wavefunction as a linear combination of known basis functions:\n\\[\n\\psi(r) = \\sum_{i=1}^{n} c_i\\, \\phi_i(r)\n\\]\nThe coefficients \\(c_i\\) are unknown and will be determined by minimizing the total energy.\nThis approach is extremely general:\n- The basis functions \\(\\{\\phi_i\\}\\) could be orthonormal (like sine or spherical harmonics) or non-orthogonal (like Gaussian orbitals).\n- The set can be finite or infinite. A larger or more complete basis provides a better approximation to the exact wavefunction.\n- In the limit of a complete basis, the expansion becomes exact and the variational approximation converges to the true eigenvalues and eigenstates.\nIn practice, we work with a finite subset that captures the essential physics of the problem while keeping the algebra manageable.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#derivation-of-the-secular-equation",
+    "href": "mod2/amcoupling.html#derivation-of-the-secular-equation",
+    "title": "Wave Mechanics",
+    "section": "2.2 Derivation of the Secular Equation",
+    "text": "2.2 Derivation of the Secular Equation\nWe start from the energy expectation value for the trial wavefunction\n\\[\nE =\n\\frac{\\langle \\psi | \\hat{H} | \\psi \\rangle}\n     {\\langle \\psi | \\psi \\rangle}\n=\n\\frac{\\sum_{ij} c_i^* c_j\\, H_{ij}}\n     {\\sum_{ij} c_i^* c_j\\, S_{ij}},\n\\]\nwith the definitions\n\\[\nH_{ij} = \\langle \\phi_i | \\hat{H} | \\phi_j \\rangle,\n\\qquad\nS_{ij} = \\langle \\phi_i | \\phi_j \\rangle.\n\\]\nTo find the coefficients \\(\\{c_i\\}\\) that make the energy stationary, we vary \\(E\\) with respect to \\(c_i^*\\) while keeping \\(E\\) itself as an unknown parameter.\nBecause \\(E\\) is a ratio of two quadratic forms, it is more convenient to consider instead the equivalent condition that the derivative of\n\\[\n\\langle \\psi | \\hat{H} | \\psi \\rangle -\nE\\, \\langle \\psi | \\psi \\rangle\n\\]\nwith respect to \\(c_i^*\\) vanishes. Here, \\(E\\) is treated as independent of the \\(c_i\\), so this quantity is not assumed to be zero in advance.\nSetting the derivative to zero gives\n\\[\n\\frac{\\partial}{\\partial c_i^*}\n\\left(\n\\langle \\psi | \\hat{H} | \\psi \\rangle\n- E\\, \\langle \\psi | \\psi \\rangle\n\\right)\n= 0.\n\\]\nCarrying out this differentiation yields\n\\[\n\\sum_{j=1}^n (H_{ij} - E\\, S_{ij})\\, c_j = 0,\n\\qquad i = 1, \\ldots, n.\n\\]\nThis is the secular equation, which in matrix form reads\n\\[\n(\\mathbf{H} - E \\mathbf{S})\\, \\vec{c} = 0.\n\\]\nNontrivial solutions for \\(\\vec{c}\\) exist only if\n\\[\n\\det(\\mathbf{H} - E \\mathbf{S}) = 0.\n\\]\nThe corresponding values of \\(E\\) are the approximate energy eigenvalues, and the vectors \\(\\vec{c}\\) give the expansion coefficients of the approximate eigenstates.\n\n\n\n\n\n\nNoteRemark:\n\n\n\nThis derivation can also be expressed more formally using the method of Lagrange multipliers, where \\(E\\) acts as the multiplier enforcing the normalization condition \\(\\langle \\psi | \\psi \\rangle = 1\\). If you are familiar with that formalism, you can verify that it leads to exactly the same secular equation.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#interpretation-and-computational-aspects",
+    "href": "mod2/amcoupling.html#interpretation-and-computational-aspects",
+    "title": "Wave Mechanics",
+    "section": "2.3 Interpretation and Computational Aspects",
+    "text": "2.3 Interpretation and Computational Aspects\nThe secular equation represents a generalized eigenvalue problem:\n\\[\n\\mathbf{H} \\vec{c} = E\\, \\mathbf{S} \\vec{c}.\n\\]\nIf the basis \\(\\{\\phi_i\\}\\) is orthonormal, then \\(S = I\\) and this reduces to the standard matrix eigenvalue equation:\n\\[\n\\mathbf{H} \\vec{c} = E \\vec{c}.\n\\]\nIn practice:\n- \\(\\mathbf{H}\\) and \\(\\mathbf{S}\\) are finite-dimensional matrices.\n- Solving the secular equation corresponds to diagonalizing the Hamiltonian matrix in the chosen basis.\n- The lowest eigenvalue gives the best variational estimate of the ground-state energy, and the higher ones approximate excited states.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#advantages-of-the-ritz-approach",
+    "href": "mod2/amcoupling.html#advantages-of-the-ritz-approach",
+    "title": "Wave Mechanics",
+    "section": "2.4 Advantages of the Ritz Approach",
+    "text": "2.4 Advantages of the Ritz Approach\n\nSystematic improvement\nIncreasing the number of basis functions (\\(n\\)) always lowers the ground-state energy estimate, converging toward the exact value.\nAccess to excited states\nHigher eigenvalues correspond to approximate excited states, often with surprisingly good accuracy.\nFlexibility\nAny convenient basis can be used: plane waves for periodic systems, Gaussians for molecules, hydrogenic orbitals for atoms, and so on.\nGuaranteed upper bounds\nEach approximate eigenvalue \\(E_k^{(\\text{approx})}\\) is an upper bound to the corresponding exact eigenvalue \\(E_k^{(\\text{exact})}\\).",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#applications",
+    "href": "mod2/amcoupling.html#applications",
+    "title": "Wave Mechanics",
+    "section": "2.5 Applications",
+    "text": "2.5 Applications\nThe Ritz variational method underlies many modern computational frameworks:\n\nHartree–Fock theory: Represents many-electron wavefunctions as Slater determinants optimized variationally.\n\nConfiguration interaction (CI): Expands the total wavefunction in a linear combination of electronic configurations.\n\nDensity functional theory (DFT): Variational in the electron density rather than the wavefunction itself.\n\nTight-binding and LCAO models: Use localized atomic orbitals as basis functions to describe solids and molecules.\n\nTogether, these methods form the foundation of nearly all modern quantum-chemical and condensed-matter calculations.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#summary-and-takeaways",
+    "href": "mod2/amcoupling.html#summary-and-takeaways",
+    "title": "Wave Mechanics",
+    "section": "2.6 Summary and Takeaways",
+    "text": "2.6 Summary and Takeaways\n\n\n\n\n\n\n\n\nConcept\nFormula\nComment\n\n\n\n\nVariational energy\n\\(\\displaystyle \\langle E \\rangle = \\frac{\\langle \\psi | \\hat{H} | \\psi \\rangle}{\\langle \\psi | \\psi \\rangle}\\)\nAlways ≥ \\(E_0\\)\n\n\nMinimization condition\n\\(\\displaystyle \\frac{dE}{d\\alpha}=0\\)\nOptimize parameters\n\n\nRitz secular equation\n\\((\\mathbf{H} - E\\mathbf{S})\\vec{c} = 0\\)\nGeneralized eigenproblem",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#matter-waves",
+    "href": "mod2/amcoupling.html#matter-waves",
+    "title": "Wave Mechanics",
+    "section": "Matter waves",
+    "text": "Matter waves\nParticles exhibit wave-like behavior (e.g., diffraction). The momentum/wave vector and energy/frequency relations (de Broglie) are:\n\\[\n\\vec{p} = \\hbar \\vec{k} \\quad \\text{and} \\quad E = \\hbar \\omega\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#time-evolution",
+    "href": "mod2/amcoupling.html#time-evolution",
+    "title": "Wave Mechanics",
+    "section": "Time evolution",
+    "text": "Time evolution\nThe particle wave function \\(\\psi\\) follows the time-dependent Schrödinger Equation (SE):\n\\[\ni \\hbar \\frac{\\partial}{\\partial t} \\psi(\\vec{r},t) = \\hat{H} \\psi(\\vec{r},t), \\quad\n\\hat{H} = -\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\vec{r},t)\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#time-independent-se",
+    "href": "mod2/amcoupling.html#time-independent-se",
+    "title": "Wave Mechanics",
+    "section": "Time-independent SE",
+    "text": "Time-independent SE\nFor a potential without explicit time dependence \\(V(\\vec{r},t)=V(\\vec{r})\\) and a well-defined energy \\(E = \\hbar \\omega\\), the wave function can be written as \\(\\psi(\\vec{r},t) = \\phi(\\vec{r}) e^{i\\omega t}\\) with \\(\\phi(\\vec{r})\\) following the time-independent SE:\n\\[\n\\hat{H}\\phi(\\vec{r}) = E \\phi(\\vec{r})\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#probability-density-born-rule",
+    "href": "mod2/amcoupling.html#probability-density-born-rule",
+    "title": "Wave Mechanics",
+    "section": "Probability density (Born rule)",
+    "text": "Probability density (Born rule)\nThe wave function is related to the particle’s probability density \\(P(\\vec{r},t)\\) (i.e., the probability of finding the particle at position \\(\\vec{r}\\)) following the Born rule:\n\\[\nP(\\vec{r},t) = |\\psi(\\vec{r},t)|^2\n\\]\n\n(Note: This requires the wave function to be normalized, i.e., \\(\\int |\\psi(\\vec{r},t)|^2 d^3r = 1\\). However, not all wave functions can be normalized, e.g., ‘plane waves’.)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#expectation-value-of-position",
+    "href": "mod2/amcoupling.html#expectation-value-of-position",
+    "title": "Wave Mechanics",
+    "section": "Expectation value of position",
+    "text": "Expectation value of position\nThis is the average position of the particle when many identical measurements are performed, and it is given by:\n\\[\n\\langle \\vec{r} \\rangle = \\int \\psi^*(\\vec{r},t) \\, \\vec{r} \\, \\psi(\\vec{r},t) \\, d^3r\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#variance-of-position",
+    "href": "mod2/amcoupling.html#variance-of-position",
+    "title": "Wave Mechanics",
+    "section": "Variance of position",
+    "text": "Variance of position\nThe variance of the position \\(\\vec{r}\\) quantifies the spread of the probability distribution, i.e., it expresses the uncertainty in the particle’s position:\n\\[\n\\mathrm{Var}(\\vec{r}) = \\langle \\vec{r}^2 \\rangle - \\langle \\vec{r} \\rangle^2,\n\\quad \\text{with} \\quad\n\\langle \\vec{r}^2 \\rangle = \\int \\psi^*(\\vec{r},t) \\, \\vec{r}^2 \\, \\psi(\\vec{r},t) \\, d^3r\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#wave-function-in-momentum-space",
+    "href": "mod2/amcoupling.html#wave-function-in-momentum-space",
+    "title": "Wave Mechanics",
+    "section": "Wave function in momentum space",
+    "text": "Wave function in momentum space\nA wave function in coordinate space \\(\\psi(\\vec{r})\\) has a corresponding wave function in momentum space \\(\\Psi(\\vec{k})\\), and they are related by a Fourier transform (for one particle in three-dimensional space):\n\\[\n\\Psi(\\vec{k}) = \\frac{1}{(2\\pi)^{3/2}} \\int d^3r \\, \\psi(\\vec{r}) e^{-i\\vec{k}\\cdot \\vec{r}}, \\quad\n\\psi(\\vec{r}) = \\frac{1}{(2\\pi)^{3/2}} \\int d^3k \\, \\Psi(\\vec{k}) e^{i\\vec{k}\\cdot \\vec{r}}\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#example-1-measurement-outcomes-and-probability-distributions",
+    "href": "mod2/amcoupling.html#example-1-measurement-outcomes-and-probability-distributions",
+    "title": "Wave Mechanics",
+    "section": "EXAMPLE 1: Measurement outcomes and probability distributions",
+    "text": "EXAMPLE 1: Measurement outcomes and probability distributions\n#| label: fig-measurement\n#| fig-format: svg\n#| fig-cap: Measurement outcomes and probability distributions for small (blue) and large (red) variance. Shaded bands show ±σ around the expectation value &lt;x&gt;.\n#| fig-alt: Red broad and blue narrow Gaussians with markers, shaded ±σ bands, and dashed line at x=0.\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import norm\n\nx = np.linspace(-6,6,400)\nlarge_var = norm.pdf(x, 0, 2)\nsmall_var = norm.pdf(x, 0, 0.6)\nnp.random.seed(0)\nmeasurements_wide = np.random.normal(0, 2, 10)\nmeasurements_narrow = np.random.normal(0, 0.6, 10)\nplt.figure(figsize=(10,5))\nplt.fill_between(x, 0, 2.2, where=(x&gt;=-2) & (x&lt;=2), color='red', alpha=0.1)\nplt.fill_between(x, 0, 2.2, where=(x&gt;=-0.6) & (x&lt;=0.6), color='blue', alpha=0.1)\nplt.plot(x, large_var*2.5, 'r--', label='Large variance distribution')\nplt.plot(x, small_var*2.5, 'b-', label='Small variance distribution')\nplt.scatter(measurements_wide, [0.3]*10, color='red', marker='^', s=50, alpha=0.7, label='Measurements (wide)')\nplt.scatter(measurements_narrow, [0.6]*10, color='blue', s=20, alpha=0.7, label='Measurements (narrow)')\nplt.axvline(0, color='black', linestyle='--', linewidth=2, label='Expectation value &lt;x&gt;')\nplt.xlabel('Measurement outcome x')\nplt.ylabel('Probability density / outcomes')\nplt.legend(loc='upper left')\nplt.grid(False)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#example-2-free-1d-electron-plane-wave-solution",
+    "href": "mod2/amcoupling.html#example-2-free-1d-electron-plane-wave-solution",
+    "title": "Wave Mechanics",
+    "section": "EXAMPLE 2: Free 1D Electron: Plane Wave Solution",
+    "text": "EXAMPLE 2: Free 1D Electron: Plane Wave Solution\nThe time-dependent Schrödinger equation for a free particle in 1D:\n\\[\ni \\hbar \\frac{\\partial \\psi}{\\partial t} = -\\frac{\\hbar^2}{2m} \\frac{\\partial^2 \\psi}{\\partial x^2}\n\\]\nPlane wave solution:\n\\[\n\\psi(x,t) = e^{i(kx - \\omega t)}, \\quad \\omega = \\frac{\\hbar k^2}{2m}\n\\]\n\nSolution: plane wave with constant amplitude\nMomentum: well-defined, \\(p = \\hbar k\\)\nNormalizability: Not normalizable, so not physical by itself\n\n#| label: fig-wave\n#| fig-format: svg\n#| fig-cap: 'Plane wave solution: real part of the wave function for a free 1D electron'\n#| fig-alt: Cosine wave showing the oscillatory behavior of a free electron plane wave in one dimension.\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 10, 400)\ny = np.cos(2*np.pi*0.8*x - 0.5)\n\nplt.figure(figsize=(8,4))\nplt.plot(x, y, color='blue', linewidth=2)\nplt.xlabel('x')\nplt.ylabel('Re[ψ(x,t)]')\nplt.ylim(-2,2)\nplt.grid(False)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#example-3-gaussian-wavepacket-in-1d",
+    "href": "mod2/amcoupling.html#example-3-gaussian-wavepacket-in-1d",
+    "title": "Wave Mechanics",
+    "section": "EXAMPLE 3: Gaussian Wavepacket in 1D",
+    "text": "EXAMPLE 3: Gaussian Wavepacket in 1D\nInitial wavepacket:\n\\[\n\\psi(x,0) = e^{-x^2/(2\\sigma^2)} e^{i k_0 x}\n\\]\nTime evolution:\n\\[\n\\psi(x,t) \\sim e^{-(x - \\hbar k_0 t / m)^2 / (2 \\sigma_t^2)} e^{i(k_0 x - \\omega t)}, \\quad\n\\sigma_t = \\sigma \\sqrt{1 + \\left(\\frac{\\hbar t}{m \\sigma^2}\\right)^2}\n\\]\n\nLocalized wavepacket (superposition of plane waves)\nMoves with group velocity \\(v_g = \\hbar k_0/m\\)\nSpreads in time due to dispersion\nPhysical: normalizable and finite probability\n\n#| label: fig-wavepacket\n#| fig-format: svg\n#| fig-cap: 'Gaussian wavepacket evolution: initial (red) and later (blue) distributions'\n#| fig-alt: 'Two Gaussian curves: narrow red at center and broader blue shifted right, showing spreading.'\nx = np.linspace(-8, 8, 400)\npsi0 = np.exp(-x**2/2)\npsi_t = np.exp(-(x-2)**2/4)\nplt.figure(figsize=(8,4))\nplt.plot(x, psi0, color='red', linewidth=2, label='t=0')\nplt.plot(x, psi_t, color='blue', linewidth=2, label='t&gt;0')\nplt.xlabel('x')\nplt.ylabel('|ψ(x,t)|²')\nplt.legend()\nplt.grid(False)",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
+    ]
+  },
+  {
+    "objectID": "mod2/amcoupling.html#additional-notes-2",
+    "href": "mod2/amcoupling.html#additional-notes-2",
+    "title": "Wave Mechanics",
+    "section": "Additional notes:",
+    "text": "Additional notes:\n\nAnalytic solutions exist only for very simple systems. More particles require approximations or numerical methods.\nElectromagnetic interactions are relativistic; a full description uses quantum electrodynamics (QED).\nSome quantum properties (e.g., spin) cannot be described by wave functions alone, but the general Schrödinger equation \\(\\hat{H}\\psi=i\\hbar \\partial_t \\psi\\) still governs time evolution.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Angular Momenta and Their Couplings"
     ]
   }
 ]

@@ -2,7 +2,7 @@
 author: Daniel Fischer
 jupyter: python3
 filters:
-  - physics-macros.lua
+  - ../physics-macros.lua
 title: Bra–Ket (Dirac) Notation, Operators, and More
 ---
 

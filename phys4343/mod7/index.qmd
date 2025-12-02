@@ -32,12 +32,12 @@ By the end of this module, you should be able to:
 
 ## Structure of this Module
 
-* [**Foundations of Molecular Bonding**](./molfound.qmd) – Why molecules form: qualitative picture of bonding, potential energy curves, and the idea of bonding vs. antibonding orbitals.  
-* [**The H$_2^+$ Molecular Ion**](./h2plus.qmd) – The simplest possible molecule: exact solution and insights into electronic bonding.  
-* [**Molecular Orbitals and the LCAO Method**](./lcao.qmd) – Building approximate molecular orbitals from atomic ones.  
-* [**Beyond H$_2^+$ and LCAO**](./beyondh2plus.qmd) – Refinements and limitations of simple bonding models.  
-* [**Rotation and Vibration**](./nuclear.qmd) – Nuclear motion on potential energy surfaces: rotational and vibrational quantization.  
-* [**Molecular Transitions and Spectroscopy**](./moltransitions.qmd) – How light interacts with molecules: selection rules, infrared absorption, and Raman scattering.
+* [Foundations of Molecular Bonding](./molfound.qmd) – Why molecules form: qualitative picture of bonding, potential energy curves, and the idea of bonding vs. antibonding orbitals.  
+* [The H$_2^+$ Molecular Ion](./h2plus.qmd) – The simplest possible molecule: exact solution and insights into electronic bonding.  
+* [Molecular Orbitals and the LCAO Method](./lcao.qmd) – Building approximate molecular orbitals from atomic ones.  
+* [Beyond H$_2^+$ and LCAO](./beyondh2plus.qmd) – Refinements and limitations of simple bonding models.  
+* [Rotation and Vibration](./nuclear.qmd) – Nuclear motion on potential energy surfaces: rotational and vibrational quantization.  
+* [Molecular Transitions and Spectroscopy](./moltransitions.qmd) – How light interacts with molecules: selection rules, infrared absorption, and Raman scattering.
 
 ---
 

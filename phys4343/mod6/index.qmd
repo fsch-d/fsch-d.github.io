@@ -29,12 +29,12 @@ Our main goals are to:
 
 ## Structure of this Module
 
-* [**Helium (Basics)**](./helium.qmd) – The simplest multi-electron atom and the first example of electron–electron interaction.  
-* [**Two-Electron States in Helium**](./twoelectron.qmd) – Symmetry, spin, and exchange effects in the helium atom.  
-* [**Calculations for Multielectron Atoms**](./hartreefock.qmd) – Approximation methods, including the Hartree and Hartree–Fock approaches.  
-* [**Shell Model and Periodic Table**](./manye.qmd) – How atomic structure leads to the periodic organization of the elements.  
-* [**Angular Momentum Coupling in Many-Electron Atoms**](./coupling.qmd) – $LS$ and $jj$ coupling, term symbols, and selection rules.  
-* [**Excited States**](./excited.qmd) – Understanding optical spectra and transitions in complex atoms.
+* [Helium (Basics)](./helium.qmd) – The simplest multi-electron atom and the first example of electron–electron interaction.  
+* [Two-Electron States in Helium](./twoelectron.qmd) – Symmetry, spin, and exchange effects in the helium atom.  
+* [Calculations for Multielectron Atoms](./hartreefock.qmd) – Approximation methods, including the Hartree and Hartree–Fock approaches.  
+* [Shell Model and Periodic Table](./manye.qmd) – How atomic structure leads to the periodic organization of the elements.  
+* [Angular Momentum Coupling in Many-Electron Atoms](./coupling.qmd) – $LS$ and $jj$ coupling, term symbols, and selection rules.  
+* [Excited States](./excited.qmd) – Understanding optical spectra and transitions in complex atoms.
 
 ---
 

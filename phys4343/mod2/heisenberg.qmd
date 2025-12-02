@@ -2,7 +2,7 @@
 title: "Heisenberg's Uncertainty Principle"
 author: "Daniel Fischer"
 filters:
-  - physics-macros.lua
+  - ../physics-macros.lua
 ---
 
 # Commutators and Heisenberg’s Uncertainty Principle

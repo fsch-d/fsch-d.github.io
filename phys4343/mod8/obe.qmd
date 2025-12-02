@@ -574,7 +574,7 @@ This completes the derivation.
 
 ---
 
-### **Excited-state steady-state population**
+### Excited-state steady-state population
 
 Using the identity from Eq. @eq-eew,
 
@@ -694,7 +694,7 @@ This has the standard **Lorentzian form** in the variable $\delta$ (see @fig-int
 
 ---
 
-### **Physical meaning: why the line broadens**
+### Physical meaning: why the line broadens
 
 - At **low intensity**, $S_0\ll1$, the width is essentially the **natural linewidth** $\gamma$.  
 - As intensity increases, $\gamma'$ grows because the transition is driven more strongly.

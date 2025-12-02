@@ -3984,6 +3984,10 @@ height: auto !important;
 }
 p {
 text-align: justify;
+}
+.aligned-equations .math.display {
+margin-top: 0.25em;
+margin-bottom: 0.25em;
 }</style>
 </head>
 
@@ -4450,17 +4454,17 @@ It represents a <strong>quantum state</strong>, for example a wave function or a
 <p>A <strong>bra vector</strong> <span class="math inline">\(\left\langle \beta \right\rvert\)</span> denotes an element of the dual space of <span class="math inline">\(\mathscr{H}\)</span>.<br>
 It is a linear form that maps each vector in <span class="math inline">\(\mathscr{H}\)</span> into the complex plane <span class="math inline">\(\mathbb{C}\)</span> by means of the <strong>inner product</strong>:</p>
 <p><span class="math display">\[
-\left\langle \beta \mid \alpha \right\rangle\in \mathbb{C}.
+\left\langle \beta \middle| \alpha \right\rangle\in \mathbb{C}.
 \]</span></p>
 <p>For example, a wave function <span class="math inline">\(\psi(\vec{r})\)</span> corresponding to a state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is obtained by mapping it into coordinate space using the inner product:</p>
 <p><span class="math display">\[
-\left\langle \vec{r} \mid \psi \right\rangle= \psi(\vec{r}).
+\left\langle \vec{r} \middle| \psi \right\rangle= \psi(\vec{r}).
 \]</span></p>
 <section id="inner-product-for-wave-functions" class="level3">
 <h3 class="anchored" data-anchor-id="inner-product-for-wave-functions">Inner product for wave functions</h3>
 <p>For two wave functions <span class="math inline">\(\psi(x)\)</span> and <span class="math inline">\(\phi(x)\)</span>, the inner product is defined as</p>
 <p><span class="math display">\[
-\left\langle \phi \mid \psi \right\rangle= \int_{-\infty}^{\infty} \phi^\ast(x)\,\psi(x)\,dx,
+\left\langle \phi \middle| \psi \right\rangle= \int_{-\infty}^{\infty} \phi^\ast(x)\,\psi(x)\,dx,
 \]</span></p>
 <p>where <span class="math inline">\(\phi^\ast(x)\)</span> is the complex conjugate of <span class="math inline">\(\phi(x)\)</span>.<br>
 This definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.</p>
@@ -4482,11 +4486,11 @@ This definition guarantees that inner products are complex numbers, and it provi
 <ul>
 <li>The operator can also be written as an outer product:<br>
 <span class="math display">\[
-\hat{O} = \frac{1}{\left\langle \psi \mid \psi \right\rangle} \left\lvert \phi \right\rangle\left\langle \psi \right\rvert.
+\hat{O} = \frac{1}{\left\langle \psi \middle| \psi \right\rangle} \left\lvert \phi \right\rangle\!\!\left\langle \psi \right\rvert.
 \]</span></li>
 <li>If <span class="math inline">\(\{\left\lvert \phi_i \right\rangle\}\)</span> is a complete basis of <span class="math inline">\(\mathscr{H}\)</span>, a linear operator <span class="math inline">\(\hat{O}\)</span> can be written as a matrix with entries<br>
 <span class="math display">\[
-O_{ij} = \left\langle \phi_j \mid \hat{O} \mid \phi_i \right\rangle.
+O_{ij} = \left\langle \phi_j \middle| \hat{O} \middle| \phi_i \right\rangle.
 \]</span></li>
 </ul>
 </section>
@@ -4509,11 +4513,11 @@ The rules are:</p>
 </li>
 <li><span class="math inline">\(\big(c_1\left\lvert \psi_1 \right\rangle+ c_2\left\lvert \psi_2 \right\rangle\big)^\dagger = c_1^\ast \left\langle \psi_1 \right\rvert+ c_2^\ast \left\langle \psi_2 \right\rvert\)</span><br>
 </li>
-<li><span class="math inline">\(\big(\left\langle \psi \mid \phi \right\rangle\big)^\dagger = \left\langle \psi \mid \phi \right\rangle^\ast = \left\langle \phi \mid \psi \right\rangle\)</span><br>
+<li><span class="math inline">\(\big(\left\langle \psi \middle| \phi \right\rangle\big)^\dagger = \left\langle \psi \middle| \phi \right\rangle^\ast = \left\langle \phi \middle| \psi \right\rangle\)</span><br>
 </li>
-<li><span class="math inline">\(\big(\left\langle \phi \mid \hat{A}^\dagger \mid \psi \right\rangle\big)^\ast = \left\langle \psi \mid \hat{A} \mid \phi \right\rangle\)</span><br>
+<li><span class="math inline">\(\big(\left\langle \phi \middle| \hat{A}^\dagger \middle| \psi \right\rangle\big)^\ast = \left\langle \psi \middle| \hat{A} \middle| \phi \right\rangle\)</span><br>
 and<br>
-<span class="math inline">\(\big(\left\langle \phi \mid \hat{A}^\dagger \hat{B}^\dagger \mid \psi \right\rangle\big)^\ast = \left\langle \psi \mid \hat{B}\hat{A} \mid \phi \right\rangle\)</span></li>
+<span class="math inline">\(\big(\left\langle \phi \middle| \hat{A}^\dagger \hat{B}^\dagger \middle| \psi \right\rangle\big)^\ast = \left\langle \psi \middle| \hat{B}\hat{A} \middle| \phi \right\rangle\)</span></li>
 </ul>
 </section>
 <section id="observables" class="level2">
@@ -4530,12 +4534,12 @@ They are associated with measurable physical quantities (e.g., energy, momentum,
 <li>The basis is given by eigenvectors solving<br>
 <span class="math inline">\(\hat{A}\left\lvert n \right\rangle= a_n\left\lvert n \right\rangle\)</span> (discrete spectrum) or <span class="math inline">\(\hat{A}\left\lvert k \right\rangle= k\left\lvert k \right\rangle\)</span> (continuous spectrum).<br>
 </li>
-<li>Orthonormality: <span class="math inline">\(\left\langle n&#39; \mid n \right\rangle= \delta_{n&#39;n}\)</span> or <span class="math inline">\(\left\langle k_i \mid k_j \right\rangle= \delta(k_i-k_j)\)</span>.<br>
+<li>Orthonormality: <span class="math inline">\(\left\langle n&#39; \middle| n \right\rangle= \delta_{n&#39;n}\)</span> or <span class="math inline">\(\left\langle k_i \middle| k_j \right\rangle= \delta(k_i-k_j)\)</span>.<br>
 </li>
 <li>Completeness: every state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> in <span class="math inline">\(\mathscr{H}\)</span> can be expressed as<br>
 <span class="math inline">\(\left\lvert \psi \right\rangle= \sum_n c_n\left\lvert n \right\rangle\)</span> or <span class="math inline">\(\left\lvert \psi \right\rangle= \int c(k)\left\lvert k \right\rangle\,dk\)</span>.<br>
 </li>
-<li>The identity operator can be written as <span class="math inline">\(\mathbb{1} = \sum_n \left\lvert n \right\rangle\left\langle n \right\rvert\)</span> or <span class="math inline">\(\mathbb{1} = \int \left\lvert k \right\rangle\left\langle k \right\rvert\,dk\)</span>.</li>
+<li>The identity operator can be written as <span class="math inline">\(\mathbb{1} = \sum_n \left\lvert n \right\rangle\!\!\left\langle n \right\rvert\)</span> or <span class="math inline">\(\mathbb{1} = \int \left\lvert k \right\rangle\!\!\left\langle k \right\rvert\,dk\)</span>.</li>
 </ul></li>
 </ul>
 </section>
@@ -4545,11 +4549,11 @@ They are associated with measurable physical quantities (e.g., energy, momentum,
 <ul>
 <li>The probability of finding the system in state <span class="math inline">\(\left\lvert \alpha \right\rangle\)</span> is<br>
 <span class="math display">\[
-P = \left|\left\langle \alpha \mid \psi \right\rangle\right|^2.
+P = \left|\left\langle \alpha \middle| \psi \right\rangle\right|^2.
 \]</span></li>
 <li>The expectation value of <span class="math inline">\(\hat{A}\)</span> is<br>
 <span class="math display">\[
-\langle \hat{A} \rangle = \left\langle \psi \mid \hat{A} \mid \psi \right\rangle.
+\langle \hat{A} \rangle = \left\langle \psi \middle| \hat{A} \middle| \psi \right\rangle.
 \]</span></li>
 <li>The variance of <span class="math inline">\(\hat{A}\)</span> is<br>
 <span class="math display">\[
