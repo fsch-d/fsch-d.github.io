@@ -10,7 +10,7 @@ filters:
 
 In general, several mechanisms can exert forces on atoms exposed to laser fields. One example is the *optical dipole force*, a conservative force arising from the Autler–Townes shift (for details see the page on [Rabi Oscillations](rwa_rabi.qmd){target=blank_}) at positions with a non-vanishing laser-intensity gradient. Another mechanism is the *photon scattering force*, which originates from the impulse an atom receives during each photon-absorption and photon-emission event. 
 
-This chapter examines how the scattering force can be used experimentally to cool atomic gases to extremely low temperatures and to confine them within small spatial regions.
+This chapter examines how the scattering force can be used experimentally to cool atomic gases to extremely low temperatures and to confine them within small spatial regions. A concise and very readable overview of these mechanisms can also be found in the article *Laser Cooling and Trapping of Neutral Atoms* by Harold J. Metcalf and Peter van der Straten [@doi:10.1002/9783527600441.oe005](https://doi.org/10.1002/9783527600441.oe005){target=blank_}, which closely parallels the material presented here.
 
 After studying this chapter, you will be able to:
 
