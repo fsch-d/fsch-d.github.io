@@ -1,2 +1,5 @@
 /.quarto/
+**/.ipynb_checkpoints/
 **/*.quarto_ipynb
+.RData
+.Rhistory
