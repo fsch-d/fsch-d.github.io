@@ -169,12 +169,12 @@ phi_A = np.exp(-np.abs(x + R/2) / a0)
 phi_B = np.exp(-np.abs(x - R/2) / a0)
 
 # normalize atomic orbitals (1D projection)
-phi_A /= np.sqrt(np.trapz(phi_A**2, x))
-phi_B /= np.sqrt(np.trapz(phi_B**2, x))
+phi_A /= np.sqrt(np.trapezoid(phi_A**2, x))
+phi_B /= np.sqrt(np.trapezoid(phi_B**2, x))
 
 # bonding (sigma_g) and antibonding (sigma_u) combinations
 # Need to normalize these properly including overlap
-overlap = np.trapz(phi_A * phi_B, x)
+overlap = np.trapezoid(phi_A * phi_B, x)
 N_g = 1.0 / np.sqrt(2 * (1 + overlap))  # normalization for bonding
 N_u = 1.0 / np.sqrt(2 * (1 - overlap))  # normalization for antibonding
 
@@ -183,8 +183,8 @@ phi_u = N_u * (phi_A - phi_B)
 
 # verify normalization
 # print(f"Overlap integral: {overlap:.4f}")
-# print(f"Norm of phi_g: {np.trapz(phi_g**2, x):.4f}")
-# print(f"Norm of phi_u: {np.trapz(phi_u**2, x):.4f}")
+# print(f"Norm of phi_g: {np.trapezoid(phi_g**2, x):.4f}")
+# print(f"Norm of phi_u: {np.trapezoid(phi_u**2, x):.4f}")
 
 # probability densities
 rho_g = phi_g**2

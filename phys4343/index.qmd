@@ -1,12 +1,12 @@
 ---
 title: "Introduction to Atomic, Molecular, and Optical Physics"
-subtitle: "PHYS 4343 — Missouri S&T, Fall 2025"
+subtitle: "PHYS 4343 — Missouri S&T, Fall 2026"
 author: "Daniel Fischer"
 ---
 
 # Welcome
 
-These notes accompany the course **PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics**, taught at **Missouri University of Science and Technology (Missouri S&T)** in **Fall 2025** by *Daniel Fischer*.
+These notes accompany the course **PHYS 4343 — Introduction to Atomic, Molecular, and Optical (AMO) Physics**, taught at **Missouri University of Science and Technology (Missouri S&T)** in **Fall 2026** by *Daniel Fischer*.
 
 ---
 

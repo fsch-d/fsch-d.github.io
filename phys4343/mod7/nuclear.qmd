@@ -998,8 +998,8 @@ for v in range(min(7, n_levels_morse)):
         integrand2 = psi**2 * R_int
         
         # Numerical integration using trapezoidal rule
-        expectation_value = np.trapz(integrand, R_int)
-        R_mean = np.trapz(integrand2, R_int)
+        expectation_value = np.trapezoid(integrand, R_int)
+        R_mean = np.trapezoid(integrand2, R_int)
         R_eff = np.sqrt(1/expectation_value)
         
         # Store for plotting
