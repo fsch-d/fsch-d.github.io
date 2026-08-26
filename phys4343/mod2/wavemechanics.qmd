@@ -4,200 +4,839 @@ jupyter: python3
 title: Wave Mechanics
 ---
 
+# Wave Mechanics: Overview and Plan
 
+This chapter introduces the wave-mechanical description of quantum particles. We begin with **electron interference** because it exposes the central problem directly: electrons are detected as localized particles, but the distribution of many detection events can show interference, a characteristic wave phenomenon.
 
+The specific goals for this chapter are:
 
-## Matter waves
-
-Particles exhibit wave-like behavior (e.g., diffraction). The momentum/wave vector and energy/frequency relations (de Broglie) are:
-
-$$
-\vec{p} = \hbar \vec{k} \quad \text{and} \quad E = \hbar \omega
-$$
-
-## Time evolution
-
-The particle wave function $\psi$ follows the time-dependent Schrödinger Equation (SE):
-
-$$
-i \hbar \frac{\partial}{\partial t} \psi(\vec{r},t) = \hat{H} \psi(\vec{r},t), \quad
-\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
-$$
-
-## Time-independent SE
-
-For a potential without explicit time dependence $V(\vec{r},t)=V(\vec{r})$ and a well-defined energy $E = \hbar \omega$, the wave function can be written as $\psi(\vec{r},t) = \phi(\vec{r}) e^{i\omega t}$ with $\phi(\vec{r})$ following the time-independent SE:
-
-$$
-\hat{H}\phi(\vec{r}) = E \phi(\vec{r})
-$$
-
-## Probability density (Born rule)
-
-The wave function is related to the particle’s probability density $P(\vec{r},t)$ (i.e., the probability of finding the particle at position $\vec{r}$) following the Born rule:
-
-$$
-P(\vec{r},t) = |\psi(\vec{r},t)|^2
-$$
-
-> (Note: This requires the wave function to be normalized, i.e., $\int |\psi(\vec{r},t)|^2 d^3r = 1$. However, not all wave functions can be normalized, e.g., 'plane waves'.)
-
-## Expectation value of position
-
-This is the average position of the particle when many identical measurements are performed, and it is given by:
-
-$$
-\langle \vec{r} \rangle = \int \psi^*(\vec{r},t) \, \vec{r} \, \psi(\vec{r},t) \, d^3r
-$$
-
-## Variance of position
-
-The variance of the position $\vec{r}$ quantifies the spread of the probability distribution, i.e., it expresses the uncertainty in the particle’s position:
-
-$$
-\mathrm{Var}(\vec{r}) = \langle \vec{r}^2 \rangle - \langle \vec{r} \rangle^2,
-\quad \text{with} \quad
-\langle \vec{r}^2 \rangle = \int \psi^*(\vec{r},t) \, \vec{r}^2 \, \psi(\vec{r},t) \, d^3r
-$$
-
-## Wave function in momentum space
-
-A wave function in coordinate space $\psi(\vec{r})$ has a corresponding wave function in momentum space $\Psi(\vec{k})$, and they are related by a Fourier transform (for one particle in three-dimensional space):
-
-$$
-\Psi(\vec{k}) = \frac{1}{(2\pi)^{3/2}} \int d^3r \, \psi(\vec{r}) e^{-i\vec{k}\cdot \vec{r}}, \quad
-\psi(\vec{r}) = \frac{1}{(2\pi)^{3/2}} \int d^3k \, \Psi(\vec{k}) e^{i\vec{k}\cdot \vec{r}}
-$$
-
+1. Discuss **electron interference** and the experimental evidence for matter waves.
+2. Review the description of **waves**, including amplitude, wavelength, frequency, phase, and the complex representation of a wave.
+3. Introduce **superposition and interference** and show why relative phase determines an interference pattern.
+4. Introduce **probability distributions** and the Born interpretation of the quantum-mechanical wave function.
+5. Introduce the **de Broglie relations** between momentum and wave vector and between energy and frequency.
+6. Motivate the **Schrödinger equation** and its description of the time evolution of a quantum state.
 
 ---
 
-::: {.content-visible when-format="pdf"}
-```{=latex}
-\clearpage
-```
-:::
+# 1. Electron Interference and Matter Waves
 
-## EXAMPLE 1: Measurement outcomes and probability distributions
+## 1.1 What is an electron?
+
+By the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.  
+
+In an idealized double-slit experiment, such a classical particle picture suggests that each electron passes through either slit 1 or slit 2. The distribution observed with both slits open should therefore simply be the sum of the distributions obtained from the individual slits,
+
+$$
+P_{12}(x)=P_1(x)+P_2(x).
+$$
+
+Electrons, however, produce **interference patterns**. A particularly direct demonstration was provided by Claus Jönsson, who observed electron diffraction and interference from artificially fabricated single and multiple slits in 1961 ([Jönsson, 1961](https://doi.org/10.1007/BF01342460){target="_blank"}).
+
+
+
 
 ```{python}
-#| label: fig-measurement
-#| fig-format: svg
-#| fig-cap: Measurement outcomes and probability distributions for small (blue) and large (red) variance. Shaded bands show ±σ around the expectation value <x>.
-#| fig-alt: Red broad and blue narrow Gaussians with markers, shaded ±σ bands, and dashed line at x=0.
+#| label: fig-interference-build
+#| fig-cap: "Simulated build-up of an interference pattern from individual detection events."
+#| fig-alt: "Animation of individual particle detections appearing as black dots on a white screen. Initially the positions appear random, but as more particles are detected, vertical interference fringes gradually emerge."
+#| fig-align: center
+# echo: false
+#| warning: false
+
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import norm
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
 
-x = np.linspace(-6,6,400)
-large_var = norm.pdf(x, 0, 2)
-small_var = norm.pdf(x, 0, 0.6)
-np.random.seed(0)
-measurements_wide = np.random.normal(0, 2, 10)
-measurements_narrow = np.random.normal(0, 0.6, 10)
-plt.figure(figsize=(10,5))
-plt.fill_between(x, 0, 2.2, where=(x>=-2) & (x<=2), color='red', alpha=0.1)
-plt.fill_between(x, 0, 2.2, where=(x>=-0.6) & (x<=0.6), color='blue', alpha=0.1)
-plt.plot(x, large_var*2.5, 'r--', label='Large variance distribution')
-plt.plot(x, small_var*2.5, 'b-', label='Small variance distribution')
-plt.scatter(measurements_wide, [0.3]*10, color='red', marker='^', s=50, alpha=0.7, label='Measurements (wide)')
-plt.scatter(measurements_narrow, [0.6]*10, color='blue', s=20, alpha=0.7, label='Measurements (narrow)')
-plt.axvline(0, color='black', linestyle='--', linewidth=2, label='Expectation value <x>')
-plt.xlabel('Measurement outcome x')
-plt.ylabel('Probability density / outcomes')
-plt.legend(loc='upper left')
-plt.grid(False)
+rng = np.random.default_rng(12345)
+
+# ------------------------------------------------------------
+# Screen dimensions
+# ------------------------------------------------------------
+x_min, x_max = -10, 10
+y_min, y_max = -6, 6
+
+# ------------------------------------------------------------
+# Interference pattern
+# ------------------------------------------------------------
+period = 4.0          # fringe spacing in x
+visibility = 0.90     # 0 = flat, 1 = maximum contrast
+phase = 0.0           # phase shift
+
+# ------------------------------------------------------------
+# Animation settings
+# ------------------------------------------------------------
+n_frames = 100
+dots_per_frame = 50
+dot_size = 8
+fps = 8
+
+# Hold final pattern before restarting
+hold_seconds = 2
+hold_frames = int(hold_seconds * fps)
+
+# ------------------------------------------------------------
+# Probability distribution
+# ------------------------------------------------------------
+def p_x(x):
+    return 1.0 + visibility * np.cos(
+        2 * np.pi * x / period + phase
+    )
+
+pmax = 1.0 + visibility
+
+
+# ------------------------------------------------------------
+# Rejection sampling
+# ------------------------------------------------------------
+def sample_x(n):
+    xs = []
+
+    while len(xs) < n:
+        x_try = rng.uniform(x_min, x_max, 4 * n)
+        y_try = rng.uniform(0, pmax, 4 * n)
+
+        accepted = x_try[y_try < p_x(x_try)]
+        xs.extend(accepted.tolist())
+
+    return np.array(xs[:n])
+
+
+# ------------------------------------------------------------
+# Generate detection events
+# ------------------------------------------------------------
+N_total = n_frames * dots_per_frame
+
+x_events = sample_x(N_total)
+y_events = rng.uniform(y_min, y_max, N_total)
+
+
+# ------------------------------------------------------------
+# Figure
+# ------------------------------------------------------------
+fig, ax = plt.subplots(figsize=(8, 5), dpi=80)
+
+fig.patch.set_facecolor("white")
+ax.set_facecolor("white")
+
+scat = ax.scatter(
+    [],
+    [],
+    s=dot_size,
+    c="black"
+)
+
+ax.set_xlim(x_min, x_max)
+ax.set_ylim(y_min, y_max)
+
+ax.set_xticks([])
+ax.set_yticks([])
+
+count_text = ax.text(
+    0.02,
+    0.95,
+    "",
+    transform=ax.transAxes,
+    ha="left",
+    va="top",
+    fontsize=12,
+    zorder=10,
+    bbox=dict(
+        facecolor="white",
+        edgecolor="black",
+        alpha=0.9,
+        boxstyle="round,pad=0.3"
+    )
+)
+
+
+# ------------------------------------------------------------
+# Animation
+# ------------------------------------------------------------
+def init():
+    scat.set_offsets(np.empty((0, 2)))
+    count_text.set_text("")
+    return scat, count_text
+
+
+def animate(frame):
+
+    if frame < n_frames:
+        n = (frame + 1) * dots_per_frame
+    else:
+        n = N_total
+
+    offsets = np.column_stack(
+        (x_events[:n], y_events[:n])
+    )
+
+    scat.set_offsets(offsets)
+    count_text.set_text(f"Detected particles: {n}")
+
+    return scat, count_text
+
+
+anim = FuncAnimation(
+    fig,
+    animate,
+    frames=n_frames + hold_frames,
+    init_func=init,
+    interval=1000 / fps,
+    blit=True,
+    repeat=True
+)
+
+plt.close(fig)
+
+# Display as looping HTML5 video
+HTML(anim.to_html5_video())
 ```
 
-::: {.content-visible when-format="pdf"}
-```{=latex}
-\clearpage
-```
-:::
+The result immediately raises a question:
 
-## EXAMPLE 2: Free 1D Electron: Plane Wave Solution
+> **Why do objects that are detected as particles produce an interference pattern?**
 
-The time-dependent Schrödinger equation for a free particle in 1D:
+
+The key observation is therefore:
+
+- an individual electron is detected at a **localized position**;
+- many repeated detections form a **wave-like interference pattern**.
+
+This behavior cannot be described by a simple classical particle picture or by a simple classical material wave.
+
+## 1.2 Historical perspective: Davisson--Germer
+
+The electron double-slit experiment gives a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated much earlier by **Clinton Davisson and Lester Germer** in 1927.
+
+Davisson and Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima are naturally explained as **electron diffraction by the periodic crystal lattice**, in close analogy to the diffraction of x rays by crystals ([Davisson & Germer, 1927](https://doi.org/10.1103/PhysRev.30.705){target="_blank"}).
+
+<!-- Suggested figure here:
+     - original Davisson--Germer angular scattering curve, and/or
+     - a modern electron-diffraction image from a crystal.
+-->
+
+The experiment provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.
+
+---
+
+# 2. Waves and Complex Wave Amplitudes
+
+## 2.1 A traveling wave
+
+A one-dimensional harmonic traveling wave can be written as
 
 $$
-i \hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2}
+y(x,t)=A\cos\big(kx-\omega t+\phi\big).
 $$
 
-Plane wave solution:
+It is useful to define the **phase** of the wave as the complete argument of the trigonometric function,
 
 $$
-\psi(x,t) = e^{i(kx - \omega t)}, \quad \omega = \frac{\hbar k^2}{2m}
+\theta(x,t)=kx-\omega t+\phi.
 $$
 
-- **Solution:** plane wave with constant amplitude
-- **Momentum:** well-defined, $p = \hbar k$
-- **Normalizability:** Not normalizable, so not physical by itself
+Here,
+
+- $A$ is the **amplitude**,
+- $\lambda$ is the **wavelength**,
+- $k=2\pi/\lambda$ is the **wave number**,
+- $f$ is the frequency,
+- $\omega=2\pi f$ is the **angular frequency**,
+- $\theta(x,t)$ is the **phase** of the wave,
+- $\phi$ is the **phase offset** (or initial phase).
+
+Thus, in these notes the word *phase* refers to the full quantity $\theta(x,t)$, while $\phi$ denotes only the constant phase offset.
 
 ```{python}
-#| label: fig-wave
+#| label: fig-wave-parameters
 #| fig-format: svg
-#| fig-cap: 'Plane wave solution: real part of the wave function for a free 1D electron'
-#| fig-alt: Cosine wave showing the oscillatory behavior of a free electron plane wave in one dimension.
+#| fig-cap: "A harmonic wave at fixed time. The figure illustrates the amplitude A, wavelength λ, and the spatial shift associated with a phase offset φ."
+#| fig-alt: "Cosine wave with arrows indicating amplitude and wavelength, together with a dashed zero-phase reference wave showing the horizontal shift caused by a phase offset."
+#| code-fold: true
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.linspace(0, 10, 400)
-y = np.cos(2*np.pi*0.8*x - 0.5)
+A = 1.0
+lam = 2.5
+phi = np.pi/3
+k = 2*np.pi/lam
 
-plt.figure(figsize=(8,4))
-plt.plot(x, y, color='blue', linewidth=2)
-plt.xlabel('x')
-plt.ylabel('Re[ψ(x,t)]')
-plt.ylim(-2,2)
-plt.grid(False)
+x = np.linspace(-0.8, 5.6, 1000)
+y = A*np.cos(k*x + phi)
+y_ref = A*np.cos(k*x)
+
+x_peak = -phi/k
+x_peak_2 = x_peak + lam
+x_peak_3 = x_peak + 2*lam
+
+fig, ax = plt.subplots(figsize=(9,4.5))
+ax.plot(x, y, linewidth=2, label=r'$A\cos(kx+\phi)$')
+ax.plot(x, y_ref, '--', alpha=0.55, label=r'$A\cos(kx)$')
+ax.axhline(0, linewidth=0.8)
+
+# Amplitude
+ax.annotate('', xy=(x_peak_2, A), xytext=(x_peak_2, 0),
+            arrowprops=dict(arrowstyle='<->'))
+ax.text(x_peak_2+0.10, A/2, r'$A$', va='center')
+
+# Wavelength
+level = -1.28
+ax.annotate('', xy=(x_peak_3, level), xytext=(x_peak_2, level),
+            arrowprops=dict(arrowstyle='<->'))
+ax.text((x_peak_2+x_peak_3)/2, level+0.08, r'$\lambda$', ha='center')
+
+# Shift associated with phase offset
+phase_level = 1.28
+ax.annotate('', xy=(0, phase_level), xytext=(x_peak, phase_level),
+            arrowprops=dict(arrowstyle='<->'))
+ax.text(x_peak/2, phase_level+0.08,
+        r'phase offset: $\Delta x=-\phi/k$', ha='center')
+
+ax.set_xlabel('x')
+ax.set_ylabel('y(x,t)')
+ax.set_ylim(-1.55,1.55)
+ax.legend(loc='lower left')
+ax.grid(False)
+plt.tight_layout()
 ```
 
-::: {.content-visible when-format="pdf"}
-```{=latex}
-\newpage
-```
+A change in phase offset corresponds to a horizontal shift of the wave. At fixed time,
+
+$$
+\Delta x=-\frac{\phi}{k}.
+$$
+
+More importantly for interference, two waves need not have the same phase at a given position. Their **relative phase** will determine whether they interfere constructively or destructively.
+
+## 2.2 Complex representation
+
+Using Euler's relation,
+
+$$
+e^{i\theta}=\cos\theta+i\sin\theta,
+$$
+
+we can represent a harmonic wave compactly as
+
+$$
+\psi(x,t)=A e^{i\theta(x,t)}
+=Ae^{i(kx-\omega t+\phi)}.
+$$
+
+In three dimensions,
+
+$$
+\psi(\vec r,t)=A e^{i(\vec k\cdot\vec r-\omega t+\phi)}.
+$$
+
+The complex representation keeps track of both **amplitude and phase** and makes the mathematics of superposition particularly simple.
+
+For a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function $\psi$ is itself generally complex and has a different physical interpretation, which we will introduce in Section 4.
+
+---
+
+# 3. Superposition and Interference
+
+For two waves with amplitudes $A_1$ and $A_2$,
+
+$$
+\psi_1=A_1e^{i\theta_1},
+\qquad
+\psi_2=A_2e^{i\theta_2},
+$$
+
+the **superposition principle** states that the combined wave is
+
+$$
+\psi=\psi_1+\psi_2.
+$$
+
+For ordinary wave intensity, and later for quantum-mechanical probability, the relevant quantity is the absolute square:
+
+$$
+|\psi|^2=|\psi_1+\psi_2|^2.
+$$
+
+Expanding gives
+
+$$
+\boxed{
+|\psi_1+\psi_2|^2
+=A_1^2+A_2^2+2A_1A_2\cos(\Delta\theta)
+}
+$$
+
+with
+
+$$
+\Delta\theta=\theta_2-\theta_1.
+$$
+
+The last term is the **interference term**. The central result is therefore
+
+$$
+\boxed{\text{interference is determined by relative phase}.}
+$$
+
+For equal amplitudes $A_1=A_2=A$,
+
+$$
+|\psi_1+\psi_2|^2
+=2A^2\big[1+\cos(\Delta\theta)\big]
+=4A^2\cos^2\left(\frac{\Delta\theta}{2}\right).
+$$
+
+In a double-slit geometry the phase difference results primarily from the difference in path length,
+
+$$
+\Delta\theta=k\,\Delta L
+=\frac{2\pi}{\lambda}\Delta L.
+$$
+
+For slits separated by $d$ in the far-field approximation,
+
+$$
+\Delta L\simeq d\sin\alpha.
+$$
+
+Thus different positions on the observation screen correspond to different relative phases and therefore to alternating constructive and destructive interference.
+
+::: {.callout-note collapse="true"}
+## Derivation of the interference term
+
+Starting from
+
+$$
+\psi=\psi_1+\psi_2,
+$$
+
+we obtain
+
+$$
+\begin{aligned}
+|\psi|^2
+&=(\psi_1+\psi_2)^*(\psi_1+\psi_2)\\
+&=|\psi_1|^2+|\psi_2|^2+\psi_1^*\psi_2+\psi_2^*\psi_1.
+\end{aligned}
+$$
+
+For $\psi_j=A_j e^{i\theta_j}$,
+
+$$
+\psi_1^*\psi_2=A_1A_2e^{i(\theta_2-\theta_1)},
+$$
+
+and
+
+$$
+\psi_2^*\psi_1=A_1A_2e^{-i(\theta_2-\theta_1)}.
+$$
+
+Using $e^{i\alpha}+e^{-i\alpha}=2\cos\alpha$ gives
+
+$$
+|\psi|^2=A_1^2+A_2^2+2A_1A_2\cos(\theta_2-\theta_1).
+$$
 :::
 
-## EXAMPLE 3: Gaussian Wavepacket in 1D
+<!-- A Python double-slit animation can be inserted here later.
+     Useful quantities to visualize: path difference, relative phase,
+     wave amplitudes, and the resulting intensity/probability pattern.
+-->
 
-Initial wavepacket:
+---
+
+# 4. Probability and the Born Rule
+
+## 4.1 Probability distributions
+
+Before assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.
+
+Let $p(x)$ be a probability density. The probability of finding a measurement outcome between $a$ and $b$ is
 
 $$
-\psi(x,0) = e^{-x^2/(2\sigma^2)} e^{i k_0 x}
+P(a<x<b)=\int_a^b p(x)\,dx.
 $$
 
-Time evolution:
+The total probability must be one,
 
 $$
-\psi(x,t) \sim e^{-(x - \hbar k_0 t / m)^2 / (2 \sigma_t^2)} e^{i(k_0 x - \omega t)}, \quad
-\sigma_t = \sigma \sqrt{1 + \left(\frac{\hbar t}{m \sigma^2}\right)^2}
+\int_{-\infty}^{\infty}p(x)\,dx=1.
 $$
 
-- **Localized wavepacket** (superposition of plane waves)
-- **Moves with group velocity** $v_g = \hbar k_0/m$
-- **Spreads in time** due to dispersion
-- **Physical:** normalizable and finite probability
+For a very small interval $dx$,
+
+$$
+dP=p(x)\,dx.
+$$
+
+The expectation value is
+
+$$
+\langle x\rangle
+=\int_{-\infty}^{\infty}x\,p(x)\,dx,
+$$
+
+and the variance is
+
+$$
+\operatorname{Var}(x)
+=\langle x^2\rangle-\langle x\rangle^2.
+$$
+
+The standard deviation is
+
+$$
+\sigma_x=\sqrt{\operatorname{Var}(x)}.
+$$
+
+## 4.2 The Born interpretation
+
+Quantum mechanics associates a complex wave function $\psi(\vec r,t)$ with the state of a particle. According to the **Born rule**, the probability density for position is
+
+$$
+\boxed{p(\vec r,t)=|\psi(\vec r,t)|^2.}
+$$
+
+Thus the probability of detecting the particle within a small volume $d^3r$ is
+
+$$
+dP=|\psi(\vec r,t)|^2\,d^3r,
+$$
+
+and the probability of finding it in a finite region $R$ is
+
+$$
+P_R=\int_R |\psi(\vec r,t)|^2\,d^3r.
+$$
+
+For a normalizable state,
+
+$$
+\int_{\mathbb R^3}|\psi(\vec r,t)|^2\,d^3r=1.
+$$
+
+This gives the wave function its central interpretation:
+
+$$
+\boxed{\psi=\text{probability amplitude},
+\qquad |\psi|^2=\text{probability density}.}
+$$
+
+The electron-interference experiment can now be expressed very compactly. The probability amplitudes associated with the two alternatives add,
+
+$$
+\psi=\psi_1+\psi_2,
+$$
+
+but the measurable probability density is
+
+$$
+|\psi|^2=|\psi_1+\psi_2|^2,
+$$
+
+which contains the interference term.
+
+::: {.callout-note}
+A plane wave extending over all space is not square-normalizable in the usual sense. It is an idealized state of exactly defined momentum and can be treated using box normalization or the generalized normalization of continuum states.
+:::
+
+---
+
+# 5. Matter Waves and the de Broglie Relations
+
+The experiments discussed in Section 1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
+
+$$
+\boxed{\vec p=\hbar\vec k}
+$$
+
+or equivalently
+
+$$
+\boxed{\lambda=\frac{h}{p}.}
+$$
+
+The corresponding relation between energy and angular frequency is
+
+$$
+\boxed{E=\hbar\omega.}
+$$
+
+These relations connect particle quantities $(E,\vec p)$ to wave quantities $(\omega,\vec k)$.
+
+For a one-dimensional plane wave,
+
+$$
+\psi(x,t)=A e^{i(kx-\omega t)},
+$$
+
+the momentum and energy are therefore
+
+$$
+p=\hbar k,
+\qquad
+E=\hbar\omega.
+$$
+
+The probability density of an ideal plane wave is constant,
+
+$$
+|\psi(x,t)|^2=|A|^2,
+$$
+
+so it is completely delocalized in position. This is consistent with the plane wave representing a state of precisely defined momentum.
+
+## 5.1 Wave packets and momentum space
+
+A localized particle cannot be represented by a single plane wave. Instead, it is represented by a **superposition of plane waves** with different wave vectors.
+
+In one dimension,
+
+$$
+\tilde\psi(k)
+=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\psi(x)e^{-ikx}\,dx,
+$$
+
+and
+
+$$
+\psi(x)
+=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\tilde\psi(k)e^{ikx}\,dk.
+$$
+
+Because $p=\hbar k$, the distribution in $k$ is directly related to the distribution of momentum. A narrow range of wave vectors produces an extended wave packet in position, while strong localization requires a broader range of wave vectors. This relation will later lead naturally to the position--momentum uncertainty relation.
+
+---
+
+# 6. Time Evolution and the Schrödinger Equation
+
+## 6.1 Energy and momentum as differential operators
+
+Consider again a plane wave,
+
+$$
+\psi(x,t)=Ae^{i(kx-\omega t)}.
+$$
+
+Taking a time derivative gives
+
+$$
+\frac{\partial\psi}{\partial t}
+=-i\omega\psi,
+$$
+
+and therefore, using $E=\hbar\omega$,
+
+$$
+i\hbar\frac{\partial\psi}{\partial t}=E\psi.
+$$
+
+Similarly,
+
+$$
+\frac{\partial\psi}{\partial x}=ik\psi,
+$$
+
+so that, using $p=\hbar k$,
+
+$$
+-i\hbar\frac{\partial\psi}{\partial x}=p\psi.
+$$
+
+This motivates the quantum-mechanical associations
+
+$$
+\boxed{
+E\longleftrightarrow i\hbar\frac{\partial}{\partial t},
+\qquad
+p_x\longleftrightarrow -i\hbar\frac{\partial}{\partial x}.
+}
+$$
+
+In three dimensions,
+
+$$
+\boxed{\hat{\vec p}=-i\hbar\vec\nabla.}
+$$
+
+These are examples of **operators**: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.
+
+## 6.2 Potential energy and the Hamiltonian
+
+For a nonrelativistic classical particle,
+
+$$
+E=T+V=\frac{p^2}{2m}+V.
+$$
+
+Here $V(\vec r,t)$ is the **potential energy** that describes the interaction of the particle with its environment. Examples include
+
+$$
+V=mgh
+$$
+
+for a particle near the surface of the Earth and
+
+$$
+V=q\Phi
+$$
+
+for a charge $q$ in an electrostatic potential $\Phi$.
+
+In atomic physics, the Coulomb interaction between an electron and a nucleus of charge $+Ze$ gives
+
+$$
+V(r)=-\frac{Ze^2}{4\pi\varepsilon_0 r}.
+$$
+
+Replacing the classical energy and momentum quantities by the corresponding quantum-mechanical operators motivates
+
+$$
+\boxed{
+ i\hbar\frac{\partial}{\partial t}\psi(\vec r,t)
+ =\left[
+ -\frac{\hbar^2}{2m}\nabla^2+V(\vec r,t)
+ \right]\psi(\vec r,t).
+}
+$$
+
+This is the **time-dependent Schrödinger equation**.
+
+Defining the Hamiltonian operator
+
+$$
+\boxed{
+\hat H=-\frac{\hbar^2}{2m}\nabla^2+V(\vec r,t),
+}
+$$
+
+it can be written compactly as
+
+$$
+\boxed{
+ i\hbar\frac{\partial}{\partial t}\psi=\hat H\psi.
+}
+$$
+
+::: {.callout-important}
+The argument above **motivates** the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law.
+:::
+
+## 6.3 Time-independent Schrödinger equation
+
+If the potential has no explicit time dependence,
+
+$$
+V(\vec r,t)=V(\vec r),
+$$
+
+states of well-defined energy can be written as
+
+$$
+\psi(\vec r,t)=\phi(\vec r)e^{-iEt/\hbar}
+=\phi(\vec r)e^{-i\omega t}.
+$$
+
+Substitution into the time-dependent Schrödinger equation gives
+
+$$
+\boxed{
+\hat H\phi(\vec r)=E\phi(\vec r),
+}
+$$
+
+the **time-independent Schrödinger equation**.
+
+Because the time-dependent factor has unit magnitude,
+
+$$
+|e^{-iEt/\hbar}|^2=1,
+$$
+
+the position probability density of such an energy eigenstate is time independent:
+
+$$
+|\psi(\vec r,t)|^2=|\phi(\vec r)|^2.
+$$
+
+Such states are therefore called **stationary states**.
+
+## 6.4 Example: a free Gaussian wave packet
+
+A physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,
+
+$$
+\psi(x,0)
+=\frac{1}{(2\pi\sigma_0^2)^{1/4}}
+\exp\left[-\frac{(x-x_0)^2}{4\sigma_0^2}\right]
+ e^{ik_0x}.
+$$
+
+Its initial probability distribution has standard deviation $\sigma_0$. For a free particle the center moves with the group velocity
+
+$$
+v_g=\frac{\hbar k_0}{m},
+$$
+
+while the packet spreads according to
+
+$$
+\sigma(t)
+=\sigma_0
+\sqrt{1+\left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}.
+$$
 
 ```{python}
 #| label: fig-wavepacket
 #| fig-format: svg
-#| fig-cap: 'Gaussian wavepacket evolution: initial (red) and later (blue) distributions'
-#| fig-alt: 'Two Gaussian curves: narrow red at center and broader blue shifted right, showing spreading.'
-x = np.linspace(-8, 8, 400)
-psi0 = np.exp(-x**2/2)
-psi_t = np.exp(-(x-2)**2/4)
-plt.figure(figsize=(8,4))
-plt.plot(x, psi0, color='red', linewidth=2, label='t=0')
-plt.plot(x, psi_t, color='blue', linewidth=2, label='t>0')
-plt.xlabel('x')
-plt.ylabel('|ψ(x,t)|²')
-plt.legend()
-plt.grid(False)
+#| fig-cap: "Free Gaussian wave packet: the center moves while the position distribution spreads with time. Dimensionless units with ħ=m=1 are used."
+#| fig-alt: "Two normalized Gaussian probability-density curves. The later curve is shifted to the right and broader than the initial curve."
+#| code-fold: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+hbar = 1.0
+m = 1.0
+sigma0 = 0.6
+x0 = -2.0
+k0 = 2.0
+
+x = np.linspace(-6, 7, 800)
+
+def probability_density(x, t):
+    sigma_t = sigma0*np.sqrt(1 + (hbar*t/(2*m*sigma0**2))**2)
+    x_center = x0 + hbar*k0*t/m
+    return np.exp(-(x-x_center)**2/(2*sigma_t**2))/(np.sqrt(2*np.pi)*sigma_t)
+
+fig, ax = plt.subplots(figsize=(8,4))
+ax.plot(x, probability_density(x,0), linewidth=2, label='t = 0')
+ax.plot(x, probability_density(x,1.5), linewidth=2, label='later time')
+ax.set_xlabel('x')
+ax.set_ylabel(r'$|\psi(x,t)|^2$')
+ax.legend()
+ax.grid(False)
+plt.tight_layout()
 ```
 
-## Additional notes:
+The wave packet illustrates several important ideas at once:
 
-- Analytic solutions exist only for very simple systems. More particles require approximations or numerical methods.
-- Electromagnetic interactions are relativistic; a full description uses quantum electrodynamics (QED).
-- Some quantum properties (e.g., spin) cannot be described by wave functions alone, but the general Schrödinger equation $\hat{H}\psi=i\hbar \partial_t \psi$ still governs time evolution.
+- a localized state is a **superposition of plane waves**;
+- its center moves with the group velocity;
+- its position distribution can spread with time;
+- unlike an ideal plane wave, a Gaussian wave packet is square-normalizable.
 
+---
+
+## Additional remarks
+
+- Analytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.
+- The nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.
+- A scalar spatial wave function is not sufficient to describe all quantum degrees of freedom. Electron spin, for example, requires a two-component spinor structure, which will be introduced later in the course.
