@@ -49,7 +49,10 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from IPython.display import HTML
 
+plt.rcdefaults()
+
 rng = np.random.default_rng(12345)
+
 
 # ------------------------------------------------------------
 # Screen dimensions
