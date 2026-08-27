@@ -1,6 +1,6 @@
 ---
 author: Daniel Fischer
-jupyter: python3
+jupyter: diffractio
 title: Wave Mechanics
 ---
 
@@ -449,10 +449,135 @@ $$
 $$
 :::
 
-<!-- A Python double-slit animation can be inserted here later.
-     Useful quantities to visualize: path difference, relative phase,
-     wave amplitudes, and the resulting intensity/probability pattern.
--->
+```{python}
+#| label: fig-double-slit-animation
+#| fig-cap: "Double-slit interference. Instantaneous real part of a monochromatic wave propagating through two narrow slits. The waves emerging from the slits overlap and interfere as they propagate."
+#| fig-alt: "Animation of a wave propagating from left to right through two narrow slits. Beyond the slits, two circular wave patterns spread outward and overlap, producing alternating regions of constructive and destructive interference."
+# echo: false
+#| output: asis
+
+from diffractio import degrees, mm, np, um
+from diffractio.scalar_sources_X import Scalar_source_X
+from diffractio.scalar_masks_X import Scalar_mask_X
+from diffractio.scalar_masks_XZ import Scalar_mask_XZ
+
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML, display
+
+import math
+
+
+# Computational grid
+x0 = np.linspace(-37.5 * um, 37.5 * um, 640)
+z0 = np.linspace(0 * um, 60 * um, 512)
+
+wavelength = 2 * um
+
+
+# Incident plane wave
+u0 = Scalar_source_X(x=x0, wavelength=wavelength)
+u0.plane_wave(theta=0)
+
+
+# Double slit
+t0 = Scalar_mask_X(x=x0, wavelength=wavelength)
+
+t0.double_slit(
+    x0=0,
+    size=2 * um,
+    separation=8 * um
+)
+
+
+# XZ propagation region
+t1 = Scalar_mask_XZ(
+    x=x0,
+    z=z0,
+    wavelength=wavelength,
+    n_background=1
+)
+
+za = 10 * um
+zb = za + 1 * um
+
+v_globals = dict(z0=za, z1=zb)
+
+t1.extrude_mask(
+    t=t0,
+    z0=za,
+    z1=zb,
+    refractive_index=0 + 20j,
+    v_globals=v_globals
+)
+
+
+# Illuminate the mask
+t1.incident_field(u0)
+
+
+# Propagate
+t1.WPM(
+    has_edges=True,
+    pow_edge=60
+)
+
+
+# Complex field
+field = np.transpose(t1.u)
+
+field = field[64:-64, 64:]
+
+x_plot = x0[64:-64] / um
+z_plot = z0[64:-64] / um
+
+
+# Animation
+fps = 20
+n_frames = 20
+
+fig, ax = plt.subplots(figsize=(8, 8))
+
+im = ax.imshow(
+    field.real,
+    origin="lower",
+    aspect="auto",
+    extent=[
+        x_plot.min(),
+        x_plot.max(),
+        z_plot.min(),
+        z_plot.max()
+    ],
+    cmap="seismic",
+    vmin=-2,
+    vmax=2
+)
+
+ax.set_xlabel(r"Propagation distance $z$ ($\mu$m)")
+ax.set_ylabel(r"Transverse position $x$ ($\mu$m)")
+ax.set_title("Double-slit diffraction")
+
+
+def animate_func(i):
+    phase = np.exp(-1j * 2 * np.pi * i / n_frames)
+    instantaneous_field = field * phase
+    im.set_data(instantaneous_field.real)
+    return [im]
+
+
+anim = animation.FuncAnimation(
+    fig,
+    animate_func,
+    frames=n_frames,
+    interval=1000 / fps,
+    blit=True,
+    repeat=True
+)
+
+plt.close(fig)
+
+display(HTML(anim.to_html5_video()))
+```
 
 ---
 
