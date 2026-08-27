@@ -205,18 +205,26 @@ The key observation is therefore:
 
 This behavior cannot be described by a simple classical particle picture or by a simple classical material wave.
 
-## 1.2 Historical perspective: Davisson--Germer
 
-The electron double-slit experiment gives a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated much earlier by **Clinton Davisson and Lester Germer** in 1927.
+## 1.2 Historical perspective: Electron diffraction
 
-Davisson and Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima are naturally explained as **electron diffraction by the periodic crystal lattice**, in close analogy to the diffraction of x rays by crystals ([Davisson & Germer, 1927](https://doi.org/10.1103/PhysRev.30.705){target="_blank"}).
+The electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.
 
-<!-- Suggested figure here:
-     - original Davisson--Germer angular scattering curve, and/or
-     - a modern electron-diffraction image from a crystal.
--->
+In 1927, **Clinton Davisson and Lester Germer** scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima could be explained as **electron diffraction by the periodic crystal lattice**, in close analogy to the diffraction of x rays by crystals ([Davisson & Germer, 1927](https://doi.org/10.1103/PhysRev.30.705){target="_blank"}).
 
-The experiment provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.
+At about the same time, **George Paget Thomson** investigated electrons transmitted through thin crystalline films. Instead of angular scattering maxima, these experiments produced characteristic **diffraction rings** on photographic plates. The ring patterns provided another striking demonstration that electrons exhibit wave-like behavior.
+
+![Electron diffraction pattern recorded in experiments by George Paget Thomson. The concentric rings result from diffraction of electrons transmitted through a thin crystalline film. Source: [Science Museum Group Collection](https://collection.sciencemuseumgroup.org.uk/objects/co5292/set-of-twenty-copies-of-original-electron-diffraction-photographs-photograph){target="_blank"}. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}.](GPThomson_diffr.jpg){#fig-gpthomson-diffraction fig-alt="Historical black-and-white electron diffraction photograph showing many bright concentric rings around a central bright spot." width="70%"}
+
+The two experiments used different geometries but led to the same conclusion: electrons, despite their particle-like properties such as charge and mass, can undergo diffraction. Davisson and Thomson later shared the **1937 Nobel Prize in Physics** for the experimental discovery of electron diffraction.
+
+The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.
+
+::: {.callout-note collapse="true"}
+## Historical note
+
+George Paget Thomson was the son of **J. J. Thomson**, whose cathode-ray experiments helped establish the electron as a constituent of matter with particle-like properties. About three decades later, G. P. Thomson's diffraction experiments provided direct evidence for the electron's wave-like behavior.
+:::
 
 ---
 
