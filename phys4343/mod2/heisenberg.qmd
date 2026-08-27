@@ -1,139 +1,1278 @@
 ---
-title: "Heisenberg's Uncertainty Principle"
-author: "Daniel Fischer"
+author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+title: Commutators and the Heisenberg Uncertainty Principle
+subtitle: Compatible Observables and Quantum Uncertainty
 ---
 
-# Commutators and Heisenberg’s Uncertainty Principle
 
-The **commutator** of two operators $\hat{A}$ and $\hat{B}$ is defined as
+# Commutators and the Heisenberg Uncertainty Principle: Overview and Plan
+
+In the previous section, we saw that an ideal quantum measurement generally changes the state of the system.
+
+Suppose a measurement of an observable $\hat A$ produces the value $a_n$. For a nondegenerate eigenvalue, the state afterward is
 
 $$
-\comm{\hat{A}}{\hat{B}} = \hat{A}\hat{B} - \hat{B}\hat{A}.
+\ket{a_n}.
 $$
 
----
+If we now measure a different observable $\hat B$, the state may change again. A subsequent measurement of $A$ need not reproduce the original result.
 
-## Key Properties of Commutators
+This raises an important question:
 
-- Two observables $\hat{A}$ and $\hat{B}$ have a complete set of **common eigenstates**  
-  *if and only if* their commutator vanishes:
-  $$
-  \comm{\hat{A}}{\hat{B}} = \hat{0}.
-  $$
-- If $\comm{\hat{A}}{\hat{B}} \neq \hat{0}$, the observables are called **incompatible**.  
-  They cannot, in general, be measured sharply at the same time.  
-- This incompatibility is made quantitative by the **Heisenberg uncertainty principle**:
-  $$
-  \sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2}\,\big|\langle \comm{\hat{A}}{\hat{B}} \rangle\big|,
-  $$
-  where $\sigma_A$ and $\sigma_B$ denote the standard deviations of observables $A$ and $B$.
+> **When can two observables possess definite values simultaneously?**
 
-:::{.callout-note  collapse="true"}
-## Proof of the Uncertainty Principle
+The answer is encoded in the algebra of the corresponding operators.
 
-Let $\hat{A}$ and $\hat{B}$ be Hermitian operators.  
-Define centered operators
+If two observables are represented by operators that **commute**, they are compatible and can—under the usual conditions encountered here—be described using common eigenstates.
+
+If they do not commute, the observables are generally incompatible.
+
+The **Heisenberg uncertainty principle** provides a quantitative connection between this noncommutativity and the statistical uncertainties of measurements.
+
+The specific goals for this chapter are:
+
+1. Understand why successive measurements of different observables can depend on the order in which they are performed.
+2. Introduce compatible and incompatible observables.
+3. Define the commutator and learn its most important algebraic properties.
+4. Understand the connection between commuting operators and common eigenstates.
+5. Introduce complete sets of commuting observables.
+6. Connect the uncertainty of an observable to the spread of measurement outcomes introduced in the previous section.
+7. Derive the general form of the **Heisenberg uncertainty principle**.
+8. Apply the uncertainty principle to position and momentum.
+9. Preview the commutation relations of angular momentum.
+
+
+# 1. Successive Measurements and Compatibility
+
+## 1.1 Measuring two different observables
+
+Suppose the system is initially in the state
+
 $$
-\Delta \hat{A} = \hat{A} - \langle \hat{A} \rangle, \qquad
-\Delta \hat{B} = \hat{B} - \langle \hat{B} \rangle.
+\ket{\psi},
 $$
 
-For any real number $\lambda$, consider
-the inner product
+and we first measure the observable $\hat A$.
+
+Assume the result is the nondegenerate eigenvalue $a_n$.
+
+The state becomes
+
 $$
-\langle \psi | (\Delta \hat{A} + i \lambda \Delta \hat{B})^\dagger (\Delta \hat{A} + i \lambda \Delta \hat{B}) | \psi \rangle \;\geq\; 0.
+\ket{\psi}
+\longrightarrow
+\ket{a_n}.
 $$
 
-> **Remark.** This is just $\| (\Delta \hat{A} + i \lambda \Delta \hat{B}) |\psi\rangle \|^2$,  
-> the squared norm of a vector in Hilbert space.  
-> Since norms are always nonnegative, the whole expression is $\geq 0$.
+Now measure another observable $\hat B$, whose eigenstates satisfy
 
+$$
+\hat B\ket{b_m}
+=
+b_m\ket{b_m}.
+$$
+
+We can expand the state $\ket{a_n}$ in the eigenbasis of $\hat B$:
+
+$$
+\ket{a_n}
+=
+\sum_m
+\ket{b_m}
+\braket{b_m}{a_n}.
+$$
+
+The probability that the measurement of $B$ gives the result $b_m$ is therefore
+
+$$
+\boxed{
+P(b_m|a_n)
+=
+\left|
+\braket{b_m}{a_n}
+\right|^2.
+}
+$$
+
+After obtaining $b_m$, the state becomes
+
+$$
+\ket{a_n}
+\longrightarrow
+\ket{b_m}.
+$$
+
+
+## 1.2 Measuring $A$ again
+
+Now suppose we immediately measure $A$ once more.
+
+The probability of recovering the original value $a_n$ is
+
+$$
+P(a_n|b_m)
+=
+\left|
+\braket{a_n}{b_m}
+\right|^2.
+$$
+
+Unless $\ket{b_m}$ is also an eigenstate of $\hat A$, this probability need not be one.
+
+Thus the intermediate measurement of $B$ may destroy the definite value of $A$ established by the first measurement.
+
+Schematically,
+
+$$
+\boxed{
+A
+\longrightarrow
+B
+\longrightarrow
+A
+}
+$$
+
+need not reproduce the result of the first measurement.
+
+
+## 1.3 Compatible observables
+
+There is, however, an important special case.
+
+Suppose $\hat A$ and $\hat B$ possess a common set of eigenstates,
+
+$$
+\ket{a,b},
+$$
+
+such that
+
+$$
+\hat A\ket{a,b}
+=
+a\ket{a,b}
+$$
+
+and
+
+$$
+\hat B\ket{a,b}
+=
+b\ket{a,b}.
+$$
+
+The same state then possesses definite values of both observables.
+
+A measurement of one observable does not necessarily destroy the definite value of the other.
+
+Such observables are called **compatible observables**.
+
+We therefore need a mathematical criterion that tells us whether two observables are compatible.
+
+That criterion is provided by the **commutator**.
+
+
+# 2. Commutators and Compatible Observables
+
+## 2.1 The commutator
+
+The commutator of two operators $\hat A$ and $\hat B$ is defined by
+
+$$
+\boxed{
+[\hat A,\hat B]
+=
+\hat A\hat B-\hat B\hat A.
+}
+$$
+
+If
+
+$$
+[\hat A,\hat B]=0,
+$$
+
+the operators **commute**.
+
+If
+
+$$
+[\hat A,\hat B]\neq0,
+$$
+
+they do **not commute**.
+
+For the Hermitian operators encountered in ordinary quantum mechanics, commuting observables can be simultaneously diagonalized and therefore possess a common orthonormal eigenbasis.
+
+Thus,
+
+$$
+\boxed{
+[\hat A,\hat B]=0
+\quad\Longrightarrow\quad
+\text{$A$ and $B$ are compatible}.
+}
+$$
+
+Noncommuting observables are called **incompatible observables**.
+
+
+## 2.2 Useful properties of commutators
+
+Commutators obey a number of useful algebraic relations.
+
+| Property | Relation |
+|---|---|
+| Antisymmetry | $[\hat A,\hat B]=-[\hat B,\hat A]$ |
+| Self-commutator | $[\hat A,\hat A]=0$ |
+| Linearity | $[\hat A,\hat B+\hat C]=[\hat A,\hat B]+[\hat A,\hat C]$ |
+| Scalar multiplication | $[\hat A,c\hat B]=c[\hat A,\hat B]$ |
+| Product rule | $[\hat A,\hat B\hat C]=[\hat A,\hat B]\hat C+\hat B[\hat A,\hat C]$ |
+| Product rule | $[\hat A\hat B,\hat C]=\hat A[\hat B,\hat C]+[\hat A,\hat C]\hat B$ |
+
+
+::: {.callout-note collapse="true"}
+## Proof of the product rule
+
+Starting with
+
+$$
+[\hat A,\hat B\hat C]
+=
+\hat A\hat B\hat C
+-
+\hat B\hat C\hat A,
+$$
+
+add and subtract $\hat B\hat A\hat C$:
+
+$$
+[\hat A,\hat B\hat C]
+=
+\hat A\hat B\hat C
+-
+\hat B\hat A\hat C
++
+\hat B\hat A\hat C
+-
+\hat B\hat C\hat A.
+$$
+
+Grouping the terms,
+
+$$
+[\hat A,\hat B\hat C]
+=
+(\hat A\hat B-\hat B\hat A)\hat C
++
+\hat B(\hat A\hat C-\hat C\hat A).
+$$
+
+Therefore,
+
+$$
+\boxed{
+[\hat A,\hat B\hat C]
+=
+[\hat A,\hat B]\hat C
++
+\hat B[\hat A,\hat C].
+}
+$$
+:::
+
+
+## 2.3 Why do commuting observables have common eigenstates?
+
+Suppose
+
+$$
+\hat A\ket{a}
+=
+a\ket{a}
+$$
+
+and
+
+$$
+[\hat A,\hat B]=0.
+$$
+
+Then
+
+$$
+\hat A\hat B\ket{a}
+=
+\hat B\hat A\ket{a}
+=
+a\hat B\ket{a}.
+$$
+
+Thus $\hat B\ket{a}$ is itself contained in the eigenspace of $\hat A$ with eigenvalue $a$.
+
+
+::: {.callout-note collapse="true"}
+## Proof for nondegenerate and degenerate eigenvalues
+
+First consider a nondegenerate eigenvalue $a$:
+
+$$
+\hat A\ket{a}
+=
+a\ket{a}.
+$$
+
+Because
+
+$$
+[\hat A,\hat B]=0,
+$$
+
+we have
+
+$$
+\hat A\hat B\ket{a}
+=
+a\hat B\ket{a}.
+$$
+
+Therefore $\hat B\ket{a}$ is an eigenvector of $\hat A$ with eigenvalue $a$.
+
+If the eigenvalue is nondegenerate, its eigenspace is one-dimensional. Consequently,
+
+$$
+\hat B\ket{a}
+=
+b\ket{a}.
+$$
+
+Thus $\ket{a}$ is also an eigenstate of $\hat B$.
+
+If $a$ is degenerate, $\hat B$ may mix different vectors inside the eigenspace corresponding to $a$.
+
+However, because $\hat B$ leaves that eigenspace invariant, we can diagonalize $\hat B$ within it.
+
+The resulting basis vectors are simultaneous eigenstates of both $\hat A$ and $\hat B$.
+
+Thus commuting Hermitian operators can be represented using a common orthonormal eigenbasis.
+:::
+
+
+::: {.callout-note collapse="true"}
+## A mathematical qualification
+
+For finite-dimensional Hermitian operators, simultaneous diagonalization of commuting operators is straightforward.
+
+For general unbounded operators in infinite-dimensional Hilbert spaces, domains and continuous spectra require additional mathematical care.
+
+For the operators considered in this course, we will use the standard quantum-mechanical statement that compatible observables can be represented by mutually commuting operators with a common set of eigenstates.
+:::
+
+
+## 2.4 Complete sets of commuting observables
+
+One observable does not always uniquely identify a quantum state.
+
+If an eigenvalue is degenerate, several linearly independent states may have the same value of that observable.
+
+We can then introduce additional commuting observables to distinguish them.
+
+A collection of mutually commuting observables whose eigenvalues uniquely specify a basis state is called a **complete set of commuting observables**, or **CSCO**.
+
+This idea will become particularly important for angular momentum and for the hydrogen atom.
+
+
+# 3. The Heisenberg Uncertainty Principle
+
+In the section on [States and Operators](braket.qmd), we introduced the variance and standard deviation of an observable.
+
+For an observable $\hat A$ in the state $\ket{\psi}$,
+
+$$
+\sigma_A^2
+=
+\langle A^2\rangle
+-
+\langle A\rangle^2
+$$
+
+describes the spread of the possible outcomes of repeated measurements.
+
+We will now ask how small the uncertainties of **two different observables** can be at the same time.
+
+
+## 3.1 Centered operators
+
+It is convenient to define the operator describing the deviation from the expectation value,
+
+$$
+\boxed{
+\Delta\hat A
+=
+\hat A-\langle A\rangle,
+}
+$$
+
+and similarly,
+
+$$
+\boxed{
+\Delta\hat B
+=
+\hat B-\langle B\rangle.
+}
+$$
+
+The variances can then be written compactly as
+
+$$
+\sigma_A^2
+=
+\mel{\psi}{
+(\Delta\hat A)^2
+}{\psi}
+$$
+
+and
+
+$$
+\sigma_B^2
+=
+\mel{\psi}{
+(\Delta\hat B)^2
+}{\psi}.
+$$
+
+
+## 3.2 The general Heisenberg uncertainty relation
+
+For any two Hermitian observables $\hat A$ and $\hat B$,
+
+$$
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac{1}{2}
+\left|
+\left\langle
+[\hat A,\hat B]
+\right\rangle
+\right|.
+}
+$$
+
+This is the **general Heisenberg uncertainty relation**.
+
+More precisely, this form of the relation is often called the **Robertson uncertainty relation**, after Howard Percy Robertson, who derived the general inequality for arbitrary pairs of observables in 1929.
+
+It expresses a central consequence of quantum mechanics:
+
+> The uncertainties of two observables are constrained by the noncommutativity of their operators.
+
+The familiar position–momentum uncertainty principle,
+
+$$
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2},
+$$
+
+is a special case of this general relation.
+
+Thus, the Heisenberg uncertainty principle is not an independent rule added to quantum mechanics. It follows naturally from the operator structure of the theory.
+
+
+::: {.callout-note collapse="true"}
+## Derivation of the general Heisenberg uncertainty relation
+
+The following derivation gives the relation commonly called the **Robertson uncertainty relation**.
+
+Let
+
+$$
+\Delta\hat A
+=
+\hat A-\langle A\rangle,
+\qquad
+\Delta\hat B
+=
+\hat B-\langle B\rangle.
+$$
+
+For any real number $\lambda$, define
+
+$$
+\ket{\chi}
+=
+\left(
+\Delta\hat A
++
+i\lambda\Delta\hat B
+\right)
+\ket{\psi}.
+$$
+
+The norm of any vector is non-negative:
+
+$$
+\braket{\chi}{\chi}\geq0.
+$$
+
+Therefore,
+
+$$
+\mel{\psi}{
+(\Delta\hat A-i\lambda\Delta\hat B)
+(\Delta\hat A+i\lambda\Delta\hat B)
+}{\psi}
+\geq0.
+$$
 
 Expanding gives
+
 $$
-\langle (\Delta \hat{A})^2 \rangle
-+ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
-+ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \;\geq\; 0.
+\langle(\Delta\hat A)^2\rangle
++
+\lambda^2
+\langle(\Delta\hat B)^2\rangle
++
+i\lambda
+\langle[
+\Delta\hat A,\Delta\hat B
+]\rangle
+\geq0.
 $$
 
-The expression
-$$
-f(\lambda) = \langle (\Delta \hat{A})^2 \rangle
-+ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
-+ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle
-$$
-is a quadratic function of the real variable $\lambda$.
+Since constants commute with all operators,
 
-> **Remark.** The coefficient of $\lambda^2$ is $\langle (\Delta \hat{B})^2 \rangle = \sigma_B^2$,  
-> which is strictly positive unless the state is an exact eigenstate of $\hat{B}$.  
-> Therefore $f(\lambda)$ is a parabola that opens upwards, ensuring that it has a unique global minimum. 
-
-Its minimum value occurs at
 $$
-\lambda_{\min} = -\, \frac{i \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle}{2 \langle (\Delta \hat{B})^2 \rangle}.
+[
+\Delta\hat A,\Delta\hat B
+]
+=
+[\hat A,\hat B].
 $$
 
-Substituting back:
+Using
+
 $$
-f(\lambda_{\min}) = \langle (\Delta \hat{A})^2 \rangle
-- \frac{1}{4 \langle (\Delta \hat{B})^2 \rangle} 
-\, \big| \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \big|^2 \;\geq\; 0.
+\sigma_A^2
+=
+\langle(\Delta\hat A)^2\rangle
 $$
 
-Rearranging gives
+and
+
 $$
-\langle (\Delta \hat{A})^2 \rangle \, \langle (\Delta \hat{B})^2 \rangle
-\;\geq\; \tfrac{1}{4} \big| \langle [\hat{A}, \hat{B}] \rangle \big|^2.
+\sigma_B^2
+=
+\langle(\Delta\hat B)^2\rangle,
 $$
 
-Since $\sigma_A^2 = \langle (\Delta \hat{A})^2 \rangle$ and  
-$\sigma_B^2 = \langle (\Delta \hat{B})^2 \rangle$, we finally obtain
+we obtain
+
 $$
-\sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2} \, \big| \langle [\hat{A}, \hat{B}] \rangle \big|.
+f(\lambda)
+=
+\sigma_A^2
++
+\lambda^2\sigma_B^2
++
+i\lambda
+\langle[\hat A,\hat B]\rangle
+\geq0.
 $$
 
-This is the **Heisenberg uncertainty principle**.
+Because $\hat A$ and $\hat B$ are Hermitian,
+
+$$
+[\hat A,\hat B]^\dagger
+=
+-[\hat A,\hat B],
+$$
+
+so the expectation value of the commutator is purely imaginary. Thus $f(\lambda)$ is real.
+
+The minimum occurs at
+
+$$
+\lambda_{\min}
+=
+-\frac{
+i\langle[\hat A,\hat B]\rangle
+}{
+2\sigma_B^2
+}.
+$$
+
+Substituting this value gives
+
+$$
+\sigma_A^2
+-
+\frac{
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2
+}{
+4\sigma_B^2
+}
+\geq0.
+$$
+
+Multiplying by $\sigma_B^2$,
+
+$$
+\sigma_A^2\sigma_B^2
+\geq
+\frac14
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2.
+$$
+
+Taking the square root gives
+
+$$
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|.
+}
+$$
 :::
 
 
----
+## 3.3 A subtle but important point
 
-## Important Examples
+A nonzero commutator,
 
-### Position–Momentum Commutator
 $$
-\comm{\hat{r}_i}{\hat{p}_j} = i\hbar \, \delta_{ij},
-$$
-where $i,j$ label Cartesian components.  
-This leads directly to the familiar uncertainty relation
-$$
-\sigma_x \, \sigma_{p_x} \geq \tfrac{\hbar}{2}.
+[\hat A,\hat B]\neq0,
 $$
 
-### Angular Momentum Commutators
-The components of angular momentum form a **Lie algebra**:
-$$
-\comm{\hat{L}_x}{\hat{L}_y} = i\hbar \hat{L}_z, \qquad
-\comm{\hat{L}_y}{\hat{L}_z} = i\hbar \hat{L}_x, \qquad
-\comm{\hat{L}_z}{\hat{L}_x} = i\hbar \hat{L}_y.
-$$
+means that the observables are incompatible.
 
-### Commuting Quantities
-Some pairs of operators *do* commute, which means they can be simultaneously diagonalized:
+However, the lower bound in the Heisenberg uncertainty relation contains the **expectation value**
+
 $$
-\comm{\hat{\vec L}^2}{\hat{L}_z} = \hat{0}, \qquad
-\comm{\hat{\vec L}^2}{\hat{H}} = \hat{0}.
+\langle[\hat A,\hat B]\rangle,
 $$
 
----
+which depends on the quantum state.
 
-::: callout-note
-## Remark
+It is therefore possible that
 
-- The **uncertainty principle is not about experimental imperfections**.  
-  It is a fundamental feature of quantum mechanics: non-commuting observables simply do not admit sharp simultaneous values.  
+$$
+[\hat A,\hat B]\neq0
+$$
 
-- The stronger the commutator, the stronger the tradeoff between precisions of measurement.  
+but
+
+$$
+\langle[\hat A,\hat B]\rangle=0
+$$
+
+for a particular state.
+
+In that state, the relation gives only
+
+$$
+\sigma_A\sigma_B\geq0.
+$$
+
+This does **not** mean that the two operators commute. It only means that this particular form of the uncertainty relation provides no nonzero lower bound for that state.
+
+
+::: {.callout-note collapse="true"}
+## The stronger Schrödinger–Robertson uncertainty relation
+
+The general Heisenberg relation above contains only the commutator of the two observables.
+
+An even stronger inequality also includes correlations between them:
+
+$$
+\sigma_A^2\sigma_B^2
+\geq
+\frac14
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2
++
+\frac14
+\left|
+\left\langle
+\{
+\Delta\hat A,\Delta\hat B
+\}
+\right\rangle
+\right|^2,
+$$
+
+where
+
+$$
+\{\hat A,\hat B\}
+=
+\hat A\hat B+\hat B\hat A
+$$
+
+is the **anticommutator**.
+
+This is commonly called the **Schrödinger–Robertson uncertainty relation**.
+
+The simpler relation
+
+$$
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|
+$$
+
+follows immediately by dropping the second, non-negative term.
 :::
+
+
+# 4. Position and Momentum
+
+## 4.1 The canonical commutation relation
+
+The position and momentum operators satisfy
+
+$$
+\boxed{
+[\hat x,\hat p_x]
+=
+i\hbar.
+}
+$$
+
+More generally,
+
+$$
+\boxed{
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij},
+}
+$$
+
+where $i$ and $j$ label Cartesian components.
+
+Thus,
+
+$$
+[\hat x,\hat p_y]=0,
+$$
+
+whereas
+
+$$
+[\hat x,\hat p_x]=i\hbar.
+$$
+
+
+::: {.callout-note collapse="true"}
+## Proof of $[\hat x,\hat p_x]=i\hbar$
+
+The momentum operator in the position representation is
+
+$$
+\hat p_x
+=
+-i\hbar\frac{d}{dx}.
+$$
+
+Because $\hat p_x$ is a differential operator, we evaluate the commutator by letting it act on an arbitrary suitable function $\psi(x)$:
+
+$$
+[\hat x,\hat p_x]\psi
+=
+\hat x\hat p_x\psi
+-
+\hat p_x\hat x\psi.
+$$
+
+The first term is
+
+$$
+\hat x\hat p_x\psi
+=
+-i\hbar x\frac{d\psi}{dx}.
+$$
+
+The second term is
+
+$$
+\hat p_x\hat x\psi
+=
+-i\hbar
+\frac{d}{dx}(x\psi).
+$$
+
+Using the product rule,
+
+$$
+\hat p_x\hat x\psi
+=
+-i\hbar
+\left(
+\psi
++
+x\frac{d\psi}{dx}
+\right).
+$$
+
+Therefore,
+
+$$
+[\hat x,\hat p_x]\psi
+=
+-i\hbar x\frac{d\psi}{dx}
++
+i\hbar
+\left(
+\psi+x\frac{d\psi}{dx}
+\right),
+$$
+
+so
+
+$$
+[\hat x,\hat p_x]\psi
+=
+i\hbar\psi.
+$$
+
+Since this holds for every suitable $\psi$,
+
+$$
+\boxed{
+[\hat x,\hat p_x]
+=
+i\hbar.
+}
+$$
+:::
+
+
+## 4.2 The Heisenberg position–momentum uncertainty principle
+
+Substituting
+
+$$
+[\hat x,\hat p_x]
+=
+i\hbar
+$$
+
+into the general Heisenberg uncertainty relation gives
+
+$$
+\sigma_x\sigma_{p_x}
+\geq
+\frac12
+|\langle i\hbar\rangle|.
+$$
+
+Thus,
+
+$$
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+$$
+
+This is the familiar **Heisenberg position–momentum uncertainty principle**.
+
+Unlike the general uncertainty bound, the right-hand side is independent of the quantum state because the commutator is simply a constant times the identity operator.
+
+
+## 4.3 What the uncertainty principle means
+
+The relation
+
+$$
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}
+$$
+
+does **not** say that position cannot be measured precisely.
+
+Nor does it say that measuring position necessarily introduces an experimental error into momentum.
+
+Instead, it says that no quantum state can have arbitrarily narrow probability distributions for both position and momentum simultaneously.
+
+A state may have very small $\sigma_x$.
+
+A different state may have very small $\sigma_{p_x}$.
+
+But the product of the two uncertainties must satisfy
+
+$$
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+$$
+
+This limitation belongs to the structure of the quantum state itself.
+
+
+# 5. Angular Momentum: A Preview
+
+Angular momentum provides one of the most important examples of incompatible observables.
+
+The Cartesian components satisfy
+
+$$
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z,
+}
+$$
+
+together with the cyclic permutations
+
+$$
+[\hat L_y,\hat L_z]
+=
+i\hbar\hat L_x,
+$$
+
+and
+
+$$
+[\hat L_z,\hat L_x]
+=
+i\hbar\hat L_y.
+$$
+
+Thus the three Cartesian components cannot, in general, possess sharp values simultaneously.
+
+For example, the general Heisenberg uncertainty relation gives
+
+$$
+\boxed{
+\sigma_{L_x}\sigma_{L_y}
+\geq
+\frac{\hbar}{2}
+|\langle L_z\rangle|.
+}
+$$
+
+
+::: {.callout-note collapse="true"}
+## Proof of $[\hat L_x,\hat L_y]=i\hbar\hat L_z$
+
+For orbital angular momentum,
+
+$$
+\hat L_x
+=
+\hat y\hat p_z-\hat z\hat p_y,
+$$
+
+$$
+\hat L_y
+=
+\hat z\hat p_x-\hat x\hat p_z,
+$$
+
+and
+
+$$
+\hat L_z
+=
+\hat x\hat p_y-\hat y\hat p_x.
+$$
+
+Using the canonical commutation relations,
+
+$$
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij},
+$$
+
+we calculate
+
+$$
+[\hat L_x,\hat L_y]
+=
+[
+\hat y\hat p_z-\hat z\hat p_y,
+\hat z\hat p_x-\hat x\hat p_z
+].
+$$
+
+Expanding,
+
+$$
+[\hat L_x,\hat L_y]
+=
+[\hat y\hat p_z,\hat z\hat p_x]
+-
+[\hat y\hat p_z,\hat x\hat p_z]
+-
+[\hat z\hat p_y,\hat z\hat p_x]
++
+[\hat z\hat p_y,\hat x\hat p_z].
+$$
+
+The middle two terms vanish.
+
+For the first term,
+
+$$
+[\hat y\hat p_z,\hat z\hat p_x]
+=
+-i\hbar\hat y\hat p_x.
+$$
+
+For the last term,
+
+$$
+[\hat z\hat p_y,\hat x\hat p_z]
+=
+i\hbar\hat x\hat p_y.
+$$
+
+Therefore,
+
+$$
+[\hat L_x,\hat L_y]
+=
+i\hbar
+(
+\hat x\hat p_y-\hat y\hat p_x
+),
+$$
+
+and hence
+
+$$
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z.
+}
+$$
+:::
+
+
+## 5.1 Angular-momentum magnitude and one component
+
+Although the Cartesian components do not commute with one another,
+
+$$
+\boxed{
+[\hat{\mathbf L}^2,\hat L_z]=0.
+}
+$$
+
+In fact,
+
+$$
+[\hat{\mathbf L}^2,\hat L_i]=0
+$$
+
+for every Cartesian component $i$.
+
+It is therefore possible to choose states that are simultaneous eigenstates of
+
+$$
+\hat{\mathbf L}^2
+$$
+
+and one component, conventionally
+
+$$
+\hat L_z.
+$$
+
+This is why angular-momentum states can be labeled by two quantum numbers.
+
+
+::: {.callout-note collapse="true"}
+## Proof that $[\hat{\mathbf L}^2,\hat L_z]=0$
+
+Using
+
+$$
+\hat{\mathbf L}^2
+=
+\hat L_x^2+\hat L_y^2+\hat L_z^2,
+$$
+
+we obtain
+
+$$
+[\hat{\mathbf L}^2,\hat L_z]
+=
+[\hat L_x^2,\hat L_z]
++
+[\hat L_y^2,\hat L_z]
++
+[\hat L_z^2,\hat L_z].
+$$
+
+The last term vanishes.
+
+Using the product rule,
+
+$$
+[\hat A\hat B,\hat C]
+=
+\hat A[\hat B,\hat C]
++
+[\hat A,\hat C]\hat B,
+$$
+
+we find
+
+$$
+[\hat L_x^2,\hat L_z]
+=
+\hat L_x[\hat L_x,\hat L_z]
++
+[\hat L_x,\hat L_z]\hat L_x.
+$$
+
+Since
+
+$$
+[\hat L_x,\hat L_z]
+=
+-i\hbar\hat L_y,
+$$
+
+this gives
+
+$$
+[\hat L_x^2,\hat L_z]
+=
+-i\hbar
+(
+\hat L_x\hat L_y
++
+\hat L_y\hat L_x
+).
+$$
+
+Similarly,
+
+$$
+[\hat L_y^2,\hat L_z]
+=
+i\hbar
+(
+\hat L_y\hat L_x
++
+\hat L_x\hat L_y
+).
+$$
+
+The two contributions cancel, so
+
+$$
+\boxed{
+[\hat{\mathbf L}^2,\hat L_z]
+=
+0.
+}
+$$
+:::
+
+
+## 5.2 Angular momentum and rotational symmetry
+
+For a rotationally invariant Hamiltonian,
+
+$$
+\boxed{
+[\hat H,\hat{\mathbf L}^2]=0.
+}
+$$
+
+For a central potential,
+
+$$
+V(\vec r)=V(r),
+$$
+
+the Hamiltonian is rotationally invariant.
+
+Angular momentum therefore provides a natural set of quantum numbers for central-potential problems, including the hydrogen atom.
+
+We will develop orbital angular momentum in detail in the next section.
+
+
+# 6. The Central Idea
+
+A measurement generally changes the quantum state. Because of this, successive measurements of different observables need not be independent of one another.
+
+Whether two observables can possess simultaneous sharp values is determined by the algebra of their operators.
+
+For compatible observables,
+
+$$
+[\hat A,\hat B]=0,
+$$
+
+we can choose common eigenstates.
+
+For incompatible observables,
+
+$$
+[\hat A,\hat B]\neq0,
+$$
+
+a complete common eigenbasis generally does not exist.
+
+The **general Heisenberg uncertainty principle**
+
+$$
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|
+}
+$$
+
+quantifies one consequence of this incompatibility.
+
+For position and momentum,
+
+$$
+[\hat x,\hat p_x]=i\hbar,
+$$
+
+giving
+
+$$
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+$$
+
+The Heisenberg uncertainty principle is therefore not an isolated restriction on measurement precision. It follows naturally from the noncommutative operator structure of quantum mechanics.
+
+The same structure will lead us directly to the quantum theory of angular momentum in the next section.

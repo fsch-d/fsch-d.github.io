@@ -1,0 +1,559 @@
+---
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+title: Quantum Measurement and the Measurement Problem
+subtitle: State Reduction, Probability, and Interpretation
+---
+
+
+# Quantum Measurement and the Measurement Problem: Overview and Plan
+
+In the previous section, we introduced quantum states as vectors in Hilbert space and observables as Hermitian operators. We also learned how the expansion of a state in the eigenbasis of an observable determines the probabilities for the possible outcomes of a measurement.
+
+But this leaves an important question unanswered:
+
+> **What actually happens to the quantum state when a measurement is made?**
+
+This question exposes one of the most unusual features of quantum mechanics.
+
+Between measurements, the state evolves continuously and deterministically according to the Schrödinger equation. A measurement, however, generally produces one of several possible outcomes **probabilistically**, and the state used to describe the system after the measurement is different from the state before the measurement.
+
+In the traditional language of quantum mechanics, the state is said to **collapse** onto an eigenstate of the measured observable.
+
+Whether this collapse represents a real physical process, an update of our knowledge, or only an apparent effect arising from a more complete description is the subject of the **quantum measurement problem**. Different interpretations of quantum mechanics answer this question differently, while agreeing on most ordinary experimental predictions.
+
+For the calculations in this course, we do not need to settle this interpretational question. We do, however, need to understand the operational consequences of measurement—most importantly, that a measurement generally changes the state and therefore affects subsequent measurements.
+
+The specific goals for this chapter are:
+
+1. Review how measurement probabilities follow from the expansion of a state in an eigenbasis.
+2. Understand how an ideal quantum measurement changes the state.
+3. Distinguish deterministic Schrödinger evolution from the probabilistic measurement postulate.
+4. Introduce the quantum measurement problem.
+5. Compare several important interpretations and approaches to quantum measurement.
+6. Understand which parts of the measurement formalism are experimentally established and which depend on interpretation.
+7. Establish the operational measurement rules that we will use throughout this course.
+8. Prepare for the discussion of successive measurements and compatible observables in the next section.
+
+
+# 1. Measurement and the Quantum State
+
+## 1.1 Measurement probabilities
+
+Consider an observable represented by the Hermitian operator $\hat A$.
+
+Its eigenstates satisfy
+
+$$
+\hat A\ket{a_n}
+=
+a_n\ket{a_n}.
+$$
+
+For simplicity, we first assume that the eigenvalues are discrete and nondegenerate.
+
+A general state can be expanded in the eigenbasis of $\hat A$:
+
+$$
+\boxed{
+\ket{\psi}
+=
+\sum_n c_n\ket{a_n}.
+}
+$$
+
+Because the eigenstates form an orthonormal basis,
+
+$$
+c_n
+=
+\braket{a_n}{\psi}.
+$$
+
+As discussed in the previous section on [measurement probabilities](braket.qmd#measurement-probabilities), the Born rule states that a measurement of $A$ produces the result $a_n$ with probability
+
+$$
+\boxed{
+P(a_n)
+=
+|c_n|^2
+=
+\left|
+\braket{a_n}{\psi}
+\right|^2.
+}
+$$
+
+Quantum mechanics therefore does not, in general, predict the result of an individual measurement.
+
+Instead, it predicts the probabilities of the possible outcomes.
+
+
+## 1.2 The state after a measurement
+
+Suppose the initial state is
+
+$$
+\ket{\psi}
+=
+\sum_n c_n\ket{a_n},
+$$
+
+and a measurement of $A$ yields the result $a_k$.
+
+For subsequent predictions, the state is then taken to be
+
+$$
+\boxed{
+\ket{\psi}
+\longrightarrow
+\ket{a_k}.
+}
+$$
+
+This change is traditionally called **wave-function collapse** or **state reduction**.
+
+The second name is more general: the abstract state $\ket{\psi}$ changes, not merely its position-space wave function.
+
+The measurement therefore does more than reveal one of the possible values of $A$. It also changes the state used to describe the system.
+
+
+### A simple example
+
+Suppose
+
+$$
+\ket{\psi}
+=
+\frac{1}{\sqrt{2}}
+\left(
+\ket{a_1}
++
+\ket{a_2}
+\right).
+$$
+
+A measurement of $A$ gives
+
+$$
+P(a_1)=P(a_2)=\frac12.
+$$
+
+Before the measurement, neither outcome is predicted with certainty.
+
+If the measurement gives $a_1$, however, the state afterward is
+
+$$
+\ket{\psi}
+\longrightarrow
+\ket{a_1}.
+$$
+
+An immediate repetition of the same ideal measurement then gives
+
+$$
+P(a_1)=1.
+$$
+
+The first measurement has therefore changed the quantum state.
+
+
+::: {.callout-note collapse="true"}
+## Degenerate eigenvalues
+
+If the measured eigenvalue is degenerate, a measurement does not necessarily select one unique eigenvector.
+
+Suppose several orthonormal states
+
+$$
+\ket{a,\mu}
+$$
+
+share the same eigenvalue $a$:
+
+$$
+\hat A\ket{a,\mu}
+=
+a\ket{a,\mu}.
+$$
+
+The projector onto this eigenspace is
+
+$$
+\hat P_a
+=
+\sum_\mu
+\ketbra{a,\mu}{a,\mu}.
+$$
+
+For an ideal projective measurement yielding $a$, the post-measurement state is
+
+$$
+\ket{\psi}
+\longrightarrow
+\frac{
+\hat P_a\ket{\psi}
+}{
+\sqrt{
+\mel{\psi}{\hat P_a}{\psi}
+}
+}.
+$$
+
+This is known as the **Lüders rule**.
+
+For a nondegenerate eigenvalue,
+
+$$
+\hat P_a=\ketbra{a}{a},
+$$
+
+and this reduces to the familiar statement that the state collapses onto $\ket{a}$.
+:::
+
+
+## 1.3 Deterministic evolution and probabilistic measurement
+
+The Schrödinger equation determines the time evolution of a state:
+
+$$
+i\hbar
+\frac{d}{dt}
+\ket{\psi(t)}
+=
+\hat H\ket{\psi(t)}.
+$$
+
+If the state is known at some initial time, this equation determines the state at all later times.
+
+The evolution is therefore **deterministic**.
+
+A measurement is different.
+
+From
+
+$$
+\ket{\psi}
+=
+\sum_n c_n\ket{a_n},
+$$
+
+quantum mechanics predicts the probabilities
+
+$$
+P(a_n)=|c_n|^2,
+$$
+
+but the standard measurement postulate does not predict which particular $a_n$ will occur in an individual measurement.
+
+Within the usual operational formulation of quantum mechanics, the individual outcome is therefore probabilistic.
+
+This gives us two apparently very different rules for how a quantum state changes:
+
+$$
+\boxed{
+\begin{array}{lll}
+\text{Schrödinger evolution:}
+&
+\ket{\psi(t_0)}
+\longrightarrow
+\ket{\psi(t)}
+&
+\text{continuous and deterministic},
+\\[1em]
+\text{measurement:}
+&
+\displaystyle
+\sum_n c_n\ket{a_n}
+\longrightarrow
+\ket{a_k}
+&
+\text{probabilistic}.
+\end{array}
+}
+$$
+
+The coexistence of these two kinds of evolution lies at the heart of the **quantum measurement problem**.
+
+
+# 2. The Quantum Measurement Problem
+
+## 2.1 Where does collapse come from?
+
+To see the measurement problem more clearly, let us try to describe **both the quantum system and the measuring apparatus using quantum mechanics**.
+
+Suppose we want to measure an observable $\hat A$ with eigenstates
+
+$$
+\hat A\ket{a_n}
+=
+a_n\ket{a_n}.
+$$
+
+Let
+
+$$
+\ket{M_0}
+$$
+
+represent the initial "ready" state of the measuring apparatus, and let
+
+$$
+\ket{M_n}
+$$
+
+represent a state of the apparatus in which it records the result $a_n$.
+
+For an ideal measurement, we want the measurement interaction to correlate each eigenstate of the system with the corresponding state of the apparatus:
+
+$$
+\boxed{
+\ket{a_n}\ket{M_0}
+\longrightarrow
+\ket{a_n}\ket{M_n}.
+}
+$$
+
+For example,
+
+$$
+\ket{a_1}\ket{M_0}
+\longrightarrow
+\ket{a_1}\ket{M_1}
+$$
+
+and
+
+$$
+\ket{a_2}\ket{M_0}
+\longrightarrow
+\ket{a_2}\ket{M_2}.
+$$
+
+So far, there is no difficulty. If the system begins in an eigenstate of the measured observable, the apparatus simply becomes correlated with the corresponding result.
+
+
+### What if the system begins in a superposition?
+
+Now suppose the system is initially in the superposition
+
+$$
+\ket{\psi}
+=
+c_1\ket{a_1}
++
+c_2\ket{a_2}.
+$$
+
+The combined initial state of system and apparatus is therefore
+
+$$
+\left(
+c_1\ket{a_1}
++
+c_2\ket{a_2}
+\right)
+\ket{M_0}.
+$$
+
+The crucial point is that the Schrödinger equation is **linear**.
+
+If
+
+$$
+\ket{a_1}\ket{M_0}
+\longrightarrow
+\ket{a_1}\ket{M_1}
+$$
+
+and
+
+$$
+\ket{a_2}\ket{M_0}
+\longrightarrow
+\ket{a_2}\ket{M_2},
+$$
+
+then linearity requires
+
+$$
+\boxed{
+\left(
+c_1\ket{a_1}
++
+c_2\ket{a_2}
+\right)
+\ket{M_0}
+\longrightarrow
+c_1\ket{a_1}\ket{M_1}
++
+c_2\ket{a_2}\ket{M_2}.
+}
+$$
+
+The system and apparatus have become **entangled**.
+
+But notice what has *not* happened.
+
+Ordinary unitary time evolution has not produced either
+
+$$
+\ket{a_1}\ket{M_1}
+$$
+
+or
+
+$$
+\ket{a_2}\ket{M_2}.
+$$
+
+Instead, it has produced a superposition containing **both** alternatives:
+
+$$
+c_1\ket{a_1}\ket{M_1}
++
+c_2\ket{a_2}\ket{M_2}.
+$$
+
+Yet when we actually read the measuring apparatus, we observe one definite result: the apparatus says $a_1$, or it says $a_2$.
+
+We do not ordinarily experience a measuring device as being in a coherent superposition of macroscopically different readings.
+
+This is the central tension:
+
+$$
+\boxed{
+\text{unitary Schrödinger evolution}
+\quad\longrightarrow\quad
+\text{superposition of outcomes},
+}
+$$
+
+whereas
+
+$$
+\boxed{
+\text{measurement}
+\quad\longrightarrow\quad
+\text{one observed outcome}.
+}
+$$
+
+The Schrödinger equation by itself does not contain a rule that selects one particular term,
+
+$$
+\ket{a_k}\ket{M_k},
+$$
+
+from the superposition.
+
+This is the essence of the **quantum measurement problem**:
+
+> **How does a quantum superposition of possible outcomes lead to the single definite outcome that we observe?**
+
+
+### This is where the interpretations differ
+
+Different interpretations of quantum mechanics agree on the unitary evolution above but disagree about what happens—or what it means—when a definite outcome is observed.
+
+- In **Copenhagen-type interpretations**, measurement is treated as a special process. Once an outcome $a_k$ is observed, the state is reduced to the corresponding state,
+
+  $$
+  \ket{\psi}
+  \longrightarrow
+  \ket{a_k}.
+  $$
+
+  Collapse is therefore included as part of the measurement postulate rather than derived from the Schrödinger equation.
+
+- In **Everettian or Many-Worlds interpretations**, there is no fundamental collapse. The complete state
+
+  $$
+  c_1\ket{a_1}\ket{M_1}
+  +
+  c_2\ket{a_2}\ket{M_2}
+  $$
+
+  continues to exist and evolve unitarily. The different terms correspond to effectively distinct branches in which different outcomes are recorded.
+
+- In **Bohmian mechanics**, the wave function may retain the different branches, but the system and apparatus possess an actual configuration. That configuration lies in one branch, producing one definite observed outcome. Collapse is therefore effective rather than fundamental.
+
+- In **objective-collapse theories**, the unitary Schrödinger evolution is not exact. The dynamics are modified so that sufficiently different alternatives can undergo a real stochastic collapse into one outcome.
+
+- **Decoherence** shows how interaction with the environment rapidly suppresses observable interference between different macroscopic outcomes. If environmental states $\ket{E_1}$ and $\ket{E_2}$ become correlated with the alternatives,
+
+  $$
+  c_1\ket{a_1}\ket{M_1}\ket{E_1}
+  +
+  c_2\ket{a_2}\ket{M_2}\ket{E_2},
+  $$
+
+  the two branches can become effectively unable to interfere.
+
+  Decoherence therefore explains why macroscopic alternatives behave approximately like classical alternatives. However, the total state is still a superposition, so decoherence by itself does not necessarily explain why one unique outcome is experienced.
+
+Thus, the different interpretations do not disagree about the basic calculation that produces the entangled state. They disagree about **how that state should be understood and how definite measurement outcomes arise from it**.
+
+
+
+::: {.callout-note collapse="true"}
+## Can these interpretations be distinguished experimentally?
+
+Many interpretations of **standard quantum mechanics** are deliberately constructed to reproduce the same experimental probabilities.
+
+For example, Copenhagen-type interpretations, Everettian quantum mechanics, and Bohmian mechanics in quantum equilibrium generally reproduce the ordinary predictions of nonrelativistic quantum mechanics.
+
+Experiments that merely confirm the usual Born-rule probabilities therefore do not distinguish among them.
+
+This does **not** mean that every proposal concerning quantum measurement is experimentally indistinguishable.
+
+Objective-collapse models, for example, modify the ordinary quantum dynamics and can in principle predict small deviations from standard quantum mechanics. Such models are therefore subject to experimental tests.
+
+Decoherence is somewhat different again: it is not simply an interpretation but a physical process arising from entanglement with uncontrolled environmental degrees of freedom, and its effects are experimentally observable.
+
+The philosophical interpretations may differ, but the operational rules used for the calculations in this course are the same.
+:::
+
+
+## 2.2 What we will use
+
+For the purposes of this course, we will use the standard operational measurement rules:
+
+1. An observable $A$ is represented by a Hermitian operator $\hat A$.
+2. The possible measurement outcomes are its eigenvalues.
+3. The probability for a particular outcome follows from the Born rule.
+4. After an ideal measurement yielding $a_n$, the state used for subsequent predictions lies in the corresponding eigenspace.
+
+We do not need to choose a particular interpretation of quantum mechanics in order to use these rules.
+
+What matters for our subsequent calculations is that **measurement changes the state**.
+
+
+# 3. From One Measurement to the Next
+
+Suppose we prepare a system in some state $\ket{\psi}$ and measure an observable $\hat A$.
+
+If the result is a nondegenerate eigenvalue $a_n$, the state used for subsequent predictions becomes
+
+$$
+\ket{a_n}.
+$$
+
+What happens if we now measure a **different** observable $\hat B$?
+
+Will the second measurement leave the value of $A$ undisturbed?
+
+If we then measure $A$ again, are we guaranteed to recover the original result $a_n$?
+
+The answer depends on the relationship between the eigenstates of $\hat A$ and $\hat B$.
+
+For some pairs of observables, both quantities can possess definite values simultaneously. For others, measuring one generally destroys the definite value established by a previous measurement of the other.
+
+This distinction leads to the concepts of
+
+- **compatible and incompatible observables**,
+- **commutators**, and
+- ultimately the **Heisenberg uncertainty principle**.
+
+We turn to these questions in the next section.

@@ -30,6 +30,7 @@ website:
         contents:
           - mod2/wavemechanics.qmd
           - mod2/braket.qmd
+          - mod2/measurement.qmd
           - mod2/heisenberg.qmd
           - mod2/amcoupling.qmd
           - mod2/qosc.qmd

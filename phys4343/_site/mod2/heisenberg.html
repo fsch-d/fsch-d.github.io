@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>Heisenberg’s Uncertainty Principle – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>Commutators and the Heisenberg Uncertainty Principle – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4036,7 +4036,7 @@ margin-bottom: 0.25em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/heisenberg.html">Heisenberg’s Uncertainty Principle</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/heisenberg.html">Commutators and the Heisenberg Uncertainty Principle</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4085,8 +4085,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../mod2/measurement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantum Measurement and the Measurement Problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../mod2/heisenberg.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Heisenberg’s Uncertainty Principle</span></a>
+ <span class="menu-text">Commutators and the Heisenberg Uncertainty Principle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4395,25 +4401,48 @@ margin-bottom: 0.25em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#commutators-and-heisenbergs-uncertainty-principle" id="toc-commutators-and-heisenbergs-uncertainty-principle" class="nav-link active" data-scroll-target="#commutators-and-heisenbergs-uncertainty-principle">Commutators and Heisenberg’s Uncertainty Principle</a>
+  <li><a href="#commutators-and-the-heisenberg-uncertainty-principle-overview-and-plan" id="toc-commutators-and-the-heisenberg-uncertainty-principle-overview-and-plan" class="nav-link active" data-scroll-target="#commutators-and-the-heisenberg-uncertainty-principle-overview-and-plan">Commutators and the Heisenberg Uncertainty Principle: Overview and Plan</a></li>
+  <li><a href="#successive-measurements-and-compatibility" id="toc-successive-measurements-and-compatibility" class="nav-link" data-scroll-target="#successive-measurements-and-compatibility">1. Successive Measurements and Compatibility</a>
   <ul class="collapse">
-  <li><a href="#key-properties-of-commutators" id="toc-key-properties-of-commutators" class="nav-link" data-scroll-target="#key-properties-of-commutators">Key Properties of Commutators</a></li>
-  <li><a href="#important-examples" id="toc-important-examples" class="nav-link" data-scroll-target="#important-examples">Important Examples</a>
+  <li><a href="#measuring-two-different-observables" id="toc-measuring-two-different-observables" class="nav-link" data-scroll-target="#measuring-two-different-observables">1.1 Measuring two different observables</a></li>
+  <li><a href="#measuring-a-again" id="toc-measuring-a-again" class="nav-link" data-scroll-target="#measuring-a-again">1.2 Measuring <span class="math inline">\(A\)</span> again</a></li>
+  <li><a href="#compatible-observables" id="toc-compatible-observables" class="nav-link" data-scroll-target="#compatible-observables">1.3 Compatible observables</a></li>
+  </ul></li>
+  <li><a href="#commutators-and-compatible-observables" id="toc-commutators-and-compatible-observables" class="nav-link" data-scroll-target="#commutators-and-compatible-observables">2. Commutators and Compatible Observables</a>
   <ul class="collapse">
-  <li><a href="#positionmomentum-commutator" id="toc-positionmomentum-commutator" class="nav-link" data-scroll-target="#positionmomentum-commutator">Position–Momentum Commutator</a></li>
-  <li><a href="#angular-momentum-commutators" id="toc-angular-momentum-commutators" class="nav-link" data-scroll-target="#angular-momentum-commutators">Angular Momentum Commutators</a></li>
-  <li><a href="#commuting-quantities" id="toc-commuting-quantities" class="nav-link" data-scroll-target="#commuting-quantities">Commuting Quantities</a></li>
+  <li><a href="#the-commutator" id="toc-the-commutator" class="nav-link" data-scroll-target="#the-commutator">2.1 The commutator</a></li>
+  <li><a href="#useful-properties-of-commutators" id="toc-useful-properties-of-commutators" class="nav-link" data-scroll-target="#useful-properties-of-commutators">2.2 Useful properties of commutators</a></li>
+  <li><a href="#why-do-commuting-observables-have-common-eigenstates" id="toc-why-do-commuting-observables-have-common-eigenstates" class="nav-link" data-scroll-target="#why-do-commuting-observables-have-common-eigenstates">2.3 Why do commuting observables have common eigenstates?</a></li>
+  <li><a href="#complete-sets-of-commuting-observables" id="toc-complete-sets-of-commuting-observables" class="nav-link" data-scroll-target="#complete-sets-of-commuting-observables">2.4 Complete sets of commuting observables</a></li>
   </ul></li>
+  <li><a href="#the-heisenberg-uncertainty-principle" id="toc-the-heisenberg-uncertainty-principle" class="nav-link" data-scroll-target="#the-heisenberg-uncertainty-principle">3. The Heisenberg Uncertainty Principle</a>
+  <ul class="collapse">
+  <li><a href="#centered-operators" id="toc-centered-operators" class="nav-link" data-scroll-target="#centered-operators">3.1 Centered operators</a></li>
+  <li><a href="#the-general-heisenberg-uncertainty-relation" id="toc-the-general-heisenberg-uncertainty-relation" class="nav-link" data-scroll-target="#the-general-heisenberg-uncertainty-relation">3.2 The general Heisenberg uncertainty relation</a></li>
+  <li><a href="#a-subtle-but-important-point" id="toc-a-subtle-but-important-point" class="nav-link" data-scroll-target="#a-subtle-but-important-point">3.3 A subtle but important point</a></li>
   </ul></li>
+  <li><a href="#position-and-momentum" id="toc-position-and-momentum" class="nav-link" data-scroll-target="#position-and-momentum">4. Position and Momentum</a>
+  <ul class="collapse">
+  <li><a href="#the-canonical-commutation-relation" id="toc-the-canonical-commutation-relation" class="nav-link" data-scroll-target="#the-canonical-commutation-relation">4.1 The canonical commutation relation</a></li>
+  <li><a href="#the-heisenberg-positionmomentum-uncertainty-principle" id="toc-the-heisenberg-positionmomentum-uncertainty-principle" class="nav-link" data-scroll-target="#the-heisenberg-positionmomentum-uncertainty-principle">4.2 The Heisenberg position–momentum uncertainty principle</a></li>
+  <li><a href="#what-the-uncertainty-principle-means" id="toc-what-the-uncertainty-principle-means" class="nav-link" data-scroll-target="#what-the-uncertainty-principle-means">4.3 What the uncertainty principle means</a></li>
+  </ul></li>
+  <li><a href="#angular-momentum-a-preview" id="toc-angular-momentum-a-preview" class="nav-link" data-scroll-target="#angular-momentum-a-preview">5. Angular Momentum: A Preview</a>
+  <ul class="collapse">
+  <li><a href="#angular-momentum-magnitude-and-one-component" id="toc-angular-momentum-magnitude-and-one-component" class="nav-link" data-scroll-target="#angular-momentum-magnitude-and-one-component">5.1 Angular-momentum magnitude and one component</a></li>
+  <li><a href="#angular-momentum-and-rotational-symmetry" id="toc-angular-momentum-and-rotational-symmetry" class="nav-link" data-scroll-target="#angular-momentum-and-rotational-symmetry">5.2 Angular momentum and rotational symmetry</a></li>
+  </ul></li>
+  <li><a href="#the-central-idea" id="toc-the-central-idea" class="nav-link" data-scroll-target="#the-central-idea">6. The Central Idea</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/heisenberg.html">Heisenberg’s Uncertainty Principle</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/heisenberg.html">Commutators and the Heisenberg Uncertainty Principle</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Heisenberg’s Uncertainty Principle</h1>
+<h1 class="title">Commutators and the Heisenberg Uncertainty Principle</h1>
+<p class="subtitle lead">Compatible Observables and Quantum Uncertainty</p>
 </div>
 
 
@@ -4436,137 +4465,1079 @@ margin-bottom: 0.25em;
 </header>
 
 
-<section id="commutators-and-heisenbergs-uncertainty-principle" class="level1">
-<h1>Commutators and Heisenberg’s Uncertainty Principle</h1>
-<p>The <strong>commutator</strong> of two operators <span class="math inline">\(\hat{A}\)</span> and <span class="math inline">\(\hat{B}\)</span> is defined as</p>
+<section id="commutators-and-the-heisenberg-uncertainty-principle-overview-and-plan" class="level1">
+<h1>Commutators and the Heisenberg Uncertainty Principle: Overview and Plan</h1>
+<p>In the previous section, we saw that an ideal quantum measurement generally changes the state of the system.</p>
+<p>Suppose a measurement of an observable <span class="math inline">\(\hat A\)</span> produces the value <span class="math inline">\(a_n\)</span>. For a nondegenerate eigenvalue, the state afterward is</p>
 <p><span class="math display">\[
-\left[ \hat{A} , \hat{B} \right]= \hat{A}\hat{B} - \hat{B}\hat{A}.
+\left\lvert a_n \right\rangle.
 \]</span></p>
-<hr>
-<section id="key-properties-of-commutators" class="level2">
-<h2 class="anchored" data-anchor-id="key-properties-of-commutators">Key Properties of Commutators</h2>
-<ul>
-<li>Two observables <span class="math inline">\(\hat{A}\)</span> and <span class="math inline">\(\hat{B}\)</span> have a complete set of <strong>common eigenstates</strong><br>
-<em>if and only if</em> their commutator vanishes: <span class="math display">\[
-\left[ \hat{A} , \hat{B} \right]= \hat{0}.
-\]</span></li>
-<li>If <span class="math inline">\(\left[ \hat{A} , \hat{B} \right]\neq \hat{0}\)</span>, the observables are called <strong>incompatible</strong>.<br>
-They cannot, in general, be measured sharply at the same time.<br>
-</li>
-<li>This incompatibility is made quantitative by the <strong>Heisenberg uncertainty principle</strong>: <span class="math display">\[
-\sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2}\,\big|\langle \left[ \hat{A} , \hat{B} \right]\rangle\big|,
-\]</span> where <span class="math inline">\(\sigma_A\)</span> and <span class="math inline">\(\sigma_B\)</span> denote the standard deviations of observables <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</li>
-</ul>
+<p>If we now measure a different observable <span class="math inline">\(\hat B\)</span>, the state may change again. A subsequent measurement of <span class="math inline">\(A\)</span> need not reproduce the original result.</p>
+<p>This raises an important question:</p>
+<blockquote class="blockquote">
+<p><strong>When can two observables possess definite values simultaneously?</strong></p>
+</blockquote>
+<p>The answer is encoded in the algebra of the corresponding operators.</p>
+<p>If two observables are represented by operators that <strong>commute</strong>, they are compatible and can—under the usual conditions encountered here—be described using common eigenstates.</p>
+<p>If they do not commute, the observables are generally incompatible.</p>
+<p>The <strong>Heisenberg uncertainty principle</strong> provides a quantitative connection between this noncommutativity and the statistical uncertainties of measurements.</p>
+<p>The specific goals for this chapter are:</p>
+<ol type="1">
+<li>Understand why successive measurements of different observables can depend on the order in which they are performed.</li>
+<li>Introduce compatible and incompatible observables.</li>
+<li>Define the commutator and learn its most important algebraic properties.</li>
+<li>Understand the connection between commuting operators and common eigenstates.</li>
+<li>Introduce complete sets of commuting observables.</li>
+<li>Connect the uncertainty of an observable to the spread of measurement outcomes introduced in the previous section.</li>
+<li>Derive the general form of the <strong>Heisenberg uncertainty principle</strong>.</li>
+<li>Apply the uncertainty principle to position and momentum.</li>
+<li>Preview the commutation relations of angular momentum.</li>
+</ol>
+</section>
+<section id="successive-measurements-and-compatibility" class="level1">
+<h1>1. Successive Measurements and Compatibility</h1>
+<section id="measuring-two-different-observables" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-two-different-observables">1.1 Measuring two different observables</h2>
+<p>Suppose the system is initially in the state</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle,
+\]</span></p>
+<p>and we first measure the observable <span class="math inline">\(\hat A\)</span>.</p>
+<p>Assume the result is the nondegenerate eigenvalue <span class="math inline">\(a_n\)</span>.</p>
+<p>The state becomes</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle\longrightarrow
+\left\lvert a_n \right\rangle.
+\]</span></p>
+<p>Now measure another observable <span class="math inline">\(\hat B\)</span>, whose eigenstates satisfy</p>
+<p><span class="math display">\[
+\hat B\left\lvert b_m \right\rangle=
+b_m\left\lvert b_m \right\rangle.
+\]</span></p>
+<p>We can expand the state <span class="math inline">\(\left\lvert a_n \right\rangle\)</span> in the eigenbasis of <span class="math inline">\(\hat B\)</span>:</p>
+<p><span class="math display">\[
+\left\lvert a_n \right\rangle=
+\sum_m
+\left\lvert b_m \right\rangle\left\langle b_m \middle| a_n \right\rangle.
+\]</span></p>
+<p>The probability that the measurement of <span class="math inline">\(B\)</span> gives the result <span class="math inline">\(b_m\)</span> is therefore</p>
+<p><span class="math display">\[
+\boxed{
+P(b_m|a_n)
+=
+\left|
+\left\langle b_m \middle| a_n \right\rangle\right|^2.
+}
+\]</span></p>
+<p>After obtaining <span class="math inline">\(b_m\)</span>, the state becomes</p>
+<p><span class="math display">\[
+\left\lvert a_n \right\rangle\longrightarrow
+\left\lvert b_m \right\rangle.
+\]</span></p>
+</section>
+<section id="measuring-a-again" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-a-again">1.2 Measuring <span class="math inline">\(A\)</span> again</h2>
+<p>Now suppose we immediately measure <span class="math inline">\(A\)</span> once more.</p>
+<p>The probability of recovering the original value <span class="math inline">\(a_n\)</span> is</p>
+<p><span class="math display">\[
+P(a_n|b_m)
+=
+\left|
+\left\langle a_n \middle| b_m \right\rangle\right|^2.
+\]</span></p>
+<p>Unless <span class="math inline">\(\left\lvert b_m \right\rangle\)</span> is also an eigenstate of <span class="math inline">\(\hat A\)</span>, this probability need not be one.</p>
+<p>Thus the intermediate measurement of <span class="math inline">\(B\)</span> may destroy the definite value of <span class="math inline">\(A\)</span> established by the first measurement.</p>
+<p>Schematically,</p>
+<p><span class="math display">\[
+\boxed{
+A
+\longrightarrow
+B
+\longrightarrow
+A
+}
+\]</span></p>
+<p>need not reproduce the result of the first measurement.</p>
+</section>
+<section id="compatible-observables" class="level2">
+<h2 class="anchored" data-anchor-id="compatible-observables">1.3 Compatible observables</h2>
+<p>There is, however, an important special case.</p>
+<p>Suppose <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span> possess a common set of eigenstates,</p>
+<p><span class="math display">\[
+\left\lvert a,b \right\rangle,
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\hat A\left\lvert a,b \right\rangle=
+a\left\lvert a,b \right\rangle\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\hat B\left\lvert a,b \right\rangle=
+b\left\lvert a,b \right\rangle.
+\]</span></p>
+<p>The same state then possesses definite values of both observables.</p>
+<p>A measurement of one observable does not necessarily destroy the definite value of the other.</p>
+<p>Such observables are called <strong>compatible observables</strong>.</p>
+<p>We therefore need a mathematical criterion that tells us whether two observables are compatible.</p>
+<p>That criterion is provided by the <strong>commutator</strong>.</p>
+</section>
+</section>
+<section id="commutators-and-compatible-observables" class="level1">
+<h1>2. Commutators and Compatible Observables</h1>
+<section id="the-commutator" class="level2">
+<h2 class="anchored" data-anchor-id="the-commutator">2.1 The commutator</h2>
+<p>The commutator of two operators <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span> is defined by</p>
+<p><span class="math display">\[
+\boxed{
+[\hat A,\hat B]
+=
+\hat A\hat B-\hat B\hat A.
+}
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+[\hat A,\hat B]=0,
+\]</span></p>
+<p>the operators <strong>commute</strong>.</p>
+<p>If</p>
+<p><span class="math display">\[
+[\hat A,\hat B]\neq0,
+\]</span></p>
+<p>they do <strong>not commute</strong>.</p>
+<p>For the Hermitian operators encountered in ordinary quantum mechanics, commuting observables can be simultaneously diagonalized and therefore possess a common orthonormal eigenbasis.</p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat A,\hat B]=0
+\quad\Longrightarrow\quad
+\text{$A$ and $B$ are compatible}.
+}
+\]</span></p>
+<p>Noncommuting observables are called <strong>incompatible observables</strong>.</p>
+</section>
+<section id="useful-properties-of-commutators" class="level2">
+<h2 class="anchored" data-anchor-id="useful-properties-of-commutators">2.2 Useful properties of commutators</h2>
+<p>Commutators obey a number of useful algebraic relations.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Relation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Antisymmetry</td>
+<td><span class="math inline">\([\hat A,\hat B]=-[\hat B,\hat A]\)</span></td>
+</tr>
+<tr class="even">
+<td>Self-commutator</td>
+<td><span class="math inline">\([\hat A,\hat A]=0\)</span></td>
+</tr>
+<tr class="odd">
+<td>Linearity</td>
+<td><span class="math inline">\([\hat A,\hat B+\hat C]=[\hat A,\hat B]+[\hat A,\hat C]\)</span></td>
+</tr>
+<tr class="even">
+<td>Scalar multiplication</td>
+<td><span class="math inline">\([\hat A,c\hat B]=c[\hat A,\hat B]\)</span></td>
+</tr>
+<tr class="odd">
+<td>Product rule</td>
+<td><span class="math inline">\([\hat A,\hat B\hat C]=[\hat A,\hat B]\hat C+\hat B[\hat A,\hat C]\)</span></td>
+</tr>
+<tr class="even">
+<td>Product rule</td>
+<td><span class="math inline">\([\hat A\hat B,\hat C]=\hat A[\hat B,\hat C]+[\hat A,\hat C]\hat B\)</span></td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof of the Uncertainty Principle
+<span class="screen-reader-only">Note</span>Proof of the product rule
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(\hat{A}\)</span> and <span class="math inline">\(\hat{B}\)</span> be Hermitian operators.<br>
-Define centered operators <span class="math display">\[
-\Delta \hat{A} = \hat{A} - \langle \hat{A} \rangle, \qquad
-\Delta \hat{B} = \hat{B} - \langle \hat{B} \rangle.
-\]</span></p>
-<p>For any real number <span class="math inline">\(\lambda\)</span>, consider the inner product <span class="math display">\[
-\langle \psi | (\Delta \hat{A} + i \lambda \Delta \hat{B})^\dagger (\Delta \hat{A} + i \lambda \Delta \hat{B}) | \psi \rangle \;\geq\; 0.
-\]</span></p>
-<blockquote class="blockquote">
-<p><strong>Remark.</strong> This is just <span class="math inline">\(\| (\Delta \hat{A} + i \lambda \Delta \hat{B}) |\psi\rangle \|^2\)</span>,<br>
-the squared norm of a vector in Hilbert space.<br>
-Since norms are always nonnegative, the whole expression is <span class="math inline">\(\geq 0\)</span>.</p>
-</blockquote>
-<p>Expanding gives <span class="math display">\[
-\langle (\Delta \hat{A})^2 \rangle
-+ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
-+ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \;\geq\; 0.
-\]</span></p>
-<p>The expression <span class="math display">\[
-f(\lambda) = \langle (\Delta \hat{A})^2 \rangle
-+ \lambda^2 \langle (\Delta \hat{B})^2 \rangle
-+ i \lambda \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle
-\]</span> is a quadratic function of the real variable <span class="math inline">\(\lambda\)</span>.</p>
-<blockquote class="blockquote">
-<p><strong>Remark.</strong> The coefficient of <span class="math inline">\(\lambda^2\)</span> is <span class="math inline">\(\langle (\Delta \hat{B})^2 \rangle = \sigma_B^2\)</span>,<br>
-which is strictly positive unless the state is an exact eigenstate of <span class="math inline">\(\hat{B}\)</span>.<br>
-Therefore <span class="math inline">\(f(\lambda)\)</span> is a parabola that opens upwards, ensuring that it has a unique global minimum.</p>
-</blockquote>
-<p>Its minimum value occurs at <span class="math display">\[
-\lambda_{\min} = -\, \frac{i \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle}{2 \langle (\Delta \hat{B})^2 \rangle}.
-\]</span></p>
-<p>Substituting back: <span class="math display">\[
-f(\lambda_{\min}) = \langle (\Delta \hat{A})^2 \rangle
-- \frac{1}{4 \langle (\Delta \hat{B})^2 \rangle}
-\, \big| \langle [\Delta \hat{A}, \Delta \hat{B}] \rangle \big|^2 \;\geq\; 0.
-\]</span></p>
-<p>Rearranging gives <span class="math display">\[
-\langle (\Delta \hat{A})^2 \rangle \, \langle (\Delta \hat{B})^2 \rangle
-\;\geq\; \tfrac{1}{4} \big| \langle [\hat{A}, \hat{B}] \rangle \big|^2.
-\]</span></p>
-<p>Since <span class="math inline">\(\sigma_A^2 = \langle (\Delta \hat{A})^2 \rangle\)</span> and<br>
-<span class="math inline">\(\sigma_B^2 = \langle (\Delta \hat{B})^2 \rangle\)</span>, we finally obtain <span class="math display">\[
-\sigma_A \, \sigma_B \;\geq\; \tfrac{1}{2} \, \big| \langle [\hat{A}, \hat{B}] \rangle \big|.
-\]</span></p>
-<p>This is the <strong>Heisenberg uncertainty principle</strong>.</p>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="important-examples" class="level2">
-<h2 class="anchored" data-anchor-id="important-examples">Important Examples</h2>
-<section id="positionmomentum-commutator" class="level3">
-<h3 class="anchored" data-anchor-id="positionmomentum-commutator">Position–Momentum Commutator</h3>
+<p>Starting with</p>
 <p><span class="math display">\[
-\left[ \hat{r}_i , \hat{p}_j \right]= i\hbar \, \delta_{ij},
-\]</span> where <span class="math inline">\(i,j\)</span> label Cartesian components.<br>
-This leads directly to the familiar uncertainty relation <span class="math display">\[
-\sigma_x \, \sigma_{p_x} \geq \tfrac{\hbar}{2}.
+[\hat A,\hat B\hat C]
+=
+\hat A\hat B\hat C
+-
+\hat B\hat C\hat A,
 \]</span></p>
+<p>add and subtract <span class="math inline">\(\hat B\hat A\hat C\)</span>:</p>
+<p><span class="math display">\[
+[\hat A,\hat B\hat C]
+=
+\hat A\hat B\hat C
+-
+\hat B\hat A\hat C
++
+\hat B\hat A\hat C
+-
+\hat B\hat C\hat A.
+\]</span></p>
+<p>Grouping the terms,</p>
+<p><span class="math display">\[
+[\hat A,\hat B\hat C]
+=
+(\hat A\hat B-\hat B\hat A)\hat C
++
+\hat B(\hat A\hat C-\hat C\hat A).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat A,\hat B\hat C]
+=
+[\hat A,\hat B]\hat C
++
+\hat B[\hat A,\hat C].
+}
+\]</span></p>
+</div>
+</div>
+</div>
 </section>
-<section id="angular-momentum-commutators" class="level3">
-<h3 class="anchored" data-anchor-id="angular-momentum-commutators">Angular Momentum Commutators</h3>
-<p>The components of angular momentum form a <strong>Lie algebra</strong>: <span class="math display">\[
-\left[ \hat{L}_x , \hat{L}_y \right]= i\hbar \hat{L}_z, \qquad
-\left[ \hat{L}_y , \hat{L}_z \right]= i\hbar \hat{L}_x, \qquad
-\left[ \hat{L}_z , \hat{L}_x \right]= i\hbar \hat{L}_y.
+<section id="why-do-commuting-observables-have-common-eigenstates" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-commuting-observables-have-common-eigenstates">2.3 Why do commuting observables have common eigenstates?</h2>
+<p>Suppose</p>
+<p><span class="math display">\[
+\hat A\left\lvert a \right\rangle=
+a\left\lvert a \right\rangle\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+[\hat A,\hat B]=0.
 \]</span></p>
-</section>
-<section id="commuting-quantities" class="level3">
-<h3 class="anchored" data-anchor-id="commuting-quantities">Commuting Quantities</h3>
-<p>Some pairs of operators <em>do</em> commute, which means they can be simultaneously diagonalized: <span class="math display">\[
-\left[ \hat{\vec L}^2 , \hat{L}_z \right]= \hat{0}, \qquad
-\left[ \hat{\vec L}^2 , \hat{H} \right]= \hat{0}.
+<p>Then</p>
+<p><span class="math display">\[
+\hat A\hat B\left\lvert a \right\rangle=
+\hat B\hat A\left\lvert a \right\rangle=
+a\hat B\left\lvert a \right\rangle.
 \]</span></p>
-<hr>
+<p>Thus <span class="math inline">\(\hat B\left\lvert a \right\rangle\)</span> is itself contained in the eigenspace of <span class="math inline">\(\hat A\)</span> with eigenvalue <span class="math inline">\(a\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Remark
+<span class="screen-reader-only">Note</span>Proof for nondegenerate and degenerate eigenvalues
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>The <strong>uncertainty principle is not about experimental imperfections</strong>.<br>
-It is a fundamental feature of quantum mechanics: non-commuting observables simply do not admit sharp simultaneous values.</p></li>
-<li><p>The stronger the commutator, the stronger the tradeoff between precisions of measurement.<br>
-</p></li>
-</ul>
+<p>First consider a nondegenerate eigenvalue <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[
+\hat A\left\lvert a \right\rangle=
+a\left\lvert a \right\rangle.
+\]</span></p>
+<p>Because</p>
+<p><span class="math display">\[
+[\hat A,\hat B]=0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\hat A\hat B\left\lvert a \right\rangle=
+a\hat B\left\lvert a \right\rangle.
+\]</span></p>
+<p>Therefore <span class="math inline">\(\hat B\left\lvert a \right\rangle\)</span> is an eigenvector of <span class="math inline">\(\hat A\)</span> with eigenvalue <span class="math inline">\(a\)</span>.</p>
+<p>If the eigenvalue is nondegenerate, its eigenspace is one-dimensional. Consequently,</p>
+<p><span class="math display">\[
+\hat B\left\lvert a \right\rangle=
+b\left\lvert a \right\rangle.
+\]</span></p>
+<p>Thus <span class="math inline">\(\left\lvert a \right\rangle\)</span> is also an eigenstate of <span class="math inline">\(\hat B\)</span>.</p>
+<p>If <span class="math inline">\(a\)</span> is degenerate, <span class="math inline">\(\hat B\)</span> may mix different vectors inside the eigenspace corresponding to <span class="math inline">\(a\)</span>.</p>
+<p>However, because <span class="math inline">\(\hat B\)</span> leaves that eigenspace invariant, we can diagonalize <span class="math inline">\(\hat B\)</span> within it.</p>
+<p>The resulting basis vectors are simultaneous eigenstates of both <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span>.</p>
+<p>Thus commuting Hermitian operators can be represented using a common orthonormal eigenbasis.</p>
 </div>
 </div>
-
-
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A mathematical qualification
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For finite-dimensional Hermitian operators, simultaneous diagonalization of commuting operators is straightforward.</p>
+<p>For general unbounded operators in infinite-dimensional Hilbert spaces, domains and continuous spectra require additional mathematical care.</p>
+<p>For the operators considered in this course, we will use the standard quantum-mechanical statement that compatible observables can be represented by mutually commuting operators with a common set of eigenstates.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="complete-sets-of-commuting-observables" class="level2">
+<h2 class="anchored" data-anchor-id="complete-sets-of-commuting-observables">2.4 Complete sets of commuting observables</h2>
+<p>One observable does not always uniquely identify a quantum state.</p>
+<p>If an eigenvalue is degenerate, several linearly independent states may have the same value of that observable.</p>
+<p>We can then introduce additional commuting observables to distinguish them.</p>
+<p>A collection of mutually commuting observables whose eigenvalues uniquely specify a basis state is called a <strong>complete set of commuting observables</strong>, or <strong>CSCO</strong>.</p>
+<p>This idea will become particularly important for angular momentum and for the hydrogen atom.</p>
 </section>
 </section>
+<section id="the-heisenberg-uncertainty-principle" class="level1">
+<h1>3. The Heisenberg Uncertainty Principle</h1>
+<p>In the section on <a href="../mod2/braket.html">States and Operators</a>, we introduced the variance and standard deviation of an observable.</p>
+<p>For an observable <span class="math inline">\(\hat A\)</span> in the state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>,</p>
+<p><span class="math display">\[
+\sigma_A^2
+=
+\langle A^2\rangle
+-
+\langle A\rangle^2
+\]</span></p>
+<p>describes the spread of the possible outcomes of repeated measurements.</p>
+<p>We will now ask how small the uncertainties of <strong>two different observables</strong> can be at the same time.</p>
+<section id="centered-operators" class="level2">
+<h2 class="anchored" data-anchor-id="centered-operators">3.1 Centered operators</h2>
+<p>It is convenient to define the operator describing the deviation from the expectation value,</p>
+<p><span class="math display">\[
+\boxed{
+\Delta\hat A
+=
+\hat A-\langle A\rangle,
+}
+\]</span></p>
+<p>and similarly,</p>
+<p><span class="math display">\[
+\boxed{
+\Delta\hat B
+=
+\hat B-\langle B\rangle.
+}
+\]</span></p>
+<p>The variances can then be written compactly as</p>
+<p><span class="math display">\[
+\sigma_A^2
+=
+\left\langle \psi \middle|
+(\Delta\hat A)^2
+\middle| \psi \right\rangle\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sigma_B^2
+=
+\left\langle \psi \middle|
+(\Delta\hat B)^2
+\middle| \psi \right\rangle.
+\]</span></p>
+</section>
+<section id="the-general-heisenberg-uncertainty-relation" class="level2">
+<h2 class="anchored" data-anchor-id="the-general-heisenberg-uncertainty-relation">3.2 The general Heisenberg uncertainty relation</h2>
+<p>For any two Hermitian observables <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac{1}{2}
+\left|
+\left\langle
+[\hat A,\hat B]
+\right\rangle
+\right|.
+}
+\]</span></p>
+<p>This is the <strong>general Heisenberg uncertainty relation</strong>.</p>
+<p>More precisely, this form of the relation is often called the <strong>Robertson uncertainty relation</strong>, after Howard Percy Robertson, who derived the general inequality for arbitrary pairs of observables in 1929.</p>
+<p>It expresses a central consequence of quantum mechanics:</p>
+<blockquote class="blockquote">
+<p>The uncertainties of two observables are constrained by the noncommutativity of their operators.</p>
+</blockquote>
+<p>The familiar position–momentum uncertainty principle,</p>
+<p><span class="math display">\[
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2},
+\]</span></p>
+<p>is a special case of this general relation.</p>
+<p>Thus, the Heisenberg uncertainty principle is not an independent rule added to quantum mechanics. It follows naturally from the operator structure of the theory.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation of the general Heisenberg uncertainty relation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The following derivation gives the relation commonly called the <strong>Robertson uncertainty relation</strong>.</p>
+<p>Let</p>
+<p><span class="math display">\[
+\Delta\hat A
+=
+\hat A-\langle A\rangle,
+\qquad
+\Delta\hat B
+=
+\hat B-\langle B\rangle.
+\]</span></p>
+<p>For any real number <span class="math inline">\(\lambda\)</span>, define</p>
+<p><span class="math display">\[
+\left\lvert \chi \right\rangle=
+\left(
+\Delta\hat A
++
+i\lambda\Delta\hat B
+\right)
+\left\lvert \psi \right\rangle.
+\]</span></p>
+<p>The norm of any vector is non-negative:</p>
+<p><span class="math display">\[
+\left\langle \chi \middle| \chi \right\rangle\geq0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\left\langle \psi \middle|
+(\Delta\hat A-i\lambda\Delta\hat B)
+(\Delta\hat A+i\lambda\Delta\hat B)
+\middle| \psi \right\rangle\geq0.
+\]</span></p>
+<p>Expanding gives</p>
+<p><span class="math display">\[
+\langle(\Delta\hat A)^2\rangle
++
+\lambda^2
+\langle(\Delta\hat B)^2\rangle
++
+i\lambda
+\langle[
+\Delta\hat A,\Delta\hat B
+]\rangle
+\geq0.
+\]</span></p>
+<p>Since constants commute with all operators,</p>
+<p><span class="math display">\[
+[
+\Delta\hat A,\Delta\hat B
+]
+=
+[\hat A,\hat B].
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\sigma_A^2
+=
+\langle(\Delta\hat A)^2\rangle
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sigma_B^2
+=
+\langle(\Delta\hat B)^2\rangle,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+f(\lambda)
+=
+\sigma_A^2
++
+\lambda^2\sigma_B^2
++
+i\lambda
+\langle[\hat A,\hat B]\rangle
+\geq0.
+\]</span></p>
+<p>Because <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span> are Hermitian,</p>
+<p><span class="math display">\[
+[\hat A,\hat B]^\dagger
+=
+-[\hat A,\hat B],
+\]</span></p>
+<p>so the expectation value of the commutator is purely imaginary. Thus <span class="math inline">\(f(\lambda)\)</span> is real.</p>
+<p>The minimum occurs at</p>
+<p><span class="math display">\[
+\lambda_{\min}
+=
+-\frac{
+i\langle[\hat A,\hat B]\rangle
+}{
+2\sigma_B^2
+}.
+\]</span></p>
+<p>Substituting this value gives</p>
+<p><span class="math display">\[
+\sigma_A^2
+-
+\frac{
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2
+}{
+4\sigma_B^2
+}
+\geq0.
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(\sigma_B^2\)</span>,</p>
+<p><span class="math display">\[
+\sigma_A^2\sigma_B^2
+\geq
+\frac14
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2.
+\]</span></p>
+<p>Taking the square root gives</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-subtle-but-important-point" class="level2">
+<h2 class="anchored" data-anchor-id="a-subtle-but-important-point">3.3 A subtle but important point</h2>
+<p>A nonzero commutator,</p>
+<p><span class="math display">\[
+[\hat A,\hat B]\neq0,
+\]</span></p>
+<p>means that the observables are incompatible.</p>
+<p>However, the lower bound in the Heisenberg uncertainty relation contains the <strong>expectation value</strong></p>
+<p><span class="math display">\[
+\langle[\hat A,\hat B]\rangle,
+\]</span></p>
+<p>which depends on the quantum state.</p>
+<p>It is therefore possible that</p>
+<p><span class="math display">\[
+[\hat A,\hat B]\neq0
+\]</span></p>
+<p>but</p>
+<p><span class="math display">\[
+\langle[\hat A,\hat B]\rangle=0
+\]</span></p>
+<p>for a particular state.</p>
+<p>In that state, the relation gives only</p>
+<p><span class="math display">\[
+\sigma_A\sigma_B\geq0.
+\]</span></p>
+<p>This does <strong>not</strong> mean that the two operators commute. It only means that this particular form of the uncertainty relation provides no nonzero lower bound for that state.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The stronger Schrödinger–Robertson uncertainty relation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The general Heisenberg relation above contains only the commutator of the two observables.</p>
+<p>An even stronger inequality also includes correlations between them:</p>
+<p><span class="math display">\[
+\sigma_A^2\sigma_B^2
+\geq
+\frac14
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|^2
++
+\frac14
+\left|
+\left\langle
+\{
+\Delta\hat A,\Delta\hat B
+\}
+\right\rangle
+\right|^2,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\{\hat A,\hat B\}
+=
+\hat A\hat B+\hat B\hat A
+\]</span></p>
+<p>is the <strong>anticommutator</strong>.</p>
+<p>This is commonly called the <strong>Schrödinger–Robertson uncertainty relation</strong>.</p>
+<p>The simpler relation</p>
+<p><span class="math display">\[
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|
+\]</span></p>
+<p>follows immediately by dropping the second, non-negative term.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="position-and-momentum" class="level1">
+<h1>4. Position and Momentum</h1>
+<section id="the-canonical-commutation-relation" class="level2">
+<h2 class="anchored" data-anchor-id="the-canonical-commutation-relation">4.1 The canonical commutation relation</h2>
+<p>The position and momentum operators satisfy</p>
+<p><span class="math display">\[
+\boxed{
+[\hat x,\hat p_x]
+=
+i\hbar.
+}
+\]</span></p>
+<p>More generally,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij},
+}
+\]</span></p>
+<p>where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> label Cartesian components.</p>
+<p>Thus,</p>
+<p><span class="math display">\[
+[\hat x,\hat p_y]=0,
+\]</span></p>
+<p>whereas</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]=i\hbar.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof of <span class="math inline">\([\hat x,\hat p_x]=i\hbar\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The momentum operator in the position representation is</p>
+<p><span class="math display">\[
+\hat p_x
+=
+-i\hbar\frac{d}{dx}.
+\]</span></p>
+<p>Because <span class="math inline">\(\hat p_x\)</span> is a differential operator, we evaluate the commutator by letting it act on an arbitrary suitable function <span class="math inline">\(\psi(x)\)</span>:</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]\psi
+=
+\hat x\hat p_x\psi
+-
+\hat p_x\hat x\psi.
+\]</span></p>
+<p>The first term is</p>
+<p><span class="math display">\[
+\hat x\hat p_x\psi
+=
+-i\hbar x\frac{d\psi}{dx}.
+\]</span></p>
+<p>The second term is</p>
+<p><span class="math display">\[
+\hat p_x\hat x\psi
+=
+-i\hbar
+\frac{d}{dx}(x\psi).
+\]</span></p>
+<p>Using the product rule,</p>
+<p><span class="math display">\[
+\hat p_x\hat x\psi
+=
+-i\hbar
+\left(
+\psi
++
+x\frac{d\psi}{dx}
+\right).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]\psi
+=
+-i\hbar x\frac{d\psi}{dx}
++
+i\hbar
+\left(
+\psi+x\frac{d\psi}{dx}
+\right),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]\psi
+=
+i\hbar\psi.
+\]</span></p>
+<p>Since this holds for every suitable <span class="math inline">\(\psi\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat x,\hat p_x]
+=
+i\hbar.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-heisenberg-positionmomentum-uncertainty-principle" class="level2">
+<h2 class="anchored" data-anchor-id="the-heisenberg-positionmomentum-uncertainty-principle">4.2 The Heisenberg position–momentum uncertainty principle</h2>
+<p>Substituting</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]
+=
+i\hbar
+\]</span></p>
+<p>into the general Heisenberg uncertainty relation gives</p>
+<p><span class="math display">\[
+\sigma_x\sigma_{p_x}
+\geq
+\frac12
+|\langle i\hbar\rangle|.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+\]</span></p>
+<p>This is the familiar <strong>Heisenberg position–momentum uncertainty principle</strong>.</p>
+<p>Unlike the general uncertainty bound, the right-hand side is independent of the quantum state because the commutator is simply a constant times the identity operator.</p>
+</section>
+<section id="what-the-uncertainty-principle-means" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-uncertainty-principle-means">4.3 What the uncertainty principle means</h2>
+<p>The relation</p>
+<p><span class="math display">\[
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}
+\]</span></p>
+<p>does <strong>not</strong> say that position cannot be measured precisely.</p>
+<p>Nor does it say that measuring position necessarily introduces an experimental error into momentum.</p>
+<p>Instead, it says that no quantum state can have arbitrarily narrow probability distributions for both position and momentum simultaneously.</p>
+<p>A state may have very small <span class="math inline">\(\sigma_x\)</span>.</p>
+<p>A different state may have very small <span class="math inline">\(\sigma_{p_x}\)</span>.</p>
+<p>But the product of the two uncertainties must satisfy</p>
+<p><span class="math display">\[
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+\]</span></p>
+<p>This limitation belongs to the structure of the quantum state itself.</p>
+</section>
+</section>
+<section id="angular-momentum-a-preview" class="level1">
+<h1>5. Angular Momentum: A Preview</h1>
+<p>Angular momentum provides one of the most important examples of incompatible observables.</p>
+<p>The Cartesian components satisfy</p>
+<p><span class="math display">\[
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z,
+}
+\]</span></p>
+<p>together with the cyclic permutations</p>
+<p><span class="math display">\[
+[\hat L_y,\hat L_z]
+=
+i\hbar\hat L_x,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+[\hat L_z,\hat L_x]
+=
+i\hbar\hat L_y.
+\]</span></p>
+<p>Thus the three Cartesian components cannot, in general, possess sharp values simultaneously.</p>
+<p>For example, the general Heisenberg uncertainty relation gives</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_{L_x}\sigma_{L_y}
+\geq
+\frac{\hbar}{2}
+|\langle L_z\rangle|.
+}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof of <span class="math inline">\([\hat L_x,\hat L_y]=i\hbar\hat L_z\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For orbital angular momentum,</p>
+<p><span class="math display">\[
+\hat L_x
+=
+\hat y\hat p_z-\hat z\hat p_y,
+\]</span></p>
+<p><span class="math display">\[
+\hat L_y
+=
+\hat z\hat p_x-\hat x\hat p_z,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\hat L_z
+=
+\hat x\hat p_y-\hat y\hat p_x.
+\]</span></p>
+<p>Using the canonical commutation relations,</p>
+<p><span class="math display">\[
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij},
+\]</span></p>
+<p>we calculate</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]
+=
+[
+\hat y\hat p_z-\hat z\hat p_y,
+\hat z\hat p_x-\hat x\hat p_z
+].
+\]</span></p>
+<p>Expanding,</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]
+=
+[\hat y\hat p_z,\hat z\hat p_x]
+-
+[\hat y\hat p_z,\hat x\hat p_z]
+-
+[\hat z\hat p_y,\hat z\hat p_x]
++
+[\hat z\hat p_y,\hat x\hat p_z].
+\]</span></p>
+<p>The middle two terms vanish.</p>
+<p>For the first term,</p>
+<p><span class="math display">\[
+[\hat y\hat p_z,\hat z\hat p_x]
+=
+-i\hbar\hat y\hat p_x.
+\]</span></p>
+<p>For the last term,</p>
+<p><span class="math display">\[
+[\hat z\hat p_y,\hat x\hat p_z]
+=
+i\hbar\hat x\hat p_y.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]
+=
+i\hbar
+(
+\hat x\hat p_y-\hat y\hat p_x
+),
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+<section id="angular-momentum-magnitude-and-one-component" class="level2">
+<h2 class="anchored" data-anchor-id="angular-momentum-magnitude-and-one-component">5.1 Angular-momentum magnitude and one component</h2>
+<p>Although the Cartesian components do not commute with one another,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat{\mathbf L}^2,\hat L_z]=0.
+}
+\]</span></p>
+<p>In fact,</p>
+<p><span class="math display">\[
+[\hat{\mathbf L}^2,\hat L_i]=0
+\]</span></p>
+<p>for every Cartesian component <span class="math inline">\(i\)</span>.</p>
+<p>It is therefore possible to choose states that are simultaneous eigenstates of</p>
+<p><span class="math display">\[
+\hat{\mathbf L}^2
+\]</span></p>
+<p>and one component, conventionally</p>
+<p><span class="math display">\[
+\hat L_z.
+\]</span></p>
+<p>This is why angular-momentum states can be labeled by two quantum numbers.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof that <span class="math inline">\([\hat{\mathbf L}^2,\hat L_z]=0\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using</p>
+<p><span class="math display">\[
+\hat{\mathbf L}^2
+=
+\hat L_x^2+\hat L_y^2+\hat L_z^2,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+[\hat{\mathbf L}^2,\hat L_z]
+=
+[\hat L_x^2,\hat L_z]
++
+[\hat L_y^2,\hat L_z]
++
+[\hat L_z^2,\hat L_z].
+\]</span></p>
+<p>The last term vanishes.</p>
+<p>Using the product rule,</p>
+<p><span class="math display">\[
+[\hat A\hat B,\hat C]
+=
+\hat A[\hat B,\hat C]
++
+[\hat A,\hat C]\hat B,
+\]</span></p>
+<p>we find</p>
+<p><span class="math display">\[
+[\hat L_x^2,\hat L_z]
+=
+\hat L_x[\hat L_x,\hat L_z]
++
+[\hat L_x,\hat L_z]\hat L_x.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_z]
+=
+-i\hbar\hat L_y,
+\]</span></p>
+<p>this gives</p>
+<p><span class="math display">\[
+[\hat L_x^2,\hat L_z]
+=
+-i\hbar
+(
+\hat L_x\hat L_y
++
+\hat L_y\hat L_x
+).
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+[\hat L_y^2,\hat L_z]
+=
+i\hbar
+(
+\hat L_y\hat L_x
++
+\hat L_x\hat L_y
+).
+\]</span></p>
+<p>The two contributions cancel, so</p>
+<p><span class="math display">\[
+\boxed{
+[\hat{\mathbf L}^2,\hat L_z]
+=
+0.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="angular-momentum-and-rotational-symmetry" class="level2">
+<h2 class="anchored" data-anchor-id="angular-momentum-and-rotational-symmetry">5.2 Angular momentum and rotational symmetry</h2>
+<p>For a rotationally invariant Hamiltonian,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat H,\hat{\mathbf L}^2]=0.
+}
+\]</span></p>
+<p>For a central potential,</p>
+<p><span class="math display">\[
+V(\vec r)=V(r),
+\]</span></p>
+<p>the Hamiltonian is rotationally invariant.</p>
+<p>Angular momentum therefore provides a natural set of quantum numbers for central-potential problems, including the hydrogen atom.</p>
+<p>We will develop orbital angular momentum in detail in the next section.</p>
+</section>
+</section>
+<section id="the-central-idea" class="level1">
+<h1>6. The Central Idea</h1>
+<p>A measurement generally changes the quantum state. Because of this, successive measurements of different observables need not be independent of one another.</p>
+<p>Whether two observables can possess simultaneous sharp values is determined by the algebra of their operators.</p>
+<p>For compatible observables,</p>
+<p><span class="math display">\[
+[\hat A,\hat B]=0,
+\]</span></p>
+<p>we can choose common eigenstates.</p>
+<p>For incompatible observables,</p>
+<p><span class="math display">\[
+[\hat A,\hat B]\neq0,
+\]</span></p>
+<p>a complete common eigenbasis generally does not exist.</p>
+<p>The <strong>general Heisenberg uncertainty principle</strong></p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\langle[\hat A,\hat B]\rangle
+\right|
+}
+\]</span></p>
+<p>quantifies one consequence of this incompatibility.</p>
+<p>For position and momentum,</p>
+<p><span class="math display">\[
+[\hat x,\hat p_x]=i\hbar,
+\]</span></p>
+<p>giving</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+\]</span></p>
+<p>The Heisenberg uncertainty principle is therefore not an isolated restriction on measurement precision. It follows naturally from the noncommutative operator structure of quantum mechanics.</p>
+<p>The same structure will lead us directly to the quantum theory of angular momentum in the next section.</p>
+
+
 </section>
 
 </main> <!-- /main -->
