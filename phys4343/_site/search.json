@@ -703,11 +703,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#matter-waves",
-    "href": "mod2/wavemechanics.html#matter-waves",
+    "objectID": "mod2/wavemechanics.html#what-is-an-electron",
+    "href": "mod2/wavemechanics.html#what-is-an-electron",
     "title": "Wave Mechanics",
-    "section": "",
-    "text": "Particles exhibit wave-like behavior (e.g., diffraction). The momentum/wave vector and energy/frequency relations (de Broglie) are:\n\\[\n\\vec{p} = \\hbar \\vec{k} \\quad \\text{and} \\quad E = \\hbar \\omega\n\\]",
+    "section": "1.1 What is an electron?",
+    "text": "1.1 What is an electron?\nBy the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.\nIn an idealized double-slit experiment, such a classical particle picture suggests that each electron passes through either slit 1 or slit 2. The distribution observed with both slits open should therefore simply be the sum of the distributions obtained from the individual slits,\n\\[\nP_{12}(x)=P_1(x)+P_2(x).\n\\]\nElectrons, however, produce interference patterns. A particularly direct demonstration was provided by Claus Jönsson, who observed electron diffraction and interference from artificially fabricated single and multiple slits in 1961 (Jönsson, 1961).\n\n\nCode\n# echo: false\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.animation import FuncAnimation\nfrom IPython.display import HTML\n\nplt.rcdefaults()\n\nrng = np.random.default_rng(12345)\n\n\n# ------------------------------------------------------------\n# Screen dimensions\n# ------------------------------------------------------------\nx_min, x_max = -10, 10\ny_min, y_max = -6, 6\n\n# ------------------------------------------------------------\n# Interference pattern\n# ------------------------------------------------------------\nperiod = 4.0          # fringe spacing in x\nvisibility = 0.90     # 0 = flat, 1 = maximum contrast\nphase = 0.0           # phase shift\n\n# ------------------------------------------------------------\n# Animation settings\n# ------------------------------------------------------------\nn_frames = 100\ndots_per_frame = 50\ndot_size = 8\nfps = 8\n\n# Hold final pattern before restarting\nhold_seconds = 2\nhold_frames = int(hold_seconds * fps)\n\n# ------------------------------------------------------------\n# Probability distribution\n# ------------------------------------------------------------\ndef p_x(x):\n    return 1.0 + visibility * np.cos(\n        2 * np.pi * x / period + phase\n    )\n\npmax = 1.0 + visibility\n\n\n# ------------------------------------------------------------\n# Rejection sampling\n# ------------------------------------------------------------\ndef sample_x(n):\n    xs = []\n\n    while len(xs) &lt; n:\n        x_try = rng.uniform(x_min, x_max, 4 * n)\n        y_try = rng.uniform(0, pmax, 4 * n)\n\n        accepted = x_try[y_try &lt; p_x(x_try)]\n        xs.extend(accepted.tolist())\n\n    return np.array(xs[:n])\n\n\n# ------------------------------------------------------------\n# Generate detection events\n# ------------------------------------------------------------\nN_total = n_frames * dots_per_frame\n\nx_events = sample_x(N_total)\ny_events = rng.uniform(y_min, y_max, N_total)\n\n\n# ------------------------------------------------------------\n# Figure\n# ------------------------------------------------------------\nfig, ax = plt.subplots(figsize=(8, 5), dpi=80)\n\nfig.patch.set_facecolor(\"white\")\nax.set_facecolor(\"white\")\n\nscat = ax.scatter(\n    [],\n    [],\n    s=dot_size,\n    c=\"black\"\n)\n\nax.set_xlim(x_min, x_max)\nax.set_ylim(y_min, y_max)\n\nax.set_xticks([])\nax.set_yticks([])\n\ncount_text = ax.text(\n    0.02,\n    0.95,\n    \"\",\n    transform=ax.transAxes,\n    ha=\"left\",\n    va=\"top\",\n    fontsize=12,\n    zorder=10,\n    bbox=dict(\n        facecolor=\"white\",\n        edgecolor=\"black\",\n        alpha=0.9,\n        boxstyle=\"round,pad=0.3\"\n    )\n)\n\n\n# ------------------------------------------------------------\n# Animation\n# ------------------------------------------------------------\ndef init():\n    scat.set_offsets(np.empty((0, 2)))\n    count_text.set_text(\"\")\n    return scat, count_text\n\n\ndef animate(frame):\n\n    if frame &lt; n_frames:\n        n = (frame + 1) * dots_per_frame\n    else:\n        n = N_total\n\n    offsets = np.column_stack(\n        (x_events[:n], y_events[:n])\n    )\n\n    scat.set_offsets(offsets)\n    count_text.set_text(f\"Detected particles: {n}\")\n\n    return scat, count_text\n\n\nanim = FuncAnimation(\n    fig,\n    animate,\n    frames=n_frames + hold_frames,\n    init_func=init,\n    interval=1000 / fps,\n    blit=True,\n    repeat=True\n)\n\nplt.close(fig)\n\n# Display as looping HTML5 video\nHTML(anim.to_html5_video())\n\n\n\n\n\n  \n  Your browser does not support the video tag.\n\n\n\nFigure 1: Simulated build-up of an interference pattern from individual detection events.\n\n\n\n\nThe result immediately raises a question:\n\nWhy do objects that are detected as particles produce an interference pattern?\n\nThe key observation is therefore:\n\nan individual electron is detected at a localized position;\nmany repeated detections form a wave-like interference pattern.\n\nThis behavior cannot be described by a simple classical particle picture or by a simple classical material wave.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -715,11 +715,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#time-evolution",
-    "href": "mod2/wavemechanics.html#time-evolution",
+    "objectID": "mod2/wavemechanics.html#historical-perspective-electron-diffraction",
+    "href": "mod2/wavemechanics.html#historical-perspective-electron-diffraction",
     "title": "Wave Mechanics",
-    "section": "Time evolution",
-    "text": "Time evolution\nThe particle wave function \\(\\psi\\) follows the time-dependent Schrödinger Equation (SE):\n\\[\ni \\hbar \\frac{\\partial}{\\partial t} \\psi(\\vec{r},t) = \\hat{H} \\psi(\\vec{r},t), \\quad\n\\hat{H} = -\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\vec{r},t)\n\\]",
+    "section": "1.2 Historical perspective: Electron diffraction",
+    "text": "1.2 Historical perspective: Electron diffraction\nThe electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.\nIn 1927, Clinton Davisson and Lester Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima could be explained as electron diffraction by the periodic crystal lattice, in close analogy to the diffraction of x rays by crystals (Davisson & Germer, 1927).\nAt about the same time, George Paget Thomson investigated electrons transmitted through thin crystalline films. Instead of angular scattering maxima, these experiments produced characteristic diffraction rings on photographic plates. The ring patterns provided another striking demonstration that electrons exhibit wave-like behavior.\n\n\n\n\n\n\nFigure 2: Electron diffraction pattern recorded in experiments by George Paget Thomson. The concentric rings result from diffraction of electrons transmitted through a thin crystalline film. Source: Science Museum Group Collection. Licensed under CC BY-NC-SA 4.0.\n\n\n\nThe two experiments used different geometries but led to the same conclusion: electrons, despite their particle-like properties such as charge and mass, can undergo diffraction. Davisson and Thomson later shared the 1937 Nobel Prize in Physics for the experimental discovery of electron diffraction.\nThe experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.\n\n\n\n\n\n\nNoteHistorical note\n\n\n\n\n\nGeorge Paget Thomson was the son of J. J. Thomson, whose cathode-ray experiments helped establish the electron as a constituent of matter with particle-like properties. About three decades later, G. P. Thomson’s diffraction experiments provided direct evidence for the electron’s wave-like behavior.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -727,11 +727,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#time-independent-se",
-    "href": "mod2/wavemechanics.html#time-independent-se",
+    "objectID": "mod2/wavemechanics.html#a-traveling-wave",
+    "href": "mod2/wavemechanics.html#a-traveling-wave",
     "title": "Wave Mechanics",
-    "section": "Time-independent SE",
-    "text": "Time-independent SE\nFor a potential without explicit time dependence \\(V(\\vec{r},t)=V(\\vec{r})\\) and a well-defined energy \\(E = \\hbar \\omega\\), the wave function can be written as \\(\\psi(\\vec{r},t) = \\phi(\\vec{r}) e^{i\\omega t}\\) with \\(\\phi(\\vec{r})\\) following the time-independent SE:\n\\[\n\\hat{H}\\phi(\\vec{r}) = E \\phi(\\vec{r})\n\\]",
+    "section": "2.1 A traveling wave",
+    "text": "2.1 A traveling wave\nA one-dimensional harmonic traveling wave can be written as\n\\[\ny(x,t)=A\\cos\\big(kx-\\omega t+\\phi\\big).\n\\]\nIt is useful to define the phase of the wave as the complete argument of the trigonometric function,\n\\[\n\\theta(x,t)=kx-\\omega t+\\phi.\n\\]\nHere,\n\n\\(A\\) is the amplitude,\n\\(\\lambda\\) is the wavelength,\n\\(k=2\\pi/\\lambda\\) is the wave number,\n\\(f\\) is the frequency,\n\\(\\omega=2\\pi f\\) is the angular frequency,\n\\(\\theta(x,t)\\) is the phase of the wave,\n\\(\\phi\\) is the phase offset (or initial phase).\n\nThus, in these notes the word phase refers to the full quantity \\(\\theta(x,t)\\), while \\(\\phi\\) denotes only the constant phase offset.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nA = 1.0\nlam = 2.5\nphi = np.pi/3\nk = 2*np.pi/lam\n\nx = np.linspace(-0.8, 5.6, 1000)\ny = A*np.cos(k*x + phi)\ny_ref = A*np.cos(k*x)\n\nx_peak = -phi/k\nx_peak_2 = x_peak + lam\nx_peak_3 = x_peak + 2*lam\n\nfig, ax = plt.subplots(figsize=(9,4.5))\nax.plot(x, y, linewidth=2, label=r'$A\\cos(kx+\\phi)$')\nax.plot(x, y_ref, '--', alpha=0.55, label=r'$A\\cos(kx)$')\nax.axhline(0, linewidth=0.8)\n\n# Amplitude\nax.annotate('', xy=(x_peak_2, A), xytext=(x_peak_2, 0),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak_2+0.10, A/2, r'$A$', va='center')\n\n# Wavelength\nlevel = -1.28\nax.annotate('', xy=(x_peak_3, level), xytext=(x_peak_2, level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text((x_peak_2+x_peak_3)/2, level+0.08, r'$\\lambda$', ha='center')\n\n# Shift associated with phase offset\nphase_level = 1.28\nax.annotate('', xy=(0, phase_level), xytext=(x_peak, phase_level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak/2, phase_level+0.08,\n        r'phase offset: $\\Delta x=-\\phi/k$', ha='center')\n\nax.set_xlabel('x')\nax.set_ylabel('y(x,t)')\nax.set_ylim(-1.55,1.55)\nax.legend(loc='lower left')\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 3: A harmonic wave at fixed time. The figure illustrates the amplitude A, wavelength λ, and the spatial shift associated with a phase offset φ.\n\n\n\n\n\nA change in phase offset corresponds to a horizontal shift of the wave. At fixed time,\n\\[\n\\Delta x=-\\frac{\\phi}{k}.\n\\]\nMore importantly for interference, two waves need not have the same phase at a given position. Their relative phase will determine whether they interfere constructively or destructively.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -739,11 +739,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#probability-density-born-rule",
-    "href": "mod2/wavemechanics.html#probability-density-born-rule",
+    "objectID": "mod2/wavemechanics.html#complex-representation",
+    "href": "mod2/wavemechanics.html#complex-representation",
     "title": "Wave Mechanics",
-    "section": "Probability density (Born rule)",
-    "text": "Probability density (Born rule)\nThe wave function is related to the particle’s probability density \\(P(\\vec{r},t)\\) (i.e., the probability of finding the particle at position \\(\\vec{r}\\)) following the Born rule:\n\\[\nP(\\vec{r},t) = |\\psi(\\vec{r},t)|^2\n\\]\n\n(Note: This requires the wave function to be normalized, i.e., \\(\\int |\\psi(\\vec{r},t)|^2 d^3r = 1\\). However, not all wave functions can be normalized, e.g., ‘plane waves’.)",
+    "section": "2.2 Complex representation",
+    "text": "2.2 Complex representation\nUsing Euler’s relation,\n\\[\ne^{i\\theta}=\\cos\\theta+i\\sin\\theta,\n\\]\nwe can represent a harmonic wave compactly as\n\\[\n\\psi(x,t)=A e^{i\\theta(x,t)}\n=Ae^{i(kx-\\omega t+\\phi)}.\n\\]\nIn three dimensions,\n\\[\n\\psi(\\vec r,t)=A e^{i(\\vec k\\cdot\\vec r-\\omega t+\\phi)}.\n\\]\nThe complex representation keeps track of both amplitude and phase and makes the mathematics of superposition particularly simple.\nFor a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function \\(\\psi\\) is itself generally complex and has a different physical interpretation, which we will introduce in Section 4.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -751,11 +751,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#expectation-value-of-position",
-    "href": "mod2/wavemechanics.html#expectation-value-of-position",
+    "objectID": "mod2/wavemechanics.html#probability-distributions",
+    "href": "mod2/wavemechanics.html#probability-distributions",
     "title": "Wave Mechanics",
-    "section": "Expectation value of position",
-    "text": "Expectation value of position\nThis is the average position of the particle when many identical measurements are performed, and it is given by:\n\\[\n\\langle \\vec{r} \\rangle = \\int \\psi^*(\\vec{r},t) \\, \\vec{r} \\, \\psi(\\vec{r},t) \\, d^3r\n\\]",
+    "section": "4.1 Probability distributions",
+    "text": "4.1 Probability distributions\nBefore assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.\nLet \\(p(x)\\) be a probability density. The probability of finding a measurement outcome between \\(a\\) and \\(b\\) is\n\\[\nP(a&lt;x&lt;b)=\\int_a^b p(x)\\,dx.\n\\]\nThe total probability must be one,\n\\[\n\\int_{-\\infty}^{\\infty}p(x)\\,dx=1.\n\\]\nFor a very small interval \\(dx\\),\n\\[\ndP=p(x)\\,dx.\n\\]\nThe expectation value is\n\\[\n\\langle x\\rangle\n=\\int_{-\\infty}^{\\infty}x\\,p(x)\\,dx,\n\\]\nand the variance is\n\\[\n\\operatorname{Var}(x)\n=\\langle x^2\\rangle-\\langle x\\rangle^2.\n\\]\nThe standard deviation is\n\\[\n\\sigma_x=\\sqrt{\\operatorname{Var}(x)}.\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -763,11 +763,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#variance-of-position",
-    "href": "mod2/wavemechanics.html#variance-of-position",
+    "objectID": "mod2/wavemechanics.html#the-born-interpretation",
+    "href": "mod2/wavemechanics.html#the-born-interpretation",
     "title": "Wave Mechanics",
-    "section": "Variance of position",
-    "text": "Variance of position\nThe variance of the position \\(\\vec{r}\\) quantifies the spread of the probability distribution, i.e., it expresses the uncertainty in the particle’s position:\n\\[\n\\mathrm{Var}(\\vec{r}) = \\langle \\vec{r}^2 \\rangle - \\langle \\vec{r} \\rangle^2,\n\\quad \\text{with} \\quad\n\\langle \\vec{r}^2 \\rangle = \\int \\psi^*(\\vec{r},t) \\, \\vec{r}^2 \\, \\psi(\\vec{r},t) \\, d^3r\n\\]",
+    "section": "4.2 The Born interpretation",
+    "text": "4.2 The Born interpretation\nQuantum mechanics associates a complex wave function \\(\\psi(\\vec r,t)\\) with the state of a particle. According to the Born rule, the probability density for position is\n\\[\n\\boxed{p(\\vec r,t)=|\\psi(\\vec r,t)|^2.}\n\\]\nThus the probability of detecting the particle within a small volume \\(d^3r\\) is\n\\[\ndP=|\\psi(\\vec r,t)|^2\\,d^3r,\n\\]\nand the probability of finding it in a finite region \\(R\\) is\n\\[\nP_R=\\int_R |\\psi(\\vec r,t)|^2\\,d^3r.\n\\]\nFor a normalizable state,\n\\[\n\\int_{\\mathbb R^3}|\\psi(\\vec r,t)|^2\\,d^3r=1.\n\\]\nThis gives the wave function its central interpretation:\n\\[\n\\boxed{\\psi=\\text{probability amplitude},\n\\qquad |\\psi|^2=\\text{probability density}.}\n\\]\nThe electron-interference experiment can now be expressed very compactly. The probability amplitudes associated with the two alternatives add,\n\\[\n\\psi=\\psi_1+\\psi_2,\n\\]\nbut the measurable probability density is\n\\[\n|\\psi|^2=|\\psi_1+\\psi_2|^2,\n\\]\nwhich contains the interference term.\n\n\n\n\n\n\nNote\n\n\n\nA plane wave extending over all space is not square-normalizable in the usual sense. It is an idealized state of exactly defined momentum and can be treated using box normalization or the generalized normalization of continuum states.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -775,11 +775,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#wave-function-in-momentum-space",
-    "href": "mod2/wavemechanics.html#wave-function-in-momentum-space",
+    "objectID": "mod2/wavemechanics.html#wave-packets-and-momentum-space",
+    "href": "mod2/wavemechanics.html#wave-packets-and-momentum-space",
     "title": "Wave Mechanics",
-    "section": "Wave function in momentum space",
-    "text": "Wave function in momentum space\nA wave function in coordinate space \\(\\psi(\\vec{r})\\) has a corresponding wave function in momentum space \\(\\Psi(\\vec{k})\\), and they are related by a Fourier transform (for one particle in three-dimensional space):\n\\[\n\\Psi(\\vec{k}) = \\frac{1}{(2\\pi)^{3/2}} \\int d^3r \\, \\psi(\\vec{r}) e^{-i\\vec{k}\\cdot \\vec{r}}, \\quad\n\\psi(\\vec{r}) = \\frac{1}{(2\\pi)^{3/2}} \\int d^3k \\, \\Psi(\\vec{k}) e^{i\\vec{k}\\cdot \\vec{r}}\n\\]",
+    "section": "5.1 Wave packets and momentum space",
+    "text": "5.1 Wave packets and momentum space\nA localized particle cannot be represented by a single plane wave. Instead, it is represented by a superposition of plane waves with different wave vectors.\nIn one dimension,\n\\[\n\\tilde\\psi(k)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\psi(x)e^{-ikx}\\,dx,\n\\]\nand\n\\[\n\\psi(x)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\tilde\\psi(k)e^{ikx}\\,dk.\n\\]\nBecause \\(p=\\hbar k\\), the distribution in \\(k\\) is directly related to the distribution of momentum. A narrow range of wave vectors produces an extended wave packet in position, while strong localization requires a broader range of wave vectors. This relation will later lead naturally to the position–momentum uncertainty relation.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -787,11 +787,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#example-1-measurement-outcomes-and-probability-distributions",
-    "href": "mod2/wavemechanics.html#example-1-measurement-outcomes-and-probability-distributions",
+    "objectID": "mod2/wavemechanics.html#energy-and-momentum-as-differential-operators",
+    "href": "mod2/wavemechanics.html#energy-and-momentum-as-differential-operators",
     "title": "Wave Mechanics",
-    "section": "EXAMPLE 1: Measurement outcomes and probability distributions",
-    "text": "EXAMPLE 1: Measurement outcomes and probability distributions\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import norm\n\nx = np.linspace(-6,6,400)\nlarge_var = norm.pdf(x, 0, 2)\nsmall_var = norm.pdf(x, 0, 0.6)\nnp.random.seed(0)\nmeasurements_wide = np.random.normal(0, 2, 10)\nmeasurements_narrow = np.random.normal(0, 0.6, 10)\nplt.figure(figsize=(10,5))\nplt.fill_between(x, 0, 2.2, where=(x&gt;=-2) & (x&lt;=2), color='red', alpha=0.1)\nplt.fill_between(x, 0, 2.2, where=(x&gt;=-0.6) & (x&lt;=0.6), color='blue', alpha=0.1)\nplt.plot(x, large_var*2.5, 'r--', label='Large variance distribution')\nplt.plot(x, small_var*2.5, 'b-', label='Small variance distribution')\nplt.scatter(measurements_wide, [0.3]*10, color='red', marker='^', s=50, alpha=0.7, label='Measurements (wide)')\nplt.scatter(measurements_narrow, [0.6]*10, color='blue', s=20, alpha=0.7, label='Measurements (narrow)')\nplt.axvline(0, color='black', linestyle='--', linewidth=2, label='Expectation value &lt;x&gt;')\nplt.xlabel('Measurement outcome x')\nplt.ylabel('Probability density / outcomes')\nplt.legend(loc='upper left')\nplt.grid(False)\n\n\n\n\n\n\n\n\nFigure 1: Measurement outcomes and probability distributions for small (blue) and large (red) variance. Shaded bands show ±σ around the expectation value .",
+    "section": "6.1 Energy and momentum as differential operators",
+    "text": "6.1 Energy and momentum as differential operators\nConsider again a plane wave,\n\\[\n\\psi(x,t)=Ae^{i(kx-\\omega t)}.\n\\]\nTaking a time derivative gives\n\\[\n\\frac{\\partial\\psi}{\\partial t}\n=-i\\omega\\psi,\n\\]\nand therefore, using \\(E=\\hbar\\omega\\),\n\\[\ni\\hbar\\frac{\\partial\\psi}{\\partial t}=E\\psi.\n\\]\nSimilarly,\n\\[\n\\frac{\\partial\\psi}{\\partial x}=ik\\psi,\n\\]\nso that, using \\(p=\\hbar k\\),\n\\[\n-i\\hbar\\frac{\\partial\\psi}{\\partial x}=p\\psi.\n\\]\nThis motivates the quantum-mechanical associations\n\\[\n\\boxed{\nE\\longleftrightarrow i\\hbar\\frac{\\partial}{\\partial t},\n\\qquad\np_x\\longleftrightarrow -i\\hbar\\frac{\\partial}{\\partial x}.\n}\n\\]\nIn three dimensions,\n\\[\n\\boxed{\\hat{\\vec p}=-i\\hbar\\vec\\nabla.}\n\\]\nThese are examples of operators: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -799,11 +799,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#example-2-free-1d-electron-plane-wave-solution",
-    "href": "mod2/wavemechanics.html#example-2-free-1d-electron-plane-wave-solution",
+    "objectID": "mod2/wavemechanics.html#potential-energy-and-the-hamiltonian",
+    "href": "mod2/wavemechanics.html#potential-energy-and-the-hamiltonian",
     "title": "Wave Mechanics",
-    "section": "EXAMPLE 2: Free 1D Electron: Plane Wave Solution",
-    "text": "EXAMPLE 2: Free 1D Electron: Plane Wave Solution\nThe time-dependent Schrödinger equation for a free particle in 1D:\n\\[\ni \\hbar \\frac{\\partial \\psi}{\\partial t} = -\\frac{\\hbar^2}{2m} \\frac{\\partial^2 \\psi}{\\partial x^2}\n\\]\nPlane wave solution:\n\\[\n\\psi(x,t) = e^{i(kx - \\omega t)}, \\quad \\omega = \\frac{\\hbar k^2}{2m}\n\\]\n\nSolution: plane wave with constant amplitude\nMomentum: well-defined, \\(p = \\hbar k\\)\nNormalizability: Not normalizable, so not physical by itself\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 10, 400)\ny = np.cos(2*np.pi*0.8*x - 0.5)\n\nplt.figure(figsize=(8,4))\nplt.plot(x, y, color='blue', linewidth=2)\nplt.xlabel('x')\nplt.ylabel('Re[ψ(x,t)]')\nplt.ylim(-2,2)\nplt.grid(False)\n\n\n\n\n\n\n\n\nFigure 2: Plane wave solution: real part of the wave function for a free 1D electron",
+    "section": "6.2 Potential energy and the Hamiltonian",
+    "text": "6.2 Potential energy and the Hamiltonian\nFor a nonrelativistic classical particle,\n\\[\nE=T+V=\\frac{p^2}{2m}+V.\n\\]\nHere \\(V(\\vec r,t)\\) is the potential energy that describes the interaction of the particle with its environment. Examples include\n\\[\nV=mgh\n\\]\nfor a particle near the surface of the Earth and\n\\[\nV=q\\Phi\n\\]\nfor a charge \\(q\\) in an electrostatic potential \\(\\Phi\\).\nIn atomic physics, the Coulomb interaction between an electron and a nucleus of charge \\(+Ze\\) gives\n\\[\nV(r)=-\\frac{Ze^2}{4\\pi\\varepsilon_0 r}.\n\\]\nReplacing the classical energy and momentum quantities by the corresponding quantum-mechanical operators motivates\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi(\\vec r,t)\n=\\left[\n-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t)\n\\right]\\psi(\\vec r,t).\n}\n\\]\nThis is the time-dependent Schrödinger equation.\nDefining the Hamiltonian operator\n\\[\n\\boxed{\n\\hat H=-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t),\n}\n\\]\nit can be written compactly as\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi=\\hat H\\psi.\n}\n\\]\n\n\n\n\n\n\nImportant\n\n\n\nThe argument above motivates the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -811,11 +811,11 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#example-3-gaussian-wavepacket-in-1d",
-    "href": "mod2/wavemechanics.html#example-3-gaussian-wavepacket-in-1d",
+    "objectID": "mod2/wavemechanics.html#time-independent-schrödinger-equation",
+    "href": "mod2/wavemechanics.html#time-independent-schrödinger-equation",
     "title": "Wave Mechanics",
-    "section": "EXAMPLE 3: Gaussian Wavepacket in 1D",
-    "text": "EXAMPLE 3: Gaussian Wavepacket in 1D\nInitial wavepacket:\n\\[\n\\psi(x,0) = e^{-x^2/(2\\sigma^2)} e^{i k_0 x}\n\\]\nTime evolution:\n\\[\n\\psi(x,t) \\sim e^{-(x - \\hbar k_0 t / m)^2 / (2 \\sigma_t^2)} e^{i(k_0 x - \\omega t)}, \\quad\n\\sigma_t = \\sigma \\sqrt{1 + \\left(\\frac{\\hbar t}{m \\sigma^2}\\right)^2}\n\\]\n\nLocalized wavepacket (superposition of plane waves)\nMoves with group velocity \\(v_g = \\hbar k_0/m\\)\nSpreads in time due to dispersion\nPhysical: normalizable and finite probability\n\n\n\nCode\nx = np.linspace(-8, 8, 400)\npsi0 = np.exp(-x**2/2)\npsi_t = np.exp(-(x-2)**2/4)\nplt.figure(figsize=(8,4))\nplt.plot(x, psi0, color='red', linewidth=2, label='t=0')\nplt.plot(x, psi_t, color='blue', linewidth=2, label='t&gt;0')\nplt.xlabel('x')\nplt.ylabel('|ψ(x,t)|²')\nplt.legend()\nplt.grid(False)\n\n\n\n\n\n\n\n\nFigure 3: Gaussian wavepacket evolution: initial (red) and later (blue) distributions",
+    "section": "6.3 Time-independent Schrödinger equation",
+    "text": "6.3 Time-independent Schrödinger equation\nIf the potential has no explicit time dependence,\n\\[\nV(\\vec r,t)=V(\\vec r),\n\\]\nstates of well-defined energy can be written as\n\\[\n\\psi(\\vec r,t)=\\phi(\\vec r)e^{-iEt/\\hbar}\n=\\phi(\\vec r)e^{-i\\omega t}.\n\\]\nSubstitution into the time-dependent Schrödinger equation gives\n\\[\n\\boxed{\n\\hat H\\phi(\\vec r)=E\\phi(\\vec r),\n}\n\\]\nthe time-independent Schrödinger equation.\nBecause the time-dependent factor has unit magnitude,\n\\[\n|e^{-iEt/\\hbar}|^2=1,\n\\]\nthe position probability density of such an energy eigenstate is time independent:\n\\[\n|\\psi(\\vec r,t)|^2=|\\phi(\\vec r)|^2.\n\\]\nSuch states are therefore called stationary states.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -823,11 +823,23 @@
     ]
   },
   {
-    "objectID": "mod2/wavemechanics.html#additional-notes",
-    "href": "mod2/wavemechanics.html#additional-notes",
+    "objectID": "mod2/wavemechanics.html#example-a-free-gaussian-wave-packet",
+    "href": "mod2/wavemechanics.html#example-a-free-gaussian-wave-packet",
     "title": "Wave Mechanics",
-    "section": "Additional notes:",
-    "text": "Additional notes:\n\nAnalytic solutions exist only for very simple systems. More particles require approximations or numerical methods.\nElectromagnetic interactions are relativistic; a full description uses quantum electrodynamics (QED).\nSome quantum properties (e.g., spin) cannot be described by wave functions alone, but the general Schrödinger equation \\(\\hat{H}\\psi=i\\hbar \\partial_t \\psi\\) still governs time evolution.",
+    "section": "6.4 Example: a free Gaussian wave packet",
+    "text": "6.4 Example: a free Gaussian wave packet\nA physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,\n\\[\n\\psi(x,0)\n=\\frac{1}{(2\\pi\\sigma_0^2)^{1/4}}\n\\exp\\left[-\\frac{(x-x_0)^2}{4\\sigma_0^2}\\right]\ne^{ik_0x}.\n\\]\nIts initial probability distribution has standard deviation \\(\\sigma_0\\). For a free particle the center moves with the group velocity\n\\[\nv_g=\\frac{\\hbar k_0}{m},\n\\]\nwhile the packet spreads according to\n\\[\n\\sigma(t)\n=\\sigma_0\n\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_0^2}\\right)^2}.\n\\]\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nhbar = 1.0\nm = 1.0\nsigma0 = 0.6\nx0 = -2.0\nk0 = 2.0\n\nx = np.linspace(-6, 7, 800)\n\ndef probability_density(x, t):\n    sigma_t = sigma0*np.sqrt(1 + (hbar*t/(2*m*sigma0**2))**2)\n    x_center = x0 + hbar*k0*t/m\n    return np.exp(-(x-x_center)**2/(2*sigma_t**2))/(np.sqrt(2*np.pi)*sigma_t)\n\nfig, ax = plt.subplots(figsize=(8,4))\nax.plot(x, probability_density(x,0), linewidth=2, label='t = 0')\nax.plot(x, probability_density(x,1.5), linewidth=2, label='later time')\nax.set_xlabel('x')\nax.set_ylabel(r'$|\\psi(x,t)|^2$')\nax.legend()\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 4: Free Gaussian wave packet: the center moves while the position distribution spreads with time. Dimensionless units with ħ=m=1 are used.\n\n\n\n\n\nThe wave packet illustrates several important ideas at once:\n\na localized state is a superposition of plane waves;\nits center moves with the group velocity;\nits position distribution can spread with time;\nunlike an ideal plane wave, a Gaussian wave packet is square-normalizable.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "Wave Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/wavemechanics.html#additional-remarks",
+    "href": "mod2/wavemechanics.html#additional-remarks",
+    "title": "Wave Mechanics",
+    "section": "Additional remarks",
+    "text": "Additional remarks\n\nAnalytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.\nThe nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.\nA scalar spatial wave function is not sufficient to describe all quantum degrees of freedom. Electron spin, for example, requires a two-component spinor structure, which will be introduced later in the course.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
@@ -3879,73 +3891,313 @@
   {
     "objectID": "mod2/braket.html",
     "href": "mod2/braket.html",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
+    "title": "States and Operators in Quantum Mechanics",
     "section": "",
-    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
+    "text": "In the previous chapter, we approached quantum mechanics primarily from the perspective of wave mechanics. Mathematically, this led us to differential equations: the wave function \\(\\psi(\\vec r,t)\\) evolves according to the Schrödinger equation, and stationary states are obtained by solving the time-independent Schrödinger equation.\nThere is, however, a more general mathematical structure underlying quantum mechanics.\nQuantum states form a vector space, and physical quantities are represented by linear operators acting on this space. From this perspective, quantum mechanics is largely a theory of linear algebra.\nThis point of view is more general than the wave-mechanical description. A scalar spatial wave function \\(\\psi(\\vec r)\\) is only one possible representation of a quantum state. For example, the spin state of an electron cannot be described by a scalar function of position alone. More generally, quantum states may contain spatial, spin, internal, or other degrees of freedom.\nThe abstract state itself should therefore be distinguished from any particular representation of that state.\nDirac’s bra–ket notation provides a convenient language for doing this.\nThe specific goals for this chapter are:\n\nIntroduce linear operators and identify familiar quantum-mechanical operators as examples.\nRecognize the Schrödinger equation and similar equations as eigenvalue equations.\nUnderstand why quantum states naturally form a complex vector space.\nIntroduce the abstract state vector and Dirac’s bra–ket notation.\nDefine inner products, norms, orthogonality, and complete bases in Hilbert space.\nUnderstand wave functions as the components of an abstract state in a particular basis.\nRepresent linear operators through matrix elements, outer products, and projection operators.\nIntroduce Hermitian operators and connect their eigenvalues and eigenstates to quantum measurements.\nExpress measurement probabilities, expectation values, and uncertainties in Dirac notation.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#operators",
+    "href": "mod2/braket.html#operators",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "1.1 Operators",
+    "text": "1.1 Operators\nAn operator is a mathematical object that acts on another object and produces a new object.\nFor example,\n\\[\n\\hat A\\psi=\\phi\n\\]\nmeans that the operator \\(\\hat A\\) acts on the function \\(\\psi\\) and produces the function \\(\\phi\\).\nSeveral operators already appeared naturally in wave mechanics.\n\n\n\n\n\n\n\n\nPhysical quantity\nOperator in the position representation\nAction on \\(\\psi(x)\\)\n\n\n\n\nPosition\n\\(\\hat x=x\\)\n\\(\\hat x\\psi(x)=x\\psi(x)\\)\n\n\nMomentum\n\\(\\displaystyle \\hat p_x=-i\\hbar\\frac{d}{dx}\\)\n\\(\\displaystyle \\hat p_x\\psi=-i\\hbar\\frac{d\\psi}{dx}\\)\n\n\nPotential energy\n\\(\\hat V=V(x)\\)\n\\(\\hat V\\psi=V(x)\\psi\\)\n\n\nTotal energy\n\\(\\displaystyle \\hat H=-\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2}+V(x)\\)\n\\(\\hat H\\psi\\)\n\n\n\nThe Hamiltonian \\(\\hat H\\) is the operator associated with the total energy of the system.\nFor example, the time-independent Schrödinger equation is\n\\[\n\\hat H\\psi(x)=E\\psi(x).\n\\]\nIn the time-dependent Schrödinger equation,\n\\[\ni\\hbar\\frac{\\partial}{\\partial t}\\psi\n=\n\\hat H\\psi,\n\\]\nthe Hamiltonian generates the time evolution of the quantum state.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#linearity",
+    "href": "mod2/braket.html#linearity",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "1.2 Linearity",
+    "text": "1.2 Linearity\nThe operators of quantum mechanics are linear operators.\nAn operator \\(\\hat A\\) is linear if\n\\[\n\\boxed{\n\\hat A\n\\left(\nc_1\\psi_1+c_2\\psi_2\n\\right)\n=\nc_1\\hat A\\psi_1\n+\nc_2\\hat A\\psi_2\n}\n\\]\nfor arbitrary complex numbers \\(c_1\\) and \\(c_2\\).\nAs an example, consider the momentum operator:\n\\[\n\\hat p_x\n\\left(\nc_1\\psi_1+c_2\\psi_2\n\\right)\n=\n-i\\hbar\n\\frac{d}{dx}\n\\left(\nc_1\\psi_1+c_2\\psi_2\n\\right).\n\\]\nUsing the linearity of differentiation,\n\\[\n\\hat p_x\n\\left(\nc_1\\psi_1+c_2\\psi_2\n\\right)\n=\nc_1\\hat p_x\\psi_1+\nc_2\\hat p_x\\psi_2.\n\\]\nThus, \\(\\hat p_x\\) is a linear operator.\nThe linearity of quantum-mechanical operators is closely connected to the superposition principle. If \\(\\psi_1\\) and \\(\\psi_2\\) are possible quantum states, then a linear combination\n\\[\n\\psi=c_1\\psi_1+c_2\\psi_2\n\\]\nis also a possible state.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#eigenvalue-equations",
+    "href": "mod2/braket.html#eigenvalue-equations",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "1.3 Eigenvalue equations",
+    "text": "1.3 Eigenvalue equations\nA particularly important situation occurs when the action of an operator reproduces the same function, multiplied only by a number:\n\\[\n\\boxed{\n\\hat A\\psi=a\\psi.\n}\n\\]\nThis is an eigenvalue equation.\nThe function \\(\\psi\\) is an eigenfunction of \\(\\hat A\\), and \\(a\\) is the corresponding eigenvalue.\nWe have already encountered several examples.\nA plane wave\n\\[\n\\psi_k(x)=e^{ikx}\n\\]\nsatisfies\n\\[\n\\hat p_x\\psi_k\n=\n-i\\hbar\\frac{d}{dx}e^{ikx}\n=\n\\hbar k e^{ikx}.\n\\]\nTherefore,\n\\[\n\\hat p_x\\psi_k=p\\psi_k,\n\\qquad\np=\\hbar k,\n\\]\nand the plane wave is an eigenfunction of the momentum operator.\nSimilarly, the time-independent Schrödinger equation,\n\\[\n\\hat H\\psi_n=E_n\\psi_n,\n\\]\nis an eigenvalue equation for the Hamiltonian.\nThe allowed energies \\(E_n\\) are therefore the eigenvalues of the Hamiltonian.\nThis observation suggests that the mathematical structure of quantum mechanics is closely related to the familiar eigenvalue problems of linear algebra.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#from-functions-to-vectors",
+    "href": "mod2/braket.html#from-functions-to-vectors",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "2.1 From functions to vectors",
+    "text": "2.1 From functions to vectors\nA wave function such as \\(\\psi(x)\\) may not initially look like a vector.\nWe are accustomed to vectors written as columns,\n\\[\n\\vec v=\n\\begin{pmatrix}\nv_1\\\\\nv_2\\\\\nv_3\n\\end{pmatrix},\n\\]\nor represented geometrically as arrows.\nBut the defining feature of a vector is not that it has three components or that it can be drawn as an arrow.\nWhat matters is that vectors can be added and multiplied by scalars while remaining elements of the same mathematical space.\nFunctions have precisely this property.\nIf \\(\\psi_1(x)\\) and \\(\\psi_2(x)\\) belong to an appropriate space of functions, then\n\\[\nc_1\\psi_1(x)+c_2\\psi_2(x)\n\\]\nbelongs to the same space.\nWave functions can therefore be regarded as vectors in a vector space.\n\n\n\n\n\n\nNoteWhat is a vector space?\n\n\n\n\n\nA vector space \\(V\\) over the complex numbers \\(\\mathbb C\\) is a set whose elements are called vectors, together with operations of vector addition and scalar multiplication.\nFor \\(u,v,w\\in V\\) and \\(a,b\\in\\mathbb C\\), the following axioms hold:\n\n\\(u+v\\in V\\);\n\\(au\\in V\\);\n\\(u+v=v+u\\);\n\\((u+v)+w=u+(v+w)\\);\nthere exists a zero vector \\(0\\) such that \\(u+0=u\\);\nfor every \\(u\\) there exists \\(-u\\) such that \\(u+(-u)=0\\);\n\\(a(u+v)=au+av\\);\n\\((a+b)u=au+bu\\);\n\\(a(bu)=(ab)u\\);\n\\(1u=u\\).\n\nNothing in this definition requires a vector to be a column of numbers.\nVectors may be\n\nordinary geometric vectors,\ncolumns of numbers,\nmatrices,\npolynomials,\nfunctions,\nspinors,\nor many other mathematical objects.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#hilbert-space",
+    "href": "mod2/braket.html#hilbert-space",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "2.2 Hilbert space",
+    "text": "2.2 Hilbert space\nThe vector space used in quantum mechanics has additional structure.\nIn particular, we need to define an inner product between two vectors. This allows us to discuss lengths, angles, orthogonality, and projections.\nA complex vector space equipped with an inner product and satisfying an additional mathematical completeness condition is called a Hilbert space, usually denoted by\n\\[\n\\mathscr H.\n\\]\nQuantum states are represented by vectors in a Hilbert space.\n\n\n\n\n\n\nNoteMore precisely: what is a Hilbert space?\n\n\n\n\n\nAn inner product on a complex vector space assigns a complex number\n\\[\n\\langle\\phi,\\psi\\rangle\n\\]\nto pairs of vectors.\nIt defines the norm\n\\[\n\\|\\psi\\|\n=\n\\sqrt{\\langle\\psi,\\psi\\rangle}.\n\\]\nA Hilbert space is an inner-product space that is complete with respect to this norm: every Cauchy sequence of vectors converges to a vector that is also contained in the space — which is a fancy way of saying that you cannot get arbitrarily close to a perfectly good limit and then discover that the limit has somehow fallen outside the space.\nFor ordinary nonrelativistic wave mechanics, an important example is\n\\[\nL^2(\\mathbb R^3),\n\\]\nthe space of square-integrable complex-valued functions.\nThe requirement\n\\[\n\\int_{\\mathbb R^3}|\\psi(\\vec r)|^2\\,d^3r&lt;\\infty\n\\]\nensures that the norm is finite.\nThe normalized wave functions form only a subset of this vector space. They do not themselves form a vector space, because adding or rescaling them usually changes their normalization.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#the-abstract-quantum-state",
+    "href": "mod2/braket.html#the-abstract-quantum-state",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "2.3 The abstract quantum state",
+    "text": "2.3 The abstract quantum state\nWave mechanics represents a state by a function such as\n\\[\n\\psi(\\vec r).\n\\]\nBut a spatial wave function is a particular representation of the state rather than the state itself.\nFor example, an electron may possess a spin state even when its spatial degree of freedom is irrelevant. A spin-\\(1/2\\) state may be represented by a two-component vector such as\n\\[\n\\begin{pmatrix}\na\\\\\nb\n\\end{pmatrix},\n\\]\nrather than by a scalar function of position.\nOther quantum systems may be most naturally represented by occupation numbers, angular-momentum states, energy eigenstates, or other basis states.\nIt is therefore useful to introduce a notation for the quantum state that does not assume any particular representation.\nDirac introduced the notation\n\\[\n\\boxed{\n\\left\\lvert \\psi \\right\\rangle}\n\\]\nfor such an abstract state vector.\nThe symbol \\(\\left\\lvert \\psi \\right\\rangle\\) is called a ket.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
     "objectID": "mod2/braket.html#ket-vectors",
     "href": "mod2/braket.html#ket-vectors",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "",
-    "text": "A ket vector \\(\\left\\lvert \\alpha \\right\\rangle\\) denotes an element of a vector space, more specifically a Hilbert space \\(\\mathscr{H}\\).\nIt represents a quantum state, for example a wave function or a spin state.",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "3.1 Ket vectors",
+    "text": "3.1 Ket vectors\nA ket\n\\[\n\\left\\lvert \\psi \\right\\rangle\\in\\mathscr H\n\\]\ndenotes a vector in the Hilbert space of quantum states.\nLinear combinations of kets are again kets:\n\\[\n\\left\\lvert \\chi \\right\\rangle=\nc_1\\left\\lvert \\psi \\right\\rangle+\nc_2\\left\\lvert \\phi \\right\\rangle.\n\\]\nThe abstract eigenvalue equation is therefore written as\n\\[\n\\boxed{\n\\hat A\\left\\lvert a \\right\\rangle=\na\\left\\lvert a \\right\\rangle.\n}\n\\]\nThis equation makes no reference to coordinate space.\nThe same equation may later be represented as a differential equation, a matrix equation, or in some other basis.\n\n\n\n\n\n\nNoteA technical point: physical states are rays\n\n\n\n\n\nStrictly speaking, a physical pure state is not represented by one unique vector \\(\\left\\lvert \\psi \\right\\rangle\\).\nThe vectors\n\\[\n\\left\\lvert \\psi \\right\\rangle\\qquad\\text{and}\\qquad\ne^{i\\phi}\\left\\lvert \\psi \\right\\rangle\\]\ndiffer only by an overall phase and represent the same physical state.\nA physical pure state therefore corresponds mathematically to a ray in Hilbert space rather than to one particular vector.\nIn most calculations, however, we simply refer to \\(\\left\\lvert \\psi \\right\\rangle\\) as the quantum state.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#bra-vectors",
-    "href": "mod2/braket.html#bra-vectors",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Bra-vectors",
-    "text": "Bra-vectors\nA bra vector \\(\\left\\langle \\beta \\right\\rvert\\) denotes an element of the dual space of \\(\\mathscr{H}\\).\nIt is a linear form that maps each vector in \\(\\mathscr{H}\\) into the complex plane \\(\\mathbb{C}\\) by means of the inner product:\n\\[\n\\left\\langle \\beta \\middle| \\alpha \\right\\rangle\\in \\mathbb{C}.\n\\]\nFor example, a wave function \\(\\psi(\\vec{r})\\) corresponding to a state \\(\\left\\lvert \\psi \\right\\rangle\\) is obtained by mapping it into coordinate space using the inner product:\n\\[\n\\left\\langle \\vec{r} \\middle| \\psi \\right\\rangle= \\psi(\\vec{r}).\n\\]\n\nInner product for wave functions\nFor two wave functions \\(\\psi(x)\\) and \\(\\phi(x)\\), the inner product is defined as\n\\[\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle= \\int_{-\\infty}^{\\infty} \\phi^\\ast(x)\\,\\psi(x)\\,dx,\n\\]\nwhere \\(\\phi^\\ast(x)\\) is the complex conjugate of \\(\\phi(x)\\).\nThis definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.",
+    "objectID": "mod2/braket.html#bra-vectors-and-the-dual-space",
+    "href": "mod2/braket.html#bra-vectors-and-the-dual-space",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "3.2 Bra vectors and the dual space",
+    "text": "3.2 Bra vectors and the dual space\nAssociated with the Hilbert space \\(\\mathscr H\\) is its dual space\n\\[\n\\mathscr H^\\ast.\n\\]\nThe dual space consists of linear functionals: maps from vectors in \\(\\mathscr H\\) to complex numbers.\nAssociated with a ket \\(\\left\\lvert \\phi \\right\\rangle\\) is a bra\n\\[\n\\left\\langle \\phi \\right\\rvert\\in\\mathscr H^\\ast.\n\\]\nThe bra acts on a ket according to\n\\[\n\\left\\langle \\phi \\right\\rvert:\n\\left\\lvert \\psi \\right\\rangle\\longmapsto\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle\\in\\mathbb C.\n\\]\nThus,\n\\[\n\\boxed{\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle}\n\\]\nis the inner product of the two states.\nWith the convention used in physics, the inner product is linear in the ket and conjugate-linear in the bra:\n\\[\n\\left\\langle \\phi \\middle|\nc_1\\psi_1+c_2\\psi_2\n\\right\\rangle=\nc_1\\left\\langle \\phi \\middle| \\psi_1 \\right\\rangle+\nc_2\\left\\langle \\phi \\middle| \\psi_2 \\right\\rangle,\n\\]\nwhile\n\\[\n\\left(\nc_1\\left\\langle \\phi_1 \\right\\rvert+\nc_2\\left\\langle \\phi_2 \\right\\rvert\\right)\n\\left\\lvert \\psi \\right\\rangle=\nc_1\\left\\langle \\phi_1 \\middle| \\psi \\right\\rangle+\nc_2\\left\\langle \\phi_2 \\middle| \\psi \\right\\rangle,\n\\]\nbut taking the bra associated with a linear combination of kets gives\n\\[\n\\left(\nc_1\\left\\lvert \\phi_1 \\right\\rangle+\nc_2\\left\\lvert \\phi_2 \\right\\rangle\\right)^\\dagger\n=\nc_1^\\ast\\left\\langle \\phi_1 \\right\\rvert+\nc_2^\\ast\\left\\langle \\phi_2 \\right\\rvert.\n\\]\n\n\n\n\n\n\nNoteWhy does every ket have a corresponding bra?\n\n\n\n\n\nFor a Hilbert space, the Riesz representation theorem states that every continuous linear functional can be represented uniquely by taking the inner product with an element of the Hilbert space.\nThis provides the mathematical connection between\n\\[\n\\left\\lvert \\psi \\right\\rangle\\in\\mathscr H\n\\]\nand\n\\[\n\\left\\langle \\psi \\right\\rvert\\in\\mathscr H^\\ast.\n\\]\nDirac notation hides much of this mathematical machinery, which is one reason it is so convenient.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#linear-operators",
-    "href": "mod2/braket.html#linear-operators",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Linear operators",
-    "text": "Linear operators\nAn operator \\(\\hat{O}\\) acting on a ket creates another ket:\n\\[\n\\hat{O}\\left\\lvert \\psi \\right\\rangle= \\left\\lvert \\phi \\right\\rangle.\n\\]\nA linear operator satisfies the two additional conditions:\n\n\\(\\hat{O}(\\left\\lvert \\psi \\right\\rangle+\\left\\lvert \\phi \\right\\rangle) = \\hat{O}\\left\\lvert \\psi \\right\\rangle+ \\hat{O}\\left\\lvert \\phi \\right\\rangle\\)\n\n\\(\\hat{O}c\\left\\lvert \\psi \\right\\rangle= c\\hat{O}\\left\\lvert \\psi \\right\\rangle\\)\n\nAdditional notes:\n\nThe operator can also be written as an outer product:\n\\[\n\\hat{O} = \\frac{1}{\\left\\langle \\psi \\middle| \\psi \\right\\rangle} \\left\\lvert \\phi \\right\\rangle\\!\\!\\left\\langle \\psi \\right\\rvert.\n\\]\nIf \\(\\{\\left\\lvert \\phi_i \\right\\rangle\\}\\) is a complete basis of \\(\\mathscr{H}\\), a linear operator \\(\\hat{O}\\) can be written as a matrix with entries\n\\[\nO_{ij} = \\left\\langle \\phi_j \\middle| \\hat{O} \\middle| \\phi_i \\right\\rangle.\n\\]",
+    "objectID": "mod2/braket.html#inner-products-norms-and-normalization",
+    "href": "mod2/braket.html#inner-products-norms-and-normalization",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "3.3 Inner products, norms, and normalization",
+    "text": "3.3 Inner products, norms, and normalization\nThe inner product of a state with itself is\n\\[\n\\left\\langle \\psi \\middle| \\psi \\right\\rangle.\n\\]\nIt is real and non-negative:\n\\[\n\\left\\langle \\psi \\middle| \\psi \\right\\rangle\\geq0.\n\\]\nThe norm of the state is\n\\[\n\\|\\psi\\|\n=\n\\sqrt{\\left\\langle \\psi \\middle| \\psi \\right\\rangle}.\n\\]\nA normalized state therefore satisfies\n\\[\n\\boxed{\n\\left\\langle \\psi \\middle| \\psi \\right\\rangle=1.\n}\n\\]",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
-    "objectID": "mod2/braket.html#hermitian-conjugates",
-    "href": "mod2/braket.html#hermitian-conjugates",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Hermitian conjugates",
-    "text": "Hermitian conjugates\nThe Hermitian conjugate of a vector or operator is denoted by a \\(\\dagger\\) (called dagger).\nThe rules are:\n\nThe Hermitian conjugate of a bra is the corresponding ket, and vice versa.\n\nThe Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript \\(^\\ast\\)).\n\nThe Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.\n\nFor any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.\n\nExamples:\n\n\\(\\left\\lvert \\psi \\right\\rangle^\\dagger = \\left\\langle \\psi \\right\\rvert\\) and \\(\\left\\langle \\psi \\right\\rvert^\\dagger = \\left\\lvert \\psi \\right\\rangle\\)\n\n\\(\\big(c_1\\left\\lvert \\psi_1 \\right\\rangle+ c_2\\left\\lvert \\psi_2 \\right\\rangle\\big)^\\dagger = c_1^\\ast \\left\\langle \\psi_1 \\right\\rvert+ c_2^\\ast \\left\\langle \\psi_2 \\right\\rvert\\)\n\n\\(\\big(\\left\\langle \\psi \\middle| \\phi \\right\\rangle\\big)^\\dagger = \\left\\langle \\psi \\middle| \\phi \\right\\rangle^\\ast = \\left\\langle \\phi \\middle| \\psi \\right\\rangle\\)\n\n\\(\\big(\\left\\langle \\phi \\middle| \\hat{A}^\\dagger \\middle| \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\middle| \\hat{A} \\middle| \\phi \\right\\rangle\\)\nand\n\\(\\big(\\left\\langle \\phi \\middle| \\hat{A}^\\dagger \\hat{B}^\\dagger \\middle| \\psi \\right\\rangle\\big)^\\ast = \\left\\langle \\psi \\middle| \\hat{B}\\hat{A} \\middle| \\phi \\right\\rangle\\)",
+    "objectID": "mod2/braket.html#the-position-representation",
+    "href": "mod2/braket.html#the-position-representation",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.1 The position representation",
+    "text": "4.1 The position representation\nThe abstract state \\(\\left\\lvert \\psi \\right\\rangle\\) can be represented in a basis.\nIf we choose the position basis \\(\\{\\left\\lvert x \\right\\rangle\\}\\), the components of the state in this basis are\n\\[\n\\boxed{\n\\psi(x)=\\left\\langle x \\middle| \\psi \\right\\rangle.\n}\n\\]\nThe familiar wave function is therefore the position-space representation of the abstract state.\nLikewise, in the momentum basis,\n\\[\n\\boxed{\n\\tilde\\psi(p)=\\left\\langle p \\middle| \\psi \\right\\rangle.\n}\n\\]\nThese are not two different states.\nThey are two different representations of the same state \\(\\left\\lvert \\psi \\right\\rangle\\).\nThis is analogous to representing one ordinary vector using two different coordinate systems.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#inner-product-in-the-position-representation",
+    "href": "mod2/braket.html#inner-product-in-the-position-representation",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.2 Inner product in the position representation",
+    "text": "4.2 Inner product in the position representation\nFor two states \\(\\left\\lvert \\phi \\right\\rangle\\) and \\(\\left\\lvert \\psi \\right\\rangle\\),\n\\[\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle\\]\nis representation independent.\nIn the position representation it becomes\n\\[\n\\boxed{\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle=\n\\int_{-\\infty}^{\\infty}\n\\phi^\\ast(x)\\psi(x)\\,dx.\n}\n\\]\nThus, the familiar integral over wave functions is not the fundamental definition of the quantum-mechanical inner product.\nRather, it is the form taken by the abstract inner product when the states are represented in the position basis.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#orthogonality",
+    "href": "mod2/braket.html#orthogonality",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.3 Orthogonality",
+    "text": "4.3 Orthogonality\nTwo states are orthogonal if\n\\[\n\\boxed{\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle=0.\n}\n\\]\nThis is the generalization of perpendicular vectors in ordinary Euclidean space.\nFor ordinary vectors,\n\\[\n\\vec a\\cdot\\vec b=0\n\\]\nindicates orthogonality.\nFor quantum states, the corresponding condition is\n\\[\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle=0.\n\\]\nIn the position representation,\n\\[\n\\int\n\\phi^\\ast(x)\\psi(x)\\,dx=0.\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#orthonormal-bases",
+    "href": "mod2/braket.html#orthonormal-bases",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.4 Orthonormal bases",
+    "text": "4.4 Orthonormal bases\nConsider a discrete orthonormal set of states\n\\[\n\\{\\left\\lvert n \\right\\rangle\\}.\n\\]\nOrthonormality means\n\\[\n\\boxed{\n\\left\\langle m \\middle| n \\right\\rangle=\\delta_{mn}.\n}\n\\]\nIf the basis is complete, any state can be expanded as\n\\[\n\\left\\lvert \\psi \\right\\rangle=\n\\sum_n c_n\\left\\lvert n \\right\\rangle.\n\\]\nTaking the inner product with \\(\\left\\langle m \\right\\rvert\\) gives\n\\[\n\\left\\langle m \\middle| \\psi \\right\\rangle=\n\\sum_n c_n\\left\\langle m \\middle| n \\right\\rangle=\nc_m.\n\\]\nTherefore,\n\\[\n\\boxed{\nc_n=\\left\\langle n \\middle| \\psi \\right\\rangle.\n}\n\\]\nand\n\\[\n\\boxed{\n\\left\\lvert \\psi \\right\\rangle=\n\\sum_n\n\\left\\lvert n \\right\\rangle\\left\\langle n \\middle| \\psi \\right\\rangle.\n}\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#completeness",
+    "href": "mod2/braket.html#completeness",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.5 Completeness",
+    "text": "4.5 Completeness\nThe previous expansion can be written as\n\\[\n\\left\\lvert \\psi \\right\\rangle=\n\\left(\n\\sum_n\\left\\lvert n \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert\\right)\n\\left\\lvert \\psi \\right\\rangle.\n\\]\nTherefore, a complete orthonormal discrete basis satisfies\n\\[\n\\boxed{\n\\sum_n\n\\left\\lvert n \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert=\n\\mathbb 1.\n}\n\\]\nThis is the completeness relation, or resolution of the identity.\nFor a continuous position basis,\n\\[\n\\boxed{\n\\int_{-\\infty}^{\\infty}\n\\left\\lvert x \\right\\rangle\\!\\!\\left\\langle x \\right\\rvert\\,dx\n=\n\\mathbb 1.\n}\n\\]\nThe position eigenstates satisfy the delta-function normalization\n\\[\n\\left\\langle x' \\middle| x \\right\\rangle=\n\\delta(x-x').\n\\]\n\n\n\n\n\n\nNoteAre \\(\\left\\lvert x \\right\\rangle\\) and \\(\\left\\lvert p \\right\\rangle\\) really Hilbert-space vectors?\n\n\n\n\n\nThere is a mathematical subtlety here.\nPosition and momentum eigenstates are not square-normalizable:\n\\[\n\\left\\langle x \\middle| x \\right\\rangle\\]\nand\n\\[\n\\left\\langle p \\middle| p \\right\\rangle\\]\ndo not produce finite numbers.\nThey are therefore not ordinary elements of \\(L^2\\).\nDirac notation treats them as generalized eigenvectors, normalized using Dirac delta functions. A mathematically more rigorous treatment uses a rigged Hilbert space.\nFor our purposes, the usual Dirac notation is sufficient, but it is useful to remember that continuous-spectrum eigenstates require this extension of ordinary Hilbert-space language.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#a-linear-algebra-dictionary",
+    "href": "mod2/braket.html#a-linear-algebra-dictionary",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "4.6 A linear-algebra dictionary",
+    "text": "4.6 A linear-algebra dictionary\n\n\n\n\n\n\n\nAbstract linear algebra\nQuantum mechanics in position space\n\n\n\n\nState vector \\(\\left\\lvert \\psi \\right\\rangle\\)\nWave function \\(\\psi(x)=\\left\\langle x \\middle| \\psi \\right\\rangle\\)\n\n\nInner product \\(\\left\\langle \\phi \\middle| \\psi \\right\\rangle\\)\n\\(\\displaystyle \\int\\phi^\\ast(x)\\psi(x)\\,dx\\)\n\n\nBasis vector \\(\\left\\lvert n \\right\\rangle\\)\nBasis function \\(\\phi_n(x)=\\left\\langle x \\middle| n \\right\\rangle\\)\n\n\nExpansion coefficient \\(\\left\\langle n \\middle| \\psi \\right\\rangle\\)\nProjection of \\(\\psi(x)\\) onto \\(\\phi_n(x)\\)\n\n\nLinear operator \\(\\hat A\\)\nMatrix or differential operator\n\n\nMatrix element \\(\\left\\langle m \\middle| \\hat A \\middle| n \\right\\rangle\\)\nIntegral involving basis functions and \\(\\hat A\\)\n\n\nEigenvector \\(\\left\\lvert a \\right\\rangle\\)\nEigenfunction of the corresponding differential operator\n\n\n\nThe central point is that the object \\(\\left\\lvert \\psi \\right\\rangle\\) is independent of the basis.\nThe wave function \\(\\psi(x)\\) is one particular set of coordinates used to describe it.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#operators-acting-on-kets",
+    "href": "mod2/braket.html#operators-acting-on-kets",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "5.1 Operators acting on kets",
+    "text": "5.1 Operators acting on kets\nA linear operator maps vectors to vectors:\n\\[\n\\hat A:\\mathscr H\\rightarrow\\mathscr H.\n\\]\nThus,\n\\[\n\\hat A\\left\\lvert \\psi \\right\\rangle=\n\\left\\lvert \\phi \\right\\rangle.\n\\]\nMore precisely, particularly for unbounded operators such as position and momentum, an operator may only be defined on a suitable domain\n\\[\nD(\\hat A)\\subseteq\\mathscr H.\n\\]\nWe will normally leave the domain implicit.\nThe eigenvalue equation becomes\n\\[\n\\boxed{\n\\hat A\\left\\lvert a_n \\right\\rangle=\na_n\\left\\lvert a_n \\right\\rangle.\n}\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#matrix-elements",
+    "href": "mod2/braket.html#matrix-elements",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "5.2 Matrix elements",
+    "text": "5.2 Matrix elements\nOnce a basis \\(\\{\\left\\lvert n \\right\\rangle\\}\\) has been selected, the operator can be represented by a matrix.\nIts matrix elements are\n\\[\n\\boxed{\nA_{mn}\n=\n\\left\\langle m \\middle| \\hat A \\middle| n \\right\\rangle.\n}\n\\]\nUsing completeness,\n\\[\n\\hat A\n=\n\\mathbb 1\\hat A\\mathbb 1,\n\\]\nwe obtain\n\\[\n\\hat A\n=\n\\sum_{m,n}\n\\left\\lvert m \\right\\rangle\\left\\langle m \\middle| \\hat A \\middle| n \\right\\rangle\\left\\langle n \\right\\rvert.\n\\]\nThus,\n\\[\n\\boxed{\n\\hat A\n=\n\\sum_{m,n}\nA_{mn}\\left\\lvert m \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert.\n}\n\\]\nA differential operator and a matrix can therefore represent the same abstract linear operator in different bases.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#outer-products-and-projectors",
+    "href": "mod2/braket.html#outer-products-and-projectors",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "5.3 Outer products and projectors",
+    "text": "5.3 Outer products and projectors\nAn inner product produces a complex number,\n\\[\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle\\in\\mathbb C,\n\\]\nwhereas an outer product\n\\[\n\\left\\lvert \\phi \\right\\rangle\\!\\!\\left\\langle \\psi \\right\\rvert\\]\nproduces an operator.\nActing on another state,\n\\[\n\\left\\lvert \\phi \\right\\rangle\\!\\!\\left\\langle \\psi \\right\\rvert\\chi\\rangle\n=\n\\left\\lvert \\phi \\right\\rangle\\left\\langle \\psi \\middle| \\chi \\right\\rangle.\n\\]\nAn important example is\n\\[\n\\boxed{\n\\hat P_n\n=\n\\left\\lvert n \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert.\n}\n\\]\nFor a normalized state \\(\\left\\lvert n \\right\\rangle\\),\n\\[\n\\hat P_n\\left\\lvert \\psi \\right\\rangle=\n\\left\\lvert n \\right\\rangle\\left\\langle n \\middle| \\psi \\right\\rangle.\n\\]\nThus, \\(\\hat P_n\\) extracts the component of \\(\\left\\lvert \\psi \\right\\rangle\\) parallel to \\(\\left\\lvert n \\right\\rangle\\).\nIt is therefore called a projection operator.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#hermitian-conjugation",
+    "href": "mod2/braket.html#hermitian-conjugation",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "6.1 Hermitian conjugation",
+    "text": "6.1 Hermitian conjugation\nThe Hermitian conjugate, or adjoint, of a vector or operator is denoted by\n\\[\n\\dagger.\n\\]\nFor kets and bras,\n\\[\n\\left\\lvert \\psi \\right\\rangle^\\dagger\n=\n\\left\\langle \\psi \\right\\rvert,\n\\]\nand\n\\[\n\\left\\langle \\psi \\right\\rvert^\\dagger\n=\n\\left\\lvert \\psi \\right\\rangle.\n\\]\nFor complex numbers,\n\\[\nc^\\dagger=c^\\ast.\n\\]\nFor products, the order is reversed:\n\\[\n(\\hat A\\hat B)^\\dagger\n=\n\\hat B^\\dagger\\hat A^\\dagger.\n\\]\nFor example,\n\\[\n\\left(\nc_1\\left\\lvert \\psi_1 \\right\\rangle+\nc_2\\left\\lvert \\psi_2 \\right\\rangle\\right)^\\dagger\n=\nc_1^\\ast\\left\\langle \\psi_1 \\right\\rvert+\nc_2^\\ast\\left\\langle \\psi_2 \\right\\rvert.\n\\]\nThe inner product obeys\n\\[\n\\boxed{\n\\left\\langle \\phi \\middle| \\psi \\right\\rangle^\\ast\n=\n\\left\\langle \\psi \\middle| \\phi \\right\\rangle.\n}\n\\]\nFor matrix elements,\n\\[\n\\boxed{\n\\left\\langle \\phi \\middle| \\hat A \\middle| \\psi \\right\\rangle^\\ast\n=\n\\left\\langle \\psi \\middle| \\hat A^\\dagger \\middle| \\phi \\right\\rangle.\n}\n\\]",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#hermitian-operators",
+    "href": "mod2/braket.html#hermitian-operators",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "6.2 Hermitian operators",
+    "text": "6.2 Hermitian operators\nAn operator is called Hermitian if\n\\[\n\\boxed{\n\\hat A^\\dagger=\\hat A.\n}\n\\]\nHermitian operators have real eigenvalues.\n\n\n\n\n\n\nNoteWhy are the eigenvalues of a Hermitian operator real?\n\n\n\n\n\nLet\n\\[\n\\hat A\\left\\lvert a \\right\\rangle=a\\left\\lvert a \\right\\rangle.\n\\]\nThen\n\\[\n\\left\\langle a \\middle| \\hat A \\middle| a \\right\\rangle=\na\\left\\langle a \\middle| a \\right\\rangle.\n\\]\nTaking the complex conjugate gives\n\\[\n\\left\\langle a \\middle| \\hat A \\middle| a \\right\\rangle^\\ast\n=\na^\\ast\\left\\langle a \\middle| a \\right\\rangle.\n\\]\nBut\n\\[\n\\left\\langle a \\middle| \\hat A \\middle| a \\right\\rangle^\\ast\n=\n\\left\\langle a \\middle| \\hat A^\\dagger \\middle| a \\right\\rangle.\n\\]\nFor a Hermitian operator,\n\\[\n\\hat A^\\dagger=\\hat A,\n\\]\nso\n\\[\na\\left\\langle a \\middle| a \\right\\rangle=\na^\\ast\\left\\langle a \\middle| a \\right\\rangle.\n\\]\nFor a nonzero eigenstate, \\(\\left\\langle a \\middle| a \\right\\rangle&gt;0\\), and therefore\n\\[\n\\boxed{a=a^\\ast.}\n\\]\nThus, \\(a\\) is real.\n\n\n\nSuppose\n\\[\n\\hat A\\left\\lvert a \\right\\rangle=a\\left\\lvert a \\right\\rangle.\n\\]\nThen\n\\[\na\\in\\mathbb R.\n\\]\nFurthermore, eigenstates corresponding to distinct eigenvalues are orthogonal:\n\\[\na_m\\neq a_n\n\\quad\\Rightarrow\\quad\n\\left\\langle a_m \\middle| a_n \\right\\rangle=0.\n\\]\n\n\n\n\n\n\nNoteWhy are eigenstates with different eigenvalues orthogonal?\n\n\n\n\n\nLet \\(\\left\\lvert a_m \\right\\rangle\\) and \\(\\left\\lvert a_n \\right\\rangle\\) be eigenstates of the Hermitian operator \\(\\hat A\\) with different eigenvalues:\n\\[\n\\hat A\\left\\lvert a_m \\right\\rangle=a_m\\left\\lvert a_m \\right\\rangle,\n\\]\nand\n\\[\n\\hat A\\left\\lvert a_n \\right\\rangle=a_n\\left\\lvert a_n \\right\\rangle.\n\\]\nConsider the matrix element\n\\[\n\\left\\langle a_m \\middle| \\hat A \\middle| a_n \\right\\rangle.\n\\]\nUsing the eigenvalue equation for \\(\\left\\lvert a_n \\right\\rangle\\),\n\\[\n\\left\\langle a_m \\middle| \\hat A \\middle| a_n \\right\\rangle=\na_n\\left\\langle a_m \\middle| a_n \\right\\rangle.\n\\]\nBecause \\(\\hat A\\) is Hermitian,\n\\[\n\\hat A^\\dagger=\\hat A,\n\\]\nwe can also let the operator act to the left:\n\\[\n\\left\\langle a_m \\middle| \\hat A \\middle| a_n \\right\\rangle=\na_m^\\ast\\left\\langle a_m \\middle| a_n \\right\\rangle.\n\\]\nThe eigenvalues of a Hermitian operator are real, so\n\\[\na_m^\\ast=a_m.\n\\]\nTherefore,\n\\[\na_n\\left\\langle a_m \\middle| a_n \\right\\rangle=\na_m\\left\\langle a_m \\middle| a_n \\right\\rangle.\n\\]\nor\n\\[\n(a_n-a_m)\\left\\langle a_m \\middle| a_n \\right\\rangle=0.\n\\]\nIf the eigenvalues are different,\n\\[\na_n\\neq a_m,\n\\]\nthe only possibility is\n\\[\n\\boxed{\n\\left\\langle a_m \\middle| a_n \\right\\rangle=0.\n}\n\\]\nThus, eigenstates of a Hermitian operator belonging to different eigenvalues are orthogonal.\n\n\n\n\n\n\n\n\n\nNoteHermitian versus self-adjoint\n\n\n\n\n\nIn introductory quantum mechanics, observables are usually said to be represented by Hermitian operators, satisfying\n\\[ \\hat A^\\dagger=\\hat A. \\]\nFor finite-dimensional matrices, this terminology is unambiguous.\nFor unbounded operators in infinite-dimensional Hilbert spaces, such as position and momentum, there is a technical distinction between a symmetric operator and a fully self-adjoint operator. The distinction involves the domains on which the operators are defined.\nMathematically, quantum-mechanical observables are more precisely represented by self-adjoint operators. In these notes, we will follow the usual physics convention and use the term Hermitian operator.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
     "objectID": "mod2/braket.html#observables",
     "href": "mod2/braket.html#observables",
-    "title": "Bra–Ket (Dirac) Notation, Operators, and More",
-    "section": "Observables",
-    "text": "Observables\nObservables are represented by Hermitian operators. “Hermitian” means \\(\\hat{A} = \\hat{A}^\\dagger\\).\nThey are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).\n\nProperties\n\nThe eigenvalues \\(a\\) of a Hermitian operator \\(\\hat{A}\\), satisfying \\(\\hat{A}\\left\\lvert \\alpha \\right\\rangle= a\\left\\lvert \\alpha \\right\\rangle\\), are real numbers.\n\nFor every observable, a complete and orthonormal basis can be found:\n\nThe basis is given by eigenvectors solving\n\\(\\hat{A}\\left\\lvert n \\right\\rangle= a_n\\left\\lvert n \\right\\rangle\\) (discrete spectrum) or \\(\\hat{A}\\left\\lvert k \\right\\rangle= k\\left\\lvert k \\right\\rangle\\) (continuous spectrum).\n\nOrthonormality: \\(\\left\\langle n' \\middle| n \\right\\rangle= \\delta_{n'n}\\) or \\(\\left\\langle k_i \\middle| k_j \\right\\rangle= \\delta(k_i-k_j)\\).\n\nCompleteness: every state \\(\\left\\lvert \\psi \\right\\rangle\\) in \\(\\mathscr{H}\\) can be expressed as\n\\(\\left\\lvert \\psi \\right\\rangle= \\sum_n c_n\\left\\lvert n \\right\\rangle\\) or \\(\\left\\lvert \\psi \\right\\rangle= \\int c(k)\\left\\lvert k \\right\\rangle\\,dk\\).\n\nThe identity operator can be written as \\(\\mathbb{1} = \\sum_n \\left\\lvert n \\right\\rangle\\!\\!\\left\\langle n \\right\\rvert\\) or \\(\\mathbb{1} = \\int \\left\\lvert k \\right\\rangle\\!\\!\\left\\langle k \\right\\rvert\\,dk\\).\n\n\n\n\nAdditional notes\nIf \\(\\left\\lvert \\alpha \\right\\rangle\\) is a normalized eigenvector of \\(\\hat{A}\\) and the system is in the normalized state \\(\\left\\lvert \\psi \\right\\rangle\\), then:\n\nThe probability of finding the system in state \\(\\left\\lvert \\alpha \\right\\rangle\\) is\n\\[\nP = \\left|\\left\\langle \\alpha \\middle| \\psi \\right\\rangle\\right|^2.\n\\]\nThe expectation value of \\(\\hat{A}\\) is\n\\[\n\\langle \\hat{A} \\rangle = \\left\\langle \\psi \\middle| \\hat{A} \\middle| \\psi \\right\\rangle.\n\\]\nThe variance of \\(\\hat{A}\\) is\n\\[\n\\sigma_A = \\langle \\hat{A}^2 \\rangle - \\langle \\hat{A} \\rangle^2.\n\\]",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "7.1 Observables",
+    "text": "7.1 Observables\nA measurable physical quantity is represented by a Hermitian—or, more precisely, self-adjoint—operator.\nExamples include\n\nposition \\(\\hat x\\),\nmomentum \\(\\hat p\\),\nenergy \\(\\hat H\\),\nangular momentum \\(\\hat{\\mathbf L}\\),\nspin \\(\\hat{\\mathbf S}\\).\n\nPossible outcomes of a measurement are given by the spectrum of the corresponding operator.\nFor a discrete spectrum,\n\\[\n\\hat A\\left\\lvert a_n \\right\\rangle=\na_n\\left\\lvert a_n \\right\\rangle.\n\\]\nThe values \\(a_n\\) are possible measurement outcomes.",
     "crumbs": [
       "Home",
       "Quantum Mechanics",
-      "Bra–Ket (Dirac) Notation, Operators, and More"
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#spectral-decomposition",
+    "href": "mod2/braket.html#spectral-decomposition",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "7.2 Spectral decomposition",
+    "text": "7.2 Spectral decomposition\nFor a nondegenerate discrete spectrum with a complete orthonormal set of eigenvectors,\n\\[\n\\boxed{\n\\hat A\n=\n\\sum_n\na_n\\left\\lvert a_n \\right\\rangle\\!\\!\\left\\langle a_n \\right\\rvert.\n}\n\\]\nThis expression is the operator analogue of diagonalizing a matrix.\nIf degeneracies are present, the projection operator onto each eigenspace must include all states belonging to that eigenvalue.\nContinuous spectra require the corresponding integral form.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#measurement-probabilities",
+    "href": "mod2/braket.html#measurement-probabilities",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "7.3 Measurement probabilities",
+    "text": "7.3 Measurement probabilities\nSuppose the system is in the normalized state\n\\[\n\\left\\lvert \\psi \\right\\rangle.\n\\]\nExpanding it in eigenstates of \\(\\hat A\\) gives\n\\[\n\\left\\lvert \\psi \\right\\rangle=\n\\sum_n\nc_n\\left\\lvert a_n \\right\\rangle,\n\\]\nwith\n\\[\nc_n\n=\n\\left\\langle a_n \\middle| \\psi \\right\\rangle.\n\\]\nThe Born rule states that the probability of obtaining the result \\(a_n\\) is\n\\[\n\\boxed{\nP(a_n)\n=\n\\left|\n\\left\\langle a_n \\middle| \\psi \\right\\rangle\\right|^2.\n}\n\\]\nThus, measurement probabilities are determined by the projection of the state vector onto the eigenvectors of the observable.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#expectation-values",
+    "href": "mod2/braket.html#expectation-values",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "7.4 Expectation values",
+    "text": "7.4 Expectation values\nThe expectation value of an observable \\(\\hat A\\) in the state \\(\\left\\lvert \\psi \\right\\rangle\\) is\n\\[\n\\boxed{\n\\langle A\\rangle\n=\n\\left\\langle \\psi \\middle| \\hat A \\middle| \\psi \\right\\rangle.\n}\n\\]\nIn the position representation,\n\\[\n\\langle A\\rangle\n=\n\\int\n\\psi^\\ast(x)\n\\hat A\n\\psi(x)\\,dx.\n\\]\nFor a state expanded in the eigenbasis of \\(\\hat A\\),\n\\[\n\\left\\lvert \\psi \\right\\rangle=\n\\sum_n c_n\\left\\lvert a_n \\right\\rangle,\n\\]\nthe expectation value becomes\n\\[\n\\langle A\\rangle\n=\n\\sum_n\n|c_n|^2a_n.\n\\]\nThus, the abstract operator expression reproduces the usual statistical average over possible measurement results.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
+    ]
+  },
+  {
+    "objectID": "mod2/braket.html#variance-and-uncertainty",
+    "href": "mod2/braket.html#variance-and-uncertainty",
+    "title": "States and Operators in Quantum Mechanics",
+    "section": "7.5 Variance and uncertainty",
+    "text": "7.5 Variance and uncertainty\nThe variance of an observable is\n\\[\n\\boxed{\n\\sigma_A^2\n=\n\\left\\langle\n(\\hat A-\\langle A\\rangle)^2\n\\right\\rangle.\n}\n\\]\nExpanding this expression gives\n\\[\n\\boxed{\n\\sigma_A^2\n=\n\\langle A^2\\rangle\n-\n\\langle A\\rangle^2.\n}\n\\]\nThe corresponding standard deviation is\n\\[\n\\boxed{\n\\sigma_A\n=\n\\sqrt{\n\\langle A^2\\rangle\n-\n\\langle A\\rangle^2\n}.\n}\n\\]\nThis quantity measures the spread of the possible outcomes of repeated measurements of \\(A\\).\nIn the next chapter, we will see that the uncertainties of two observables can be fundamentally related when the corresponding operators do not commute.",
+    "crumbs": [
+      "Home",
+      "Quantum Mechanics",
+      "States and Operators in Quantum Mechanics"
     ]
   },
   {
@@ -4598,253 +4850,6 @@
       "Home",
       "More than One Electron Atoms",
       "Shell Model and Periodic Table"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html",
-    "href": "mod2/wavemechanics_revised.html",
-    "title": "Wave Mechanics",
-    "section": "",
-    "text": "This chapter introduces the wave-mechanical description of quantum particles. We begin with electron interference because it exposes the central problem directly: electrons are detected as localized particles, but the distribution of many detection events can show interference, a characteristic wave phenomenon.\nThe specific goals for this chapter are:\n\nDiscuss electron interference and the experimental evidence for matter waves.\nReview the description of waves, including amplitude, wavelength, frequency, phase, and the complex representation of a wave.\nIntroduce superposition and interference and show why relative phase determines an interference pattern.\nIntroduce probability distributions and the Born interpretation of the quantum-mechanical wave function.\nIntroduce the de Broglie relations between momentum and wave vector and between energy and frequency.\nMotivate the Schrödinger equation and its description of the time evolution of a quantum state."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#what-is-an-electron",
-    "href": "mod2/wavemechanics_revised.html#what-is-an-electron",
-    "title": "Wave Mechanics",
-    "section": "1.1 What is an electron?",
-    "text": "1.1 What is an electron?\nBy the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.\nIn an idealized double-slit experiment, such a classical particle picture suggests that each electron passes through either slit 1 or slit 2. The distribution observed with both slits open should therefore simply be the sum of the distributions obtained from the individual slits,\n\\[\nP_{12}(x)=P_1(x)+P_2(x).\n\\]\nElectrons, however, produce interference patterns. A particularly direct demonstration was provided by Claus Jönsson, who observed electron diffraction and interference from artificially fabricated single and multiple slits in 1961 (Jönsson, 1961).\n\n\nCode\n# echo: false\n#| warning: false\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.animation import FuncAnimation\nfrom IPython.display import HTML\n\nrng = np.random.default_rng(12345)\n\n# ------------------------------------------------------------\n# Screen dimensions\n# ------------------------------------------------------------\nx_min, x_max = -10, 10\ny_min, y_max = -6, 6\n\n# ------------------------------------------------------------\n# Interference pattern\n# ------------------------------------------------------------\nperiod = 4.0          # fringe spacing in x\nvisibility = 0.90     # 0 = flat, 1 = maximum contrast\nphase = 0.0           # phase shift\n\n# ------------------------------------------------------------\n# Animation settings\n# ------------------------------------------------------------\nn_frames = 100\ndots_per_frame = 50\ndot_size = 8\nfps = 8\n\n# Hold final pattern before restarting\nhold_seconds = 2\nhold_frames = int(hold_seconds * fps)\n\n# ------------------------------------------------------------\n# Probability distribution\n# ------------------------------------------------------------\ndef p_x(x):\n    return 1.0 + visibility * np.cos(\n        2 * np.pi * x / period + phase\n    )\n\npmax = 1.0 + visibility\n\n\n# ------------------------------------------------------------\n# Rejection sampling\n# ------------------------------------------------------------\ndef sample_x(n):\n    xs = []\n\n    while len(xs) &lt; n:\n        x_try = rng.uniform(x_min, x_max, 4 * n)\n        y_try = rng.uniform(0, pmax, 4 * n)\n\n        accepted = x_try[y_try &lt; p_x(x_try)]\n        xs.extend(accepted.tolist())\n\n    return np.array(xs[:n])\n\n\n# ------------------------------------------------------------\n# Generate detection events\n# ------------------------------------------------------------\nN_total = n_frames * dots_per_frame\n\nx_events = sample_x(N_total)\ny_events = rng.uniform(y_min, y_max, N_total)\n\n\n# ------------------------------------------------------------\n# Figure\n# ------------------------------------------------------------\nfig, ax = plt.subplots(figsize=(8, 5), dpi=80)\n\nfig.patch.set_facecolor(\"white\")\nax.set_facecolor(\"white\")\n\nscat = ax.scatter(\n    [],\n    [],\n    s=dot_size,\n    c=\"black\"\n)\n\nax.set_xlim(x_min, x_max)\nax.set_ylim(y_min, y_max)\n\nax.set_xticks([])\nax.set_yticks([])\n\ncount_text = ax.text(\n    0.02,\n    0.95,\n    \"\",\n    transform=ax.transAxes,\n    ha=\"left\",\n    va=\"top\",\n    fontsize=12,\n    zorder=10,\n    bbox=dict(\n        facecolor=\"white\",\n        edgecolor=\"black\",\n        alpha=0.9,\n        boxstyle=\"round,pad=0.3\"\n    )\n)\n\n\n# ------------------------------------------------------------\n# Animation\n# ------------------------------------------------------------\ndef init():\n    scat.set_offsets(np.empty((0, 2)))\n    count_text.set_text(\"\")\n    return scat, count_text\n\n\ndef animate(frame):\n\n    if frame &lt; n_frames:\n        n = (frame + 1) * dots_per_frame\n    else:\n        n = N_total\n\n    offsets = np.column_stack(\n        (x_events[:n], y_events[:n])\n    )\n\n    scat.set_offsets(offsets)\n    count_text.set_text(f\"Detected particles: {n}\")\n\n    return scat, count_text\n\n\nanim = FuncAnimation(\n    fig,\n    animate,\n    frames=n_frames + hold_frames,\n    init_func=init,\n    interval=1000 / fps,\n    blit=True,\n    repeat=True\n)\n\nplt.close(fig)\n\n# Display as looping HTML5 video\nHTML(anim.to_html5_video())\n\n\n\n\n\n  \n  Your browser does not support the video tag.\n\n\n\nFigure 1: Simulated build-up of an interference pattern from individual detection events.\n\n\n\n\nThe result immediately raises a question:\n\nWhy do objects that are detected as particles produce an interference pattern?\n\nThe key observation is therefore:\n\nan individual electron is detected at a localized position;\nmany repeated detections form a wave-like interference pattern.\n\nThis behavior cannot be described by a simple classical particle picture or by a simple classical material wave."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#historical-perspective-davissongermer",
-    "href": "mod2/wavemechanics_revised.html#historical-perspective-davissongermer",
-    "title": "Wave Mechanics",
-    "section": "1.2 Historical perspective: Davisson–Germer",
-    "text": "1.2 Historical perspective: Davisson–Germer\nThe electron double-slit experiment gives a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated much earlier by Clinton Davisson and Lester Germer in 1927.\nDavisson and Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima are naturally explained as electron diffraction by the periodic crystal lattice, in close analogy to the diffraction of x rays by crystals (Davisson & Germer, 1927).\n\nThe experiment provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#a-traveling-wave",
-    "href": "mod2/wavemechanics_revised.html#a-traveling-wave",
-    "title": "Wave Mechanics",
-    "section": "2.1 A traveling wave",
-    "text": "2.1 A traveling wave\nA one-dimensional harmonic traveling wave can be written as\n\\[\ny(x,t)=A\\cos\\big(kx-\\omega t+\\phi\\big).\n\\]\nIt is useful to define the phase of the wave as the complete argument of the trigonometric function,\n\\[\n\\theta(x,t)=kx-\\omega t+\\phi.\n\\]\nHere,\n\n\\(A\\) is the amplitude,\n\\(\\lambda\\) is the wavelength,\n\\(k=2\\pi/\\lambda\\) is the wave number,\n\\(f\\) is the frequency,\n\\(\\omega=2\\pi f\\) is the angular frequency,\n\\(\\theta(x,t)\\) is the phase of the wave,\n\\(\\phi\\) is the phase offset (or initial phase).\n\nThus, in these notes the word phase refers to the full quantity \\(\\theta(x,t)\\), while \\(\\phi\\) denotes only the constant phase offset.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nA = 1.0\nlam = 2.5\nphi = np.pi/3\nk = 2*np.pi/lam\n\nx = np.linspace(-0.8, 5.6, 1000)\ny = A*np.cos(k*x + phi)\ny_ref = A*np.cos(k*x)\n\nx_peak = -phi/k\nx_peak_2 = x_peak + lam\nx_peak_3 = x_peak + 2*lam\n\nfig, ax = plt.subplots(figsize=(9,4.5))\nax.plot(x, y, linewidth=2, label=r'$A\\cos(kx+\\phi)$')\nax.plot(x, y_ref, '--', alpha=0.55, label=r'$A\\cos(kx)$')\nax.axhline(0, linewidth=0.8)\n\n# Amplitude\nax.annotate('', xy=(x_peak_2, A), xytext=(x_peak_2, 0),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak_2+0.10, A/2, r'$A$', va='center')\n\n# Wavelength\nlevel = -1.28\nax.annotate('', xy=(x_peak_3, level), xytext=(x_peak_2, level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text((x_peak_2+x_peak_3)/2, level+0.08, r'$\\lambda$', ha='center')\n\n# Shift associated with phase offset\nphase_level = 1.28\nax.annotate('', xy=(0, phase_level), xytext=(x_peak, phase_level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak/2, phase_level+0.08,\n        r'phase offset: $\\Delta x=-\\phi/k$', ha='center')\n\nax.set_xlabel('x')\nax.set_ylabel('y(x,t)')\nax.set_ylim(-1.55,1.55)\nax.legend(loc='lower left')\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 2: A harmonic wave at fixed time. The figure illustrates the amplitude A, wavelength λ, and the spatial shift associated with a phase offset φ.\n\n\n\n\n\nA change in phase offset corresponds to a horizontal shift of the wave. At fixed time,\n\\[\n\\Delta x=-\\frac{\\phi}{k}.\n\\]\nMore importantly for interference, two waves need not have the same phase at a given position. Their relative phase will determine whether they interfere constructively or destructively."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#complex-representation",
-    "href": "mod2/wavemechanics_revised.html#complex-representation",
-    "title": "Wave Mechanics",
-    "section": "2.2 Complex representation",
-    "text": "2.2 Complex representation\nUsing Euler’s relation,\n\\[\ne^{i\\theta}=\\cos\\theta+i\\sin\\theta,\n\\]\nwe can represent a harmonic wave compactly as\n\\[\n\\psi(x,t)=A e^{i\\theta(x,t)}\n=Ae^{i(kx-\\omega t+\\phi)}.\n\\]\nIn three dimensions,\n\\[\n\\psi(\\vec r,t)=A e^{i(\\vec k\\cdot\\vec r-\\omega t+\\phi)}.\n\\]\nThe complex representation keeps track of both amplitude and phase and makes the mathematics of superposition particularly simple.\nFor a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function \\(\\psi\\) is itself generally complex and has a different physical interpretation, which we will introduce in Section 4."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#probability-distributions",
-    "href": "mod2/wavemechanics_revised.html#probability-distributions",
-    "title": "Wave Mechanics",
-    "section": "4.1 Probability distributions",
-    "text": "4.1 Probability distributions\nBefore assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.\nLet \\(p(x)\\) be a probability density. The probability of finding a measurement outcome between \\(a\\) and \\(b\\) is\n\\[\nP(a&lt;x&lt;b)=\\int_a^b p(x)\\,dx.\n\\]\nThe total probability must be one,\n\\[\n\\int_{-\\infty}^{\\infty}p(x)\\,dx=1.\n\\]\nFor a very small interval \\(dx\\),\n\\[\ndP=p(x)\\,dx.\n\\]\nThe expectation value is\n\\[\n\\langle x\\rangle\n=\\int_{-\\infty}^{\\infty}x\\,p(x)\\,dx,\n\\]\nand the variance is\n\\[\n\\operatorname{Var}(x)\n=\\langle x^2\\rangle-\\langle x\\rangle^2.\n\\]\nThe standard deviation is\n\\[\n\\sigma_x=\\sqrt{\\operatorname{Var}(x)}.\n\\]"
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#the-born-interpretation",
-    "href": "mod2/wavemechanics_revised.html#the-born-interpretation",
-    "title": "Wave Mechanics",
-    "section": "4.2 The Born interpretation",
-    "text": "4.2 The Born interpretation\nQuantum mechanics associates a complex wave function \\(\\psi(\\vec r,t)\\) with the state of a particle. According to the Born rule, the probability density for position is\n\\[\n\\boxed{p(\\vec r,t)=|\\psi(\\vec r,t)|^2.}\n\\]\nThus the probability of detecting the particle within a small volume \\(d^3r\\) is\n\\[\ndP=|\\psi(\\vec r,t)|^2\\,d^3r,\n\\]\nand the probability of finding it in a finite region \\(R\\) is\n\\[\nP_R=\\int_R |\\psi(\\vec r,t)|^2\\,d^3r.\n\\]\nFor a normalizable state,\n\\[\n\\int_{\\mathbb R^3}|\\psi(\\vec r,t)|^2\\,d^3r=1.\n\\]\nThis gives the wave function its central interpretation:\n\\[\n\\boxed{\\psi=\\text{probability amplitude},\n\\qquad |\\psi|^2=\\text{probability density}.}\n\\]\nThe electron-interference experiment can now be expressed very compactly. The probability amplitudes associated with the two alternatives add,\n\\[\n\\psi=\\psi_1+\\psi_2,\n\\]\nbut the measurable probability density is\n\\[\n|\\psi|^2=|\\psi_1+\\psi_2|^2,\n\\]\nwhich contains the interference term.\n\n\n\n\n\n\nNote\n\n\n\nA plane wave extending over all space is not square-normalizable in the usual sense. It is an idealized state of exactly defined momentum and can be treated using box normalization or the generalized normalization of continuum states."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#wave-packets-and-momentum-space",
-    "href": "mod2/wavemechanics_revised.html#wave-packets-and-momentum-space",
-    "title": "Wave Mechanics",
-    "section": "5.1 Wave packets and momentum space",
-    "text": "5.1 Wave packets and momentum space\nA localized particle cannot be represented by a single plane wave. Instead, it is represented by a superposition of plane waves with different wave vectors.\nIn one dimension,\n\\[\n\\tilde\\psi(k)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\psi(x)e^{-ikx}\\,dx,\n\\]\nand\n\\[\n\\psi(x)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\tilde\\psi(k)e^{ikx}\\,dk.\n\\]\nBecause \\(p=\\hbar k\\), the distribution in \\(k\\) is directly related to the distribution of momentum. A narrow range of wave vectors produces an extended wave packet in position, while strong localization requires a broader range of wave vectors. This relation will later lead naturally to the position–momentum uncertainty relation."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#energy-and-momentum-as-differential-operators",
-    "href": "mod2/wavemechanics_revised.html#energy-and-momentum-as-differential-operators",
-    "title": "Wave Mechanics",
-    "section": "6.1 Energy and momentum as differential operators",
-    "text": "6.1 Energy and momentum as differential operators\nConsider again a plane wave,\n\\[\n\\psi(x,t)=Ae^{i(kx-\\omega t)}.\n\\]\nTaking a time derivative gives\n\\[\n\\frac{\\partial\\psi}{\\partial t}\n=-i\\omega\\psi,\n\\]\nand therefore, using \\(E=\\hbar\\omega\\),\n\\[\ni\\hbar\\frac{\\partial\\psi}{\\partial t}=E\\psi.\n\\]\nSimilarly,\n\\[\n\\frac{\\partial\\psi}{\\partial x}=ik\\psi,\n\\]\nso that, using \\(p=\\hbar k\\),\n\\[\n-i\\hbar\\frac{\\partial\\psi}{\\partial x}=p\\psi.\n\\]\nThis motivates the quantum-mechanical associations\n\\[\n\\boxed{\nE\\longleftrightarrow i\\hbar\\frac{\\partial}{\\partial t},\n\\qquad\np_x\\longleftrightarrow -i\\hbar\\frac{\\partial}{\\partial x}.\n}\n\\]\nIn three dimensions,\n\\[\n\\boxed{\\hat{\\vec p}=-i\\hbar\\vec\\nabla.}\n\\]\nThese are examples of operators: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#potential-energy-and-the-hamiltonian",
-    "href": "mod2/wavemechanics_revised.html#potential-energy-and-the-hamiltonian",
-    "title": "Wave Mechanics",
-    "section": "6.2 Potential energy and the Hamiltonian",
-    "text": "6.2 Potential energy and the Hamiltonian\nFor a nonrelativistic classical particle,\n\\[\nE=T+V=\\frac{p^2}{2m}+V.\n\\]\nHere \\(V(\\vec r,t)\\) is the potential energy that describes the interaction of the particle with its environment. Examples include\n\\[\nV=mgh\n\\]\nfor a particle near the surface of the Earth and\n\\[\nV=q\\Phi\n\\]\nfor a charge \\(q\\) in an electrostatic potential \\(\\Phi\\).\nIn atomic physics, the Coulomb interaction between an electron and a nucleus of charge \\(+Ze\\) gives\n\\[\nV(r)=-\\frac{Ze^2}{4\\pi\\varepsilon_0 r}.\n\\]\nReplacing the classical energy and momentum quantities by the corresponding quantum-mechanical operators motivates\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi(\\vec r,t)\n=\\left[\n-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t)\n\\right]\\psi(\\vec r,t).\n}\n\\]\nThis is the time-dependent Schrödinger equation.\nDefining the Hamiltonian operator\n\\[\n\\boxed{\n\\hat H=-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t),\n}\n\\]\nit can be written compactly as\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi=\\hat H\\psi.\n}\n\\]\n\n\n\n\n\n\nImportant\n\n\n\nThe argument above motivates the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#time-independent-schrödinger-equation",
-    "href": "mod2/wavemechanics_revised.html#time-independent-schrödinger-equation",
-    "title": "Wave Mechanics",
-    "section": "6.3 Time-independent Schrödinger equation",
-    "text": "6.3 Time-independent Schrödinger equation\nIf the potential has no explicit time dependence,\n\\[\nV(\\vec r,t)=V(\\vec r),\n\\]\nstates of well-defined energy can be written as\n\\[\n\\psi(\\vec r,t)=\\phi(\\vec r)e^{-iEt/\\hbar}\n=\\phi(\\vec r)e^{-i\\omega t}.\n\\]\nSubstitution into the time-dependent Schrödinger equation gives\n\\[\n\\boxed{\n\\hat H\\phi(\\vec r)=E\\phi(\\vec r),\n}\n\\]\nthe time-independent Schrödinger equation.\nBecause the time-dependent factor has unit magnitude,\n\\[\n|e^{-iEt/\\hbar}|^2=1,\n\\]\nthe position probability density of such an energy eigenstate is time independent:\n\\[\n|\\psi(\\vec r,t)|^2=|\\phi(\\vec r)|^2.\n\\]\nSuch states are therefore called stationary states."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#example-a-free-gaussian-wave-packet",
-    "href": "mod2/wavemechanics_revised.html#example-a-free-gaussian-wave-packet",
-    "title": "Wave Mechanics",
-    "section": "6.4 Example: a free Gaussian wave packet",
-    "text": "6.4 Example: a free Gaussian wave packet\nA physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,\n\\[\n\\psi(x,0)\n=\\frac{1}{(2\\pi\\sigma_0^2)^{1/4}}\n\\exp\\left[-\\frac{(x-x_0)^2}{4\\sigma_0^2}\\right]\ne^{ik_0x}.\n\\]\nIts initial probability distribution has standard deviation \\(\\sigma_0\\). For a free particle the center moves with the group velocity\n\\[\nv_g=\\frac{\\hbar k_0}{m},\n\\]\nwhile the packet spreads according to\n\\[\n\\sigma(t)\n=\\sigma_0\n\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_0^2}\\right)^2}.\n\\]\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nhbar = 1.0\nm = 1.0\nsigma0 = 0.6\nx0 = -2.0\nk0 = 2.0\n\nx = np.linspace(-6, 7, 800)\n\ndef probability_density(x, t):\n    sigma_t = sigma0*np.sqrt(1 + (hbar*t/(2*m*sigma0**2))**2)\n    x_center = x0 + hbar*k0*t/m\n    return np.exp(-(x-x_center)**2/(2*sigma_t**2))/(np.sqrt(2*np.pi)*sigma_t)\n\nfig, ax = plt.subplots(figsize=(8,4))\nax.plot(x, probability_density(x,0), linewidth=2, label='t = 0')\nax.plot(x, probability_density(x,1.5), linewidth=2, label='later time')\nax.set_xlabel('x')\nax.set_ylabel(r'$|\\psi(x,t)|^2$')\nax.legend()\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 3: Free Gaussian wave packet: the center moves while the position distribution spreads with time. Dimensionless units with ħ=m=1 are used.\n\n\n\n\n\nThe wave packet illustrates several important ideas at once:\n\na localized state is a superposition of plane waves;\nits center moves with the group velocity;\nits position distribution can spread with time;\nunlike an ideal plane wave, a Gaussian wave packet is square-normalizable."
-  },
-  {
-    "objectID": "mod2/wavemechanics_revised.html#additional-remarks",
-    "href": "mod2/wavemechanics_revised.html#additional-remarks",
-    "title": "Wave Mechanics",
-    "section": "Additional remarks",
-    "text": "Additional remarks\n\nAnalytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.\nThe nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.\nA scalar spatial wave function is not sufficient to describe all quantum degrees of freedom. Electron spin, for example, requires a two-component spinor structure, which will be introduced later in the course."
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#what-is-an-electron",
-    "href": "mod2/wavemechanics.html#what-is-an-electron",
-    "title": "Wave Mechanics",
-    "section": "1.1 What is an electron?",
-    "text": "1.1 What is an electron?\nBy the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.\nIn an idealized double-slit experiment, such a classical particle picture suggests that each electron passes through either slit 1 or slit 2. The distribution observed with both slits open should therefore simply be the sum of the distributions obtained from the individual slits,\n\\[\nP_{12}(x)=P_1(x)+P_2(x).\n\\]\nElectrons, however, produce interference patterns. A particularly direct demonstration was provided by Claus Jönsson, who observed electron diffraction and interference from artificially fabricated single and multiple slits in 1961 (Jönsson, 1961).\n\n\nCode\n# echo: false\n#| warning: false\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.animation import FuncAnimation\nfrom IPython.display import HTML\n\nplt.rcdefaults()\n\nrng = np.random.default_rng(12345)\n\n\n# ------------------------------------------------------------\n# Screen dimensions\n# ------------------------------------------------------------\nx_min, x_max = -10, 10\ny_min, y_max = -6, 6\n\n# ------------------------------------------------------------\n# Interference pattern\n# ------------------------------------------------------------\nperiod = 4.0          # fringe spacing in x\nvisibility = 0.90     # 0 = flat, 1 = maximum contrast\nphase = 0.0           # phase shift\n\n# ------------------------------------------------------------\n# Animation settings\n# ------------------------------------------------------------\nn_frames = 100\ndots_per_frame = 50\ndot_size = 8\nfps = 8\n\n# Hold final pattern before restarting\nhold_seconds = 2\nhold_frames = int(hold_seconds * fps)\n\n# ------------------------------------------------------------\n# Probability distribution\n# ------------------------------------------------------------\ndef p_x(x):\n    return 1.0 + visibility * np.cos(\n        2 * np.pi * x / period + phase\n    )\n\npmax = 1.0 + visibility\n\n\n# ------------------------------------------------------------\n# Rejection sampling\n# ------------------------------------------------------------\ndef sample_x(n):\n    xs = []\n\n    while len(xs) &lt; n:\n        x_try = rng.uniform(x_min, x_max, 4 * n)\n        y_try = rng.uniform(0, pmax, 4 * n)\n\n        accepted = x_try[y_try &lt; p_x(x_try)]\n        xs.extend(accepted.tolist())\n\n    return np.array(xs[:n])\n\n\n# ------------------------------------------------------------\n# Generate detection events\n# ------------------------------------------------------------\nN_total = n_frames * dots_per_frame\n\nx_events = sample_x(N_total)\ny_events = rng.uniform(y_min, y_max, N_total)\n\n\n# ------------------------------------------------------------\n# Figure\n# ------------------------------------------------------------\nfig, ax = plt.subplots(figsize=(8, 5), dpi=80)\n\nfig.patch.set_facecolor(\"white\")\nax.set_facecolor(\"white\")\n\nscat = ax.scatter(\n    [],\n    [],\n    s=dot_size,\n    c=\"black\"\n)\n\nax.set_xlim(x_min, x_max)\nax.set_ylim(y_min, y_max)\n\nax.set_xticks([])\nax.set_yticks([])\n\ncount_text = ax.text(\n    0.02,\n    0.95,\n    \"\",\n    transform=ax.transAxes,\n    ha=\"left\",\n    va=\"top\",\n    fontsize=12,\n    zorder=10,\n    bbox=dict(\n        facecolor=\"white\",\n        edgecolor=\"black\",\n        alpha=0.9,\n        boxstyle=\"round,pad=0.3\"\n    )\n)\n\n\n# ------------------------------------------------------------\n# Animation\n# ------------------------------------------------------------\ndef init():\n    scat.set_offsets(np.empty((0, 2)))\n    count_text.set_text(\"\")\n    return scat, count_text\n\n\ndef animate(frame):\n\n    if frame &lt; n_frames:\n        n = (frame + 1) * dots_per_frame\n    else:\n        n = N_total\n\n    offsets = np.column_stack(\n        (x_events[:n], y_events[:n])\n    )\n\n    scat.set_offsets(offsets)\n    count_text.set_text(f\"Detected particles: {n}\")\n\n    return scat, count_text\n\n\nanim = FuncAnimation(\n    fig,\n    animate,\n    frames=n_frames + hold_frames,\n    init_func=init,\n    interval=1000 / fps,\n    blit=True,\n    repeat=True\n)\n\nplt.close(fig)\n\n# Display as looping HTML5 video\nHTML(anim.to_html5_video())\n\n\n\n\n\n  \n  Your browser does not support the video tag.\n\n\n\nFigure 1: Simulated build-up of an interference pattern from individual detection events.\n\n\n\n\nThe result immediately raises a question:\n\nWhy do objects that are detected as particles produce an interference pattern?\n\nThe key observation is therefore:\n\nan individual electron is detected at a localized position;\nmany repeated detections form a wave-like interference pattern.\n\nThis behavior cannot be described by a simple classical particle picture or by a simple classical material wave.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#historical-perspective-davissongermer",
-    "href": "mod2/wavemechanics.html#historical-perspective-davissongermer",
-    "title": "Wave Mechanics",
-    "section": "1.2 Historical perspective: Davisson–Germer",
-    "text": "1.2 Historical perspective: Davisson–Germer\nThe electron double-slit experiment gives a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated much earlier by Clinton Davisson and Lester Germer in 1927.\nDavisson and Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima are naturally explained as electron diffraction by the periodic crystal lattice, in close analogy to the diffraction of x rays by crystals (Davisson & Germer, 1927).\n\nThe experiment provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#a-traveling-wave",
-    "href": "mod2/wavemechanics.html#a-traveling-wave",
-    "title": "Wave Mechanics",
-    "section": "2.1 A traveling wave",
-    "text": "2.1 A traveling wave\nA one-dimensional harmonic traveling wave can be written as\n\\[\ny(x,t)=A\\cos\\big(kx-\\omega t+\\phi\\big).\n\\]\nIt is useful to define the phase of the wave as the complete argument of the trigonometric function,\n\\[\n\\theta(x,t)=kx-\\omega t+\\phi.\n\\]\nHere,\n\n\\(A\\) is the amplitude,\n\\(\\lambda\\) is the wavelength,\n\\(k=2\\pi/\\lambda\\) is the wave number,\n\\(f\\) is the frequency,\n\\(\\omega=2\\pi f\\) is the angular frequency,\n\\(\\theta(x,t)\\) is the phase of the wave,\n\\(\\phi\\) is the phase offset (or initial phase).\n\nThus, in these notes the word phase refers to the full quantity \\(\\theta(x,t)\\), while \\(\\phi\\) denotes only the constant phase offset.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nA = 1.0\nlam = 2.5\nphi = np.pi/3\nk = 2*np.pi/lam\n\nx = np.linspace(-0.8, 5.6, 1000)\ny = A*np.cos(k*x + phi)\ny_ref = A*np.cos(k*x)\n\nx_peak = -phi/k\nx_peak_2 = x_peak + lam\nx_peak_3 = x_peak + 2*lam\n\nfig, ax = plt.subplots(figsize=(9,4.5))\nax.plot(x, y, linewidth=2, label=r'$A\\cos(kx+\\phi)$')\nax.plot(x, y_ref, '--', alpha=0.55, label=r'$A\\cos(kx)$')\nax.axhline(0, linewidth=0.8)\n\n# Amplitude\nax.annotate('', xy=(x_peak_2, A), xytext=(x_peak_2, 0),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak_2+0.10, A/2, r'$A$', va='center')\n\n# Wavelength\nlevel = -1.28\nax.annotate('', xy=(x_peak_3, level), xytext=(x_peak_2, level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text((x_peak_2+x_peak_3)/2, level+0.08, r'$\\lambda$', ha='center')\n\n# Shift associated with phase offset\nphase_level = 1.28\nax.annotate('', xy=(0, phase_level), xytext=(x_peak, phase_level),\n            arrowprops=dict(arrowstyle='&lt;-&gt;'))\nax.text(x_peak/2, phase_level+0.08,\n        r'phase offset: $\\Delta x=-\\phi/k$', ha='center')\n\nax.set_xlabel('x')\nax.set_ylabel('y(x,t)')\nax.set_ylim(-1.55,1.55)\nax.legend(loc='lower left')\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 3: A harmonic wave at fixed time. The figure illustrates the amplitude A, wavelength λ, and the spatial shift associated with a phase offset φ.\n\n\n\n\n\nA change in phase offset corresponds to a horizontal shift of the wave. At fixed time,\n\\[\n\\Delta x=-\\frac{\\phi}{k}.\n\\]\nMore importantly for interference, two waves need not have the same phase at a given position. Their relative phase will determine whether they interfere constructively or destructively.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#complex-representation",
-    "href": "mod2/wavemechanics.html#complex-representation",
-    "title": "Wave Mechanics",
-    "section": "2.2 Complex representation",
-    "text": "2.2 Complex representation\nUsing Euler’s relation,\n\\[\ne^{i\\theta}=\\cos\\theta+i\\sin\\theta,\n\\]\nwe can represent a harmonic wave compactly as\n\\[\n\\psi(x,t)=A e^{i\\theta(x,t)}\n=Ae^{i(kx-\\omega t+\\phi)}.\n\\]\nIn three dimensions,\n\\[\n\\psi(\\vec r,t)=A e^{i(\\vec k\\cdot\\vec r-\\omega t+\\phi)}.\n\\]\nThe complex representation keeps track of both amplitude and phase and makes the mathematics of superposition particularly simple.\nFor a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function \\(\\psi\\) is itself generally complex and has a different physical interpretation, which we will introduce in Section 4.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#probability-distributions",
-    "href": "mod2/wavemechanics.html#probability-distributions",
-    "title": "Wave Mechanics",
-    "section": "4.1 Probability distributions",
-    "text": "4.1 Probability distributions\nBefore assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.\nLet \\(p(x)\\) be a probability density. The probability of finding a measurement outcome between \\(a\\) and \\(b\\) is\n\\[\nP(a&lt;x&lt;b)=\\int_a^b p(x)\\,dx.\n\\]\nThe total probability must be one,\n\\[\n\\int_{-\\infty}^{\\infty}p(x)\\,dx=1.\n\\]\nFor a very small interval \\(dx\\),\n\\[\ndP=p(x)\\,dx.\n\\]\nThe expectation value is\n\\[\n\\langle x\\rangle\n=\\int_{-\\infty}^{\\infty}x\\,p(x)\\,dx,\n\\]\nand the variance is\n\\[\n\\operatorname{Var}(x)\n=\\langle x^2\\rangle-\\langle x\\rangle^2.\n\\]\nThe standard deviation is\n\\[\n\\sigma_x=\\sqrt{\\operatorname{Var}(x)}.\n\\]",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#the-born-interpretation",
-    "href": "mod2/wavemechanics.html#the-born-interpretation",
-    "title": "Wave Mechanics",
-    "section": "4.2 The Born interpretation",
-    "text": "4.2 The Born interpretation\nQuantum mechanics associates a complex wave function \\(\\psi(\\vec r,t)\\) with the state of a particle. According to the Born rule, the probability density for position is\n\\[\n\\boxed{p(\\vec r,t)=|\\psi(\\vec r,t)|^2.}\n\\]\nThus the probability of detecting the particle within a small volume \\(d^3r\\) is\n\\[\ndP=|\\psi(\\vec r,t)|^2\\,d^3r,\n\\]\nand the probability of finding it in a finite region \\(R\\) is\n\\[\nP_R=\\int_R |\\psi(\\vec r,t)|^2\\,d^3r.\n\\]\nFor a normalizable state,\n\\[\n\\int_{\\mathbb R^3}|\\psi(\\vec r,t)|^2\\,d^3r=1.\n\\]\nThis gives the wave function its central interpretation:\n\\[\n\\boxed{\\psi=\\text{probability amplitude},\n\\qquad |\\psi|^2=\\text{probability density}.}\n\\]\nThe electron-interference experiment can now be expressed very compactly. The probability amplitudes associated with the two alternatives add,\n\\[\n\\psi=\\psi_1+\\psi_2,\n\\]\nbut the measurable probability density is\n\\[\n|\\psi|^2=|\\psi_1+\\psi_2|^2,\n\\]\nwhich contains the interference term.\n\n\n\n\n\n\nNote\n\n\n\nA plane wave extending over all space is not square-normalizable in the usual sense. It is an idealized state of exactly defined momentum and can be treated using box normalization or the generalized normalization of continuum states.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#wave-packets-and-momentum-space",
-    "href": "mod2/wavemechanics.html#wave-packets-and-momentum-space",
-    "title": "Wave Mechanics",
-    "section": "5.1 Wave packets and momentum space",
-    "text": "5.1 Wave packets and momentum space\nA localized particle cannot be represented by a single plane wave. Instead, it is represented by a superposition of plane waves with different wave vectors.\nIn one dimension,\n\\[\n\\tilde\\psi(k)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\psi(x)e^{-ikx}\\,dx,\n\\]\nand\n\\[\n\\psi(x)\n=\\frac{1}{\\sqrt{2\\pi}}\n\\int_{-\\infty}^{\\infty}\n\\tilde\\psi(k)e^{ikx}\\,dk.\n\\]\nBecause \\(p=\\hbar k\\), the distribution in \\(k\\) is directly related to the distribution of momentum. A narrow range of wave vectors produces an extended wave packet in position, while strong localization requires a broader range of wave vectors. This relation will later lead naturally to the position–momentum uncertainty relation.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#energy-and-momentum-as-differential-operators",
-    "href": "mod2/wavemechanics.html#energy-and-momentum-as-differential-operators",
-    "title": "Wave Mechanics",
-    "section": "6.1 Energy and momentum as differential operators",
-    "text": "6.1 Energy and momentum as differential operators\nConsider again a plane wave,\n\\[\n\\psi(x,t)=Ae^{i(kx-\\omega t)}.\n\\]\nTaking a time derivative gives\n\\[\n\\frac{\\partial\\psi}{\\partial t}\n=-i\\omega\\psi,\n\\]\nand therefore, using \\(E=\\hbar\\omega\\),\n\\[\ni\\hbar\\frac{\\partial\\psi}{\\partial t}=E\\psi.\n\\]\nSimilarly,\n\\[\n\\frac{\\partial\\psi}{\\partial x}=ik\\psi,\n\\]\nso that, using \\(p=\\hbar k\\),\n\\[\n-i\\hbar\\frac{\\partial\\psi}{\\partial x}=p\\psi.\n\\]\nThis motivates the quantum-mechanical associations\n\\[\n\\boxed{\nE\\longleftrightarrow i\\hbar\\frac{\\partial}{\\partial t},\n\\qquad\np_x\\longleftrightarrow -i\\hbar\\frac{\\partial}{\\partial x}.\n}\n\\]\nIn three dimensions,\n\\[\n\\boxed{\\hat{\\vec p}=-i\\hbar\\vec\\nabla.}\n\\]\nThese are examples of operators: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#potential-energy-and-the-hamiltonian",
-    "href": "mod2/wavemechanics.html#potential-energy-and-the-hamiltonian",
-    "title": "Wave Mechanics",
-    "section": "6.2 Potential energy and the Hamiltonian",
-    "text": "6.2 Potential energy and the Hamiltonian\nFor a nonrelativistic classical particle,\n\\[\nE=T+V=\\frac{p^2}{2m}+V.\n\\]\nHere \\(V(\\vec r,t)\\) is the potential energy that describes the interaction of the particle with its environment. Examples include\n\\[\nV=mgh\n\\]\nfor a particle near the surface of the Earth and\n\\[\nV=q\\Phi\n\\]\nfor a charge \\(q\\) in an electrostatic potential \\(\\Phi\\).\nIn atomic physics, the Coulomb interaction between an electron and a nucleus of charge \\(+Ze\\) gives\n\\[\nV(r)=-\\frac{Ze^2}{4\\pi\\varepsilon_0 r}.\n\\]\nReplacing the classical energy and momentum quantities by the corresponding quantum-mechanical operators motivates\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi(\\vec r,t)\n=\\left[\n-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t)\n\\right]\\psi(\\vec r,t).\n}\n\\]\nThis is the time-dependent Schrödinger equation.\nDefining the Hamiltonian operator\n\\[\n\\boxed{\n\\hat H=-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r,t),\n}\n\\]\nit can be written compactly as\n\\[\n\\boxed{\ni\\hbar\\frac{\\partial}{\\partial t}\\psi=\\hat H\\psi.\n}\n\\]\n\n\n\n\n\n\nImportant\n\n\n\nThe argument above motivates the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#time-independent-schrödinger-equation",
-    "href": "mod2/wavemechanics.html#time-independent-schrödinger-equation",
-    "title": "Wave Mechanics",
-    "section": "6.3 Time-independent Schrödinger equation",
-    "text": "6.3 Time-independent Schrödinger equation\nIf the potential has no explicit time dependence,\n\\[\nV(\\vec r,t)=V(\\vec r),\n\\]\nstates of well-defined energy can be written as\n\\[\n\\psi(\\vec r,t)=\\phi(\\vec r)e^{-iEt/\\hbar}\n=\\phi(\\vec r)e^{-i\\omega t}.\n\\]\nSubstitution into the time-dependent Schrödinger equation gives\n\\[\n\\boxed{\n\\hat H\\phi(\\vec r)=E\\phi(\\vec r),\n}\n\\]\nthe time-independent Schrödinger equation.\nBecause the time-dependent factor has unit magnitude,\n\\[\n|e^{-iEt/\\hbar}|^2=1,\n\\]\nthe position probability density of such an energy eigenstate is time independent:\n\\[\n|\\psi(\\vec r,t)|^2=|\\phi(\\vec r)|^2.\n\\]\nSuch states are therefore called stationary states.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#example-a-free-gaussian-wave-packet",
-    "href": "mod2/wavemechanics.html#example-a-free-gaussian-wave-packet",
-    "title": "Wave Mechanics",
-    "section": "6.4 Example: a free Gaussian wave packet",
-    "text": "6.4 Example: a free Gaussian wave packet\nA physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,\n\\[\n\\psi(x,0)\n=\\frac{1}{(2\\pi\\sigma_0^2)^{1/4}}\n\\exp\\left[-\\frac{(x-x_0)^2}{4\\sigma_0^2}\\right]\ne^{ik_0x}.\n\\]\nIts initial probability distribution has standard deviation \\(\\sigma_0\\). For a free particle the center moves with the group velocity\n\\[\nv_g=\\frac{\\hbar k_0}{m},\n\\]\nwhile the packet spreads according to\n\\[\n\\sigma(t)\n=\\sigma_0\n\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_0^2}\\right)^2}.\n\\]\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nhbar = 1.0\nm = 1.0\nsigma0 = 0.6\nx0 = -2.0\nk0 = 2.0\n\nx = np.linspace(-6, 7, 800)\n\ndef probability_density(x, t):\n    sigma_t = sigma0*np.sqrt(1 + (hbar*t/(2*m*sigma0**2))**2)\n    x_center = x0 + hbar*k0*t/m\n    return np.exp(-(x-x_center)**2/(2*sigma_t**2))/(np.sqrt(2*np.pi)*sigma_t)\n\nfig, ax = plt.subplots(figsize=(8,4))\nax.plot(x, probability_density(x,0), linewidth=2, label='t = 0')\nax.plot(x, probability_density(x,1.5), linewidth=2, label='later time')\nax.set_xlabel('x')\nax.set_ylabel(r'$|\\psi(x,t)|^2$')\nax.legend()\nax.grid(False)\nplt.tight_layout()\n\n\n\n\n\n\n\n\nFigure 5: Free Gaussian wave packet: the center moves while the position distribution spreads with time. Dimensionless units with ħ=m=1 are used.\n\n\n\n\n\nThe wave packet illustrates several important ideas at once:\n\na localized state is a superposition of plane waves;\nits center moves with the group velocity;\nits position distribution can spread with time;\nunlike an ideal plane wave, a Gaussian wave packet is square-normalizable.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#additional-remarks",
-    "href": "mod2/wavemechanics.html#additional-remarks",
-    "title": "Wave Mechanics",
-    "section": "Additional remarks",
-    "text": "Additional remarks\n\nAnalytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.\nThe nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.\nA scalar spatial wave function is not sufficient to describe all quantum degrees of freedom. Electron spin, for example, requires a two-component spinor structure, which will be introduced later in the course.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
-    ]
-  },
-  {
-    "objectID": "mod2/wavemechanics.html#historical-perspective-electron-diffraction",
-    "href": "mod2/wavemechanics.html#historical-perspective-electron-diffraction",
-    "title": "Wave Mechanics",
-    "section": "1.2 Historical perspective: Electron diffraction",
-    "text": "1.2 Historical perspective: Electron diffraction\nThe electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.\nIn 1927, Clinton Davisson and Lester Germer scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima could be explained as electron diffraction by the periodic crystal lattice, in close analogy to the diffraction of x rays by crystals (Davisson & Germer, 1927).\nAt about the same time, George Paget Thomson investigated electrons transmitted through thin crystalline films. Instead of angular scattering maxima, these experiments produced characteristic diffraction rings on photographic plates. The ring patterns provided another striking demonstration that electrons exhibit wave-like behavior.\n\n\n\n\n\n\nFigure 2: Electron diffraction pattern recorded in experiments by George Paget Thomson. The concentric rings result from diffraction of electrons transmitted through a thin crystalline film. Source: Science Museum Group Collection. Licensed under CC BY-NC-SA 4.0.\n\n\n\nThe two experiments used different geometries but led to the same conclusion: electrons, despite their particle-like properties such as charge and mass, can undergo diffraction. Davisson and Thomson later shared the 1937 Nobel Prize in Physics for the experimental discovery of electron diffraction.\nThe experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.\n\n\n\n\n\n\nNoteHistorical note\n\n\n\n\n\nGeorge Paget Thomson was the son of J. J. Thomson, whose cathode-ray experiments helped establish the electron as a constituent of matter with particle-like properties. About three decades later, G. P. Thomson’s diffraction experiments provided direct evidence for the electron’s wave-like behavior.",
-    "crumbs": [
-      "Home",
-      "Quantum Mechanics",
-      "Wave Mechanics"
     ]
   }
 ]

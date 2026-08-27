@@ -3,109 +3,1396 @@ author: Daniel Fischer
 jupyter: python3
 filters:
   - ../physics-macros.lua
-title: Bra–Ket (Dirac) Notation, Operators, and More
+title: States and Operators in Quantum Mechanics
+subtitle: Hilbert Space and Dirac Notation
 ---
 
 
+# Quantum Mechanics as Linear Algebra: Overview and Plan
 
+In the previous chapter, we approached quantum mechanics primarily from the perspective of **wave mechanics**. Mathematically, this led us to differential equations: the wave function $\psi(\vec r,t)$ evolves according to the Schrödinger equation, and stationary states are obtained by solving the time-independent Schrödinger equation.
 
-## Ket-vectors
-A **ket vector** $\ket{\alpha}$ denotes an element of a vector space, more specifically a Hilbert space $\mathscr{H}$.  
-It represents a **quantum state**, for example a wave function or a spin state.
+There is, however, a more general mathematical structure underlying quantum mechanics.
 
-## Bra-vectors
-A **bra vector** $\bra{\beta}$ denotes an element of the dual space of $\mathscr{H}$.  
-It is a linear form that maps each vector in $\mathscr{H}$ into the complex plane $\mathbb{C}$ by means of the **inner product**:
+Quantum states form a **vector space**, and physical quantities are represented by **linear operators** acting on this space. From this perspective, quantum mechanics is largely a theory of linear algebra.
+
+This point of view is more general than the wave-mechanical description. A scalar spatial wave function $\psi(\vec r)$ is only one possible representation of a quantum state. For example, the spin state of an electron cannot be described by a scalar function of position alone. More generally, quantum states may contain spatial, spin, internal, or other degrees of freedom.
+
+The abstract state itself should therefore be distinguished from any particular representation of that state.
+
+Dirac's bra–ket notation provides a convenient language for doing this.
+
+The specific goals for this chapter are:
+
+1. Introduce linear operators and identify familiar quantum-mechanical operators as examples.
+2. Recognize the Schrödinger equation and similar equations as **eigenvalue equations**.
+3. Understand why quantum states naturally form a complex vector space.
+4. Introduce the abstract state vector and Dirac's bra–ket notation.
+5. Define inner products, norms, orthogonality, and complete bases in Hilbert space.
+6. Understand wave functions as the components of an abstract state in a particular basis.
+7. Represent linear operators through matrix elements, outer products, and projection operators.
+8. Introduce Hermitian operators and connect their eigenvalues and eigenstates to quantum measurements.
+9. Express measurement probabilities, expectation values, and uncertainties in Dirac notation.
+
+---
+
+# 1. Operators and Linear Structure
+
+## 1.1 Operators
+
+An **operator** is a mathematical object that acts on another object and produces a new object.
+
+For example,
 
 $$
-\braket{\beta}{\alpha} \in \mathbb{C}.
+\hat A\psi=\phi
 $$
 
-For example, a wave function $\psi(\vec{r})$ corresponding to a state $\ket{\psi}$ is obtained by mapping it into coordinate space using the inner product:
+means that the operator $\hat A$ acts on the function $\psi$ and produces the function $\phi$.
+
+Several operators already appeared naturally in wave mechanics.
+
+| Physical quantity | Operator in the position representation | Action on $\psi(x)$ |
+|---|---|---|
+| Position | $\hat x=x$ | $\hat x\psi(x)=x\psi(x)$ |
+| Momentum | $\displaystyle \hat p_x=-i\hbar\frac{d}{dx}$ | $\displaystyle \hat p_x\psi=-i\hbar\frac{d\psi}{dx}$ |
+| Potential energy | $\hat V=V(x)$ | $\hat V\psi=V(x)\psi$ |
+| Total energy | $\displaystyle \hat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)$ | $\hat H\psi$ |
+
+The Hamiltonian $\hat H$ is the operator associated with the total energy of the system.
+
+For example, the time-independent Schrödinger equation is
 
 $$
-\braket{\vec{r}}{\psi} = \psi(\vec{r}).
+\hat H\psi(x)=E\psi(x).
 $$
 
-### Inner product for wave functions
-For two wave functions $\psi(x)$ and $\phi(x)$, the inner product is defined as
+In the time-dependent Schrödinger equation,
 
 $$
-\braket{\phi}{\psi} = \int_{-\infty}^{\infty} \phi^\ast(x)\,\psi(x)\,dx,
+i\hbar\frac{\partial}{\partial t}\psi
+=
+\hat H\psi,
 $$
 
-where $\phi^\ast(x)$ is the complex conjugate of $\phi(x)$.  
-This definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.
+the Hamiltonian generates the time evolution of the quantum state.
 
-## Linear operators
-An **operator** $\hat{O}$ acting on a ket creates another ket:
+
+## 1.2 Linearity
+
+The operators of quantum mechanics are **linear operators**.
+
+An operator $\hat A$ is linear if
 
 $$
-\hat{O}\ket{\psi} = \ket{\phi}.
+\boxed{
+\hat A
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+c_1\hat A\psi_1
++
+c_2\hat A\psi_2
+}
 $$
 
-A **linear operator** satisfies the two additional conditions:
+for arbitrary complex numbers $c_1$ and $c_2$.
 
-1. $\hat{O}(\ket{\psi}+\ket{\phi}) = \hat{O}\ket{\psi} + \hat{O}\ket{\phi}$  
-2. $\hat{O}c\ket{\psi} = c\hat{O}\ket{\psi}$
+As an example, consider the momentum operator:
 
-**Additional notes:**
+$$
+\hat p_x
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+-i\hbar
+\frac{d}{dx}
+\left(
+c_1\psi_1+c_2\psi_2
+\right).
+$$
 
-- The operator can also be written as an outer product:  
-  $$
-  \hat{O} = \frac{1}{\braket{\psi}{\psi}} \ketbra{\phi}{\psi}.
-  $$
-- If $\{\ket{\phi_i}\}$ is a complete basis of $\mathscr{H}$, a linear operator $\hat{O}$ can be written as a matrix with entries  
-  $$
-  O_{ij} = \mel{\phi_j}{\hat{O}}{\phi_i}.
-  $$
+Using the linearity of differentiation,
 
-## Hermitian conjugates
-The **Hermitian conjugate** of a vector or operator is denoted by a $\dagger$ (called *dagger*).  
-The rules are:
+$$
+\hat p_x
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+c_1\hat p_x\psi_1+
+c_2\hat p_x\psi_2.
+$$
 
-- The Hermitian conjugate of a bra is the corresponding ket, and vice versa.  
-- The Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript $^\ast$).  
-- The Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.  
-- For any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.
+Thus, $\hat p_x$ is a linear operator.
 
-**Examples:**
+The linearity of quantum-mechanical operators is closely connected to the **superposition principle**. If $\psi_1$ and $\psi_2$ are possible quantum states, then a linear combination
 
-- $\ket{\psi}^\dagger = \bra{\psi}$ and $\bra{\psi}^\dagger = \ket{\psi}$  
-- $\big(c_1\ket{\psi_1} + c_2\ket{\psi_2}\big)^\dagger = c_1^\ast \bra{\psi_1} + c_2^\ast \bra{\psi_2}$  
-- $\big(\braket{\psi}{\phi}\big)^\dagger = \braket{\psi}{\phi}^\ast = \braket{\phi}{\psi}$  
-- $\big(\mel{\phi}{\hat{A}^\dagger}{\psi}\big)^\ast = \mel{\psi}{\hat{A}}{\phi}$  
-  and  
-  $\big(\mel{\phi}{\hat{A}^\dagger \hat{B}^\dagger}{\psi}\big)^\ast = \mel{\psi}{\hat{B}\hat{A}}{\phi}$  
+$$
+\psi=c_1\psi_1+c_2\psi_2
+$$
 
-## Observables
-**Observables** are represented by Hermitian operators. “Hermitian” means $\hat{A} = \hat{A}^\dagger$.  
-They are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).
-
-### Properties
-- The eigenvalues $a$ of a Hermitian operator $\hat{A}$, satisfying $\hat{A}\ket{\alpha} = a\ket{\alpha}$, are **real numbers**.  
-- For every observable, a **complete and orthonormal basis** can be found:  
-  - The basis is given by eigenvectors solving  
-    $\hat{A}\ket{n} = a_n\ket{n}$ (discrete spectrum) or $\hat{A}\ket{k} = k\ket{k}$ (continuous spectrum).  
-  - Orthonormality: $\braket{n'}{n} = \delta_{n'n}$ or $\braket{k_i}{k_j} = \delta(k_i-k_j)$.  
-  - Completeness: every state $\ket{\psi}$ in $\mathscr{H}$ can be expressed as  
-    $\ket{\psi} = \sum_n c_n\ket{n}$ or $\ket{\psi} = \int c(k)\ket{k}\,dk$.  
-  - The identity operator can be written as $\mathbb{1} = \sum_n \ketbra{n}{n}$ or $\mathbb{1} = \int \ketbra{k}{k}\,dk$.
-
-### Additional notes
-If $\ket{\alpha}$ is a normalized eigenvector of $\hat{A}$ and the system is in the normalized state $\ket{\psi}$, then:
-
-- The probability of finding the system in state $\ket{\alpha}$ is  
-  $$
-  P = \left|\braket{\alpha}{\psi}\right|^2.
-  $$
-- The expectation value of $\hat{A}$ is  
-  $$
-  \langle \hat{A} \rangle = \mel{\psi}{\hat{A}}{\psi}.
-  $$
-- The variance of $\hat{A}$ is  
-  $$
-  \sigma_A = \langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2.
-  $$
+is also a possible state.
 
 
+## 1.3 Eigenvalue equations
+
+A particularly important situation occurs when the action of an operator reproduces the same function, multiplied only by a number:
+
+$$
+\boxed{
+\hat A\psi=a\psi.
+}
+$$
+
+This is an **eigenvalue equation**.
+
+The function $\psi$ is an **eigenfunction** of $\hat A$, and $a$ is the corresponding **eigenvalue**.
+
+We have already encountered several examples.
+
+A plane wave
+
+$$
+\psi_k(x)=e^{ikx}
+$$
+
+satisfies
+
+$$
+\hat p_x\psi_k
+=
+-i\hbar\frac{d}{dx}e^{ikx}
+=
+\hbar k e^{ikx}.
+$$
+
+Therefore,
+
+$$
+\hat p_x\psi_k=p\psi_k,
+\qquad
+p=\hbar k,
+$$
+
+and the plane wave is an eigenfunction of the momentum operator.
+
+Similarly, the time-independent Schrödinger equation,
+
+$$
+\hat H\psi_n=E_n\psi_n,
+$$
+
+is an eigenvalue equation for the Hamiltonian.
+
+The allowed energies $E_n$ are therefore the **eigenvalues of the Hamiltonian**.
+
+This observation suggests that the mathematical structure of quantum mechanics is closely related to the familiar eigenvalue problems of linear algebra.
+
+---
+
+# 2. Quantum States as Vectors
+
+## 2.1 From functions to vectors
+
+A wave function such as $\psi(x)$ may not initially look like a vector.
+
+We are accustomed to vectors written as columns,
+
+$$
+\vec v=
+\begin{pmatrix}
+v_1\\
+v_2\\
+v_3
+\end{pmatrix},
+$$
+
+or represented geometrically as arrows.
+
+But the defining feature of a vector is not that it has three components or that it can be drawn as an arrow.
+
+What matters is that vectors can be **added** and **multiplied by scalars** while remaining elements of the same mathematical space.
+
+Functions have precisely this property.
+
+If $\psi_1(x)$ and $\psi_2(x)$ belong to an appropriate space of functions, then
+
+$$
+c_1\psi_1(x)+c_2\psi_2(x)
+$$
+
+belongs to the same space.
+
+Wave functions can therefore be regarded as vectors in a vector space.
+
+
+::: {.callout-note collapse="true"}
+## What is a vector space?
+
+A vector space $V$ over the complex numbers $\mathbb C$ is a set whose elements are called **vectors**, together with operations of vector addition and scalar multiplication.
+
+For $u,v,w\in V$ and $a,b\in\mathbb C$, the following axioms hold:
+
+1. $u+v\in V$;
+2. $au\in V$;
+3. $u+v=v+u$;
+4. $(u+v)+w=u+(v+w)$;
+5. there exists a zero vector $0$ such that $u+0=u$;
+6. for every $u$ there exists $-u$ such that $u+(-u)=0$;
+7. $a(u+v)=au+av$;
+8. $(a+b)u=au+bu$;
+9. $a(bu)=(ab)u$;
+10. $1u=u$.
+
+Nothing in this definition requires a vector to be a column of numbers.
+
+Vectors may be
+
+- ordinary geometric vectors,
+- columns of numbers,
+- matrices,
+- polynomials,
+- functions,
+- spinors,
+- or many other mathematical objects.
+:::
+
+
+## 2.2 Hilbert space
+
+The vector space used in quantum mechanics has additional structure.
+
+In particular, we need to define an **inner product** between two vectors. This allows us to discuss lengths, angles, orthogonality, and projections.
+
+A complex vector space equipped with an inner product and satisfying an additional mathematical completeness condition is called a **Hilbert space**, usually denoted by
+
+$$
+\mathscr H.
+$$
+
+Quantum states are represented by vectors in a Hilbert space.
+
+
+::: {.callout-note collapse="true"}
+## More precisely: what is a Hilbert space?
+
+An inner product on a complex vector space assigns a complex number
+
+$$
+\langle\phi,\psi\rangle
+$$
+
+to pairs of vectors.
+
+It defines the norm
+
+$$
+\|\psi\|
+=
+\sqrt{\langle\psi,\psi\rangle}.
+$$
+
+A Hilbert space is an inner-product space that is **complete with respect to this norm**: every Cauchy sequence of vectors converges to a vector that is also contained in the space — which is a fancy way of saying that you cannot get arbitrarily close to a perfectly good limit and then discover that the limit has somehow fallen outside the space.
+
+For ordinary nonrelativistic wave mechanics, an important example is
+
+$$
+L^2(\mathbb R^3),
+$$
+
+the space of square-integrable complex-valued functions.
+
+The requirement
+
+$$
+\int_{\mathbb R^3}|\psi(\vec r)|^2\,d^3r<\infty
+$$
+
+ensures that the norm is finite.
+
+The normalized wave functions form only a subset of this vector space. They do **not** themselves form a vector space, because adding or rescaling them usually changes their normalization.
+:::
+
+
+## 2.3 The abstract quantum state
+
+Wave mechanics represents a state by a function such as
+
+$$
+\psi(\vec r).
+$$
+
+But a spatial wave function is a particular **representation** of the state rather than the state itself.
+
+For example, an electron may possess a spin state even when its spatial degree of freedom is irrelevant. A spin-$1/2$ state may be represented by a two-component vector such as
+
+$$
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix},
+$$
+
+rather than by a scalar function of position.
+
+Other quantum systems may be most naturally represented by occupation numbers, angular-momentum states, energy eigenstates, or other basis states.
+
+It is therefore useful to introduce a notation for the quantum state that does not assume any particular representation.
+
+Dirac introduced the notation
+
+$$
+\boxed{
+\ket{\psi}
+}
+$$
+
+for such an abstract state vector.
+
+The symbol $\ket{\psi}$ is called a **ket**.
+
+---
+
+# 3. Dirac Notation and the Dual Space
+
+## 3.1 Ket vectors
+
+A ket
+
+$$
+\ket{\psi}\in\mathscr H
+$$
+
+denotes a vector in the Hilbert space of quantum states.
+
+Linear combinations of kets are again kets:
+
+$$
+\ket{\chi}
+=
+c_1\ket{\psi}
++
+c_2\ket{\phi}.
+$$
+
+The abstract eigenvalue equation is therefore written as
+
+$$
+\boxed{
+\hat A\ket{a}
+=
+a\ket{a}.
+}
+$$
+
+This equation makes no reference to coordinate space.
+
+The same equation may later be represented as a differential equation, a matrix equation, or in some other basis.
+
+
+::: {.callout-note collapse="true"}
+## A technical point: physical states are rays
+
+Strictly speaking, a physical pure state is not represented by one unique vector $\ket{\psi}$.
+
+The vectors
+
+$$
+\ket{\psi}
+\qquad\text{and}\qquad
+e^{i\phi}\ket{\psi}
+$$
+
+differ only by an overall phase and represent the same physical state.
+
+A physical pure state therefore corresponds mathematically to a **ray** in Hilbert space rather than to one particular vector.
+
+In most calculations, however, we simply refer to $\ket{\psi}$ as the quantum state.
+:::
+
+
+## 3.2 Bra vectors and the dual space
+
+Associated with the Hilbert space $\mathscr H$ is its **dual space**
+
+$$
+\mathscr H^\ast.
+$$
+
+The dual space consists of linear functionals: maps from vectors in $\mathscr H$ to complex numbers.
+
+Associated with a ket $\ket{\phi}$ is a **bra**
+
+$$
+\bra{\phi}\in\mathscr H^\ast.
+$$
+
+The bra acts on a ket according to
+
+$$
+\bra{\phi}:
+\ket{\psi}
+\longmapsto
+\braket{\phi}{\psi}
+\in\mathbb C.
+$$
+
+Thus,
+
+$$
+\boxed{
+\braket{\phi}{\psi}
+}
+$$
+
+is the **inner product** of the two states.
+
+With the convention used in physics, the inner product is linear in the ket and conjugate-linear in the bra:
+
+$$
+\braket{\phi}{
+c_1\psi_1+c_2\psi_2
+}
+=
+c_1\braket{\phi}{\psi_1}
++
+c_2\braket{\phi}{\psi_2},
+$$
+
+while
+
+$$
+\left(
+c_1\bra{\phi_1}
++
+c_2\bra{\phi_2}
+\right)
+\ket{\psi}
+=
+c_1\braket{\phi_1}{\psi}
++
+c_2\braket{\phi_2}{\psi},
+$$
+
+but taking the bra associated with a linear combination of kets gives
+
+$$
+\left(
+c_1\ket{\phi_1}
++
+c_2\ket{\phi_2}
+\right)^\dagger
+=
+c_1^\ast\bra{\phi_1}
++
+c_2^\ast\bra{\phi_2}.
+$$
+
+
+::: {.callout-note collapse="true"}
+## Why does every ket have a corresponding bra?
+
+For a Hilbert space, the **Riesz representation theorem** states that every continuous linear functional can be represented uniquely by taking the inner product with an element of the Hilbert space.
+
+This provides the mathematical connection between
+
+$$
+\ket{\psi}\in\mathscr H
+$$
+
+and
+
+$$
+\bra{\psi}\in\mathscr H^\ast.
+$$
+
+Dirac notation hides much of this mathematical machinery, which is one reason it is so convenient.
+:::
+
+
+## 3.3 Inner products, norms, and normalization
+
+The inner product of a state with itself is
+
+$$
+\braket{\psi}{\psi}.
+$$
+
+It is real and non-negative:
+
+$$
+\braket{\psi}{\psi}\geq0.
+$$
+
+The norm of the state is
+
+$$
+\|\psi\|
+=
+\sqrt{\braket{\psi}{\psi}}.
+$$
+
+A normalized state therefore satisfies
+
+$$
+\boxed{
+\braket{\psi}{\psi}=1.
+}
+$$
+
+---
+
+# 4. Representations, Bases, and Orthogonality
+
+## 4.1 The position representation
+
+The abstract state $\ket{\psi}$ can be represented in a basis.
+
+If we choose the position basis $\{\ket{x}\}$, the components of the state in this basis are
+
+$$
+\boxed{
+\psi(x)=\braket{x}{\psi}.
+}
+$$
+
+The familiar wave function is therefore the **position-space representation** of the abstract state.
+
+Likewise, in the momentum basis,
+
+$$
+\boxed{
+\tilde\psi(p)=\braket{p}{\psi}.
+}
+$$
+
+These are not two different states.
+
+They are two different representations of the same state $\ket{\psi}$.
+
+This is analogous to representing one ordinary vector using two different coordinate systems.
+
+
+## 4.2 Inner product in the position representation
+
+For two states $\ket{\phi}$ and $\ket{\psi}$,
+
+$$
+\braket{\phi}{\psi}
+$$
+
+is representation independent.
+
+In the position representation it becomes
+
+$$
+\boxed{
+\braket{\phi}{\psi}
+=
+\int_{-\infty}^{\infty}
+\phi^\ast(x)\psi(x)\,dx.
+}
+$$
+
+Thus, the familiar integral over wave functions is not the fundamental definition of the quantum-mechanical inner product.
+
+Rather, it is the form taken by the abstract inner product when the states are represented in the position basis.
+
+
+## 4.3 Orthogonality
+
+Two states are **orthogonal** if
+
+$$
+\boxed{
+\braket{\phi}{\psi}=0.
+}
+$$
+
+This is the generalization of perpendicular vectors in ordinary Euclidean space.
+
+For ordinary vectors,
+
+$$
+\vec a\cdot\vec b=0
+$$
+
+indicates orthogonality.
+
+For quantum states, the corresponding condition is
+
+$$
+\braket{\phi}{\psi}=0.
+$$
+
+In the position representation,
+
+$$
+\int
+\phi^\ast(x)\psi(x)\,dx=0.
+$$
+
+
+
+
+## 4.4 Orthonormal bases
+
+Consider a discrete orthonormal set of states
+
+$$
+\{\ket{n}\}.
+$$
+
+Orthonormality means
+
+$$
+\boxed{
+\braket{m}{n}=\delta_{mn}.
+}
+$$
+
+If the basis is complete, any state can be expanded as
+
+$$
+\ket{\psi}
+=
+\sum_n c_n\ket{n}.
+$$
+
+Taking the inner product with $\bra{m}$ gives
+
+$$
+\braket{m}{\psi}
+=
+\sum_n c_n\braket{m}{n}
+=
+c_m.
+$$
+
+Therefore,
+
+$$
+\boxed{
+c_n=\braket{n}{\psi}.
+}
+$$
+
+and
+
+$$
+\boxed{
+\ket{\psi}
+=
+\sum_n
+\ket{n}\braket{n}{\psi}.
+}
+$$
+
+
+## 4.5 Completeness
+
+The previous expansion can be written as
+
+$$
+\ket{\psi}
+=
+\left(
+\sum_n\ketbra{n}{n}
+\right)
+\ket{\psi}.
+$$
+
+Therefore, a complete orthonormal discrete basis satisfies
+
+$$
+\boxed{
+\sum_n
+\ketbra{n}{n}
+=
+\mathbb 1.
+}
+$$
+
+This is the **completeness relation**, or **resolution of the identity**.
+
+For a continuous position basis,
+
+$$
+\boxed{
+\int_{-\infty}^{\infty}
+\ketbra{x}{x}\,dx
+=
+\mathbb 1.
+}
+$$
+
+The position eigenstates satisfy the delta-function normalization
+
+$$
+\braket{x'}{x}
+=
+\delta(x-x').
+$$
+
+
+::: {.callout-note collapse="true"}
+## Are $\ket{x}$ and $\ket{p}$ really Hilbert-space vectors?
+
+There is a mathematical subtlety here.
+
+Position and momentum eigenstates are not square-normalizable:
+
+$$
+\braket{x}{x}
+$$
+
+and
+
+$$
+\braket{p}{p}
+$$
+
+do not produce finite numbers.
+
+They are therefore not ordinary elements of $L^2$.
+
+Dirac notation treats them as **generalized eigenvectors**, normalized using Dirac delta functions. A mathematically more rigorous treatment uses a **rigged Hilbert space**.
+
+For our purposes, the usual Dirac notation is sufficient, but it is useful to remember that continuous-spectrum eigenstates require this extension of ordinary Hilbert-space language.
+:::
+
+
+## 4.6 A linear-algebra dictionary
+
+| Abstract linear algebra | Quantum mechanics in position space |
+|---|---|
+| State vector $\ket{\psi}$ | Wave function $\psi(x)=\braket{x}{\psi}$ |
+| Inner product $\braket{\phi}{\psi}$ | $\displaystyle \int\phi^\ast(x)\psi(x)\,dx$ |
+| Basis vector $\ket{n}$ | Basis function $\phi_n(x)=\braket{x}{n}$ |
+| Expansion coefficient $\braket{n}{\psi}$ | Projection of $\psi(x)$ onto $\phi_n(x)$ |
+| Linear operator $\hat A$ | Matrix or differential operator |
+| Matrix element $\mel{m}{\hat A}{n}$ | Integral involving basis functions and $\hat A$ |
+| Eigenvector $\ket{a}$ | Eigenfunction of the corresponding differential operator |
+
+The central point is that the object $\ket{\psi}$ is independent of the basis.
+
+The wave function $\psi(x)$ is one particular set of coordinates used to describe it.
+
+---
+
+# 5. Linear Operators in Hilbert Space
+
+## 5.1 Operators acting on kets
+
+A linear operator maps vectors to vectors:
+
+$$
+\hat A:\mathscr H\rightarrow\mathscr H.
+$$
+
+Thus,
+
+$$
+\hat A\ket{\psi}
+=
+\ket{\phi}.
+$$
+
+More precisely, particularly for unbounded operators such as position and momentum, an operator may only be defined on a suitable domain
+
+$$
+D(\hat A)\subseteq\mathscr H.
+$$
+
+We will normally leave the domain implicit.
+
+The eigenvalue equation becomes
+
+$$
+\boxed{
+\hat A\ket{a_n}
+=
+a_n\ket{a_n}.
+}
+$$
+
+
+## 5.2 Matrix elements
+
+Once a basis $\{\ket{n}\}$ has been selected, the operator can be represented by a matrix.
+
+Its matrix elements are
+
+$$
+\boxed{
+A_{mn}
+=
+\mel{m}{\hat A}{n}.
+}
+$$
+
+Using completeness,
+
+$$
+\hat A
+=
+\mathbb 1\hat A\mathbb 1,
+$$
+
+we obtain
+
+$$
+\hat A
+=
+\sum_{m,n}
+\ket{m}
+\mel{m}{\hat A}{n}
+\bra{n}.
+$$
+
+Thus,
+
+$$
+\boxed{
+\hat A
+=
+\sum_{m,n}
+A_{mn}\ketbra{m}{n}.
+}
+$$
+
+A differential operator and a matrix can therefore represent the **same abstract linear operator** in different bases.
+
+
+## 5.3 Outer products and projectors
+
+An inner product produces a complex number,
+
+$$
+\braket{\phi}{\psi}\in\mathbb C,
+$$
+
+whereas an **outer product**
+
+$$
+\ketbra{\phi}{\psi}
+$$
+
+produces an operator.
+
+Acting on another state,
+
+$$
+\ketbra{\phi}{\psi}\chi\rangle
+=
+\ket{\phi}\braket{\psi}{\chi}.
+$$
+
+An important example is
+
+$$
+\boxed{
+\hat P_n
+=
+\ketbra{n}{n}.
+}
+$$
+
+For a normalized state $\ket{n}$,
+
+$$
+\hat P_n\ket{\psi}
+=
+\ket{n}\braket{n}{\psi}.
+$$
+
+Thus, $\hat P_n$ extracts the component of $\ket{\psi}$ parallel to $\ket{n}$.
+
+It is therefore called a **projection operator**.
+
+---
+
+# 6. Adjoint and Hermitian Operators
+
+## 6.1 Hermitian conjugation
+
+The **Hermitian conjugate**, or **adjoint**, of a vector or operator is denoted by
+
+$$
+\dagger.
+$$
+
+For kets and bras,
+
+$$
+\ket{\psi}^\dagger
+=
+\bra{\psi},
+$$
+
+and
+
+$$
+\bra{\psi}^\dagger
+=
+\ket{\psi}.
+$$
+
+For complex numbers,
+
+$$
+c^\dagger=c^\ast.
+$$
+
+For products, the order is reversed:
+
+$$
+(\hat A\hat B)^\dagger
+=
+\hat B^\dagger\hat A^\dagger.
+$$
+
+For example,
+
+$$
+\left(
+c_1\ket{\psi_1}
++
+c_2\ket{\psi_2}
+\right)^\dagger
+=
+c_1^\ast\bra{\psi_1}
++
+c_2^\ast\bra{\psi_2}.
+$$
+
+The inner product obeys
+
+$$
+\boxed{
+\braket{\phi}{\psi}^\ast
+=
+\braket{\psi}{\phi}.
+}
+$$
+
+For matrix elements,
+
+$$
+\boxed{
+\mel{\phi}{\hat A}{\psi}^\ast
+=
+\mel{\psi}{\hat A^\dagger}{\phi}.
+}
+$$
+
+
+## 6.2 Hermitian operators
+
+An operator is called **Hermitian** if
+
+$$
+\boxed{
+\hat A^\dagger=\hat A.
+}
+$$
+
+Hermitian operators have real eigenvalues.
+
+::: {.callout-note collapse="true"}
+## Why are the eigenvalues of a Hermitian operator real?
+
+Let
+
+$$
+\hat A\ket{a}=a\ket{a}.
+$$
+
+Then
+
+$$
+\mel{a}{\hat A}{a}
+=
+a\braket{a}{a}.
+$$
+
+Taking the complex conjugate gives
+
+$$
+\mel{a}{\hat A}{a}^\ast
+=
+a^\ast\braket{a}{a}.
+$$
+
+But
+
+$$
+\mel{a}{\hat A}{a}^\ast
+=
+\mel{a}{\hat A^\dagger}{a}.
+$$
+
+For a Hermitian operator,
+
+$$
+\hat A^\dagger=\hat A,
+$$
+
+so
+
+$$
+a\braket{a}{a}
+=
+a^\ast\braket{a}{a}.
+$$
+
+For a nonzero eigenstate, $\braket{a}{a}>0$, and therefore
+
+$$
+\boxed{a=a^\ast.}
+$$
+
+Thus, $a$ is real.
+:::
+
+Suppose
+
+$$
+\hat A\ket{a}=a\ket{a}.
+$$
+
+Then
+
+$$
+a\in\mathbb R.
+$$
+
+Furthermore, eigenstates corresponding to distinct eigenvalues are orthogonal:
+
+$$
+a_m\neq a_n
+\quad\Rightarrow\quad
+\braket{a_m}{a_n}=0.
+$$
+
+::: {.callout-note collapse="true"}
+## Why are eigenstates with different eigenvalues orthogonal?
+
+Let $\ket{a_m}$ and $\ket{a_n}$ be eigenstates of the Hermitian operator $\hat A$ with different eigenvalues:
+
+$$
+\hat A\ket{a_m}=a_m\ket{a_m},
+$$
+
+and
+
+$$
+\hat A\ket{a_n}=a_n\ket{a_n}.
+$$
+
+Consider the matrix element
+
+$$
+\mel{a_m}{\hat A}{a_n}.
+$$
+
+Using the eigenvalue equation for $\ket{a_n}$,
+
+$$
+\mel{a_m}{\hat A}{a_n}
+=
+a_n\braket{a_m}{a_n}.
+$$
+
+Because $\hat A$ is Hermitian,
+
+$$
+\hat A^\dagger=\hat A,
+$$
+
+we can also let the operator act to the left:
+
+$$
+\mel{a_m}{\hat A}{a_n}
+=
+a_m^\ast\braket{a_m}{a_n}.
+$$
+
+The eigenvalues of a Hermitian operator are real, so
+
+$$
+a_m^\ast=a_m.
+$$
+
+Therefore,
+
+$$
+a_n\braket{a_m}{a_n}
+=
+a_m\braket{a_m}{a_n}.
+$$
+
+or
+
+$$
+(a_n-a_m)\braket{a_m}{a_n}=0.
+$$
+
+If the eigenvalues are different,
+
+$$
+a_n\neq a_m,
+$$
+
+the only possibility is
+
+$$
+\boxed{
+\braket{a_m}{a_n}=0.
+}
+$$
+
+Thus, eigenstates of a Hermitian operator belonging to different eigenvalues are orthogonal.
+:::
+
+
+::: {.callout-note collapse="true"}
+## Hermitian versus self-adjoint
+
+In introductory quantum mechanics, observables are usually said to be represented by **Hermitian** operators, satisfying
+
+$$ \hat A^\dagger=\hat A. $$
+
+For finite-dimensional matrices, this terminology is unambiguous.
+
+For unbounded operators in infinite-dimensional Hilbert spaces, such as position and momentum, there is a technical distinction between a *symmetric* operator and a fully *self-adjoint* operator. The distinction involves the domains on which the operators are defined.
+
+Mathematically, quantum-mechanical observables are more precisely represented by **self-adjoint operators**. In these notes, we will follow the usual physics convention and use the term **Hermitian operator**.
+
+:::
+
+
+---
+
+# 7. Observables and Measurement
+
+## 7.1 Observables
+
+A measurable physical quantity is represented by a Hermitian—or, more precisely, self-adjoint—operator.
+
+Examples include
+
+- position $\hat x$,
+- momentum $\hat p$,
+- energy $\hat H$,
+- angular momentum $\hat{\mathbf L}$,
+- spin $\hat{\mathbf S}$.
+
+Possible outcomes of a measurement are given by the spectrum of the corresponding operator.
+
+For a discrete spectrum,
+
+$$
+\hat A\ket{a_n}
+=
+a_n\ket{a_n}.
+$$
+
+The values $a_n$ are possible measurement outcomes.
+
+
+## 7.2 Spectral decomposition
+
+For a nondegenerate discrete spectrum with a complete orthonormal set of eigenvectors,
+
+$$
+\boxed{
+\hat A
+=
+\sum_n
+a_n\ketbra{a_n}{a_n}.
+}
+$$
+
+This expression is the operator analogue of diagonalizing a matrix.
+
+If degeneracies are present, the projection operator onto each eigenspace must include all states belonging to that eigenvalue.
+
+Continuous spectra require the corresponding integral form.
+
+
+## 7.3 Measurement probabilities
+
+Suppose the system is in the normalized state
+
+$$
+\ket{\psi}.
+$$
+
+Expanding it in eigenstates of $\hat A$ gives
+
+$$
+\ket{\psi}
+=
+\sum_n
+c_n\ket{a_n},
+$$
+
+with
+
+$$
+c_n
+=
+\braket{a_n}{\psi}.
+$$
+
+The Born rule states that the probability of obtaining the result $a_n$ is
+
+$$
+\boxed{
+P(a_n)
+=
+\left|
+\braket{a_n}{\psi}
+\right|^2.
+}
+$$
+
+Thus, measurement probabilities are determined by the projection of the state vector onto the eigenvectors of the observable.
+
+
+## 7.4 Expectation values
+
+The expectation value of an observable $\hat A$ in the state $\ket{\psi}$ is
+
+$$
+\boxed{
+\langle A\rangle
+=
+\mel{\psi}{\hat A}{\psi}.
+}
+$$
+
+In the position representation,
+
+$$
+\langle A\rangle
+=
+\int
+\psi^\ast(x)
+\hat A
+\psi(x)\,dx.
+$$
+
+For a state expanded in the eigenbasis of $\hat A$,
+
+$$
+\ket{\psi}
+=
+\sum_n c_n\ket{a_n},
+$$
+
+the expectation value becomes
+
+$$
+\langle A\rangle
+=
+\sum_n
+|c_n|^2a_n.
+$$
+
+Thus, the abstract operator expression reproduces the usual statistical average over possible measurement results.
+
+
+## 7.5 Variance and uncertainty
+
+The variance of an observable is
+
+$$
+\boxed{
+\sigma_A^2
+=
+\left\langle
+(\hat A-\langle A\rangle)^2
+\right\rangle.
+}
+$$
+
+Expanding this expression gives
+
+$$
+\boxed{
+\sigma_A^2
+=
+\langle A^2\rangle
+-
+\langle A\rangle^2.
+}
+$$
+
+The corresponding standard deviation is
+
+$$
+\boxed{
+\sigma_A
+=
+\sqrt{
+\langle A^2\rangle
+-
+\langle A\rangle^2
+}.
+}
+$$
+
+This quantity measures the spread of the possible outcomes of repeated measurements of $A$.
+
+In the next chapter, we will see that the uncertainties of two observables can be fundamentally related when the corresponding operators do not commute.
+
+---
+
+# 8. The Central Idea
+
+The wave-mechanical and linear-algebra descriptions of quantum mechanics are not competing theories.
+
+They are two ways of describing the same physics.
+
+The wave function
+
+$$
+\psi(x)
+$$
+
+is a representation of the abstract state
+
+$$
+\ket{\psi}
+$$
+
+in the position basis:
+
+$$
+\boxed{
+\psi(x)=\braket{x}{\psi}.
+}
+$$
+
+Similarly,
+
+$$
+\tilde\psi(p)=\braket{p}{\psi}
+$$
+
+is the representation of the same state in the momentum basis.
+
+The abstract Hilbert-space formulation is therefore more general than any one particular wave-function representation.
+
+It allows us to discuss spatial wave functions, spin states, angular-momentum states, atomic levels, and many other quantum systems using the same mathematical language:
+
+$$
+\boxed{
+\text{states are vectors, and observables are operators.}
+}
+$$

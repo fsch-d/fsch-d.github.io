@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>Bra–Ket (Dirac) Notation, Operators, and More – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>States and Operators in Quantum Mechanics – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4036,7 +4036,7 @@ margin-bottom: 0.25em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/braket.html">Bra–Ket (Dirac) Notation, Operators, and More</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/braket.html">States and Operators in Quantum Mechanics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4080,7 +4080,7 @@ margin-bottom: 0.25em;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/braket.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bra–Ket (Dirac) Notation, Operators, and More</span></a>
+ <span class="menu-text">States and Operators in Quantum Mechanics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4395,27 +4395,64 @@ margin-bottom: 0.25em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ket-vectors" id="toc-ket-vectors" class="nav-link active" data-scroll-target="#ket-vectors">Ket-vectors</a></li>
-  <li><a href="#bra-vectors" id="toc-bra-vectors" class="nav-link" data-scroll-target="#bra-vectors">Bra-vectors</a>
+  <li><a href="#quantum-mechanics-as-linear-algebra-overview-and-plan" id="toc-quantum-mechanics-as-linear-algebra-overview-and-plan" class="nav-link active" data-scroll-target="#quantum-mechanics-as-linear-algebra-overview-and-plan">Quantum Mechanics as Linear Algebra: Overview and Plan</a></li>
+  <li><a href="#operators-and-linear-structure" id="toc-operators-and-linear-structure" class="nav-link" data-scroll-target="#operators-and-linear-structure">1. Operators and Linear Structure</a>
   <ul class="collapse">
-  <li><a href="#inner-product-for-wave-functions" id="toc-inner-product-for-wave-functions" class="nav-link" data-scroll-target="#inner-product-for-wave-functions">Inner product for wave functions</a></li>
+  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators">1.1 Operators</a></li>
+  <li><a href="#linearity" id="toc-linearity" class="nav-link" data-scroll-target="#linearity">1.2 Linearity</a></li>
+  <li><a href="#eigenvalue-equations" id="toc-eigenvalue-equations" class="nav-link" data-scroll-target="#eigenvalue-equations">1.3 Eigenvalue equations</a></li>
   </ul></li>
-  <li><a href="#linear-operators" id="toc-linear-operators" class="nav-link" data-scroll-target="#linear-operators">Linear operators</a></li>
-  <li><a href="#hermitian-conjugates" id="toc-hermitian-conjugates" class="nav-link" data-scroll-target="#hermitian-conjugates">Hermitian conjugates</a></li>
-  <li><a href="#observables" id="toc-observables" class="nav-link" data-scroll-target="#observables">Observables</a>
+  <li><a href="#quantum-states-as-vectors" id="toc-quantum-states-as-vectors" class="nav-link" data-scroll-target="#quantum-states-as-vectors">2. Quantum States as Vectors</a>
   <ul class="collapse">
-  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
-  <li><a href="#additional-notes" id="toc-additional-notes" class="nav-link" data-scroll-target="#additional-notes">Additional notes</a></li>
+  <li><a href="#from-functions-to-vectors" id="toc-from-functions-to-vectors" class="nav-link" data-scroll-target="#from-functions-to-vectors">2.1 From functions to vectors</a></li>
+  <li><a href="#hilbert-space" id="toc-hilbert-space" class="nav-link" data-scroll-target="#hilbert-space">2.2 Hilbert space</a></li>
+  <li><a href="#the-abstract-quantum-state" id="toc-the-abstract-quantum-state" class="nav-link" data-scroll-target="#the-abstract-quantum-state">2.3 The abstract quantum state</a></li>
   </ul></li>
+  <li><a href="#dirac-notation-and-the-dual-space" id="toc-dirac-notation-and-the-dual-space" class="nav-link" data-scroll-target="#dirac-notation-and-the-dual-space">3. Dirac Notation and the Dual Space</a>
+  <ul class="collapse">
+  <li><a href="#ket-vectors" id="toc-ket-vectors" class="nav-link" data-scroll-target="#ket-vectors">3.1 Ket vectors</a></li>
+  <li><a href="#bra-vectors-and-the-dual-space" id="toc-bra-vectors-and-the-dual-space" class="nav-link" data-scroll-target="#bra-vectors-and-the-dual-space">3.2 Bra vectors and the dual space</a></li>
+  <li><a href="#inner-products-norms-and-normalization" id="toc-inner-products-norms-and-normalization" class="nav-link" data-scroll-target="#inner-products-norms-and-normalization">3.3 Inner products, norms, and normalization</a></li>
+  </ul></li>
+  <li><a href="#representations-bases-and-orthogonality" id="toc-representations-bases-and-orthogonality" class="nav-link" data-scroll-target="#representations-bases-and-orthogonality">4. Representations, Bases, and Orthogonality</a>
+  <ul class="collapse">
+  <li><a href="#the-position-representation" id="toc-the-position-representation" class="nav-link" data-scroll-target="#the-position-representation">4.1 The position representation</a></li>
+  <li><a href="#inner-product-in-the-position-representation" id="toc-inner-product-in-the-position-representation" class="nav-link" data-scroll-target="#inner-product-in-the-position-representation">4.2 Inner product in the position representation</a></li>
+  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality">4.3 Orthogonality</a></li>
+  <li><a href="#orthonormal-bases" id="toc-orthonormal-bases" class="nav-link" data-scroll-target="#orthonormal-bases">4.4 Orthonormal bases</a></li>
+  <li><a href="#completeness" id="toc-completeness" class="nav-link" data-scroll-target="#completeness">4.5 Completeness</a></li>
+  <li><a href="#a-linear-algebra-dictionary" id="toc-a-linear-algebra-dictionary" class="nav-link" data-scroll-target="#a-linear-algebra-dictionary">4.6 A linear-algebra dictionary</a></li>
+  </ul></li>
+  <li><a href="#linear-operators-in-hilbert-space" id="toc-linear-operators-in-hilbert-space" class="nav-link" data-scroll-target="#linear-operators-in-hilbert-space">5. Linear Operators in Hilbert Space</a>
+  <ul class="collapse">
+  <li><a href="#operators-acting-on-kets" id="toc-operators-acting-on-kets" class="nav-link" data-scroll-target="#operators-acting-on-kets">5.1 Operators acting on kets</a></li>
+  <li><a href="#matrix-elements" id="toc-matrix-elements" class="nav-link" data-scroll-target="#matrix-elements">5.2 Matrix elements</a></li>
+  <li><a href="#outer-products-and-projectors" id="toc-outer-products-and-projectors" class="nav-link" data-scroll-target="#outer-products-and-projectors">5.3 Outer products and projectors</a></li>
+  </ul></li>
+  <li><a href="#adjoint-and-hermitian-operators" id="toc-adjoint-and-hermitian-operators" class="nav-link" data-scroll-target="#adjoint-and-hermitian-operators">6. Adjoint and Hermitian Operators</a>
+  <ul class="collapse">
+  <li><a href="#hermitian-conjugation" id="toc-hermitian-conjugation" class="nav-link" data-scroll-target="#hermitian-conjugation">6.1 Hermitian conjugation</a></li>
+  <li><a href="#hermitian-operators" id="toc-hermitian-operators" class="nav-link" data-scroll-target="#hermitian-operators">6.2 Hermitian operators</a></li>
+  </ul></li>
+  <li><a href="#observables-and-measurement" id="toc-observables-and-measurement" class="nav-link" data-scroll-target="#observables-and-measurement">7. Observables and Measurement</a>
+  <ul class="collapse">
+  <li><a href="#observables" id="toc-observables" class="nav-link" data-scroll-target="#observables">7.1 Observables</a></li>
+  <li><a href="#spectral-decomposition" id="toc-spectral-decomposition" class="nav-link" data-scroll-target="#spectral-decomposition">7.2 Spectral decomposition</a></li>
+  <li><a href="#measurement-probabilities" id="toc-measurement-probabilities" class="nav-link" data-scroll-target="#measurement-probabilities">7.3 Measurement probabilities</a></li>
+  <li><a href="#expectation-values" id="toc-expectation-values" class="nav-link" data-scroll-target="#expectation-values">7.4 Expectation values</a></li>
+  <li><a href="#variance-and-uncertainty" id="toc-variance-and-uncertainty" class="nav-link" data-scroll-target="#variance-and-uncertainty">7.5 Variance and uncertainty</a></li>
+  </ul></li>
+  <li><a href="#the-central-idea" id="toc-the-central-idea" class="nav-link" data-scroll-target="#the-central-idea">8. The Central Idea</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/braket.html">Bra–Ket (Dirac) Notation, Operators, and More</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/braket.html">States and Operators in Quantum Mechanics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bra–Ket (Dirac) Notation, Operators, and More</h1>
+<h1 class="title">States and Operators in Quantum Mechanics</h1>
+<p class="subtitle lead">Hilbert Space and Dirac Notation</p>
 </div>
 
 
@@ -4438,125 +4475,1151 @@ margin-bottom: 0.25em;
 </header>
 
 
-<section id="ket-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="ket-vectors">Ket-vectors</h2>
-<p>A <strong>ket vector</strong> <span class="math inline">\(\left\lvert \alpha \right\rangle\)</span> denotes an element of a vector space, more specifically a Hilbert space <span class="math inline">\(\mathscr{H}\)</span>.<br>
-It represents a <strong>quantum state</strong>, for example a wave function or a spin state.</p>
-</section>
-<section id="bra-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="bra-vectors">Bra-vectors</h2>
-<p>A <strong>bra vector</strong> <span class="math inline">\(\left\langle \beta \right\rvert\)</span> denotes an element of the dual space of <span class="math inline">\(\mathscr{H}\)</span>.<br>
-It is a linear form that maps each vector in <span class="math inline">\(\mathscr{H}\)</span> into the complex plane <span class="math inline">\(\mathbb{C}\)</span> by means of the <strong>inner product</strong>:</p>
-<p><span class="math display">\[
-\left\langle \beta \middle| \alpha \right\rangle\in \mathbb{C}.
-\]</span></p>
-<p>For example, a wave function <span class="math inline">\(\psi(\vec{r})\)</span> corresponding to a state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is obtained by mapping it into coordinate space using the inner product:</p>
-<p><span class="math display">\[
-\left\langle \vec{r} \middle| \psi \right\rangle= \psi(\vec{r}).
-\]</span></p>
-<section id="inner-product-for-wave-functions" class="level3">
-<h3 class="anchored" data-anchor-id="inner-product-for-wave-functions">Inner product for wave functions</h3>
-<p>For two wave functions <span class="math inline">\(\psi(x)\)</span> and <span class="math inline">\(\phi(x)\)</span>, the inner product is defined as</p>
-<p><span class="math display">\[
-\left\langle \phi \middle| \psi \right\rangle= \int_{-\infty}^{\infty} \phi^\ast(x)\,\psi(x)\,dx,
-\]</span></p>
-<p>where <span class="math inline">\(\phi^\ast(x)\)</span> is the complex conjugate of <span class="math inline">\(\phi(x)\)</span>.<br>
-This definition guarantees that inner products are complex numbers, and it provides the mathematical foundation for probability amplitudes in quantum mechanics.</p>
-</section>
-</section>
-<section id="linear-operators" class="level2">
-<h2 class="anchored" data-anchor-id="linear-operators">Linear operators</h2>
-<p>An <strong>operator</strong> <span class="math inline">\(\hat{O}\)</span> acting on a ket creates another ket:</p>
-<p><span class="math display">\[
-\hat{O}\left\lvert \psi \right\rangle= \left\lvert \phi \right\rangle.
-\]</span></p>
-<p>A <strong>linear operator</strong> satisfies the two additional conditions:</p>
+<section id="quantum-mechanics-as-linear-algebra-overview-and-plan" class="level1">
+<h1>Quantum Mechanics as Linear Algebra: Overview and Plan</h1>
+<p>In the previous chapter, we approached quantum mechanics primarily from the perspective of <strong>wave mechanics</strong>. Mathematically, this led us to differential equations: the wave function <span class="math inline">\(\psi(\vec r,t)\)</span> evolves according to the Schrödinger equation, and stationary states are obtained by solving the time-independent Schrödinger equation.</p>
+<p>There is, however, a more general mathematical structure underlying quantum mechanics.</p>
+<p>Quantum states form a <strong>vector space</strong>, and physical quantities are represented by <strong>linear operators</strong> acting on this space. From this perspective, quantum mechanics is largely a theory of linear algebra.</p>
+<p>This point of view is more general than the wave-mechanical description. A scalar spatial wave function <span class="math inline">\(\psi(\vec r)\)</span> is only one possible representation of a quantum state. For example, the spin state of an electron cannot be described by a scalar function of position alone. More generally, quantum states may contain spatial, spin, internal, or other degrees of freedom.</p>
+<p>The abstract state itself should therefore be distinguished from any particular representation of that state.</p>
+<p>Dirac’s bra–ket notation provides a convenient language for doing this.</p>
+<p>The specific goals for this chapter are:</p>
 <ol type="1">
-<li><span class="math inline">\(\hat{O}(\left\lvert \psi \right\rangle+\left\lvert \phi \right\rangle) = \hat{O}\left\lvert \psi \right\rangle+ \hat{O}\left\lvert \phi \right\rangle\)</span><br>
-</li>
-<li><span class="math inline">\(\hat{O}c\left\lvert \psi \right\rangle= c\hat{O}\left\lvert \psi \right\rangle\)</span></li>
+<li>Introduce linear operators and identify familiar quantum-mechanical operators as examples.</li>
+<li>Recognize the Schrödinger equation and similar equations as <strong>eigenvalue equations</strong>.</li>
+<li>Understand why quantum states naturally form a complex vector space.</li>
+<li>Introduce the abstract state vector and Dirac’s bra–ket notation.</li>
+<li>Define inner products, norms, orthogonality, and complete bases in Hilbert space.</li>
+<li>Understand wave functions as the components of an abstract state in a particular basis.</li>
+<li>Represent linear operators through matrix elements, outer products, and projection operators.</li>
+<li>Introduce Hermitian operators and connect their eigenvalues and eigenstates to quantum measurements.</li>
+<li>Express measurement probabilities, expectation values, and uncertainties in Dirac notation.</li>
 </ol>
-<p><strong>Additional notes:</strong></p>
-<ul>
-<li>The operator can also be written as an outer product:<br>
-<span class="math display">\[
-\hat{O} = \frac{1}{\left\langle \psi \middle| \psi \right\rangle} \left\lvert \phi \right\rangle\!\!\left\langle \psi \right\rvert.
-\]</span></li>
-<li>If <span class="math inline">\(\{\left\lvert \phi_i \right\rangle\}\)</span> is a complete basis of <span class="math inline">\(\mathscr{H}\)</span>, a linear operator <span class="math inline">\(\hat{O}\)</span> can be written as a matrix with entries<br>
-<span class="math display">\[
-O_{ij} = \left\langle \phi_j \middle| \hat{O} \middle| \phi_i \right\rangle.
-\]</span></li>
-</ul>
+<hr>
 </section>
-<section id="hermitian-conjugates" class="level2">
-<h2 class="anchored" data-anchor-id="hermitian-conjugates">Hermitian conjugates</h2>
-<p>The <strong>Hermitian conjugate</strong> of a vector or operator is denoted by a <span class="math inline">\(\dagger\)</span> (called <em>dagger</em>).<br>
-The rules are:</p>
-<ul>
-<li>The Hermitian conjugate of a bra is the corresponding ket, and vice versa.<br>
-</li>
-<li>The Hermitian conjugate of a complex number is its complex conjugate (denoted with a superscript <span class="math inline">\(^\ast\)</span>).<br>
-</li>
-<li>The Hermitian conjugate of the Hermitian conjugate of anything (linear operators, bras, kets, numbers) is itself.<br>
-</li>
-<li>For any combination of complex numbers, bras, kets, inner products, outer products, and/or linear operators in bra–ket notation, its Hermitian conjugate is computed by reversing the order and taking the conjugate of each component.</li>
-</ul>
-<p><strong>Examples:</strong></p>
-<ul>
-<li><span class="math inline">\(\left\lvert \psi \right\rangle^\dagger = \left\langle \psi \right\rvert\)</span> and <span class="math inline">\(\left\langle \psi \right\rvert^\dagger = \left\lvert \psi \right\rangle\)</span><br>
-</li>
-<li><span class="math inline">\(\big(c_1\left\lvert \psi_1 \right\rangle+ c_2\left\lvert \psi_2 \right\rangle\big)^\dagger = c_1^\ast \left\langle \psi_1 \right\rvert+ c_2^\ast \left\langle \psi_2 \right\rvert\)</span><br>
-</li>
-<li><span class="math inline">\(\big(\left\langle \psi \middle| \phi \right\rangle\big)^\dagger = \left\langle \psi \middle| \phi \right\rangle^\ast = \left\langle \phi \middle| \psi \right\rangle\)</span><br>
-</li>
-<li><span class="math inline">\(\big(\left\langle \phi \middle| \hat{A}^\dagger \middle| \psi \right\rangle\big)^\ast = \left\langle \psi \middle| \hat{A} \middle| \phi \right\rangle\)</span><br>
-and<br>
-<span class="math inline">\(\big(\left\langle \phi \middle| \hat{A}^\dagger \hat{B}^\dagger \middle| \psi \right\rangle\big)^\ast = \left\langle \psi \middle| \hat{B}\hat{A} \middle| \phi \right\rangle\)</span></li>
-</ul>
+<section id="operators-and-linear-structure" class="level1">
+<h1>1. Operators and Linear Structure</h1>
+<section id="operators" class="level2">
+<h2 class="anchored" data-anchor-id="operators">1.1 Operators</h2>
+<p>An <strong>operator</strong> is a mathematical object that acts on another object and produces a new object.</p>
+<p>For example,</p>
+<p><span class="math display">\[
+\hat A\psi=\phi
+\]</span></p>
+<p>means that the operator <span class="math inline">\(\hat A\)</span> acts on the function <span class="math inline">\(\psi\)</span> and produces the function <span class="math inline">\(\phi\)</span>.</p>
+<p>Several operators already appeared naturally in wave mechanics.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Physical quantity</th>
+<th>Operator in the position representation</th>
+<th>Action on <span class="math inline">\(\psi(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Position</td>
+<td><span class="math inline">\(\hat x=x\)</span></td>
+<td><span class="math inline">\(\hat x\psi(x)=x\psi(x)\)</span></td>
+</tr>
+<tr class="even">
+<td>Momentum</td>
+<td><span class="math inline">\(\displaystyle \hat p_x=-i\hbar\frac{d}{dx}\)</span></td>
+<td><span class="math inline">\(\displaystyle \hat p_x\psi=-i\hbar\frac{d\psi}{dx}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Potential energy</td>
+<td><span class="math inline">\(\hat V=V(x)\)</span></td>
+<td><span class="math inline">\(\hat V\psi=V(x)\psi\)</span></td>
+</tr>
+<tr class="even">
+<td>Total energy</td>
+<td><span class="math inline">\(\displaystyle \hat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\)</span></td>
+<td><span class="math inline">\(\hat H\psi\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The Hamiltonian <span class="math inline">\(\hat H\)</span> is the operator associated with the total energy of the system.</p>
+<p>For example, the time-independent Schrödinger equation is</p>
+<p><span class="math display">\[
+\hat H\psi(x)=E\psi(x).
+\]</span></p>
+<p>In the time-dependent Schrödinger equation,</p>
+<p><span class="math display">\[
+i\hbar\frac{\partial}{\partial t}\psi
+=
+\hat H\psi,
+\]</span></p>
+<p>the Hamiltonian generates the time evolution of the quantum state.</p>
 </section>
+<section id="linearity" class="level2">
+<h2 class="anchored" data-anchor-id="linearity">1.2 Linearity</h2>
+<p>The operators of quantum mechanics are <strong>linear operators</strong>.</p>
+<p>An operator <span class="math inline">\(\hat A\)</span> is linear if</p>
+<p><span class="math display">\[
+\boxed{
+\hat A
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+c_1\hat A\psi_1
++
+c_2\hat A\psi_2
+}
+\]</span></p>
+<p>for arbitrary complex numbers <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>.</p>
+<p>As an example, consider the momentum operator:</p>
+<p><span class="math display">\[
+\hat p_x
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+-i\hbar
+\frac{d}{dx}
+\left(
+c_1\psi_1+c_2\psi_2
+\right).
+\]</span></p>
+<p>Using the linearity of differentiation,</p>
+<p><span class="math display">\[
+\hat p_x
+\left(
+c_1\psi_1+c_2\psi_2
+\right)
+=
+c_1\hat p_x\psi_1+
+c_2\hat p_x\psi_2.
+\]</span></p>
+<p>Thus, <span class="math inline">\(\hat p_x\)</span> is a linear operator.</p>
+<p>The linearity of quantum-mechanical operators is closely connected to the <strong>superposition principle</strong>. If <span class="math inline">\(\psi_1\)</span> and <span class="math inline">\(\psi_2\)</span> are possible quantum states, then a linear combination</p>
+<p><span class="math display">\[
+\psi=c_1\psi_1+c_2\psi_2
+\]</span></p>
+<p>is also a possible state.</p>
+</section>
+<section id="eigenvalue-equations" class="level2">
+<h2 class="anchored" data-anchor-id="eigenvalue-equations">1.3 Eigenvalue equations</h2>
+<p>A particularly important situation occurs when the action of an operator reproduces the same function, multiplied only by a number:</p>
+<p><span class="math display">\[
+\boxed{
+\hat A\psi=a\psi.
+}
+\]</span></p>
+<p>This is an <strong>eigenvalue equation</strong>.</p>
+<p>The function <span class="math inline">\(\psi\)</span> is an <strong>eigenfunction</strong> of <span class="math inline">\(\hat A\)</span>, and <span class="math inline">\(a\)</span> is the corresponding <strong>eigenvalue</strong>.</p>
+<p>We have already encountered several examples.</p>
+<p>A plane wave</p>
+<p><span class="math display">\[
+\psi_k(x)=e^{ikx}
+\]</span></p>
+<p>satisfies</p>
+<p><span class="math display">\[
+\hat p_x\psi_k
+=
+-i\hbar\frac{d}{dx}e^{ikx}
+=
+\hbar k e^{ikx}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\hat p_x\psi_k=p\psi_k,
+\qquad
+p=\hbar k,
+\]</span></p>
+<p>and the plane wave is an eigenfunction of the momentum operator.</p>
+<p>Similarly, the time-independent Schrödinger equation,</p>
+<p><span class="math display">\[
+\hat H\psi_n=E_n\psi_n,
+\]</span></p>
+<p>is an eigenvalue equation for the Hamiltonian.</p>
+<p>The allowed energies <span class="math inline">\(E_n\)</span> are therefore the <strong>eigenvalues of the Hamiltonian</strong>.</p>
+<p>This observation suggests that the mathematical structure of quantum mechanics is closely related to the familiar eigenvalue problems of linear algebra.</p>
+<hr>
+</section>
+</section>
+<section id="quantum-states-as-vectors" class="level1">
+<h1>2. Quantum States as Vectors</h1>
+<section id="from-functions-to-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="from-functions-to-vectors">2.1 From functions to vectors</h2>
+<p>A wave function such as <span class="math inline">\(\psi(x)\)</span> may not initially look like a vector.</p>
+<p>We are accustomed to vectors written as columns,</p>
+<p><span class="math display">\[
+\vec v=
+\begin{pmatrix}
+v_1\\
+v_2\\
+v_3
+\end{pmatrix},
+\]</span></p>
+<p>or represented geometrically as arrows.</p>
+<p>But the defining feature of a vector is not that it has three components or that it can be drawn as an arrow.</p>
+<p>What matters is that vectors can be <strong>added</strong> and <strong>multiplied by scalars</strong> while remaining elements of the same mathematical space.</p>
+<p>Functions have precisely this property.</p>
+<p>If <span class="math inline">\(\psi_1(x)\)</span> and <span class="math inline">\(\psi_2(x)\)</span> belong to an appropriate space of functions, then</p>
+<p><span class="math display">\[
+c_1\psi_1(x)+c_2\psi_2(x)
+\]</span></p>
+<p>belongs to the same space.</p>
+<p>Wave functions can therefore be regarded as vectors in a vector space.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What is a vector space?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A vector space <span class="math inline">\(V\)</span> over the complex numbers <span class="math inline">\(\mathbb C\)</span> is a set whose elements are called <strong>vectors</strong>, together with operations of vector addition and scalar multiplication.</p>
+<p>For <span class="math inline">\(u,v,w\in V\)</span> and <span class="math inline">\(a,b\in\mathbb C\)</span>, the following axioms hold:</p>
+<ol type="1">
+<li><span class="math inline">\(u+v\in V\)</span>;</li>
+<li><span class="math inline">\(au\in V\)</span>;</li>
+<li><span class="math inline">\(u+v=v+u\)</span>;</li>
+<li><span class="math inline">\((u+v)+w=u+(v+w)\)</span>;</li>
+<li>there exists a zero vector <span class="math inline">\(0\)</span> such that <span class="math inline">\(u+0=u\)</span>;</li>
+<li>for every <span class="math inline">\(u\)</span> there exists <span class="math inline">\(-u\)</span> such that <span class="math inline">\(u+(-u)=0\)</span>;</li>
+<li><span class="math inline">\(a(u+v)=au+av\)</span>;</li>
+<li><span class="math inline">\((a+b)u=au+bu\)</span>;</li>
+<li><span class="math inline">\(a(bu)=(ab)u\)</span>;</li>
+<li><span class="math inline">\(1u=u\)</span>.</li>
+</ol>
+<p>Nothing in this definition requires a vector to be a column of numbers.</p>
+<p>Vectors may be</p>
+<ul>
+<li>ordinary geometric vectors,</li>
+<li>columns of numbers,</li>
+<li>matrices,</li>
+<li>polynomials,</li>
+<li>functions,</li>
+<li>spinors,</li>
+<li>or many other mathematical objects.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="hilbert-space" class="level2">
+<h2 class="anchored" data-anchor-id="hilbert-space">2.2 Hilbert space</h2>
+<p>The vector space used in quantum mechanics has additional structure.</p>
+<p>In particular, we need to define an <strong>inner product</strong> between two vectors. This allows us to discuss lengths, angles, orthogonality, and projections.</p>
+<p>A complex vector space equipped with an inner product and satisfying an additional mathematical completeness condition is called a <strong>Hilbert space</strong>, usually denoted by</p>
+<p><span class="math display">\[
+\mathscr H.
+\]</span></p>
+<p>Quantum states are represented by vectors in a Hilbert space.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>More precisely: what is a Hilbert space?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An inner product on a complex vector space assigns a complex number</p>
+<p><span class="math display">\[
+\langle\phi,\psi\rangle
+\]</span></p>
+<p>to pairs of vectors.</p>
+<p>It defines the norm</p>
+<p><span class="math display">\[
+\|\psi\|
+=
+\sqrt{\langle\psi,\psi\rangle}.
+\]</span></p>
+<p>A Hilbert space is an inner-product space that is <strong>complete with respect to this norm</strong>: every Cauchy sequence of vectors converges to a vector that is also contained in the space — which is a fancy way of saying that you cannot get arbitrarily close to a perfectly good limit and then discover that the limit has somehow fallen outside the space.</p>
+<p>For ordinary nonrelativistic wave mechanics, an important example is</p>
+<p><span class="math display">\[
+L^2(\mathbb R^3),
+\]</span></p>
+<p>the space of square-integrable complex-valued functions.</p>
+<p>The requirement</p>
+<p><span class="math display">\[
+\int_{\mathbb R^3}|\psi(\vec r)|^2\,d^3r&lt;\infty
+\]</span></p>
+<p>ensures that the norm is finite.</p>
+<p>The normalized wave functions form only a subset of this vector space. They do <strong>not</strong> themselves form a vector space, because adding or rescaling them usually changes their normalization.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-abstract-quantum-state" class="level2">
+<h2 class="anchored" data-anchor-id="the-abstract-quantum-state">2.3 The abstract quantum state</h2>
+<p>Wave mechanics represents a state by a function such as</p>
+<p><span class="math display">\[
+\psi(\vec r).
+\]</span></p>
+<p>But a spatial wave function is a particular <strong>representation</strong> of the state rather than the state itself.</p>
+<p>For example, an electron may possess a spin state even when its spatial degree of freedom is irrelevant. A spin-<span class="math inline">\(1/2\)</span> state may be represented by a two-component vector such as</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix},
+\]</span></p>
+<p>rather than by a scalar function of position.</p>
+<p>Other quantum systems may be most naturally represented by occupation numbers, angular-momentum states, energy eigenstates, or other basis states.</p>
+<p>It is therefore useful to introduce a notation for the quantum state that does not assume any particular representation.</p>
+<p>Dirac introduced the notation</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert \psi \right\rangle}
+\]</span></p>
+<p>for such an abstract state vector.</p>
+<p>The symbol <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is called a <strong>ket</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="dirac-notation-and-the-dual-space" class="level1">
+<h1>3. Dirac Notation and the Dual Space</h1>
+<section id="ket-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="ket-vectors">3.1 Ket vectors</h2>
+<p>A ket</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle\in\mathscr H
+\]</span></p>
+<p>denotes a vector in the Hilbert space of quantum states.</p>
+<p>Linear combinations of kets are again kets:</p>
+<p><span class="math display">\[
+\left\lvert \chi \right\rangle=
+c_1\left\lvert \psi \right\rangle+
+c_2\left\lvert \phi \right\rangle.
+\]</span></p>
+<p>The abstract eigenvalue equation is therefore written as</p>
+<p><span class="math display">\[
+\boxed{
+\hat A\left\lvert a \right\rangle=
+a\left\lvert a \right\rangle.
+}
+\]</span></p>
+<p>This equation makes no reference to coordinate space.</p>
+<p>The same equation may later be represented as a differential equation, a matrix equation, or in some other basis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A technical point: physical states are rays
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Strictly speaking, a physical pure state is not represented by one unique vector <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>.</p>
+<p>The vectors</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle\qquad\text{and}\qquad
+e^{i\phi}\left\lvert \psi \right\rangle\]</span></p>
+<p>differ only by an overall phase and represent the same physical state.</p>
+<p>A physical pure state therefore corresponds mathematically to a <strong>ray</strong> in Hilbert space rather than to one particular vector.</p>
+<p>In most calculations, however, we simply refer to <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> as the quantum state.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bra-vectors-and-the-dual-space" class="level2">
+<h2 class="anchored" data-anchor-id="bra-vectors-and-the-dual-space">3.2 Bra vectors and the dual space</h2>
+<p>Associated with the Hilbert space <span class="math inline">\(\mathscr H\)</span> is its <strong>dual space</strong></p>
+<p><span class="math display">\[
+\mathscr H^\ast.
+\]</span></p>
+<p>The dual space consists of linear functionals: maps from vectors in <span class="math inline">\(\mathscr H\)</span> to complex numbers.</p>
+<p>Associated with a ket <span class="math inline">\(\left\lvert \phi \right\rangle\)</span> is a <strong>bra</strong></p>
+<p><span class="math display">\[
+\left\langle \phi \right\rvert\in\mathscr H^\ast.
+\]</span></p>
+<p>The bra acts on a ket according to</p>
+<p><span class="math display">\[
+\left\langle \phi \right\rvert:
+\left\lvert \psi \right\rangle\longmapsto
+\left\langle \phi \middle| \psi \right\rangle\in\mathbb C.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \psi \right\rangle}
+\]</span></p>
+<p>is the <strong>inner product</strong> of the two states.</p>
+<p>With the convention used in physics, the inner product is linear in the ket and conjugate-linear in the bra:</p>
+<p><span class="math display">\[
+\left\langle \phi \middle|
+c_1\psi_1+c_2\psi_2
+\right\rangle=
+c_1\left\langle \phi \middle| \psi_1 \right\rangle+
+c_2\left\langle \phi \middle| \psi_2 \right\rangle,
+\]</span></p>
+<p>while</p>
+<p><span class="math display">\[
+\left(
+c_1\left\langle \phi_1 \right\rvert+
+c_2\left\langle \phi_2 \right\rvert\right)
+\left\lvert \psi \right\rangle=
+c_1\left\langle \phi_1 \middle| \psi \right\rangle+
+c_2\left\langle \phi_2 \middle| \psi \right\rangle,
+\]</span></p>
+<p>but taking the bra associated with a linear combination of kets gives</p>
+<p><span class="math display">\[
+\left(
+c_1\left\lvert \phi_1 \right\rangle+
+c_2\left\lvert \phi_2 \right\rangle\right)^\dagger
+=
+c_1^\ast\left\langle \phi_1 \right\rvert+
+c_2^\ast\left\langle \phi_2 \right\rvert.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why does every ket have a corresponding bra?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a Hilbert space, the <strong>Riesz representation theorem</strong> states that every continuous linear functional can be represented uniquely by taking the inner product with an element of the Hilbert space.</p>
+<p>This provides the mathematical connection between</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle\in\mathscr H
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\left\langle \psi \right\rvert\in\mathscr H^\ast.
+\]</span></p>
+<p>Dirac notation hides much of this mathematical machinery, which is one reason it is so convenient.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="inner-products-norms-and-normalization" class="level2">
+<h2 class="anchored" data-anchor-id="inner-products-norms-and-normalization">3.3 Inner products, norms, and normalization</h2>
+<p>The inner product of a state with itself is</p>
+<p><span class="math display">\[
+\left\langle \psi \middle| \psi \right\rangle.
+\]</span></p>
+<p>It is real and non-negative:</p>
+<p><span class="math display">\[
+\left\langle \psi \middle| \psi \right\rangle\geq0.
+\]</span></p>
+<p>The norm of the state is</p>
+<p><span class="math display">\[
+\|\psi\|
+=
+\sqrt{\left\langle \psi \middle| \psi \right\rangle}.
+\]</span></p>
+<p>A normalized state therefore satisfies</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \psi \middle| \psi \right\rangle=1.
+}
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="representations-bases-and-orthogonality" class="level1">
+<h1>4. Representations, Bases, and Orthogonality</h1>
+<section id="the-position-representation" class="level2">
+<h2 class="anchored" data-anchor-id="the-position-representation">4.1 The position representation</h2>
+<p>The abstract state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> can be represented in a basis.</p>
+<p>If we choose the position basis <span class="math inline">\(\{\left\lvert x \right\rangle\}\)</span>, the components of the state in this basis are</p>
+<p><span class="math display">\[
+\boxed{
+\psi(x)=\left\langle x \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>The familiar wave function is therefore the <strong>position-space representation</strong> of the abstract state.</p>
+<p>Likewise, in the momentum basis,</p>
+<p><span class="math display">\[
+\boxed{
+\tilde\psi(p)=\left\langle p \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>These are not two different states.</p>
+<p>They are two different representations of the same state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>.</p>
+<p>This is analogous to representing one ordinary vector using two different coordinate systems.</p>
+</section>
+<section id="inner-product-in-the-position-representation" class="level2">
+<h2 class="anchored" data-anchor-id="inner-product-in-the-position-representation">4.2 Inner product in the position representation</h2>
+<p>For two states <span class="math inline">\(\left\lvert \phi \right\rangle\)</span> and <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>,</p>
+<p><span class="math display">\[
+\left\langle \phi \middle| \psi \right\rangle\]</span></p>
+<p>is representation independent.</p>
+<p>In the position representation it becomes</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \psi \right\rangle=
+\int_{-\infty}^{\infty}
+\phi^\ast(x)\psi(x)\,dx.
+}
+\]</span></p>
+<p>Thus, the familiar integral over wave functions is not the fundamental definition of the quantum-mechanical inner product.</p>
+<p>Rather, it is the form taken by the abstract inner product when the states are represented in the position basis.</p>
+</section>
+<section id="orthogonality" class="level2">
+<h2 class="anchored" data-anchor-id="orthogonality">4.3 Orthogonality</h2>
+<p>Two states are <strong>orthogonal</strong> if</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \psi \right\rangle=0.
+}
+\]</span></p>
+<p>This is the generalization of perpendicular vectors in ordinary Euclidean space.</p>
+<p>For ordinary vectors,</p>
+<p><span class="math display">\[
+\vec a\cdot\vec b=0
+\]</span></p>
+<p>indicates orthogonality.</p>
+<p>For quantum states, the corresponding condition is</p>
+<p><span class="math display">\[
+\left\langle \phi \middle| \psi \right\rangle=0.
+\]</span></p>
+<p>In the position representation,</p>
+<p><span class="math display">\[
+\int
+\phi^\ast(x)\psi(x)\,dx=0.
+\]</span></p>
+</section>
+<section id="orthonormal-bases" class="level2">
+<h2 class="anchored" data-anchor-id="orthonormal-bases">4.4 Orthonormal bases</h2>
+<p>Consider a discrete orthonormal set of states</p>
+<p><span class="math display">\[
+\{\left\lvert n \right\rangle\}.
+\]</span></p>
+<p>Orthonormality means</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle m \middle| n \right\rangle=\delta_{mn}.
+}
+\]</span></p>
+<p>If the basis is complete, any state can be expanded as</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle=
+\sum_n c_n\left\lvert n \right\rangle.
+\]</span></p>
+<p>Taking the inner product with <span class="math inline">\(\left\langle m \right\rvert\)</span> gives</p>
+<p><span class="math display">\[
+\left\langle m \middle| \psi \right\rangle=
+\sum_n c_n\left\langle m \middle| n \right\rangle=
+c_m.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+c_n=\left\langle n \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert \psi \right\rangle=
+\sum_n
+\left\lvert n \right\rangle\left\langle n \middle| \psi \right\rangle.
+}
+\]</span></p>
+</section>
+<section id="completeness" class="level2">
+<h2 class="anchored" data-anchor-id="completeness">4.5 Completeness</h2>
+<p>The previous expansion can be written as</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle=
+\left(
+\sum_n\left\lvert n \right\rangle\!\!\left\langle n \right\rvert\right)
+\left\lvert \psi \right\rangle.
+\]</span></p>
+<p>Therefore, a complete orthonormal discrete basis satisfies</p>
+<p><span class="math display">\[
+\boxed{
+\sum_n
+\left\lvert n \right\rangle\!\!\left\langle n \right\rvert=
+\mathbb 1.
+}
+\]</span></p>
+<p>This is the <strong>completeness relation</strong>, or <strong>resolution of the identity</strong>.</p>
+<p>For a continuous position basis,</p>
+<p><span class="math display">\[
+\boxed{
+\int_{-\infty}^{\infty}
+\left\lvert x \right\rangle\!\!\left\langle x \right\rvert\,dx
+=
+\mathbb 1.
+}
+\]</span></p>
+<p>The position eigenstates satisfy the delta-function normalization</p>
+<p><span class="math display">\[
+\left\langle x&#39; \middle| x \right\rangle=
+\delta(x-x&#39;).
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Are <span class="math inline">\(\left\lvert x \right\rangle\)</span> and <span class="math inline">\(\left\lvert p \right\rangle\)</span> really Hilbert-space vectors?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There is a mathematical subtlety here.</p>
+<p>Position and momentum eigenstates are not square-normalizable:</p>
+<p><span class="math display">\[
+\left\langle x \middle| x \right\rangle\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\left\langle p \middle| p \right\rangle\]</span></p>
+<p>do not produce finite numbers.</p>
+<p>They are therefore not ordinary elements of <span class="math inline">\(L^2\)</span>.</p>
+<p>Dirac notation treats them as <strong>generalized eigenvectors</strong>, normalized using Dirac delta functions. A mathematically more rigorous treatment uses a <strong>rigged Hilbert space</strong>.</p>
+<p>For our purposes, the usual Dirac notation is sufficient, but it is useful to remember that continuous-spectrum eigenstates require this extension of ordinary Hilbert-space language.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-linear-algebra-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="a-linear-algebra-dictionary">4.6 A linear-algebra dictionary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abstract linear algebra</th>
+<th>Quantum mechanics in position space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>State vector <span class="math inline">\(\left\lvert \psi \right\rangle\)</span></td>
+<td>Wave function <span class="math inline">\(\psi(x)=\left\langle x \middle| \psi \right\rangle\)</span></td>
+</tr>
+<tr class="even">
+<td>Inner product <span class="math inline">\(\left\langle \phi \middle| \psi \right\rangle\)</span></td>
+<td><span class="math inline">\(\displaystyle \int\phi^\ast(x)\psi(x)\,dx\)</span></td>
+</tr>
+<tr class="odd">
+<td>Basis vector <span class="math inline">\(\left\lvert n \right\rangle\)</span></td>
+<td>Basis function <span class="math inline">\(\phi_n(x)=\left\langle x \middle| n \right\rangle\)</span></td>
+</tr>
+<tr class="even">
+<td>Expansion coefficient <span class="math inline">\(\left\langle n \middle| \psi \right\rangle\)</span></td>
+<td>Projection of <span class="math inline">\(\psi(x)\)</span> onto <span class="math inline">\(\phi_n(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Linear operator <span class="math inline">\(\hat A\)</span></td>
+<td>Matrix or differential operator</td>
+</tr>
+<tr class="even">
+<td>Matrix element <span class="math inline">\(\left\langle m \middle| \hat A \middle| n \right\rangle\)</span></td>
+<td>Integral involving basis functions and <span class="math inline">\(\hat A\)</span></td>
+</tr>
+<tr class="odd">
+<td>Eigenvector <span class="math inline">\(\left\lvert a \right\rangle\)</span></td>
+<td>Eigenfunction of the corresponding differential operator</td>
+</tr>
+</tbody>
+</table>
+<p>The central point is that the object <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is independent of the basis.</p>
+<p>The wave function <span class="math inline">\(\psi(x)\)</span> is one particular set of coordinates used to describe it.</p>
+<hr>
+</section>
+</section>
+<section id="linear-operators-in-hilbert-space" class="level1">
+<h1>5. Linear Operators in Hilbert Space</h1>
+<section id="operators-acting-on-kets" class="level2">
+<h2 class="anchored" data-anchor-id="operators-acting-on-kets">5.1 Operators acting on kets</h2>
+<p>A linear operator maps vectors to vectors:</p>
+<p><span class="math display">\[
+\hat A:\mathscr H\rightarrow\mathscr H.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\hat A\left\lvert \psi \right\rangle=
+\left\lvert \phi \right\rangle.
+\]</span></p>
+<p>More precisely, particularly for unbounded operators such as position and momentum, an operator may only be defined on a suitable domain</p>
+<p><span class="math display">\[
+D(\hat A)\subseteq\mathscr H.
+\]</span></p>
+<p>We will normally leave the domain implicit.</p>
+<p>The eigenvalue equation becomes</p>
+<p><span class="math display">\[
+\boxed{
+\hat A\left\lvert a_n \right\rangle=
+a_n\left\lvert a_n \right\rangle.
+}
+\]</span></p>
+</section>
+<section id="matrix-elements" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-elements">5.2 Matrix elements</h2>
+<p>Once a basis <span class="math inline">\(\{\left\lvert n \right\rangle\}\)</span> has been selected, the operator can be represented by a matrix.</p>
+<p>Its matrix elements are</p>
+<p><span class="math display">\[
+\boxed{
+A_{mn}
+=
+\left\langle m \middle| \hat A \middle| n \right\rangle.
+}
+\]</span></p>
+<p>Using completeness,</p>
+<p><span class="math display">\[
+\hat A
+=
+\mathbb 1\hat A\mathbb 1,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\hat A
+=
+\sum_{m,n}
+\left\lvert m \right\rangle\left\langle m \middle| \hat A \middle| n \right\rangle\left\langle n \right\rvert.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\boxed{
+\hat A
+=
+\sum_{m,n}
+A_{mn}\left\lvert m \right\rangle\!\!\left\langle n \right\rvert.
+}
+\]</span></p>
+<p>A differential operator and a matrix can therefore represent the <strong>same abstract linear operator</strong> in different bases.</p>
+</section>
+<section id="outer-products-and-projectors" class="level2">
+<h2 class="anchored" data-anchor-id="outer-products-and-projectors">5.3 Outer products and projectors</h2>
+<p>An inner product produces a complex number,</p>
+<p><span class="math display">\[
+\left\langle \phi \middle| \psi \right\rangle\in\mathbb C,
+\]</span></p>
+<p>whereas an <strong>outer product</strong></p>
+<p><span class="math display">\[
+\left\lvert \phi \right\rangle\!\!\left\langle \psi \right\rvert\]</span></p>
+<p>produces an operator.</p>
+<p>Acting on another state,</p>
+<p><span class="math display">\[
+\left\lvert \phi \right\rangle\!\!\left\langle \psi \right\rvert\chi\rangle
+=
+\left\lvert \phi \right\rangle\left\langle \psi \middle| \chi \right\rangle.
+\]</span></p>
+<p>An important example is</p>
+<p><span class="math display">\[
+\boxed{
+\hat P_n
+=
+\left\lvert n \right\rangle\!\!\left\langle n \right\rvert.
+}
+\]</span></p>
+<p>For a normalized state <span class="math inline">\(\left\lvert n \right\rangle\)</span>,</p>
+<p><span class="math display">\[
+\hat P_n\left\lvert \psi \right\rangle=
+\left\lvert n \right\rangle\left\langle n \middle| \psi \right\rangle.
+\]</span></p>
+<p>Thus, <span class="math inline">\(\hat P_n\)</span> extracts the component of <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> parallel to <span class="math inline">\(\left\lvert n \right\rangle\)</span>.</p>
+<p>It is therefore called a <strong>projection operator</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="adjoint-and-hermitian-operators" class="level1">
+<h1>6. Adjoint and Hermitian Operators</h1>
+<section id="hermitian-conjugation" class="level2">
+<h2 class="anchored" data-anchor-id="hermitian-conjugation">6.1 Hermitian conjugation</h2>
+<p>The <strong>Hermitian conjugate</strong>, or <strong>adjoint</strong>, of a vector or operator is denoted by</p>
+<p><span class="math display">\[
+\dagger.
+\]</span></p>
+<p>For kets and bras,</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle^\dagger
+=
+\left\langle \psi \right\rvert,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\left\langle \psi \right\rvert^\dagger
+=
+\left\lvert \psi \right\rangle.
+\]</span></p>
+<p>For complex numbers,</p>
+<p><span class="math display">\[
+c^\dagger=c^\ast.
+\]</span></p>
+<p>For products, the order is reversed:</p>
+<p><span class="math display">\[
+(\hat A\hat B)^\dagger
+=
+\hat B^\dagger\hat A^\dagger.
+\]</span></p>
+<p>For example,</p>
+<p><span class="math display">\[
+\left(
+c_1\left\lvert \psi_1 \right\rangle+
+c_2\left\lvert \psi_2 \right\rangle\right)^\dagger
+=
+c_1^\ast\left\langle \psi_1 \right\rvert+
+c_2^\ast\left\langle \psi_2 \right\rvert.
+\]</span></p>
+<p>The inner product obeys</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \psi \right\rangle^\ast
+=
+\left\langle \psi \middle| \phi \right\rangle.
+}
+\]</span></p>
+<p>For matrix elements,</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \hat A \middle| \psi \right\rangle^\ast
+=
+\left\langle \psi \middle| \hat A^\dagger \middle| \phi \right\rangle.
+}
+\]</span></p>
+</section>
+<section id="hermitian-operators" class="level2">
+<h2 class="anchored" data-anchor-id="hermitian-operators">6.2 Hermitian operators</h2>
+<p>An operator is called <strong>Hermitian</strong> if</p>
+<p><span class="math display">\[
+\boxed{
+\hat A^\dagger=\hat A.
+}
+\]</span></p>
+<p>Hermitian operators have real eigenvalues.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why are the eigenvalues of a Hermitian operator real?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let</p>
+<p><span class="math display">\[
+\hat A\left\lvert a \right\rangle=a\left\lvert a \right\rangle.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\left\langle a \middle| \hat A \middle| a \right\rangle=
+a\left\langle a \middle| a \right\rangle.
+\]</span></p>
+<p>Taking the complex conjugate gives</p>
+<p><span class="math display">\[
+\left\langle a \middle| \hat A \middle| a \right\rangle^\ast
+=
+a^\ast\left\langle a \middle| a \right\rangle.
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+\left\langle a \middle| \hat A \middle| a \right\rangle^\ast
+=
+\left\langle a \middle| \hat A^\dagger \middle| a \right\rangle.
+\]</span></p>
+<p>For a Hermitian operator,</p>
+<p><span class="math display">\[
+\hat A^\dagger=\hat A,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+a\left\langle a \middle| a \right\rangle=
+a^\ast\left\langle a \middle| a \right\rangle.
+\]</span></p>
+<p>For a nonzero eigenstate, <span class="math inline">\(\left\langle a \middle| a \right\rangle&gt;0\)</span>, and therefore</p>
+<p><span class="math display">\[
+\boxed{a=a^\ast.}
+\]</span></p>
+<p>Thus, <span class="math inline">\(a\)</span> is real.</p>
+</div>
+</div>
+</div>
+<p>Suppose</p>
+<p><span class="math display">\[
+\hat A\left\lvert a \right\rangle=a\left\lvert a \right\rangle.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+a\in\mathbb R.
+\]</span></p>
+<p>Furthermore, eigenstates corresponding to distinct eigenvalues are orthogonal:</p>
+<p><span class="math display">\[
+a_m\neq a_n
+\quad\Rightarrow\quad
+\left\langle a_m \middle| a_n \right\rangle=0.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why are eigenstates with different eigenvalues orthogonal?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\left\lvert a_m \right\rangle\)</span> and <span class="math inline">\(\left\lvert a_n \right\rangle\)</span> be eigenstates of the Hermitian operator <span class="math inline">\(\hat A\)</span> with different eigenvalues:</p>
+<p><span class="math display">\[
+\hat A\left\lvert a_m \right\rangle=a_m\left\lvert a_m \right\rangle,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\hat A\left\lvert a_n \right\rangle=a_n\left\lvert a_n \right\rangle.
+\]</span></p>
+<p>Consider the matrix element</p>
+<p><span class="math display">\[
+\left\langle a_m \middle| \hat A \middle| a_n \right\rangle.
+\]</span></p>
+<p>Using the eigenvalue equation for <span class="math inline">\(\left\lvert a_n \right\rangle\)</span>,</p>
+<p><span class="math display">\[
+\left\langle a_m \middle| \hat A \middle| a_n \right\rangle=
+a_n\left\langle a_m \middle| a_n \right\rangle.
+\]</span></p>
+<p>Because <span class="math inline">\(\hat A\)</span> is Hermitian,</p>
+<p><span class="math display">\[
+\hat A^\dagger=\hat A,
+\]</span></p>
+<p>we can also let the operator act to the left:</p>
+<p><span class="math display">\[
+\left\langle a_m \middle| \hat A \middle| a_n \right\rangle=
+a_m^\ast\left\langle a_m \middle| a_n \right\rangle.
+\]</span></p>
+<p>The eigenvalues of a Hermitian operator are real, so</p>
+<p><span class="math display">\[
+a_m^\ast=a_m.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+a_n\left\langle a_m \middle| a_n \right\rangle=
+a_m\left\langle a_m \middle| a_n \right\rangle.
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+(a_n-a_m)\left\langle a_m \middle| a_n \right\rangle=0.
+\]</span></p>
+<p>If the eigenvalues are different,</p>
+<p><span class="math display">\[
+a_n\neq a_m,
+\]</span></p>
+<p>the only possibility is</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle a_m \middle| a_n \right\rangle=0.
+}
+\]</span></p>
+<p>Thus, eigenstates of a Hermitian operator belonging to different eigenvalues are orthogonal.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hermitian versus self-adjoint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In introductory quantum mechanics, observables are usually said to be represented by <strong>Hermitian</strong> operators, satisfying</p>
+<p><span class="math display">\[ \hat A^\dagger=\hat A. \]</span></p>
+<p>For finite-dimensional matrices, this terminology is unambiguous.</p>
+<p>For unbounded operators in infinite-dimensional Hilbert spaces, such as position and momentum, there is a technical distinction between a <em>symmetric</em> operator and a fully <em>self-adjoint</em> operator. The distinction involves the domains on which the operators are defined.</p>
+<p>Mathematically, quantum-mechanical observables are more precisely represented by <strong>self-adjoint operators</strong>. In these notes, we will follow the usual physics convention and use the term <strong>Hermitian operator</strong>.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="observables-and-measurement" class="level1">
+<h1>7. Observables and Measurement</h1>
 <section id="observables" class="level2">
-<h2 class="anchored" data-anchor-id="observables">Observables</h2>
-<p><strong>Observables</strong> are represented by Hermitian operators. “Hermitian” means <span class="math inline">\(\hat{A} = \hat{A}^\dagger\)</span>.<br>
-They are associated with measurable physical quantities (e.g., energy, momentum, angular momentum, spin).</p>
-<section id="properties" class="level3">
-<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<h2 class="anchored" data-anchor-id="observables">7.1 Observables</h2>
+<p>A measurable physical quantity is represented by a Hermitian—or, more precisely, self-adjoint—operator.</p>
+<p>Examples include</p>
 <ul>
-<li>The eigenvalues <span class="math inline">\(a\)</span> of a Hermitian operator <span class="math inline">\(\hat{A}\)</span>, satisfying <span class="math inline">\(\hat{A}\left\lvert \alpha \right\rangle= a\left\lvert \alpha \right\rangle\)</span>, are <strong>real numbers</strong>.<br>
-</li>
-<li>For every observable, a <strong>complete and orthonormal basis</strong> can be found:
-<ul>
-<li>The basis is given by eigenvectors solving<br>
-<span class="math inline">\(\hat{A}\left\lvert n \right\rangle= a_n\left\lvert n \right\rangle\)</span> (discrete spectrum) or <span class="math inline">\(\hat{A}\left\lvert k \right\rangle= k\left\lvert k \right\rangle\)</span> (continuous spectrum).<br>
-</li>
-<li>Orthonormality: <span class="math inline">\(\left\langle n&#39; \middle| n \right\rangle= \delta_{n&#39;n}\)</span> or <span class="math inline">\(\left\langle k_i \middle| k_j \right\rangle= \delta(k_i-k_j)\)</span>.<br>
-</li>
-<li>Completeness: every state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> in <span class="math inline">\(\mathscr{H}\)</span> can be expressed as<br>
-<span class="math inline">\(\left\lvert \psi \right\rangle= \sum_n c_n\left\lvert n \right\rangle\)</span> or <span class="math inline">\(\left\lvert \psi \right\rangle= \int c(k)\left\lvert k \right\rangle\,dk\)</span>.<br>
-</li>
-<li>The identity operator can be written as <span class="math inline">\(\mathbb{1} = \sum_n \left\lvert n \right\rangle\!\!\left\langle n \right\rvert\)</span> or <span class="math inline">\(\mathbb{1} = \int \left\lvert k \right\rangle\!\!\left\langle k \right\rvert\,dk\)</span>.</li>
-</ul></li>
+<li>position <span class="math inline">\(\hat x\)</span>,</li>
+<li>momentum <span class="math inline">\(\hat p\)</span>,</li>
+<li>energy <span class="math inline">\(\hat H\)</span>,</li>
+<li>angular momentum <span class="math inline">\(\hat{\mathbf L}\)</span>,</li>
+<li>spin <span class="math inline">\(\hat{\mathbf S}\)</span>.</li>
 </ul>
+<p>Possible outcomes of a measurement are given by the spectrum of the corresponding operator.</p>
+<p>For a discrete spectrum,</p>
+<p><span class="math display">\[
+\hat A\left\lvert a_n \right\rangle=
+a_n\left\lvert a_n \right\rangle.
+\]</span></p>
+<p>The values <span class="math inline">\(a_n\)</span> are possible measurement outcomes.</p>
 </section>
-<section id="additional-notes" class="level3">
-<h3 class="anchored" data-anchor-id="additional-notes">Additional notes</h3>
-<p>If <span class="math inline">\(\left\lvert \alpha \right\rangle\)</span> is a normalized eigenvector of <span class="math inline">\(\hat{A}\)</span> and the system is in the normalized state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>, then:</p>
-<ul>
-<li>The probability of finding the system in state <span class="math inline">\(\left\lvert \alpha \right\rangle\)</span> is<br>
-<span class="math display">\[
-P = \left|\left\langle \alpha \middle| \psi \right\rangle\right|^2.
-\]</span></li>
-<li>The expectation value of <span class="math inline">\(\hat{A}\)</span> is<br>
-<span class="math display">\[
-\langle \hat{A} \rangle = \left\langle \psi \middle| \hat{A} \middle| \psi \right\rangle.
-\]</span></li>
-<li>The variance of <span class="math inline">\(\hat{A}\)</span> is<br>
-<span class="math display">\[
-\sigma_A = \langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2.
-\]</span></li>
-</ul>
+<section id="spectral-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-decomposition">7.2 Spectral decomposition</h2>
+<p>For a nondegenerate discrete spectrum with a complete orthonormal set of eigenvectors,</p>
+<p><span class="math display">\[
+\boxed{
+\hat A
+=
+\sum_n
+a_n\left\lvert a_n \right\rangle\!\!\left\langle a_n \right\rvert.
+}
+\]</span></p>
+<p>This expression is the operator analogue of diagonalizing a matrix.</p>
+<p>If degeneracies are present, the projection operator onto each eigenspace must include all states belonging to that eigenvalue.</p>
+<p>Continuous spectra require the corresponding integral form.</p>
+</section>
+<section id="measurement-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="measurement-probabilities">7.3 Measurement probabilities</h2>
+<p>Suppose the system is in the normalized state</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle.
+\]</span></p>
+<p>Expanding it in eigenstates of <span class="math inline">\(\hat A\)</span> gives</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle=
+\sum_n
+c_n\left\lvert a_n \right\rangle,
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+c_n
+=
+\left\langle a_n \middle| \psi \right\rangle.
+\]</span></p>
+<p>The Born rule states that the probability of obtaining the result <span class="math inline">\(a_n\)</span> is</p>
+<p><span class="math display">\[
+\boxed{
+P(a_n)
+=
+\left|
+\left\langle a_n \middle| \psi \right\rangle\right|^2.
+}
+\]</span></p>
+<p>Thus, measurement probabilities are determined by the projection of the state vector onto the eigenvectors of the observable.</p>
+</section>
+<section id="expectation-values" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-values">7.4 Expectation values</h2>
+<p>The expectation value of an observable <span class="math inline">\(\hat A\)</span> in the state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is</p>
+<p><span class="math display">\[
+\boxed{
+\langle A\rangle
+=
+\left\langle \psi \middle| \hat A \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>In the position representation,</p>
+<p><span class="math display">\[
+\langle A\rangle
+=
+\int
+\psi^\ast(x)
+\hat A
+\psi(x)\,dx.
+\]</span></p>
+<p>For a state expanded in the eigenbasis of <span class="math inline">\(\hat A\)</span>,</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle=
+\sum_n c_n\left\lvert a_n \right\rangle,
+\]</span></p>
+<p>the expectation value becomes</p>
+<p><span class="math display">\[
+\langle A\rangle
+=
+\sum_n
+|c_n|^2a_n.
+\]</span></p>
+<p>Thus, the abstract operator expression reproduces the usual statistical average over possible measurement results.</p>
+</section>
+<section id="variance-and-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="variance-and-uncertainty">7.5 Variance and uncertainty</h2>
+<p>The variance of an observable is</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A^2
+=
+\left\langle
+(\hat A-\langle A\rangle)^2
+\right\rangle.
+}
+\]</span></p>
+<p>Expanding this expression gives</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A^2
+=
+\langle A^2\rangle
+-
+\langle A\rangle^2.
+}
+\]</span></p>
+<p>The corresponding standard deviation is</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A
+=
+\sqrt{
+\langle A^2\rangle
+-
+\langle A\rangle^2
+}.
+}
+\]</span></p>
+<p>This quantity measures the spread of the possible outcomes of repeated measurements of <span class="math inline">\(A\)</span>.</p>
+<p>In the next chapter, we will see that the uncertainties of two observables can be fundamentally related when the corresponding operators do not commute.</p>
+<hr>
+</section>
+</section>
+<section id="the-central-idea" class="level1">
+<h1>8. The Central Idea</h1>
+<p>The wave-mechanical and linear-algebra descriptions of quantum mechanics are not competing theories.</p>
+<p>They are two ways of describing the same physics.</p>
+<p>The wave function</p>
+<p><span class="math display">\[
+\psi(x)
+\]</span></p>
+<p>is a representation of the abstract state</p>
+<p><span class="math display">\[
+\left\lvert \psi \right\rangle\]</span></p>
+<p>in the position basis:</p>
+<p><span class="math display">\[
+\boxed{
+\psi(x)=\left\langle x \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\tilde\psi(p)=\left\langle p \middle| \psi \right\rangle\]</span></p>
+<p>is the representation of the same state in the momentum basis.</p>
+<p>The abstract Hilbert-space formulation is therefore more general than any one particular wave-function representation.</p>
+<p>It allows us to discuss spatial wave functions, spin states, angular-momentum states, atomic levels, and many other quantum systems using the same mathematical language:</p>
+<p><span class="math display">\[
+\boxed{
+\text{states are vectors, and observables are operators.}
+}
+\]</span></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

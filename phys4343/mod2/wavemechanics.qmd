@@ -41,8 +41,8 @@ Electrons, however, produce **interference patterns**. A particularly direct dem
 #| fig-cap: "Simulated build-up of an interference pattern from individual detection events."
 #| fig-alt: "Animation of individual particle detections appearing as black dots on a white screen. Initially the positions appear random, but as more particles are detected, vertical interference fringes gradually emerge."
 #| fig-align: center
-# echo: false
 #| warning: false
+# echo: false
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -456,8 +456,8 @@ $$
 #| label: fig-double-slit-animation
 #| fig-cap: "Double-slit interference. Instantaneous real part of a monochromatic wave propagating through two narrow slits. The waves emerging from the slits overlap and interfere as they propagate."
 #| fig-alt: "Animation of a wave propagating from left to right through two narrow slits. Beyond the slits, two circular wave patterns spread outward and overlap, producing alternating regions of constructive and destructive interference."
-# echo: false
 #| output: asis
+# echo: false
 
 from diffractio import degrees, mm, np, um
 from diffractio.scalar_sources_X import Scalar_source_X
