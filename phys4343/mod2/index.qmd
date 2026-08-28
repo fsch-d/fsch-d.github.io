@@ -32,7 +32,8 @@ These chapters apply the general formalism to systems that occur repeatedly in A
 These methods are important when a quantum problem cannot be solved exactly and can be studied when they are first needed.
 
 1. [**Time-Independent Perturbation Theory**](perturb.qmd) — Corrections to known energies and states caused by weak interactions.
-2. [**The Variational Method**](variational.qmd) — Approximate energies and states obtained from trial wave functions.
+2. [**Time-Dependent Perturbation Theory and Fermi's Golden Rule**](tdperturb.qmd) — Transitions driven by weak time-dependent interactions, resonance, and transition rates.
+3. [**The Variational Method**](variational.qmd) — Approximate energies and states obtained from trial wave functions.
 
 ## IV. Advanced Concepts and Reference Material
 

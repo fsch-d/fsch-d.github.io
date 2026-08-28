@@ -456,7 +456,17 @@ fig.add_annotation(
     yanchor='bottom'
 )
 
-fig.show()
+import plotly.io as pio
+from IPython.display import HTML, display
+
+html = pio.to_html(
+    fig,
+    full_html=False,
+    include_plotlyjs="cdn",
+    include_mathjax=False
+)
+
+display(HTML(html))
 ```
 
 ### Reading the interactive plot
@@ -766,7 +776,17 @@ fig.add_annotation( text="frequency Δω", xref="paper", yref="paper", x=0.37, y
 
 fig.add_annotation( text="ground state<br>population N", xref="paper", yref="paper", x=0.86, y=0.74, showarrow=False, font=dict(size=15), xanchor='center', yanchor='bottom')
 
-fig.show()
+import plotly.io as pio
+from IPython.display import HTML, display
+
+html = pio.to_html(
+    fig,
+    full_html=False,
+    include_plotlyjs="cdn",
+    include_mathjax=False
+)
+
+display(HTML(html))
 ```
 
 ### Reading the updated plot
@@ -1040,7 +1060,17 @@ fig.add_annotation( text="frequency Δω", xref="paper", yref="paper", x=0.37, y
 fig.add_annotation( text="ground state<br>populations N<sub>1</sub>, N<sub>2</sub>", xref="paper", yref="paper", x=0.87, y=0.74, showarrow=False, font=dict(size=15), xanchor='center', yanchor='bottom')
 
 
-fig.show()
+import plotly.io as pio
+from IPython.display import HTML, display
+
+html = pio.to_html(
+    fig,
+    full_html=False,
+    include_plotlyjs="cdn",
+    include_mathjax=False
+)
+
+display(HTML(html))
 ```
 
 ### How to read the interactive plot
@@ -1311,7 +1341,17 @@ fig.add_annotation( text="frequency Δω", xref="paper", yref="paper", x=0.37, y
 fig.add_annotation( text="ground state<br>populations N<sub>1</sub>, N<sub>2</sub>", xref="paper", yref="paper", x=0.87, y=0.74, showarrow=False, font=dict(size=15), xanchor='center', yanchor='bottom')
 
 
-fig.show()
+import plotly.io as pio
+from IPython.display import HTML, display
+
+html = pio.to_html(
+    fig,
+    full_html=False,
+    include_plotlyjs="cdn",
+    include_mathjax=False
+)
+
+display(HTML(html))
 ```
 
 

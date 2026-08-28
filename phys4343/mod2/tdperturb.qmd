@@ -1,0 +1,1214 @@
+---
+title: "Time-Dependent Perturbation Theory and Fermi's Golden Rule"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+# Time-Dependent Perturbation Theory: Overview and Plan
+
+In [time-independent perturbation theory](perturb.qmd), we ask how a weak perturbation changes the **stationary energies and eigenstates** of a quantum system. A time-dependent perturbation raises a different question:
+
+> **How can an interaction drive a quantum system from one stationary state into another?**
+
+This is the situation encountered whenever an atom interacts with an oscillating electromagnetic field, but the same formalism applies much more generally.
+
+We write the Hamiltonian as
+
+$$
+\hat H(t)=\hat H_0+\hat V(t),
+$$
+
+where the eigenstates and eigenenergies of the unperturbed Hamiltonian are assumed to be known,
+
+$$
+\hat H_0\ket{n}=E_n\ket{n}.
+$$
+
+The purpose of time-dependent perturbation theory is to determine how a weak perturbation $\hat V(t)$ changes the probability amplitudes of these states.
+
+The specific goals for this chapter are:
+
+1. Expand a time-dependent quantum state in the stationary eigenstates of an unperturbed Hamiltonian.
+2. Derive the equations that describe how a time-dependent perturbation changes the expansion coefficients.
+3. Obtain the first-order transition amplitude between two states.
+4. Understand why an oscillating perturbation produces resonant transitions.
+5. Derive **Fermi's Golden Rule** and interpret the roles of the transition matrix element, energy conservation, and the density of final states.
+6. Establish the framework that will later be used to describe radiative transitions and electric-dipole matrix elements.
+
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+For
+
+$$
+\hat H(t)=\hat H_0+\hat V(t),
+\qquad
+\hat H_0\ket{n}=E_n\ket{n},
+$$
+
+the state can be expanded as
+
+$$
+\ket{\Psi(t)}
+=
+\sum_n c_n(t)e^{-iE_n t/\hbar}\ket{n}.
+$$
+
+If the system starts in state $\ket{i}$, the first-order amplitude for finding it in a different state $\ket{f}$ is
+
+$$
+\boxed{
+c_f^{(1)}(t)
+=
+\frac{1}{i\hbar}
+\int_0^t
+\mel{f}{\hat V(t')}{i}\,
+e^{i\omega_{fi}t'}\,dt'
+}
+$$
+
+where
+
+$$
+\omega_{fi}
+=
+\frac{E_f-E_i}{\hbar}.
+$$
+
+For a weak perturbation that drives transitions into a dense set of final states, the long-time transition rate is given by **Fermi's Golden Rule**,
+
+$$
+\boxed{
+\Gamma_{i\rightarrow f}
+=
+\frac{2\pi}{\hbar}
+\left|
+\mel{f}{\hat W}{i}
+\right|^2
+\rho(E_f),
+}
+$$
+
+evaluated at the energy allowed by the perturbation. For absorption from a harmonic perturbation of angular frequency $\omega$,
+
+$$
+\boxed{
+E_f=E_i+\hbar\omega.
+}
+$$
+
+::::
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- a time-dependent perturbation changes the **probability amplitudes** of the stationary states of the unperturbed Hamiltonian;
+- the matrix element $\mel{f}{\hat V}{i}$ measures how strongly the perturbation couples the initial and final states;
+- an oscillating perturbation produces a finite-width resonance at finite interaction time, which becomes sharply concentrated around energy conservation for long interaction times;
+- Fermi's Golden Rule describes a **transition rate**, not merely a transition probability;
+- the transition rate depends both on the strength of the coupling and on the number of final states available near the energy-conserving value;
+- for a single isolated pair of discrete states under coherent continuous driving, the Golden Rule is not the complete long-time description; coherent dynamics such as Rabi oscillations can occur.
+
+The detailed algebra leading from the time-dependent Schrödinger equation to the coefficient equations and from the finite-time transition probability to Fermi's Golden Rule is included below to show where the results come from, but the intermediate steps are not intended as material to memorize.
+
+::::
+
+
+# 1. The Basic Problem
+
+Suppose that the Hamiltonian consists of a solvable time-independent part and a weak time-dependent perturbation,
+
+$$
+\boxed{
+\hat H(t)
+=
+\hat H_0+\hat V(t).
+}
+$$
+
+The unperturbed stationary states satisfy
+
+$$
+\boxed{
+\hat H_0\ket{n}
+=
+E_n\ket{n}.
+}
+$$
+
+If the perturbation were absent, a state that starts in $\ket{n}$ would evolve only by a phase factor,
+
+$$
+\ket{\Psi_n(t)}
+=
+e^{-iE_n t/\hbar}\ket{n}.
+$$
+
+A time-dependent perturbation can instead transfer amplitude between different unperturbed states. The central question is therefore:
+
+> If the system begins in a state $\ket{i}$, what is the probability that the perturbation drives it into another state $\ket{f}$?
+
+This is qualitatively different from time-independent perturbation theory. There we determine how stationary eigenstates and energies are modified. Here we are interested primarily in **transitions between states**.
+
+
+# 2. Expansion in the Unperturbed Basis
+
+Because the eigenstates of $\hat H_0$ form a basis, we write the general time-dependent state as
+
+$$
+\boxed{
+\ket{\Psi(t)}
+=
+\sum_n
+c_n(t)
+e^{-iE_n t/\hbar}
+\ket{n}.
+}
+$$
+
+The factors
+
+$$
+e^{-iE_n t/\hbar}
+$$
+
+describe the time evolution that each basis state would have under $\hat H_0$ alone.
+
+All additional dynamics caused by the perturbation are therefore contained in the coefficients
+
+$$
+c_n(t).
+$$
+
+The probability of finding the system in the unperturbed state $\ket{n}$ at time $t$ is
+
+$$
+P_n(t)=|c_n(t)|^2.
+$$
+
+
+## 2.1 Equation of motion for the coefficients
+
+Substituting the expansion into the time-dependent Schrödinger equation gives
+
+$$
+\boxed{
+i\hbar\dot c_n(t)
+=
+\sum_m
+\mel{n}{\hat V(t)}{m}\,
+c_m(t)
+e^{i\omega_{nm}t},
+}
+$$
+
+where
+
+$$
+\boxed{
+\omega_{nm}
+=
+\frac{E_n-E_m}{\hbar}.
+}
+$$
+
+This equation is exact. It shows how the perturbation transfers amplitude from one unperturbed state to another.
+
+:::: {.callout-note collapse="true" title="Derivation of the coefficient equations"}
+
+Start from the time-dependent Schrödinger equation,
+
+$$
+i\hbar\frac{\partial}{\partial t}\ket{\Psi(t)}
+=
+\left[\hat H_0+\hat V(t)\right]\ket{\Psi(t)},
+$$
+
+and insert
+
+$$
+\ket{\Psi(t)}
+=
+\sum_m
+c_m(t)e^{-iE_m t/\hbar}\ket{m}.
+$$
+
+The time derivative is
+
+$$
+\begin{aligned}
+i\hbar\frac{\partial}{\partial t}\ket{\Psi(t)}
+&=
+i\hbar
+\sum_m
+\dot c_m(t)e^{-iE_m t/\hbar}\ket{m}
+\\
+&\quad+
+\sum_m
+E_m c_m(t)e^{-iE_m t/\hbar}\ket{m}.
+\end{aligned}
+$$
+
+On the right-hand side,
+
+$$
+\begin{aligned}
+\left[\hat H_0+\hat V(t)\right]\ket{\Psi(t)}
+&=
+\sum_m
+c_m(t)e^{-iE_m t/\hbar}
+\hat H_0\ket{m}
+\\
+&\quad+
+\sum_m
+c_m(t)e^{-iE_m t/\hbar}
+\hat V(t)\ket{m}.
+\end{aligned}
+$$
+
+Since
+
+$$
+\hat H_0\ket{m}=E_m\ket{m},
+$$
+
+the terms containing $E_m$ cancel on both sides. We are left with
+
+$$
+i\hbar
+\sum_m
+\dot c_m(t)e^{-iE_m t/\hbar}\ket{m}
+=
+\sum_m
+c_m(t)e^{-iE_m t/\hbar}
+\hat V(t)\ket{m}.
+$$
+
+Multiply from the left by $\bra{n}$ and use orthonormality,
+
+$$
+\braket{n}{m}=\delta_{nm}.
+$$
+
+This gives
+
+$$
+i\hbar
+\dot c_n(t)e^{-iE_n t/\hbar}
+=
+\sum_m
+c_m(t)e^{-iE_m t/\hbar}
+\mel{n}{\hat V(t)}{m}.
+$$
+
+Multiplying by $e^{+iE_n t/\hbar}$ gives
+
+$$
+\boxed{
+i\hbar\dot c_n(t)
+=
+\sum_m
+\mel{n}{\hat V(t)}{m}\,
+c_m(t)
+e^{i(E_n-E_m)t/\hbar}.
+}
+$$
+
+Defining
+
+$$
+\omega_{nm}
+=
+\frac{E_n-E_m}{\hbar}
+$$
+
+produces the form used in the main text.
+
+::::
+
+
+# 3. First-Order Time-Dependent Perturbation Theory
+
+Suppose the system is initially prepared in one unperturbed eigenstate $\ket{i}$,
+
+$$
+c_i(0)=1,
+\qquad
+c_{n\neq i}(0)=0.
+$$
+
+If the perturbation is weak, the system remains mostly in the initial state. To first order we therefore use
+
+$$
+c_i(t)\approx 1
+$$
+
+on the right-hand side of the coefficient equation and neglect amplitudes that are already of higher order in the perturbation.
+
+For a final state $\ket{f}\neq\ket{i}$,
+
+$$
+\dot c_f^{(1)}(t)
+=
+\frac{1}{i\hbar}
+\mel{f}{\hat V(t)}{i}\,
+e^{i\omega_{fi}t}.
+$$
+
+Integrating from $0$ to $t$ gives the central first-order result,
+
+$$
+\boxed{
+c_f^{(1)}(t)
+=
+\frac{1}{i\hbar}
+\int_0^t
+\mel{f}{\hat V(t')}{i}\,
+e^{i\omega_{fi}t'}\,dt'.
+}
+$$
+
+The corresponding transition probability, to lowest nonvanishing order, is
+
+$$
+\boxed{
+P_{i\rightarrow f}(t)
+=
+\left|
+c_f^{(1)}(t)
+\right|^2.
+}
+$$
+
+Two ingredients determine whether a transition is likely:
+
+1. the **matrix element**
+   $$
+   \mel{f}{\hat V(t)}{i},
+   $$
+   which tells us how strongly the perturbation couples the two states;
+
+2. the oscillating phase
+   $$
+   e^{i\omega_{fi}t},
+   $$
+   which determines how contributions at different times add together.
+
+
+# 4. An Oscillating Perturbation and Resonance
+
+Many important perturbations are periodic. For example, interaction with monochromatic light produces terms oscillating with the field frequency.
+
+Consider a perturbation of the form
+
+$$
+\boxed{
+\hat V(t)
+=
+\hat W e^{-i\omega t}
++
+\hat W^\dagger e^{+i\omega t}.
+}
+$$
+
+The two terms can drive transitions with opposite energy changes. We first consider the term proportional to $e^{-i\omega t}$.
+
+The first-order amplitude becomes
+
+$$
+c_f^{(1)}(t)
+=
+\frac{W_{fi}}{i\hbar}
+\int_0^t
+e^{i(\omega_{fi}-\omega)t'}\,dt',
+$$
+
+where the matrix element
+
+$$
+W_{fi}
+=
+\mel{f}{\hat W}{i}
+$$
+
+describes how strongly the perturbation couples the initial state $\ket{i}$ to the final state $\ket{f}$.
+
+The energy difference between the two unperturbed states defines the **transition angular frequency**
+
+$$
+\boxed{
+\omega_{fi}
+=
+\frac{E_f-E_i}{\hbar}.
+}
+$$
+
+This quantity is often called the **Bohr frequency** for the transition
+$i\rightarrow f$.
+
+The perturbation itself oscillates with angular frequency $\omega$. What matters for the transition is how closely this frequency matches the transition frequency. We therefore define the **detuning**
+
+$$
+\boxed{
+\Delta
+=
+\omega_{fi}-\omega.
+}
+$$
+
+In terms of the detuning, the first-order transition probability is
+
+$$
+\boxed{
+P_{i\rightarrow f}(t)
+=
+\frac{|W_{fi}|^2}{\hbar^2}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}.
+}
+$$
+
+This expression contains two physically different factors:
+
+- $|W_{fi}|^2$ describes **how strongly the perturbation couples the two states**;
+- the factor
+
+  $$
+  \frac{\sin^2(\Delta t/2)}
+  {(\Delta/2)^2}
+  $$
+
+  describes **how well the perturbation frequency matches the transition frequency**.
+
+The transition probability is largest near resonance,
+
+$$
+\Delta\approx0,
+$$
+
+or equivalently,
+
+$$
+\omega\approx\omega_{fi}.
+$$
+
+Using
+
+$$
+\omega_{fi}
+=
+\frac{E_f-E_i}{\hbar},
+$$
+
+the resonance condition becomes
+
+$$
+\boxed{
+E_f-E_i
+\approx
+\hbar\omega.
+}
+$$
+
+Thus an oscillating perturbation drives a transition most efficiently when its frequency matches the energy separation between the two states.
+
+:::: {.callout-note collapse="true" title="Derivation of the transition probability"}
+
+For the perturbation term
+
+$$
+\hat V(t)
+=
+\hat W e^{-i\omega t},
+$$
+
+the first-order transition amplitude is
+
+$$
+c_f^{(1)}(t)
+=
+\frac{W_{fi}}{i\hbar}
+\int_0^t
+e^{i(\omega_{fi}-\omega)t'}\,dt'.
+$$
+
+Using the detuning
+
+$$
+\Delta=\omega_{fi}-\omega,
+$$
+
+this becomes
+
+$$
+c_f^{(1)}(t)
+=
+\frac{W_{fi}}{i\hbar}
+\int_0^t
+e^{i\Delta t'}\,dt'.
+$$
+
+The integral is
+
+$$
+\begin{aligned}
+\int_0^t e^{i\Delta t'}\,dt'
+&=
+\frac{e^{i\Delta t}-1}{i\Delta}\\
+&=
+e^{i\Delta t/2}
+\frac{2\sin(\Delta t/2)}{\Delta}.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+c_f^{(1)}(t)
+=
+\frac{W_{fi}}{i\hbar}
+e^{i\Delta t/2}
+\frac{2\sin(\Delta t/2)}{\Delta}.
+$$
+
+The transition probability is
+
+$$
+P_{i\rightarrow f}(t)
+=
+\left|
+c_f^{(1)}(t)
+\right|^2.
+$$
+
+Because
+
+$$
+\left|
+e^{i\Delta t/2}
+\right|^2
+=
+1,
+$$
+
+the phase factor does not affect the probability, giving
+
+$$
+\boxed{
+P_{i\rightarrow f}(t)
+=
+\frac{|W_{fi}|^2}{\hbar^2}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}.
+}
+$$
+
+::::
+
+## 4.1 Finite interaction time
+
+For a finite interaction time, the resonance is not infinitely narrow. The function
+
+$$
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}
+$$
+
+has a central peak around $\Delta=0$ whose characteristic width decreases as the interaction time increases.
+
+Schematically,
+
+$$
+\boxed{
+\Delta\omega
+\sim
+\frac{1}{t}.
+}
+$$
+
+A shorter interaction therefore permits a broader range of transition frequencies, while a long interaction produces a narrow resonance.
+
+This finite-time result is important: exact energy conservation emerges as the **long-time limit** of the transition probability rather than being imposed by hand.
+
+The dependence on detuning can be explored in the interactive figure below.
+Move the slider to change the interaction time $t$.
+
+```{python}
+#| label: fig-finite-time-resonance
+#| fig-cap: "Finite-time resonance factor as a function of detuning. Increasing the interaction time makes the resonance taller and narrower."
+#| fig-alt: "Interactive plot of the squared sine resonance factor versus detuning. A slider changes the interaction time. As time increases, the central peak at zero detuning becomes taller and narrower."
+# echo: false
+
+import numpy as np
+import plotly.graph_objects as go
+
+
+# ------------------------------------------------------------
+# Detuning and interaction times
+# ------------------------------------------------------------
+
+Delta = np.linspace(-12, 12, 1200)
+
+t_values = np.linspace(0.5, 5.0, 19)
+
+# Start slider at t = 5
+initial_index = len(t_values) - 1
+t_init = t_values[initial_index]
+
+
+# ------------------------------------------------------------
+# Resonance factor
+#
+# sin²(Δt/2) / (Δ/2)²
+#
+# Writing it as t² sinc² avoids the 0/0 problem at Δ = 0.
+# numpy.sinc(x) = sin(pi x)/(pi x)
+# ------------------------------------------------------------
+
+def resonance_factor(Delta, t):
+    return t**2 * np.sinc(Delta * t / (2 * np.pi))**2
+
+
+# ------------------------------------------------------------
+# Frames
+# ------------------------------------------------------------
+
+frames = []
+
+for t in t_values:
+    frames.append(
+        go.Frame(
+            data=[
+                go.Scatter(
+                    x=Delta,
+                    y=resonance_factor(Delta, t),
+                    mode="lines",
+                    line=dict(width=2)
+                )
+            ],
+            name=f"{t:.2f}"
+        )
+    )
+
+
+# ------------------------------------------------------------
+# Initial figure
+# ------------------------------------------------------------
+
+fig = go.Figure(
+    data=[
+        go.Scatter(
+            x=Delta,
+            y=resonance_factor(Delta, t_init),
+            mode="lines",
+            line=dict(width=2),
+            showlegend=False
+        )
+    ],
+    frames=frames
+)
+
+
+# ------------------------------------------------------------
+# Slider
+# ------------------------------------------------------------
+
+sliders = [
+    dict(
+        active=initial_index,
+        yanchor="top",
+        y=-0.12,
+        xanchor="left",
+        x=0.08,
+        len=0.84,
+        currentvalue=dict(
+            prefix="interaction time  t = ",
+            visible=True
+        ),
+        pad=dict(b=10, t=40),
+        steps=[
+            dict(
+                args=[
+                    [frame.name],
+                    dict(
+                        frame=dict(duration=0, redraw=True),
+                        mode="immediate",
+                        transition=dict(duration=0)
+                    )
+                ],
+                label=f"{t:.1f}",
+                method="animate"
+            )
+            for frame, t in zip(frames, t_values)
+        ]
+    )
+]
+
+
+# ------------------------------------------------------------
+# Layout
+# ------------------------------------------------------------
+
+fig.update_layout(
+    sliders=sliders,
+    height=500,
+    showlegend=False,
+    plot_bgcolor="white",
+    margin=dict(l=90, r=30, t=40, b=100)
+)
+
+fig.update_xaxes(
+    title="detuning Δ",
+    range=[Delta.min(), Delta.max()],
+    showline=True,
+    linecolor="black",
+    linewidth=1,
+    mirror=True,
+    zeroline=True,
+    zerolinecolor="black",
+    zerolinewidth=1,
+    showgrid=False
+)
+
+fig.update_yaxes(
+    title="sin²(Δt/2) / (Δ/2)²",
+    range=[0, 1.05 * np.max(t_values)**2],
+    showline=True,
+    linecolor="black",
+    linewidth=1,
+    mirror=True,
+    zeroline=True,
+    zerolinecolor="black",
+    zerolinewidth=1,
+    showgrid=False
+)
+
+import plotly.io as pio
+from IPython.display import HTML, display
+
+html = pio.to_html(
+    fig,
+    full_html=False,
+    include_plotlyjs="cdn",
+    include_mathjax=False
+)
+
+display(HTML(html))
+```
+
+As the interaction time increases,
+
+- the central peak at $\Delta=0$ becomes **taller**;
+- the resonance becomes **narrower**, with a characteristic width of order
+
+  $$
+  \Delta\omega\sim\frac{1}{t}.
+  $$
+
+Thus a short interaction allows a relatively broad range of transition frequencies,
+whereas a long interaction selects frequencies increasingly close to the resonance
+condition.
+
+Notice that the peak height at exact resonance grows as $t^2$. At the same time,
+its width decreases as $1/t$. Consequently, the **area under the resonance grows
+proportionally to $t$**. This is the behavior that leads to a constant transition
+rate when we sum over a dense set of final states.
+
+
+:::: {.callout-note collapse="true" title="The second oscillating term"}
+
+The second term in the perturbation,
+
+$$
+\hat W^\dagger e^{+i\omega t},
+$$
+
+produces an integral containing
+
+$$
+e^{i(\omega_{fi}+\omega)t}.
+$$
+
+Its resonance condition is therefore
+
+$$
+\omega_{fi}+\omega=0,
+$$
+
+or
+
+$$
+\boxed{
+E_f=E_i-\hbar\omega.
+}
+$$
+
+In the atom--radiation problem, the two signs correspond to processes in which the atomic energy increases or decreases by one photon energy $\hbar\omega$.
+
+::::
+
+
+# 5. From Transition Probability to Fermi's Golden Rule
+
+For a single discrete final state, the finite-time probability above is the appropriate first-order result.
+
+In many applications, however, the system can make a transition into a **large number of closely spaced final states**. Examples include ionization into a continuum, scattering processes, and emission into the many available modes of the electromagnetic field.
+
+Let
+
+$$
+\rho(E_f)
+$$
+
+be the **density of final states**, defined so that
+
+$$
+\rho(E_f)\,dE_f
+$$
+
+is the number of available final states in an energy interval $dE_f$.
+
+The total transition probability is obtained by summing over the possible final states. For a dense spectrum, the sum becomes an integral,
+
+$$
+\sum_f
+\longrightarrow
+\int \rho(E_f)\,dE_f.
+$$
+
+
+## 5.1 The long-time limit
+
+The central mathematical result is
+
+$$
+\boxed{
+\lim_{t\rightarrow\infty}
+\frac{1}{t}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}
+=
+2\pi\delta(\Delta).
+}
+$$
+
+Thus, for long interaction times, the finite-width resonance becomes a delta function.
+
+For the term describing an energy increase by $\hbar\omega$,
+
+$$
+\Delta
+=
+\frac{E_f-E_i}{\hbar}
+-
+\omega,
+$$
+
+so
+
+$$
+\delta(\Delta)
+=
+\hbar\,
+\delta(E_f-E_i-\hbar\omega).
+$$
+
+The transition probability then grows linearly with time,
+
+$$
+P(t)\simeq \Gamma t,
+$$
+
+and the coefficient of $t$ defines a transition rate.
+
+
+## 5.2 Fermi's Golden Rule
+
+Carrying out the integral over final states gives
+
+:::: {.callout-tip title="Fermi's Golden Rule"}
+
+$$
+\boxed{
+\Gamma_{i\rightarrow f}
+=
+\frac{2\pi}{\hbar}
+\left|
+\mel{f}{\hat W}{i}
+\right|^2
+\rho(E_f),
+}
+$$
+
+with the final-state energy fixed by energy conservation. For absorption from a harmonic perturbation,
+
+$$
+\boxed{
+E_f=E_i+\hbar\omega.
+}
+$$
+
+::::
+
+Equivalently, before performing the final-state energy integral, the rate can be written as
+
+$$
+\boxed{
+d\Gamma
+=
+\frac{2\pi}{\hbar}
+\left|
+\mel{f}{\hat W}{i}
+\right|^2
+\delta(E_f-E_i-\hbar\omega)
+\,dN_f,
+}
+$$
+
+where $dN_f$ represents the available final states.
+
+The Golden Rule therefore contains three pieces of physics:
+
+1. **Coupling strength**
+   $$
+   \left|
+   \mel{f}{\hat W}{i}
+   \right|^2
+   $$
+   tells us how strongly the perturbation connects the two states.
+
+2. **Energy conservation**
+   $$
+   E_f=E_i+\hbar\omega
+   $$
+   selects the resonant final states.
+
+3. **Availability of final states**
+   $$
+   \rho(E_f)
+   $$
+   tells us how many states are available at the required energy.
+
+A large matrix element does not by itself guarantee a large rate: there must also be accessible final states at the appropriate energy.
+
+
+:::: {.callout-note collapse="true" title="Derivation of Fermi's Golden Rule"}
+
+For one final state,
+
+$$
+P_{i\rightarrow f}(t)
+=
+\frac{|W_{fi}|^2}{\hbar^2}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}.
+$$
+
+If the final states are densely spaced, sum over them:
+
+$$
+P_{\mathrm{tot}}(t)
+=
+\int
+\rho(E_f)
+\frac{|W_{fi}|^2}{\hbar^2}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}
+\,dE_f.
+$$
+
+For sufficiently long times, the resonance is sharply localized near
+
+$$
+E_f=E_i+\hbar\omega.
+$$
+
+If $\rho(E_f)$ and $|W_{fi}|^2$ vary slowly across this narrow resonance, they can be evaluated at the resonant energy and taken outside the integral.
+
+Using
+
+$$
+\lim_{t\rightarrow\infty}
+\frac{1}{t}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}
+=
+2\pi\delta(\Delta),
+$$
+
+we obtain
+
+$$
+\frac{P_{\mathrm{tot}}(t)}{t}
+=
+\frac{2\pi}{\hbar^2}
+|W_{fi}|^2
+\int
+\rho(E_f)
+\delta(\Delta)
+\,dE_f.
+$$
+
+Since
+
+$$
+\Delta
+=
+\frac{E_f-E_i-\hbar\omega}{\hbar},
+$$
+
+we have
+
+$$
+\delta(\Delta)
+=
+\hbar
+\delta(E_f-E_i-\hbar\omega).
+$$
+
+Therefore,
+
+$$
+\Gamma
+=
+\lim_{t\rightarrow\infty}
+\frac{P_{\mathrm{tot}}(t)}{t}
+=
+\frac{2\pi}{\hbar}
+|W_{fi}|^2
+\rho(E_i+\hbar\omega).
+$$
+
+Thus,
+
+$$
+\boxed{
+\Gamma
+=
+\frac{2\pi}{\hbar}
+|W_{fi}|^2
+\rho(E_f),
+}
+$$
+
+evaluated at the energy-conserving final energy.
+
+::::
+
+
+# 6. When Does the Golden Rule Apply?
+
+Fermi's Golden Rule is extremely useful, but it is an approximation.
+
+The assumptions made above include:
+
+- the perturbation is sufficiently weak that first-order perturbation theory remains valid;
+- the system remains predominantly in the initial state during the time interval considered;
+- the final states form a dense spectrum or continuum, so that a sum over states can be replaced by an integral;
+- the matrix element and density of states do not vary strongly across the narrow resonance;
+- the interaction time is long enough that a transition **rate** is meaningful.
+
+:::: {.callout-important title="A discrete two-level system is different"}
+
+For one isolated final state, the delta-function form of Fermi's Golden Rule should not be interpreted as a literal infinite transition rate at exact resonance.
+
+The finite-time first-order result is
+
+$$
+P_{i\rightarrow f}(t)
+=
+\frac{|W_{fi}|^2}{\hbar^2}
+\frac{\sin^2(\Delta t/2)}
+{(\Delta/2)^2}.
+$$
+
+At exact resonance, first-order perturbation theory predicts
+
+$$
+P_{i\rightarrow f}(t)
+\approx
+\frac{|W_{fi}|^2}{\hbar^2}t^2,
+$$
+
+which eventually becomes inconsistent with the requirement that a probability cannot exceed one.
+
+The problem is not quantum mechanics; it is the breakdown of first-order perturbation theory.
+
+A coherently driven isolated two-level system instead exhibits **Rabi oscillations**, which will be discussed later in the section on laser--atom interactions.
+
+::::
+
+
+# 7. Connection to Atomic Transitions
+
+The formalism developed here is general. To apply it to absorption or emission of radiation, we must identify the perturbation that couples an atom to the electromagnetic field.
+
+For electric-dipole transitions, this interaction can be expressed in terms of the atomic dipole operator and the electric field. The transition rate then contains a matrix element of the form
+
+$$
+\mel{f}{
+\hat{\vec d}\cdot\vec E
+}{i},
+$$
+
+or, equivalently, a dipole matrix element involving the position operator,
+
+$$
+\mel{f}{\hat{\vec r}}{i}.
+$$
+
+Fermi's Golden Rule then tells us that the transition strength is proportional to the absolute square of this matrix element.
+
+The detailed connection between the atom--field Hamiltonian, the electric-dipole approximation, and the Einstein coefficients is developed later in
+[Dipole Matrix Elements](../mod5/dipolematrix.qmd).
+
+
+# Summary
+
+Time-dependent perturbation theory describes transitions caused by a weak time-dependent interaction.
+
+The main first-order result is
+
+$$
+\boxed{
+c_f^{(1)}(t)
+=
+\frac{1}{i\hbar}
+\int_0^t
+\mel{f}{\hat V(t')}{i}\,
+e^{i\omega_{fi}t'}\,dt'.
+}
+$$
+
+For an oscillating perturbation, the transition probability is resonantly enhanced when the perturbation frequency matches the energy separation between the states.
+
+When transitions occur into a dense set of final states, the long-time limit leads to Fermi's Golden Rule,
+
+$$
+\boxed{
+\Gamma
+=
+\frac{2\pi}{\hbar}
+\left|
+\mel{f}{\hat W}{i}
+\right|^2
+\rho(E_f),
+}
+$$
+
+evaluated at the energy-conserving final energy.
+
+The central physical message is
+
+$$
+\boxed{
+\text{transition rate}
+\;\propto\;
+\text{coupling strength}
+\times
+\text{available final states}.
+}
+$$
+
+
