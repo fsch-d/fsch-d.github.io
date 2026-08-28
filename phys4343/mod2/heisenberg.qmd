@@ -43,6 +43,118 @@ The specific goals for this chapter are:
 8. Apply the uncertainty principle to position and momentum.
 9. Preview the commutation relations of angular momentum.
 
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+The commutator of two operators is defined as
+
+$$
+\boxed{
+[\hat A,\hat B]
+=
+\hat A\hat B-\hat B\hat A.
+}
+$$
+
+Two observables are compatible if their operators commute,
+
+$$
+\boxed{
+[\hat A,\hat B]=0.
+}
+$$
+
+For the Hermitian operators considered here, commuting observables can be described using a common set of eigenstates.
+
+A set of mutually commuting observables whose eigenvalues uniquely specify a basis state is called a **complete set of commuting observables (CSCO)**.
+
+For two observables $\hat A$ and $\hat B$, the general Heisenberg uncertainty relation is
+
+$$
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\left\langle
+[\hat A,\hat B]
+\right\rangle
+\right|.
+}
+$$
+
+Position and momentum satisfy the canonical commutation relation
+
+$$
+\boxed{
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij}.
+}
+$$
+
+In particular,
+
+$$
+\boxed{
+[\hat x,\hat p_x]=i\hbar,
+}
+$$
+
+which gives the position--momentum uncertainty relation
+
+$$
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+$$
+
+The Cartesian components of angular momentum do not commute. For example,
+
+$$
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z,
+}
+$$
+
+with the corresponding cyclic relations.
+
+However,
+
+$$
+\boxed{
+[\hat{\mathbf L}^2,\hat L_i]=0,
+}
+$$
+
+so the magnitude of the angular momentum and one chosen component can be specified simultaneously.
+
+::::
+
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- successive measurements of different observables can depend on the order in which they are performed because a quantum measurement generally changes the state;
+- commuting observables are **compatible**: they can be assigned simultaneous definite values in a common eigenstate;
+- noncommuting observables are generally **incompatible**, and a complete common eigenbasis does not exist;
+- a CSCO is needed when one observable alone does not uniquely identify the quantum state because of degeneracy;
+- the uncertainty $\sigma_A$ describes the statistical spread of possible outcomes of repeated measurements of $A$ on identically prepared systems;
+- the Heisenberg uncertainty principle connects the possible simultaneous uncertainties of two observables to the commutator of their operators;
+- a nonzero commutator does not necessarily imply a nonzero lower bound from the Robertson relation in every state, because the bound contains the state-dependent expectation value $\langle[\hat A,\hat B]\rangle$;
+- the position--momentum uncertainty relation describes a limitation on the quantum state itself, not merely experimental error or disturbance caused by imperfect measurements;
+- for angular momentum, the noncommutativity of the Cartesian components explains why only the magnitude and one chosen component can be specified simultaneously.
+
+The derivations of the commutator identities, the general uncertainty relation, and the angular-momentum commutators are included to show **where these results come from**, but the intermediate algebra is not intended as material to memorize.
+
+The stronger Schrödinger--Robertson uncertainty relation is included as additional detail and is not part of the core knowledge expected for this course.
+
+::::
+
 
 # 1. Successive Measurements and Compatibility
 
@@ -744,7 +856,7 @@ follows immediately by dropping the second, non-negative term.
 
 # 4. Position and Momentum
 
-## 4.1 The canonical commutation relation
+## 4.1 The canonical commutation relation {#sec-canonical-commutation}
 
 The position and momentum operators satisfy
 

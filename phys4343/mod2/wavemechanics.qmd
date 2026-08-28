@@ -17,6 +17,126 @@ The specific goals for this chapter are:
 5. Introduce the **de Broglie relations** between momentum and wave vector and between energy and frequency.
 6. Motivate the **Schrödinger equation** and its description of the time evolution of a quantum state.
 
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+A harmonic plane wave can be written in complex form as
+
+$$
+\psi(\vec r,t)
+=
+A e^{i(\vec k\cdot\vec r-\omega t+\phi)},
+$$
+
+with
+
+$$
+k=\frac{2\pi}{\lambda},
+\qquad
+\omega=2\pi f.
+$$
+
+Quantum-mechanical amplitudes obey the **superposition principle**,
+
+$$
+\psi=\psi_1+\psi_2,
+$$
+
+and the measurable position probability density is given by the **Born rule**,
+
+$$
+\boxed{
+p(\vec r,t)=|\psi(\vec r,t)|^2.
+}
+$$
+
+For a normalizable state,
+
+$$
+\boxed{
+\int_{\mathbb R^3}|\psi(\vec r,t)|^2\,d^3r=1.
+}
+$$
+
+Matter-wave quantities are related to particle quantities by the de Broglie relations
+
+$$
+\boxed{
+\vec p=\hbar\vec k,
+\qquad
+E=\hbar\omega.
+}
+$$
+
+In position representation, the momentum operator is
+
+$$
+\boxed{
+\hat{\vec p}=-i\hbar\vec\nabla.
+}
+$$
+
+The time evolution of a nonrelativistic quantum state is governed by the Schrödinger equation,
+
+$$
+\boxed{
+i\hbar\frac{\partial}{\partial t}\psi
+=
+\hat H\psi.
+}
+$$
+
+For a particle in a potential $V(\vec r,t)$,
+
+$$
+\boxed{
+\hat H
+=
+-\frac{\hbar^2}{2m}\nabla^2+V.
+}
+$$
+
+If the Hamiltonian has no explicit time dependence, states of definite energy satisfy
+
+$$
+\boxed{
+\hat H\phi=E\phi
+}
+$$
+
+and have time dependence
+
+$$
+\psi(\vec r,t)
+=
+\phi(\vec r)e^{-iEt/\hbar}.
+$$
+
+::::
+
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- electrons are detected at localized positions, while repeated measurements can produce diffraction and interference patterns;
+- a quantum state is described by a generally complex **probability amplitude** $\psi$, while $|\psi|^2$ gives the probability density;
+- probability amplitudes add before taking the absolute square, so that interference arises from the cross terms in
+
+  $$
+  |\psi_1+\psi_2|^2;
+  $$
+
+- the amount of interference depends on the **relative phase** between the contributing amplitudes;
+- the de Broglie relations connect the wave description $(\omega,\vec k)$ with the particle quantities $(E,\vec p)$;
+- an ideal plane wave has a precisely defined momentum but is completely delocalized, whereas a localized state must be formed from a superposition of different wave vectors;
+- the differential forms of the energy and momentum operators can be motivated by their action on plane waves;
+- the Schrödinger equation is the fundamental dynamical equation of nonrelativistic quantum mechanics; the argument given in this chapter motivates its form but does not derive it from classical mechanics;
+- an energy eigenstate evolves only by a time-dependent phase factor, so its position probability density is time independent.
+
+The detailed interference derivations, Fourier-transform formulas, and Gaussian wave-packet example are included to develop these ideas, but the intermediate algebra is not intended as material to memorize.
+
+::::
+
 ---
 
 # 1. Electron Interference and Matter Waves
@@ -64,7 +184,7 @@ y_min, y_max = -6, 6
 # Interference pattern
 # ------------------------------------------------------------
 period = 4.0          # fringe spacing in x
-visibility = 0.90     # 0 = flat, 1 = maximum contrast
+visibility = 0.85     # 0 = flat, 1 = maximum contrast
 phase = 0.0           # phase shift
 
 # ------------------------------------------------------------

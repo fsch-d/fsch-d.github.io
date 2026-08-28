@@ -4115,14 +4115,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Variational Method</span></a>
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4136,7 +4136,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Basics)</span></a>
+ <span class="menu-text">Hydrogen Atom: Wave Functions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4159,7 +4159,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Details)</span></a>
+ <span class="menu-text">Hydrogen Atom: Shifts and Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4423,7 +4423,7 @@ margin-bottom: 0.25em;
   </ul></li>
   <li><a href="#position-and-momentum" id="toc-position-and-momentum" class="nav-link" data-scroll-target="#position-and-momentum">4. Position and Momentum</a>
   <ul class="collapse">
-  <li><a href="#the-canonical-commutation-relation" id="toc-the-canonical-commutation-relation" class="nav-link" data-scroll-target="#the-canonical-commutation-relation">4.1 The canonical commutation relation</a></li>
+  <li><a href="#sec-canonical-commutation" id="toc-sec-canonical-commutation" class="nav-link" data-scroll-target="#sec-canonical-commutation">4.1 The canonical commutation relation</a></li>
   <li><a href="#the-heisenberg-positionmomentum-uncertainty-principle" id="toc-the-heisenberg-positionmomentum-uncertainty-principle" class="nav-link" data-scroll-target="#the-heisenberg-positionmomentum-uncertainty-principle">4.2 The Heisenberg position–momentum uncertainty principle</a></li>
   <li><a href="#what-the-uncertainty-principle-means" id="toc-what-the-uncertainty-principle-means" class="nav-link" data-scroll-target="#what-the-uncertainty-principle-means">4.3 What the uncertainty principle means</a></li>
   </ul></li>
@@ -4493,6 +4493,117 @@ margin-bottom: 0.25em;
 <li>Apply the uncertainty principle to position and momentum.</li>
 <li>Preview the commutation relations of angular momentum.</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The commutator of two operators is defined as</p>
+<p><span class="math display">\[
+\boxed{
+[\hat A,\hat B]
+=
+\hat A\hat B-\hat B\hat A.
+}
+\]</span></p>
+<p>Two observables are compatible if their operators commute,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat A,\hat B]=0.
+}
+\]</span></p>
+<p>For the Hermitian operators considered here, commuting observables can be described using a common set of eigenstates.</p>
+<p>A set of mutually commuting observables whose eigenvalues uniquely specify a basis state is called a <strong>complete set of commuting observables (CSCO)</strong>.</p>
+<p>For two observables <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(\hat B\)</span>, the general Heisenberg uncertainty relation is</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A\sigma_B
+\geq
+\frac12
+\left|
+\left\langle
+[\hat A,\hat B]
+\right\rangle
+\right|.
+}
+\]</span></p>
+<p>Position and momentum satisfy the canonical commutation relation</p>
+<p><span class="math display">\[
+\boxed{
+[\hat r_i,\hat p_j]
+=
+i\hbar\delta_{ij}.
+}
+\]</span></p>
+<p>In particular,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat x,\hat p_x]=i\hbar,
+}
+\]</span></p>
+<p>which gives the position–momentum uncertainty relation</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_x\sigma_{p_x}
+\geq
+\frac{\hbar}{2}.
+}
+\]</span></p>
+<p>The Cartesian components of angular momentum do not commute. For example,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat L_x,\hat L_y]
+=
+i\hbar\hat L_z,
+}
+\]</span></p>
+<p>with the corresponding cyclic relations.</p>
+<p>However,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat{\mathbf L}^2,\hat L_i]=0,
+}
+\]</span></p>
+<p>so the magnitude of the angular momentum and one chosen component can be specified simultaneously.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You should understand that</p>
+<ul>
+<li>successive measurements of different observables can depend on the order in which they are performed because a quantum measurement generally changes the state;</li>
+<li>commuting observables are <strong>compatible</strong>: they can be assigned simultaneous definite values in a common eigenstate;</li>
+<li>noncommuting observables are generally <strong>incompatible</strong>, and a complete common eigenbasis does not exist;</li>
+<li>a CSCO is needed when one observable alone does not uniquely identify the quantum state because of degeneracy;</li>
+<li>the uncertainty <span class="math inline">\(\sigma_A\)</span> describes the statistical spread of possible outcomes of repeated measurements of <span class="math inline">\(A\)</span> on identically prepared systems;</li>
+<li>the Heisenberg uncertainty principle connects the possible simultaneous uncertainties of two observables to the commutator of their operators;</li>
+<li>a nonzero commutator does not necessarily imply a nonzero lower bound from the Robertson relation in every state, because the bound contains the state-dependent expectation value <span class="math inline">\(\langle[\hat A,\hat B]\rangle\)</span>;</li>
+<li>the position–momentum uncertainty relation describes a limitation on the quantum state itself, not merely experimental error or disturbance caused by imperfect measurements;</li>
+<li>for angular momentum, the noncommutativity of the Cartesian components explains why only the magnitude and one chosen component can be specified simultaneously.</li>
+</ul>
+<p>The derivations of the commutator identities, the general uncertainty relation, and the angular-momentum commutators are included to show <strong>where these results come from</strong>, but the intermediate algebra is not intended as material to memorize.</p>
+<p>The stronger Schrödinger–Robertson uncertainty relation is included as additional detail and is not part of the core knowledge expected for this course.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="successive-measurements-and-compatibility" class="level1">
 <h1>1. Successive Measurements and Compatibility</h1>
@@ -4657,7 +4768,7 @@ b\left\lvert a,b \right\rangle.
 </tbody>
 </table>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4666,7 +4777,7 @@ b\left\lvert a,b \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Starting with</p>
 <p><span class="math display">\[
@@ -4728,7 +4839,7 @@ a\hat B\left\lvert a \right\rangle.
 \]</span></p>
 <p>Thus <span class="math inline">\(\hat B\left\lvert a \right\rangle\)</span> is itself contained in the eigenspace of <span class="math inline">\(\hat A\)</span> with eigenvalue <span class="math inline">\(a\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4737,7 +4848,7 @@ a\hat B\left\lvert a \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First consider a nondegenerate eigenvalue <span class="math inline">\(a\)</span>:</p>
 <p><span class="math display">\[
@@ -4768,7 +4879,7 @@ b\left\lvert a \right\rangle.
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4777,7 +4888,7 @@ b\left\lvert a \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For finite-dimensional Hermitian operators, simultaneous diagonalization of commuting operators is straightforward.</p>
 <p>For general unbounded operators in infinite-dimensional Hilbert spaces, domains and continuous spectra require additional mathematical care.</p>
@@ -4872,7 +4983,7 @@ b\left\lvert a \right\rangle.
 <p>is a special case of this general relation.</p>
 <p>Thus, the Heisenberg uncertainty principle is not an independent rule added to quantum mechanics. It follows naturally from the operator structure of the theory.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4881,7 +4992,7 @@ b\left\lvert a \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The following derivation gives the relation commonly called the <strong>Robertson uncertainty relation</strong>.</p>
 <p>Let</p>
@@ -5041,7 +5152,7 @@ i\langle[\hat A,\hat B]\rangle
 \]</span></p>
 <p>This does <strong>not</strong> mean that the two operators commute. It only means that this particular form of the uncertainty relation provides no nonzero lower bound for that state.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5050,7 +5161,7 @@ i\langle[\hat A,\hat B]\rangle
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The general Heisenberg relation above contains only the commutator of the two observables.</p>
 <p>An even stronger inequality also includes correlations between them:</p>
@@ -5096,8 +5207,8 @@ i\langle[\hat A,\hat B]\rangle
 </section>
 <section id="position-and-momentum" class="level1">
 <h1>4. Position and Momentum</h1>
-<section id="the-canonical-commutation-relation" class="level2">
-<h2 class="anchored" data-anchor-id="the-canonical-commutation-relation">4.1 The canonical commutation relation</h2>
+<section id="sec-canonical-commutation" class="level2">
+<h2 class="anchored" data-anchor-id="sec-canonical-commutation">4.1 The canonical commutation relation</h2>
 <p>The position and momentum operators satisfy</p>
 <p><span class="math display">\[
 \boxed{
@@ -5124,7 +5235,7 @@ i\hbar\delta_{ij},
 [\hat x,\hat p_x]=i\hbar.
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5133,7 +5244,7 @@ i\hbar\delta_{ij},
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The momentum operator in the position representation is</p>
 <p><span class="math display">\[
@@ -5284,7 +5395,7 @@ i\hbar\hat L_y.
 }
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5293,7 +5404,7 @@ i\hbar\hat L_y.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For orbital angular momentum,</p>
 <p><span class="math display">\[
@@ -5395,7 +5506,7 @@ i\hbar\hat L_z.
 \]</span></p>
 <p>This is why angular-momentum states can be labeled by two quantum numbers.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5404,7 +5515,7 @@ i\hbar\hat L_z.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using</p>
 <p><span class="math display">\[

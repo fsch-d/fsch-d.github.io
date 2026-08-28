@@ -35,15 +35,15 @@ website:
           - mod2/amcoupling.qmd
           - mod2/qosc.qmd
           - mod2/perturb.qmd
-          - mod2/exchange.qmd
           - mod2/variational.qmd
+          - mod2/exchange.qmd
           - mod4/relwaves.qmd            
-      - section: "Hydrogen (Basics)"
+      - section: "Hydrogen Atom: Wave Functions"
         href: mod3/index.qmd
         contents:
           - mod3/angmom.qmd
           - mod3/hydrogen.qmd
-      - section: "Hydrogen (Details)"
+      - section: "Hydrogen Atom: Shifts and Interactions"
         href: mod4/index.qmd
         contents:
           - mod4/spin.qmd

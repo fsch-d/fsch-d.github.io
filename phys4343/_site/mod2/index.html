@@ -4115,14 +4115,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Variational Method</span></a>
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4136,7 +4136,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Basics)</span></a>
+ <span class="menu-text">Hydrogen Atom: Wave Functions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4159,7 +4159,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Details)</span></a>
+ <span class="menu-text">Hydrogen Atom: Shifts and Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4401,10 +4401,11 @@ margin-bottom: 0.25em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-quantum-mechanics" id="toc-why-quantum-mechanics" class="nav-link active" data-scroll-target="#why-quantum-mechanics">Why Quantum Mechanics?</a></li>
-  <li><a href="#scope-of-this-section" id="toc-scope-of-this-section" class="nav-link" data-scroll-target="#scope-of-this-section">Scope of this Section</a></li>
-  <li><a href="#level-and-assumptions" id="toc-level-and-assumptions" class="nav-link" data-scroll-target="#level-and-assumptions">Level and Assumptions</a></li>
-  <li><a href="#a-final-remark" id="toc-a-final-remark" class="nav-link" data-scroll-target="#a-final-remark">A Final Remark</a></li>
+  <li><a href="#scope-of-this-section" id="toc-scope-of-this-section" class="nav-link active" data-scroll-target="#scope-of-this-section">Scope of This Section</a></li>
+  <li><a href="#i.-required-fundamentals" id="toc-i.-required-fundamentals" class="nav-link" data-scroll-target="#i.-required-fundamentals">I. Required Fundamentals</a></li>
+  <li><a href="#ii.-important-quantum-systems" id="toc-ii.-important-quantum-systems" class="nav-link" data-scroll-target="#ii.-important-quantum-systems">II. Important Quantum Systems</a></li>
+  <li><a href="#iii.-approximation-methods" id="toc-iii.-approximation-methods" class="nav-link" data-scroll-target="#iii.-approximation-methods">III. Approximation Methods</a></li>
+  <li><a href="#iv.-advanced-concepts-and-reference-material" id="toc-iv.-advanced-concepts-and-reference-material" class="nav-link" data-scroll-target="#iv.-advanced-concepts-and-reference-material">IV. Advanced Concepts and Reference Material</a></li>
   </ul>
 </nav>
     </div>
@@ -4436,42 +4437,45 @@ margin-bottom: 0.25em;
 </header>
 
 
-<section id="why-quantum-mechanics" class="level2">
-<h2 class="anchored" data-anchor-id="why-quantum-mechanics">Why Quantum Mechanics?</h2>
-<p>Atomic, molecular, and optical (AMO) physics is <em>built</em> on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.</p>
-<hr>
-</section>
 <section id="scope-of-this-section" class="level2">
-<h2 class="anchored" data-anchor-id="scope-of-this-section">Scope of this Section</h2>
-<p>This section collects the <strong>quantum mechanics background</strong> needed for the rest of the course. It is <strong>not</strong> a complete QM class, but rather a streamlined toolkit. We will revisit some basic principles and then highlight those aspects most directly relevant for AMO physics.</p>
-<p>Topics covered here include:</p>
-<ul>
-<li>Wave mechanics and the Schrödinger equation<br>
-</li>
-<li>Dirac’s bra–ket notation<br>
-</li>
-<li>The Heisenberg uncertainty principle<br>
-</li>
-<li>Perturbation theory<br>
-</li>
-<li>Relativistic wave equations (as a first step toward fine structure)</li>
-</ul>
-<hr>
+<h2 class="anchored" data-anchor-id="scope-of-this-section">Scope of This Section</h2>
+<p>Atomic, molecular, and optical physics is built on quantum mechanics. This section collects the quantum-mechanical background needed throughout the course.</p>
+<p>It is <strong>not necessary to read all pages in this section before continuing with atomic physics</strong>. The first group provides the required fundamentals; the remaining pages introduce particular systems, approximation methods, or more advanced concepts that can be studied when they become relevant.</p>
+<p>Some of the notes include derivations and mathematical details that go beyond what you are expected to retain. Where appropriate, the <strong>Core Knowledge — Know</strong> and <strong>Working Knowledge — Understand</strong> boxes identify the main takeaways and help distinguish them from additional detail.</p>
 </section>
-<section id="level-and-assumptions" class="level2">
-<h2 class="anchored" data-anchor-id="level-and-assumptions">Level and Assumptions</h2>
-<p>These notes are <strong>introductory</strong>. We will use quantum mechanics throughout, but the aim is to supply just enough formalism to follow the physics.</p>
-<ul>
-<li>If you have had a previous QM course: this will feel like a <strong>refresher</strong>.<br>
-</li>
-<li>If you have not: this section contains <strong>short introductions</strong> to the essential concepts and techniques.<br>
-These are by no means comprehensive, but they should be sufficient background for the AMO material.</li>
-</ul>
-<hr>
+<section id="i.-required-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="i.-required-fundamentals">I. Required Fundamentals</h2>
+<p>These pages should be read first and provide the basic language used throughout the remainder of the course.</p>
+<ol type="1">
+<li><a href="../mod2/wavemechanics.html"><strong>Wave Mechanics</strong></a> — Matter waves, interference, the Born rule, de Broglie relations, and the Schrödinger equation.</li>
+<li><a href="../mod2/braket.html"><strong>States and Operators in Quantum Mechanics</strong></a> — Hilbert space, Dirac notation, operators, eigenstates, and observables.</li>
+<li><a href="../mod2/measurement.html"><strong>Quantum Measurement and the Measurement Problem</strong></a> — Measurement probabilities, state reduction, and the operational consequences of quantum measurement.</li>
+<li><a href="../mod2/heisenberg.html"><strong>Commutators and the Heisenberg Uncertainty Principle</strong></a> — Compatible observables, commutators, and quantum uncertainty.</li>
+</ol>
 </section>
-<section id="a-final-remark" class="level2">
-<h2 class="anchored" data-anchor-id="a-final-remark">A Final Remark</h2>
-<p>Quantum mechanics is often seen as abstract or counterintuitive. Here, it becomes <strong>a practical tool</strong>: the language in which atoms, molecules, and light must be described. With this section, you should feel prepared to tackle the rich structure of hydrogen, the origins of spectra, and the foundations of modern AMO physics.</p>
+<section id="ii.-important-quantum-systems" class="level2">
+<h2 class="anchored" data-anchor-id="ii.-important-quantum-systems">II. Important Quantum Systems</h2>
+<p>These chapters apply the general formalism to systems that occur repeatedly in AMO physics.</p>
+<ol type="1">
+<li><a href="../mod2/amcoupling.html"><strong>Angular Momenta and Their Couplings</strong></a> — Angular-momentum eigenvalues, quantum numbers, and coupling.</li>
+<li><a href="../mod2/qosc.html"><strong>The One-Dimensional Quantum Harmonic Oscillator</strong></a> — Ladder operators, oscillator states, and coherent states. This chapter can be used as a reference when the harmonic oscillator appears later.</li>
+</ol>
+</section>
+<section id="iii.-approximation-methods" class="level2">
+<h2 class="anchored" data-anchor-id="iii.-approximation-methods">III. Approximation Methods</h2>
+<p>These methods are important when a quantum problem cannot be solved exactly and can be studied when they are first needed.</p>
+<ol type="1">
+<li><a href="../mod2/perturb.html"><strong>Time-Independent Perturbation Theory</strong></a> — Corrections to known energies and states caused by weak interactions.</li>
+<li><a href="../mod2/variational.html"><strong>The Variational Method</strong></a> — Approximate energies and states obtained from trial wave functions.</li>
+</ol>
+</section>
+<section id="iv.-advanced-concepts-and-reference-material" class="level2">
+<h2 class="anchored" data-anchor-id="iv.-advanced-concepts-and-reference-material">IV. Advanced Concepts and Reference Material</h2>
+<p>These pages introduce concepts needed for particular later topics but are not prerequisites for the first atomic-physics chapters.</p>
+<ol type="1">
+<li><a href="../mod2/exchange.html"><strong>Exchange Interaction: Fermions and Bosons</strong></a> — Indistinguishable particles, exchange symmetry, and the Pauli principle; especially relevant for many-electron atoms.</li>
+<li><a href="../mod4/relwaves.html"><strong>Relativistic Wave Equations and the Dirac Equation</strong></a> — Relativistic quantum mechanics and the Dirac equation; mainly background for spin and relativistic effects in atoms.</li>
+</ol>
 
 
 </section>

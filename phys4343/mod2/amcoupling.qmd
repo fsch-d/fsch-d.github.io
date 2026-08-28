@@ -5,183 +5,1155 @@ author: Daniel Fischer
 
 # Introduction
 
-This chapter provides an overview of the fundamental rules governing **angular momentum in quantum mechanics** and their **coupling schemes**. More specific applications — such as spin–orbit coupling, hyperfine structure, and total angular momentum in atoms — are discussed in other chapters of these notes (links to follow).
+Angular momentum is one of the central structures of quantum mechanics and appears throughout atomic physics. Orbital angular momentum, electron spin, total electronic angular momentum, and nuclear spin all obey the same algebra, even though their physical origins can be quite different.
 
-The goal here is to summarize the **general principles** that apply to *any* type of quantum-mechanical angular momentum.
+The aim of this chapter is therefore to develop the **general quantum-mechanical rules of angular momentum** before applying them to specific atomic systems. We begin with the commutation relations, use ladder operators as an algebraic tool to derive the allowed eigenvalues, and then discuss how two angular momenta are coupled.
 
----
+Later chapters will specialize these results to orbital angular momentum and hydrogen wave functions, spin--orbit coupling, hyperfine structure, and spectroscopic transitions.
 
-In the following, we will work with angular momentum vectors such as $\vec{j}$, or in the case of coupled systems, $\vec{J}$, $\vec{j}_1$ and $\vec{j}_2$. Each $\vec{j}$ can represent any type of angular momentum — **orbital** $(\ell)$, **spin** $(s)$, or **total** $(J, F, \dots)$ — whether it takes **integer** or **half-integer** values.
+The specific goals for this chapter are:
 
+1. Introduce the angular-momentum operators and their commutation relations.
+2. Identify the observables that can be specified simultaneously for an angular-momentum state.
+3. Use ladder operators to derive the allowed eigenvalues of $\hat j^2$ and $\hat j_z$ and the corresponding quantum numbers $j$ and $m$.
+4. Determine the allowed values of the total angular momentum obtained by coupling two angular momenta.
+5. Distinguish between coupled and uncoupled angular-momentum bases and introduce Clebsch–Gordan coefficients as the transformation between them.
 
-> **In short:** This section focuses on the *rules and algebra* of angular momenta. Later sections will show how these rules are applied in specific physical contexts.
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
 
----
-
-# 1. Eigenvalue Relations
-
-Angular momentum in quantum mechanics is represented by an **operator vector**
-
-$$
-\hat{\vec{j}} = (\hat{j}_x,\, \hat{j}_y,\, \hat{j}_z),
-$$
-
-whose components satisfy the **angular momentum commutation relations**
+For any angular momentum operator $\hat{\vec j}=(\hat j_x,\hat j_y,\hat j_z)$,
 
 $$
-[\hat{j}_x, \hat{j}_y] = i\hbar\, \hat{j}_z, \qquad
-[\hat{j}_y, \hat{j}_z] = i\hbar\, \hat{j}_x, \qquad
-[\hat{j}_z, \hat{j}_x] = i\hbar\, \hat{j}_y.
+[\hat j_i,\hat j_j]=i\hbar\,\epsilon_{ijk}\hat j_k,
 $$
 
----
-
-## 1.1 The Operators $\hat{j}^2$ and $\hat{j}_z$
-
-From these relations we define two particularly important operators:
-
-- The **total angular momentum operator**
-
-  $$
-  \hat{j}^2 = \hat{j}_x^2 + \hat{j}_y^2 + \hat{j}_z^2,
-  $$
-
-- and the **$z$-component operator**
-
-  $$
-  \hat{j}_z.
-  $$
-
-These two operators **commute**,
+or explicitly,
 
 $$
-[\hat{j}^2, \hat{j}_z] = 0,
+[\hat j_x,\hat j_y]=i\hbar\hat j_z,
+\qquad
+[\hat j_y,\hat j_z]=i\hbar\hat j_x,
+\qquad
+[\hat j_z,\hat j_x]=i\hbar\hat j_y.
 $$
 
-which means they can be **simultaneously diagonalized**. Consequently, the eigenstates of angular momentum are characterized by two quantum numbers, $j$ and $m_j$, as we will see in the following section.
-
----
-
-## 1.2 Eigenvalue Equations
-
-The eigenvalue relations are
+With
 
 $$
-\hat{j}^2 |j, m_j\rangle = \hbar^2\, j(j+1)\, |j, m_j\rangle,
+\hat j^2=\hat j_x^2+\hat j_y^2+\hat j_z^2,
+$$
+
+we have
+
+$$
+[\hat j^2,\hat j_z]=0,
+$$
+
+and the simultaneous eigenstates $|j,m_j\rangle$ satisfy
+
+$$
+\boxed{\hat j^2|j,m_j\rangle=\hbar^2j(j+1)|j,m_j\rangle}
+$$
+
+and
+
+$$
+\boxed{\hat j_z|j,m_j\rangle=\hbar m_j|j,m_j\rangle}.
+$$
+
+The allowed quantum numbers are
+
+$$
+j=0,\frac12,1,\frac32,\ldots,
+\qquad
+m_j=-j,-j+1,\ldots,j,
+$$
+
+so a given $j$ has $2j+1$ magnetic substates.
+
+For two angular momenta,
+
+$$
+\boxed{\hat{\vec J}=\hat{\vec j}_1+\hat{\vec j}_2},
+$$
+
+with
+
+$$
+\boxed{J=|j_1-j_2|,|j_1-j_2|+1,\ldots,j_1+j_2}
+$$
+
+and
+
+$$
+\boxed{M=m_1+m_2}.
+$$
+
+Clebsch--Gordan coefficients connect the uncoupled basis
+$|j_1,m_1\rangle|j_2,m_2\rangle$ with the coupled basis
+$|j_1,j_2;J,M\rangle$.
+
+::::
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- $\hat j^2$ and one component, conventionally $\hat j_z$, can be specified simultaneously, whereas different Cartesian components of angular momentum generally cannot;
+- $j$ determines the magnitude of the angular momentum and $m_j$ its projection on the chosen quantization axis;
+- general quantum-mechanical angular momentum allows integer and half-integer $j$, while orbital angular momentum will later be restricted to integer values by its spatial realization;
+- when two angular momenta are coupled, the total $J$ can take all values from $|j_1-j_2|$ to $j_1+j_2$ in steps of one;
+- the coupled and uncoupled bases describe the same physical state space, and Clebsch--Gordan coefficients are the change-of-basis coefficients between them.
+
+The derivations using rotations and ladder operators are included below to show **where these results come from**, but the intermediate algebra is not intended as material to memorize.
+
+::::
+
+# 1. Angular-Momentum Algebra
+
+Quantum-mechanical angular momentum is represented by an operator vector
+
+$$
+\hat{\vec j}=(\hat j_x,\hat j_y,\hat j_z).
+$$
+
+Its defining algebra is
+
+$$
+\boxed{[\hat j_i,\hat j_j]=i\hbar\epsilon_{ijk}\hat j_k}.
+$$
+
+where the indices $i,j,k$ denote the Cartesian directions $x,y,z$, and
+$\epsilon_{ijk}$ is the **Levi-Civita symbol**. It is $+1$ for cyclic
+permutations of $(x,y,z)$, $-1$ for anticyclic permutations, and zero
+whenever two indices are the same. Thus, for example,
+
+$$
+[\hat j_x,\hat j_y]=i\hbar\hat j_z,
+\qquad
+[\hat j_y,\hat j_z]=i\hbar\hat j_x,
+\qquad
+[\hat j_z,\hat j_x]=i\hbar\hat j_y.
+$$
+
+Reversing the order changes the sign; for example,
+
+$$
+[\hat j_y,\hat j_x]=-i\hbar\hat j_z.
+$$
+
+These relations are universal: they apply to orbital angular momentum, spin, and any total angular momentum obtained by coupling individual angular momenta.
+
+The commutation relations can be motivated in two complementary ways. The first starts from the position and momentum operators already introduced in [wave mechanics](wavemechanics.qmd) and shows explicitly that orbital angular momentum obeys this algebra. The second is more general and shows why the same algebra follows from the geometry of rotations.
+
+:::: {.callout-note collapse="true" title="Derivation 1 — From position and momentum operators"}
+
+For orbital angular momentum,
+
+$$
+\hat{\vec L}=\hat{\vec r}\times\hat{\vec p},
+$$
+
+so that
+
+$$
+\hat L_x=\hat y\hat p_z-\hat z\hat p_y,
+\qquad
+\hat L_y=\hat z\hat p_x-\hat x\hat p_z,
+\qquad
+\hat L_z=\hat x\hat p_y-\hat y\hat p_x.
+$$
+
+The [canonical commutation relation](heisenberg.qmd#sec-canonical-commutation) for position and momentum is
+
+$$
+[\hat x_i,\hat p_j]=i\hbar\delta_{ij},
+$$
+
+while different position components commute,
+
+$$
+[\hat x_i,\hat x_j]=0,
+$$
+
+and different momentum components commute,
+
+$$
+[\hat p_i,\hat p_j]=0.
+$$
+
+We now calculate $[\hat L_x,\hat L_y]$ explicitly:
+
+$$
+\begin{aligned}
+[\hat L_x,\hat L_y]
+&=[\hat y\hat p_z-\hat z\hat p_y,\,
+   \hat z\hat p_x-\hat x\hat p_z]\\
+&=[\hat y\hat p_z,\hat z\hat p_x]
+ -[\hat y\hat p_z,\hat x\hat p_z]
+ -[\hat z\hat p_y,\hat z\hat p_x]
+ +[\hat z\hat p_y,\hat x\hat p_z].
+\end{aligned}
+$$
+
+Consider the four terms separately.
+
+For the first term, $\hat y$ commutes with $\hat z$, $\hat p_x$, and $\hat p_z$, while
+$[\hat p_z,\hat z]=-i\hbar$. Therefore,
+
+$$
+\begin{aligned}
+[\hat y\hat p_z,\hat z\hat p_x]
+&=\hat y[\hat p_z,\hat z]\hat p_x\\
+&=-i\hbar\,\hat y\hat p_x.
+\end{aligned}
+$$
+
+The second term vanishes because $\hat y$, $\hat x$, and $\hat p_z$ all commute with one another:
+
+$$
+[\hat y\hat p_z,\hat x\hat p_z]=0.
+$$
+
+The third term also vanishes:
+
+$$
+[\hat z\hat p_y,\hat z\hat p_x]=0.
+$$
+
+For the final term, $\hat p_y$ commutes with $\hat x$, $\hat z$, and $\hat p_z$, while
+$[\hat z,\hat p_z]=i\hbar$. Hence,
+
+$$
+\begin{aligned}
+[\hat z\hat p_y,\hat x\hat p_z]
+&=\hat x[\hat z,\hat p_z]\hat p_y\\
+&=i\hbar\,\hat x\hat p_y.
+\end{aligned}
+$$
+
+Putting the four terms together,
+
+$$
+\begin{aligned}
+[\hat L_x,\hat L_y]
+&=i\hbar(\hat x\hat p_y-\hat y\hat p_x)\\
+&=i\hbar\hat L_z.
+\end{aligned}
+$$
+
+The other two relations follow by cyclic permutation:
+
+$$
+[\hat L_y,\hat L_z]=i\hbar\hat L_x,
+\qquad
+[\hat L_z,\hat L_x]=i\hbar\hat L_y.
+$$
+
+Thus the familiar orbital definition $\hat{\vec L}=\hat{\vec r}\times\hat{\vec p}$ provides one concrete realization of the general angular-momentum algebra.
+
+::::
+
+:::: {.callout-note collapse="true" title="Derivation 2 — Angular momentum as the generator of rotations"}
+
+The previous derivation applies specifically to **orbital** angular momentum. There is a more general reason for the same commutator algebra: angular momentum generates rotations, and rotations about different axes do not commute.
+
+## Infinitesimal rotations
+
+A rotation by a small angle $d\theta$ about an axis $\hat{\vec n}$ is represented in quantum mechanics by
+
+$$
+\hat U(\hat{\vec n},d\theta)
+\simeq
+1-\frac{i}{\hbar}d\theta\,\hat{\vec n}\cdot\hat{\vec j}.
+$$
+
+For rotations about the Cartesian axes,
+
+$$
+\hat U_x(\alpha)
+\simeq 1-\frac{i\alpha}{\hbar}\hat j_x,
+\qquad
+\hat U_y(\beta)
+\simeq 1-\frac{i\beta}{\hbar}\hat j_y.
+$$
+
+The word **generator** means precisely that $\hat j_x$ determines the first-order change of a state under a rotation about $x$, $\hat j_y$ under a rotation about $y$, and so on.
+
+## Why the order of rotations matters
+
+For small classical rotations, the corresponding rotation matrices are
+
+$$
+R_x(\alpha)\simeq
+\begin{pmatrix}
+1&0&0\\
+0&1&-\alpha\\
+0&\alpha&1
+\end{pmatrix},
+$$
+
+and
+
+$$
+R_y(\beta)\simeq
+\begin{pmatrix}
+1&0&\beta\\
+0&1&0\\
+-\beta&0&1
+\end{pmatrix}.
+$$
+
+Multiply them in the two possible orders and retain terms through order $\alpha\beta$:
+
+$$
+R_x(\alpha)R_y(\beta)
+\simeq
+\begin{pmatrix}
+1&0&\beta\\
+\alpha\beta&1&-\alpha\\
+-\beta&\alpha&1
+\end{pmatrix},
+$$
+
+whereas
+
+$$
+R_y(\beta)R_x(\alpha)
+\simeq
+\begin{pmatrix}
+1&\alpha\beta&\beta\\
+0&1&-\alpha\\
+-\beta&\alpha&1
+\end{pmatrix}.
+$$
+
+Their difference is
+
+$$
+R_xR_y-R_yR_x
+\simeq
+\alpha\beta
+\begin{pmatrix}
+0&-1&0\\
+1&0&0\\
+0&0&0
+\end{pmatrix}.
+$$
+
+But the matrix on the right is exactly the generator of an infinitesimal rotation about the $z$-axis. Indeed,
+
+$$
+R_z(\gamma)
+\simeq
+\begin{pmatrix}
+1&-\gamma&0\\
+\gamma&1&0\\
+0&0&1
+\end{pmatrix}.
+$$
+
+Thus changing the order of an infinitesimal $x$- and $y$-rotation produces, to lowest nonvanishing order, an additional rotation about $z$ of magnitude $\alpha\beta$.
+
+A simple way to visualize this is to apply the two rotations to a vector initially pointing along $x$:
+
+$$
+\vec v=(1,0,0).
+$$
+
+Rotating first about $x$ and then about $y$ gives, to lowest order,
+
+$$
+\vec v_A\simeq(1,0,-\beta),
+$$
+
+while rotating first about $y$ and then about $x$ gives
+
+$$
+\vec v_B\simeq(1,\alpha\beta,-\beta).
+$$
+
+The difference,
+
+$$
+\vec v_B-\vec v_A\simeq(0,\alpha\beta,0),
+$$
+
+is exactly what a small positive $z$-rotation by angle $\alpha\beta$ does to a vector pointing along $x$.
+
+## From the geometry to the quantum commutator
+
+Now calculate the same difference using the quantum rotation operators:
+
+$$
+\begin{aligned}
+\hat U_x(\alpha)\hat U_y(\beta)
+&\simeq
+\left(1-\frac{i\alpha}{\hbar}\hat j_x\right)
+\left(1-\frac{i\beta}{\hbar}\hat j_y\right),\\[4pt]
+\hat U_y(\beta)\hat U_x(\alpha)
+&\simeq
+\left(1-\frac{i\beta}{\hbar}\hat j_y\right)
+\left(1-\frac{i\alpha}{\hbar}\hat j_x\right).
+\end{aligned}
+$$
+
+Subtracting the two expressions, all first-order terms cancel and we obtain
+
+$$
+\hat U_x\hat U_y-\hat U_y\hat U_x
+\simeq
+-\frac{\alpha\beta}{\hbar^2}
+[\hat j_x,\hat j_y].
+$$
+
+Geometrically, the same difference corresponds to an infinitesimal rotation about $z$ through angle $\alpha\beta$:
+
+$$
+\hat U_z(\alpha\beta)-1
+\simeq
+-\frac{i\alpha\beta}{\hbar}\hat j_z.
+$$
+
+Equating the two descriptions gives
+
+$$
+-\frac{\alpha\beta}{\hbar^2}[\hat j_x,\hat j_y]
+=
+-\frac{i\alpha\beta}{\hbar}\hat j_z,
+$$
+
+and therefore
+
+$$
+\boxed{[\hat j_x,\hat j_y]=i\hbar\hat j_z}.
+$$
+
+The cyclic relations follow in the same way:
+
+$$
+[\hat j_y,\hat j_z]=i\hbar\hat j_x,
+\qquad
+[\hat j_z,\hat j_x]=i\hbar\hat j_y.
+$$
+
+This argument is more general than the orbital derivation: it does not assume $\hat{\vec j}=\hat{\vec r}\times\hat{\vec p}$. This is why spin, which has no classical orbital coordinate, nevertheless obeys exactly the same angular-momentum algebra.
+
+::::
+
+## 1.1 The operators $\hat j^2$ and $\hat j_z$
+
+Define the squared angular-momentum operator as
+
+$$
+\hat j^2=\hat j_x^2+\hat j_y^2+\hat j_z^2.
+$$
+
+An important consequence of the angular-momentum commutation relations is that
+$\hat j^2$ commutes with each component of angular momentum. In particular,
+
+$$
+[\hat j^2,\hat j_z]=0.
+$$
+
+:::: {.callout-note collapse="true" title="Derivation of $[\hat j^2,\hat j_z]=0$"}
+
+We begin by expanding the commutator:
+
+$$
+\begin{aligned}
+[\hat j^2,\hat j_z]
+&=
+[\hat j_x^2+\hat j_y^2+\hat j_z^2,\hat j_z] \\
+&=
+[\hat j_x^2,\hat j_z]
++
+[\hat j_y^2,\hat j_z]
++
+[\hat j_z^2,\hat j_z].
+\end{aligned}
+$$
+
+To evaluate the first two terms, we use the general identity
+
+$$
+[\hat A\hat B,\hat C]
+=
+\hat A[\hat B,\hat C]
++
+[\hat A,\hat C]\hat B.
+$$
+
+For $\hat A=\hat B=\hat j_x$, this gives
+
+$$
+[\hat j_x^2,\hat j_z]
+=
+\hat j_x[\hat j_x,\hat j_z]
++
+[\hat j_x,\hat j_z]\hat j_x.
+$$
+
+From the angular-momentum commutation relations,
+
+$$
+[\hat j_z,\hat j_x]=i\hbar\hat j_y,
+$$
+
+and therefore, reversing the order,
+
+$$
+[\hat j_x,\hat j_z]=-i\hbar\hat j_y.
+$$
+
+Substituting this into the previous expression gives
+
+$$
+\begin{aligned}
+[\hat j_x^2,\hat j_z]
+&=
+\hat j_x(-i\hbar\hat j_y)
++
+(-i\hbar\hat j_y)\hat j_x\\
+&=
+-i\hbar
+\left(
+\hat j_x\hat j_y+\hat j_y\hat j_x
+\right).
+\end{aligned}
+$$
+
+Now consider the second term:
+
+$$
+[\hat j_y^2,\hat j_z]
+=
+\hat j_y[\hat j_y,\hat j_z]
++
+[\hat j_y,\hat j_z]\hat j_y.
+$$
+
+Here,
+
+$$
+[\hat j_y,\hat j_z]=i\hbar\hat j_x,
+$$
+
+so
+
+$$
+\begin{aligned}
+[\hat j_y^2,\hat j_z]
+&=
+\hat j_y(i\hbar\hat j_x)
++
+(i\hbar\hat j_x)\hat j_y\\
+&=
++i\hbar
+\left(
+\hat j_y\hat j_x+\hat j_x\hat j_y
+\right).
+\end{aligned}
+$$
+
+These two contributions are equal in magnitude and opposite in sign:
+
+$$
+[\hat j_x^2,\hat j_z]+[\hat j_y^2,\hat j_z]=0.
+$$
+
+Finally,
+
+$$
+[\hat j_z^2,\hat j_z]=0,
+$$
+
+because any operator commutes with itself and with its own powers. Therefore,
+
+$$
+\boxed{
+[\hat j^2,\hat j_z]=0
+}.
+$$
+
+The same argument can be repeated for the other two components, giving
+
+$$
+[\hat j^2,\hat j_x]
+=
+[\hat j^2,\hat j_y]
+=
+[\hat j^2,\hat j_z]
+=
+0.
+$$
+
+:::: 
+
+
+Therefore $\hat j^2$ and $\hat j_z$ can be simultaneously diagonalized. We may choose states that are simultaneous eigenstates of both operators. At this stage, however, we have not yet determined their eigenvalues. That will follow from the algebra itself.
+
+# 2. Ladder Operators and the Angular-Momentum Spectrum
+
+Ladder operators are an algebraic tool that lets us derive the allowed angular-momentum eigenvalues directly from the commutation relations. They are useful here primarily because they provide the shortest route from the algebra to the spectrum, that is, the set of allowed eigenvalues of the angular-momentum operators.
+
+## 2.1 Definition
+
+Define
+
+$$
+\hat j_+=\hat j_x+i\hat j_y,
+\qquad
+\hat j_-=\hat j_x-i\hat j_y.
+$$
+
+They are adjoints of one another,
+
+$$
+\hat j_+^\dagger=\hat j_-.
+$$
+
+Using the angular-momentum commutation relations, one obtains
+
+$$
+\boxed{[\hat j_z,\hat j_\pm]=\pm\hbar\hat j_\pm}
+$$
+
+and
+
+$$
+\boxed{[\hat j^2,\hat j_\pm]=0}.
+$$
+
+The first relation will show that $\hat j_\pm$ changes the eigenvalue of
+$\hat j_z$, while the second shows that it does not change the eigenvalue
+of $\hat j^2$.
+
+:::: {.callout-note collapse="true" title="Derivation of the ladder-operator commutators"}
+
+Starting from
+
+$$
+\hat j_\pm=\hat j_x\pm i\hat j_y,
+$$
+
+we first calculate the commutator with $\hat j_z$. Using the linearity of
+the commutator,
+
+$$
+[\hat A,\hat B+\hat C]
+=
+[\hat A,\hat B]+[\hat A,\hat C],
+$$
+
+we find
+
+$$
+\begin{aligned}
+[\hat j_z,\hat j_\pm]
+&=
+[\hat j_z,\hat j_x\pm i\hat j_y]\\
+&=
+[\hat j_z,\hat j_x]
+\pm i[\hat j_z,\hat j_y].
+\end{aligned}
+$$
+
+From the angular-momentum commutation relations,
+
+$$
+[\hat j_z,\hat j_x]=i\hbar\hat j_y
+$$
+
+and
+
+$$
+[\hat j_z,\hat j_y]=-i\hbar\hat j_x.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+[\hat j_z,\hat j_\pm]
+&=
+i\hbar\hat j_y
+\pm i(-i\hbar\hat j_x)\\
+&=
+i\hbar\hat j_y
+\pm \hbar\hat j_x.
+\end{aligned}
+$$
+
+For the raising operator,
+
+$$
+\begin{aligned}
+[\hat j_z,\hat j_+]
+&=
+\hbar\hat j_x+i\hbar\hat j_y\\
+&=
+\hbar(\hat j_x+i\hat j_y)\\
+&=
+\hbar\hat j_+.
+\end{aligned}
+$$
+
+For the lowering operator,
+
+$$
+\begin{aligned}
+[\hat j_z,\hat j_-]
+&=
+-\hbar\hat j_x+i\hbar\hat j_y\\
+&=
+-\hbar(\hat j_x-i\hat j_y)\\
+&=
+-\hbar\hat j_-.
+\end{aligned}
+$$
+
+Thus,
+
+$$
+\boxed{
+[\hat j_z,\hat j_\pm]
+=
+\pm\hbar\hat j_\pm
+}.
+$$
+
+For the second commutator, recall from the previous section that the
+squared angular momentum commutes with every Cartesian component:
+
+$$
+[\hat j^2,\hat j_x]
+=
+[\hat j^2,\hat j_y]
+=
+[\hat j^2,\hat j_z]
+=
+0.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+[\hat j^2,\hat j_\pm]
+&=
+[\hat j^2,\hat j_x\pm i\hat j_y]\\
+&=
+[\hat j^2,\hat j_x]
+\pm i[\hat j^2,\hat j_y]\\
+&=0.
+\end{aligned}
+$$
+
+Hence,
+
+$$
+\boxed{
+[\hat j^2,\hat j_\pm]=0
+}.
+$$
+
+::::
+
+
+## 2.2 Ladder action before knowing the spectrum
+
+Let $|\lambda,m\rangle$ be a simultaneous normalized eigenstate of $\hat j^2$ and $\hat j_z$:
+
+$$
+\hat j^2|\lambda,m\rangle=\lambda|\lambda,m\rangle,
 $$
 
 $$
-\hat{j}_z |j, m_j\rangle = \hbar\, m_j\, |j, m_j\rangle.
+\hat j_z|\lambda,m\rangle=\hbar m|\lambda,m\rangle.
 $$
 
-Here:
+We deliberately write the eigenvalue of $\hat j^2$ as the unknown quantity $\lambda$; the familiar form $\hbar^2j(j+1)$ has not yet been assumed.
 
-- $j$ determines the **magnitude** of the angular momentum,  
-  taking the values  
-  $$
-  j = 0, \tfrac{1}{2}, 1, \tfrac{3}{2}, 2, \dots
-  $$
+From
 
-- $m_j$ determines the **projection** of $\hat{\vec{j}}$ along the $z$-axis,  
-  with possible values  
-  $$
-  m_j = -j, -j+1, \dots, +j.
-  $$
+$$
+[\hat j_z,\hat j_\pm]=\pm\hbar\hat j_\pm,
+$$
 
-Each value of $j$ therefore corresponds to **$2j + 1$ possible states**, forming what is often called a *multiplet*.
+we obtain
 
----
+$$
+\begin{aligned}
+\hat j_z(\hat j_\pm|\lambda,m\rangle)
+&=(\hat j_\pm\hat j_z+[\hat j_z,\hat j_\pm])|\lambda,m\rangle\\
+&=\hbar(m\pm1)(\hat j_\pm|\lambda,m\rangle).
+\end{aligned}
+$$
 
-## 1.3 Physical Interpretation
+This has exactly the form of an eigenvalue equation for $\hat j_z$. Therefore,
+provided that $\hat j_\pm|\lambda,m\rangle$ is not zero, it is itself an
+eigenstate of $\hat j_z$ with eigenvalue $\hbar(m\pm1)$.
 
-In this formalism:  
-- $\hat{j}^2$ measures the **total magnitude** of the angular momentum,  
-- $\hat{j}_z$ measures the **component** of that angular momentum along a chosen quantization axis.  
+Thus $\hat j_+$ takes a state with quantum number $m$ into a state with
+quantum number $m+1$, while $\hat j_-$ takes it into a state with quantum
+number $m-1$:
 
-Although $\vec{j}$ is represented as a vector operator, it does **not** correspond to a definite geometric direction — only its magnitude and one component can be specified simultaneously.
+$$
+m\longrightarrow m\pm1.
+$$
 
----
+Because $[\hat j^2,\hat j_\pm]=0$, the value $\lambda$ is unchanged by this operation.
 
-> **Example:**  
-> For $j = 1$, there are three states $m_j = -1, 0, +1$.  
-> For $j = \tfrac{1}{2}$, there are two states $m_j = -\tfrac{1}{2}, +\tfrac{1}{2}$.  
-> These two cases correspond, respectively, to a spin-1 system (such as a photon) and a spin-$\tfrac{1}{2}$ system (such as an electron).
+## 2.3 Why the ladder must terminate
+
+The following identities are obtained directly from the definitions of $\hat j_\pm$:
+
+$$
+\hat j_-\hat j_+
+=\hat j^2-\hat j_z^2-\hbar\hat j_z,
+$$
+
+$$
+\hat j_+\hat j_-
+=\hat j^2-\hat j_z^2+\hbar\hat j_z.
+$$
+
+Now consider the norm of a raised state:
+
+$$
+\begin{aligned}
+\|\hat j_+|\lambda,m\rangle\|^2
+&=\langle\lambda,m|\hat j_-\hat j_+|\lambda,m\rangle\\
+&=\lambda-\hbar^2m(m+1).
+\end{aligned}
+$$
+
+Similarly,
+
+$$
+\|\hat j_-|\lambda,m\rangle\|^2
+=\lambda-\hbar^2m(m-1).
+$$
+
+A norm cannot be negative. Therefore the ladder cannot continue indefinitely in either direction. There must be a highest state, with magnetic quantum number $m_{\max}$, satisfying
+
+$$
+\hat j_+|\lambda,m_{\max}\rangle=0.
+$$
+
+For this state,
+
+$$
+\lambda-\hbar^2m_{\max}(m_{\max}+1)=0,
+$$
+
+so
+
+$$
+\lambda=\hbar^2m_{\max}(m_{\max}+1).
+$$
+
+Likewise there must be a lowest state, with $m_{\min}$, satisfying
+
+$$
+\hat j_-|\lambda,m_{\min}\rangle=0,
+$$
+
+which gives
+
+$$
+\lambda=\hbar^2m_{\min}(m_{\min}-1).
+$$
+
+Equating the two expressions for $\lambda$,
+
+$$
+m_{\max}(m_{\max}+1)
+=m_{\min}(m_{\min}-1).
+$$
+
+This can be written as
+
+$$
+(m_{\max}+m_{\min})(m_{\max}-m_{\min}+1)=0.
+$$
+
+Since the second factor is positive for a nontrivial ladder,
+
+$$
+m_{\min}=-m_{\max}.
+$$
+
+We define
+
+$$
+j\equiv m_{\max}.
+$$
+
+Hence
+
+$$
+m=-j,-j+1,\ldots,j-1,j.
+$$
+
+Because the ladder advances in integer steps, the distance from $-j$ to $+j$ must be an integer:
+
+$$
+2j=0,1,2,3,\ldots
+$$
+
+and therefore
+
+$$
+\boxed{j=0,\frac12,1,\frac32,2,\ldots}.
+$$
+
+Finally, using $m_{\max}=j$ in the expression for $\lambda$ gives
+
+$$
+\boxed{\lambda=\hbar^2j(j+1)}.
+$$
+
+Thus the characteristic angular-momentum eigenvalues follow from the commutation relations and the requirement that quantum-state norms be nonnegative.
+
+:::: {.callout-note collapse="true" title="Optional detail — Normalized action of the ladder operators"}
+
+Once the spectrum has been derived, write
+
+$$
+\hat j_\pm|j,m\rangle=C_\pm(j,m)|j,m\pm1\rangle.
+$$
+
+Using
+
+$$
+\|\hat j_+|j,m\rangle\|^2
+=\hbar^2[j(j+1)-m(m+1)]
+$$
+
+and
+
+$$
+\|\hat j_-|j,m\rangle\|^2
+=\hbar^2[j(j+1)-m(m-1)],
+$$
+
+one obtains, with the conventional phase choice,
+
+$$
+\boxed{
+\hat j_\pm|j,m\rangle
+=\hbar\sqrt{j(j+1)-m(m\pm1)}\,|j,m\pm1\rangle.
+}
+$$
+
+This coefficient is useful in explicit calculations, but it is not necessary to memorize for the purposes of this course.
+
+::::
+
+# 3. Eigenvalue Relations and Physical Interpretation
+
+The ladder-operator argument in the previous section led directly to the allowed angular-momentum eigenvalues. We can therefore summarize the result in the form that will be used throughout the rest of the course:
+
+$$
+\boxed{
+\hat j^2|j,m_j\rangle
+=\hbar^2j(j+1)|j,m_j\rangle
+}
+$$
+
+and
+
+$$
+\boxed{
+\hat j_z|j,m_j\rangle
+=\hbar m_j|j,m_j\rangle.
+}
+$$
+
+These two equations have a simple physical interpretation:
+
+- $\hat j^2$ determines the **magnitude** of the angular momentum;
+- $\hat j_z$ determines its **projection along a chosen axis**, and therefore gives information about its orientation relative to that axis.
+
+## 3.1 Magnitude of the angular momentum
+
+For a state with angular-momentum quantum number $j$, the operator
+$\hat j^2$ has the eigenvalue
+
+$$
+\hbar^2 j(j+1).
+$$
+
+Since $\hat j^2$ represents the squared magnitude of the angular momentum, the corresponding magnitude is
+
+$$
+\boxed{
+|\vec j|=\hbar\sqrt{j(j+1)}.
+}
+$$
+
+Thus the quantum number $j$ determines the **length of the angular-momentum vector** in the usual vector-model representation.
+
+The allowed values are
+
+$$
+j=0,\frac12,1,\frac32,\ldots.
+$$
+
+## 3.2 Projection and orientation
+
+The second eigenvalue equation,
+
+$$
+\hat j_z|j,m_j\rangle
+=
+\hbar m_j|j,m_j\rangle,
+$$
+
+gives the projection of the angular momentum onto the $z$-axis:
+
+$$
+\boxed{
+j_z=\hbar m_j.
+}
+$$
+
+For a given $j$, the allowed projection quantum numbers are
+
+$$
+m_j=-j,-j+1,\ldots,j,
+$$
+
+so there are
+
+$$
+2j+1
+$$
+
+possible projections.
+
+The projection tells us about the **orientation of the angular momentum relative to the chosen axis**. In the vector model, if $\theta$ is the angle between $\vec j$ and the $z$-axis,
+
+$$
+j_z=|\vec j|\cos\theta,
+$$
+
+and therefore
+
+$$
+\boxed{
+\cos\theta=
+\frac{m_j}{\sqrt{j(j+1)}}.
+}
+$$
+
+Thus a fixed value of $j$ fixes the length of the angular momentum, while the different allowed values of $m_j$ correspond to different allowed projections, or orientations relative to the chosen axis.
+
+## 3.3 Why do we use the $z$-axis?
+
+There is nothing fundamentally special about the $z$-axis. In fact,
+
+$$
+[\hat j^2,\hat j_x]
+=
+[\hat j^2,\hat j_y]
+=
+[\hat j^2,\hat j_z]
+=
+0,
+$$
+
+so we could choose any one component together with $\hat j^2$.
+
+The reason for conventionally choosing $\hat j_z$ is simply that we must choose **one reference direction**, called the **quantization axis**, and the $z$-axis is the standard choice.
+
+In a physical problem, the quantization axis is often chosen to coincide with a preferred direction, for example an external magnetic field or a symmetry axis.
+
+What we cannot do is specify all three components simultaneously, because
+
+$$
+[\hat j_x,\hat j_y]\neq0,
+\qquad
+[\hat j_y,\hat j_z]\neq0,
+\qquad
+[\hat j_z,\hat j_x]\neq0.
+$$
+
+A state $|j,m_j\rangle$ therefore has a definite magnitude and a definite projection along the chosen quantization axis, but not a definite classical direction in three-dimensional space.
+
+The vector model in @fig-angular-orientations illustrates this for $j=3$. All seven states have the same angular-momentum magnitude,
+
+$$
+|\vec j|=\hbar\sqrt{3(3+1)}=\hbar\sqrt{12},
+$$
+
+but their projections on the $z$-axis take the seven values
+
+$$
+m_j\hbar=-3\hbar,-2\hbar,\ldots,+3\hbar.
+$$
+
+Each allowed projection therefore corresponds to a different angle with respect to the $z$-axis. Because the transverse components are not simultaneously defined, the figure represents each orientation as a cone around the $z$-axis rather than as a uniquely specified classical direction.
 
 ```{python}
+#| label: fig-angular-orientations
 #| fig-format: png
 #| out-width: "30%"
 #| fig-align: center
-#| fig-cap: Possible orientations of an angular momentum vector $\vec{j}$ with $j=3$. 
-#| fig-alt: Possible orientations of an angular momentum vector with j=3..
+#| fig-cap: 'Vector-model representation for $j=3$. The magnitude of the angular momentum is fixed, while the seven possible values $m_j=-3,\ldots,3$ give different projections on the chosen $z$-axis. Each projection corresponds to a cone of possible directions around the quantization axis.'
+#| fig-alt: "Vector-model illustration for j equals 3. Angular-momentum vectors of equal length form cones around the vertical z-axis. Their seven allowed z projections range from minus 3 hbar to plus 3 hbar."
+
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from scipy.spatial.transform import Rotation as R # Used for rotating vectors
+from scipy.spatial.transform import Rotation as R
 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.size'] = 15
 
-
-
-# --- Define Constants and Initial (Un-rotated) Vectors in the Jz basis ---
 j = 3
 m_arr = np.arange(-j, j + 1, 1)
-
-# J0 is along the z-axis, with magnitude sqrt(j(j+1))
-# sqrt(3 * 4)
 J0 = np.array([0, 0, np.sqrt(j * (j + 1))])
 
-# Apply a fixed Euler rotation to move the entire system to an arbitrary 
-# position for a more engaging 3D visualization.
-def r_euler(jvec,m):
-    if (np.abs(m) <= j and np.linalg.norm(jvec) != 0):        
-        return R.from_euler('xyz', [0, -np.arccos(m/np.linalg.norm(jvec))*180/np.pi, 0], degrees=True).apply(jvec)
-    else:
-        return np.array([0,0,0])
-
-
-# Apply the rotation to all vectors
-#L = r_euler.apply(L0)
-#S = r_euler.apply(S0)
+def r_euler(jvec, m):
+    if np.abs(m) <= j and np.linalg.norm(jvec) != 0:
+        return R.from_euler(
+            'xyz',
+            [0, -np.arccos(m/np.linalg.norm(jvec))*180/np.pi, 0],
+            degrees=True
+        ).apply(jvec)
+    return np.array([0, 0, 0])
 
 def unit(v):
-    """Returns the unit vector."""
     norm = np.linalg.norm(v)
     if norm < 1e-10:
         return np.zeros_like(v)
     return v / norm
 
-# --- Plot setup ---
 fig = plt.figure(figsize=(8, 8))
 ax = fig.add_subplot(111, projection="3d")
 
 def draw_vector(r, v, color, label):
-    """Draws a vector starting at position r with components v."""
-    ax.quiver(r[0], r[1], r[2], v[0], v[1], v[2],
-              color=color, lw=1.2, arrow_length_ratio=0.1)
-    
-    # Add text label slightly offset from the vector tip
-    ax.text(r[0]+v[0]*1.1, r[1]+v[1]*1.1, r[2]+v[2]*1.1, label, color=color, fontsize=12)
+    ax.quiver(
+        r[0], r[1], r[2], v[0], v[1], v[2],
+        color=color, lw=1.2, arrow_length_ratio=0.1
+    )
+    ax.text(
+        r[0]+v[0]*1.1,
+        r[1]+v[1]*1.1,
+        r[2]+v[2]*1.1,
+        label,
+        color=color,
+        fontsize=12
+    )
 
-
-
-
-# z axis
 ax.quiver(0, 0, -4, 0, 0, 8, color='k', lw=.6, arrow_length_ratio=0.03)
-ax.text(0.2, 0, 4, s=f'$z$', ha='right', color='k', fontsize=12)
+ax.text(0.2, 0, 4, s=r'$z$', ha='right', color='k', fontsize=12)
 
-
-
-
-# --- Precession cones ---
 def plot_cone(axis, angle, height, color, alpha=0.3, resolution=40):
-    """
-    Plots a cone whose axis is aligned with the given vector 'axis'.
-    The cone is centered at the origin.
-    """
     axis = unit(axis)
-    # Generate points for a cone aligned with the global z-axis
     theta = np.linspace(0, 2 * np.pi, resolution)
     z = np.linspace(0, height, resolution)
     theta, z = np.meshgrid(theta, z)
@@ -189,506 +1161,638 @@ def plot_cone(axis, angle, height, color, alpha=0.3, resolution=40):
     x = r * np.cos(theta)
     y = r * np.sin(theta)
 
-    # Rotation matrix: align z-axis to the custom 'axis'
     def rotation_matrix(u):
         u = unit(u)
-        z = np.array([0, 0, 1])
-        v = np.cross(z, u)
-        c = np.dot(z, u)
-        # Handle parallel/anti-parallel case
+        zhat = np.array([0, 0, 1])
+        v = np.cross(zhat, u)
+        c = np.dot(zhat, u)
         if np.linalg.norm(v) < 1e-10:
             if c < 0:
-                return np.diag([1, -1, -1]) # 180 deg flip for anti-parallel
-            return np.eye(3) # No rotation needed
-        
-        # Rodrigues' formula for arbitrary axis rotation
-        vx = np.array([[0, -v[2], v[1]],
-                       [v[2], 0, -v[0]],
-                       [-v[1], v[0], 0]])
-        R = np.eye(3) + vx + vx @ vx * (1 / (1 + c))
-        return R
+                return np.diag([1, -1, -1])
+            return np.eye(3)
+        vx = np.array([
+            [0, -v[2], v[1]],
+            [v[2], 0, -v[0]],
+            [-v[1], v[0], 0]
+        ])
+        return np.eye(3) + vx + vx @ vx * (1 / (1 + c))
 
     R_mat = rotation_matrix(axis)
-    
-    # Rotate the cone coordinates
     xyz = R_mat @ np.vstack([x.flatten(), y.flatten(), z.flatten()])
     x_rot = xyz[0].reshape(x.shape)
-    y_rot = xyz[1].reshape(x.shape)
-    z_rot = xyz[2].reshape(x.shape)
-
-    ax.plot_surface(x_rot, y_rot, z_rot, color=color, alpha=alpha, linewidth=0, shade=True)
+    y_rot = xyz[1].reshape(y.shape)
+    z_rot = xyz[2].reshape(z.shape)
+    ax.plot_surface(
+        x_rot, y_rot, z_rot,
+        color=color, alpha=alpha, linewidth=0, shade=True
+    )
 
 def plot_disk(axis, radius, color, alpha=0.3, resolution=40):
-    """
-    Plots a disk in the xy-plane of a 3D axes object.
-    """
-    # Generate polar coordinates for the disk
     phi = np.linspace(0, 2 * np.pi, resolution)
     r = np.linspace(0, radius, resolution)
     phi, r = np.meshgrid(phi, r)
-    
-    # Convert polar to Cartesian coordinates
     x = r * np.cos(phi)
     y = r * np.sin(phi)
-    z = np.zeros_like(x) # Z-coordinate is constant at 0 for the xy-plane
-    
-    # Plot the surface
+    z = np.zeros_like(x)
     ax.plot_surface(x, y, z, color=color, alpha=alpha, linewidth=0, shade=True)
 
-
-
 for m in m_arr:
-    J = r_euler(J0,m)
-    draw_vector(np.zeros(3), J, "green", r"$\vec{j}$") # J starts at origin
-    ax.plot([J[0],0], [J[1],0], [J[2],J[2]], linewidth=0.5, linestyle='--', color='k')
-    ax.text(0.2, 0, J[2]-0.1, s=f'${m} \hbar$', ha='right', color='k', fontsize=12)
+    J = r_euler(J0, m)
+    draw_vector(np.zeros(3), J, "green", r"$\vec{j}$")
+    ax.plot([J[0], 0], [J[1], 0], [J[2], J[2]], linewidth=0.5, linestyle='--', color='k')
+    ax.text(0.2, 0, J[2]-0.1, s=f'${m} \\hbar$', ha='right', color='k', fontsize=12)
     angle_Jz = np.arccos(J[2] / np.linalg.norm(J))
-    if (m==0):
+    if m == 0:
         plot_disk([0, 0, 1], np.linalg.norm(J), "green", alpha=0.15)
     else:
         plot_cone([0, 0, 1], angle_Jz, m, "green", alpha=0.15)
 
-
 max_extent = 2.5
-
 ax.set_xlim([-max_extent, max_extent])
 ax.set_ylim([-max_extent, max_extent])
 ax.set_zlim([-max_extent, max_extent])
-
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('z')
-ax.grid(False) 
+ax.grid(False)
 ax.set_axis_off()
 ax.set_box_aspect([1, 1, 1])
-
-
-# Set initial viewpoint (optional)
 ax.view_init(elev=20, azim=120)
-
 plt.tight_layout()
 plt.show()
 ```
 
+# 4. Coupling of Angular Momenta
 
----
+So far we have considered a single angular momentum. Atomic systems, however, often contain several angular momenta at the same time. Examples are the orbital and spin angular momenta of an electron, or the electronic and nuclear angular momenta of an atom.
 
-# 2. Ladder Operators
+When two angular momenta interact, we say that they are **coupled**. Physically, the interaction can transfer angular momentum between the two subsystems. Their individual orientations may therefore change, even when the angular momentum of the complete system remains constant.
 
-While we will not make extensive use of them in this course, **ladder operators** (or *raising* and *lowering* operators) are a powerful algebraic tool in quantum mechanics. They provide an elegant way to describe how angular momentum states are connected to one another and are widely used in more advanced contexts — such as spin systems, addition of angular momenta, and matrix representations of operators.
-
----
-
-## 2.1 Definition
-
-For a given angular momentum operator $\hat{\vec{j}}$, we define the **ladder operators** (also called *step operators*) as
+We define the **total angular momentum**
 
 $$
-\hat{j}_{\pm} = \hat{j}_x \pm i \hat{j}_y.
+\boxed{
+\hat{\vec J}
+=
+\hat{\vec j}_1+\hat{\vec j}_2
+}.
 $$
 
-They are not Hermitian individually, but they are adjoint to one another:
-$$
-\hat{j}_+^\dagger = \hat{j}_-.
-$$
+The central idea is that, for an isolated system with a rotationally invariant Hamiltonian, this total angular momentum is conserved. This conservation law also tells us which quantum numbers provide the most natural description of the coupled system.
 
-Together with $\hat{j}_z$, these operators fully specify the algebra of angular momentum.
+## 4.1 Coupling and Angular-Momentum Conservation
 
----
-
-## 2.2 Commutation relations
-
-Using the fundamental commutation relations of angular momentum,
-$$
-[\hat{j}_x, \hat{j}_y] = i\hbar \hat{j}_z,
-$$
-and its cyclic permutations, one finds
+In quantum mechanics, conservation of an observable is expressed by the corresponding operator commuting with the Hamiltonian. For a rotationally invariant Hamiltonian,
 
 $$
-[\hat{j}_z, \hat{j}_\pm] = \pm \hbar \hat{j}_\pm,
+[\hat H,\hat J^2]=0
+$$
+
+and, after choosing a quantization axis,
+
+$$
+[\hat H,\hat J_z]=0.
+$$
+
+The quantum numbers $J$ and $M$ can therefore be used to label stationary states of the complete system.
+
+At the same time, the individual angular momenta need not be conserved separately. A familiar example from atomic physics is **spin--orbit coupling**,
+
+$$
+\hat H_{\mathrm{SO}}
+\propto
+\hat{\vec L}\cdot\hat{\vec S}.
+$$
+
+Because this interaction depends on the relative orientation of $\vec L$ and $\vec S$, the separate projections do not commute with the spin--orbit Hamiltonian:
+
+$$
+[\hat H_{\mathrm{SO}},\hat L_z]\neq0,
 \qquad
-[\hat{j}_+, \hat{j}_-] = 2\hbar \hat{j}_z.
+[\hat H_{\mathrm{SO}},\hat S_z]\neq0.
 $$
 
-These relations show that $\hat{j}_\pm$ act as **shift operators** on the magnetic quantum number $m_j$:
-applying $\hat{j}_+$ increases $m_j$ by one unit, while $\hat{j}_-$ decreases it by one.
+Consequently, $m_L$ and $m_S$ are not, in general, conserved quantum numbers in the presence of spin--orbit coupling.
 
----
-
-## 2.3 Action on eigenstates
-
-If $|j, m_j\rangle$ is an eigenstate of $\hat{j}^2$ and $\hat{j}_z$,
+However, with
 
 $$
-\hat{j}^2 |j, m_j\rangle = \hbar^2 j(j+1)|j, m_j\rangle, \qquad
-\hat{j}_z |j, m_j\rangle = \hbar m_j |j, m_j\rangle,
+\hat{\vec J}
+=
+\hat{\vec L}+\hat{\vec S},
 $$
 
-then the ladder operators act as
-
-$$
-\hat{j}_\pm |j, m_j\rangle =
-\hbar \sqrt{j(j+1) - m_j(m_j \pm 1)} \, |j, m_j \pm 1\rangle.
-$$
-
-This result follows from the commutation relations above and the normalization of the eigenstates.
-
-::: {.callout-note collapse="true"}
-### Step-by-step derivation
-
-1. **Commutation with $\hat{j}_z$**
-
-   Start from  
-   $$
-   [\hat{j}_z, \hat{j}_\pm] = \pm \hbar \hat{j}_\pm.
-   $$
-   Acting on $|j, m_j\rangle$ gives  
-   $$
-   \hat{j}_z (\hat{j}_\pm |j, m_j\rangle)
-   = (\hbar m_j \pm \hbar)(\hat{j}_\pm |j, m_j\rangle).
-   $$
-   Thus, $\hat{j}_\pm |j, m_j\rangle$ is an eigenstate of $\hat{j}_z$ with eigenvalue $\hbar (m_j \pm 1)$.
-
-2. **Commutation with $\hat{j}^2$**
-
-   Since $[\hat{j}^2, \hat{j}_\pm] = 0$,  
-   $\hat{j}_\pm |j, m_j\rangle$ has the same total angular momentum $j$ as the original state.
-
-3. **Normalization factor**
-
-   Define a constant $C_\pm(j, m_j)$ by  
-   $$
-   \hat{j}_\pm |j, m_j\rangle = C_\pm(j, m_j) \, |j, m_j \pm 1\rangle.
-   $$
-
-   Taking the inner product with itself and using  
-   $\hat{j}_- = \hat{j}_+^\dagger$, one finds
-   $$
-   \langle j, m_j | \hat{j}_\mp \hat{j}_\pm | j, m_j \rangle = |C_\pm(j, m_j)|^2.
-   $$
-
-   Using
-   $$
-   \hat{j}_- \hat{j}_+ = \hat{j}^2 - \hat{j}_z^2 - \hbar \hat{j}_z,
-   \qquad
-   \hat{j}_+ \hat{j}_- = \hat{j}^2 - \hat{j}_z^2 + \hbar \hat{j}_z,
-   $$
-   one obtains
-   $$
-   |C_\pm(j, m_j)|^2 = \hbar^2 [j(j+1) - m_j(m_j \pm 1)].
-   $$
-
-   Hence,
-   $$
-   C_\pm(j, m_j) = \hbar \sqrt{j(j+1) - m_j(m_j \pm 1)}.
-   $$
-
-4. **Final result**
-
-   Therefore,
-   $$
-   \boxed{
-   \hat{j}_\pm |j, m_j\rangle
-   = \hbar \sqrt{j(j+1) - m_j(m_j \pm 1)} \, |j, m_j \pm 1\rangle.
-   }
-   $$
-:::
-
----
-
-## 2.4 Remarks
-
-Although we will not use ladder operators extensively in this course, it is useful to be aware of their **conceptual and practical importance**:
-
-- They reveal the algebraic structure of angular momentum, independent of any particular coordinate representation.
-- They allow one to **generate all eigenstates** of a given $j$ starting from the highest-weight state $|j, m_j = j\rangle$.
-- They form the foundation of the **angular momentum operator formalism** used throughout atomic, molecular, and nuclear physics.
-
-In later applications, we will primarily use the eigenvalue relations and coupling rules derived from this operator algebra, rather than manipulating the ladder operators explicitly.
-
-
-# 3. Coupling of Angular Momenta
-
-When multiple angular momenta are present, they can be **combined** (or *coupled*) to form new total angular momenta. Understanding these couplings — and the associated selection rules — is essential for describing **fine structure**, **hyperfine structure**, and many **spectroscopic transitions** in atoms.
-
----
-
-## 3.1 Total angular momentum operator
-
-Consider two systems with angular momentum operators $\hat{\vec{j}}_1$ and $\hat{\vec{j}}_2$. The **total angular momentum** is defined as
-
-$$
-\hat{\vec{J}} = \hat{\vec{j}}_1 + \hat{\vec{j}}_2.
-$$
-
-Each of these satisfies the angular momentum algebra independently:
-
-$$
-[\hat{j}_{1x}, \hat{j}_{1y}] = i\hbar \hat{j}_{1z}, 
-\qquad
-[\hat{j}_{2x}, \hat{j}_{2y}] = i\hbar \hat{j}_{2z},
-$$
-
-and all components belonging to *different* subsystems commute:
-
-$$
-[\hat{j}_{1i}, \hat{j}_{2j}] = 0.
-$$
-
-From this, it follows that $\hat{\vec{J}}$ itself satisfies the same algebra, so it also represents a legitimate angular momentum operator.
-
----
-
-## 3.2 Eigenvalue equations and quantum numbers
-
-The operators
-$$
-\hat{J}^2, \quad \hat{J}_z, \quad \hat{j}_1^2, \quad \hat{j}_2^2
-$$
-commute with one another. Thus, we can choose a basis of **simultaneous eigenstates**, denoted by either of two equivalent descriptions:
-
-### (1) The uncoupled (product) basis:
-$$
-|j_1, m_1\rangle \, |j_2, m_2\rangle
-\;\equiv\;
-|j_1, j_2; m_1, m_2\rangle.
-$$
-
-### (2) The coupled basis:
-$$
-|j_1, j_2; J, M\rangle,
-$$
-where $\hat{J}^2$ and $\hat{J}_z$ are diagonal, meaning that the basis states are eigenstates of both the total angular momentum and its $z$-component.
-
-The corresponding eigenvalue relations are
-
-$$
-\hat{J}^2 |j_1, j_2; J, M\rangle = \hbar^2 J(J+1) |j_1, j_2; J, M\rangle,
-$$
-$$
-\hat{J}_z |j_1, j_2; J, M\rangle = \hbar M |j_1, j_2; J, M\rangle.
-$$
-
----
-
-## 3.3 Possible values of the total angular momentum $J$
-
-From the definition $\hat{\vec{J}} = \hat{\vec{j}}_1 + \hat{\vec{j}}_2$, the possible quantum numbers $J$ are determined by the **vector model of angular momentum addition**:
-
-$$
-J = j_1 + j_2, \; j_1 + j_2 - 1, \; \dots, \; |j_1 - j_2|.
-$$
-
-That means
-$$
-| j_1 - j_2 | \le J \le j_1 + j_2 ,
-$$
-
-where $J$ can take all values between the *sum* and *difference* of $j_1$ and $j_2$, changing in steps of 1 (so either all integers or all half-integers depending on $j_1$ and $j_2$). Each total $J$ corresponds to a set of $2J+1$ magnetic sublevels with $M = -J, -J + 1, \dots, +J$.
-
-> **Example:**  
-> If $j_1 = 1$ and $j_2 = \tfrac{1}{2}$, then $J$ can be either $\tfrac{3}{2}$ or $\tfrac{1}{2}$.
-
----
-
-## 3.4 Uncoupled vs. Coupled Representations
-
-The two descriptions of the same physical system — uncoupled and coupled — are related by a **change of basis**:
-
-$$
-|j_1, j_2; J, M\rangle
-= \sum_{m_1, m_2} C^{J,M}_{j_1, m_1; j_2, m_2} \,
-|j_1, j_2; m_1, m_2\rangle,
-$$
-
-where $C^{J,M}_{j_1, m_1; j_2, m_2}$ are the **Clebsch–Gordan coefficients**. These coefficients describe how states with definite $m_1, m_2$ combine to form a total state with definite $J, M$.
-
-The coefficients satisfy normalization and orthogonality relations, and tables or computational tools are typically used to evaluate them.
-
----
-
-## 3.5 Physical interpretation
-
-The coupling of angular momenta underlies many familiar quantum phenomena:
-
-| Coupling | Typical physical context | Example |
-|-----------|--------------------------|----------|
-| $\vec{L} + \vec{S} = \vec{J}$ | Fine structure | electron spin–orbit coupling |
-| $\vec{J} + \vec{I} = \vec{F}$ | Hyperfine structure | coupling of atomic angular momentum and nuclear spin |
-| $\vec{j}_1 + \vec{j}_2$ | Multi-electron systems | term symbols in atoms |
-| $\vec{l} + \vec{s}$ | Single-particle spin–orbit coupling | hydrogen-like atoms |
-
-> **In short:**  
-> The same mathematical rules govern all these cases — only the *physical meaning* of each $\vec{j}$ changes.
-
----
-
-## 3.6 Selection rules (preview)
-
-When angular momenta are coupled, transitions between states are restricted by **selection rules** that follow from conservation of total angular momentum and symmetry. For instance, in electric dipole transitions:
-
-$$
-\Delta J = 0, \pm 1 \quad (\text{but } J = 0 \not\leftrightarrow J' = 0),
-$$
-$$
-\Delta M = 0, \pm 1.
-$$
-
-A more detailed discussion of these rules and their derivation will be given in later chapters.
-
----
-
-> **Summary**
->
-> - The total angular momentum is the vector sum $\hat{\vec{J}} = \hat{\vec{j}}_1 + \hat{\vec{j}}_2$.  
-> - $J$ can take values between $|j_1 - j_2|$ and $j_1 + j_2$.  
-> - Coupled and uncoupled states are related through Clebsch–Gordan coefficients.  
-> - These coupling rules are universal — they apply to all forms of angular momentum in quantum mechanics.
-
-
-
-# 4. Representing Coupled Angular Momentum States — Clebsch–Gordan Coefficients
-
-When two angular momenta are combined, there are two equivalent ways to represent the system:
-
-1. In the **uncoupled (product)** basis, where each angular momentum has its own quantum numbers $m_1$ and $m_2$.  
-2. In the **coupled** basis, where the total angular momentum quantum numbers $J$ and $M$ are used.
-
-The transformation between these two representations is given by the **Clebsch–Gordan (CG) coefficients**.
-
----
-
-## 4.1 The transformation between bases
-
-Formally, the two representations are related as
-
-$$
-|j_1, j_2; J, M\rangle
-= \sum_{m_1, m_2} C^{J, M}_{j_1, m_1; j_2, m_2} \;
-|j_1, j_2; m_1, m_2\rangle,
-$$
-
-and conversely,
-
-$$
-|j_1, j_2; m_1, m_2\rangle
-= \sum_{J, M} C^{J, M}_{j_1, m_1; j_2, m_2} \;
-|j_1, j_2; J, M\rangle.
-$$
-
-The coefficients $C^{J, M}_{j_1, m_1; j_2, m_2}$ are **real numbers** that depend only on the angular momentum quantum numbers and describe how the $m_1$, $m_2$ combinations “add up” to a total $M$.
-
----
-
-## 4.2 Selection rules for nonzero coefficients
-
-The Clebsch–Gordan coefficients vanish unless the following **conditions** are satisfied:
-
-1. **Magnetic quantum numbers add up:**
-   $$
-   M = m_1 + m_2.
-   $$
-
-2. **Total angular momentum must be within allowed limits:**
-   $$
-   |j_1 - j_2| \le J \le j_1 + j_2.
-   $$
-
-3. **Normalization and orthogonality:**
-   $$
-   \sum_{m_1, m_2} |C^{J, M}_{j_1, m_1; j_2, m_2}|^2 = 1.
-   $$
-
-> **In words:**  
-> Only those combinations of $m_1$ and $m_2$ that yield the correct total $M$ contribute to the coupled state with quantum numbers $(J, M)$.
-
----
-
-## 4.3 Example: Coupling $j_1 = 1$ and $j_2 = \tfrac{1}{2}$
-
-This example illustrates how the total angular momentum $J$ can take the values $\tfrac{3}{2}$ and $\tfrac{1}{2}$.
-
-### (a) Total $J = \tfrac{3}{2}$
+we have
 
 $$
 \begin{aligned}
-| \tfrac{3}{2}, \tfrac{3}{2} \rangle &= |1, 1\rangle \, |\tfrac{1}{2}, \tfrac{1}{2}\rangle, \\
-| \tfrac{3}{2}, \tfrac{1}{2} \rangle &= 
-\sqrt{\tfrac{2}{3}}\, |1, 0\rangle \, |\tfrac{1}{2}, \tfrac{1}{2}\rangle
-+ \sqrt{\tfrac{1}{3}}\, |1, 1\rangle \, |\tfrac{1}{2}, -\tfrac{1}{2}\rangle.
+{}[\hat H_{\mathrm{SO}},\hat J_z]
+&=
+[\hat H_{\mathrm{SO}},\hat L_z+\hat S_z]\\
+&=
+[\hat H_{\mathrm{SO}},\hat L_z]
++
+[\hat H_{\mathrm{SO}},\hat S_z]\\
+&=0.
 \end{aligned}
 $$
 
-### (b) Total $J = \tfrac{1}{2}$
+The changes in the orbital and spin projections therefore compensate each other: angular momentum can be exchanged between $\vec L$ and $\vec S$, while their total projection remains constant.
+
+Likewise,
 
 $$
-| \tfrac{1}{2}, \tfrac{1}{2} \rangle =
-\sqrt{\tfrac{1}{3}}\, |1, 0\rangle \, |\tfrac{1}{2}, \tfrac{1}{2}\rangle
-- \sqrt{\tfrac{2}{3}}\, |1, 1\rangle \, |\tfrac{1}{2}, -\tfrac{1}{2}\rangle.
+[\hat H_{\mathrm{SO}},\hat J^2]=0.
 $$
 
-This small example shows how the different combinations of $m_1$ and $m_2$ form states of definite total $J$.
+Thus $J$ and $M$ are conserved quantum numbers for the spin--orbit Hamiltonian, whereas $m_L$ and $m_S$ separately are not.
 
----
-
-## 4.4 Orthogonality and completeness
-
-The Clebsch–Gordan coefficients form a **unitary transformation** between the two bases.  
-This means they satisfy the orthogonality relations:
+This gives the physical reason for introducing the **coupled basis**. Instead of describing the state by the separate projections,
 
 $$
-\sum_{m_1, m_2} C^{J, M}_{j_1, m_1; j_2, m_2}
-C^{J', M'}_{j_1, m_1; j_2, m_2}
-= \delta_{J, J'} \, \delta_{M, M'},
+|L,m_L\rangle|S,m_S\rangle,
+$$
+
+we use states of definite total angular momentum,
+
+$$
+|L,S;J,M\rangle.
+$$
+
+The connection becomes particularly clear from
+
+$$
+\begin{aligned}
+\hat J^2
+&=
+(\hat{\vec L}+\hat{\vec S})^2\\
+&=
+\hat L^2+\hat S^2
++
+2\hat{\vec L}\cdot\hat{\vec S},
+\end{aligned}
+$$
+
+or
+
+$$
+\boxed{
+\hat{\vec L}\cdot\hat{\vec S}
+=
+\frac12
+\left(
+\hat J^2-\hat L^2-\hat S^2
+\right).
+}
+$$
+
+A state $|L,S;J,M\rangle$ is an eigenstate of $\hat L^2$, $\hat S^2$, and $\hat J^2$. The spin--orbit interaction is therefore diagonal in this basis.
+
+More generally, the most useful basis is usually the one built from operators that commute with the Hamiltonian. Which angular momenta should be coupled therefore depends on the interactions present in the physical system.
+
+## 4.2 Why does the total angular momentum obey the same algebra?
+
+The components of the two different angular momenta act on different degrees of freedom and therefore commute with one another,
+
+$$
+[\hat j_{1i},\hat j_{2j}]=0.
+$$
+
+With
+
+$$
+\hat J_i=\hat j_{1i}+\hat j_{2i},
+$$
+
+we therefore obtain
+
+$$
+\begin{aligned}
+{}[\hat J_x,\hat J_y]
+&=
+[\hat j_{1x}+\hat j_{2x},
+ \hat j_{1y}+\hat j_{2y}]\\
+&=
+[\hat j_{1x},\hat j_{1y}]
++
+[\hat j_{2x},\hat j_{2y}]\\
+&=
+i\hbar\hat j_{1z}
++
+i\hbar\hat j_{2z}\\
+&=
+i\hbar\hat J_z.
+\end{aligned}
+$$
+
+Thus the total angular momentum obeys exactly the same angular-momentum algebra as each individual angular momentum.
+
+Its eigenstates can therefore be labeled by quantum numbers $J$ and $M$,
+
+$$
+\hat J^2|J,M\rangle
+=
+\hbar^2J(J+1)|J,M\rangle,
 $$
 
 and
 
 $$
-\sum_{J, M} C^{J, M}_{j_1, m_1; j_2, m_2}
-C^{J, M}_{j_1, m'_1; j_2, m'_2}
-= \delta_{m_1, m'_1} \, \delta_{m_2, m'_2}.
+\hat J_z|J,M\rangle
+=
+\hbar M|J,M\rangle.
 $$
 
-These relations ensure that the coupled and uncoupled bases are **equivalent representations** of the same Hilbert space.
+## 4.3 Uncoupled and coupled bases
 
----
+There are two equivalent ways of describing the same combined system.
 
-## 4.5 Relation to the vector model
+### Uncoupled basis
 
-In the semiclassical **vector model of angular momentum**, each $\vec{j}_i$ is represented as a vector of fixed length but uncertain orientation.  
-The Clebsch–Gordan coefficients describe *quantum mechanically* how the projections of these vectors combine along a chosen quantization axis.
+If we describe the two angular momenta separately, we use states
 
-They tell us the **probability amplitude** for obtaining a total projection $M$ when two angular momentum components $m_1$ and $m_2$ are added.
+$$
+|j_1,m_1\rangle|j_2,m_2\rangle.
+$$
 
----
+These are simultaneous eigenstates of
 
-## 4.6 Practical use
+$$
+\hat j_1^2,\qquad
+\hat j_{1z},\qquad
+\hat j_2^2,\qquad
+\hat j_{2z}.
+$$
 
-In practice, CG coefficients are:
+The total projection is simply
 
-- Tabulated in many textbooks and online resources,  
-- Computed automatically in symbolic or numerical software (e.g. Mathematica, SymPy),  
-- Expressible in terms of **Wigner 3-j symbols**, which are often more symmetric in formal derivations:
-  $$
-  C^{J, M}_{j_1, m_1; j_2, m_2}
-  = (-1)^{j_1 - j_2 + M} \sqrt{2J + 1}
-  \begin{pmatrix}
-    j_1 & j_2 & J \\
-    m_1 & m_2 & -M
-  \end{pmatrix}.
-  $$
+$$
+\boxed{
+M=m_1+m_2
+}.
+$$
 
----
+This is called the **uncoupled basis** because the two angular momenta are labeled separately.
 
-> **Summary**
->
-> - The Clebsch–Gordan coefficients connect the uncoupled and coupled representations of angular momentum.  
-> - They encode how $m_1$ and $m_2$ combine to yield a total $M$.  
-> - Only combinations satisfying $M = m_1 + m_2$ and $|j_1 - j_2| \le J \le j_1 + j_2$ contribute.  
-> - The coefficients form a unitary transformation between the two bases and have deep geometric meaning in the vector model.
+### Coupled basis
 
----
+Alternatively, we can describe the same states in terms of the total angular momentum,
 
-> **Note:**  
-> In the following chapters, these rules will be applied to specific coupling schemes such as **spin–orbit coupling** ($\vec{L} + \vec{S}$) and **hyperfine coupling** ($\vec{J} + \vec{I}$), where the Clebsch–Gordan coefficients determine the structure and relative intensities of spectral lines.
+$$
+|j_1,j_2;J,M\rangle.
+$$
+
+These are simultaneous eigenstates of
+
+$$
+\hat j_1^2,\qquad
+\hat j_2^2,\qquad
+\hat J^2,\qquad
+\hat J_z.
+$$
+
+This is called the **coupled basis**.
+
+The two bases contain exactly the same physical states. They are simply different choices of basis.
+
+## 4.4 Which basis should we use?
+
+The appropriate basis is usually the one whose quantum numbers correspond
+to operators that commute with the Hamiltonian.
+
+If the Hamiltonian is naturally diagonal in the individual projections
+$m_1$ and $m_2$---for example when an external-field interaction dominates
+over the coupling between the two angular momenta---the uncoupled basis
+
+$$
+|j_1,m_1\rangle|j_2,m_2\rangle
+$$
+
+is convenient.
+
+If the interaction couples the two angular momenta and $\hat J^2$ and
+$\hat J_z$ are conserved, the coupled basis
+
+$$
+|j_1,j_2;J,M\rangle
+$$
+
+is the natural choice, as illustrated by the spin--orbit interaction in
+Section 4.1.
+
+The two descriptions are not different physical theories; they are
+different bases for the same Hilbert space, chosen to suit the Hamiltonian
+of the problem.
+
+## 4.5 Allowed values of the total angular momentum
+
+For two angular momenta with quantum numbers $j_1$ and $j_2$, the allowed values of the total angular-momentum quantum number are
+
+$$
+\boxed{
+J=
+|j_1-j_2|,
+|j_1-j_2|+1,
+\ldots,
+j_1+j_2
+}.
+$$
+
+Thus the largest possible total angular momentum is
+
+$$
+J_{\max}=j_1+j_2,
+$$
+
+while the smallest is
+
+$$
+J_{\min}=|j_1-j_2|.
+$$
+
+For example, if
+
+$$
+j_1=1,
+\qquad
+j_2=\frac12,
+$$
+
+then
+
+$$
+J=\frac32,\frac12.
+$$
+
+:::: {.callout-note collapse="true" title="Why are the allowed values $J=|j_1-j_2|,\ldots,j_1+j_2$?"}
+
+The result can be understood directly from the allowed projection quantum numbers.
+
+For the two separate angular momenta,
+
+$$
+m_1=-j_1,\ldots,j_1
+$$
+
+and
+
+$$
+m_2=-j_2,\ldots,j_2.
+$$
+
+The total projection is
+
+$$
+M=m_1+m_2.
+$$
+
+The largest possible value of $M$ occurs when both angular momenta have their largest projections:
+
+$$
+m_1=j_1,
+\qquad
+m_2=j_2.
+$$
+
+Therefore,
+
+$$
+M_{\max}=j_1+j_2.
+$$
+
+But for an angular-momentum multiplet with quantum number $J$, the largest projection is always
+
+$$
+M_{\max}=J.
+$$
+
+Consequently, the combined system must contain a multiplet with
+
+$$
+\boxed{
+J_{\max}=j_1+j_2.
+}
+$$
+
+Now consider the next smaller value,
+
+$$
+M=j_1+j_2-1.
+$$
+
+There are generally two uncoupled states with this value of $M$:
+
+$$
+|j_1,j_1-1\rangle|j_2,j_2\rangle
+$$
+
+and
+
+$$
+|j_1,j_1\rangle|j_2,j_2-1\rangle.
+$$
+
+One particular linear combination belongs to the
+$J=j_1+j_2$ multiplet: it is obtained by applying the total lowering operator
+
+$$
+\hat J_-=\hat j_{1-}+\hat j_{2-}
+$$
+
+to the state with maximum $M$.
+
+The other independent combination must therefore begin a new multiplet whose highest projection is
+
+$$
+M=J=j_1+j_2-1.
+$$
+
+Thus a multiplet with
+
+$$
+J=j_1+j_2-1
+$$
+
+also occurs.
+
+The same argument can be repeated. As $M$ is lowered, new independent multiplets appear with
+
+$$
+J=j_1+j_2,\;
+j_1+j_2-1,\;
+j_1+j_2-2,\ldots
+$$
+
+until the smaller angular momentum has been completely opposed to the larger one.
+
+Assume, for example, that $j_1\ge j_2$. The smallest possible total angular momentum is then reached when the two angular momenta are as opposed as possible:
+
+$$
+J_{\min}=j_1-j_2.
+$$
+
+If instead $j_2>j_1$, the result is $j_2-j_1$. Combining both cases gives
+
+$$
+\boxed{
+J_{\min}=|j_1-j_2|.
+}
+$$
+
+Therefore,
+
+$$
+\boxed{
+J=
+|j_1-j_2|,
+|j_1-j_2|+1,
+\ldots,
+j_1+j_2.
+}
+$$
+
+As a check, the total number of states must be the same in the coupled and uncoupled descriptions.
+
+The uncoupled basis contains
+
+$$
+(2j_1+1)(2j_2+1)
+$$
+
+states.
+
+Assuming $j_1\ge j_2$, the coupled basis contains
+
+$$
+\sum_{J=j_1-j_2}^{j_1+j_2}(2J+1)
+$$
+
+states.
+
+Evaluating the sum gives
+
+$$
+\sum_{J=j_1-j_2}^{j_1+j_2}(2J+1)
+=
+(2j_1+1)(2j_2+1),
+$$
+
+so the allowed $J$ multiplets account for all states of the combined system.
+
+::::
+
+
+## 4.6 Physical examples
+
+| Coupling | Typical physical context | Example |
+|---|---|---|
+| $\vec L+\vec S=\vec J$ | Fine structure | orbital and electron-spin angular momentum |
+| $\vec J+\vec I=\vec F$ | Hyperfine structure | electronic and nuclear angular momentum |
+| $\vec j_1+\vec j_2$ | Multi-electron atoms | coupling of individual electron angular momenta |
+
+The mathematical rules are the same in each case; only the physical meaning of the individual angular momenta changes.
+
+# 5. Clebsch--Gordan Coefficients
+
+The uncoupled and coupled bases are related by a change of basis:
+
+$$
+\boxed{
+|j_1,j_2;J,M\rangle
+=
+\sum_{m_1,m_2}
+C^{J,M}_{j_1,m_1;j_2,m_2}
+|j_1,j_2;m_1,m_2\rangle.
+}
+$$
+
+The coefficients $C^{J,M}_{j_1,m_1;j_2,m_2}$ are the **Clebsch--Gordan coefficients**.
+
+Only terms satisfying
+
+$$
+M=m_1+m_2
+$$
+
+can contribute. The allowed $J$ values must also satisfy
+
+$$
+|j_1-j_2|\le J\le j_1+j_2.
+$$
+
+The coefficients are normalized so that the coupled states are normalized. In practice they are taken from tables or calculated using symbolic or numerical software; they are not normally memorized.
+
+## 5.1 Example: $j_1=1$ and $j_2=\tfrac12$
+
+For $J=\tfrac32$, the state with maximum projection is unique:
+
+$$
+\left|\frac32,\frac32\right\rangle
+=
+|1,1\rangle
+\left|\frac12,\frac12\right\rangle.
+$$
+
+For $M=\tfrac12$, two uncoupled states are possible, so a coupled state is a superposition:
+
+$$
+\left|\frac32,\frac12\right\rangle
+=
+\sqrt{\frac23}
+|1,0\rangle
+\left|\frac12,\frac12\right\rangle
++
+\sqrt{\frac13}
+|1,1\rangle
+\left|\frac12,-\frac12\right\rangle.
+$$
+
+The orthogonal combination belongs to the $J=\tfrac12$ manifold:
+
+$$
+\left|\frac12,\frac12\right\rangle
+=
+\sqrt{\frac13}
+|1,0\rangle
+\left|\frac12,\frac12\right\rangle
+-
+\sqrt{\frac23}
+|1,1\rangle
+\left|\frac12,-\frac12\right\rangle.
+$$
+
+This example illustrates what the Clebsch--Gordan coefficients do: they specify the amplitudes with which different $(m_1,m_2)$ product states combine into states of definite total $J$ and $M$.
+
+:::: {.callout-note collapse="true" title="Additional detail — Orthogonality, completeness, and Wigner 3-j symbols"}
+
+Because the transformation between coupled and uncoupled bases is unitary, the Clebsch--Gordan coefficients obey orthogonality relations such as
+
+$$
+\sum_{m_1,m_2}
+C^{J,M}_{j_1,m_1;j_2,m_2}
+C^{J',M'}_{j_1,m_1;j_2,m_2}
+=
+\delta_{J,J'}\delta_{M,M'}.
+$$
+
+They can also be written in terms of Wigner $3j$ symbols:
+
+$$
+C^{J,M}_{j_1,m_1;j_2,m_2}
+=
+(-1)^{j_1-j_2+M}\sqrt{2J+1}
+\begin{pmatrix}
+j_1 & j_2 & J\\
+m_1 & m_2 & -M
+\end{pmatrix}.
+$$
+
+These relations are useful in more advanced angular-momentum calculations but are not part of the core knowledge expected here.
+
+::::
+
+# Summary
+
+The central results of this chapter are the angular-momentum eigenvalue relations and the rules for coupling angular momenta. The commutation relations determine the algebra, ladder operators provide a convenient derivation of the allowed spectrum, and Clebsch--Gordan coefficients connect uncoupled and coupled descriptions of composite angular-momentum systems.
+
+The same framework will be used repeatedly in later chapters for orbital angular momentum, electron spin, fine structure, hyperfine structure, and atomic spectroscopy.

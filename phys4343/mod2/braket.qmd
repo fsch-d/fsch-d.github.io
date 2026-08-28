@@ -34,6 +34,151 @@ The specific goals for this chapter are:
 8. Introduce Hermitian operators and connect their eigenvalues and eigenstates to quantum measurements.
 9. Express measurement probabilities, expectation values, and uncertainties in Dirac notation.
 
+
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+A quantum state is represented abstractly by a ket
+
+$$
+\boxed{
+\ket{\psi}
+}
+$$
+
+in a Hilbert space. The corresponding bra is
+
+$$
+\bra{\psi},
+$$
+
+and a normalized state satisfies
+
+$$
+\boxed{
+\braket{\psi}{\psi}=1.
+}
+$$
+
+An eigenvalue equation has the form
+
+$$
+\boxed{
+\hat A\ket{a}=a\ket{a},
+}
+$$
+
+where $\ket{a}$ is an eigenstate of $\hat A$ and $a$ is the corresponding eigenvalue.
+
+The wave function is the position-space representation of the abstract state,
+
+$$
+\boxed{
+\psi(x)=\braket{x}{\psi}.
+}
+$$
+
+For an orthonormal basis $\{\ket{n}\}$,
+
+$$
+\boxed{
+\braket{m}{n}=\delta_{mn},
+}
+$$
+
+and completeness implies
+
+$$
+\boxed{
+\sum_n \ketbra{n}{n}=\mathbb 1.
+}
+$$
+
+A state can therefore be expanded as
+
+$$
+\boxed{
+\ket{\psi}
+=
+\sum_n
+\ket{n}\braket{n}{\psi}.
+}
+$$
+
+The matrix elements of an operator in a chosen basis are
+
+$$
+\boxed{
+A_{mn}
+=
+\mel{m}{\hat A}{n}.
+}
+$$
+
+Physical observables are represented by Hermitian operators,
+
+$$
+\boxed{
+\hat A^\dagger=\hat A.
+}
+$$
+
+Their eigenvalues are possible measurement outcomes. If the system is in the normalized state $\ket{\psi}$, the probability of obtaining the eigenvalue $a_n$ is
+
+$$
+\boxed{
+P(a_n)
+=
+\left|
+\braket{a_n}{\psi}
+\right|^2.
+}
+$$
+
+The expectation value of an observable is
+
+$$
+\boxed{
+\langle A\rangle
+=
+\mel{\psi}{\hat A}{\psi},
+}
+$$
+
+and its uncertainty is
+
+$$
+\boxed{
+\sigma_A
+=
+\sqrt{
+\langle A^2\rangle-\langle A\rangle^2
+}.
+}
+$$
+
+::::
+
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- quantum states form a complex vector space, so linear combinations of states are again possible states;
+- the abstract state $\ket{\psi}$ is independent of how it is represented: $\psi(x)=\braket{x}{\psi}$ and $\tilde\psi(p)=\braket{p}{\psi}$ are different representations of the same state;
+- a bra--ket expression such as $\braket{\phi}{\psi}$ is an **inner product**, while an outer product such as $\ketbra{\phi}{\psi}$ is an **operator**;
+- choosing a basis is analogous to choosing coordinates for an ordinary vector; changing the basis changes the components, not the physical state;
+- the coefficients $\braket{n}{\psi}$ are the projections of a state onto the basis states and determine its expansion in that basis;
+- the same abstract operator may appear as a differential operator in one representation and as a matrix in another;
+- eigenstates of an observable are states with definite values of that observable, while a general state is usually a superposition of several eigenstates;
+- for a Hermitian operator, eigenvalues are real and eigenstates belonging to different eigenvalues are orthogonal;
+- quantum measurement probabilities are obtained by projecting the state onto the eigenstates of the measured observable;
+- an expectation value is the statistical average of many measurements on identically prepared systems and need not itself be one of the possible measurement outcomes.
+
+The detailed vector-space axioms, Riesz representation theorem, subtleties of generalized eigenvectors and rigged Hilbert spaces, and the distinction between Hermitian and self-adjoint operators are included for completeness but are not intended as material to memorize.
+
+::::
+
+
 ---
 
 # 1. Operators and Linear Structure

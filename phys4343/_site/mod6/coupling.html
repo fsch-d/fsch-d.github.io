@@ -4175,14 +4175,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Variational Method</span></a>
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4196,7 +4196,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Basics)</span></a>
+ <span class="menu-text">Hydrogen Atom: Wave Functions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4219,7 +4219,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Details)</span></a>
+ <span class="menu-text">Hydrogen Atom: Shifts and Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4586,7 +4586,7 @@ margin-bottom: 0.25em;
 <p>In light atoms such as carbon, the <strong>Coulomb interaction</strong> between electrons is much stronger than the <strong>magnetic interactions</strong> responsible for spin–orbit and spin–spin coupling. The energy levels are therefore best described within the <span class="math inline">\(L\)</span>–<span class="math inline">\(S\)</span> coupling scheme (Russell–Saunders coupling), where all orbital angular momenta <span class="math inline">\(\ell_i\)</span> first combine to a total orbital angular momentum <span class="math inline">\(L\)</span>, and all spins <span class="math inline">\(s_i\)</span> combine to a total spin <span class="math inline">\(S\)</span>. Only then does the relatively weak spin–orbit interaction split these terms into fine-structure levels characterized by the total angular momentum <span class="math inline">\(J\)</span>, giving rise to the familiar singlet (<span class="math inline">\({}^1P_1\)</span>) and triplet (<span class="math inline">\({}^3P_{0,1,2}\)</span>) terms.</p>
 <p>As the atomic number increases, the spin–orbit interaction grows roughly as <span class="math inline">\(Z^4\)</span>, and the fine-structure splitting between levels with different <span class="math inline">\(J\)</span> becomes more pronounced. In <strong>heavier elements</strong> such as tin and lead, the coupling scheme transitions toward the <strong><span class="math inline">\(jj\)</span> regime</strong>, where each electron’s individual <span class="math inline">\(j_i = \ell_i + s_i\)</span> is first formed and then combined. The resulting level structure consists of <strong>two doublets</strong>, which can be interpreted as arising from the coupling of a <span class="math inline">\(p_{1/2}\)</span> or <span class="math inline">\(p_{3/2}\)</span> electron with an <span class="math inline">\(s_{1/2}\)</span> electron.</p>
 <p>This smooth transition from the singlet–triplet pattern in carbon to the <span class="math inline">\(jj\)</span>-coupled doublets in lead clearly demonstrates how relativistic effects reshape atomic structure as we move to heavier elements.</p>
-<div id="6af2d56f" class="cell" data-execution_count="1">
+<div id="2123ebc3" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># label: fig-ls-to-jj-transition</span></span>
@@ -4884,7 +4884,7 @@ This symmetry restriction applies <strong>only to electrons within the same subs
 </blockquote>
 <p>This section addresses exactly that question. We will see that the relative ordering of the terms within a given configuration is not arbitrary but follows a set of empirical guidelines known as <strong>Hund’s rules</strong>.</p>
 <p>The figure below illustrates how electrons fill the available orbitals for the first ten elements of the periodic table. From these configurations, we will determine the corresponding <strong>ground-state terms</strong> by systematically applying Hund’s rules.</p>
-<div id="10525b75" class="cell" data-execution_count="2">
+<div id="4ff12aa5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fig-cap: Electron configurations and ground-state terms for H–Ne. Each box represents an orbital (either $s$ or $p$), and arrows denote electron spins. According to Hund’s rules, orbitals are filled to maximize total spin and orbital angular momentum before pairing occurs.</span></span>

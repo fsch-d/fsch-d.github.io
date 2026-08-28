@@ -3,36 +3,40 @@ title: "Quantum Mechanics — A Refresher"
 author: Daniel Fischer
 ---
 
-## Why Quantum Mechanics?
+## Scope of This Section
 
-Atomic, molecular, and optical (AMO) physics is *built* on quantum mechanics. Classical physics can describe the motion of planets or the trajectory of a baseball, but it fails when we ask about the discrete energy levels of hydrogen, the interference of single electrons, or the statistics of photons. To make sense of AMO systems, we must work in the quantum framework.
+Atomic, molecular, and optical physics is built on quantum mechanics. This section collects the quantum-mechanical background needed throughout the course.
 
----
+It is **not necessary to read all pages in this section before continuing with atomic physics**. The first group provides the required fundamentals; the remaining pages introduce particular systems, approximation methods, or more advanced concepts that can be studied when they become relevant.
 
-## Scope of this Section
+Some of the notes include derivations and mathematical details that go beyond what you are expected to retain. Where appropriate, the **Core Knowledge — Know** and **Working Knowledge — Understand** boxes identify the main takeaways and help distinguish them from additional detail.
 
-This section collects the **quantum mechanics background** needed for the rest of the course. It is **not** a complete QM class, but rather a streamlined toolkit. We will revisit some basic principles and then highlight those aspects most directly relevant for AMO physics.
+## I. Required Fundamentals
 
-Topics covered here include:
+These pages should be read first and provide the basic language used throughout the remainder of the course.
 
-- Wave mechanics and the Schrödinger equation  
-- Dirac’s bra–ket notation  
-- The Heisenberg uncertainty principle  
-- Perturbation theory  
-- Relativistic wave equations (as a first step toward fine structure)  
+1. [**Wave Mechanics**](wavemechanics.qmd) — Matter waves, interference, the Born rule, de Broglie relations, and the Schrödinger equation.
+2. [**States and Operators in Quantum Mechanics**](braket.qmd) — Hilbert space, Dirac notation, operators, eigenstates, and observables.
+3. [**Quantum Measurement and the Measurement Problem**](measurement.qmd) — Measurement probabilities, state reduction, and the operational consequences of quantum measurement.
+4. [**Commutators and the Heisenberg Uncertainty Principle**](heisenberg.qmd) — Compatible observables, commutators, and quantum uncertainty.
 
----
+## II. Important Quantum Systems
 
-## Level and Assumptions
+These chapters apply the general formalism to systems that occur repeatedly in AMO physics.
 
-These notes are **introductory**. We will use quantum mechanics throughout, but the aim is to supply just enough formalism to follow the physics.  
+1. [**Angular Momenta and Their Couplings**](amcoupling.qmd) — Angular-momentum eigenvalues, quantum numbers, and coupling.
+2. [**The One-Dimensional Quantum Harmonic Oscillator**](qosc.qmd) — Ladder operators, oscillator states, and coherent states. This chapter can be used as a reference when the harmonic oscillator appears later.
 
-- If you have had a previous QM course: this will feel like a **refresher**.  
-- If you have not: this section contains **short introductions** to the essential concepts and techniques.  
-  These are by no means comprehensive, but they should be sufficient background for the AMO material.  
+## III. Approximation Methods
 
----
+These methods are important when a quantum problem cannot be solved exactly and can be studied when they are first needed.
 
-## A Final Remark
+1. [**Time-Independent Perturbation Theory**](perturb.qmd) — Corrections to known energies and states caused by weak interactions.
+2. [**The Variational Method**](variational.qmd) — Approximate energies and states obtained from trial wave functions.
 
-Quantum mechanics is often seen as abstract or counterintuitive. Here, it becomes **a practical tool**: the language in which atoms, molecules, and light must be described. With this section, you should feel prepared to tackle the rich structure of hydrogen, the origins of spectra, and the foundations of modern AMO physics.
+## IV. Advanced Concepts and Reference Material
+
+These pages introduce concepts needed for particular later topics but are not prerequisites for the first atomic-physics chapters.
+
+1. [**Exchange Interaction: Fermions and Bosons**](exchange.qmd) — Indistinguishable particles, exchange symmetry, and the Pauli principle; especially relevant for many-electron atoms.
+2. [**Relativistic Wave Equations and the Dirac Equation**](../mod4/relwaves.qmd) — Relativistic quantum mechanics and the Dirac equation; mainly background for spin and relativistic effects in atoms.

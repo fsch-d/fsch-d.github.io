@@ -37,6 +37,57 @@ The specific goals for this chapter are:
 8. Prepare for the discussion of successive measurements and compatible observables in the next section.
 
 
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+If a measurement of the observable $\hat A$ gives the nondegenerate eigenvalue $a_n$,
+
+$$
+\hat A\ket{a_n}=a_n\ket{a_n},
+$$
+
+then the state used for subsequent predictions is reduced to the corresponding eigenstate:
+
+$$
+\boxed{
+\ket{\psi}
+\longrightarrow
+\ket{a_n}.
+}
+$$
+
+The probability for obtaining $a_n$ is given by the Born rule,
+
+$$
+\boxed{
+P(a_n)
+=
+\left|
+\braket{a_n}{\psi}
+\right|^2.
+}
+$$
+
+An immediate repetition of the same ideal measurement therefore gives the same result with certainty.
+
+::::
+
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- a quantum measurement generally does more than reveal a pre-existing value: it changes the state used for subsequent predictions;
+- before a measurement, a state may be a superposition of several eigenstates of the measured observable, while after an ideal measurement it is reduced to the eigenspace corresponding to the observed outcome;
+- Schrödinger evolution is continuous and deterministic, whereas the standard measurement postulate assigns probabilities to the possible outcomes;
+- this difference between unitary evolution and state reduction gives rise to the **quantum measurement problem**;
+- different interpretations of quantum mechanics disagree about what state reduction means physically, while agreeing on the operational measurement rules used in this course;
+- the state change caused by a measurement is important because it can affect the outcome of later measurements of other observables.
+
+The discussion of Copenhagen-type interpretations, Everettian quantum mechanics, Bohmian mechanics, objective-collapse models, and decoherence is included to illustrate the measurement problem. The details of these interpretations are not part of the core knowledge expected for this course.
+
+::::
+
+
 # 1. Measurement and the Quantum State
 
 ## 1.1 Measurement probabilities

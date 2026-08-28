@@ -4115,14 +4115,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Variational Method</span></a>
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4136,7 +4136,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Basics)</span></a>
+ <span class="menu-text">Hydrogen Atom: Wave Functions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4159,7 +4159,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Details)</span></a>
+ <span class="menu-text">Hydrogen Atom: Shifts and Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4501,6 +4501,139 @@ margin-bottom: 0.25em;
 <li>Introduce Hermitian operators and connect their eigenvalues and eigenstates to quantum measurements.</li>
 <li>Express measurement probabilities, expectation values, and uncertainties in Dirac notation.</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A quantum state is represented abstractly by a ket</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert \psi \right\rangle}
+\]</span></p>
+<p>in a Hilbert space. The corresponding bra is</p>
+<p><span class="math display">\[
+\left\langle \psi \right\rvert,
+\]</span></p>
+<p>and a normalized state satisfies</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \psi \middle| \psi \right\rangle=1.
+}
+\]</span></p>
+<p>An eigenvalue equation has the form</p>
+<p><span class="math display">\[
+\boxed{
+\hat A\left\lvert a \right\rangle=a\left\lvert a \right\rangle,
+}
+\]</span></p>
+<p>where <span class="math inline">\(\left\lvert a \right\rangle\)</span> is an eigenstate of <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(a\)</span> is the corresponding eigenvalue.</p>
+<p>The wave function is the position-space representation of the abstract state,</p>
+<p><span class="math display">\[
+\boxed{
+\psi(x)=\left\langle x \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>For an orthonormal basis <span class="math inline">\(\{\left\lvert n \right\rangle\}\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle m \middle| n \right\rangle=\delta_{mn},
+}
+\]</span></p>
+<p>and completeness implies</p>
+<p><span class="math display">\[
+\boxed{
+\sum_n \left\lvert n \right\rangle\!\!\left\langle n \right\rvert=\mathbb 1.
+}
+\]</span></p>
+<p>A state can therefore be expanded as</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert \psi \right\rangle=
+\sum_n
+\left\lvert n \right\rangle\left\langle n \middle| \psi \right\rangle.
+}
+\]</span></p>
+<p>The matrix elements of an operator in a chosen basis are</p>
+<p><span class="math display">\[
+\boxed{
+A_{mn}
+=
+\left\langle m \middle| \hat A \middle| n \right\rangle.
+}
+\]</span></p>
+<p>Physical observables are represented by Hermitian operators,</p>
+<p><span class="math display">\[
+\boxed{
+\hat A^\dagger=\hat A.
+}
+\]</span></p>
+<p>Their eigenvalues are possible measurement outcomes. If the system is in the normalized state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>, the probability of obtaining the eigenvalue <span class="math inline">\(a_n\)</span> is</p>
+<p><span class="math display">\[
+\boxed{
+P(a_n)
+=
+\left|
+\left\langle a_n \middle| \psi \right\rangle\right|^2.
+}
+\]</span></p>
+<p>The expectation value of an observable is</p>
+<p><span class="math display">\[
+\boxed{
+\langle A\rangle
+=
+\left\langle \psi \middle| \hat A \middle| \psi \right\rangle,
+}
+\]</span></p>
+<p>and its uncertainty is</p>
+<p><span class="math display">\[
+\boxed{
+\sigma_A
+=
+\sqrt{
+\langle A^2\rangle-\langle A\rangle^2
+}.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You should understand that</p>
+<ul>
+<li>quantum states form a complex vector space, so linear combinations of states are again possible states;</li>
+<li>the abstract state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is independent of how it is represented: <span class="math inline">\(\psi(x)=\left\langle x \middle| \psi \right\rangle\)</span> and <span class="math inline">\(\tilde\psi(p)=\left\langle p \middle| \psi \right\rangle\)</span> are different representations of the same state;</li>
+<li>a bra–ket expression such as <span class="math inline">\(\left\langle \phi \middle| \psi \right\rangle\)</span> is an <strong>inner product</strong>, while an outer product such as <span class="math inline">\(\left\lvert \phi \right\rangle\!\!\left\langle \psi \right\rvert\)</span> is an <strong>operator</strong>;</li>
+<li>choosing a basis is analogous to choosing coordinates for an ordinary vector; changing the basis changes the components, not the physical state;</li>
+<li>the coefficients <span class="math inline">\(\left\langle n \middle| \psi \right\rangle\)</span> are the projections of a state onto the basis states and determine its expansion in that basis;</li>
+<li>the same abstract operator may appear as a differential operator in one representation and as a matrix in another;</li>
+<li>eigenstates of an observable are states with definite values of that observable, while a general state is usually a superposition of several eigenstates;</li>
+<li>for a Hermitian operator, eigenvalues are real and eigenstates belonging to different eigenvalues are orthogonal;</li>
+<li>quantum measurement probabilities are obtained by projecting the state onto the eigenstates of the measured observable;</li>
+<li>an expectation value is the statistical average of many measurements on identically prepared systems and need not itself be one of the possible measurement outcomes.</li>
+</ul>
+<p>The detailed vector-space axioms, Riesz representation theorem, subtleties of generalized eigenvectors and rigged Hilbert spaces, and the distinction between Hermitian and self-adjoint operators are included for completeness but are not intended as material to memorize.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="operators-and-linear-structure" class="level1">
@@ -4675,7 +4808,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 <p>belongs to the same space.</p>
 <p>Wave functions can therefore be regarded as vectors in a vector space.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4684,7 +4817,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A vector space <span class="math inline">\(V\)</span> over the complex numbers <span class="math inline">\(\mathbb C\)</span> is a set whose elements are called <strong>vectors</strong>, together with operations of vector addition and scalar multiplication.</p>
 <p>For <span class="math inline">\(u,v,w\in V\)</span> and <span class="math inline">\(a,b\in\mathbb C\)</span>, the following axioms hold:</p>
@@ -4725,7 +4858,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 \]</span></p>
 <p>Quantum states are represented by vectors in a Hilbert space.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4734,7 +4867,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>An inner product on a complex vector space assigns a complex number</p>
 <p><span class="math display">\[
@@ -4815,7 +4948,7 @@ a\left\lvert a \right\rangle.
 <p>This equation makes no reference to coordinate space.</p>
 <p>The same equation may later be represented as a differential equation, a matrix equation, or in some other basis.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4824,7 +4957,7 @@ a\left\lvert a \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Strictly speaking, a physical pure state is not represented by one unique vector <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>.</p>
 <p>The vectors</p>
@@ -4888,7 +5021,7 @@ c_1^\ast\left\langle \phi_1 \right\rvert+
 c_2^\ast\left\langle \phi_2 \right\rvert.
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4897,7 +5030,7 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For a Hilbert space, the <strong>Riesz representation theorem</strong> states that every continuous linear functional can be represented uniquely by taking the inner product with an element of the Hilbert space.</p>
 <p>This provides the mathematical connection between</p>
@@ -5072,7 +5205,7 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 \delta(x-x&#39;).
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5081,7 +5214,7 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>There is a mathematical subtlety here.</p>
 <p>Position and momentum eigenstates are not square-normalizable:</p>
@@ -5308,7 +5441,7 @@ c_2^\ast\left\langle \psi_2 \right\rvert.
 \]</span></p>
 <p>Hermitian operators have real eigenvalues.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5317,7 +5450,7 @@ c_2^\ast\left\langle \psi_2 \right\rvert.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let</p>
 <p><span class="math display">\[
@@ -5372,7 +5505,7 @@ a_m\neq a_n
 \left\langle a_m \middle| a_n \right\rangle=0.
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5381,7 +5514,7 @@ a_m\neq a_n
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(\left\lvert a_m \right\rangle\)</span> and <span class="math inline">\(\left\lvert a_n \right\rangle\)</span> be eigenstates of the Hermitian operator <span class="math inline">\(\hat A\)</span> with different eigenvalues:</p>
 <p><span class="math display">\[
@@ -5437,7 +5570,7 @@ a_n\neq a_m,
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5446,7 +5579,7 @@ a_n\neq a_m,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In introductory quantum mechanics, observables are usually said to be represented by <strong>Hermitian</strong> operators, satisfying</p>
 <p><span class="math display">\[ \hat A^\dagger=\hat A. \]</span></p>

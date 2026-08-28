@@ -4115,14 +4115,14 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Variational Method</span></a>
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4136,7 +4136,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Basics)</span></a>
+ <span class="menu-text">Hydrogen Atom: Wave Functions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4159,7 +4159,7 @@ margin-bottom: 0.25em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrogen (Details)</span></a>
+ <span class="menu-text">Hydrogen Atom: Shifts and Interactions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4476,6 +4476,67 @@ margin-bottom: 0.25em;
 <li>Establish the operational measurement rules that we will use throughout this course.</li>
 <li>Prepare for the discussion of successive measurements and compatible observables in the next section.</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If a measurement of the observable <span class="math inline">\(\hat A\)</span> gives the nondegenerate eigenvalue <span class="math inline">\(a_n\)</span>,</p>
+<p><span class="math display">\[
+\hat A\left\lvert a_n \right\rangle=a_n\left\lvert a_n \right\rangle,
+\]</span></p>
+<p>then the state used for subsequent predictions is reduced to the corresponding eigenstate:</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert \psi \right\rangle\longrightarrow
+\left\lvert a_n \right\rangle.
+}
+\]</span></p>
+<p>The probability for obtaining <span class="math inline">\(a_n\)</span> is given by the Born rule,</p>
+<p><span class="math display">\[
+\boxed{
+P(a_n)
+=
+\left|
+\left\langle a_n \middle| \psi \right\rangle\right|^2.
+}
+\]</span></p>
+<p>An immediate repetition of the same ideal measurement therefore gives the same result with certainty.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You should understand that</p>
+<ul>
+<li>a quantum measurement generally does more than reveal a pre-existing value: it changes the state used for subsequent predictions;</li>
+<li>before a measurement, a state may be a superposition of several eigenstates of the measured observable, while after an ideal measurement it is reduced to the eigenspace corresponding to the observed outcome;</li>
+<li>Schrödinger evolution is continuous and deterministic, whereas the standard measurement postulate assigns probabilities to the possible outcomes;</li>
+<li>this difference between unitary evolution and state reduction gives rise to the <strong>quantum measurement problem</strong>;</li>
+<li>different interpretations of quantum mechanics disagree about what state reduction means physically, while agreeing on the operational measurement rules used in this course;</li>
+<li>the state change caused by a measurement is important because it can affect the outcome of later measurements of other observables.</li>
+</ul>
+<p>The discussion of Copenhagen-type interpretations, Everettian quantum mechanics, Bohmian mechanics, objective-collapse models, and decoherence is included to illustrate the measurement problem. The details of these interpretations are not part of the core knowledge expected for this course.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="measurement-and-the-quantum-state" class="level1">
 <h1>1. Measurement and the Quantum State</h1>
@@ -4559,7 +4620,7 @@ P(a_1)=1.
 \]</span></p>
 <p>The first measurement has therefore changed the quantum state.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4568,7 +4629,7 @@ P(a_1)=1.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If the measured eigenvalue is degenerate, a measurement does not necessarily select one unique eigenvector.</p>
 <p>Suppose several orthonormal states</p>
@@ -4790,7 +4851,7 @@ c_2\left\lvert a_2 \right\rangle\left\lvert M_2 \right\rangle\left\lvert E_2 \ri
 </ul>
 <p>Thus, the different interpretations do not disagree about the basic calculation that produces the entangled state. They disagree about <strong>how that state should be understood and how definite measurement outcomes arise from it</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4799,7 +4860,7 @@ c_2\left\lvert a_2 \right\rangle\left\lvert M_2 \right\rangle\left\lvert E_2 \ri
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Many interpretations of <strong>standard quantum mechanics</strong> are deliberately constructed to reproduce the same experimental probabilities.</p>
 <p>For example, Copenhagen-type interpretations, Everettian quantum mechanics, and Bohmian mechanics in quantum equilibrium generally reproduce the ordinary predictions of nonrelativistic quantum mechanics.</p>
