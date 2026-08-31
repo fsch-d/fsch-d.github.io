@@ -6,7 +6,7 @@ lightbox: true
 
 ## Introduction
 
-As we have seen in the [Hydrogen (Basics)](../mod3/hydrogen.qmd) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number $n$:
+As we have seen in the [Hydrogen (Wave Functions)](../mod3/hydrogen.qmd) chapter, the Schrödinger picture gives a remarkably simple description of the hydrogen atom. The energy levels depend only on the principal quantum number $n$:
 
 $$
 E_n = -\frac{13.6\ \mathrm{eV}}{n^2}.

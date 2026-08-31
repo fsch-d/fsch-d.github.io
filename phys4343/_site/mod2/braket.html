@@ -4220,8 +4220,8 @@ margin-bottom: 0.25em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod5/dipolematrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dipole Matrix Elements</span></a>
+  <a href="../mod5/spontaneous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spontaneous Decay and Atomic Transition Rates</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4446,7 +4446,7 @@ margin-bottom: 0.25em;
   <li><a href="#hermitian-conjugation" id="toc-hermitian-conjugation" class="nav-link" data-scroll-target="#hermitian-conjugation">6.1 Hermitian conjugation</a></li>
   <li><a href="#hermitian-operators" id="toc-hermitian-operators" class="nav-link" data-scroll-target="#hermitian-operators">6.2 Hermitian operators</a></li>
   </ul></li>
-  <li><a href="#observables-and-measurement" id="toc-observables-and-measurement" class="nav-link" data-scroll-target="#observables-and-measurement">7. Observables and Measurement</a>
+  <li><a href="#observables-and-measurement-1" id="toc-observables-and-measurement-1" class="nav-link" data-scroll-target="#observables-and-measurement-1">7. Observables and Measurement</a>
   <ul class="collapse">
   <li><a href="#observables" id="toc-observables" class="nav-link" data-scroll-target="#observables">7.1 Observables</a></li>
   <li><a href="#spectral-decomposition" id="toc-spectral-decomposition" class="nav-link" data-scroll-target="#spectral-decomposition">7.2 Spectral decomposition</a></li>
@@ -4519,47 +4519,72 @@ margin-bottom: 0.25em;
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A quantum state is represented abstractly by a ket</p>
+<section id="states-bras-and-inner-products" class="level3">
+<h3 class="anchored" data-anchor-id="states-bras-and-inner-products">States, bras, and inner products</h3>
+<p>A quantum state is represented abstractly by a <strong>ket</strong></p>
 <p><span class="math display">\[
 \boxed{
 \left\lvert \psi \right\rangle}
 \]</span></p>
-<p>in a Hilbert space. The corresponding bra is</p>
+<p>in a Hilbert space. The corresponding <strong>bra</strong> is</p>
 <p><span class="math display">\[
-\left\langle \psi \right\rvert,
+\left\langle \psi \right\rvert.
 \]</span></p>
-<p>and a normalized state satisfies</p>
+<p>A bra and a ket combine to form an <strong>inner product</strong>,</p>
+<p><span class="math display">\[
+\boxed{
+\left\langle \phi \middle| \psi \right\rangle}
+\]</span></p>
+<p>which is, in general, a complex number.</p>
+<p>The inner product of a state with itself determines its norm,</p>
+<p><span class="math display">\[
+\|\psi\|
+=
+\sqrt{\left\langle \psi \middle| \psi \right\rangle},
+\]</span></p>
+<p>and a normalized quantum state satisfies</p>
 <p><span class="math display">\[
 \boxed{
 \left\langle \psi \middle| \psi \right\rangle=1.
 }
 \]</span></p>
-<p>An eigenvalue equation has the form</p>
+</section>
+<section id="operators-and-eigenstates" class="level3">
+<h3 class="anchored" data-anchor-id="operators-and-eigenstates">Operators and eigenstates</h3>
+<p>A linear operator <span class="math inline">\(\hat A\)</span> acts on states in Hilbert space. An <strong>eigenvalue equation</strong> has the form</p>
 <p><span class="math display">\[
 \boxed{
 \hat A\left\lvert a \right\rangle=a\left\lvert a \right\rangle,
 }
 \]</span></p>
 <p>where <span class="math inline">\(\left\lvert a \right\rangle\)</span> is an eigenstate of <span class="math inline">\(\hat A\)</span> and <span class="math inline">\(a\)</span> is the corresponding eigenvalue.</p>
-<p>The wave function is the position-space representation of the abstract state,</p>
+</section>
+<section id="representations" class="level3">
+<h3 class="anchored" data-anchor-id="representations">Representations</h3>
+<p>The abstract state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> can be represented in different bases.</p>
+<p>In the position basis, the components of the state form the wave function,</p>
 <p><span class="math display">\[
 \boxed{
 \psi(x)=\left\langle x \middle| \psi \right\rangle.
 }
 \]</span></p>
-<p>For an orthonormal basis <span class="math inline">\(\{\left\lvert n \right\rangle\}\)</span>,</p>
+<p>Thus, the wave function is a representation of the abstract state rather than a different physical object.</p>
+</section>
+<section id="orthonormal-bases-and-completeness" class="level3">
+<h3 class="anchored" data-anchor-id="orthonormal-bases-and-completeness">Orthonormal bases and completeness</h3>
+<p>For an orthonormal basis <span class="math inline">\({\left\lvert n \right\rangle}\)</span>,</p>
 <p><span class="math display">\[
 \boxed{
-\left\langle m \middle| n \right\rangle=\delta_{mn},
+\left\langle m \middle| n \right\rangle=\delta_{mn}.
 }
 \]</span></p>
-<p>and completeness implies</p>
+<p>If the basis is complete,</p>
 <p><span class="math display">\[
 \boxed{
 \sum_n \left\lvert n \right\rangle\!\!\left\langle n \right\rvert=\mathbb 1.
 }
 \]</span></p>
-<p>A state can therefore be expanded as</p>
+<p>Any state can therefore be expanded in the basis as</p>
 <p><span class="math display">\[
 \boxed{
 \left\lvert \psi \right\rangle=
@@ -4567,7 +4592,14 @@ margin-bottom: 0.25em;
 \left\lvert n \right\rangle\left\langle n \middle| \psi \right\rangle.
 }
 \]</span></p>
-<p>The matrix elements of an operator in a chosen basis are</p>
+<p>The quantities</p>
+<p><span class="math display">\[
+\left\langle n \middle| \psi \right\rangle\]</span></p>
+<p>are the components of the state in this basis.</p>
+</section>
+<section id="operators-in-a-basis" class="level3">
+<h3 class="anchored" data-anchor-id="operators-in-a-basis">Operators in a basis</h3>
+<p>Once a basis has been chosen, an operator is characterized by its <strong>matrix elements</strong></p>
 <p><span class="math display">\[
 \boxed{
 A_{mn}
@@ -4575,13 +4607,17 @@ A_{mn}
 \left\langle m \middle| \hat A \middle| n \right\rangle.
 }
 \]</span></p>
+</section>
+<section id="observables-and-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="observables-and-measurement">Observables and measurement</h3>
 <p>Physical observables are represented by Hermitian operators,</p>
 <p><span class="math display">\[
 \boxed{
 \hat A^\dagger=\hat A.
 }
 \]</span></p>
-<p>Their eigenvalues are possible measurement outcomes. If the system is in the normalized state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>, the probability of obtaining the eigenvalue <span class="math inline">\(a_n\)</span> is</p>
+<p>Their eigenvalues are the possible measurement outcomes.</p>
+<p>If the system is in the normalized state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>, the probability of obtaining the eigenvalue <span class="math inline">\(a_n\)</span> is</p>
 <p><span class="math display">\[
 \boxed{
 P(a_n)
@@ -4590,7 +4626,7 @@ P(a_n)
 \left\langle a_n \middle| \psi \right\rangle\right|^2.
 }
 \]</span></p>
-<p>The expectation value of an observable is</p>
+<p>The expectation value of the observable is</p>
 <p><span class="math display">\[
 \boxed{
 \langle A\rangle
@@ -4608,6 +4644,7 @@ P(a_n)
 }.
 }
 \]</span></p>
+</section>
 </div>
 </div>
 </div>
@@ -5598,7 +5635,7 @@ a_n\neq a_m,
 <hr>
 </section>
 </section>
-<section id="observables-and-measurement" class="level1">
+<section id="observables-and-measurement-1" class="level1">
 <h1>7. Observables and Measurement</h1>
 <section id="observables" class="level2">
 <h2 class="anchored" data-anchor-id="observables">7.1 Observables</h2>

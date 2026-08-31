@@ -37,7 +37,9 @@ The specific goals for this chapter are:
 
 :::: {.callout-important collapse="true" title="Core Knowledge — Know"}
 
-A quantum state is represented abstractly by a ket
+### States, bras, and inner products
+
+A quantum state is represented abstractly by a **ket**
 
 $$
 \boxed{
@@ -45,13 +47,31 @@ $$
 }
 $$
 
-in a Hilbert space. The corresponding bra is
+in a Hilbert space. The corresponding **bra** is
 
 $$
-\bra{\psi},
+\bra{\psi}.
 $$
 
-and a normalized state satisfies
+A bra and a ket combine to form an **inner product**,
+
+$$
+\boxed{
+\braket{\phi}{\psi}
+}
+$$
+
+which is, in general, a complex number.
+
+The inner product of a state with itself determines its norm,
+
+$$
+\|\psi\|
+=
+\sqrt{\braket{\psi}{\psi}},
+$$
+
+and a normalized quantum state satisfies
 
 $$
 \boxed{
@@ -59,7 +79,9 @@ $$
 }
 $$
 
-An eigenvalue equation has the form
+### Operators and eigenstates
+
+A linear operator $\hat A$ acts on states in Hilbert space. An **eigenvalue equation** has the form
 
 $$
 \boxed{
@@ -69,7 +91,11 @@ $$
 
 where $\ket{a}$ is an eigenstate of $\hat A$ and $a$ is the corresponding eigenvalue.
 
-The wave function is the position-space representation of the abstract state,
+### Representations
+
+The abstract state $\ket{\psi}$ can be represented in different bases.
+
+In the position basis, the components of the state form the wave function,
 
 $$
 \boxed{
@@ -77,15 +103,19 @@ $$
 }
 $$
 
-For an orthonormal basis $\{\ket{n}\}$,
+Thus, the wave function is a representation of the abstract state rather than a different physical object.
+
+### Orthonormal bases and completeness
+
+For an orthonormal basis ${\ket{n}}$,
 
 $$
 \boxed{
-\braket{m}{n}=\delta_{mn},
+\braket{m}{n}=\delta_{mn}.
 }
 $$
 
-and completeness implies
+If the basis is complete,
 
 $$
 \boxed{
@@ -93,7 +123,7 @@ $$
 }
 $$
 
-A state can therefore be expanded as
+Any state can therefore be expanded in the basis as
 
 $$
 \boxed{
@@ -104,7 +134,17 @@ $$
 }
 $$
 
-The matrix elements of an operator in a chosen basis are
+The quantities
+
+$$
+\braket{n}{\psi}
+$$
+
+are the components of the state in this basis.
+
+### Operators in a basis
+
+Once a basis has been chosen, an operator is characterized by its **matrix elements**
 
 $$
 \boxed{
@@ -114,6 +154,8 @@ A_{mn}
 }
 $$
 
+### Observables and measurement
+
 Physical observables are represented by Hermitian operators,
 
 $$
@@ -122,7 +164,9 @@ $$
 }
 $$
 
-Their eigenvalues are possible measurement outcomes. If the system is in the normalized state $\ket{\psi}$, the probability of obtaining the eigenvalue $a_n$ is
+Their eigenvalues are the possible measurement outcomes.
+
+If the system is in the normalized state $\ket{\psi}$, the probability of obtaining the eigenvalue $a_n$ is
 
 $$
 \boxed{
@@ -134,7 +178,7 @@ P(a_n)
 }
 $$
 
-The expectation value of an observable is
+The expectation value of the observable is
 
 $$
 \boxed{
@@ -155,7 +199,6 @@ $$
 }.
 }
 $$
-
 ::::
 
 

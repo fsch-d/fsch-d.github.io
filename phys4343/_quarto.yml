@@ -56,7 +56,7 @@ website:
         href: mod5/index.qmd
         contents:
           - mod5/einstein.qmd
-          - mod5/dipolematrix.qmd
+          - mod5/spontaneous.qmd
           - text: "Visualizing Atomic Transitions"
             href: mod5/visual.qmd
           - mod5/selectionr.qmd

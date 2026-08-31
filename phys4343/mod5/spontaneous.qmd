@@ -1,0 +1,1109 @@
+---
+title: "Spontaneous Decay and Atomic Transition Rates"
+author: Daniel Fischer
+---
+
+# Overview
+
+In the previous chapter, we introduced the **Einstein coefficients** and derived the relations between spontaneous emission, stimulated emission, and absorption. These relations are powerful: once the spontaneous-emission coefficient $A_{21}$ is known, the corresponding $B$-coefficients follow.
+
+What is still missing is a microscopic calculation of $A_{21}$.
+
+This leads to an important puzzle. If an atom is described only by the time-independent atomic Hamiltonian,
+
+$$
+\hat H_{\mathrm{atom}} |e\rangle
+=
+E_e |e\rangle,
+$$
+
+then an excited energy eigenstate evolves only by a phase,
+
+$$
+|\psi(t)\rangle
+=
+e^{-iE_e t/\hbar}|e\rangle.
+$$
+
+Its excited-state population remains
+
+$$
+P_e(t)
+=
+\left|
+\langle e|\psi(t)\rangle
+\right|^2
+=
+1.
+$$
+
+An excited atomic eigenstate would therefore live forever.
+
+Real excited atoms, of course, decay.
+
+The missing ingredient is the **electromagnetic field itself**. A complete description of spontaneous emission requires the electromagnetic field to be quantized. We will not develop the full quantum theory of the field here. Instead, we use one essential result from it: every electromagnetic mode behaves like a quantum harmonic oscillator and therefore has a nonzero zero-point energy.
+
+This gives us a characteristic field scale for the vacuum fluctuations. We then use that scale in the familiar atom–field Hamiltonian and apply the time-dependent perturbation theory developed earlier.
+
+In this chapter you will learn how to:
+
+1. explain why spontaneous decay cannot arise from the atomic Hamiltonian alone;
+2. connect an electromagnetic field mode with the quantum harmonic oscillator;
+3. relate the zero-point energy $\hbar\omega/2$ to a characteristic vacuum-field amplitude;
+4. obtain the atom–field interaction from minimal coupling and connect it to the electric-dipole interaction;
+5. use Fermi's Golden Rule to obtain the spontaneous-emission rate;
+6. connect the spontaneous-emission rate to the Einstein $A$ and $B$ coefficients.
+
+---
+
+# 1. Why Should an Excited Atom Decay?
+
+Consider an excited eigenstate $|e\rangle$ of the atomic Hamiltonian,
+
+$$
+\hat H_{\mathrm{atom}}|e\rangle
+=
+E_e|e\rangle.
+$$
+
+The time-dependent Schrödinger equation gives
+
+$$
+|\psi(t)\rangle
+=
+e^{-iE_e t/\hbar}|e\rangle.
+$$
+
+The only time dependence is a phase. The probability of finding the atom still in the excited state is therefore
+
+$$
+\boxed{
+P_e(t)
+=
+\left|
+\langle e|\psi(t)\rangle
+\right|^2
+=
+1.
+}
+$$
+
+Nothing in the atomic Hamiltonian causes the atom to leave the excited state.
+
+This means that **spontaneous emission cannot be explained by the atomic Hamiltonian alone**.
+
+The resolution is that the atom is not an isolated quantum system: it is coupled to the electromagnetic field, even when no external light is applied.
+
+---
+
+# 2. Electromagnetic Modes and the Harmonic Oscillator
+
+A classical electromagnetic field can be decomposed into independent normal modes, characterized by a wave vector $\vec k$, polarization, and angular frequency
+
+$$
+\omega=c|\vec k|.
+$$
+
+When the electromagnetic field is quantized, each independent mode behaves mathematically like a [quantum harmonic oscillator](../mod2/qosc.qmd).
+
+For a harmonic oscillator,
+
+$$
+E_n
+=
+\hbar\omega
+\left(
+n+\frac12
+\right),
+\qquad
+n=0,1,2,\ldots
+$$
+
+and therefore the lowest-energy state still has the energy
+
+$$
+\boxed{
+E_0
+=
+\frac12\hbar\omega.
+}
+$$
+
+For an electromagnetic mode, this is called the **zero-point energy**.
+
+The lowest-energy state of the field is the **vacuum**. It contains no real photons, but it is not equivalent to a classical electromagnetic field that is simply zero.
+
+In particular, the average field vanishes,
+
+$$
+\langle \vec E\rangle=0,
+$$
+
+while the mean-square field does not,
+
+$$
+\langle \vec E^{\,2}\rangle\neq0.
+$$
+
+These residual fluctuations are called **vacuum fluctuations** or **zero-point fluctuations**.
+
+:::: {.callout-note collapse="true" title="Why is an electromagnetic field mode a harmonic oscillator?"}
+
+We will **not derive this result here**, but it is useful to outline what is required to obtain it.
+
+Once the electromagnetic field has been decomposed into independent normal modes, the remaining steps are:
+
+### 1. Describe the amplitude of one mode by a dynamical variable
+
+For a given mode, the electric and magnetic fields have a fixed spatial form, while their overall amplitude changes in time. That time-dependent amplitude can be represented by a generalized coordinate $q(t)$.
+
+Maxwell's equations imply that this coordinate obeys an equation of the form
+
+$$
+\ddot q+\omega^2q=0,
+$$
+
+which is exactly the equation of motion of a classical harmonic oscillator.
+
+### 2. Express the electromagnetic energy in terms of the mode amplitude
+
+The electromagnetic-field energy is
+
+$$
+H_{\mathrm{EM}}
+=
+\frac12
+\int
+\left(
+\varepsilon_0 E^2
++
+\frac{1}{\mu_0}B^2
+\right)
+d^3r.
+$$
+
+When the field is expressed in terms of independent normal modes, the contribution from each mode can be written in the form
+
+$$
+H_{\mathrm{mode}}
+=
+\frac12 p^2
++
+\frac12\omega^2q^2,
+$$
+
+where $p$ is the generalized momentum associated with $q$.
+
+This has exactly the mathematical form of the Hamiltonian of a classical harmonic oscillator.
+
+### 3. Quantize the oscillator
+
+The final step is to promote $q$ and $p$ to quantum-mechanical operators and impose the usual canonical commutation relation,
+
+$$
+[\hat q,\hat p]=i\hbar.
+$$
+
+The mode is then mathematically identical to the [quantum harmonic oscillator](../mod2/qosc.qmd), with energy levels
+
+$$
+E_n
+=
+\hbar\omega
+\left(
+n+\frac12
+\right).
+$$
+
+Thus, after decomposing the electromagnetic field into normal modes, **each independent mode can be quantized as a harmonic oscillator**.
+
+The important consequence for us is that even its lowest-energy state has
+
+$$
+E_0=\frac12\hbar\omega.
+$$
+
+::::
+
+
+## 2.1 Characteristic Field Scale of a Vacuum Mode
+
+Consider one electromagnetic mode in a quantization volume $V$.
+
+The zero-point energy
+
+$$
+\frac12\hbar\omega
+$$
+
+sets the characteristic scale of the electromagnetic field in that mode. The corresponding electric-field scale is
+
+$$
+\boxed{
+E_{\mathrm{vac}}
+=
+\sqrt{
+\frac{\hbar\omega}
+{2\varepsilon_0 V}
+}.
+}
+$$
+
+Since $E=\omega A$ for a monochromatic mode, the corresponding vector-potential scale is
+
+$$
+\boxed{
+A_{\mathrm{vac}}
+=
+\sqrt{
+\frac{\hbar}
+{2\varepsilon_0\omega V}
+}.
+}
+$$
+
+This is the origin of the normalization that will appear in the atom–field interaction.
+
+For our semiclassical calculation, we represent one Fourier component of the vacuum fluctuations by
+
+$$
+\vec A(\vec r,t)
+=
+A_{\mathrm{vac}}\,
+\vec\varepsilon\,
+e^{-i(\omega t-\vec k\cdot\vec r)}
++\text{c.c.},
+$$
+
+where $\vec\varepsilon$ is the polarization vector.
+
+:::: {.callout-warning collapse="true" title="How literally should we interpret the vacuum field?"}
+
+The expression above is a **semiclassical shortcut**.
+
+Strictly speaking, the electromagnetic vacuum is not a classical sinusoidal field with a definite amplitude and phase. A complete theory treats the electromagnetic field itself as a quantum system.
+
+Here we use one central result from that theory: quantization assigns each field mode a zero-point energy $\hbar\omega/2$, which fixes the characteristic scale of its vacuum fluctuations.
+
+We then use this scale in the familiar semiclassical atom–field Hamiltonian.
+
+This is useful for understanding and calculating the spontaneous-emission rate, but it should not be interpreted as saying that empty space literally contains an ordinary classical electromagnetic wave.
+
+::::
+
+---
+
+# 3. Hamiltonian for an Atom in an Electromagnetic Field
+
+To describe the interaction between an atom and the electromagnetic field, we begin with the Hamiltonian for a charged particle of mass $m$ and charge $e$.
+
+In the minimal-coupling scheme, the canonical momentum is replaced by the **generalized momentum**
+
+$$
+\hat{\vec p}
+\longrightarrow
+\hat{\vec p}-e\vec A.
+$$
+
+The Hamiltonian becomes
+
+$$
+\boxed{
+\hat H
+=
+\frac{1}{2m}
+\left(
+\hat{\vec p}-e\vec A
+\right)^2
++
+V(\vec r).
+}
+$$
+
+Here $V(\vec r)$ is the Coulomb potential binding the electron to the atom.
+
+:::: {.callout-note collapse="true" title="More on the origin of the generalized momentum"}
+
+In classical mechanics, the interaction with the electromagnetic field appears naturally in the Lagrangian formalism.
+
+The canonical momentum is defined by
+
+$$
+\vec p
+=
+\frac{\partial L}{\partial\dot{\vec r}}.
+$$
+
+For a charged particle in an electromagnetic field, the Lagrangian contains terms involving the scalar potential $\Phi$ and vector potential $\vec A$. As a result, the canonical momentum differs from the mechanical momentum $m\dot{\vec r}$.
+
+This leads to the minimal-coupling rule in quantum mechanics,
+
+$$
+\hat{\vec p}
+\longrightarrow
+\hat{\vec p}-e\vec A.
+$$
+
+Minimal coupling is consistent with classical electrodynamics, gauge invariance, and the Lorentz force law.
+
+::::
+
+## 3.1 Weak-Field Interaction Hamiltonian
+
+Expanding the kinetic-energy term gives
+
+$$
+\hat H
+=
+\frac{\hat{\vec p}^{\,2}}{2m}
+-
+\frac{e}{m}\vec A\cdot\hat{\vec p}
++
+\frac{e^2}{2m}\vec A^{\,2}
++
+V(\vec r),
+$$
+
+where we have chosen the Coulomb gauge,
+
+$$
+\nabla\cdot\vec A=0.
+$$
+
+For weak optical fields, the term proportional to $A^2$ can be neglected. We can then write
+
+$$
+\hat H
+=
+\hat H_0+\hat V(t),
+$$
+
+with
+
+$$
+\hat H_0
+=
+\frac{\hat{\vec p}^{\,2}}{2m}
++
+V(\vec r)
+$$
+
+and
+
+$$
+\boxed{
+\hat V(t)
+=
+-\frac{e}{m}
+\vec A(\vec r,t)\cdot\hat{\vec p}.
+}
+$$
+
+Using the characteristic vacuum-field amplitude from the previous section,
+
+$$
+\vec A(\vec r,t)
+=
+\sqrt{
+\frac{\hbar}
+{2\varepsilon_0\omega V}
+}
+\,
+\vec\varepsilon\,
+e^{-i(\omega t-\vec k\cdot\vec r)}
++
+\text{c.c.}
+$$
+
+and therefore
+
+$$
+\hat V(t)
+=
+-\frac{e}{m}
+\sqrt{
+\frac{\hbar}
+{2\varepsilon_0\omega V}
+}
+e^{-i(\omega t-\vec k\cdot\vec r)}
+\,
+\vec\varepsilon\cdot\hat{\vec p}
++
+\text{c.c.}
+$$
+
+This has the form of the oscillating perturbation discussed in [time-dependent perturbation theory](../mod2/tdperturb.qmd).
+
+---
+
+# 4. The Electric-Dipole Approximation
+
+To calculate the transition probability using [time-dependent perturbation theory](../mod2/tdperturb.qmd), we need the matrix element of the interaction Hamiltonian between the initial excited state $|e\rangle$ and the final state $|g\rangle$. The central atomic part of this matrix element is
+
+$$
+\left\langle
+g
+\left|
+e^{i\vec k\cdot\vec r}
+\,
+\vec\varepsilon\cdot\hat{\vec p}
+\right|
+e
+\right\rangle.
+$$
+
+For visible light, the wavelength is much larger than the size of an atom:
+
+$$
+\lambda
+\gg
+a_0.
+$$
+
+The electromagnetic field therefore changes very little across the atom, and
+
+$$
+e^{i\vec k\cdot\vec r}
+\approx
+1.
+$$
+
+This is the **electric-dipole approximation**.
+
+The matrix element then becomes
+
+$$
+\left\langle
+g
+\left|
+\vec\varepsilon\cdot\hat{\vec p}
+\right|
+e
+\right\rangle.
+$$
+
+## 4.1 From Momentum to Position Matrix Elements
+
+For the unperturbed Hamiltonian,
+
+$$
+\hat H_0
+=
+\frac{\hat{\vec p}^{\,2}}{2m}
++
+V(\vec r),
+$$
+
+the commutator with the position operator is
+
+$$
+[\hat H_0,\hat{\vec r}]
+=
+-\frac{i\hbar}{m}\hat{\vec p},
+$$
+
+which follows from the canonical commutation relation $[x_i,p_j]=i\hbar\delta_{ij}$.
+
+Therefore,
+
+$$
+\hat{\vec p}
+=
+\frac{im}{\hbar}
+[\hat H_0,\hat{\vec r}].
+$$
+
+The matrix element of the momentum operator between the two energy eigenstates,
+
+$$
+\hat H_0|e\rangle=E_e|e\rangle,
+\qquad
+\hat H_0|g\rangle=E_g|g\rangle,
+$$
+
+can now be calculated using the commutator relation above:
+
+$$
+\left\langle
+g
+\left|
+\hat{\vec p}
+\right|
+e
+\right\rangle
+=
+\frac{im}{\hbar}
+(E_g-E_e)
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle.
+$$
+
+For decay from the excited state to the ground state,
+
+$$
+E_e-E_g
+=
+\hbar\omega,
+$$
+
+so the momentum matrix element can be written entirely in terms of the position matrix element.
+
+We therefore define the **electric-dipole matrix element**
+
+$$
+\boxed{
+\vec d_{ge}
+=
+\left\langle
+g
+\left|
+\hat{\vec d}
+\right|
+e
+\right\rangle
+=
+-e
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle.
+}
+$$
+
+This is the central quantity that determines the strength of an electric-dipole transition.
+
+:::: {.callout-note collapse="true" title="Equivalent dipole-interaction form"}
+
+Instead of starting from minimal coupling, one can write the interaction directly as
+
+$$
+\boxed{
+\hat V(t)
+=
+-\hat{\vec d}\cdot\vec E(t).
+}
+$$
+
+Starting directly from the dipole interaction is simpler, but it hides the approximations that lead to it. By starting from minimal coupling, we can see explicitly where the **weak-field approximation** and the **electric-dipole approximation** are introduced.
+
+::::
+
+---
+
+# 5. Spontaneous Emission from Fermi's Golden Rule
+
+The general result from time-dependent perturbation theory is Fermi's Golden Rule,
+
+$$
+\Gamma
+=
+\frac{2\pi}{\hbar}
+|V_{fi}|^2
+\rho(E_f),
+$$
+
+where $V_{fi}$ is the matrix element coupling the initial and final states and $\rho(E_f)$ is the density of available final states.
+
+For spontaneous emission, the atom can emit into many electromagnetic modes with different propagation directions and polarizations.
+
+For one mode, the interaction strength is proportional to
+
+$$
+E_{\mathrm{vac}}^2
+\left|
+\vec\varepsilon\cdot\vec d_{ge}
+\right|^2.
+$$
+
+Because
+
+$$
+E_{\mathrm{vac}}^2
+=
+\frac{\hbar\omega}
+{2\varepsilon_0V},
+$$
+
+we have
+
+$$
+|V_{ge}|^2
+\propto
+\frac{\hbar\omega}
+{2\varepsilon_0V}
+\left|
+\vec\varepsilon\cdot\vec d_{ge}
+\right|^2.
+$$
+
+The spontaneous-emission rate therefore depends on two ingredients:
+
+1. the strength of the atom–field coupling;
+2. the number of electromagnetic modes available at the transition frequency.
+
+## 5.1 Density of Electromagnetic Modes
+
+In a large quantization volume $V$, the allowed wave vectors become very closely spaced.
+
+The number of modes in the interval $k$ to $k+dk$, within the solid angle $d\Omega$, is
+
+$$
+\frac{V}{(2\pi)^3}
+k^2\,dk\,d\Omega
+$$
+
+for each polarization.
+
+Since
+
+$$
+\omega=ck,
+$$
+
+we have
+
+$$
+dk=\frac{d\omega}{c}.
+$$
+
+The density of electromagnetic modes therefore grows as
+
+$$
+\boxed{
+\rho(\omega)\propto\omega^2.
+}
+$$
+
+:::: {.callout-note collapse="true" title="Summing over directions and polarizations"}
+
+For a fixed emission direction there are two independent transverse polarizations.
+
+The total rate is obtained by summing over both polarizations and integrating over all directions:
+
+$$
+\Gamma_{e\rightarrow g}
+=
+\sum_{\mathrm{pol}}
+\int d\Omega\,
+\Gamma_{e\rightarrow g}^{(\vec k,\mathrm{pol})}.
+$$
+
+The polarization sum gives
+
+$$
+\sum_{\mathrm{pol}}
+\left|
+\vec\varepsilon\cdot\vec d_{ge}
+\right|^2
+=
+|\vec d_{ge}|^2
+-
+|\hat{\vec k}\cdot\vec d_{ge}|^2.
+$$
+
+Integrating over all emission directions yields
+
+$$
+\sum_{\mathrm{pol}}
+\int d\Omega\,
+\left|
+\vec\varepsilon\cdot\vec d_{ge}
+\right|^2
+=
+\frac{8\pi}{3}
+|\vec d_{ge}|^2.
+$$
+
+Combining this with the electromagnetic mode density gives
+
+$$
+\Gamma_{e\rightarrow g}
+=
+\frac{\omega^3}
+{3\pi\varepsilon_0\hbar c^3}
+|\vec d_{ge}|^2.
+$$
+
+::::
+
+## 5.2 Spontaneous-Emission Rate
+
+The total spontaneous-emission rate from $|e\rangle$ to $|g\rangle$ is
+
+$$
+\boxed{
+\Gamma_{e\rightarrow g}
+=
+\frac{\omega^3}
+{3\pi\varepsilon_0\hbar c^3}
+|\vec d_{ge}|^2.
+}
+$$
+
+Using
+
+$$
+\vec d_{ge}
+=
+-e
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle,
+$$
+
+this becomes
+
+$$
+\boxed{
+\Gamma_{e\rightarrow g}
+=
+\frac{\omega^3e^2}
+{3\pi\varepsilon_0\hbar c^3}
+\left|
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle
+\right|^2.
+}
+$$
+
+This rate is the microscopic origin of the Einstein spontaneous-emission coefficient:
+
+$$
+\boxed{
+A_{eg}
+=
+\Gamma_{e\rightarrow g}.
+}
+$$
+
+The corresponding lifetime is
+
+$$
+\boxed{
+\tau
+=
+\frac{1}{A_{eg}}.
+}
+$$
+
+## 5.3 Why Does the Rate Contain $\omega^3$?
+
+The dependence
+
+$$
+A_{eg}\propto\omega^3
+$$
+
+has a simple physical interpretation.
+
+The squared vacuum-field amplitude contributes one power of frequency,
+
+$$
+E_{\mathrm{vac}}^2
+\propto
+\omega,
+$$
+
+while the density of electromagnetic modes contributes two more,
+
+$$
+\rho(\omega)
+\propto
+\omega^2.
+$$
+
+Therefore,
+
+$$
+\boxed{
+A_{eg}
+\propto
+\underbrace{\omega}_{\text{vacuum-field scale}}
+\,
+\underbrace{\omega^2}_{\text{mode density}}
+\,
+|\vec d_{ge}|^2
+=
+\omega^3|\vec d_{ge}|^2.
+}
+$$
+
+---
+
+# 6. From a Transition Rate to Exponential Decay
+
+Fermi's Golden Rule gives the spontaneous transition rate
+
+$$
+\Gamma=A_{eg}.
+$$
+
+For a sufficiently short time, when only a small fraction of the excited population has decayed,
+
+$$
+P_{\mathrm{decay}}(t)
+\approx
+\Gamma t.
+$$
+
+For longer times, the same rate applies to the population that remains excited. If $P_e(t)$ is the excited-state population,
+
+$$
+dP_e
+=
+-\Gamma P_e\,dt,
+$$
+
+or
+
+$$
+\frac{dP_e}{dt}
+=
+-\Gamma P_e.
+$$
+
+The solution is
+
+$$
+\boxed{
+P_e(t)
+=
+e^{-\Gamma t}.
+}
+$$
+
+Thus the familiar exponential decay law follows from a constant **fractional decay rate**.
+
+:::: {.callout-note collapse="true" title="A subtle point: Why does the atom decay rather than reach equilibrium?"}
+
+There is an important limitation to interpreting the vacuum fluctuations as an ordinary classical electromagnetic field.
+
+If the zero-point field were literally a classical oscillating field, it would drive transitions in both directions:
+
+$$
+\text{excited}
+\rightarrow
+\text{ground}
+$$
+
+and
+
+$$
+\text{ground}
+\rightarrow
+\text{excited}.
+$$
+
+The second process would continually repopulate the excited state. In that case, one could not simply describe spontaneous emission as an irreversible decay to the ground state.
+
+This is where the fully quantum-mechanical nature of the electromagnetic vacuum matters.
+
+The vacuum can accept the energy released by an excited atom, but a ground-state atom cannot absorb a real photon from the vacuum because no photon is present.
+
+The semiclassical construction used here therefore captures the characteristic **strength of the vacuum fluctuations** and allows us to calculate the spontaneous-emission rate, but it does not contain the complete quantum-mechanical asymmetry between emission and absorption.
+
+Fermi's Golden Rule initially gives
+
+$$
+P_{\mathrm{decay}}(t)
+\approx
+\Gamma t,
+$$
+
+which is valid while the excited-state population is approximately unchanged.
+
+The experimentally observed exponential decay,
+
+$$
+P_e(t)
+=
+e^{-\Gamma t},
+$$
+
+follows when $\Gamma$ is interpreted as the decay probability per unit time for the population that remains excited.
+
+A complete quantum treatment of the coupled atom and electromagnetic field provides the microscopic justification for this effectively irreversible behavior.
+
+::::
+
+---
+
+# 7. Dipole Matrix Elements and Transition Strengths
+
+The spontaneous-emission rate is proportional to
+
+$$
+|\vec d_{ge}|^2
+=
+e^2
+\left|
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle
+\right|^2.
+$$
+
+The electric-dipole matrix element therefore determines the strength of the transition.
+
+If
+
+$$
+\left\langle
+g
+\left|
+\hat{\vec r}
+\right|
+e
+\right\rangle
+=
+0,
+$$
+
+the transition is forbidden in the electric-dipole approximation.
+
+If the matrix element is nonzero, the transition is electric-dipole allowed, and its magnitude determines the radiative lifetime.
+
+The symmetry conditions that determine when this matrix element vanishes lead directly to the **electric-dipole selection rules** discussed in the next chapter.
+
+---
+
+# 8. Back to the Einstein Coefficients
+
+The Einstein coefficient for spontaneous emission is
+
+$$
+\boxed{
+A_{21}
+=
+\frac{\omega^3e^2}
+{3\pi\varepsilon_0\hbar c^3}
+\left|
+\left\langle
+\phi_1
+\left|
+\hat{\vec r}
+\right|
+\phi_2
+\right\rangle
+\right|^2.
+}
+$$
+
+In the previous chapter we found
+
+$$
+A_{21}
+=
+\frac{8\pi h\nu^3}{c^3}
+B_{21}.
+$$
+
+Using
+
+$$
+\omega=2\pi\nu,
+$$
+
+we obtain
+
+$$
+\boxed{
+B_{21}
+=
+\frac{e^2}
+{6\varepsilon_0\hbar^2}
+\left|
+\left\langle
+\phi_1
+\left|
+\hat{\vec r}
+\right|
+\phi_2
+\right\rangle
+\right|^2.
+}
+$$
+
+For equal degeneracies,
+
+$$
+\boxed{
+B_{12}=B_{21}.
+}
+$$
+
+More generally, the appropriate degeneracy factors must be included in the Einstein relation.
+
+Thus, once the spontaneous-emission coefficient $A_{21}$ is known microscopically, the stimulated-emission and absorption coefficients follow from the Einstein relations.
+
+---
+
+# 9. Summary
+
+The atomic Hamiltonian alone cannot explain spontaneous emission: an excited energy eigenstate would remain excited forever.
+
+The missing ingredient is the electromagnetic field.
+
+Each electromagnetic mode behaves like a quantum harmonic oscillator and therefore has the zero-point energy
+
+$$
+\frac12\hbar\omega.
+$$
+
+This fixes a characteristic vacuum-field scale,
+
+$$
+E_{\mathrm{vac}}
+=
+\sqrt{
+\frac{\hbar\omega}
+{2\varepsilon_0V}
+}.
+$$
+
+Using this scale in the atom–field interaction and applying Fermi's Golden Rule gives
+
+$$
+\boxed{
+A_{eg}
+=
+\frac{\omega^3}
+{3\pi\varepsilon_0\hbar c^3}
+|\vec d_{ge}|^2.
+}
+$$
+
+The factor $\omega^3$ arises because
+
+$$
+E_{\mathrm{vac}}^2\propto\omega
+$$
+
+and
+
+$$
+\rho(\omega)\propto\omega^2.
+$$
+
+The dipole matrix element determines the transition strength, while the Einstein relations connect spontaneous emission to absorption and stimulated emission.
