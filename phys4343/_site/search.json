@@ -1810,7 +1810,7 @@
     "href": "contents.html#quantum-mechanics",
     "title": "Table of Contents",
     "section": "Quantum Mechanics",
-    "text": "Quantum Mechanics\n\nWave Mechanics\nBra–Ket (Dirac) Notation, Operators, and More\nHeisenberg’s Uncertainty Principle\nAngular Momenta and Their Couplings\nThe One-Dimensional Quantum Harmonic Oscillator\nTime-Independent Perturbation Theory\nExchange Interaction: Fermions and Bosons\nThe Variational Method\nRelativistic Wave Equations — the Dirac Equation"
+    "text": "Quantum Mechanics\n\nWave Mechanics\nStates and Operators in Quantum Mechanics\nQuantum Measurement and the Measurement Problem\nCommutators and the Heisenberg Uncertainty Principle\nAngular Momenta and Their Couplings\nThe One-Dimensional Quantum Harmonic Oscillator\nTime-Independent Perturbation Theory\nTime-Dependent Perturbation Theory and Fermi’s Golden Rule\nThe Variational Method\nExchange Interaction: Fermions and Bosons\nRelativistic Wave Equations — the Dirac Equation"
   },
   {
     "objectID": "contents.html#hydrogen-basics",
@@ -1831,7 +1831,7 @@
     "href": "contents.html#absorption-and-emission-of-radiation",
     "title": "Table of Contents",
     "section": "Absorption and Emission of Radiation",
-    "text": "Absorption and Emission of Radiation\n\nTransition processes and Einstein Coefficients\nFrom Relations to Values: Dipole Matrix Elements\nVisualizing Atomic Transitions\nRadiation and Selection Rules\nSpectroscopy and Spectral Line Widths\nDoppler-Free Saturation Spectroscopy"
+    "text": "Absorption and Emission of Radiation\n\nTransition processes and Einstein Coefficients\nSpontaneous Decay and Atomic Transition Rates\nVisualizing Atomic Transitions\nRadiation and Selection Rules\nSpectroscopy and Spectral Line Widths\nDoppler-Free Saturation Spectroscopy"
   },
   {
     "objectID": "contents.html#more-than-one-electron-atoms",
@@ -1853,6 +1853,42 @@
     "title": "Table of Contents",
     "section": "Laser–Atom Interactions",
     "text": "Laser–Atom Interactions\n\nTwo-Level Systems — The Theoretical Framework\nRotating Wave Approximation and Rabi Oscillations\nThe Density Matrix Formalism\nThe Optical Bloch Equations\nLaser Cooling\nThe Bloch Sphere Representation\nRamsey Spectroscopy and Atomic Clocks"
+  },
+  {
+    "objectID": "mod3/orbitals.html",
+    "href": "mod3/orbitals.html",
+    "title": "Visualizing Hydrogen Orbitals",
+    "section": "",
+    "text": "In the previous chapters, we treated the two parts of the hydrogen wavefunction separately:\n\\[\n\\psi_{n\\ell m}(r,\\theta,\\varphi)\n=\nR_{n\\ell}(r)\\,\nY_\\ell^m(\\theta,\\varphi).\n\\]\nThe angular functions \\(Y_\\ell^m(\\theta,\\varphi)\\) and their shapes were discussed in Orbital Angular Momentum, while the radial functions \\(R_{n\\ell}(r)\\) and the corresponding radial probability distributions were discussed in The Hydrogen Atom.\nHere we put these two pieces together and visualize the complete three-dimensional hydrogen wavefunctions.\nThe purpose of this page is not to derive new wavefunctions. Instead, we will use the solutions obtained previously to understand\n\nwhat an orbital picture actually represents;\nhow radial and angular structure combine in three dimensions;\nhow nodes appear in the complete wavefunction;\nhow the quantum numbers \\(n\\), \\(\\ell\\), and \\(m\\) affect the spatial structure;\nwhy the \\(m\\) eigenstates used in atomic physics do not always look like the familiar real-valued orbitals used in chemistry.",
+    "crumbs": [
+      "Home",
+      "Hydrogen Atom: Wave Functions",
+      "Visualizing Hydrogen Orbitals"
+    ]
+  },
+  {
+    "objectID": "mod3/orbitals.html#radial-nodes",
+    "href": "mod3/orbitals.html#radial-nodes",
+    "title": "Visualizing Hydrogen Orbitals",
+    "section": "3.1 Radial Nodes",
+    "text": "3.1 Radial Nodes\nA radial node occurs when\n\\[\nR_{n\\ell}(r)=0\n\\]\nat some nonzero radius.\nFor hydrogen, the number of radial nodes is\n\\[\n\\boxed{\nN_{\\mathrm{radial}}\n=\nn-\\ell-1.\n}\n\\]\nIn three dimensions, a radial node forms a spherical nodal surface around the nucleus.\nFor example,\n\nthe \\(1s\\) state has no radial nodes;\nthe \\(2s\\) state has one radial node;\nthe \\(3p\\) states have one radial node;\nthe \\(3d\\) states have no radial nodes.",
+    "crumbs": [
+      "Home",
+      "Hydrogen Atom: Wave Functions",
+      "Visualizing Hydrogen Orbitals"
+    ]
+  },
+  {
+    "objectID": "mod3/orbitals.html#angular-nodes",
+    "href": "mod3/orbitals.html#angular-nodes",
+    "title": "Visualizing Hydrogen Orbitals",
+    "section": "3.2 Angular Nodes",
+    "text": "3.2 Angular Nodes\nAngular zeros are determined by the spherical harmonic,\n\\[\nY_\\ell^m(\\theta,\\varphi)=0.\n\\]\nTheir geometry depends on \\(\\ell\\) and \\(m\\) and was already visible in the angular distributions discussed in Orbital Angular Momentum.\nIn the complete orbital, these angular zeros extend through the radial probability distribution and become nodal planes, cones, axes, or other nodal structures depending on the state.\nThe following examples show how radial and angular nodes appear together.",
+    "crumbs": [
+      "Home",
+      "Hydrogen Atom: Wave Functions",
+      "Visualizing Hydrogen Orbitals"
+    ]
   },
   {
     "objectID": "mod3/angmom.html",
@@ -3579,7 +3615,7 @@
     "href": "mod3/index.html#scope-of-this-section",
     "title": "The Hydrogen Atom — Basics",
     "section": "Scope of this Section",
-    "text": "Scope of this Section\nIn this chapter, we study hydrogen in the nonrelativistic Schrödinger picture.\nOur goals are:\n\nSolve the time-independent Schrödinger equation for the Coulomb potential.\n\nSeparate variables in spherical coordinates and identify radial and angular parts.\nSee Orbital Angular Momentum for the derivation of the spherical harmonics and the angular eigenproblem.\n\nDerive the hydrogenic eigenenergies and their degeneracies.\nSee The Hydrogen Atom for the radial equation and energy quantization.\n\nExplore the structure of the spatial wavefunctions (orbitals) through graphical representations.\nSee Visualizing Hydrogen Orbitals — placeholder / forthcoming.\n\nConnect angular momentum quantum numbers \\((\\ell,m)\\) with the orbital shapes and nodal structure.\n\nThis material provides the foundation for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the Hydrogen (Details) chapter.",
+    "text": "Scope of this Section\nIn this chapter, we study hydrogen in the nonrelativistic Schrödinger picture.\nOur goals are:\n\nSolve the time-independent Schrödinger equation for the Coulomb potential.\n\nSeparate variables in spherical coordinates and identify radial and angular parts.\nSee Orbital Angular Momentum for the derivation of the spherical harmonics and the angular eigenproblem.\n\nDerive the hydrogenic eigenenergies and their degeneracies.\nSee The Hydrogen Atom for the radial equation and energy quantization.\n\nExplore the structure of the spatial wavefunctions (orbitals) through graphical representations.\nSee Visualizing Hydrogen Orbitals.\n\nConnect angular momentum quantum numbers \\((\\ell,m)\\) with the orbital shapes and nodal structure.\n\nThis material provides the foundation for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the Hydrogen (Details) chapter.",
     "crumbs": [
       "Home",
       "Hydrogen Atom: Wave Functions"
@@ -5147,80 +5183,17 @@
     ]
   },
   {
-    "objectID": "mod3/angmom_rev.html",
-    "href": "mod3/angmom_rev.html",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "",
-    "text": "To solve the Schrödinger equation for the hydrogen atom, we must understand the angular part of the wave function. This leads naturally to the quantum-mechanical theory of orbital angular momentum and to the spherical harmonics \\(Y_\\ell^m(\\theta,\\varphi)\\).\nA more general discussion of angular momentum—including the abstract angular-momentum algebra, ladder operators, spin, and the coupling of different angular momenta—is given in Angular Momenta and Their Couplings.\nSome of those general results are repeated here so that the derivation of the hydrogen wave function can be followed without requiring that chapter as a prerequisite.\nThe specific goals for this chapter are:\n\nDerive the quantum-mechanical operator for orbital angular momentum, \\(\\hat{\\vec L}\\), and analyze its key commutation relations.\nEmploy separation of variables in spherical coordinates to transform the angular eigenvalue problem into ordinary differential equations.\nSolve these equations to determine the allowed eigenvalues of \\(\\hat L^2\\) and \\(\\hat L_z\\) and the corresponding eigenfunctions.\nIntroduce the spherical harmonics \\(Y_\\ell^m(\\theta,\\varphi)\\) as the angular part of the hydrogen wave function."
+    "objectID": "contents.html#hydrogen-atom-wave-functions",
+    "href": "contents.html#hydrogen-atom-wave-functions",
+    "title": "Table of Contents",
+    "section": "Hydrogen Atom: Wave Functions",
+    "text": "Hydrogen Atom: Wave Functions\n\nOrbital Angular Momentum in Quantum Mechanics\nHydrogen atom — Schrödinger equation and radial solutions\nVisualizing Hydrogen Orbitals"
   },
   {
-    "objectID": "mod3/angmom_rev.html#commutation-relations",
-    "href": "mod3/angmom_rev.html#commutation-relations",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "1.1 Commutation Relations",
-    "text": "1.1 Commutation Relations\nThe following commutation relations are a particular realization of the general angular-momentum algebra discussed in Angular Momenta and Their Couplings. Here we derive them directly from \\(\\hat{\\vec L}=\\hat{\\vec r}\\times\\hat{\\vec p}\\) so that the orbital-angular-momentum discussion remains self-contained.\nFrom the canonical commutation relations \\[\n[\\hat x_i, \\hat p_j] = i\\hbar \\,\\delta_{ij},\n\\quad\n[\\hat x_i, \\hat x_j] = 0,\n\\quad\n[\\hat p_i, \\hat p_j] = 0,\n\\] one can compute \\[\n[\\hat L_x, \\hat L_y] = i\\hbar \\hat L_z, \\qquad\n[\\hat L_y, \\hat L_z] = i\\hbar \\hat L_x, \\qquad\n[\\hat L_z, \\hat L_x] = i\\hbar \\hat L_y.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe angular momentum components are \\[\n\\hat L_x = \\hat y \\hat p_z - \\hat z \\hat p_y, \\qquad\n\\hat L_y = \\hat z \\hat p_x - \\hat x \\hat p_z, \\qquad\n\\hat L_z = \\hat x \\hat p_y - \\hat y \\hat p_x.\n\\]\nCompute the commutator: \\[\n\\begin{aligned}\n{[\\hat L_x, \\hat L_y]} &= [\\hat y \\hat p_z - \\hat z \\hat p_y, \\; \\hat z \\hat p_x - \\hat x \\hat p_z] \\\\\n&= [\\hat y \\hat p_z, \\hat z \\hat p_x]\n- [\\hat y \\hat p_z, \\hat x \\hat p_z]\n- [\\hat z \\hat p_y, \\hat z \\hat p_x]\n+ [\\hat z \\hat p_y, \\hat x \\hat p_z].\n\\end{aligned}\n\\]\nExpanding and using the canonical commutators \\([\\hat x_i, \\hat p_j] = i\\hbar \\delta_{ij}\\) and \\([\\hat x_i, \\hat x_j] = [\\hat p_i, \\hat p_j] = 0\\):\n\n\\([\\hat y \\hat p_z, \\hat z \\hat p_x] = \\hat y [\\hat p_z, \\hat z] \\hat p_x = -i\\hbar \\hat y \\hat p_x\\)\n\n\\(-[\\hat y \\hat p_z, \\hat x \\hat p_z] = 0\\)\n\n\\(-[\\hat z \\hat p_y, \\hat z \\hat p_x] = 0\\)\n\\([\\hat z \\hat p_y, \\hat x \\hat p_z] = \\hat x [\\hat z, \\hat p_z] \\hat p_y = i\\hbar \\hat x \\hat p_y\\)\n\nAdding the nonzero terms gives \\[\n[\\hat L_x, \\hat L_y] = i\\hbar (\\hat x \\hat p_y - \\hat y \\hat p_x) = i\\hbar \\hat L_z.\n\\]\nThus the commutator is verified. The remaining commutators, \\([\\hat L_y, \\hat L_z]\\) and \\([\\hat L_z, \\hat L_x]\\), can be derived using the same method.\n\n\n\nThese relations show:\n\n\n\n\n\n\nCaution\n\n\n\n\nThe three components \\(\\hat L_x, \\hat L_y, \\hat L_z\\) do not commute.\n\nTherefore, they cannot in general have simultaneously sharp values, and there is no complete basis of simultaneous eigenstates of all three components."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#total-angular-momentum",
-    "href": "mod3/angmom_rev.html#total-angular-momentum",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "1.2 Total Angular Momentum",
-    "text": "1.2 Total Angular Momentum\nThe squared operator is defined as \\[\n\\hat L^2 = \\hat L_x^2 + \\hat L_y^2 + \\hat L_z^2.\n\\]\nIt satisfies \\[\n[\\hat L^2, \\hat L_x] = [\\hat L^2, \\hat L_y] = [\\hat L^2, \\hat L_z] = 0.\n\\]\nHence, we can find simultaneous eigenstates of \\(\\hat L^2\\) and one component, usually chosen to be \\(\\hat L_z\\).\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Create a new figure and a 3D axis\nfig = plt.figure(figsize=(10, 8))\nax = fig.add_subplot(111, projection='3d')\n\n# Set the aspect ratio to 'equal' for better visualization\nax.set_box_aspect([1,1,1])\n\n# Define the components of the angular momentum vector L\nLx = 3\nLy = 4\nLz = 6\n\n# The origin of the vectors\norigin = [0, 0, 0]\n\n# Plot the angular momentum vector L\nax.quiver(*origin, Lx, Ly, Lz, color='red', label=r'$\\vec{L}$', arrow_length_ratio=0.15)\n\n# Plot the z-component vector Lz\nax.quiver(*origin, 0, 0, Lz, color='blue', linestyle='--', arrow_length_ratio=0.1)\n\n# Plot the x, y, and z unit vectors\nax.quiver(*origin, 1, 0, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 1, 0, color='gray', arrow_length_ratio=0.3)\nax.quiver(*origin, 0, 0, 1, color='gray', arrow_length_ratio=0.3)\n\n# Add labels for the unit vectors\nax.text(1.2, 0, 0, 'x', color='gray', fontsize=12)\nax.text(0, 1.2, 0, 'y', color='gray', fontsize=12)\nax.text(0, 0, 1.2, 'z', color='gray', fontsize=12)\n\n# Set title\n# ax.set_title('Quantum Mechanical Angular Momentum Vector', fontsize=16)\n\n# Plot the circle of possible endpoints for the L vector\nradius = np.sqrt(Lx**2 + Ly**2)\ntheta = np.linspace(0, 2 * np.pi, 100)\nx_circle = radius * np.cos(theta)\ny_circle = radius * np.sin(theta)\nz_circle = np.full_like(theta, Lz)\nax.plot(x_circle, y_circle, z_circle, color='green', linestyle=':', label='Uncertainty Circle')\n\n# Add annotations for vector lengths, adjusted for better visibility\nlambda_val = Lx**2 + Ly**2 + Lz**2\nmu_val = Lz\nax.text(Lx * 0.7, Ly * 0.6, Lz * 0.4, r'$\\sqrt{\\lambda}$', color='red', fontsize=14, horizontalalignment='left')\nax.text(0.5, 0.5, Lz * 0.5, r'$\\mu$', color='blue', fontsize=14, horizontalalignment='left')\n\n# Set the plot limits\nax.set_xlim([-5, 5])\nax.set_ylim([-5, 5])\nax.set_zlim([0, 7])\n\n# Remove background planes and main axes lines, but keep the specific unit vectors\nax.set_axis_off()\n\n# Remove grid\nax.grid(False)\n\n# Save the plot\n#plt.savefig('angular_momentum_final.png')\n\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Angular momentum eigenvector in quantum mechanics."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#eigenfunctions-of-hatl_z",
-    "href": "mod3/angmom_rev.html#eigenfunctions-of-hatl_z",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)",
-    "text": "3.1 Eigenfunctions of \\(\\hat{L}_z\\)\nApplying \\(\\hat{L}_z\\) gives:\n\\[\n\\hat{L}_z Y = -i\\hbar \\frac{\\partial}{\\partial \\varphi}(\\Theta(\\theta)\\Phi(\\varphi))\n= -i\\hbar \\Theta(\\theta) \\frac{d\\Phi}{d\\varphi}.\n\\]\nThus \\(\\Phi\\) must satisfy:\n\\[\n\\frac{d\\Phi}{d\\varphi} = i m \\Phi, \\quad m \\in \\mathbb{Z}.\n\\]\nThe solutions are:\n\\[\n\\Phi(\\varphi) = e^{im\\varphi}, \\qquad \\mu = \\hbar m.\n\\]"
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#equation-for-thetatheta",
-    "href": "mod3/angmom_rev.html#equation-for-thetatheta",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.2 Equation for \\(\\Theta(\\theta)\\)",
-    "text": "3.2 Equation for \\(\\Theta(\\theta)\\)\nSubstituting into the \\(\\hat{L}^2\\) eigenvalue equation:\n\\[\n\\frac{1}{\\sin\\theta}\\frac{d}{d\\theta}\\!\\Big(\\sin\\theta\\frac{d\\Theta}{d\\theta}\\Big)\n- \\frac{m^2}{\\sin^2\\theta}\\Theta + \\ell(\\ell+1)\\Theta = 0,\n\\]\nwhere we have set \\(\\lambda = \\hbar^2 \\ell(\\ell+1)\\).\nLet \\(x = \\cos\\theta\\). Then the equation becomes:\n\\[\n\\frac{d}{dx}\\Big[(1-x^2)\\frac{dP}{dx}\\Big] + \\Big[\\ell(\\ell+1) - \\frac{m^2}{1-x^2}\\Big] P(x) = 0.\n\\]\nThis is the associated Legendre equation. The physically acceptable solutions to this equation are the associated Legendre functions, \\(P_\\ell^m(x)\\) , which are defined in terms of the standard Legendre polynomials \\(P_\\ell(x)\\):\n\\[\nP_\\ell^m(x) = (1-x^2)^{m/2} \\frac{d^m}{dx^m} P_\\ell(x).\n\\]\nThe Legendre polynomials \\(P_\\ell(x)\\) can be constructed explicitly as (Rodrigues’ Formula):\n\\[\nP_\\ell(x) = \\frac{1}{2^\\ell \\ell!} \\frac{d^\\ell}{dx^\\ell} \\big[(x^2-1)^\\ell\\big].\n\\]"
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#general-result",
-    "href": "mod3/angmom_rev.html#general-result",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "3.3 General result",
-    "text": "3.3 General result\n\n\n\n\n\n\nTipGeneral Form of Spherical Harmonics\n\n\n\nCombining both angular parts, the eigenfunctions are:\n\\[\nY_\\ell^m(\\theta,\\varphi) = N_{\\ell m}\\, P_\\ell^m(\\cos\\theta)\\, e^{i m \\varphi},\n\\]\nwith normalization constant\n\\[\nN_{\\ell m} = (-1)^m \\sqrt{\\frac{2\\ell+1}{4\\pi}\\,\\frac{(\\ell-m)!}{(\\ell+m)!}}.\n\\]\n\n\n\n\n\n\n\n\nTipEigenvalue Equations\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\hat{L}^2 Y_{\\ell}^{m} = \\hbar^2 \\ell(\\ell+1) Y_{\\ell}^{m}, \\qquad\n\\hat{L}_z Y_{\\ell}^{m} = \\hbar m Y_{\\ell}^{m}.\n\\]\nThus \\(Y_\\ell^m\\) are simultaneous eigenfunctions of both \\(\\hat{L}^2\\) and \\(\\hat{L}_z\\).\n\n\n\n\n\n\n\n\nTipOrthonormality\n\n\n\nThe spherical harmonics satisfy:\n\\[\n\\int_0^{2\\pi}\\!\\int_0^\\pi Y_\\ell^m(\\theta,\\varphi)^*\\,Y_{\\ell'}^{m'}(\\theta,\\varphi)\\,\n\\sin\\theta \\, d\\theta\\, d\\varphi\n= \\delta_{\\ell\\ell'}\\delta_{mm'}.\n\\]\nThus, \\(\\{Y_\\ell^m\\}\\) forms a complete orthonormal basis for functions on the sphere."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#key-observations",
-    "href": "mod3/angmom_rev.html#key-observations",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "5.1 Key observations",
-    "text": "5.1 Key observations\n\n\\(\\hat{L}_+\\) raises \\(m\\) by one unit:\n\\(\\; m \\mapsto m+1\\).\n\\(\\hat{L}_-\\) lowers \\(m\\) by one unit:\n\\(\\; m \\mapsto m-1\\).\nSince the maximum value of \\(m\\) is \\(\\ell\\), applying \\(\\hat{L}_+\\) to \\(\\lvert \\ell, \\ell \\rangle\\) gives zero:\n\\[\n\\hat{L}_+ \\lvert \\ell, \\ell \\rangle = 0.\n\\]\nSimilarly, \\(L_-\\) annihilates the lowest state \\(\\lvert \\ell, -\\ell \\rangle\\):\n\\[\n\\hat{L}_- \\lvert \\ell, -\\ell \\rangle = 0.\n\\]\nThe ladder operators explain the spacing and finite range of the \\(m\\) values for a fixed \\(\\ell\\):\n\nStarting from the top state \\(\\lvert \\ell, \\ell \\rangle\\), repeated applications of \\(\\hat{L}_-\\) generate all the states down to \\(\\lvert \\ell, -\\ell \\rangle\\).\n\nEach application changes \\(m\\) by one unit, and the ladder terminates at \\(m=\\pm\\ell\\).\nThe fact that \\(\\ell\\) and \\(m\\) are integers for orbital angular momentum was established above from the single-valuedness and regularity of the spatial wave functions. In the general theory of angular momentum, half-integer quantum numbers are also possible."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#connection-to-spherical-harmonics",
-    "href": "mod3/angmom_rev.html#connection-to-spherical-harmonics",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "5.2 Connection to spherical harmonics",
-    "text": "5.2 Connection to spherical harmonics\nIn the coordinate-space representation, these ladder operators correspond to differential operators acting on the spherical harmonics \\(Y_\\ell^m(\\theta,\\varphi)\\):\n\\[\n\\hat{L}_\\pm Y_\\ell^m(\\theta,\\varphi)\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m \\pm 1)} \\, Y_\\ell^{m\\pm 1}(\\theta,\\varphi).\n\\]\nThis provides an algebraic way to generate all spherical harmonics of a given \\(\\ell\\) starting from the “highest-weight” function \\(Y_\\ell^\\ell(\\theta,\\varphi)\\)."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#step-1-definitions-and-commutators",
-    "href": "mod3/angmom_rev.html#step-1-definitions-and-commutators",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 1: Definitions and commutators",
-    "text": "Step 1: Definitions and commutators\nDefine the ladder operators \\[\n\\hat L_\\pm = \\hat L_x \\pm i \\hat L_y.\n\\]\nThey satisfy the commutation relations \\[\n[\\hat L_z, \\hat L_\\pm] = \\pm \\hbar \\hat L_\\pm,\n\\qquad\n[\\hat L_+, \\hat L_-] = 2\\hbar \\hat L_z.\n\\]\nThus, if \\(\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle\\), then \\[\n\\hat L_z(\\hat L_\\pm \\lvert \\ell,m \\rangle)\n= (\\hbar m \\pm \\hbar)\\, \\hat L_\\pm \\lvert \\ell,m \\rangle.\n\\]\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe commutator of \\(\\hat L_z\\) with the ladder operators is\n\\[\n[\\hat L_z, \\hat L_\\pm]\n= [\\hat L_z, \\hat L_x] \\pm i [\\hat L_z, \\hat L_y]\n= i \\hbar \\hat L_y \\pm \\hbar \\hat L_x\n= \\pm \\hbar (\\hat L_x \\pm i \\hat L_y)\n= \\pm \\hbar \\hat L_\\pm .\n\\]\nFrom this relation we obtain the operator identity\n\\[\n\\hat L_z \\hat L_\\pm\n= [\\hat L_z, \\hat L_\\pm] + \\hat L_\\pm \\hat L_z\n= \\pm \\hbar \\hat L_\\pm + \\hat L_\\pm \\hat L_z\n= \\hat L_\\pm(\\hat L_z \\pm \\hbar).\n\\]\nThus, when acting on an eigenstate \\(\\lvert \\ell, m \\rangle\\) of \\(\\hat L^2\\) and \\(\\hat L_z\\), the operator \\(\\hat L_\\pm\\) shifts the magnetic quantum number by one unit:\n\\[\n\\hat L_z \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle)\n= (m \\pm 1)\\hbar \\, (\\hat L_\\pm \\lvert \\ell, m \\rangle).\n\\]\n\n\n\nThis shows that \\(\\hat L_\\pm\\) (if nonzero) produces another eigenstate with eigenvalue \\(m \\pm 1\\).\nSo we may write \\[\n\\hat L_\\pm \\lvert \\ell,m \\rangle = C_\\pm(\\ell,m) \\lvert \\ell, m \\pm 1 \\rangle,\n\\] for some coefficient \\(C_\\pm(\\ell,m)\\)."
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#step-2-determining-c_pm2",
-    "href": "mod3/angmom_rev.html#step-2-determining-c_pm2",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 2: Determining \\(|C_\\pm|^2\\)",
-    "text": "Step 2: Determining \\(|C_\\pm|^2\\)\nConsider the squared norm: \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\langle \\ell,m | \\hat L_- \\hat L_+ | \\ell,m \\rangle.\n\\]\nUsing the operator identity \\[\n\\hat L_- \\hat L_+ = \\hat L^2 - \\hat L_z^2 - \\hbar \\hat L_z,\n\\] and the eigenvalue equations \\[\n\\hat L^2 \\lvert \\ell,m \\rangle = \\hbar^2 \\ell(\\ell+1) \\lvert \\ell,m \\rangle,\n\\qquad\n\\hat L_z \\lvert \\ell,m \\rangle = \\hbar m \\lvert \\ell,m \\rangle,\n\\] we get \\[\n\\|\\hat L_+ \\lvert \\ell,m \\rangle \\|^2\n= \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nThus, \\[\n|C_+(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m+1)\\big).\n\\]\nSimilarly, using \\[\n\\hat L_+ \\hat L_- = \\hat L^2 - \\hat L_z^2 + \\hbar \\hat L_z,\n\\] we find \\[\n|C_-(\\ell,m)|^2 = \\hbar^2 \\big(\\ell(\\ell+1) - m(m-1)\\big).\n\\]"
-  },
-  {
-    "objectID": "mod3/angmom_rev.html#step-3-fixing-the-phase-convention",
-    "href": "mod3/angmom_rev.html#step-3-fixing-the-phase-convention",
-    "title": "Orbital Angular Momentum in Quantum Mechanics",
-    "section": "Step 3: Fixing the phase convention",
-    "text": "Step 3: Fixing the phase convention\nWe can choose the overall phase of the eigenstates such that \\(C_\\pm\\) are real and positive. With this standard convention we obtain:\n\\[\n\\hat L_+ \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m+1)} \\; \\lvert \\ell,m+1 \\rangle,\n\\]\n\\[\n\\hat L_- \\lvert \\ell,m \\rangle\n= \\hbar \\sqrt{\\ell(\\ell+1) - m(m-1)} \\; \\lvert \\ell,m-1 \\rangle.\n\\]\n\nConclusion:\nThe ladder operators raise or lower the \\(m\\) quantum number by one unit, with the above coefficients."
+    "objectID": "contents.html#hydrogen-atom-shifts-and-interactions",
+    "href": "contents.html#hydrogen-atom-shifts-and-interactions",
+    "title": "Table of Contents",
+    "section": "Hydrogen Atom: Shifts and Interactions",
+    "text": "Hydrogen Atom: Shifts and Interactions\n\nElectron Spin and Fine Structure\nThe Lamb Shift — An Introduction to Quantum Electrodynamics\nThe Hyperfine Structure (HFS)\nSummary — energy-level splitting\nHydrogen in Static External Fields"
   }
 ]

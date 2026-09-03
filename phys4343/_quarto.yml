@@ -44,6 +44,7 @@ website:
         contents:
           - mod3/angmom.qmd
           - mod3/hydrogen.qmd
+          - mod3/orbitals.qmd
       - section: "Hydrogen Atom: Shifts and Interactions"
         href: mod4/index.qmd
         contents:
