@@ -7,13 +7,18 @@ author: Daniel Fischer
 
 # Orbital angular momentum: overview and plan
 
-This chapter provides a comprehensive introduction to the quantum mechanical treatment of orbital angular momentum. We will derive the operators for angular momentum and solve the corresponding eigenvalue problem, which is fundamental to understanding the behavior of many quantum systems, including the hydrogen atom.
+To solve the Schrödinger equation for the hydrogen atom, we must understand the angular part of the wave function. This leads naturally to the quantum-mechanical theory of **orbital angular momentum** and to the spherical harmonics $Y_\ell^m(\theta,\varphi)$.
+
+A more general discussion of angular momentum—including the abstract angular-momentum algebra, ladder operators, spin, and the coupling of different angular momenta—is given in [Angular Momenta and Their Couplings](../mod2/amcoupling.qmd).
+
+Some of those general results are repeated here so that the derivation of the hydrogen wave function can be followed without requiring that chapter as a prerequisite.
 
 The specific goals for this chapter are:
 
-1. Derive the quantum mechanical operator for orbital angular momentum, $\hat{\vec L}$, and analyze its key commutation relations.
-2. Employ the method of separation of variables in spherical coordinates to transform the eigenvalue problem into a set of angular ordinary differential equations (ODEs).
-3. Solve these ODEs to determine the quantized eigenvalues of $\hat L^2$ and its components, and find the corresponding eigenfunctions.
+1. Derive the quantum-mechanical operator for orbital angular momentum, $\hat{\vec L}$, and analyze its key commutation relations.
+2. Employ separation of variables in spherical coordinates to transform the angular eigenvalue problem into ordinary differential equations.
+3. Solve these equations to determine the allowed eigenvalues of $\hat L^2$ and $\hat L_z$ and the corresponding eigenfunctions.
+4. Introduce the spherical harmonics $Y_\ell^m(\theta,\varphi)$ as the angular part of the hydrogen wave function.
 
 ---
 
@@ -103,6 +108,8 @@ $$
 
 ## 1.1 Commutation Relations
 
+The following commutation relations are a particular realization of the **general angular-momentum algebra** discussed in [Angular Momenta and Their Couplings](../mod2/amcoupling.qmd). Here we derive them directly from $\hat{\vec L}=\hat{\vec r}\times\hat{\vec p}$ so that the orbital-angular-momentum discussion remains self-contained.
+
 From the canonical commutation relations
 $$
 [\hat x_i, \hat p_j] = i\hbar \,\delta_{ij}, 
@@ -160,7 +167,7 @@ These relations show:
 
 ::: {.callout-caution}
 - The three components $\hat L_x, \hat L_y, \hat L_z$ **do not commute**.  
-- Thus, there are **no eigenstates of the full vector operator** $\hat{\vec L}$.
+- Therefore, they cannot in general have simultaneously sharp values, and there is no complete basis of simultaneous eigenstates of all three components.
 :::
 
 
@@ -449,7 +456,9 @@ The $\theta$-dependence is given explicitly by the **associated Legendre functio
 
 # 5. Ladder Operators and $m$-States
 
-To understand the structure of the angular momentum eigenstates, it is useful to introduce the **ladder operators**:
+Ladder operators are developed in a more general setting in [Angular Momenta and Their Couplings](../mod2/amcoupling.qmd). We repeat the essential construction here for **orbital angular momentum** so that this page remains self-contained and so that we can connect the algebra directly to the spherical harmonics.
+
+To understand the structure of the orbital angular-momentum eigenstates, it is useful to introduce the **ladder operators**:
 
 $$
 \hat{L}_\pm = \hat{L}_x \pm i \hat{L}_y.
@@ -486,10 +495,11 @@ $$
   \hat{L}_- \lvert \ell, -\ell \rangle = 0.
   $$
 
-- The ladder operators explain why the possible $m$ values for a fixed $\ell$ are restricted to integers in the range $-\ell, -\ell+1, \dots, \ell - 1, \ell$:
+- The ladder operators explain the **spacing and finite range** of the $m$ values for a fixed $\ell$:
 
   - Starting from the top state $\lvert \ell, \ell \rangle$, repeated applications of $\hat{L}_-$ generate all the states down to $\lvert \ell, -\ell \rangle$.  
-  - No other values of $m$ appear, because outside this range the ladder action vanishes.
+  - Each application changes $m$ by one unit, and the ladder terminates at $m=\pm\ell$.
+  - The fact that $\ell$ and $m$ are **integers** for orbital angular momentum was established above from the single-valuedness and regularity of the spatial wave functions. In the general theory of angular momentum, half-integer quantum numbers are also possible.
 
 ---
 
@@ -534,7 +544,7 @@ For the lowest values of $\ell$ and $m$, the normalized spherical harmonics are:
   Y_2^{\pm 2} = \sqrt{\frac{15}{32\pi}} \sin^2\theta \, e^{\pm 2i\varphi}.
   $$
 
-These functions form the familiar $s$, $p$, and $d$ orbitals in atomic physics.
+These spherical harmonics provide the **angular parts** of the familiar $s$, $p$, and $d$ orbitals in atomic physics; the complete orbital wave functions also contain a radial factor.
 
 ```{python}
 #| label: fig-sphericalh
@@ -824,5 +834,4 @@ $$
 
 **Conclusion:**  
 The ladder operators raise or lower the $m$ quantum number by one unit, with the above coefficients.
-
 
