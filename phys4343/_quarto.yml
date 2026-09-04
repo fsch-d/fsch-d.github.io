@@ -25,6 +25,8 @@ website:
 #          - index.qmd
 #          - basics-knitr.qmd
 #          - basics-jupyter.qmd
+      - text: "From Classical Physics to the Quantum World"
+        href: mod1/index.qmd
       - section: "Quantum Mechanics"
         href: mod2/index.qmd
         contents:

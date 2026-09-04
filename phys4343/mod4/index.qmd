@@ -1,5 +1,5 @@
 ---
-title: Hydrogen (Details)
+title: "Hydrogen Atom: Shifts and Interactions"
 author: Daniel Fischer
 lightbox: true
 ---

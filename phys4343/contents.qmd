@@ -8,6 +8,10 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
+## [From Classical Physics to the Quantum World](mod1/index.qmd)
+
+---
+
 ## [Quantum Mechanics](mod2/index.qmd)
 
 * [Wave Mechanics](mod2/wavemechanics.qmd)

@@ -1,0 +1,1261 @@
+---
+filters:
+- ../physics-macros.lua
+format:
+  html:
+    css: ../styles.css
+    fig-alt: true
+    self-contained: true
+subtitle: How a few small wrinkles changed our view of nature
+title: From Classical Physics to the Quantum World
+---
+
+# A world without quantum mechanics
+
+Why does the wire in a toaster glow orange when it gets hot? Why do
+atoms not simply collapse? Why can molecules form stable structures, and
+why are solids *solid*?
+
+These questions sound very different. Yet all of them have something in
+common: they cannot be answered within classical physics alone.
+
+Quantum mechanics is sometimes introduced through its strangest
+consequences---particles that behave like waves, probabilities instead
+of definite outcomes, or states that can exist in superposition. But
+quantum mechanics is not merely an exotic theory for phenomena far
+removed from everyday experience. It explains the stability and
+structure of ordinary matter.
+
+Modern technology also depends on it. The controlled motion of electrons
+in semiconductor devices makes computers and smartphones possible.
+Lasers and light-emitting diodes rely on transitions between quantum
+states. Much of modern medical imaging, photovoltaics, and countless
+other technologies ultimately depend on our ability to understand and
+manipulate matter at the quantum level.
+
+```{=html}
+<!-- VISUAL: MODERN QUANTUM WORLD
+Type: image collage or wide banner
+
+Possible elements:
+- glowing toaster wire / incandescent filament
+- transistor or microchip
+- laser beam
+- LED
+- atomic or molecular image
+
+Purpose:
+Begin with familiar objects and technologies before introducing any
+historical material. The message should be that quantum mechanics is not
+only about "weird microscopic physics"; it underlies the ordinary material
+world.
+
+ALT-TEXT PLACEHOLDER:
+Collage connecting familiar modern technologies and ordinary matter to
+phenomena that require quantum mechanics for their explanation.
+-->
+```
+How did physicists arrive at such a radically different description of
+nature?
+
+To understand that, it is useful to go back to a time **before quantum
+mechanics existed**---to a period when the foundations of physics seemed
+remarkably secure.
+
+# 1878: Physics is almost finished
+
+Imagine Munich in **1878**. A young student, about twenty years old, has
+begun studying physics at the university. His name is **Max Planck**.
+
+Planck asks one of his teachers, **Philipp von Jolly**, about the
+prospects of pursuing physics. Jolly is an established experimental
+physicist, nearly seventy years old. Looking back many years later,
+Planck recalled the advice he received: physics appeared to be a highly
+developed, nearly mature science. Its basic structure seemed secure;
+what remained was largely a matter of filling in details.
+
+```{=html}
+<!-- VISUAL: PLANCK AND JOLLY
+Type: historical portraits, perhaps with a small 1878 timeline marker
+
+Layout idea:
+Max Planck (young)  |  Munich, 1878  |  Philipp von Jolly
+
+Optional:
+Reuse the playful Planck/Jolly visual language from the lecture slides,
+or replace it with historical portraits for the online script.
+
+ALT-TEXT PLACEHOLDER:
+Portraits of the young Max Planck and his professor Philipp von Jolly,
+framing their 1878 discussion about the future of physics.
+-->
+```
+::: {.callout-note title="Planck's recollection"}
+Writing in 1933, Planck recalled the advice Philipp von Jolly had given him when he began his university studies:
+
+> “As I began my university studies I asked my venerable teacher Philipp von Jolly for advice regarding the conditions and prospects of my chosen field of study. He described physics to me as a highly developed, nearly fully matured science, that through the crowning achievement of the discovery of the principle of conservation of energy it will arguably soon take its final stable form. It may yet keep going in one corner or another, scrutinizing or putting in order a jot here and a tittle there, but the system as a whole is secured, and theoretical physics is noticeably approaching its completion to the same degree as geometry did centuries ago. That was the view fifty years ago of a respected physicist at the time.”
+
+**Source:** Max Planck, *Wege zur physikalischen Erkenntnis: Reden und Vorträge*  
+(S. Hirzel, Leipzig, 1933), p. 128.  
+[Digitized German original at the TIB](https://goobi.tib.eu/viewer/toc/1667547127/)
+:::
+
+From today's perspective this sounds almost comically premature. Within
+only a few decades, **relativity** and **quantum theory** would
+transform the foundations of physics.
+
+But dismissing Jolly's assessment would be too easy. To understand why
+such confidence was possible, we should first appreciate just how
+successful nineteenth-century physics had become.
+
+# The triumph of classical physics
+
+By the end of the nineteenth century, much of physics could be organized
+around three extraordinarily successful theoretical frameworks:
+
+1.  **Mechanics** --- the motion of matter,
+2.  **Electrodynamics** --- electricity, magnetism, and light,
+3.  **Thermodynamics and statistical mechanics** --- heat, energy, and
+    the collective behavior of matter.
+
+```{=html}
+<!-- VISUAL / DIAGRAM: THE THREE PILLARS
+Type: custom diagram
+
+Concept:
+A classical temple labeled PHYSICS supported by three columns:
+MECHANICS | ELECTRODYNAMICS | THERMODYNAMICS
+
+Possible implementation:
+A clean modern redraw of the "three pillars" image used in the lecture.
+
+Consider making this a recurring visual. It could reappear later with
+small cracks developing in the structure.
+
+ALT-TEXT PLACEHOLDER:
+A stylized building labeled Physics supported by three pillars:
+mechanics, electrodynamics, and thermodynamics.
+-->
+```
+## Mechanics: predicting motion
+
+The development of what we now call **classical mechanics** was closely
+tied to one of humanity's oldest scientific problems: understanding the
+motion of objects in the sky.
+
+In the early seventeenth century, **Galileo Galilei** used the newly
+developed telescope to observe, among other things, moons orbiting
+Jupiter. **Johannes Kepler**, using the exceptionally precise
+astronomical observations of Tycho Brahe, discovered that the planets
+travel around the Sun on elliptical orbits.
+
+The decisive theoretical step came with **Isaac Newton**. In his
+*Philosophiæ Naturalis Principia Mathematica*, published in 1687, Newton
+provided a general framework connecting forces and motion. In modern
+notation, his second law is written
+
+$$
+\vec F = m\vec a,
+$$
+
+while the gravitational attraction between two masses is
+
+$$
+F = G\frac{mM}{r^2}.
+$$
+
+The same mechanics that describes a falling object on Earth also
+explains the motion of the Moon and the planets. Terrestrial and
+celestial physics had become part of a single framework.
+
+```{=html}
+<!-- VISUAL: NEWTONIAN UNIFICATION
+Type: historical portrait + simple diagram
+
+Possible composition:
+Newton portrait at left.
+At right, an apple/falling projectile transitioning into a planetary orbit.
+
+Purpose:
+Emphasize unification: the same laws govern terrestrial and celestial
+motion.
+
+ALT-TEXT PLACEHOLDER:
+Isaac Newton alongside examples of terrestrial and planetary motion,
+illustrating that both are described by the same laws of mechanics.
+-->
+```
+Newton's formulation was only the beginning. During the eighteenth and nineteenth centuries, physicists and mathematicians developed increasingly powerful and general formulations of mechanics.
+
+**Joseph-Louis Lagrange** recast mechanics in terms of generalized coordinates and the principle of stationary action. For a system described by coordinates $q_i$, the equations of motion can be written as
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_i}\right)
+-
+\frac{\partial L}{\partial q_i}
+=0,
+$$
+
+where $L$ is the Lagrangian.
+
+A further reformulation was developed by **William Rowan Hamilton**. Instead of describing a system in terms of coordinates and velocities, Hamiltonian mechanics uses coordinates $q_i$ and their conjugate momenta $p_i$. The central quantity is the **Hamiltonian**
+
+$$
+H(q_i,p_i,t),
+$$
+
+which, for many familiar systems, corresponds to the total energy.
+
+Hamilton's equations,
+
+$$
+\dot q_i=\frac{\partial H}{\partial p_i},
+\qquad
+\dot p_i=-\frac{\partial H}{\partial q_i},
+$$
+
+provide yet another compact and very general way of describing classical motion.
+
+::: {.callout-note title="A name that will return"}
+The Hamiltonian will become one of the central objects in quantum mechanics. There it is promoted from a classical function to an operator that governs the dynamics of a quantum system.
+:::
+
+We do not need the details of either formulation here. The important point is the extraordinary **generality** of classical mechanics. Given the laws governing a system and its initial state, its subsequent motion is determined.
+
+Classical mechanics could describe falling objects, projectiles, pendulums, gyroscopes, planetary systems, and much more. There were puzzles---most famously the small anomalous precession of Mercury's orbit---but the successes were overwhelming.
+
+Its practical reach was just as impressive. Classical mechanics underpinned engineering, machine design, ballistics, navigation, and increasingly precise astronomy. The same mathematical framework could be used to design a bridge, predict the trajectory of a projectile, or calculate the orbit of a planet.
+
+<!-- VISUAL: MECHANICS IN PRACTICE
+Type: compact historical collage
+
+Possible elements:
+- mechanical machinery / bridge construction
+- navigation or astronomical tables
+- planetary orbit
+
+Purpose:
+Show that classical mechanics was not only conceptually unifying but also
+a practical working theory for engineering and prediction.
+
+ALT-TEXT PLACEHOLDER:
+Examples of engineering, navigation, and astronomy illustrating the broad
+practical success of classical mechanics.
+-->
+
+## Electrodynamics: one theory for many phenomena
+
+The nineteenth century also transformed the understanding of electricity and magnetism.
+
+At first, phenomena such as **electrostatic forces**, **electric currents**, **magnetism**, and **electromagnetic induction** looked like different subjects. Experiments by **Coulomb, Gauss, Ampère, Faraday**, and many others gradually revealed that they were deeply connected.
+
+A stationary electric charge produces an electric field. Electric currents produce magnetic fields. Changing magnetic fields can induce electric currents. Electricity and magnetism were not independent phenomena.
+
+Then, in 1865, the Scottish physicist **James Clerk Maxwell** published *A Dynamical Theory of the Electromagnetic Field*. Maxwell brought these discoveries together and completed the theoretical framework.
+
+In modern notation, Maxwell's equations are
+
+$$
+\nabla\cdot\vec E = \frac{\rho}{\epsilon_0},
+\qquad
+\nabla\cdot\vec B = 0,
+$$
+
+$$
+\nabla\times\vec E = -\frac{\partial\vec B}{\partial t},
+\qquad
+\nabla\times\vec B =
+\mu_0\left(
+\vec j+\epsilon_0\frac{\partial\vec E}{\partial t}
+\right).
+$$
+
+```{=html}
+<!-- VISUAL: MANY PHENOMENA, ONE THEORY
+Type: custom diagram
+
+Concept:
+Arrange several apparently different phenomena around Maxwell's equations:
+
+electrostatics
+electric currents
+magnetism
+electromagnetic induction
+visible light
+radio waves
+
+All arrows point toward a central label:
+"Electromagnetism"
+
+Purpose:
+Make the unification visually obvious before discussing the equations in
+detail.
+
+ALT-TEXT PLACEHOLDER:
+Diagram showing electrostatics, electric currents, magnetism, induction,
+visible light, and radio waves as different manifestations of one
+electromagnetic theory.
+-->
+```
+
+The profound achievement was not simply that Maxwell found a compact set of equations. A **single theory** now described phenomena that had previously belonged to different areas of physics.
+
+And the unification went even further.
+
+In empty space, where there are no charges or currents, Maxwell's equations imply a wave equation. For example,
+
+$$
+\nabla^2\vec E
+-
+\frac{1}{c^2}
+\frac{\partial^2\vec E}{\partial t^2}
+=0.
+$$
+
+The propagation speed predicted by the theory is
+
+$$
+c=\frac{1}{\sqrt{\mu_0\epsilon_0}}.
+$$
+
+The remarkable point was that this speed agreed with the measured speed of light.
+
+Maxwell concluded that **light itself is an electromagnetic wave**.
+
+Electricity, magnetism, and optics---once treated as different subjects---were now part of the same theory.
+
+```{=html}
+<!-- VISUAL / ANIMATION: ELECTROMAGNETIC WAVE
+Type: animation or interactive
+
+Idea:
+Show oscillating E and B fields propagating in one direction.
+
+Keep it conceptually simple. The point here is not polarization or a
+detailed derivation, but the identification of light with an electromagnetic
+wave.
+
+ALT-TEXT PLACEHOLDER:
+Animation of perpendicular oscillating electric and magnetic fields
+propagating together as an electromagnetic wave.
+-->
+```
+
+The story did not end with visible light. In the late 1880s, **Heinrich Hertz** produced and detected electromagnetic waves in the laboratory at frequencies far below visible light, confirming Maxwell's prediction experimentally.
+
+What we now call **radio waves** and visible light are not fundamentally different phenomena. They are different frequency ranges of the same electromagnetic field.
+
+```{=html}
+<!-- VISUAL: ELECTROMAGNETIC SPECTRUM
+Type: compact diagram
+
+Show at least:
+radio waves | infrared | visible | ultraviolet
+
+Optional:
+Highlight the visible region as only a narrow slice.
+
+Purpose:
+Reinforce the idea that Hertz's radio waves and visible light belong to
+the same physical phenomenon.
+
+ALT-TEXT PLACEHOLDER:
+A compact electromagnetic spectrum showing radio waves and visible light
+as different frequency ranges of the same electromagnetic radiation.
+-->
+```
+
+This was not merely an abstract theoretical triumph. Electromagnetism was also beginning to reshape everyday life and industry.
+
+Generators converted mechanical motion into electrical energy. Electric motors did the reverse. Transformers and alternating-current systems made it possible to distribute electrical power over large distances. Electric lighting began to replace gas lighting in streets, factories, and homes. Telegraphy and telephony transformed long-distance communication, and the later development of radio extended communication into the wireless domain.
+
+Inventors and engineers such as **Nikola Tesla** played an important role in developing practical alternating-current motors, polyphase power systems, transformers, and high-frequency electrical technology.
+
+```{=html}
+<!-- VISUAL: ELECTRIFIED CITY, 1878
+Type: historical image
+
+Strong candidate:
+The Yablochkov electric arc lamps illuminating the Avenue de l'Opéra in
+Paris in 1878.
+
+Narrative significance:
+This is the same year in which Max Planck began his university studies
+in Munich.
+
+Suggested caption idea:
+"Electric arc lamps illuminate Paris in 1878---the same year in which
+Max Planck began studying physics in Munich."
+
+ALT-TEXT PLACEHOLDER:
+Nineteenth-century Paris illuminated by electric arc lamps, illustrating
+the rapidly growing practical impact of electromagnetism.
+-->
+```
+
+For someone entering physics around 1878, the lesson was difficult to miss:
+
+> **Electromagnetism was not only explaining nature. It was unifying apparently unrelated phenomena and transforming the technological world at the same time.**
+
+## Thermodynamics: from steam engines to atoms
+
+The third pillar was **thermodynamics**, the study of heat, work,
+temperature, and energy.
+
+Its development had an intensely practical motivation. During the
+Industrial Revolution, understanding heat was essential for improving
+steam engines---the machines that powered factories, mines, locomotives,
+and ships. But the effort to understand and improve these engines led to
+laws of remarkable universality.
+
+In 1865, **Rudolf Clausius** summarized two central principles in
+memorable form:
+
+> The energy of the universe is constant.\
+> The entropy of the universe tends to a maximum.
+
+In modern terminology, the first statement expresses conservation of
+energy; the second captures the irreversibility of macroscopic processes---why many processes naturally proceed in one direction but not in reverse.
+
+```{=html}
+<!-- VISUAL: STEAM ENGINE TO THERMODYNAMICS
+Type: historical engraving
+
+Possible layout:
+Steam engine -> heat/work arrows -> Clausius portrait
+
+Purpose:
+Show the path from a practical engineering problem to universal laws.
+
+ALT-TEXT PLACEHOLDER:
+A nineteenth-century steam engine connected conceptually to heat, work,
+and the laws of thermodynamics.
+-->
+```
+
+But an even deeper question remained:
+
+**What are temperature, pressure, and entropy actually telling us about
+matter?**
+
+The emerging **kinetic theory of gases** supplied an answer. A gas is
+made from enormous numbers of microscopic particles in continual motion.
+Pressure results from their collisions with the walls of a container.
+Temperature is related to their average kinetic energy.
+
+For an ideal monatomic gas,
+
+$$
+\left\langle E_\mathrm{kin}\right\rangle
+=
+\frac{3}{2}k_\mathrm{B}T.
+$$
+
+This was a remarkable change in perspective. Quantities such as
+temperature and pressure, which appear to describe matter as a whole,
+could emerge from the ordinary mechanical motion of microscopic
+particles.
+
+```{=html}
+<!-- VISUAL / ANIMATION: KINETIC GAS
+Type: simple animation
+
+Idea:
+Particles move inside a box and collide elastically with the walls.
+Optionally show a pressure gauge or a running mean kinetic energy.
+
+Purpose:
+Visually connect microscopic mechanics to macroscopic thermodynamics.
+
+ALT-TEXT PLACEHOLDER:
+Particles moving and colliding inside a container, illustrating the
+kinetic theory interpretation of gas pressure and temperature.
+-->
+```
+
+What made the emerging **statistical mechanics** especially profound was
+that it did not require a new microscopic law of motion. The particles
+were still assumed to obey ordinary classical mechanics. No new force
+analogous to Newton's gravitational law, Coulomb's law, or Faraday's law
+had to be introduced.
+
+The new ingredient was instead **statistical reasoning**.
+
+A macroscopic sample contains an enormous number of particles---typically
+on the order of $10^{23}$. Following every microscopic trajectory is
+impossible in practice, but it is also unnecessary. Probability theory,
+combinatorics, and the mathematics of large numbers make it possible to
+extract reliable predictions for the collective behavior of the system.
+
+In this sense, statistical mechanics occupies a somewhat unusual place
+among physical theories: rather than adding a new law governing the
+microscopic world, it shows how qualitatively new macroscopic behavior
+can emerge when the laws of mechanics are applied to very large numbers
+of particles.
+
+**Ludwig Boltzmann** pushed this statistical interpretation much
+further. His famous relation
+
+$$
+S=k_\mathrm{B}\ln W
+$$
+
+connects the entropy $S$ of a macroscopic state to the number $W$ of
+microscopic configurations compatible with it.
+
+```{=html}
+<!-- VISUAL: BOLTZMANN
+Type: historical portrait / photograph
+
+Possible elements:
+- Boltzmann portrait
+- photograph of his grave in Vienna showing S = k log W
+
+ALT-TEXT PLACEHOLDER:
+Ludwig Boltzmann and the entropy relation engraved on his grave,
+S equals k times the logarithm of W.
+-->
+```
+
+The significance is difficult to overstate. Entropy had entered
+thermodynamics as a macroscopic quantity associated with heat and the
+direction of thermodynamic processes. Boltzmann connected it to the
+**number of microscopic ways in which the same macroscopic state can be
+realized**.
+
+Thermodynamics therefore began to look less like an independent set of
+phenomenological laws and more like something that could emerge from
+**mechanics plus statistics**.
+
+This microscopic interpretation was controversial. The existence of
+atoms was not yet universally accepted. Boltzmann and other **atomists**
+treated matter as composed of microscopic particles, while opponents
+favored descriptions in terms of continuous matter and energy.
+
+There is also an important subtlety in the word *probability*.
+
+Statistical mechanics uses probabilities, but in the classical picture
+these probabilities did **not** necessarily mean that nature itself was
+fundamentally random. Each microscopic particle was still assumed to
+follow deterministic equations of motion. If one somehow knew the exact
+positions and momenta of every particle, classical mechanics would, in
+principle, determine their future motion.
+
+Probability entered because no observer could realistically specify and
+follow the microscopic state of something like $10^{23}$ particles.
+
+In that sense, classical statistical mechanics was compatible with a
+fully deterministic universe. Its probabilities could be understood as
+describing our incomplete knowledge of an underlying mechanical
+reality---not as a fundamental indeterminacy in nature itself.
+
+
+# A clockwork universe
+
+Put the pieces together.
+
+Mechanics described matter and motion. Electrodynamics described
+electric and magnetic fields---and light. Thermodynamics and statistical
+mechanics connected the microscopic motion of matter to heat and
+macroscopic behavior.
+
+The resulting picture was not merely successful. It suggested a
+particular **philosophy of nature**.
+
+The fundamental equations of mechanics and electrodynamics are
+deterministic. Specify the state of a system at one instant and, in
+principle, its future is fixed by the equations of motion.
+
+Chance need not be fundamental. Apparent randomness could simply reflect
+our ignorance of the exact initial conditions or our inability to follow
+an enormous number of particles.
+
+More than half a century before Planck entered university,
+**Pierre-Simon Laplace** had expressed this ideal in especially striking
+language. He imagined an intellect that knew, at one instant, every
+force and every position in nature. With unlimited ability to analyze
+that information, such an intellect could know both past and future.
+
+This hypothetical intellect later became known as **Laplace's demon**.
+
+```{=html}
+<!-- VISUAL: LAPLACE'S DEMON
+Type: historical portrait + conceptual illustration
+
+Possible design:
+Laplace portrait beside a clockwork universe: planets, particles, gears,
+trajectories.
+
+Could be more restrained than a literal "demon"; the important concept is
+complete determinism.
+
+ALT-TEXT PLACEHOLDER:
+Conceptual illustration of Laplace's deterministic universe, in which
+complete knowledge of the present would determine both past and future.
+-->
+```
+::: {.callout-tip title="The classical picture"}
+At the end of the nineteenth century, it was reasonable to imagine
+nature as an enormous clockwork:
+
+-   matter consists of particles following definite trajectories,
+-   light is an electromagnetic wave,
+-   physical systems evolve according to deterministic equations,
+-   statistical uncertainty reflects incomplete knowledge rather than
+    fundamental randomness.
+
+It was a remarkably coherent picture---and an extraordinarily successful
+one.
+:::
+
+```{=html}
+<!-- VISUAL / DIAGRAM: THE COMPLETED TEMPLE
+Type: custom diagram
+
+Reuse the three-pillar classical-physics image here in its "complete"
+form.
+
+Optional scroll effect:
+As the reader continues downward, tiny cracks begin appearing.
+
+ALT-TEXT PLACEHOLDER:
+The three pillars of classical physics supporting a seemingly complete
+and stable theoretical structure.
+-->
+```
+Seen from 1878, the confidence of physicists such as Jolly becomes easier to understand.
+
+Classical mechanics had unified terrestrial and celestial motion. Electrodynamics had brought electricity, magnetism, induction, light, and eventually radio waves into one framework while powering a rapidly expanding electrical technology. Thermodynamics and statistical mechanics were beginning to connect heat and macroscopic behavior to microscopic motion.
+
+Physics was not only explaining more and more of nature---it was doing so through theories of striking unity and practical power. Mechanics supported engineering and navigation; thermodynamics grew alongside the steam-powered industrial world; and electromagnetism was producing electric power, lighting, motors, and new forms of communication.
+
+Max Planck was therefore not discouraged by the suggestion that the foundations of physics were essentially complete. He wanted to study physics because he wanted to understand nature.
+
+That decision turned out to be fortunate.
+
+Because there were a few **small wrinkles** in the classical picture.
+
+And one of them would eventually occupy Planck himself.
+
+# Small wrinkles
+
+A successful physical theory should agree with observations, make
+testable predictions, and remain internally consistent. Classical
+physics passed these tests spectacularly across an enormous range of
+phenomena.
+
+But not everywhere.
+
+Toward the end of the nineteenth century and the beginning of the
+twentieth, several experimental results became increasingly difficult to
+reconcile with the classical picture.
+
+At first, these problems did not necessarily look like signs that an
+entirely new mechanics of nature was needed. They were problems to be
+solved---perhaps missing details in an otherwise successful framework.
+
+They turned out to be much more than that.
+
+```{=html}
+<!-- VISUAL / TRANSITION: CRACKS IN CLASSICAL PHYSICS
+Type: custom illustration / scroll transition
+
+Reuse the classical "temple," now with visible cracks.
+
+Possible labels appearing near the cracks:
+THERMAL RADIATION
+ATOMIC SPECTRA
+ATOMIC STABILITY
+PHOTOELECTRIC EFFECT
+MATTER WAVES
+
+Purpose:
+Mark the transition from triumphs to troubles without creating a separate
+page.
+-->
+```
+## Wrinkle 1: How does a hot object glow?
+
+Heat a piece of metal and it begins to glow. At first it appears dull
+red. As its temperature increases, the emitted light becomes brighter
+and shifts toward shorter wavelengths.
+
+This is **thermal radiation**.
+
+A particularly useful idealization is a **black body**: an object that
+absorbs all incident radiation and whose emitted spectrum depends only
+on its temperature.
+
+By the late nineteenth century, the spectrum could be measured
+accurately. The challenge was to explain its shape.
+
+```{=html}
+<!-- VISUAL: BLACKBODY RADIATION
+Type: photograph + plot
+
+Possible layout:
+Left: glowing metal / furnace / heated filament
+Right: measured blackbody-like spectra at several temperatures
+
+ALT-TEXT PLACEHOLDER:
+A glowing hot object beside thermal-radiation spectra showing how the
+distribution changes with temperature.
+-->
+```
+By the 1890s, the shape of the thermal spectrum was known experimentally with increasing precision.
+
+In 1896, **Wilhelm Wien** found a distribution law that described the high-frequency, short-wavelength side of the spectrum remarkably well. Wien's work was an important theoretical and phenomenological success, but it did not amount to a complete derivation of the observed spectrum from the established foundations of classical physics.
+
+**Lord Rayleigh** attacked the problem in a more direct and, in a sense, more fundamental way: he tried to reconcile **Maxwell's electrodynamics** with **classical thermodynamics and statistical mechanics**.
+
+Electromagnetic radiation inside a cavity can be decomposed into standing-wave modes. Maxwell's theory tells us which electromagnetic modes are possible; classical statistical mechanics then tells us how thermal energy should be distributed among them. Through the equipartition theorem, each mode receives an average energy of order $k_\mathrm{B}T$.
+
+The number of electromagnetic modes available between frequencies $\nu$ and $\nu+d\nu$ increases as $\nu^2$. Combining mode counting with equipartition leads to the Rayleigh--Jeans result
+
+$$
+u(\nu,T)
+=
+\frac{8\pi\nu^2}{c^3}k_\mathrm{B}T.
+$$
+
+At low frequencies, this agrees well with experiment.
+
+At high frequencies, however, it becomes absurd: the predicted energy density grows without limit as $\nu$ increases. Integrating over all frequencies would imply an infinite amount of radiated energy.
+
+This failure became known as the **ultraviolet catastrophe**.
+
+```{=html}
+<!-- VISUAL / PLOT: THE ULTRAVIOLET CATASTROPHE
+Type: plot
+
+Show on the same axes:
+- measured / Planck spectrum
+- Wien approximation
+- Rayleigh-Jeans prediction
+
+Annotate:
+- Wien works well at high frequency
+- Rayleigh-Jeans works well at low frequency
+- Rayleigh-Jeans diverges at high frequency
+
+This plot should be recreated cleanly rather than copied from the old
+slide.
+
+ALT-TEXT PLACEHOLDER:
+Comparison of blackbody measurements with the Wien and Rayleigh-Jeans
+descriptions, highlighting the divergence of the classical Rayleigh-Jeans
+prediction at high frequency.
+-->
+```
+
+This was a particularly disturbing kind of failure.
+
+Rayleigh had not used an obviously crude or inappropriate model. He had simply brought together **electrodynamics** and **statistical mechanics**---two theories whose success had helped create the confidence that classical physics was nearing completion.
+
+And together, they predicted something impossible.
+
+And now Max Planck returns to our story.
+
+In 1900, Planck was searching for a formula that could reproduce the full measured spectrum and connect the regimes in which the existing descriptions worked.
+
+The result was
+
+$$u(\nu,T)
+=
+\frac{8\pi h\nu^3}{c^3}
+\frac{1}{e^{h\nu/k_\mathrm{B}T}-1}.
+$$
+
+To obtain it, Planck introduced an assumption that did not fit comfortably into classical physics: the oscillators exchanging energy with the electromagnetic field could possess energies only in discrete steps,
+
+$$
+E_n=nh\nu,
+\qquad n=0,1,2,\ldots
+$$
+
+where $h$ is a new fundamental constant---today called **Planck's constant**.
+
+Planck's law reproduced the entire thermal spectrum, including both the low- and high-frequency limits.
+
+The wrinkle had been repaired.
+
+Or so it might have seemed.
+
+::: {.callout-important title="A small mathematical fix?"}
+The crucial step was the appearance of a discrete energy scale,
+$E=h\nu$.
+
+At first, this did not yet amount to the fully developed quantum
+mechanics we use today. But the idea that energy exchange might be
+fundamentally discrete was a sharp break with classical expectations.
+:::
+
+## Wrinkle 2: What is light?
+
+Maxwell's theory had given one of the great triumphs of
+nineteenth-century physics:
+
+> Light is an electromagnetic wave.
+
+Interference, diffraction, and polarization all strongly support its
+wave character.
+
+And yet another experiment was becoming difficult to understand.
+
+When light strikes certain materials, electrons can be emitted from the
+surface. This is the **photoelectric effect**.
+
+```{=html}
+<!-- VISUAL / DIAGRAM: PHOTOELECTRIC EFFECT
+Type: experimental schematic + data plot
+
+Show:
+- light incident on a metal surface
+- emitted electrons
+- maximum electron kinetic energy versus light frequency
+- threshold frequency
+
+ALT-TEXT PLACEHOLDER:
+Schematic of the photoelectric effect and a graph showing electron kinetic
+energy increasing linearly with light frequency above a threshold.
+-->
+```
+Classically, one might expect the energy transferred by a wave to depend
+primarily on its intensity. But the experiments instead revealed a
+decisive role for **frequency**.
+
+In 1905, **Albert Einstein** took Planck's energy relation seriously in
+a new way. He proposed that the electromagnetic field itself could
+exchange energy in localized quanta with
+
+$$
+E_\gamma=h\nu.
+$$
+
+For the photoelectric effect,
+
+$$
+K_\mathrm{max}=h\nu-\Phi,
+$$
+
+where $\Phi$ is the work function of the material.
+
+Increasing the light intensity increases the number of emitted
+electrons, but their maximum kinetic energy is controlled by the
+frequency.
+
+A theory famous for establishing that light is a wave now had to coexist
+with experiments in which light behaved as though its energy arrived in
+discrete packets.
+
+What, then, **is** light?
+
+Planck had introduced discreteness in the exchange of energy between matter and radiation. Einstein had gone further and attached the quantum $h\nu$ to light itself. The next clues came from the other side of the interaction: **matter**, and atoms in particular, also seemed to permit only very specific energies.
+
+## Wrinkle 3: What is an atom?
+
+There was another difficulty---one even more directly connected to the
+subject of this course.
+
+What is matter made of?
+
+By the end of the nineteenth century, experiments had begun to reveal
+internal structure inside what had once been regarded as indivisible
+atoms. In 1897, **J. J. Thomson** identified the electron as a
+negatively charged constituent of matter.
+
+If atoms are electrically neutral, positive charge must be present as
+well. But how are the positive and negative charges arranged?
+
+Thomson proposed a model in which the positive charge was distributed
+throughout the atom, with electrons embedded within it.
+
+```{=html}
+<!-- VISUAL: THOMSON ATOM
+Type: simple custom diagram
+
+Show diffuse positive charge with embedded electrons.
+
+Avoid overemphasizing the "plum pudding" cartoon; make the charge
+distribution physically clear.
+
+ALT-TEXT PLACEHOLDER:
+Thomson's atomic model, with negatively charged electrons embedded in a
+diffuse distribution of positive charge.
+-->
+```
+Experiments by **Hans Geiger and Ernest Marsden**, under the direction
+of **Ernest Rutherford**, provided a dramatic test. Alpha particles were
+directed at a thin metal foil.
+
+Most passed through with relatively small deflections.
+
+But a tiny fraction scattered through surprisingly large angles.
+
+```{=html}
+<!-- VISUAL / ANIMATION: RUTHERFORD SCATTERING
+Type: animation
+
+Show a beam of alpha particles incident on a thin foil.
+Most continue approximately forward; a few undergo large-angle scattering.
+
+Optional second panel:
+Compare trajectories expected for a diffuse positive charge with those
+from a compact nucleus.
+
+ALT-TEXT PLACEHOLDER:
+Alpha particles scattering from a thin foil, with most passing through
+and a small fraction undergoing large-angle deflections.
+-->
+```
+In 1911, Rutherford interpreted the results as evidence that nearly all
+of the positive charge---and most of the mass---of an atom is
+concentrated in an extremely small **nucleus**.
+
+The atom was mostly empty space.
+
+That was a remarkable discovery.
+
+It also created a serious problem.
+
+If negatively charged electrons orbit a positive nucleus like planets
+orbiting the Sun, classical electrodynamics says that an accelerating
+charge should radiate electromagnetic energy. The electron should lose
+energy and spiral into the nucleus.
+
+A classical planetary atom should therefore be unstable.
+
+But atoms are stable.
+
+```{=html}
+<!-- VISUAL / ANIMATION: CLASSICAL ATOM COLLAPSES
+Type: short conceptual animation
+
+Show an electron on an orbit around a nucleus radiating and spiraling
+inward.
+
+Label explicitly:
+"Classical prediction"
+
+Purpose:
+Make the contradiction immediate before introducing Bohr.
+
+ALT-TEXT PLACEHOLDER:
+Classical model of an orbiting electron losing energy through radiation
+and spiraling into the nucleus.
+-->
+```
+## Wrinkle 4: Why do atoms have colors?
+
+Atoms presented another clue.
+
+Excite a gas---for example in an electrical discharge---and analyze the
+emitted light with a prism or diffraction grating. Instead of producing
+a continuous rainbow, an atomic gas emits light only at particular
+wavelengths.
+
+Each element has a characteristic **line spectrum**.
+
+```{=html}
+<!-- VISUAL: HYDROGEN DISCHARGE AND SPECTRUM
+Type: photograph + spectrum
+
+Possible composition:
+hydrogen discharge tube -> prism/grating -> Balmer lines
+
+Label a few visible wavelengths if desired:
+656.3 nm, 486.1 nm, 434.0 nm, 410.2 nm.
+
+ALT-TEXT PLACEHOLDER:
+Hydrogen discharge tube and its visible emission spectrum, consisting of
+several discrete spectral lines rather than a continuous rainbow.
+-->
+```
+For hydrogen, the wavelengths follow a remarkably simple empirical
+pattern. The spectral lines can be described by the Rydberg formula,
+
+$$
+\frac{1}{\lambda}
+=
+R_\mathrm{H}
+\left(
+\frac{1}{n_1^2}
+-
+\frac{1}{n_2^2}
+\right),
+\qquad n_2>n_1.
+$$
+
+Why should an atom emit only certain frequencies?
+
+Classical mechanics and electrodynamics did not provide a convincing
+answer.
+
+In 1913, **Niels Bohr** proposed a model of hydrogen that deliberately
+introduced nonclassical rules. Electrons were allowed to occupy only
+particular orbits, characterized by quantized angular momentum,
+
+$$
+L=n\hbar,
+\qquad n=1,2,3,\ldots
+$$
+
+and light was emitted or absorbed when the atom changed between allowed
+states:
+
+$$
+h\nu = E_i-E_f.
+$$
+
+This connected two puzzles that had initially looked separate. The quantum of light, $h\nu$, now matched the difference between **discrete atomic energies**. Atomic spectra were no longer arbitrary collections of wavelengths: they were fingerprints of the allowed energies inside the atom.
+
+```{=html}
+<!-- VISUAL: BOHR MODEL AND STANDING WAVE
+Type: diagram
+
+Show:
+- allowed circular orbit
+- de Broglie standing-wave condition around the circumference
+- transition between two levels producing a photon
+
+Historical note:
+The de Broglie-wave interpretation came later than Bohr's original 1913
+postulates, so label it as a later interpretation rather than part of Bohr's
+original reasoning.
+
+ALT-TEXT PLACEHOLDER:
+Bohr-like atomic model with discrete allowed states and a transition
+between them associated with emission of a photon.
+-->
+```
+The Bohr model reproduced the hydrogen spectrum with striking success.
+
+But it was not a satisfactory fundamental theory. Why should only
+certain orbits be allowed? Why should an accelerating electron in one of
+these special orbits *not* radiate? Why did the model work so well for
+hydrogen but fail for more complicated atoms?
+
+The rules worked---but the underlying physics was still missing.
+
+## Wrinkle 5: Is light a particle after all?
+
+Einstein's light quanta provided an explanation of the photoelectric
+effect, but the wave description of light remained indispensable.
+
+Then, in 1922, **Arthur Holly Compton** studied the scattering of X-rays
+from electrons. The wavelength of the scattered radiation changed with
+scattering angle according to
+
+$$
+\lambda_f-\lambda_i
+=
+\frac{h}{m_ec}(1-\cos\theta).
+$$
+
+The result can be understood remarkably naturally by treating the
+incoming light quantum as carrying not only energy,
+
+$$
+E_\gamma=h\nu,
+$$
+
+but also momentum,
+
+$$
+p_\gamma=\frac{h}{\lambda}.
+$$
+
+```{=html}
+<!-- VISUAL: COMPTON SCATTERING
+Type: historical + kinematic diagram
+
+Possible layout:
+Arthur Compton portrait (with a small Missouri connection note if desired)
+beside a clean photon-electron scattering diagram.
+
+Optional local-interest note:
+Compton carried out important work at Washington University in St. Louis.
+
+ALT-TEXT PLACEHOLDER:
+Diagram of Compton scattering in which an incoming photon transfers
+energy and momentum to an electron and leaves with a longer wavelength.
+-->
+```
+Light had been one of the strongest successes of classical wave physics.
+
+Now experiments demanded that it also carry energy and momentum in
+discrete quanta.
+
+## Wrinkle 6: And are particles waves?
+
+The classical categories were becoming increasingly difficult to maintain. Light, the paradigm of a wave, displayed particle-like energy and momentum.
+
+In 1924, **Louis de Broglie** proposed a striking converse: perhaps particles of matter also possess a wavelength,
+
+$$
+\lambda=\frac{h}{p}.
+$$
+
+For an electron, this wavelength is not merely a mathematical curiosity. A few years later, electron-diffraction experiments---most famously those of **Clinton Davisson and Lester Germer**---showed interference and diffraction effects characteristic of waves.
+
+<!-- VISUAL / ANIMATION: ELECTRON DIFFRACTION
+Type: historical experiment + conceptual animation
+
+Possible layout:
+- electron beam incident on a crystal
+- scattered intensity showing diffraction maxima
+- optional comparison with optical diffraction
+
+Purpose:
+Complete the symmetry of the historical story:
+light, once regarded as a wave, shows particle properties;
+electrons, once regarded as particles, show wave properties.
+
+ALT-TEXT PLACEHOLDER:
+Electron diffraction from a crystal, illustrating wave-like interference
+from particles traditionally described as localized matter.
+-->
+
+The symmetry was difficult to ignore:
+
+> **Light, unquestionably wave-like, also behaves like particles. Matter, unquestionably particle-like, also behaves like waves.**
+
+The classical distinction between particles and waves was no longer sufficient.
+
+# Something has to give
+
+By the early twentieth century, the small wrinkles had accumulated.
+
+Classical physics remained enormously successful---but its basic
+concepts could no longer provide a consistent description of microscopic
+nature.
+
+-   Thermal radiation suggested discrete energy exchange.
+-   The photoelectric effect suggested light quanta.
+-   Rutherford scattering revealed the atomic nucleus.
+-   Classical electrodynamics predicted that a planetary atom should
+    collapse.
+-   Atomic spectra revealed sharply defined characteristic frequencies.
+-   Bohr's model introduced quantized states without explaining their
+    deeper origin.
+-   Compton scattering gave light quanta unmistakably particle-like
+    momentum.
+-   de Broglie's hypothesis and electron diffraction showed that matter
+    could display unmistakably wave-like behavior.
+
+```{=html}
+<!-- VISUAL / DIAGRAM: THE CLASSICAL TEMPLE CRACKS
+Type: custom diagram
+
+Return one final time to the three-pillar image.
+
+Important nuance:
+Do NOT depict classical physics as simply "wrong" or destroyed.
+The pillars remain standing, but their domain of applicability is now
+visibly limited. Quantum theory will not erase classical physics; it will
+explain when and why the classical description emerges.
+
+ALT-TEXT PLACEHOLDER:
+The classical-physics structure remains standing but now shows cracks
+associated with phenomena that require a quantum description.
+-->
+```
+The solution would not be a small correction to Newton's mechanics or
+Maxwell's electrodynamics.
+
+A new framework was needed.
+
+During the 1920s, the clues accumulated into a new theoretical framework. The matter-wave idea of **Louis de Broglie**, together with the work of **Werner Heisenberg, Erwin Schrödinger, Max Born, Paul Dirac**, and others, grew into what we now call **quantum mechanics**.
+
+And with that theory, questions that classical physics could not answer
+became accessible:
+
+**Why are atoms stable?**
+
+**Why do atoms have discrete spectra?**
+
+**How can electrons form stable many-electron atoms?**
+
+**How do chemical bonds arise?**
+
+**Why are solids solid?**
+
+**And what does it actually mean for energy, angular momentum, or light
+to be quantized?**
+
+These are no longer peripheral wrinkles.
+
+They lead directly to the physics of atoms, molecules, and light---and
+to the subject of this course.
+
+```{=html}
+<!-- VISUAL: TRANSITION INTO THE COURSE
+Type: wide closing visual
+
+Possible progression:
+hydrogen atom -> multielectron atom -> molecule -> laser interacting with atom
+
+Could link visually to the modules that follow in the lecture script.
+
+Optional interactive implementation:
+Each object becomes a link to the corresponding later module/page.
+
+ALT-TEXT PLACEHOLDER:
+Progression from a hydrogen atom to more complex atoms, molecules, and
+laser-atom interactions, previewing the topics of the course.
+-->
+```
+::: {.callout-note title="Where we go from here"}
+The historical path tells us **why** classical physics was not enough.
+
+We now turn to the theory that replaced the classical description at
+microscopic scales. We will first establish the essential ideas and
+mathematical language of quantum mechanics and then use them to
+understand the structure and dynamics of atoms.
+:::
+
+# Further reading and historical sources {#further-reading-and-historical-sources .unnumbered}
+
+The development of quantum mechanics is unusually well documented in the original scientific literature. Many of the foundational papers and historical texts are freely available online. The following sources provide the historical basis for the discussion on this page.
+
+- **Max Planck — recollections on the state of physics in the late nineteenth century.**  
+  The recollection of Planck's conversation with Philipp von Jolly can be found on p. 128 of *Wege zur physikalischen Erkenntnis: Reden und Vorträge* (S. Hirzel, Leipzig, 1933).  
+  [Digitized German edition at the TIB](https://goobi.tib.eu/viewer/toc/1667547127/)  
+  A short modern discussion of the often-repeated story is given in ["A few holes to fill," *Nature Physics* **4**, 257 (2008)](https://doi.org/10.1038/nphys921).
+
+- **Pierre-Simon Laplace — the deterministic classical universe.**  
+  Laplace's famous discussion of an intelligence that knew all forces and positions appears in *A Philosophical Essay on Probabilities*.  
+  [English translation at Project Gutenberg](https://www.gutenberg.org/files/58881/58881-h/58881-h.htm)
+
+- **James Clerk Maxwell — electromagnetic theory.**  
+  J. C. Maxwell, "A Dynamical Theory of the Electromagnetic Field," *Philosophical Transactions of the Royal Society of London* **155**, 459–512 (1865).  
+  [Original paper](https://doi.org/10.1098/rstl.1865.0008)
+
+- **Max Planck — blackbody radiation and the energy quantum.**  
+  Planck's 1900 work on the blackbody spectrum introduced the energy element that would eventually become associated with the relation $E=h\nu$.  
+  [Digitized German proceedings at the Internet Archive](https://archive.org/details/verhandlungende01goog/page/n246/mode/2up)
+
+- **Albert Einstein — the light quantum.**  
+  A. Einstein, "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt," *Annalen der Physik* **17**, 132–148 (1905).  
+  [German original](https://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1905_17_132-148.pdf)  
+  [English translation](https://web.archive.org/web/20141121114532/http://www.esfm2005.ipn.mx/ESFM_Images/paper1.pdf)
+
+- **Ernest Rutherford — the nuclear atom.**  
+  E. Rutherford, "The Scattering of $\alpha$ and $\beta$ Particles by Matter and the Structure of the Atom," *Philosophical Magazine* **21**, 669–688 (1911).  
+  [Original paper](https://doi.org/10.1080/14786440508637080)
+
+- **Niels Bohr — the quantum model of the atom.**  
+  Bohr's three 1913 papers *On the Constitution of Atoms and Molecules* introduced his model of stationary atomic states and quantum transitions.  
+  [Collected text at Project Gutenberg](https://www.gutenberg.org/ebooks/72787)
+
+- **Arthur H. Compton — particle-like momentum of light.**  
+  A. H. Compton, "A Quantum Theory of the Scattering of X-rays by Light Elements," *Physical Review* **21**, 483–502 (1923).  
+  [Original paper](https://journals.aps.org/pr/abstract/10.1103/PhysRev.21.483)
+
+- **Louis de Broglie — matter waves.**  
+  De Broglie's work proposed that the wave-particle connection should apply not only to light but also to material particles.  
+  [Historical text hosted by the Fondation Louis de Broglie](https://fondationlouisdebroglie.org/LDB-oeuvres/De_Broglie_Kracklauer.pdf)
+
+- **Clinton Davisson and Lester Germer — electron diffraction.**  
+  C. Davisson and L. H. Germer, "The Scattering of Electrons by a Single Crystal of Nickel," *Nature* **119**, 558–560 (1927). Their experiments provided direct evidence for the wave behavior of electrons.  
+  [Original paper](https://doi.org/10.1038/119558a0)
