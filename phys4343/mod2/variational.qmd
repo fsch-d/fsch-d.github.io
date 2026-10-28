@@ -313,13 +313,15 @@ $$
 
 The second relation does not mean that $c_i$ and $c_i^*$ are physically independent. It is a convenient way of combining the derivatives with respect to the real and imaginary parts.
 
-Since $E$ is real, requiring
+
+Since $E$ is real-valued, the derivatives with respect to $c_k$ and $c_k^*$ are complex conjugates. Therefore, requiring
 
 $$
 \frac{\partial E}{\partial c_k^*}=0
 $$
 
-is equivalent to requiring both real derivatives to vanish.
+is equivalent to requiring both derivatives with respect to the real and imaginary parts of $c_k$ to vanish. This approach is known as *Wirtinger differentiation*.
+
 
 ### 2. Apply the quotient rule
 
