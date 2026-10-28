@@ -12,7 +12,7 @@ This section introduces the interaction between the atomic electrons and nuclear
 Specific goals:
 
 1. Write down the multipole structure of the hyperfine Hamiltonian and identify the main contributions ($k=1$ magnetic dipole, $k=2$ electric quadrupole).  
-2. Derive the magnetic-dipole hyperfine Hamiltonian in the usual form $A\,\hat{\vec I}\cdot\hat{\vec J}$ and the corresponding energy formula in terms of $F$.  
+2. Derive the magnetic-dipole hyperfine Hamiltonian in the form $\frac{A}{\hbar^2}\,\hat{\vec I}\cdot\hat{\vec J}$ and the corresponding energy formula in terms of $F$.  
 3. Explain the physical content of the hyperfine constant $A$ (Fermi contact term, electronic magnetic field at the nucleus) and how it is obtained in practice.  
 4. Apply the results to the hydrogen ground state ($1s_{1/2}$) as an instructive example.
 

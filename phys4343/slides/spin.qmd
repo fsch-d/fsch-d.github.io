@@ -1,0 +1,102 @@
+---
+title: Electron Spin
+author: Daniel Fischer
+format:
+  revealjs:
+    theme: simple
+    incremental: true
+    width: 1920
+    height: 1080
+jupyter: python3
+---
+
+
+## Electron Spin
+
+::: columns
+
+::: {.column width="50%"}
+
+### Angular momentum
+
+$$
+\hat{S}^2 |s,m_s\rangle
+= \hbar^2 s(s+1)|s,m_s\rangle
+$$
+
+$$
+\hat{S}_z |s,m_s\rangle
+= \hbar m_s |s,m_s\rangle
+$$
+
+For an electron:
+
+$$
+\boxed{s=\frac{1}{2},\qquad m_s=\pm\frac{1}{2}}
+$$
+
+. . .
+
+$$
+|\frac{1}{2}, \frac{1}{2}\rangle =|\uparrow\rangle =
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\qquad
+|\frac{1}{2},-\frac{1}{2}\rangle =|\downarrow\rangle =
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+### Spin operators
+
+$$
+\hat{S}_x
+=
+\frac{\hbar}{2}
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}
+\qquad
+\hat{S}_y
+=
+\frac{\hbar}{2}
+\begin{pmatrix}
+0&-i\\
+i&0
+\end{pmatrix}
+$$
+
+$$
+\hat{S}_z
+=
+\frac{\hbar}{2}
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+$$
+
+. . .
+
+Just like orbital angular momentum,
+
+$$
+\boxed{
+[\hat{S}_i,\hat{S}_j]
+=
+i\hbar\,\epsilon_{ijk}\hat{S}_k
+}
+$$
+
+:::
+
+:::

@@ -195,22 +195,24 @@ This approach is extremely general:
 
 In practice, we work with a finite subset that captures the essential physics of the problem while keeping the algebra manageable.
 
+
 ---
+
 
 ## 2.2 Derivation of the Secular Equation
 
-We start from the energy expectation value for the trial wavefunction
+We start from the energy expectation value for the trial wave function
 
 $$
-E =
+E[\psi] =
 \frac{\langle \psi | \hat{H} | \psi \rangle}
      {\langle \psi | \psi \rangle}
 =
-\frac{\sum_{ij} c_i^* c_j\, H_{ij}}
-     {\sum_{ij} c_i^* c_j\, S_{ij}},
+\frac{\displaystyle\sum_{ij} c_i^* H_{ij} c_j}
+     {\displaystyle\sum_{ij} c_i^* S_{ij} c_j},
 $$
 
-with the definitions
+with the matrix elements
 
 $$
 H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle,
@@ -218,62 +220,205 @@ H_{ij} = \langle \phi_i | \hat{H} | \phi_j \rangle,
 S_{ij} = \langle \phi_i | \phi_j \rangle.
 $$
 
-To find the coefficients $\{c_i\}$ that make the energy stationary, 
-we vary $E$ with respect to $c_i^*$ while keeping $E$ itself as an unknown parameter.
+The coefficients $c_i$ are our **variational parameters**. We want to find the coefficients for which the energy expectation value becomes stationary.
 
-Because $E$ is a ratio of two quadratic forms, it is more convenient to consider instead the equivalent condition that the derivative of
-
-$$
-\langle \psi | \hat{H} | \psi \rangle - 
-E\, \langle \psi | \psi \rangle
-$$
-
-with respect to $c_i^*$ vanishes. 
-Here, $E$ is treated as independent of the $c_i$, so this quantity is *not* assumed to be zero in advance.
-
-Setting the derivative to zero gives
+Since the coefficients are generally complex, we need to consider both their real and imaginary parts. Writing
 
 $$
-\frac{\partial}{\partial c_i^*}
-\left(
-\langle \psi | \hat{H} | \psi \rangle
-- E\, \langle \psi | \psi \rangle
-\right)
-= 0.
+c_i=x_i+iy_i,
 $$
 
-Carrying out this differentiation yields
+the stationary conditions are
 
 $$
-\sum_{j=1}^n (H_{ij} - E\, S_{ij})\, c_j = 0,
-\qquad i = 1, \ldots, n.
+\frac{\partial E}{\partial x_i}=0,
+\qquad
+\frac{\partial E}{\partial y_i}=0.
 $$
 
-This is the **secular equation**, which in matrix form reads
+Equivalently, we can formally differentiate with respect to the complex coefficients $c_i$ or their complex conjugates $c_i^*$. For a real-valued function, the two real stationary conditions are equivalent to the single complex condition
 
 $$
-(\mathbf{H} - E \mathbf{S})\, \vec{c} = 0.
+\boxed{\frac{\partial E}{\partial c_i^*}=0.}
 $$
 
-Nontrivial solutions for $\vec{c}$ exist only if
+This is convenient because the energy expectation value is quadratic in the coefficients and their complex conjugates.
+
+Applying this condition to the energy expectation value leads to
 
 $$
-\det(\mathbf{H} - E \mathbf{S}) = 0.
+\boxed{
+\sum_{j=1}^{n}(H_{ij}-ES_{ij})c_j=0,
+\qquad i=1,\ldots,n.
+}
 $$
 
-The corresponding values of $E$ are the approximate energy eigenvalues, 
-and the vectors $\vec{c}$ give the expansion coefficients of the approximate eigenstates.
+These equations can be written in matrix form as
 
-::: {.callout-note}
-### Remark:  
-This derivation can also be expressed more formally using the **method of Lagrange multipliers**, 
-where $E$ acts as the multiplier enforcing the normalization condition 
-$\langle \psi | \psi \rangle = 1$. 
-If you are familiar with that formalism, you can verify that it leads to exactly the same secular equation.
+$$
+\boxed{
+(\mathbf H-E\mathbf S)\vec c=0.
+}
+$$
+
+This is a **generalized eigenvalue problem**. The matrix $\mathbf H$ contains the Hamiltonian matrix elements, while $\mathbf S$ accounts for the fact that our basis functions need not be orthogonal.
+
+A nontrivial solution $\vec c\neq0$ exists only if
+
+$$
+\boxed{\det(\mathbf H-E\mathbf S)=0.}
+$$
+
+This is the **secular equation**. Its solutions determine the approximate energy eigenvalues, and the corresponding eigenvectors give the coefficients of the approximate wave functions.
+
+The important result is that **the variational method transforms the original differential-equation problem into a matrix eigenvalue problem**.
+
+::: {.callout-note collapse="true"}
+## Detailed derivation: Minimizing the energy expectation value
+
+We begin with
+
+$$
+E=\frac{N}{D},
+$$
+
+where
+
+$$
+N=\sum_{ij}c_i^*H_{ij}c_j,
+\qquad
+D=\sum_{ij}c_i^*S_{ij}c_j.
+$$
+
+### 1. Differentiation with respect to a complex coefficient
+
+For a complex variable $c_k=x_k+iy_k$, we define the formal derivative
+
+$$
+\frac{\partial}{\partial c_k^*}
+=
+\frac12\left(
+\frac{\partial}{\partial x_k}
++i\frac{\partial}{\partial y_k}
+\right).
+$$
+
+Consequently,
+
+$$
+\frac{\partial c_i^*}{\partial c_k^*}=\delta_{ik},
+\qquad
+\frac{\partial c_i}{\partial c_k^*}=0.
+$$
+
+The second relation does not mean that $c_i$ and $c_i^*$ are physically independent. It is a convenient way of combining the derivatives with respect to the real and imaginary parts.
+
+Since $E$ is real, requiring
+
+$$
+\frac{\partial E}{\partial c_k^*}=0
+$$
+
+is equivalent to requiring both real derivatives to vanish.
+
+### 2. Apply the quotient rule
+
+Differentiating $E=N/D$ gives
+
+$$
+\frac{\partial E}{\partial c_k^*}
+=
+\frac{
+D\frac{\partial N}{\partial c_k^*}
+-
+N\frac{\partial D}{\partial c_k^*}
+}{D^2}.
+$$
+
+At a stationary point, the derivative vanishes:
+
+$$
+D\frac{\partial N}{\partial c_k^*}
+-
+N\frac{\partial D}{\partial c_k^*}=0.
+$$
+
+Since $N=ED$, we obtain
+
+$$
+\boxed{
+\frac{\partial N}{\partial c_k^*}
+-
+E\frac{\partial D}{\partial c_k^*}=0.
+}
+$$
+
+Here, $E$ denotes the value of the energy functional at the stationary point. We do not need to differentiate $E$ again in this expression.
+
+### 3. Evaluate the derivatives
+
+For the numerator,
+
+$$
+\begin{aligned}
+\frac{\partial N}{\partial c_k^*}
+&=
+\frac{\partial}{\partial c_k^*}
+\sum_{ij}c_i^*H_{ij}c_j\\
+&=\sum_{ij}\delta_{ik}H_{ij}c_j\\
+&=\sum_jH_{kj}c_j.
+\end{aligned}
+$$
+
+Similarly, for the denominator,
+
+$$
+\frac{\partial D}{\partial c_k^*}
+=\sum_jS_{kj}c_j.
+$$
+
+Substituting into the stationary condition gives
+
+$$
+\sum_jH_{kj}c_j
+-E\sum_jS_{kj}c_j=0.
+$$
+
+Therefore,
+
+$$
+\boxed{
+\sum_j(H_{kj}-ES_{kj})c_j=0.
+}
+$$
+
+Since this condition must hold for every $k$, we obtain
+
+$$
+\boxed{\mathbf H\vec c=E\mathbf S\vec c.}
+$$
+
+### 4. The secular determinant
+
+Rearranging gives
+
+$$
+(\mathbf H-E\mathbf S)\vec c=0.
+$$
+
+This homogeneous system has a nonzero solution only when the coefficient matrix is singular:
+
+$$
+\boxed{\det(\mathbf H-E\mathbf S)=0.}
+$$
+
+Solving this equation determines the allowed variational energies.
+
 :::
 
 
 ---
+
 
 ## 2.3 Interpretation and Computational Aspects
 
