@@ -4737,7 +4737,13 @@ D=\sum_{ij}c_i^*S_{ij}c_j.
 \]</span></p>
 <section id="differentiation-with-respect-to-a-complex-coefficient" class="level3">
 <h3 class="anchored" data-anchor-id="differentiation-with-respect-to-a-complex-coefficient">1. Differentiation with respect to a complex coefficient</h3>
-<p>For a complex variable <span class="math inline">\(c_k=x_k+iy_k\)</span>, we define the formal derivative</p>
+<p>A complex coefficient <span class="math inline">\(c_k=x_k+iy_k\)</span> represents two independent real variables. For a real-valued energy functional <span class="math inline">\(E\)</span>, stationarity therefore requires</p>
+<p><span class="math display">\[
+\frac{\partial E}{\partial x_k}=0,
+\qquad
+\frac{\partial E}{\partial y_k}=0.
+\]</span></p>
+<p>Instead of imposing these two conditions separately, we can combine them into a single complex condition. Using <span class="math inline">\(c_k^*=x_k-iy_k\)</span> and the chain rule, we define</p>
 <p><span class="math display">\[
 \frac{\partial}{\partial c_k^*}
 =
@@ -4746,18 +4752,23 @@ D=\sum_{ij}c_i^*S_{ij}c_j.
 +i\frac{\partial}{\partial y_k}
 \right).
 \]</span></p>
-<p>Consequently,</p>
+<p>Since <span class="math inline">\(E\)</span> is real-valued, its derivatives with respect to <span class="math inline">\(x_k\)</span> and <span class="math inline">\(y_k\)</span> are real. Thus,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\partial E}{\partial c_k^*}=0
+\quad\Longleftrightarrow\quad
+\frac{\partial E}{\partial x_k}
+=
+\frac{\partial E}{\partial y_k}=0.
+}
+\]</span></p>
+<p>This approach is called <em>Wirtinger differentiation</em>. It allows us to formally treat <span class="math inline">\(c_k\)</span> and <span class="math inline">\(c_k^*\)</span> as independent when differentiating, even though they are complex conjugates. In particular,</p>
 <p><span class="math display">\[
 \frac{\partial c_i^*}{\partial c_k^*}=\delta_{ik},
 \qquad
 \frac{\partial c_i}{\partial c_k^*}=0.
 \]</span></p>
-<p>The second relation does not mean that <span class="math inline">\(c_i\)</span> and <span class="math inline">\(c_i^*\)</span> are physically independent. It is a convenient way of combining the derivatives with respect to the real and imaginary parts.</p>
-<p>Since <span class="math inline">\(E\)</span> is real-valued, the derivatives with respect to <span class="math inline">\(c_k\)</span> and <span class="math inline">\(c_k^*\)</span> are complex conjugates. Therefore, requiring</p>
-<p><span class="math display">\[
-\frac{\partial E}{\partial c_k^*}=0
-\]</span></p>
-<p>is equivalent to requiring both derivatives with respect to the real and imaginary parts of <span class="math inline">\(c_k\)</span> to vanish. This approach is known as <em>Wirtinger differentiation</em>.</p>
+<p>We could equally well differentiate with respect to <span class="math inline">\(c_k\)</span>, but choosing <span class="math inline">\(c_k^*\)</span> leads directly to the desired matrix eigenvalue equation.</p>
 </section>
 <section id="apply-the-quotient-rule" class="level3">
 <h3 class="anchored" data-anchor-id="apply-the-quotient-rule">2. Apply the quotient rule</h3>
