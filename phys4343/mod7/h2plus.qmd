@@ -323,81 +323,310 @@ plt.tight_layout()
 plt.show()
 ```
 
-
-
-
 ---
+
 
 # 3. Separation of Variables
 
-In ellipsoidal coordinates, the variables in the Hamiltonian can be separated. 
-This separation is possible not only because the potential takes a simple form in $(\xi, \eta)$, but also because the **Laplacian in these coordinates factorizes** in a way that mirrors the structure of the potential.
+The main advantage of prolate spheroidal coordinates is that they allow us to **separate the Schrödinger equation into ordinary differential equations**. This is possible because the two-center Coulomb potential and the Laplacian have compatible mathematical structures in these coordinates.
 
-The Laplacian in prolate spheroidal coordinates has the form (schematically)
-
-$$
-\nabla^2
-= \frac{1}{R^2(\xi^2-\eta^2)}\left[
-\frac{\partial}{\partial\xi}\!\big[(\xi^2-1)\partial_\xi\big]
-+ \frac{\partial}{\partial\eta}\!\big[(1-\eta^2)\partial_\eta\big]
-+ \frac{\xi^2-\eta^2}{(\xi^2-1)(1-\eta^2)}\partial_\phi^2
-\right].
-$$
-
-When the full electronic Schrödinger equation
+To simplify the following expressions, we use **atomic units** ($\hbar=m_e=e=4\pi\varepsilon_0=1$). For two fixed protons separated by $R$, the electronic Schrödinger equation is
 
 $$
-\left[-\frac{\hbar^2}{2m}\nabla^2 
-- \frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A}+\frac{1}{r_B}\right)\right]\psi 
-= E\psi
+\left[
+-\frac12\nabla^2
+-\frac1{r_A}
+-\frac1{r_B}
+\right]\psi
+=E_e\psi.
 $$
 
-is expressed in $(\xi,\eta,\phi)$ and multiplied by the common factor $R^2(\xi^2-\eta^2)$, the differential operator **naturally separates** into parts depending only on $\xi$, only on $\eta$, and only on $\phi$, up to an overall separation constant.  
+The nucleus–nucleus repulsion $1/R$ does not affect the electronic wave function at fixed $R$ and is added afterward to obtain the total energy.
 
-This motivates the ansatz
-
-$$
-\psi(\xi,\eta,\phi)=\Lambda(\xi)\,M(\eta)\,\Phi(\phi),
-$$
-
-which leads to three ordinary differential equations—one for each coordinate—coupled through a shared separation constant. 
-The $\phi$-dependence separates trivially, giving
+In prolate spheroidal coordinates, the potential becomes
 
 $$
-\Phi(\phi) = e^{im\phi},
+-\frac1{r_A}-\frac1{r_B}
+=
+-\frac{4\xi}{R(\xi^2-\eta^2)},
 $$
 
-exactly as in the hydrogen atom, where $m$ is the magnetic quantum number.
-
-The remaining two equations for $\xi$ and $\eta$ are linked through the energy eigenvalue and take the general form
+as derived in Section 2. The Laplacian takes the form
 
 $$
 \begin{aligned}
-\frac{d}{d\xi}\!\left[(\xi^2-1)\frac{d\Lambda}{d\xi}\right] 
-&+ \left(A + \frac{2R\xi}{a_0} - \frac{m^2}{\xi^2-1} - R^2E(\xi^2-1)\right)\Lambda = 0, \\[6pt]
-\frac{d}{d\eta}\!\left[(1-\eta^2)\frac{dM}{d\eta}\right] 
-&+ \left(-A - \frac{2R\eta}{a_0} - \frac{m^2}{1-\eta^2} + R^2E(1-\eta^2)\right)M = 0,
+\nabla^2
+=\frac{4}{R^2(\xi^2-\eta^2)}
+\Bigg[
+&\frac{\partial}{\partial\xi}
+\left((\xi^2-1)\frac{\partial}{\partial\xi}\right)\\
++{}&
+\frac{\partial}{\partial\eta}
+\left((1-\eta^2)\frac{\partial}{\partial\eta}\right)\\
++{}&
+\left(
+\frac1{\xi^2-1}+\frac1{1-\eta^2}
+\right)\frac{\partial^2}{\partial\phi^2}
+\Bigg].
 \end{aligned}
+$$
+
+The crucial feature is the common factor $(\xi^2-\eta^2)^{-1}$, which also appears in the Coulomb potential. Multiplying the Schrödinger equation by $R^2(\xi^2-\eta^2)$ therefore allows the coordinate dependence to be separated.
+
+## The separation ansatz
+
+We seek solutions that can be written as products of functions of the individual coordinates:
+
+$$
+\psi(\xi,\eta,\phi)
+=
+\Lambda(\xi)\,M(\eta)\,\Phi(\phi).
+$$
+
+Because the Hamiltonian is independent of the azimuthal angle $\phi$, its dependence separates immediately. As in the hydrogen atom,
+
+$$
+\Phi(\phi)=e^{im\phi},
+\qquad m=0,\pm1,\pm2,\ldots,
+$$
+
+where the integer $m$ follows from the requirement that the wave function be single-valued.
+
+Consequently,
+
+$$
+\frac{\partial^2\Phi}{\partial\phi^2}=-m^2\Phi.
+$$
+
+Inserting the product ansatz into the Schrödinger equation, dividing by $\psi$, and collecting all terms that depend on $\xi$ and $\eta$ separately leads to
+
+$$
+\boxed{
+F(\xi)+G(\eta)=0,
+}
+$$
+
+with
+
+$$
+\begin{aligned}
+F(\xi)={}&
+\frac1{\Lambda}
+\frac{d}{d\xi}
+\left[(\xi^2-1)\frac{d\Lambda}{d\xi}\right]
+-\frac{m^2}{\xi^2-1}
++2R\xi+\frac{R^2E_e}{2}\xi^2,
+\\[8pt]
+G(\eta)={}&
+\frac1M
+\frac{d}{d\eta}
+\left[(1-\eta^2)\frac{dM}{d\eta}\right]
+-\frac{m^2}{1-\eta^2}
+-\frac{R^2E_e}{2}\eta^2.
+\end{aligned}
+$$
+
+This is the **essential step in separating the variables**: $F$ depends only on $\xi$, while $G$ depends only on $\eta$.
+
+Since $\xi$ and $\eta$ are independent coordinates, their sum can vanish everywhere only if both functions are constant. For example, differentiating $F(\xi)+G(\eta)=0$ with respect to $\xi$ immediately gives $dF/d\xi=0$.
+
+We therefore introduce a **separation constant** $A$ such that
+
+$$
+\boxed{
+F(\xi)=A,
+\qquad
+G(\eta)=-A.
+}
+$$
+
+
+The constant $A$ is called the **separation constant**. Its value is determined, together with the energy $E_e$, by requiring that both differential equations have physically acceptable solutions.
+
+
+## The separated equations
+
+Substituting the definitions of $F$ and $G$ gives two ordinary differential equations:
+
+$$
+\boxed{
+\begin{aligned}
+\frac{d}{d\xi}
+\left[(\xi^2-1)\frac{d\Lambda}{d\xi}\right]
++
+\left[
+\frac{R^2E_e}{2}\xi^2
++2R\xi
+-\frac{m^2}{\xi^2-1}
+-A
+\right]\Lambda &=0,
+\\[10pt]
+\frac{d}{d\eta}
+\left[(1-\eta^2)\frac{dM}{d\eta}\right]
++
+\left[
+-\frac{R^2E_e}{2}\eta^2
+-\frac{m^2}{1-\eta^2}
++A
+\right]M &=0.
+\end{aligned}
+}
 $${#eq-h2plusdgl}
 
-where $A$ is the **separation constant** introduced during the variable decoupling. 
-These two coupled ordinary differential equations must be solved **simultaneously** for both $A$ and $E$, typically requiring **numerical methods** or **variational approximations**.
+The original three-dimensional partial differential equation has thus been reduced to two ordinary differential equations, together with the already determined azimuthal dependence $e^{im\phi}$.
 
-At large internuclear separations ($R \to \infty$), the system approaches two isolated hydrogen atoms; 
-for small $R$, it converges toward the helium ion (He$^+$). 
-The continuous interpolation between these two limits makes the hydrogen molecular ion H$_2^+$ a uniquely rich and instructive system in quantum mechanics.
+The two equations are linked through the **same energy $E_e$ and separation constant $A$**. For a given internuclear distance $R$ and magnetic quantum number $m$, we must find values of $E_e$ and $A$ for which both equations have physically acceptable solutions satisfying the appropriate boundary conditions.
+
+::: {.callout-note collapse="true"}
+## Detailed derivation of the separated equations
+
+Starting from the electronic Schrödinger equation in atomic units,
+
+$$
+\left[-\frac12\nabla^2
+-\frac{4\xi}{R(\xi^2-\eta^2)}
+\right]\psi=E_e\psi,
+$$
+
+we substitute the Laplacian in prolate spheroidal coordinates:
+
+$$
+\nabla^2=
+\frac{4}{R^2(\xi^2-\eta^2)}
+\left[
+D_\xi+D_\eta+
+\left(
+\frac1{\xi^2-1}+\frac1{1-\eta^2}
+\right)\partial_\phi^2
+\right],
+$$
+
+where, for compactness,
+
+$$
+D_\xi=
+\frac{\partial}{\partial\xi}
+\left[(\xi^2-1)\frac{\partial}{\partial\xi}\right],
+\qquad
+D_\eta=
+\frac{\partial}{\partial\eta}
+\left[(1-\eta^2)\frac{\partial}{\partial\eta}\right].
+$$
+
+The Schrödinger equation becomes
+
+$$
+-\frac{2}{R^2(\xi^2-\eta^2)}
+\left[
+D_\xi+D_\eta+
+\left(
+\frac1{\xi^2-1}+\frac1{1-\eta^2}
+\right)\partial_\phi^2
+\right]\psi
+-
+\frac{4\xi}{R(\xi^2-\eta^2)}\psi
+=E_e\psi.
+$$
+
+Multiplying by $-R^2(\xi^2-\eta^2)/2$ gives
+
+$$
+\left[
+D_\xi+D_\eta+
+\left(
+\frac1{\xi^2-1}+\frac1{1-\eta^2}
+\right)\partial_\phi^2
+\right]\psi
++2R\xi\psi
++\frac{R^2E_e}{2}(\xi^2-\eta^2)\psi
+=0.
+$$
+
+Now insert the product ansatz
+
+$$
+\psi=\Lambda(\xi)M(\eta)e^{im\phi}
+$$
+
+and use $\partial_\phi^2\psi=-m^2\psi$.
+
+Dividing by the wave function yields
+
+$$
+\begin{aligned}
+&\frac1{\Lambda}
+\frac{d}{d\xi}
+\left[(\xi^2-1)\frac{d\Lambda}{d\xi}\right]
++
+\frac1M
+\frac{d}{d\eta}
+\left[(1-\eta^2)\frac{dM}{d\eta}\right]\\
+&\quad
+-m^2\left(
+\frac1{\xi^2-1}+\frac1{1-\eta^2}
+\right)
++2R\xi
++\frac{R^2E_e}{2}(\xi^2-\eta^2)
+=0.
+\end{aligned}
+$$
+
+Every term can now be assigned uniquely to either $\xi$ or $\eta$. Rearranging,
+
+$$
+\begin{aligned}
+\underbrace{
+\frac1{\Lambda}
+\frac{d}{d\xi}
+\left[(\xi^2-1)\frac{d\Lambda}{d\xi}\right]
+-\frac{m^2}{\xi^2-1}
++2R\xi+\frac{R^2E_e}{2}\xi^2
+}_{F(\xi)}
+\\[6pt]
++
+\underbrace{
+\frac1M
+\frac{d}{d\eta}
+\left[(1-\eta^2)\frac{dM}{d\eta}\right]
+-\frac{m^2}{1-\eta^2}
+-\frac{R^2E_e}{2}\eta^2
+}_{G(\eta)}
+=0.
+\end{aligned}
+$$
+
+Because the two coordinates are independent, we must have
+
+$$
+F(\xi)=A,
+\qquad
+G(\eta)=-A.
+$$
+
+Multiplying the first equation by $\Lambda$ and the second by $M$ produces the two ordinary differential equations shown above.
+
+:::
+
+## Physical interpretation
+
+The separation constant $A$ plays a role analogous to the angular separation constant in the hydrogen atom. In spherical coordinates, separation of the angular variables leads to the familiar eigenvalue $\ell(\ell+1)$.
+
+In H$_2^+$, however, the potential has only **axial symmetry**, not full spherical symmetry. Consequently, the orbital angular momentum quantum number $\ell$ is generally no longer conserved, and $A$ need not equal $\ell(\ell+1)$.
+
+In the united-atom limit $R\to0$, the two protons merge into an effective nucleus of charge $Z=2$. The angular equation approaches the associated Legendre equation, and
+
+$$
+A\longrightarrow\ell(\ell+1).
+$$
+
+The system then approaches the electronic structure of the helium ion He$^+$.
+
+In the opposite limit $R\to\infty$, the electron becomes localized around one of the widely separated protons, and the lowest electronic energy approaches that of an isolated hydrogen atom. The dissociation products are therefore H and H$^+$.
+
+The important lesson is that **the choice of coordinates determines whether the symmetries and mathematical structure of a problem can be exploited to simplify the Schrödinger equation**.
 
 ---
 
-In summary:
-
-- The coordinates are **constructed directly from** $r_A$ and $r_B$, making the potential algebraically simple.  
-- The **metric factors in the Laplacian** combine naturally with the potential, allowing additive separation.  
-- The **axial symmetry** about the internuclear axis ensures that the $\phi$-dependence separates trivially.  
-
-This geometric and algebraic harmony is why **prolate spheroidal coordinates** are the standard framework for analyzing H$_2^+$ and other two-center Coulomb systems.
-
----
 
 # 4. Angular Momentum and Reflection Symmetries in H$_2^+$
 

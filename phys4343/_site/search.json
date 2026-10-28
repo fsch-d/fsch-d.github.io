@@ -5506,5 +5506,41 @@
       "Quantum Mechanics",
       "The Variational Method"
     ]
+  },
+  {
+    "objectID": "mod7/h2plus.html#the-separation-ansatz",
+    "href": "mod7/h2plus.html#the-separation-ansatz",
+    "title": "The H\\(_2^+\\) Molecular Ion",
+    "section": "The separation ansatz",
+    "text": "The separation ansatz\nWe seek solutions that can be written as products of functions of the individual coordinates:\n\\[\n\\psi(\\xi,\\eta,\\phi)\n=\n\\Lambda(\\xi)\\,M(\\eta)\\,\\Phi(\\phi).\n\\]\nBecause the Hamiltonian is independent of the azimuthal angle \\(\\phi\\), its dependence separates immediately. As in the hydrogen atom,\n\\[\n\\Phi(\\phi)=e^{im\\phi},\n\\qquad m=0,\\pm1,\\pm2,\\ldots,\n\\]\nwhere the integer \\(m\\) follows from the requirement that the wave function be single-valued.\nConsequently,\n\\[\n\\frac{\\partial^2\\Phi}{\\partial\\phi^2}=-m^2\\Phi.\n\\]\nInserting the product ansatz into the Schrödinger equation, dividing by \\(\\psi\\), and collecting all terms that depend on \\(\\xi\\) and \\(\\eta\\) separately leads to\n\\[\n\\boxed{\nF(\\xi)+G(\\eta)=0,\n}\n\\]\nwith\n\\[\n\\begin{aligned}\nF(\\xi)={}&\n\\frac1{\\Lambda}\n\\frac{d}{d\\xi}\n\\left[(\\xi^2-1)\\frac{d\\Lambda}{d\\xi}\\right]\n-\\frac{m^2}{\\xi^2-1}\n+2R\\xi+\\frac{R^2E_e}{2}\\xi^2,\n\\\\[8pt]\nG(\\eta)={}&\n\\frac1M\n\\frac{d}{d\\eta}\n\\left[(1-\\eta^2)\\frac{dM}{d\\eta}\\right]\n-\\frac{m^2}{1-\\eta^2}\n-\\frac{R^2E_e}{2}\\eta^2.\n\\end{aligned}\n\\]\nThis is the essential step in separating the variables: \\(F\\) depends only on \\(\\xi\\), while \\(G\\) depends only on \\(\\eta\\).\nSince \\(\\xi\\) and \\(\\eta\\) are independent coordinates, their sum can vanish everywhere only if both functions are constant. For example, differentiating \\(F(\\xi)+G(\\eta)=0\\) with respect to \\(\\xi\\) immediately gives \\(dF/d\\xi=0\\).\nWe therefore introduce a separation constant \\(A\\) such that\n\\[\n\\boxed{\nF(\\xi)=A,\n\\qquad\nG(\\eta)=-A.\n}\n\\]\nThe constant \\(A\\) is called the separation constant. Its value is determined, together with the energy \\(E_e\\), by requiring that both differential equations have physically acceptable solutions.",
+    "crumbs": [
+      "Home",
+      "Introduction to Molecular Physics",
+      "The H$_2^+$ Molecular Ion"
+    ]
+  },
+  {
+    "objectID": "mod7/h2plus.html#the-separated-equations",
+    "href": "mod7/h2plus.html#the-separated-equations",
+    "title": "The H\\(_2^+\\) Molecular Ion",
+    "section": "The separated equations",
+    "text": "The separated equations\nSubstituting the definitions of \\(F\\) and \\(G\\) gives two ordinary differential equations:\n\\[\n\\boxed{\n\\begin{aligned}\n\\frac{d}{d\\xi}\n\\left[(\\xi^2-1)\\frac{d\\Lambda}{d\\xi}\\right]\n+\n\\left[\n\\frac{R^2E_e}{2}\\xi^2\n+2R\\xi\n-\\frac{m^2}{\\xi^2-1}\n-A\n\\right]\\Lambda &=0,\n\\\\[10pt]\n\\frac{d}{d\\eta}\n\\left[(1-\\eta^2)\\frac{dM}{d\\eta}\\right]\n+\n\\left[\n-\\frac{R^2E_e}{2}\\eta^2\n-\\frac{m^2}{1-\\eta^2}\n+A\n\\right]M &=0.\n\\end{aligned}\n}\n\\tag{1}\\]\nThe original three-dimensional partial differential equation has thus been reduced to two ordinary differential equations, together with the already determined azimuthal dependence \\(e^{im\\phi}\\).\nThe two equations are linked through the same energy \\(E_e\\) and separation constant \\(A\\). For a given internuclear distance \\(R\\) and magnetic quantum number \\(m\\), we must find values of \\(E_e\\) and \\(A\\) for which both equations have physically acceptable solutions satisfying the appropriate boundary conditions.\n\n\n\n\n\n\nNoteDetailed derivation of the separated equations\n\n\n\n\n\nStarting from the electronic Schrödinger equation in atomic units,\n\\[\n\\left[-\\frac12\\nabla^2\n-\\frac{4\\xi}{R(\\xi^2-\\eta^2)}\n\\right]\\psi=E_e\\psi,\n\\]\nwe substitute the Laplacian in prolate spheroidal coordinates:\n\\[\n\\nabla^2=\n\\frac{4}{R^2(\\xi^2-\\eta^2)}\n\\left[\nD_\\xi+D_\\eta+\n\\left(\n\\frac1{\\xi^2-1}+\\frac1{1-\\eta^2}\n\\right)\\partial_\\phi^2\n\\right],\n\\]\nwhere, for compactness,\n\\[\nD_\\xi=\n\\frac{\\partial}{\\partial\\xi}\n\\left[(\\xi^2-1)\\frac{\\partial}{\\partial\\xi}\\right],\n\\qquad\nD_\\eta=\n\\frac{\\partial}{\\partial\\eta}\n\\left[(1-\\eta^2)\\frac{\\partial}{\\partial\\eta}\\right].\n\\]\nThe Schrödinger equation becomes\n\\[\n-\\frac{2}{R^2(\\xi^2-\\eta^2)}\n\\left[\nD_\\xi+D_\\eta+\n\\left(\n\\frac1{\\xi^2-1}+\\frac1{1-\\eta^2}\n\\right)\\partial_\\phi^2\n\\right]\\psi\n-\n\\frac{4\\xi}{R(\\xi^2-\\eta^2)}\\psi\n=E_e\\psi.\n\\]\nMultiplying by \\(-R^2(\\xi^2-\\eta^2)/2\\) gives\n\\[\n\\left[\nD_\\xi+D_\\eta+\n\\left(\n\\frac1{\\xi^2-1}+\\frac1{1-\\eta^2}\n\\right)\\partial_\\phi^2\n\\right]\\psi\n+2R\\xi\\psi\n+\\frac{R^2E_e}{2}(\\xi^2-\\eta^2)\\psi\n=0.\n\\]\nNow insert the product ansatz\n\\[\n\\psi=\\Lambda(\\xi)M(\\eta)e^{im\\phi}\n\\]\nand use \\(\\partial_\\phi^2\\psi=-m^2\\psi\\).\nDividing by the wave function yields\n\\[\n\\begin{aligned}\n&\\frac1{\\Lambda}\n\\frac{d}{d\\xi}\n\\left[(\\xi^2-1)\\frac{d\\Lambda}{d\\xi}\\right]\n+\n\\frac1M\n\\frac{d}{d\\eta}\n\\left[(1-\\eta^2)\\frac{dM}{d\\eta}\\right]\\\\\n&\\quad\n-m^2\\left(\n\\frac1{\\xi^2-1}+\\frac1{1-\\eta^2}\n\\right)\n+2R\\xi\n+\\frac{R^2E_e}{2}(\\xi^2-\\eta^2)\n=0.\n\\end{aligned}\n\\]\nEvery term can now be assigned uniquely to either \\(\\xi\\) or \\(\\eta\\). Rearranging,\n\\[\n\\begin{aligned}\n\\underbrace{\n\\frac1{\\Lambda}\n\\frac{d}{d\\xi}\n\\left[(\\xi^2-1)\\frac{d\\Lambda}{d\\xi}\\right]\n-\\frac{m^2}{\\xi^2-1}\n+2R\\xi+\\frac{R^2E_e}{2}\\xi^2\n}_{F(\\xi)}\n\\\\[6pt]\n+\n\\underbrace{\n\\frac1M\n\\frac{d}{d\\eta}\n\\left[(1-\\eta^2)\\frac{dM}{d\\eta}\\right]\n-\\frac{m^2}{1-\\eta^2}\n-\\frac{R^2E_e}{2}\\eta^2\n}_{G(\\eta)}\n=0.\n\\end{aligned}\n\\]\nBecause the two coordinates are independent, we must have\n\\[\nF(\\xi)=A,\n\\qquad\nG(\\eta)=-A.\n\\]\nMultiplying the first equation by \\(\\Lambda\\) and the second by \\(M\\) produces the two ordinary differential equations shown above.",
+    "crumbs": [
+      "Home",
+      "Introduction to Molecular Physics",
+      "The H$_2^+$ Molecular Ion"
+    ]
+  },
+  {
+    "objectID": "mod7/h2plus.html#physical-interpretation",
+    "href": "mod7/h2plus.html#physical-interpretation",
+    "title": "The H\\(_2^+\\) Molecular Ion",
+    "section": "Physical interpretation",
+    "text": "Physical interpretation\nThe separation constant \\(A\\) plays a role analogous to the angular separation constant in the hydrogen atom. In spherical coordinates, separation of the angular variables leads to the familiar eigenvalue \\(\\ell(\\ell+1)\\).\nIn H\\(_2^+\\), however, the potential has only axial symmetry, not full spherical symmetry. Consequently, the orbital angular momentum quantum number \\(\\ell\\) is generally no longer conserved, and \\(A\\) need not equal \\(\\ell(\\ell+1)\\).\nIn the united-atom limit \\(R\\to0\\), the two protons merge into an effective nucleus of charge \\(Z=2\\). The angular equation approaches the associated Legendre equation, and\n\\[\nA\\longrightarrow\\ell(\\ell+1).\n\\]\nThe system then approaches the electronic structure of the helium ion He\\(^+\\).\nIn the opposite limit \\(R\\to\\infty\\), the electron becomes localized around one of the widely separated protons, and the lowest electronic energy approaches that of an isolated hydrogen atom. The dissociation products are therefore H and H\\(^+\\).\nThe important lesson is that the choice of coordinates determines whether the symmetries and mathematical structure of a problem can be exploited to simplify the Schrödinger equation.",
+    "crumbs": [
+      "Home",
+      "Introduction to Molecular Physics",
+      "The H$_2^+$ Molecular Ion"
+    ]
   }
 ]
