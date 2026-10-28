@@ -609,11 +609,13 @@ Multiplying the first equation by $\Lambda$ and the second by $M$ produces the t
 
 ## Physical interpretation
 
-The separation constant $A$ plays a role analogous to the angular separation constant in the hydrogen atom. In spherical coordinates, separation of the angular variables leads to the familiar eigenvalue $\ell(\ell+1)$.
 
-In H$_2^+$, however, the potential has only **axial symmetry**, not full spherical symmetry. Consequently, the orbital angular momentum quantum number $\ell$ is generally no longer conserved, and $A$ need not equal $\ell(\ell+1)$.
 
-In the united-atom limit $R\to0$, the two protons merge into an effective nucleus of charge $Z=2$. The angular equation approaches the associated Legendre equation, and
+The separation constant $A$ is related to the eigenvalues of the differential operators appearing in the separated Schrödinger equation. In the hydrogen atom, the angular dependence is governed by the orbital angular momentum operator $\hat L^2$, whose eigenvalues are $\ell(\ell+1)$ in atomic units.
+
+For H$_2^+$, the potential has only **axial symmetry**, so $\hat L^2$ no longer commutes with the Hamiltonian. Consequently, $\ell$ is not a good quantum number, and $A$ is generally not equal to $\ell(\ell+1)$.
+
+In the united-atom limit $R\to0$, spherical symmetry is restored. The angular equation then reduces to the eigenvalue equation for $\hat L^2$, and
 
 $$
 A\longrightarrow\ell(\ell+1).
