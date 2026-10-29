@@ -693,7 +693,7 @@ Only the absolute value of the angular momentum projection has physical meaning 
 
 
 
-::: {.callout-note collapse="true"}
+:::: {.callout-note collapse="true"}
 ## Why $+\lambda$ and $-\lambda$ have the same energy
 
 The electronic Hamiltonian of H$_2^+$ is invariant under reflection in any plane containing the molecular axis. To understand why this symmetry leads to the degeneracy of states with opposite angular momentum projections, we first need to examine how **angular momentum transforms under reflection**.
@@ -848,38 +848,128 @@ The symbols $\odot$ and $\otimes$ indicate vectors pointing **out of** and **int
 The important distinction is that angular momentum describes the *orientation and sense of rotation*. Under a mirror reflection, the handedness of the coordinate system reverses, and so does the transformation behavior of the cross product $\vec r\times\vec p$.
 
 
-### General transformation law for pseudovectors
+::: {.callout-tip collapse="true"}
+## Mathematical background: Transformation of pseudovectors
 
-The unusual transformation of angular momentum under reflections follows from its definition as a cross product,
+We have seen that angular momentum transforms differently from an ordinary vector under reflection. We can derive this behavior directly from its definition
 
 $$
 \vec L=\vec r\times\vec p.
 $$
 
-Under a rotation or reflection described by an orthogonal matrix $M$, both position and momentum transform as ordinary vectors:
+The key is to understand how a **cross product transforms under rotations and reflections**.
+
+### Statement: Transformation of a cross product
+
+Let $M$ be an orthogonal matrix describing a rotation or reflection, so that $M^TM=I$. Then, for any two vectors $\vec a$ and $\vec b$,
 
 $$
-\vec r'=M\vec r,
-\qquad
-\vec p'=M\vec p.
-$$
-
-The transformed angular momentum is therefore
-
-$$
-\vec L'
-=\vec r'\times\vec p'
-=(M\vec r)\times(M\vec p).
-$$
-
-For an orthogonal transformation, the cross product satisfies the identity
-
-$$
+\boxed{
 (M\vec a)\times(M\vec b)
-=\det(M)\,M(\vec a\times\vec b).
+=
+\det(M)\,M(\vec a\times\vec b).
+}
 $$
 
-Thus,
+The factor $\det(M)$ distinguishes transformations that preserve orientation from those that reverse it:
+
+- **Rotations:** $\det(M)=+1$. The cross product transforms like an ordinary vector.
+- **Reflections:** $\det(M)=-1$. The cross product acquires an additional minus sign.
+
+This is precisely the property that characterizes an **axial vector**, or **pseudovector**.
+
+### Proof
+
+The proof relies on the geometric interpretation of the scalar triple product,
+
+$$
+(\vec a\times\vec b)\cdot\vec c,
+$$
+
+which gives the **signed volume** of the parallelepiped spanned by three vectors.
+
+Under a linear transformation $M$, signed volumes are multiplied by $\det(M)$. Therefore,
+
+$$
+[(M\vec a)\times(M\vec b)]\cdot(M\vec c)
+=
+\det(M)\,(\vec a\times\vec b)\cdot\vec c.
+$$
+
+Because $M$ is orthogonal, it preserves scalar products:
+
+$$
+(M\vec u)\cdot(M\vec v)=\vec u\cdot\vec v.
+$$
+
+We can thus rewrite the right-hand side as
+
+$$
+[\det(M)\,M(\vec a\times\vec b)]\cdot(M\vec c).
+$$
+
+Comparing both sides, we obtain
+
+$$
+[(M\vec a)\times(M\vec b)]\cdot(M\vec c)
+=
+[\det(M)\,M(\vec a\times\vec b)]\cdot(M\vec c).
+$$
+
+Since this equality holds for every vector $\vec c$, and $M$ is invertible, the vectors inside the scalar products must be equal:
+
+$$
+\boxed{
+(M\vec a)\times(M\vec b)
+=
+\det(M)\,M(\vec a\times\vec b).
+}
+$$
+
+This completes the proof.
+
+### Why does the determinant distinguish rotations and reflections?
+
+For an orthogonal matrix,
+
+$$
+M^TM=I.
+$$
+
+Taking determinants gives
+
+$$
+\det(M^T)\det(M)=1.
+$$
+
+Since $\det(M^T)=\det(M)$,
+
+$$
+\boxed{\det(M)=\pm1.}
+$$
+
+The determinant measures how a transformation changes **oriented volume**:
+
+- A positive determinant preserves the handedness of the coordinate system.
+- A negative determinant reverses its handedness.
+
+Because rotations preserve handedness, they have determinant $+1$. Reflections reverse handedness and have determinant $-1$.
+
+Thus, the additional sign in the cross-product transformation law reflects the reversal of spatial orientation.
+
+### Application to angular momentum
+
+Since both $\vec r$ and $\vec p$ are ordinary vectors, the transformation law immediately gives
+
+$$
+\begin{aligned}
+\vec L'
+&=(M\vec r)\times(M\vec p)\\
+&=\det(M)\,M(\vec r\times\vec p).
+\end{aligned}
+$$
+
+Therefore,
 
 $$
 \boxed{
@@ -887,12 +977,7 @@ $$
 }
 $$
 
-The determinant distinguishes two types of transformations:
-
-- **Proper rotations:** $\det(M)=+1$. Angular momentum transforms like an ordinary vector.
-- **Reflections:** $\det(M)=-1$. Angular momentum acquires an additional minus sign compared with an ordinary vector.
-
-For example, reflection in the $xz$-plane is represented by
+For reflection in the $xz$-plane,
 
 $$
 M=
@@ -901,11 +986,10 @@ M=
 0&-1&0\\
 0&0&1
 \end{pmatrix},
-\qquad
-\det(M)=-1.
+\qquad \det(M)=-1,
 $$
 
-Applying the transformation law gives
+so
 
 $$
 \begin{pmatrix}
@@ -927,7 +1011,10 @@ L_x\\L_y\\L_z
 \end{pmatrix}.
 $$
 
-This reproduces the result obtained directly from the components of $\vec r\times\vec p$. In particular, the component $L_z$ along the molecular axis changes sign under reflection in a plane containing that axis.
+As expected, the angular momentum component along the molecular axis reverses sign under reflection in a plane containing that axis.
+
+:::
+
 
 
 
@@ -1003,7 +1090,7 @@ For $\lambda\neq0$, these are distinct states and are therefore degenerate. For 
 
 This degeneracy follows directly from **reflection symmetry** and is a general property of cylindrically symmetric, reflection-invariant systems.
 
-:::
+::::
 
 
 ---

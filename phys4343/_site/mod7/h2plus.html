@@ -4566,7 +4566,7 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 \]</span></p>
 <hr>
 <p>Here’s a sketch of the molecular geometry, including the relevant position vectors:</p>
-<div id="3bc6ef5f" class="cell" data-fig-format="png" data-execution_count="1">
+<div id="9f002131" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4666,7 +4666,7 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 = \frac{4\xi}{R(\xi^2-\eta^2)}.
 \]</span> Thus the potential is a rational function of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>, and—crucially—has the simple factor structure <span class="math inline">\(\propto \xi/(\xi^2-\eta^2)\)</span>.</p>
 <p>The figure visualizes the prolate spheroidal coordinate system: on the left, <span class="math inline">\(\xi\)</span>– and <span class="math inline">\(\eta\)</span>–lines form a two-dimensional grid in the <span class="math inline">\(xz\)</span>–plane, while on the right, an ellipsoid of constant <span class="math inline">\(\xi\)</span> is shown together with its <span class="math inline">\(\eta\)</span>– and <span class="math inline">\(\phi\)</span>–grid lines.</p>
-<div id="2047cd67" class="cell" data-execution_count="2">
+<div id="e6f03d7c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -5135,7 +5135,7 @@ V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}
 \lambda = 0, 1, 2, \ldots
 \]</span> Only the absolute value of the angular momentum projection has physical meaning for this system.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5144,7 +5144,7 @@ V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The electronic Hamiltonian of H<span class="math inline">\(_2^+\)</span> is invariant under reflection in any plane containing the molecular axis. To understand why this symmetry leads to the degeneracy of states with opposite angular momentum projections, we first need to examine how <strong>angular momentum transforms under reflection</strong>.</p>
 <section id="ordinary-vectors-and-reflections" class="level3">
@@ -5197,7 +5197,7 @@ L_z &amp;= xp_y-yp_x.
 <p>Imagine a wheel rotating around the <span class="math inline">\(z\)</span>-axis. Viewed along the positive <span class="math inline">\(z\)</span>-direction, a counterclockwise rotation corresponds to angular momentum along <span class="math inline">\(+z\)</span>, according to the right-hand rule.</p>
 <p>Now reflect the wheel in a plane containing its rotation axis. The reflected motion is clockwise, and the angular momentum therefore points along <span class="math inline">\(-z\)</span>.</p>
 <p>The following illustration shows this reversal. The coordinates are drawn in the <span class="math inline">\(xy\)</span>-plane, viewed along the molecular axis.</p>
-<div id="8bbdae11" class="cell" data-fig-height="5" data-fig-width="11" data-execution_count="3">
+<div id="688cb3d6" class="cell" data-fig-height="5" data-fig-width="11" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -5209,42 +5209,116 @@ L_z &amp;= xp_y-yp_x.
 </div>
 <p>The symbols <span class="math inline">\(\odot\)</span> and <span class="math inline">\(\otimes\)</span> indicate vectors pointing <strong>out of</strong> and <strong>into</strong> the page, respectively.</p>
 <p>The important distinction is that angular momentum describes the <em>orientation and sense of rotation</em>. Under a mirror reflection, the handedness of the coordinate system reverses, and so does the transformation behavior of the cross product <span class="math inline">\(\vec r\times\vec p\)</span>.</p>
-</section>
-<section id="general-transformation-law-for-pseudovectors" class="level3">
-<h3 class="anchored" data-anchor-id="general-transformation-law-for-pseudovectors">General transformation law for pseudovectors</h3>
-<p>The unusual transformation of angular momentum under reflections follows from its definition as a cross product,</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Mathematical background: Transformation of pseudovectors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We have seen that angular momentum transforms differently from an ordinary vector under reflection. We can derive this behavior directly from its definition</p>
 <p><span class="math display">\[
 \vec L=\vec r\times\vec p.
 \]</span></p>
-<p>Under a rotation or reflection described by an orthogonal matrix <span class="math inline">\(M\)</span>, both position and momentum transform as ordinary vectors:</p>
+<p>The key is to understand how a <strong>cross product transforms under rotations and reflections</strong>.</p>
+<section id="statement-transformation-of-a-cross-product" class="level3">
+<h3 class="anchored" data-anchor-id="statement-transformation-of-a-cross-product">Statement: Transformation of a cross product</h3>
+<p>Let <span class="math inline">\(M\)</span> be an orthogonal matrix describing a rotation or reflection, so that <span class="math inline">\(M^TM=I\)</span>. Then, for any two vectors <span class="math inline">\(\vec a\)</span> and <span class="math inline">\(\vec b\)</span>,</p>
 <p><span class="math display">\[
-\vec r&#39;=M\vec r,
-\qquad
-\vec p&#39;=M\vec p.
-\]</span></p>
-<p>The transformed angular momentum is therefore</p>
-<p><span class="math display">\[
-\vec L&#39;
-=\vec r&#39;\times\vec p&#39;
-=(M\vec r)\times(M\vec p).
-\]</span></p>
-<p>For an orthogonal transformation, the cross product satisfies the identity</p>
-<p><span class="math display">\[
+\boxed{
 (M\vec a)\times(M\vec b)
-=\det(M)\,M(\vec a\times\vec b).
+=
+\det(M)\,M(\vec a\times\vec b).
+}
 \]</span></p>
-<p>Thus,</p>
+<p>The factor <span class="math inline">\(\det(M)\)</span> distinguishes transformations that preserve orientation from those that reverse it:</p>
+<ul>
+<li><strong>Rotations:</strong> <span class="math inline">\(\det(M)=+1\)</span>. The cross product transforms like an ordinary vector.</li>
+<li><strong>Reflections:</strong> <span class="math inline">\(\det(M)=-1\)</span>. The cross product acquires an additional minus sign.</li>
+</ul>
+<p>This is precisely the property that characterizes an <strong>axial vector</strong>, or <strong>pseudovector</strong>.</p>
+</section>
+<section id="proof" class="level3">
+<h3 class="anchored" data-anchor-id="proof">Proof</h3>
+<p>The proof relies on the geometric interpretation of the scalar triple product,</p>
+<p><span class="math display">\[
+(\vec a\times\vec b)\cdot\vec c,
+\]</span></p>
+<p>which gives the <strong>signed volume</strong> of the parallelepiped spanned by three vectors.</p>
+<p>Under a linear transformation <span class="math inline">\(M\)</span>, signed volumes are multiplied by <span class="math inline">\(\det(M)\)</span>. Therefore,</p>
+<p><span class="math display">\[
+[(M\vec a)\times(M\vec b)]\cdot(M\vec c)
+=
+\det(M)\,(\vec a\times\vec b)\cdot\vec c.
+\]</span></p>
+<p>Because <span class="math inline">\(M\)</span> is orthogonal, it preserves scalar products:</p>
+<p><span class="math display">\[
+(M\vec u)\cdot(M\vec v)=\vec u\cdot\vec v.
+\]</span></p>
+<p>We can thus rewrite the right-hand side as</p>
+<p><span class="math display">\[
+[\det(M)\,M(\vec a\times\vec b)]\cdot(M\vec c).
+\]</span></p>
+<p>Comparing both sides, we obtain</p>
+<p><span class="math display">\[
+[(M\vec a)\times(M\vec b)]\cdot(M\vec c)
+=
+[\det(M)\,M(\vec a\times\vec b)]\cdot(M\vec c).
+\]</span></p>
+<p>Since this equality holds for every vector <span class="math inline">\(\vec c\)</span>, and <span class="math inline">\(M\)</span> is invertible, the vectors inside the scalar products must be equal:</p>
+<p><span class="math display">\[
+\boxed{
+(M\vec a)\times(M\vec b)
+=
+\det(M)\,M(\vec a\times\vec b).
+}
+\]</span></p>
+<p>This completes the proof.</p>
+</section>
+<section id="why-does-the-determinant-distinguish-rotations-and-reflections" class="level3">
+<h3 class="anchored" data-anchor-id="why-does-the-determinant-distinguish-rotations-and-reflections">Why does the determinant distinguish rotations and reflections?</h3>
+<p>For an orthogonal matrix,</p>
+<p><span class="math display">\[
+M^TM=I.
+\]</span></p>
+<p>Taking determinants gives</p>
+<p><span class="math display">\[
+\det(M^T)\det(M)=1.
+\]</span></p>
+<p>Since <span class="math inline">\(\det(M^T)=\det(M)\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\det(M)=\pm1.}
+\]</span></p>
+<p>The determinant measures how a transformation changes <strong>oriented volume</strong>:</p>
+<ul>
+<li>A positive determinant preserves the handedness of the coordinate system.</li>
+<li>A negative determinant reverses its handedness.</li>
+</ul>
+<p>Because rotations preserve handedness, they have determinant <span class="math inline">\(+1\)</span>. Reflections reverse handedness and have determinant <span class="math inline">\(-1\)</span>.</p>
+<p>Thus, the additional sign in the cross-product transformation law reflects the reversal of spatial orientation.</p>
+</section>
+<section id="application-to-angular-momentum" class="level3">
+<h3 class="anchored" data-anchor-id="application-to-angular-momentum">Application to angular momentum</h3>
+<p>Since both <span class="math inline">\(\vec r\)</span> and <span class="math inline">\(\vec p\)</span> are ordinary vectors, the transformation law immediately gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec L&#39;
+&amp;=(M\vec r)\times(M\vec p)\\
+&amp;=\det(M)\,M(\vec r\times\vec p).
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
 <p><span class="math display">\[
 \boxed{
 \vec L&#39;=\det(M)\,M\vec L.
 }
 \]</span></p>
-<p>The determinant distinguishes two types of transformations:</p>
-<ul>
-<li><strong>Proper rotations:</strong> <span class="math inline">\(\det(M)=+1\)</span>. Angular momentum transforms like an ordinary vector.</li>
-<li><strong>Reflections:</strong> <span class="math inline">\(\det(M)=-1\)</span>. Angular momentum acquires an additional minus sign compared with an ordinary vector.</li>
-</ul>
-<p>For example, reflection in the <span class="math inline">\(xz\)</span>-plane is represented by</p>
+<p>For reflection in the <span class="math inline">\(xz\)</span>-plane,</p>
 <p><span class="math display">\[
 M=
 \begin{pmatrix}
@@ -5252,10 +5326,9 @@ M=
 0&amp;-1&amp;0\\
 0&amp;0&amp;1
 \end{pmatrix},
-\qquad
-\det(M)=-1.
+\qquad \det(M)=-1,
 \]</span></p>
-<p>Applying the transformation law gives</p>
+<p>so</p>
 <p><span class="math display">\[
 \begin{pmatrix}
 L_x&#39;\\L_y&#39;\\L_z&#39;
@@ -5275,7 +5348,11 @@ L_x\\L_y\\L_z
 -L_x\\L_y\\-L_z
 \end{pmatrix}.
 \]</span></p>
-<p>This reproduces the result obtained directly from the components of <span class="math inline">\(\vec r\times\vec p\)</span>. In particular, the component <span class="math inline">\(L_z\)</span> along the molecular axis changes sign under reflection in a plane containing that axis.</p>
+<p>As expected, the angular momentum component along the molecular axis reverses sign under reflection in a plane containing that axis.</p>
+</section>
+</div>
+</div>
+</div>
 </section>
 <section id="application-to-the-molecular-angular-momentum" class="level3">
 <h3 class="anchored" data-anchor-id="application-to-the-molecular-angular-momentum">Application to the molecular angular momentum</h3>
@@ -5403,7 +5480,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <p>If we now plot these electronic energies as a function of <span class="math inline">\(R\)</span>, we obtain the <strong>potential energy curves</strong> for the molecule. These curves determine how the total molecular energy changes as the nuclei move relative to one another.</p>
 <p>At certain distances, one of the potential curves may exhibit a <strong>minimum</strong>—indicating a stable or quasi-stable equilibrium separation. Such a minimum corresponds to a <strong>bound molecular state</strong>. Higher-lying curves may be purely repulsive or correspond to excited electronic configurations that dissociate more easily.</p>
 <p>Below is an illustrative plot showing four typical potential energy curves for H<span class="math inline">\(_2^+\)</span>, labeled according to their symmetry.</p>
-<div id="8e777b80" class="cell" data-execution_count="4">
+<div id="cb170ab1" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
