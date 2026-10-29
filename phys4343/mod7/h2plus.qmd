@@ -1178,71 +1178,132 @@ At certain distances, one of the potential curves may exhibit a **minimum**—in
 Below is an illustrative plot showing four typical potential energy curves for H$_2^+$, labeled according to their symmetry.
 
 ```{python}
+#| fig-align: center
+#| fig-alt: "H2+ Born-Oppenheimer curves, from numerical finite differences."
+"""H2+ Born-Oppenheimer curves, from numerical finite differences.
+Atomic units throughout: length a0, energy Hartree.
+"""
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.interpolate import interp1d
+from scipy.sparse import diags, eye, kron
+from scipy.sparse.linalg import eigsh
+from numpy.polynomial.legendre import leggauss
+from scipy.interpolate import PchipInterpolator
+
 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.size'] = 12
 
-# --- Load benchmark data ---
-# Replace with actual filename / format
-# Suppose data files with columns: R_bohr, E_hartree for various states
-# Example format: "H2p_ground.csv", "H2p_first_excited.csv", etc.
 
-def load_curve(filename):
-    # Allow any whitespace as separator
-    data = np.loadtxt(filename, delimiter=',', comments='#')
-    # Handle possible extra columns (some files have >2)
-    R = data[:, 0]
-    E1 = data[:, 1]
-    E2 = data[:, 2]
-    E3 = data[:, 3]
-    E4 = data[:, 4]
-    return R, E1, E2, E3, E4
+# Numerical controls (refine for convergence)
+NR, NZ = 100, 171
+RHO_MAX, Z_MAX = 14.0, 20.0   # in Bohr radii
+DISTANCES = np.linspace(0.4, 9.0, 50)  # internuclear distance, a0
 
-
-# Example: you must supply these files
-R, E1, E2, E3, E4 = load_curve('./h2pluspotc.csv')
-
-#from scipy.interpolate import interp1d
-
-f1 = interp1d(R, E1, kind='cubic', fill_value='extrapolate')
-f2 = interp1d(R, E2, kind='cubic', fill_value='extrapolate')
-f3 = interp1d(R, E3, kind='cubic', fill_value='extrapolate')
-f4 = interp1d(R, E4, kind='cubic', fill_value='extrapolate')
-
-R_plot = np.linspace(min(R), max(R), 500)
-
-E1s = f1(R_plot)
-E2s = f2(R_plot)
-E3s = f3(R_plot)
-E4s = f4(R_plot)
-
-
-# --- Plotting ---
-fig, ax = plt.subplots(figsize=(7,5))
-
-ax.plot(R_plot, E1s, label=r'$1s\sigma_g$', color='blue', lw=2)
-ax.plot(R_plot, E2s, label=r'$2p\sigma_u$', color='red', lw=2)
-ax.plot(R_plot, E3s, label=r'$2p\pi_u$', color='green', lw=2)
-ax.plot(R_plot, E4s, label=r'$3d\pi_g$', color='orange', lw=2)
-
-ax.set_xlabel(r'Internuclear distance $R$ (Å)')
-ax.set_ylabel(r'Energy (Rydberg)')
-#ax.set_title(r'Potential Energy Curves for H$_2^+$')
-ax.legend()
-ax.grid(True)
+R_fine = np.linspace(DISTANCES.min(), DISTANCES.max(), 100)
 
 
 
-ax.set_xlim([0, 9])
-ax.set_ylim([-1.5, 1])
+def electronic_levels(R, m, k=5):
+    """Return low electronic eigenvalues classified by z-reflection parity.
 
-plt.tight_layout()
-plt.show()
+    psi(rho,z,phi) = u(rho,z)*exp(i*m*phi).
+    H_m = -1/(2*rho)*d_rho(rho*d_rho) - 1/2*d_z^2
+          + m**2/(2*rho**2) - 1/r_A - 1/r_B.
 
+    Finite-volume radial Laplacian on cell centers rho=(i+1/2)*dr,
+    transformed with sqrt(rho) to a real symmetric matrix.
+    """
+    dr = RHO_MAX / NR
+    dz = 2 * Z_MAX / (NZ + 1)
+    rho = (np.arange(NR) + 0.5) * dr
+    z = (np.arange(NZ) + 1) * dz - Z_MAX
+
+    rho_plus = (np.arange(NR) + 1) * dr
+    rho_minus = np.arange(NR) * dr
+    rad_diag = (rho_plus + rho_minus) / (2 * rho * dr**2)
+    rad_off = -rho_plus[:-1] / (2 * dr**2 * np.sqrt(rho[:-1] * rho[1:]))
+    radial = diags([rad_off, rad_diag, rad_off], [-1, 0, 1], format='csr')
+
+    axial = diags(
+        [-np.ones(NZ-1)/(2*dz**2), np.ones(NZ)/dz**2,
+         -np.ones(NZ-1)/(2*dz**2)],
+        [-1, 0, 1], format='csr'
+    )
+    kinetic = kron(eye(NZ, format='csr'), radial, format='csr') + \
+              kron(axial, eye(NR, format='csr'), format='csr')
+
+    rr = rho[None, :]
+    zz = z[:, None]
+    # Cell-average Coulomb attraction, weighted by cylindrical volume rho*d(rho)*dz.
+    # This avoids artificial spikes when a nuclear singularity crosses grid nodes.
+    qx, qw = leggauss(5)
+    coulomb = np.zeros((NZ, NR))
+    for a, wa in zip(qx, qw):
+        rq = rr + 0.5 * dr * a
+        for b, wb in zip(qx, qw):
+            zq = zz + 0.5 * dz * b
+            vq = -1 / np.hypot(rq, zq - R/2) - 1 / np.hypot(rq, zq + R/2)
+            coulomb += wa * wb * (rq / rr) * vq * 0.25
+    potential = coulomb + m**2 / (2 * rr**2)
+    H = kinetic + diags(potential.ravel(), format='csr')
+
+    eigvals, eigvecs = eigsh(H, k=k, which='SA', tol=1e-8)
+    levels = {}
+    for n, energy in enumerate(eigvals):
+        u = eigvecs[:, n].reshape(NZ, NR)
+        parity = np.vdot(u, u[::-1, :]).real / np.vdot(u, u).real
+        if abs(parity) < 0.85:
+            raise RuntimeError('Parity not resolved; increase the grid or eigenpair count')
+        label = 'even' if parity > 0 else 'odd'
+        if label not in levels or energy < levels[label]:
+            levels[label] = float(energy)
+    if len(levels) != 2:
+        raise RuntimeError('Both reflection parities not found; increase k')
+    return levels
+
+
+if __name__ == '__main__':
+    curves = {'1s sigma_g': [], '2p sigma_u': [],
+              '2p pi_u': [], '3d pi_g': []}
+    for R in DISTANCES:
+        sigma = electronic_levels(R, m=0, k=3)
+        pi = electronic_levels(R, m=1, k=3)
+        # Under inversion (z -> -z, phi -> phi+pi), total parity is (-1)^m
+        # times z-reflection parity. Thus m=1, even-z corresponds to ungerade.
+        curves['1s sigma_g'].append(sigma['even'] + 1/R)
+        curves['2p sigma_u'].append(sigma['odd'] + 1/R)
+        curves['2p pi_u'].append(pi['even'] + 1/R)
+        curves['3d pi_g'].append(pi['odd'] + 1/R)
+        # print(f'R={R:5.2f} a0  1sigma_g={curves["1s sigma_g"][-1]: .6f} Eh', flush=True)
+
+    np.savez('h2plus_curves.npz', R_a0=DISTANCES,
+             sigma_g=np.array(curves['1s sigma_g']),
+             sigma_u=np.array(curves['2p sigma_u']),
+             pi_u=np.array(curves['2p pi_u']),
+             pi_g=np.array(curves['3d pi_g']))
+
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    labels = {'1s sigma_g': r'$1s\sigma_g$', '2p sigma_u': r'$2p\sigma_u$',
+              '2p pi_u': r'$2p\pi_u$', '3d pi_g': r'$3d\pi_g$'}
+
+    for key, color in zip(curves, ['tab:blue', 'tab:red', 'tab:green', 'tab:orange']):
+        energies_ry = 2 * np.asarray(curves[key])
+        interpolator = PchipInterpolator(DISTANCES, energies_ry)
+
+        ax.plot(R_fine, interpolator(R_fine), lw=2.3,
+                color=color, label=labels[key])
+
+    ax.axhline(-1, color='0.55', ls=':', lw=1,
+               label=r'H(1s) + H$^+$ dissociation limit')
+    ax.set(xlabel=r'Internuclear distance $R$ ($a_0$)',
+           ylabel='Born–Oppenheimer energy (Ry)',
+           xlim=(0, DISTANCES[-1]), ylim=(-1.4, 1.2))
+    ax.grid(alpha=0.25)
+    ax.legend(loc='upper right')
+    fig.tight_layout()
+    plt.show()
 ```
 
 At small internuclear separations ($R \to 0$), the two nuclei strongly repel each other, and all electronic energies rise steeply. 
