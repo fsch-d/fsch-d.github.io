@@ -772,8 +772,12 @@ The following illustration shows this reversal. The coordinates are drawn in the
 #| echo: false
 #| fig-width: 11
 #| fig-height: 5
+#| fig-align: center
+#| out-width: "100%"
+#| fig-format: svg
 #| fig-alt: "Reflection in the xz-plane reverses the sense of rotation and the axial angular momentum Lz."
 #| warning: false
+
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -873,6 +877,7 @@ The following figure compares these transformations for vectors oriented paralle
 ```{python}
 #| echo: false
 #| fig-align: center
+#| out-width: 100%
 #| fig-alt: "Comparison of polar and axial vector transformations under reflection in the xz-plane. Blue arrows represent the original vectors; orange arrows represent their reflected counterparts."
 
 import numpy as np
