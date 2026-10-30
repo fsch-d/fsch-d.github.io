@@ -5,12 +5,13 @@ author: Daniel Fischer
 
 # Introduction
 
-The hydrogen molecular ion, H$_2^+$, is the **simplest conceivable molecule**: two protons and one electron. 
-Despite its simplicity, it is of profound importance in molecular physics.  
+The hydrogen molecular ion, H$_2^+$, is the **simplest conceivable molecule**: two protons and one electron. Despite its simplicity, it is of profound importance in molecular physics.
 
-- It provides the **first step beyond the hydrogen atom**, introducing the physics of **chemical bonding** within a fully quantum-mechanical framework.  
-- The system’s simplicity allows an almost complete analytical treatment—though not a *fully exact* one—making it an ideal prototype for discussing **approximation methods** such as the **Born-Oppenheimer approximation** and the **variational method**.  
-- Remarkably, in **prolate spheroidal (ellipsoidal) coordinates**, the Schrödinger equation becomes **separable**, at least partially, allowing us to identify distinct “radial” and “angular” degrees of freedom.
+- It provides the **first step beyond the hydrogen atom**, introducing the physics of **chemical bonding** within a fully quantum-mechanical framework.
+
+- As a one-electron system, H$_2^+$ allows us to study molecular bonding without the complications of electron–electron interactions. It also provides an ideal setting for introducing approximation methods such as the **Born–Oppenheimer approximation** and the **variational method**.
+
+- Remarkably, within the fixed-nuclei approximation, the electronic Schrödinger equation is **fully separable in prolate spheroidal (ellipsoidal) coordinates**. This reduces the three-dimensional problem to ordinary differential equations, although determining their energy eigenvalues generally still requires numerical methods.
 
 We will see that the key to understanding H$_2^+$ lies in a clever choice of coordinates and the recognition that the electron experiences the combined Coulomb field of two fixed nuclei.
 
@@ -771,7 +772,7 @@ The following illustration shows this reversal. The coordinates are drawn in the
 #| echo: false
 #| fig-width: 11
 #| fig-height: 5
-#| fig-cap: "Reflection in the xz-plane reverses the sense of rotation and the axial angular momentum Lz."
+#| fig-alt: "Reflection in the xz-plane reverses the sense of rotation and the axial angular momentum Lz."
 #| warning: false
 
 import numpy as np
@@ -846,6 +847,148 @@ plt.show()
 The symbols $\odot$ and $\otimes$ indicate vectors pointing **out of** and **into** the page, respectively.
 
 The important distinction is that angular momentum describes the *orientation and sense of rotation*. Under a mirror reflection, the handedness of the coordinate system reverses, and so does the transformation behavior of the cross product $\vec r\times\vec p$.
+
+
+### Comparing polar and axial vectors under reflection
+
+The rotating wheel illustrates how reflection reverses angular momentum along the rotation axis. We can now generalize this observation by comparing how **polar vectors** and **axial vectors** transform under the same reflection.
+
+Again consider reflection in the $xz$-plane, which changes $y\to-y$ while leaving $x$ and $z$ unchanged.
+
+For an ordinary (polar) vector, the component perpendicular to the mirror plane changes sign, whereas the components parallel to the plane remain unchanged:
+
+$$
+(V_x,V_y,V_z)\longrightarrow(V_x,-V_y,V_z).
+$$
+
+For an axial vector, such as angular momentum, the behavior is reversed: the component perpendicular to the mirror plane remains unchanged, while the components parallel to the plane change sign:
+
+$$
+(A_x,A_y,A_z)\longrightarrow(-A_x,A_y,-A_z).
+$$
+
+The following figure compares these transformations for vectors oriented parallel, perpendicular, and diagonally to the mirror plane. The blue arrows represent the original vectors, and the orange arrows their reflected counterparts.
+
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-alt: "Comparison of polar and axial vector transformations under reflection in the xz-plane. Blue arrows represent the original vectors; orange arrows represent their reflected counterparts."
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.size'] = 13
+
+BLUE = 'tab:blue'
+ORANGE = 'tab:orange'
+
+fig, axes = plt.subplots(1, 2, figsize=(11, 6.2))
+
+def draw_arrow(ax, center, direction, color):
+    """Draw an arrow centered on a specified point."""
+    center = np.asarray(center, dtype=float)
+    direction = np.asarray(direction, dtype=float)
+
+    start = center - direction / 2
+    end = center + direction / 2
+
+    ax.annotate(
+        '', xy=end, xytext=start,
+        arrowprops=dict(
+            arrowstyle='-|>',
+            lw=2.8,
+            color=color,
+            mutation_scale=17,
+            shrinkA=0,
+            shrinkB=0
+        )
+    )
+
+def draw_coordinates(ax):
+    """Small coordinate system in the upper-left corner."""
+    x0, y0 = -2.7, 3.65
+    length = 0.38
+
+    # x-axis
+    ax.annotate(
+        '', xy=(x0 + length, y0), xytext=(x0, y0),
+        arrowprops=dict(arrowstyle='->', lw=1.3, color='0.35')
+    )
+
+    # y-axis
+    ax.annotate(
+        '', xy=(x0, y0 + length), xytext=(x0, y0),
+        arrowprops=dict(arrowstyle='->', lw=1.3, color='0.35')
+    )
+
+    ax.text(x0 + length + 0.06, y0, r'$x$', fontsize=11, va='center')
+    ax.text(x0, y0 + length + 0.05, r'$y$', fontsize=11, ha='center')
+
+def draw_panel(ax, title, axial=False, coordinate=True):
+    ax.set_xlim(-3.1, 3.1)
+    ax.set_ylim(0.2, 4.2)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title(title, fontsize=16, pad=16)
+
+    if coordinate:
+        draw_coordinates(ax)
+
+    # Mirror plane: xz-plane shown as a horizontal line in the xy view
+    y_mirror = 2.0
+    ax.plot([-2.8, 2.8], [y_mirror, y_mirror],
+            color='0.45', lw=1.8, ls='--')
+
+    # Three equally spaced horizontal positions
+    x_positions = [-1.8, 0.0, 1.8]
+
+    # Original vectors: vertical, horizontal, diagonal
+    directions = [
+        (0.0, 0.85),
+        (0.85, 0.0),
+        (0.65, 0.65)
+    ]
+
+    y_offset = 0.72
+
+    for x, (dx, dy) in zip(x_positions, directions):
+
+        # Original vector above the mirror
+        draw_arrow(ax, (x, y_mirror + y_offset), (dx, dy), BLUE)
+
+        # Reflected vector below the mirror
+        if axial:
+            reflected = (-dx, dy)
+        else:
+            reflected = (dx, -dy)
+
+        draw_arrow(ax, (x, y_mirror - y_offset), reflected, ORANGE)
+
+    # Component transformation rule
+    if axial:
+        rule = (
+            r'$(A_x,A_y,A_z)'
+            r'\rightarrow(-A_x,A_y,-A_z)$'
+        )
+    else:
+        rule = (
+            r'$(V_x,V_y,V_z)'
+            r'\rightarrow(V_x,-V_y,V_z)$'
+        )
+
+    ax.text(0, 0.38, rule, ha='center', va='center', fontsize=13)
+
+draw_panel(axes[0], 'Polar vectors')
+draw_panel(axes[1], 'Axial vectors (pseudovectors)', axial=True, coordinate=False)
+
+fig.tight_layout(w_pad=2.2)
+plt.show()
+```
+
+The comparison illustrates the defining distinction between polar and axial vectors under reflection. Under ordinary rotations, both types of vectors transform identically; their different behavior becomes apparent only under transformations that reverse spatial orientation, such as reflections.
+
+This difference can be expressed mathematically through the transformation properties of the cross product, as derived in the box below.
 
 
 ::: {.callout-tip collapse="true"}
