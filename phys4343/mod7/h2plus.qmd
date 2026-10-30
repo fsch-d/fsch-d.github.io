@@ -1303,9 +1303,15 @@ plt.rcParams['font.size'] = 12
 # Numerical controls (refine for convergence)
 NR, NZ = 100, 171
 RHO_MAX, Z_MAX = 14.0, 20.0   # in Bohr radii
-DISTANCES = np.linspace(0.4, 9.0, 50)  # internuclear distance, a0
+# DISTANCES = np.linspace(0.4, 9.0, 30)  # internuclear distance, a0
 
-R_fine = np.linspace(DISTANCES.min(), DISTANCES.max(), 100)
+# More points at small R, fewer at large R
+t = np.linspace(0, 1, 20)
+DISTANCES = 0.4 + (9.0 - 0.4) * t**2
+
+
+
+R_fine = np.linspace(DISTANCES.min(), DISTANCES.max(), 500)
 
 
 
@@ -1404,11 +1410,11 @@ if __name__ == '__main__':
     plt.show()
 ```
 
-At small internuclear separations ($R \to 0$), the two nuclei strongly repel each other, and all electronic energies rise steeply. 
-At large separations ($R \to \infty$), each curve asymptotically approaches the energy of a hydrogen atom plus a free proton.
 
-Only the lowest curve, corresponding to the $1s\sigma_g$ state, exhibits a **potential minimum**—signifying a bound molecular ion. 
-The excited states ($2p\sigma_u$, $2p\pi_u$, $3d\pi_g$) are either weakly bound or entirely repulsive, describing unbound molecular states.
+At small internuclear separations ($R\to0$), the nuclear repulsion $1/R$ dominates, causing the total Born–Oppenheimer energies to rise steeply. At large separations ($R\to\infty$), the potential-energy curves approach their respective atomic dissociation limits: H(1s) + H$^+$ for the two lowest $\sigma$ states, and H($n=2$) + H$^+$ for the two $\pi$ states.
+
+The lowest curve, corresponding to the $1s\sigma_g$ state, exhibits a pronounced **potential minimum** near $R=2a_0$, indicating a stable molecular ion. The excited-state curves show more complicated behavior. Although they appear predominantly repulsive in the present calculation, solving the same Schrödinger equation with higher numerical accuracy reveals shallow potential wells in some excited states, particularly at larger internuclear separations. These features may not be resolved with the finite spatial grid and limited range of internuclear distances used here.
+
 
 
 
