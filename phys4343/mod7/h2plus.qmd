@@ -1116,6 +1116,36 @@ Thus, $\lambda = 0$ corresponds to a $\sigma$ state, $\lambda = 1$ to a $\pi$ st
 In this chapter we avoid using the symbol $\sigma$ to denote spin (Pauli matrices) to prevent confusion.
 
 
+::: {.callout-note collapse="true"}
+## Sigma and pi orbitals in larger molecules
+
+The labels $\sigma$, $\pi$, $\delta$, etc. are also widely used to describe molecular orbitals and chemical bonds in more complex molecules. However, their precise meaning depends on the symmetry of the molecule.
+
+**Linear molecules:** For a linear molecule, such as H$_2^+$, N$_2$, or CO$_2$, the Hamiltonian is invariant under rotations about the molecular axis. The projection of orbital angular momentum onto that axis is therefore conserved, and molecular orbitals can be classified by $\Lambda=|\lambda|$:
+
+$$
+\Lambda=0,1,2,3,\ldots
+\quad\longrightarrow\quad
+\sigma,\pi,\delta,\phi,\ldots
+$$
+
+These are rigorous symmetry labels associated with the rotational symmetry of the molecular Hamiltonian.
+
+**Nonlinear molecules:** In molecules without continuous rotational symmetry, such as ethylene (C$_2$H$_4$) or benzene (C$_6$H$_6$), the projection of orbital angular momentum onto a chosen axis is generally not conserved. Nevertheless, the terms *sigma* and *pi* remain widely used to describe the symmetry and spatial character of molecular orbitals and bonds.
+
+For example, the carbon–carbon double bond in ethylene consists of:
+
+- A **$\sigma$ bond**, formed primarily by orbital overlap along the C–C bond axis.
+- A **$\pi$ bond**, formed by the sideways overlap of two carbon $p$ orbitals, with a nodal plane containing the C–C bond axis.
+
+In this context, the labels describe the bonding geometry and orbital symmetry rather than eigenvalues of $\hat L_z$.
+
+Thus, while the terminology is closely related, **$\sigma$ and $\pi$ are exact angular-momentum-projection classifications for linear molecules, but are used more broadly to characterize bonding in nonlinear molecules**.
+
+:::
+
+
+
 ---
 
 ## 4.4 Including Electron Spin
@@ -1129,16 +1159,91 @@ For H$_2^+$, which has only one electron, this simply distinguishes spin-up and 
 
 ---
 
-## 4.5 Reflection symmetry along the midplane (gerade/ungerade)
 
-Another important symmetry in H$_2^+$ comes from reflecting the electron across the **plane halfway between the two nuclei** (perpendicular to the molecular axis).  
+## 4.5 Inversion Symmetry: Gerade and Ungerade
 
-- This reflection does **not** change the electron's twist around the axis, so it does **not** affect $\lambda$.  
-- However, it does produce **two types of states**:
-  - **Gerade (g)**: symmetric under the reflection (wavefunction stays the same).  
-  - **Ungerade (u)**: antisymmetric under the reflection (wavefunction changes sign).  
+An additional symmetry of H$_2^+$ is **inversion through the midpoint between the two nuclei**. Choosing this point as the origin, inversion transforms the electron coordinates according to
 
-This classification will become useful when we label molecular orbitals. It explains, for example, why some states have a **node at the center** of the molecule while others do not.
+$$
+(x,y,z)\longrightarrow(-x,-y,-z),
+$$
+
+or, equivalently,
+
+$$
+\vec r\longrightarrow-\vec r.
+$$
+
+This operation interchanges the two identical nuclei and leaves the electronic Hamiltonian unchanged. Consequently, the Hamiltonian commutes with the **parity operator** $\hat P$:
+
+$$
+[\hat H_e,\hat P]=0.
+$$
+
+Since applying inversion twice returns every point to its original position, $\hat P^2=1$. Its eigenvalues must therefore be $+1$ or $-1$. The electronic energy eigenstates can be chosen to have definite inversion parity:
+
+$$
+\boxed{
+\hat P\psi(\vec r)=\psi(-\vec r)
+=
+\begin{cases}
++\psi(\vec r) & \text{gerade (g)},\\
+-\psi(\vec r) & \text{ungerade (u)}.
+\end{cases}
+}
+$$
+
+The German terms *gerade* (even) and *ungerade* (odd) describe whether the wave function remains unchanged or reverses sign under inversion.
+
+### Connection to molecular bonding
+
+The distinction becomes particularly intuitive when considering the electron density between the two nuclei.
+
+For an ungerade wave function,
+
+$$
+\psi(-\vec r)=-\psi(\vec r).
+$$
+
+At the inversion center, where $\vec r=0$, this requires
+
+$$
+\psi(0)=-\psi(0)
+\quad\Longrightarrow\quad
+\boxed{\psi(0)=0.}
+$$
+
+Thus, an ungerade orbital must have a **node at the center of inversion**.
+
+For the lowest $\sigma_u$ orbital of H$_2^+$, the wave function is antisymmetric under reflection in the plane halfway between the nuclei. Consequently, the entire midplane is a nodal plane, and the electron density vanishes there.
+
+This is closely connected to the distinction between **bonding and antibonding molecular orbitals**:
+
+- The lowest **$1s\sigma_g$ orbital** is symmetric under inversion. Its wave function has the same sign around both nuclei, allowing constructive overlap and enhanced electron density between them. This favors bonding.
+- The **$2p\sigma_u$ orbital** is antisymmetric under inversion. Its wave function changes sign between the nuclei and has a nodal plane at their midpoint. The absence of electron density in this region contributes to its antibonding character.
+
+We will examine this connection more quantitatively using the **linear combination of atomic orbitals (LCAO)** method in the next chapter.
+
+::: {.callout-note collapse="true"}
+## Gerade and ungerade beyond homonuclear diatomic molecules
+
+The $g/u$ classification is not restricted to homonuclear diatomic molecules. It can be used whenever the **molecular Hamiltonian has inversion symmetry**.
+
+For a homonuclear diatomic molecule, such as H$_2^+$, N$_2$, or O$_2$, inversion through the midpoint exchanges the two identical nuclei and leaves the molecular structure unchanged. Heteronuclear diatomic molecules, such as CO or HCl, do not possess this symmetry.
+
+However, larger molecules can also have a center of inversion. Examples include:
+
+- **CO$_2$:** Inversion through the central carbon atom exchanges the two oxygen atoms.
+- **Benzene (C$_6$H$_6$):** Inversion through the center of the molecular ring maps the molecule onto itself.
+- **Ethylene (C$_2$H$_4$):** In its planar equilibrium geometry, inversion through the midpoint of the C–C bond leaves the molecular structure unchanged.
+
+In all these cases, electronic orbitals can be classified as *gerade* or *ungerade* according to their behavior under inversion.
+
+The general requirement is therefore **inversion symmetry**, rather than the presence of identical atoms throughout the molecule.
+
+:::
+
+
 
 ---
 

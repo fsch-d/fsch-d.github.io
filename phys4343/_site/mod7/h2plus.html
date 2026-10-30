@@ -4494,8 +4494,9 @@ margin-bottom: 0.25em;
   <li><a href="#the-conserved-component-hatl_z" id="toc-the-conserved-component-hatl_z" class="nav-link" data-scroll-target="#the-conserved-component-hatl_z">4.2 The Conserved Component <span class="math inline">\(\hat{L}_z\)</span></a></li>
   <li><a href="#molecular-angular-momentum-labels" id="toc-molecular-angular-momentum-labels" class="nav-link" data-scroll-target="#molecular-angular-momentum-labels">4.3 Molecular Angular Momentum Labels</a></li>
   <li><a href="#including-electron-spin" id="toc-including-electron-spin" class="nav-link" data-scroll-target="#including-electron-spin">4.4 Including Electron Spin</a></li>
-  <li><a href="#reflection-symmetry-along-the-midplane-geradeungerade" id="toc-reflection-symmetry-along-the-midplane-geradeungerade" class="nav-link" data-scroll-target="#reflection-symmetry-along-the-midplane-geradeungerade">4.5 Reflection symmetry along the midplane (gerade/ungerade)</a>
+  <li><a href="#inversion-symmetry-gerade-and-ungerade" id="toc-inversion-symmetry-gerade-and-ungerade" class="nav-link" data-scroll-target="#inversion-symmetry-gerade-and-ungerade">4.5 Inversion Symmetry: Gerade and Ungerade</a>
   <ul class="collapse">
+  <li><a href="#connection-to-molecular-bonding" id="toc-connection-to-molecular-bonding" class="nav-link" data-scroll-target="#connection-to-molecular-bonding">Connection to molecular bonding</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul></li>
   </ul></li>
@@ -4566,7 +4567,7 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 \]</span></p>
 <hr>
 <p>Here’s a sketch of the molecular geometry, including the relevant position vectors:</p>
-<div id="755d6a36" class="cell" data-fig-format="png" data-execution_count="1">
+<div id="a1c9e17f" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4666,7 +4667,7 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 = \frac{4\xi}{R(\xi^2-\eta^2)}.
 \]</span> Thus the potential is a rational function of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>, and—crucially—has the simple factor structure <span class="math inline">\(\propto \xi/(\xi^2-\eta^2)\)</span>.</p>
 <p>The figure visualizes the prolate spheroidal coordinate system: on the left, <span class="math inline">\(\xi\)</span>– and <span class="math inline">\(\eta\)</span>–lines form a two-dimensional grid in the <span class="math inline">\(xz\)</span>–plane, while on the right, an ellipsoid of constant <span class="math inline">\(\xi\)</span> is shown together with its <span class="math inline">\(\eta\)</span>– and <span class="math inline">\(\phi\)</span>–grid lines.</p>
-<div id="a727ff8d" class="cell" data-execution_count="2">
+<div id="2205da50" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -5197,7 +5198,7 @@ L_z &amp;= xp_y-yp_x.
 <p>Imagine a wheel rotating around the <span class="math inline">\(z\)</span>-axis. Viewed along the positive <span class="math inline">\(z\)</span>-direction, a counterclockwise rotation corresponds to angular momentum along <span class="math inline">\(+z\)</span>, according to the right-hand rule.</p>
 <p>Now reflect the wheel in a plane containing its rotation axis. The reflected motion is clockwise, and the angular momentum therefore points along <span class="math inline">\(-z\)</span>.</p>
 <p>The following illustration shows this reversal. The coordinates are drawn in the <span class="math inline">\(xy\)</span>-plane, viewed along the molecular axis.</p>
-<div id="dddd27a7" class="cell" data-fig-height="5" data-fig-width="11" data-execution_count="3">
+<div id="7b32fc9f" class="cell" data-fig-height="5" data-fig-width="11" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -5429,6 +5430,37 @@ Since <span class="math inline">\(\lambda \ge 0\)</span> by convention, the tota
 \end{array}
 \]</span> Thus, <span class="math inline">\(\lambda = 0\)</span> corresponds to a <span class="math inline">\(\sigma\)</span> state, <span class="math inline">\(\lambda = 1\)</span> to a <span class="math inline">\(\pi\)</span> state, and so on.<br>
 In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</span> to denote spin (Pauli matrices) to prevent confusion.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sigma and pi orbitals in larger molecules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The labels <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\delta\)</span>, etc. are also widely used to describe molecular orbitals and chemical bonds in more complex molecules. However, their precise meaning depends on the symmetry of the molecule.</p>
+<p><strong>Linear molecules:</strong> For a linear molecule, such as H<span class="math inline">\(_2^+\)</span>, N<span class="math inline">\(_2\)</span>, or CO<span class="math inline">\(_2\)</span>, the Hamiltonian is invariant under rotations about the molecular axis. The projection of orbital angular momentum onto that axis is therefore conserved, and molecular orbitals can be classified by <span class="math inline">\(\Lambda=|\lambda|\)</span>:</p>
+<p><span class="math display">\[
+\Lambda=0,1,2,3,\ldots
+\quad\longrightarrow\quad
+\sigma,\pi,\delta,\phi,\ldots
+\]</span></p>
+<p>These are rigorous symmetry labels associated with the rotational symmetry of the molecular Hamiltonian.</p>
+<p><strong>Nonlinear molecules:</strong> In molecules without continuous rotational symmetry, such as ethylene (C<span class="math inline">\(_2\)</span>H<span class="math inline">\(_4\)</span>) or benzene (C<span class="math inline">\(_6\)</span>H<span class="math inline">\(_6\)</span>), the projection of orbital angular momentum onto a chosen axis is generally not conserved. Nevertheless, the terms <em>sigma</em> and <em>pi</em> remain widely used to describe the symmetry and spatial character of molecular orbitals and bonds.</p>
+<p>For example, the carbon–carbon double bond in ethylene consists of:</p>
+<ul>
+<li>A <strong><span class="math inline">\(\sigma\)</span> bond</strong>, formed primarily by orbital overlap along the C–C bond axis.</li>
+<li>A <strong><span class="math inline">\(\pi\)</span> bond</strong>, formed by the sideways overlap of two carbon <span class="math inline">\(p\)</span> orbitals, with a nodal plane containing the C–C bond axis.</li>
+</ul>
+<p>In this context, the labels describe the bonding geometry and orbital symmetry rather than eigenvalues of <span class="math inline">\(\hat L_z\)</span>.</p>
+<p>Thus, while the terminology is closely related, <strong><span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\pi\)</span> are exact angular-momentum-projection classifications for linear molecules, but are used more broadly to characterize bonding in nonlinear molecules</strong>.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="including-electron-spin" class="level2">
@@ -5438,21 +5470,80 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 \]</span> For H<span class="math inline">\(_2^+\)</span>, which has only one electron, this simply distinguishes spin-up and spin-down components for each orbital state.</p>
 <hr>
 </section>
-<section id="reflection-symmetry-along-the-midplane-geradeungerade" class="level2">
-<h2 class="anchored" data-anchor-id="reflection-symmetry-along-the-midplane-geradeungerade">4.5 Reflection symmetry along the midplane (gerade/ungerade)</h2>
-<p>Another important symmetry in H<span class="math inline">\(_2^+\)</span> comes from reflecting the electron across the <strong>plane halfway between the two nuclei</strong> (perpendicular to the molecular axis).</p>
+<section id="inversion-symmetry-gerade-and-ungerade" class="level2">
+<h2 class="anchored" data-anchor-id="inversion-symmetry-gerade-and-ungerade">4.5 Inversion Symmetry: Gerade and Ungerade</h2>
+<p>An additional symmetry of H<span class="math inline">\(_2^+\)</span> is <strong>inversion through the midpoint between the two nuclei</strong>. Choosing this point as the origin, inversion transforms the electron coordinates according to</p>
+<p><span class="math display">\[
+(x,y,z)\longrightarrow(-x,-y,-z),
+\]</span></p>
+<p>or, equivalently,</p>
+<p><span class="math display">\[
+\vec r\longrightarrow-\vec r.
+\]</span></p>
+<p>This operation interchanges the two identical nuclei and leaves the electronic Hamiltonian unchanged. Consequently, the Hamiltonian commutes with the <strong>parity operator</strong> <span class="math inline">\(\hat P\)</span>:</p>
+<p><span class="math display">\[
+[\hat H_e,\hat P]=0.
+\]</span></p>
+<p>Since applying inversion twice returns every point to its original position, <span class="math inline">\(\hat P^2=1\)</span>. Its eigenvalues must therefore be <span class="math inline">\(+1\)</span> or <span class="math inline">\(-1\)</span>. The electronic energy eigenstates can be chosen to have definite inversion parity:</p>
+<p><span class="math display">\[
+\boxed{
+\hat P\psi(\vec r)=\psi(-\vec r)
+=
+\begin{cases}
++\psi(\vec r) &amp; \text{gerade (g)},\\
+-\psi(\vec r) &amp; \text{ungerade (u)}.
+\end{cases}
+}
+\]</span></p>
+<p>The German terms <em>gerade</em> (even) and <em>ungerade</em> (odd) describe whether the wave function remains unchanged or reverses sign under inversion.</p>
+<section id="connection-to-molecular-bonding" class="level3">
+<h3 class="anchored" data-anchor-id="connection-to-molecular-bonding">Connection to molecular bonding</h3>
+<p>The distinction becomes particularly intuitive when considering the electron density between the two nuclei.</p>
+<p>For an ungerade wave function,</p>
+<p><span class="math display">\[
+\psi(-\vec r)=-\psi(\vec r).
+\]</span></p>
+<p>At the inversion center, where <span class="math inline">\(\vec r=0\)</span>, this requires</p>
+<p><span class="math display">\[
+\psi(0)=-\psi(0)
+\quad\Longrightarrow\quad
+\boxed{\psi(0)=0.}
+\]</span></p>
+<p>Thus, an ungerade orbital must have a <strong>node at the center of inversion</strong>.</p>
+<p>For the lowest <span class="math inline">\(\sigma_u\)</span> orbital of H<span class="math inline">\(_2^+\)</span>, the wave function is antisymmetric under reflection in the plane halfway between the nuclei. Consequently, the entire midplane is a nodal plane, and the electron density vanishes there.</p>
+<p>This is closely connected to the distinction between <strong>bonding and antibonding molecular orbitals</strong>:</p>
 <ul>
-<li>This reflection does <strong>not</strong> change the electron’s twist around the axis, so it does <strong>not</strong> affect <span class="math inline">\(\lambda\)</span>.<br>
-</li>
-<li>However, it does produce <strong>two types of states</strong>:
-<ul>
-<li><strong>Gerade (g)</strong>: symmetric under the reflection (wavefunction stays the same).<br>
-</li>
-<li><strong>Ungerade (u)</strong>: antisymmetric under the reflection (wavefunction changes sign).</li>
-</ul></li>
+<li>The lowest <strong><span class="math inline">\(1s\sigma_g\)</span> orbital</strong> is symmetric under inversion. Its wave function has the same sign around both nuclei, allowing constructive overlap and enhanced electron density between them. This favors bonding.</li>
+<li>The <strong><span class="math inline">\(2p\sigma_u\)</span> orbital</strong> is antisymmetric under inversion. Its wave function changes sign between the nuclei and has a nodal plane at their midpoint. The absence of electron density in this region contributes to its antibonding character.</li>
 </ul>
-<p>This classification will become useful when we label molecular orbitals. It explains, for example, why some states have a <strong>node at the center</strong> of the molecule while others do not.</p>
+<p>We will examine this connection more quantitatively using the <strong>linear combination of atomic orbitals (LCAO)</strong> method in the next chapter.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Gerade and ungerade beyond homonuclear diatomic molecules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <span class="math inline">\(g/u\)</span> classification is not restricted to homonuclear diatomic molecules. It can be used whenever the <strong>molecular Hamiltonian has inversion symmetry</strong>.</p>
+<p>For a homonuclear diatomic molecule, such as H<span class="math inline">\(_2^+\)</span>, N<span class="math inline">\(_2\)</span>, or O<span class="math inline">\(_2\)</span>, inversion through the midpoint exchanges the two identical nuclei and leaves the molecular structure unchanged. Heteronuclear diatomic molecules, such as CO or HCl, do not possess this symmetry.</p>
+<p>However, larger molecules can also have a center of inversion. Examples include:</p>
+<ul>
+<li><strong>CO<span class="math inline">\(_2\)</span>:</strong> Inversion through the central carbon atom exchanges the two oxygen atoms.</li>
+<li><strong>Benzene (C<span class="math inline">\(_6\)</span>H<span class="math inline">\(_6\)</span>):</strong> Inversion through the center of the molecular ring maps the molecule onto itself.</li>
+<li><strong>Ethylene (C<span class="math inline">\(_2\)</span>H<span class="math inline">\(_4\)</span>):</strong> In its planar equilibrium geometry, inversion through the midpoint of the C–C bond leaves the molecular structure unchanged.</li>
+</ul>
+<p>In all these cases, electronic orbitals can be classified as <em>gerade</em> or <em>ungerade</em> according to their behavior under inversion.</p>
+<p>The general requirement is therefore <strong>inversion symmetry</strong>, rather than the presence of identical atoms throughout the molecule.</p>
+</div>
+</div>
+</div>
 <hr>
+</section>
 <section id="summary" class="level3">
 <h3 class="anchored" data-anchor-id="summary">Summary</h3>
 <ul>
@@ -5480,7 +5571,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <p>If we now plot these electronic energies as a function of <span class="math inline">\(R\)</span>, we obtain the <strong>potential energy curves</strong> for the molecule. These curves determine how the total molecular energy changes as the nuclei move relative to one another.</p>
 <p>At certain distances, one of the potential curves may exhibit a <strong>minimum</strong>—indicating a stable or quasi-stable equilibrium separation. Such a minimum corresponds to a <strong>bound molecular state</strong>. Higher-lying curves may be purely repulsive or correspond to excited electronic configurations that dissociate more easily.</p>
 <p>Below is an illustrative plot showing four typical potential energy curves for H<span class="math inline">\(_2^+\)</span>, labeled according to their symmetry.</p>
-<div id="ea493d49" class="cell" data-execution_count="4">
+<div id="0c1bda02" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;H2+ Born-Oppenheimer curves, from numerical finite differences.</span></span>
