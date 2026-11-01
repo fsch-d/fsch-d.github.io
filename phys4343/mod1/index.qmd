@@ -33,28 +33,6 @@ states. Much of modern medical imaging, photovoltaics, and countless
 other technologies ultimately depend on our ability to understand and
 manipulate matter at the quantum level.
 
-```{=html}
-<!-- VISUAL: MODERN QUANTUM WORLD
-Type: image collage or wide banner
-
-Possible elements:
-- glowing toaster wire / incandescent filament
-- transistor or microchip
-- laser beam
-- LED
-- atomic or molecular image
-
-Purpose:
-Begin with familiar objects and technologies before introducing any
-historical material. The message should be that quantum mechanics is not
-only about "weird microscopic physics"; it underlies the ordinary material
-world.
-
-ALT-TEXT PLACEHOLDER:
-Collage connecting familiar modern technologies and ordinary matter to
-phenomena that require quantum mechanics for their explanation.
--->
-```
 How did physicists arrive at such a radically different description of
 nature?
 
@@ -62,7 +40,7 @@ To understand that, it is useful to go back to a time **before quantum
 mechanics existed**---to a period when the foundations of physics seemed
 remarkably secure.
 
-# 1878: Physics is almost finished
+# 1878: Physics is almost complete
 
 Imagine Munich in **1878**. A young student, about twenty years old, has
 begun studying physics at the university. His name is **Max Planck**.
@@ -74,22 +52,28 @@ Planck recalled the advice he received: physics appeared to be a highly
 developed, nearly mature science. Its basic structure seemed secure;
 what remained was largely a matter of filling in details.
 
-```{=html}
-<!-- VISUAL: PLANCK AND JOLLY
-Type: historical portraits, perhaps with a small 1878 timeline marker
 
-Layout idea:
-Max Planck (young)  |  Munich, 1878  |  Philipp von Jolly
 
-Optional:
-Reuse the playful Planck/Jolly visual language from the lecture slides,
-or replace it with historical portraits for the online script.
 
-ALT-TEXT PLACEHOLDER:
-Portraits of the young Max Planck and his professor Philipp von Jolly,
-framing their 1878 discussion about the future of physics.
--->
-```
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![Max Planck as a young student in 1878. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Max_Planck_1878.GIF){target="_blank" rel="noopener noreferrer"}, public domain.](Max_Planck_1878_cropped.png){fig-alt="Historical portrait photograph of the young Max Planck in 1878." width="70%" fig-align="center"}
+
+:::
+
+::: {.column width="50%"}
+
+![Philipp von Jolly, drawing by Wilhelm von Kaulbach (before 1874). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wilhelm_von_Kaulbach_-_Philipp_von_Jolly,_Zeichnung.jpg){target="_blank" rel="noopener noreferrer"}, public domain.](Philipp_von_Jolly.webp){fig-alt="Historical portrait drawing of physicist Philipp von Jolly." width="70%" fig-align="center"}
+
+:::
+
+::::
+
+
+
+
 ::: {.callout-note title="Planck's recollection"}
 Writing in 1933, Planck recalled the advice Philipp von Jolly had given him when he began his university studies:
 
@@ -118,25 +102,10 @@ around three extraordinarily successful theoretical frameworks:
 3.  **Thermodynamics and statistical mechanics** --- heat, energy, and
     the collective behavior of matter.
 
-```{=html}
-<!-- VISUAL / DIAGRAM: THE THREE PILLARS
-Type: custom diagram
 
-Concept:
-A classical temple labeled PHYSICS supported by three columns:
-MECHANICS | ELECTRODYNAMICS | THERMODYNAMICS
+![The three pillars of classical physics: mechanics, electrodynamics, and thermodynamics.](Classical_Physics_Temple.png){#fig-classical-pillars fig-alt="An intact classical Greek temple labeled Classical Physics, supported by three columns representing mechanics, electrodynamics, and thermodynamics." width="85%" fig-align="center"}
 
-Possible implementation:
-A clean modern redraw of the "three pillars" image used in the lecture.
 
-Consider making this a recurring visual. It could reappear later with
-small cracks developing in the structure.
-
-ALT-TEXT PLACEHOLDER:
-A stylized building labeled Physics supported by three pillars:
-mechanics, electrodynamics, and thermodynamics.
--->
-```
 ## Mechanics: predicting motion
 
 The development of what we now call **classical mechanics** was closely
@@ -168,23 +137,24 @@ The same mechanics that describes a falling object on Earth also
 explains the motion of the Moon and the planets. Terrestrial and
 celestial physics had become part of a single framework.
 
-```{=html}
-<!-- VISUAL: NEWTONIAN UNIFICATION
-Type: historical portrait + simple diagram
 
-Possible composition:
-Newton portrait at left.
-At right, an apple/falling projectile transitioning into a planetary orbit.
+:::: {.columns}
 
-Purpose:
-Emphasize unification: the same laws govern terrestrial and celestial
-motion.
+::: {.column width="50%"}
 
-ALT-TEXT PLACEHOLDER:
-Isaac Newton alongside examples of terrestrial and planetary motion,
-illustrating that both are described by the same laws of mechanics.
--->
-```
+![Isaac Newton, portrait by Godfrey Kneller (1689). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_Sir_Isaac_Newton,_1689_(brightened).jpg){target="_blank" rel="noopener noreferrer"}, public domain.](Newton_1689.webp){fig-alt="Portrait of Isaac Newton with long, curled hair, wearing a dark robe over a white shirt." width="75%" fig-align="center"}
+
+:::
+
+::: {.column width="50%"}
+
+![Title page of the first edition of Newton's *Philosophiæ Naturalis Principia Mathematica* (1687). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Newton%27s_Principia_title_page.png){target="_blank" rel="noopener noreferrer"}, public domain.](Principia_1687.webp){fig-alt="Title page of the 1687 first edition of Newton's Principia Mathematica, featuring its Latin title and historical publication information." width="75%" fig-align="center"}
+
+:::
+
+::::
+
+
 Newton's formulation was only the beginning. During the eighteenth and nineteenth centuries, physicists and mathematicians developed increasingly powerful and general formulations of mechanics.
 
 **Joseph-Louis Lagrange** recast mechanics in terms of generalized coordinates and the principle of stationary action. For a system described by coordinates $q_i$, the equations of motion can be written as
@@ -226,22 +196,6 @@ Classical mechanics could describe falling objects, projectiles, pendulums, gyro
 
 Its practical reach was just as impressive. Classical mechanics underpinned engineering, machine design, ballistics, navigation, and increasingly precise astronomy. The same mathematical framework could be used to design a bridge, predict the trajectory of a projectile, or calculate the orbit of a planet.
 
-<!-- VISUAL: MECHANICS IN PRACTICE
-Type: compact historical collage
-
-Possible elements:
-- mechanical machinery / bridge construction
-- navigation or astronomical tables
-- planetary orbit
-
-Purpose:
-Show that classical mechanics was not only conceptually unifying but also
-a practical working theory for engineering and prediction.
-
-ALT-TEXT PLACEHOLDER:
-Examples of engineering, navigation, and astronomy illustrating the broad
-practical success of classical mechanics.
--->
 
 ## Electrodynamics: one theory for many phenomena
 
@@ -270,33 +224,6 @@ $$
 \right).
 $$
 
-```{=html}
-<!-- VISUAL: MANY PHENOMENA, ONE THEORY
-Type: custom diagram
-
-Concept:
-Arrange several apparently different phenomena around Maxwell's equations:
-
-electrostatics
-electric currents
-magnetism
-electromagnetic induction
-visible light
-radio waves
-
-All arrows point toward a central label:
-"Electromagnetism"
-
-Purpose:
-Make the unification visually obvious before discussing the equations in
-detail.
-
-ALT-TEXT PLACEHOLDER:
-Diagram showing electrostatics, electric currents, magnetism, induction,
-visible light, and radio waves as different manifestations of one
-electromagnetic theory.
--->
-```
 
 The profound achievement was not simply that Maxwell found a compact set of equations. A **single theory** now described phenomena that had previously belonged to different areas of physics.
 
@@ -324,46 +251,9 @@ Maxwell concluded that **light itself is an electromagnetic wave**.
 
 Electricity, magnetism, and optics---once treated as different subjects---were now part of the same theory.
 
-```{=html}
-<!-- VISUAL / ANIMATION: ELECTROMAGNETIC WAVE
-Type: animation or interactive
-
-Idea:
-Show oscillating E and B fields propagating in one direction.
-
-Keep it conceptually simple. The point here is not polarization or a
-detailed derivation, but the identification of light with an electromagnetic
-wave.
-
-ALT-TEXT PLACEHOLDER:
-Animation of perpendicular oscillating electric and magnetic fields
-propagating together as an electromagnetic wave.
--->
-```
-
 The story did not end with visible light. In the late 1880s, **Heinrich Hertz** produced and detected electromagnetic waves in the laboratory at frequencies far below visible light, confirming Maxwell's prediction experimentally.
 
 What we now call **radio waves** and visible light are not fundamentally different phenomena. They are different frequency ranges of the same electromagnetic field.
-
-```{=html}
-<!-- VISUAL: ELECTROMAGNETIC SPECTRUM
-Type: compact diagram
-
-Show at least:
-radio waves | infrared | visible | ultraviolet
-
-Optional:
-Highlight the visible region as only a narrow slice.
-
-Purpose:
-Reinforce the idea that Hertz's radio waves and visible light belong to
-the same physical phenomenon.
-
-ALT-TEXT PLACEHOLDER:
-A compact electromagnetic spectrum showing radio waves and visible light
-as different frequency ranges of the same electromagnetic radiation.
--->
-```
 
 This was not merely an abstract theoretical triumph. Electromagnetism was also beginning to reshape everyday life and industry.
 
@@ -371,31 +261,16 @@ Generators converted mechanical motion into electrical energy. Electric motors d
 
 Inventors and engineers such as **Nikola Tesla** played an important role in developing practical alternating-current motors, polyphase power systems, transformers, and high-frequency electrical technology.
 
-```{=html}
-<!-- VISUAL: ELECTRIFIED CITY, 1878
-Type: historical image
-
-Strong candidate:
-The Yablochkov electric arc lamps illuminating the Avenue de l'Opéra in
-Paris in 1878.
-
-Narrative significance:
-This is the same year in which Max Planck began his university studies
-in Munich.
-
-Suggested caption idea:
-"Electric arc lamps illuminate Paris in 1878---the same year in which
-Max Planck began studying physics in Munich."
-
-ALT-TEXT PLACEHOLDER:
-Nineteenth-century Paris illuminated by electric arc lamps, illustrating
-the rapidly growing practical impact of electromagnetism.
--->
-```
 
 For someone entering physics around 1878, the lesson was difficult to miss:
 
 > **Electromagnetism was not only explaining nature. It was unifying apparently unrelated phenomena and transforming the technological world at the same time.**
+
+
+
+![Electric arc lamps (Yablochkov candles) illuminating the Avenue de l'Opéra in Paris, c. 1878. Illustration by A. Rintel. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Yablochkov_candles_illuminating_Avenue_de_l%27Opera_ca1878.jpg){target="_blank" rel="noopener noreferrer"}, public domain.](Yablochkov_candles_illuminating_Avenue_de_l'Opera_ca1878.jpg){fig-alt="Historical illustration of the Avenue de l'Opéra in Paris at night, illuminated by electric arc lamps, with pedestrians and horse-drawn carriages along the street." width="80%" fig-align="center"}
+
+
 
 ## Thermodynamics: from steam engines to atoms
 
@@ -408,6 +283,8 @@ steam engines---the machines that powered factories, mines, locomotives,
 and ships. But the effort to understand and improve these engines led to
 laws of remarkable universality.
 
+![Stereoscopic photograph of Machinery Hall at the 1876 Centennial Exhibition in Philadelphia. The exhibition featured a wide variety of industrial machinery, including steam engines, hydraulic equipment, and emerging electrical technologies. At its center stood the enormous Corliss steam engine, whose 56-ton flywheel drove nearly a mile of shafting to power machinery throughout the hall. Photograph: Centennial Photographic Company, Library Company of Philadelphia. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Machinery_Hall_S._Ave_(18677488953).jpg){target="_blank" rel="noopener noreferrer"} (no known copyright restrictions).](Machinery_Hall_S._Ave_(18677488953).jpg){fig-alt="Stereoscopic photograph consisting of two side-by-side views of the interior of Machinery Hall at the 1876 Philadelphia Centennial Exhibition. The large exhibition space contains numerous industrial machines beneath a high roof supported by iron trusses." width="90%" fig-align="center"}
+
 In 1865, **Rudolf Clausius** summarized two central principles in
 memorable form:
 
@@ -416,22 +293,6 @@ memorable form:
 
 In modern terminology, the first statement expresses conservation of
 energy; the second captures the irreversibility of macroscopic processes---why many processes naturally proceed in one direction but not in reverse.
-
-```{=html}
-<!-- VISUAL: STEAM ENGINE TO THERMODYNAMICS
-Type: historical engraving
-
-Possible layout:
-Steam engine -> heat/work arrows -> Clausius portrait
-
-Purpose:
-Show the path from a practical engineering problem to universal laws.
-
-ALT-TEXT PLACEHOLDER:
-A nineteenth-century steam engine connected conceptually to heat, work,
-and the laws of thermodynamics.
--->
-```
 
 But an even deeper question remained:
 
@@ -456,22 +317,6 @@ temperature and pressure, which appear to describe matter as a whole,
 could emerge from the ordinary mechanical motion of microscopic
 particles.
 
-```{=html}
-<!-- VISUAL / ANIMATION: KINETIC GAS
-Type: simple animation
-
-Idea:
-Particles move inside a box and collide elastically with the walls.
-Optionally show a pressure gauge or a running mean kinetic energy.
-
-Purpose:
-Visually connect microscopic mechanics to macroscopic thermodynamics.
-
-ALT-TEXT PLACEHOLDER:
-Particles moving and colliding inside a container, illustrating the
-kinetic theory interpretation of gas pressure and temperature.
--->
-```
 
 What made the emerging **statistical mechanics** especially profound was
 that it did not require a new microscopic law of motion. The particles
@@ -503,19 +348,6 @@ $$
 connects the entropy $S$ of a macroscopic state to the number $W$ of
 microscopic configurations compatible with it.
 
-```{=html}
-<!-- VISUAL: BOLTZMANN
-Type: historical portrait / photograph
-
-Possible elements:
-- Boltzmann portrait
-- photograph of his grave in Vienna showing S = k log W
-
-ALT-TEXT PLACEHOLDER:
-Ludwig Boltzmann and the entropy relation engraved on his grave,
-S equals k times the logarithm of W.
--->
-```
 
 The significance is difficult to overstate. Entropy had entered
 thermodynamics as a macroscopic quantity associated with heat and the
@@ -578,22 +410,7 @@ that information, such an intellect could know both past and future.
 
 This hypothetical intellect later became known as **Laplace's demon**.
 
-```{=html}
-<!-- VISUAL: LAPLACE'S DEMON
-Type: historical portrait + conceptual illustration
 
-Possible design:
-Laplace portrait beside a clockwork universe: planets, particles, gears,
-trajectories.
-
-Could be more restrained than a literal "demon"; the important concept is
-complete determinism.
-
-ALT-TEXT PLACEHOLDER:
-Conceptual illustration of Laplace's deterministic universe, in which
-complete knowledge of the present would determine both past and future.
--->
-```
 ::: {.callout-tip title="The classical picture"}
 At the end of the nineteenth century, it was reasonable to imagine
 nature as an enormous clockwork:
@@ -608,21 +425,7 @@ It was a remarkably coherent picture---and an extraordinarily successful
 one.
 :::
 
-```{=html}
-<!-- VISUAL / DIAGRAM: THE COMPLETED TEMPLE
-Type: custom diagram
 
-Reuse the three-pillar classical-physics image here in its "complete"
-form.
-
-Optional scroll effect:
-As the reader continues downward, tiny cracks begin appearing.
-
-ALT-TEXT PLACEHOLDER:
-The three pillars of classical physics supporting a seemingly complete
-and stable theoretical structure.
--->
-```
 Seen from 1878, the confidence of physicists such as Jolly becomes easier to understand.
 
 Classical mechanics had unified terrestrial and celestial motion. Electrodynamics had brought electricity, magnetism, induction, light, and eventually radio waves into one framework while powering a rapidly expanding electrical technology. Thermodynamics and statistical mechanics were beginning to connect heat and macroscopic behavior to microscopic motion.
@@ -656,24 +459,7 @@ solved---perhaps missing details in an otherwise successful framework.
 
 They turned out to be much more than that.
 
-```{=html}
-<!-- VISUAL / TRANSITION: CRACKS IN CLASSICAL PHYSICS
-Type: custom illustration / scroll transition
 
-Reuse the classical "temple," now with visible cracks.
-
-Possible labels appearing near the cracks:
-THERMAL RADIATION
-ATOMIC SPECTRA
-ATOMIC STABILITY
-PHOTOELECTRIC EFFECT
-MATTER WAVES
-
-Purpose:
-Mark the transition from triumphs to troubles without creating a separate
-page.
--->
-```
 ## Wrinkle 1: How does a hot object glow?
 
 Heat a piece of metal and it begins to glow. At first it appears dull
@@ -689,19 +475,6 @@ on its temperature.
 By the late nineteenth century, the spectrum could be measured
 accurately. The challenge was to explain its shape.
 
-```{=html}
-<!-- VISUAL: BLACKBODY RADIATION
-Type: photograph + plot
-
-Possible layout:
-Left: glowing metal / furnace / heated filament
-Right: measured blackbody-like spectra at several temperatures
-
-ALT-TEXT PLACEHOLDER:
-A glowing hot object beside thermal-radiation spectra showing how the
-distribution changes with temperature.
--->
-```
 By the 1890s, the shape of the thermal spectrum was known experimentally with increasing precision.
 
 In 1896, **Wilhelm Wien** found a distribution law that described the high-frequency, short-wavelength side of the spectrum remarkably well. Wien's work was an important theoretical and phenomenological success, but it did not amount to a complete derivation of the observed spectrum from the established foundations of classical physics.
@@ -724,29 +497,83 @@ At high frequencies, however, it becomes absurd: the predicted energy density gr
 
 This failure became known as the **ultraviolet catastrophe**.
 
-```{=html}
-<!-- VISUAL / PLOT: THE ULTRAVIOLET CATASTROPHE
-Type: plot
 
-Show on the same axes:
-- measured / Planck spectrum
-- Wien approximation
-- Rayleigh-Jeans prediction
+```{python}
+#| label: fig-blackbody-radiation
+#| fig-cap: "Blackbody radiation at the Sun's effective temperature (5772 K). Comparison of Planck's radiation law, Wien's radiation law, and the classical Rayleigh–Jeans law with the extraterrestrial solar spectrum (AM0). The logarithmic scale highlights the deviations between the theoretical predictions. Solar data: ASTM G173 reference spectrum (NREL)."
+#| fig-alt: "Logarithmic plot of spectral irradiance versus frequency from 0.01 to 1.0 PHz. Planck's law agrees approximately with the measured extraterrestrial solar spectrum. Wien's law falls below Planck's prediction at low frequencies, while the classical Rayleigh–Jeans law increasingly overestimates the radiation at high frequencies."
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: center
 
-Annotate:
-- Wien works well at high frequency
-- Rayleigh-Jeans works well at low frequency
-- Rayleigh-Jeans diverges at high frequency
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.constants import h, c, k
+from pvlib import spectrum
 
-This plot should be recreated cleanly rather than copied from the old
-slide.
+# Solar parameters
+T = 5772  # K
+R_sun = 6.957e8  # m
+AU = 1.495978707e11  # m
 
-ALT-TEXT PLACEHOLDER:
-Comparison of blackbody measurements with the Wien and Rayleigh-Jeans
-descriptions, highlighting the divergence of the classical Rayleigh-Jeans
-prediction at high frequency.
--->
+omega_sun = np.pi * (R_sun / AU)**2
+
+# Frequency axis in PHz
+frequency_phz = np.linspace(0.03, 3.0, 3000)
+nu = frequency_phz * 1e15
+
+x = h * nu / (k * T)
+
+# Spectral irradiance per PHz, W/(m² PHz)
+conversion = omega_sun * 1e15
+
+planck = conversion * (2 * h * nu**3 / c**2) / np.expm1(x)
+wien = conversion * (2 * h * nu**3 / c**2) * np.exp(-x)
+rayleigh_jeans = conversion * 2 * nu**2 * k * T / c**2
+
+# ASTM G173 extraterrestrial solar spectrum
+solar = spectrum.get_reference_spectra()
+
+solar_lam_nm = solar.index.to_numpy()
+solar_lam_m = solar_lam_nm * 1e-9
+solar_frequency_phz = c / solar_lam_m / 1e15
+
+# Convert W/(m² nm) to W/(m² PHz)
+solar_am0 = (
+    solar["extraterrestrial"].to_numpy()
+    * 1e9 * solar_lam_m**2 / c * 1e15
+)
+
+# Plot
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.plot(frequency_phz, planck, label="Planck", lw=2)
+ax.plot(frequency_phz, wien, label="Wien", ls="--", lw=1.8)
+ax.plot(
+    frequency_phz, rayleigh_jeans,
+    label="Rayleigh–Jeans", ls=":", lw=1.8
+)
+ax.plot(
+    solar_frequency_phz, solar_am0,
+    label="Solar spectrum (AM0)",
+    color="black", lw=0.8, alpha=0.65
+)
+
+ax.set(
+    xlim=(0.01, 1.0),
+    ylim=(1e2, 1e5),
+    xlabel="Frequency (PHz)",
+    ylabel=r"Spectral irradiance (W m$^{-2}$ PHz$^{-1}$)",
+    title="Blackbody radiation and the solar spectrum"
+)
+
+ax.set_yscale("log")
+ax.grid(alpha=0.2)
+ax.legend(fontsize=9)
+
+plt.show()
 ```
+
 
 This was a particularly disturbing kind of failure.
 
@@ -805,21 +632,273 @@ And yet another experiment was becoming difficult to understand.
 When light strikes certain materials, electrons can be emitted from the
 surface. This is the **photoelectric effect**.
 
-```{=html}
-<!-- VISUAL / DIAGRAM: PHOTOELECTRIC EFFECT
-Type: experimental schematic + data plot
+```{python}
 
-Show:
-- light incident on a metal surface
-- emitted electrons
-- maximum electron kinetic energy versus light frequency
-- threshold frequency
 
-ALT-TEXT PLACEHOLDER:
-Schematic of the photoelectric effect and a graph showing electron kinetic
-energy increasing linearly with light frequency above a threshold.
--->
+#| label: fig-photoelectric-nickel
+#| fig-cap: "Photoelectric effect: (a) photocell with an adjustable bias and current meter; (b) illustrative stopping-potential measurements for nickel (work function 5.15 eV). The dashed segment is an unmeasurable extrapolation."
+#| fig-alt: "Left: angled light waves strike a cathode, emitting scattered electrons toward an anode. A variable DC bias is applied and an ammeter measures photocurrent. Right: stopping potential versus frequency for nickel; black illustrative data follow a rising straight line above the 1.25 PHz threshold, with a short dashed extrapolation below zero."
+#| fig-width: 12
+#| fig-height: 5.5
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle, FancyBboxPatch
+from scipy.constants import h, e
+
+fig, (ax, bx) = plt.subplots(
+    1, 2, figsize=(12, 5.5),
+    gridspec_kw={"width_ratios": [1.2, 1]},
+    constrained_layout=True
+)
+
+# -----------------------------------------------------
+# LEFT: Photoelectric measurement
+# -----------------------------------------------------
+
+ax.set(xlim=(0, 10), ylim=(0, 9))
+ax.set_aspect("equal")
+ax.axis("off")
+ax.set_title("(a) Photoelectric measurement")
+
+# Evacuated photocell
+ax.add_patch(FancyBboxPatch(
+    (.8, 3.15), 8.5, 3.55,
+    boxstyle="round,pad=.12,rounding_size=.5",
+    ec=".4", fc="#f7fafc", lw=1.5
+))
+
+# Electrodes
+ax.add_patch(Rectangle(
+    (1.8, 3.65), .22, 2.3, color="steelblue"
+))
+ax.add_patch(Rectangle(
+    (8.25, 3.65), .22, 2.3, color="darkorange"
+))
+
+ax.text(1.9, 3.36, "Cathode", ha="center", fontsize=10)
+ax.text(8.35, 3.36, "Anode", ha="center", fontsize=10)
+ax.text(
+    6.2, 6.35, "Evacuated photocell",
+    ha="center", color=".4"
+)
+
+# Incident waves directed toward the emitting face
+d = np.array([-.75, -.66])
+n = np.array([.66, -.75])
+cshift = np.array([-.66, -.75])
+
+for offset in [-.23, 0, .23, .46]:
+    end = np.array([2.13, 5.17]) + offset * n
+    start = end - 2.6 * d
+
+    t = np.linspace(0, 1, 300)
+    pts = (
+        start + offset * cshift
+        + (end - start) * t[:, None]
+        + .065 * np.sin(12 * np.pi * t)[:, None] * n
+    )
+
+    ax.plot(
+        pts[:, 0], pts[:, 1],
+        color="#bf8b19", lw=1.5
+    )
+
+    ax.annotate(
+        "", xy=end + offset * cshift - np.array([.1, .1]), xytext=pts[-14],
+        arrowprops=dict(
+            arrowstyle="-|>",
+            color="#bf8b19", lw=1.6
+        )
+    )
+
+ax.text(
+    4.1, 7.5,
+    r"Incident light, frequency $\nu$",
+    ha="center", color="#9c6c0b"
+)
+
+# Photoelectrons with slightly different directions
+rng = np.random.default_rng(7)
+
+positions = [
+    (2.7, 4.05),
+    (3.25, 5.5),
+    (3.9, 4.6),
+    (4.65, 5.05),
+    (5.3, 3.95),
+    (5.9, 5.65),
+    (6.65, 4.45),
+    (7.35, 5.2)
+]
+
+for x, y in positions:
+    ax.add_patch(Circle(
+        (x, y), .105,
+        fc="#389b77",
+        ec="#216c52",
+        zorder=4
+    ))
+
+    theta = rng.uniform(-.22, .22)
+
+    ax.annotate(
+        "",
+        xy=(x + .57, y + .57 * np.tan(theta)),
+        xytext=(x + .13, y),
+        arrowprops=dict(
+            arrowstyle="->",
+            color="#287c60",
+            lw=1.4
+        )
+    )
+
+ax.text(
+    5.2, 5.95, "Photoelectrons",
+    color="#287c60", ha="center"
+)
+
+# Electrical circuit
+wire = dict(color=".25", lw=1.5)
+
+ax.plot(
+    [1.91, 1.91, 3.05],
+    [3.15, 1.2, 1.2], **wire
+)
+ax.plot(
+    [8.36, 8.36, 7.25],
+    [3.15, 1.2, 1.2], **wire
+)
+
+# Adjustable DC voltage source
+ax.plot([3.05, 3.50], [1.2, 1.2], **wire)
+
+ax.add_patch(Circle(
+    (4.0, 1.2), .5,
+    fill=False, lw=1.5
+))
+
+ax.text(
+    4.0, 1.35, "+",
+    ha="center", va="center", fontsize=12
+)
+ax.text(
+    4.0, 1.03, "−",
+    ha="center", va="center", fontsize=12
+)
+
+ax.annotate(
+    "",
+    xy=(4.42, 1.55),
+    xytext=(3.57, .82),
+    arrowprops=dict(arrowstyle="->", lw=1.3)
+)
+
+ax.plot([4.5, 5.65], [1.2, 1.2], **wire)
+
+# Ammeter
+ax.add_patch(Circle(
+    (6.15, 1.2), .45,
+    fill=False, lw=1.5
+))
+ax.text(
+    6.15, 1.2, "A",
+    ha="center", va="center", fontsize=12
+)
+
+ax.plot([6.60, 7.25], [1.2, 1.2], **wire)
+
+ax.text(
+    4, .15,
+    "Applied variable DC bias\n(polarity reversible)",
+    ha="center", fontsize=9
+)
+ax.text(
+    6.25, 1.85,
+    "Measured current $I$",
+    ha="center", fontsize=9
+)
+
+# -----------------------------------------------------
+# RIGHT: Stopping potential versus frequency
+# -----------------------------------------------------
+
+# Illustrative nickel work function
+phi = 5.15  # eV
+
+# h/e converted to V/PHz
+slope = h / e * 1e15
+
+# Threshold frequency
+nu0 = phi / slope
+
+nu = np.linspace(0, 4.6, 400)
+vs = slope * nu - phi
+
+# Physical region
+ax2 = bx
+
+ax2.plot(
+    nu[nu >= nu0],
+    vs[nu >= nu0],
+    lw=2.4,
+    label="Einstein relation"
+)
+
+# Dashed extrapolation below threshold
+mask = (nu >= .085) & (nu < nu0)
+
+ax2.plot(
+    nu[mask], vs[mask],
+    "--", color="tab:blue", lw=1.5,
+    label="Extrapolation (not measured)"
+)
+
+# Synthetic illustrative measurements
+nu_data = np.array([
+    1.34, 1.49, 1.65, 1.81,
+    2.01, 2.19, 2.39
+])
+
+noise = np.random.default_rng(19).normal(
+    0, .11, len(nu_data)
+)
+
+ax2.scatter(
+    nu_data,
+    slope * nu_data - phi + noise,
+    color=".15", s=32,
+    zorder=5,
+    label="Illustrative data"
+)
+
+# Threshold and zero line
+ax2.axhline(0, color=".3", lw=.9)
+ax2.axvline(nu0, ls=":", color=".55", lw=1)
+
+ax2.annotate(
+    fr"$\nu_0={nu0:.2f}\ \mathrm{{PHz}}$",
+    xy=(nu0, 0),
+    xytext=(1.62, .65),
+    arrowprops=dict(arrowstyle="->")
+)
+
+ax2.set(
+    xlim=(0, 5.15),
+    ylim=(-5.5, 16.35),
+    xlabel="Light frequency (PHz)",
+    ylabel=r"Stopping potential $V_s$ (V)",
+    title=r"(b) Nickel ($\Phi\approx5.15$ eV)"
+)
+
+ax2.grid(alpha=.2)
+ax2.legend(loc="upper left", fontsize=8.5)
+
+plt.show()
+
 ```
+
 Classically, one might expect the energy transferred by a wave to depend
 primarily on its intensity. But the experiments instead revealed a
 decisive role for **frequency**.
@@ -1143,23 +1222,11 @@ nature.
 -   de Broglie's hypothesis and electron diffraction showed that matter
     could display unmistakably wave-like behavior.
 
-```{=html}
-<!-- VISUAL / DIAGRAM: THE CLASSICAL TEMPLE CRACKS
-Type: custom diagram
 
-Return one final time to the three-pillar image.
+![The limits of classical physics become apparent.](Cracked_Classical_Physics.png){#fig-classical-pillars-cracked fig-alt="A classical Greek temple labeled Classical Physics, with cracked supporting columns, a leaning electrodynamics pillar, a fractured roof, and fallen pieces of stone. The structure remains partly standing." width="85%" fig-align="center"}
 
-Important nuance:
-Do NOT depict classical physics as simply "wrong" or destroyed.
-The pillars remain standing, but their domain of applicability is now
-visibly limited. Quantum theory will not erase classical physics; it will
-explain when and why the classical description emerges.
 
-ALT-TEXT PLACEHOLDER:
-The classical-physics structure remains standing but now shows cracks
-associated with phenomena that require a quantum description.
--->
-```
+
 The solution would not be a small correction to Newton's mechanics or
 Maxwell's electrodynamics.
 
