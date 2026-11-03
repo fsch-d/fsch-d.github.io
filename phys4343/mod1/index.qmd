@@ -7,7 +7,7 @@ format:
     fig-alt: true
     self-contained: true
 subtitle: How a few small wrinkles changed our view of nature
-title: From Classical Physics to the Quantum World
+title: From Classical Physics to the Quantum World of Atoms
 ---
 
 # A world without quantum mechanics
@@ -474,8 +474,6 @@ on its temperature.
 
 By the late nineteenth century, the spectrum could be measured
 accurately. The challenge was to explain its shape.
-
-By the 1890s, the shape of the thermal spectrum was known experimentally with increasing precision.
 
 In 1896, **Wilhelm Wien** found a distribution law that described the high-frequency, short-wavelength side of the spectrum remarkably well. Wien's work was an important theoretical and phenomenological success, but it did not amount to a complete derivation of the observed spectrum from the established foundations of classical physics.
 
@@ -949,20 +947,6 @@ well. But how are the positive and negative charges arranged?
 Thomson proposed a model in which the positive charge was distributed
 throughout the atom, with electrons embedded within it.
 
-```{=html}
-<!-- VISUAL: THOMSON ATOM
-Type: simple custom diagram
-
-Show diffuse positive charge with embedded electrons.
-
-Avoid overemphasizing the "plum pudding" cartoon; make the charge
-distribution physically clear.
-
-ALT-TEXT PLACEHOLDER:
-Thomson's atomic model, with negatively charged electrons embedded in a
-diffuse distribution of positive charge.
--->
-```
 Experiments by **Hans Geiger and Ernest Marsden**, under the direction
 of **Ernest Rutherford**, provided a dramatic test. Alpha particles were
 directed at a thin metal foil.
@@ -971,22 +955,110 @@ Most passed through with relatively small deflections.
 
 But a tiny fraction scattered through surprisingly large angles.
 
-```{=html}
-<!-- VISUAL / ANIMATION: RUTHERFORD SCATTERING
-Type: animation
 
-Show a beam of alpha particles incident on a thin foil.
-Most continue approximately forward; a few undergo large-angle scattering.
 
-Optional second panel:
-Compare trajectories expected for a diffuse positive charge with those
-from a compact nucleus.
+::: {#fig-rutherford layout-ncol=2}
 
-ALT-TEXT PLACEHOLDER:
-Alpha particles scattering from a thin foil, with most passing through
-and a small fraction undergoing large-angle deflections.
--->
+![](rutherford.png){width=100% fig-alt="Alpha particles scattering from a gold nucleus surrounded by a schematic electron cloud."}
+
+```{python}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 5
+#| fig-align: center
+#| fig-alt: "Logarithmic plot of the Rutherford differential scattering cross section for 5 MeV alpha particles on gold versus scattering angle from 0 to 180 degrees. The theoretical cross section decreases steeply with increasing angle, while simulated measurements with Poisson error bars follow the predicted curve."
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.constants import epsilon_0, elementary_charge
+
+# Physical parameters
+Z_alpha = 2
+Z_gold = 79
+E_MeV = 5.0
+
+E = E_MeV * 1e6 * elementary_charge
+
+# Rutherford differential cross section
+def rutherford(theta_deg):
+    theta = np.deg2rad(theta_deg)
+    prefactor = (
+        Z_alpha * Z_gold * elementary_charge**2
+        / (16 * np.pi * epsilon_0 * E)
+    )**2
+
+    # Convert m^2/sr to barn/sr
+    return prefactor / np.sin(theta / 2)**4 / 1e-28
+
+# Theoretical curve
+theta = np.linspace(10, 180, 600)
+sigma = rutherford(theta)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+
+ax.plot(
+    theta, sigma,
+    color="#1765a5",
+    linewidth=2.4,
+    label="Rutherford theory"
+)
+
+# Simulated experimental measurements
+rng = np.random.default_rng(4343)
+
+theta_points = np.array(
+    [20, 30, 40, 50, 60, 75, 90, 110, 130, 150, 170]
+)
+
+sigma_true = rutherford(theta_points)
+
+# Effective exposure in counts per (barn/sr)
+exposure = 25.0
+
+expected_counts = exposure * sigma_true
+counts = rng.poisson(expected_counts)
+
+sigma_measured = counts / exposure
+sigma_error = np.sqrt(counts) / exposure
+
+ax.errorbar(
+    theta_points,
+    sigma_measured,
+    yerr=sigma_error,
+    fmt="o",
+    markersize=5,
+    markerfacecolor="white",
+    markeredgecolor="#b04a30",
+    ecolor="#b04a30",
+    color="#b04a30",
+    capsize=3,
+    linewidth=1.2,
+    zorder=4,
+    label="Simulated measurements"
+)
+
+# Plot formatting
+ax.set_yscale("log")
+ax.set_xlim(0, 180)
+ax.set_xticks(np.arange(20, 181, 20))
+
+ax.set_xlabel(r"Scattering angle $\theta$ (degrees)")
+ax.set_ylabel(r"$d\sigma/d\Omega$ (barn/sr)")
+
+ax.grid(True, which="major", alpha=0.22)
+ax.grid(True, which="minor", alpha=0.10)
+ax.legend(frameon=False)
+
+plt.tight_layout()
+plt.show()
 ```
+
+Rutherford scattering. **Left:** Schematic visualization of alpha particles scattered by a gold nucleus, with the electron cloud and enlarged nucleus shown for illustration (not to scale). **Right:** Differential scattering cross section for 5 MeV alpha particles incident on gold. The solid line shows Rutherford theory; the points are simulated measurements with Poisson counting uncertainties.
+
+:::
+
+
+
 In 1911, Rutherford interpreted the results as evidence that nearly all
 of the positive charge---and most of the mass---of an atom is
 concentrated in an extremely small **nucleus**.
@@ -1006,24 +1078,7 @@ A classical planetary atom should therefore be unstable.
 
 But atoms are stable.
 
-```{=html}
-<!-- VISUAL / ANIMATION: CLASSICAL ATOM COLLAPSES
-Type: short conceptual animation
 
-Show an electron on an orbit around a nucleus radiating and spiraling
-inward.
-
-Label explicitly:
-"Classical prediction"
-
-Purpose:
-Make the contradiction immediate before introducing Bohr.
-
-ALT-TEXT PLACEHOLDER:
-Classical model of an orbiting electron losing energy through radiation
-and spiraling into the nucleus.
--->
-```
 ## Wrinkle 4: Why do atoms have colors?
 
 Atoms presented another clue.
@@ -1035,21 +1090,123 @@ wavelengths.
 
 Each element has a characteristic **line spectrum**.
 
-```{=html}
-<!-- VISUAL: HYDROGEN DISCHARGE AND SPECTRUM
-Type: photograph + spectrum
+```{python}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 2.5
+#| fig-align: center
+#| fig-cap: "Visible emission spectrum of neutral lithium (Li I), based on observed wavelengths and relative line intensities from the NIST Atomic Spectra Database. Line brightnesses have been adjusted to enhance the visibility of weaker transitions."
+#| fig-alt: "Visible emission spectrum of neutral lithium, showing weak violet, blue, and cyan lines, a prominent orange line near 610 nm, and a dominant red line near 671 nm."
 
-Possible composition:
-hydrogen discharge tube -> prism/grating -> Balmer lines
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import to_rgb
 
-Label a few visible wavelengths if desired:
-656.3 nm, 486.1 nm, 434.0 nm, 410.2 nm.
+# Li I observed air wavelengths (nm) and relative intensities
+# Source: NIST Atomic Spectra Database
+# Fine-structure components are grouped where unresolved.
+lines = np.array([
+    [413.259, 120],   # 413.256, 413.262, 413.262
+    [427.310,  40],   # 427.307, 427.313
+    [460.287,  39],   # 460.283, 460.289, 460.289
+    [497.171,  16],   # 497.166, 497.175
+    [610.360, 640],   # 610.354, 610.365
+    [670.784, 7200],  # 670.776, 670.791
+])
 
-ALT-TEXT PLACEHOLDER:
-Hydrogen discharge tube and its visible emission spectrum, consisting of
-several discrete spectral lines rather than a continuous rainbow.
--->
+wavelengths = lines[:, 0]
+intensities = lines[:, 1]
+
+# Compress the dynamic range to make weaker lines visible
+gamma = 0.30
+brightness = (intensities / intensities.max()) ** gamma
+
+
+def wavelength_to_rgb(wavelength):
+    """Approximate visible-light color for wavelength in nm."""
+    w = float(wavelength)
+
+    if 380 <= w < 440:
+        r, g, b = -(w - 440) / 60, 0, 1
+    elif 440 <= w < 490:
+        r, g, b = 0, (w - 440) / 50, 1
+    elif 490 <= w < 510:
+        r, g, b = 0, 1, -(w - 510) / 20
+    elif 510 <= w < 580:
+        r, g, b = (w - 510) / 70, 1, 0
+    elif 580 <= w < 645:
+        r, g, b = 1, -(w - 645) / 65, 0
+    elif 645 <= w <= 780:
+        r, g, b = 1, 0, 0
+    else:
+        return (0, 0, 0)
+
+    # Approximate reduction in sensitivity at spectrum edges
+    if w < 420:
+        factor = 0.3 + 0.7 * (w - 380) / 40
+    elif w > 700:
+        factor = 0.3 + 0.7 * (780 - w) / 80
+    else:
+        factor = 1.0
+
+    return tuple(factor * c for c in (r, g, b))
+
+
+# Figure and spectrum strip
+fig, ax = plt.subplots(figsize=(10, 2.5))
+fig.patch.set_facecolor("white")
+ax.set_facecolor("black")
+
+# Draw each line using a broad translucent glow and sharp core
+for wavelength, intensity in zip(wavelengths, brightness):
+    color = np.array(wavelength_to_rgb(wavelength))
+    color = np.clip(color * intensity, 0, 1)
+
+    # Broad, faint glow
+    ax.axvline(
+        wavelength,
+        color=color,
+        linewidth=11,
+        alpha=0.10,
+        zorder=1
+    )
+
+    # Intermediate glow
+    ax.axvline(
+        wavelength,
+        color=color,
+        linewidth=5,
+        alpha=0.35,
+        zorder=2
+    )
+
+    # Bright narrow line
+    ax.axvline(
+        wavelength,
+        color=color,
+        linewidth=2.2,
+        alpha=1.0,
+        zorder=3
+    )
+
+ax.set_xlim(390, 750)
+ax.set_ylim(0, 1)
+ax.set_yticks([])
+ax.set_xticks(np.arange(400, 751, 50))
+ax.set_xlabel("Wavelength (nm)", fontsize=11)
+
+# Put wavelength ticks below the black strip
+ax.tick_params(axis="x", colors="black", length=4)
+ax.xaxis.label.set_color("black")
+
+# Hide unnecessary spines
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
 ```
+
 For hydrogen, the wavelengths follow a remarkably simple empirical
 pattern. The spectral lines can be described by the Rydberg formula,
 
@@ -1088,25 +1245,6 @@ $$
 
 This connected two puzzles that had initially looked separate. The quantum of light, $h\nu$, now matched the difference between **discrete atomic energies**. Atomic spectra were no longer arbitrary collections of wavelengths: they were fingerprints of the allowed energies inside the atom.
 
-```{=html}
-<!-- VISUAL: BOHR MODEL AND STANDING WAVE
-Type: diagram
-
-Show:
-- allowed circular orbit
-- de Broglie standing-wave condition around the circumference
-- transition between two levels producing a photon
-
-Historical note:
-The de Broglie-wave interpretation came later than Bohr's original 1913
-postulates, so label it as a later interpretation rather than part of Bohr's
-original reasoning.
-
-ALT-TEXT PLACEHOLDER:
-Bohr-like atomic model with discrete allowed states and a transition
-between them associated with emission of a photon.
--->
-```
 The Bohr model reproduced the hydrogen spectrum with striking success.
 
 But it was not a satisfactory fundamental theory. Why should only
@@ -1144,22 +1282,260 @@ $$
 p_\gamma=\frac{h}{\lambda}.
 $$
 
-```{=html}
-<!-- VISUAL: COMPTON SCATTERING
-Type: historical + kinematic diagram
+```{python}
 
-Possible layout:
-Arthur Compton portrait (with a small Missouri connection note if desired)
-beside a clean photon-electron scattering diagram.
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+#| fig-align: center
+#| fig-cap: "An incident photon scatters from an initially stationary electron, transferring energy and momentum to the recoiling electron. The scattered photon has a longer wavelength and smaller momentum. The lengths of the arrows are proportional to the particle momenta, and the wavelengths of the drawn photon waves preserve their physical ratio. The scattering angles and momentum vectors satisfy energy and momentum conservation."
+#| fig-alt: "Physically scaled Compton scattering diagram with an incident wavy photon from the left, a longer-wavelength scattered photon above right, and a recoiling electron below right. Vector lengths and wave periods reflect the calculated momenta."
 
-Optional local-interest note:
-Compton carried out important work at Washington University in St. Louis.
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Arc, Circle, FancyArrowPatch
 
-ALT-TEXT PLACEHOLDER:
-Diagram of Compton scattering in which an incoming photon transfers
-energy and momentum to an electron and leaves with a longer wavelength.
--->
+# --------------------------------------------------
+# Physical parameters
+# --------------------------------------------------
+E0_keV = 500.0
+theta_deg = 55.0
+mc2_keV = 510.99895
+
+theta = np.deg2rad(theta_deg)
+
+# Compton energy relation
+E1_keV = E0_keV / (
+    1 + (E0_keV / mc2_keV) * (1 - np.cos(theta))
+)
+
+# Momenta in keV/c
+p_in = np.array([E0_keV, 0.0])
+p_out = E1_keV * np.array([
+    np.cos(theta), np.sin(theta)
+])
+p_e = p_in - p_out
+
+phi = np.arctan2(-p_e[1], p_e[0])
+
+# Common momentum scale
+scale = 4.5 / E0_keV
+
+O = np.array([0.0, 0.0])
+photon_in_start = -scale * p_in
+photon_out_end = scale * p_out
+electron_end = scale * p_e
+
+# --------------------------------------------------
+# Photon wavelengths
+# --------------------------------------------------
+# These are illustrative drawing wavelengths,
+# but their RATIO is physically correct.
+lambda_in_draw = 0.32
+lambda_out_draw = lambda_in_draw * E0_keV / E1_keV
+
+# --------------------------------------------------
+# Figure
+# --------------------------------------------------
+blue = "#2878B5"
+red = "#D64B42"
+green = "#25865A"
+gray = "#888888"
+
+fig, ax = plt.subplots(figsize=(10, 4.5))
+ax.set_aspect("equal")
+ax.axis("off")
+
+
+def photon_wave(start, end, color, wavelength,
+                amplitude=0.11, linewidth=2.5):
+    """
+    Draw a wavy photon trajectory with a wave period
+    proportional to the specified wavelength.
+    """
+    start = np.asarray(start, dtype=float)
+    end = np.asarray(end, dtype=float)
+
+    direction = end - start
+    length = np.linalg.norm(direction)
+    tangent = direction / length
+    normal = np.array([-tangent[1], tangent[0]])
+
+    s = np.linspace(0, length, 900)
+
+    # Smooth envelope at endpoints
+    envelope = np.sin(np.pi * s / length)
+
+    displacement = (
+        amplitude
+        * np.sin(2 * np.pi * s / wavelength)
+        * envelope
+    )
+
+    points = (
+        start[None, :]
+        + s[:, None] * tangent[None, :]
+        + displacement[:, None] * normal[None, :]
+    )
+
+    ax.plot(
+        points[:850, 0], points[:850, 1],
+        color=color, lw=linewidth, zorder=3
+    )
+
+    ax.annotate(
+        "",
+        xy=end,
+        xytext=end - 0.07 * tangent,
+        arrowprops=dict(
+            arrowstyle="-|>",
+            color=color,
+            lw=2,
+            mutation_scale=17
+        ),
+        zorder=5
+    )
+
+
+# Photon trajectories
+photon_wave(
+    photon_in_start, O, blue,
+    wavelength=lambda_in_draw
+)
+
+photon_wave(
+    O, photon_out_end, red,
+    wavelength=lambda_out_draw
+)
+
+# Recoil electron
+ax.add_patch(FancyArrowPatch(
+    O, electron_end,
+    arrowstyle="-|>",
+    mutation_scale=18,
+    linewidth=2.6,
+    color=green,
+    zorder=3
+))
+
+# Initial electron
+ax.add_patch(Circle(
+    O, 0.12,
+    facecolor="#F4B942",
+    edgecolor="#9A6915",
+    linewidth=1.2,
+    zorder=6
+))
+
+# Forward reference direction
+ax.plot(
+    [0, 4.5], [0, 0],
+    color=gray, ls="--", lw=1.0, zorder=1
+)
+
+# --------------------------------------------------
+# Angles
+# --------------------------------------------------
+r_theta = 0.85
+r_phi = 0.70
+
+ax.add_patch(Arc(
+    O, 2*r_theta, 2*r_theta,
+    theta1=0, theta2=theta_deg,
+    color=red, lw=1.4
+))
+
+ax.add_patch(Arc(
+    O, 2*r_phi, 2*r_phi,
+    theta1=-np.rad2deg(phi), theta2=0,
+    color=green, lw=1.4
+))
+
+ax.text(
+    1.10*np.cos(theta/2),
+    1.10*np.sin(theta/2),
+    r"$\theta$",
+    color=red, fontsize=15,
+    ha="center", va="center"
+)
+
+ax.text(
+    0.92*np.cos(phi/2),
+    -0.92*np.sin(phi/2),
+    r"$\phi$",
+    color=green, fontsize=15,
+    ha="center", va="center"
+)
+
+# --------------------------------------------------
+# Labels
+# --------------------------------------------------
+ax.text(
+    photon_in_start[0] + 0.1, 0.38,
+    "Incident photon",
+    color=blue, fontsize=12
+)
+
+ax.text(
+    photon_in_start[0] + 0.1, -0.43,
+    rf"$p_\gamma={E0_keV:.0f}\,\mathrm{{keV}}/c$",
+    color=blue, fontsize=11
+)
+
+ax.text(
+    photon_out_end[0] + 0.12,
+    photon_out_end[1] + 0.12,
+    "Scattered photon",
+    color=red, fontsize=12
+)
+
+ax.text(
+    photon_out_end[0] + 0.12,
+    photon_out_end[1] - 0.30,
+    rf"$p'_\gamma={E1_keV:.0f}\,\mathrm{{keV}}/c$",
+    color=red, fontsize=11
+)
+
+ax.text(
+    electron_end[0] + 0.12,
+    electron_end[1] + 0.05,
+    "Recoil electron",
+    color=green, fontsize=12
+)
+
+ax.text(
+    electron_end[0] + 0.12,
+    electron_end[1] - 0.35,
+    rf"$p_e={np.linalg.norm(p_e):.0f}\,\mathrm{{keV}}/c$",
+    color=green, fontsize=11
+)
+
+ax.text(
+    -0.18, -0.35,
+    "Electron initially\nat rest",
+    color="#555555", fontsize=10,
+    ha="right", va="top"
+)
+
+ax.set_xlim(-5.0, 5.7)
+ax.set_ylim(-3.7, 3.5)
+
+plt.tight_layout()
+plt.show()
+
+# --------------------------------------------------
+# Physical consistency checks
+# --------------------------------------------------
+# print(f"Incident photon energy:  {E0_keV:.2f} keV")
+# print(f"Scattered photon energy: {E1_keV:.2f} keV")
+# print(f"Electron kinetic energy: {E0_keV-E1_keV:.2f} keV")
+# print(f"Photon wavelength ratio: {E0_keV/E1_keV:.3f}")
+# print(f"Electron recoil angle:   {np.rad2deg(phi):.2f}°")
+# print("Momentum conservation residual:",
+#      p_in - p_out - p_e)
+
 ```
+
 Light had been one of the strongest successes of classical wave physics.
 
 Now experiments demanded that it also carry energy and momentum in
@@ -1177,23 +1553,7 @@ $$
 
 For an electron, this wavelength is not merely a mathematical curiosity. A few years later, electron-diffraction experiments---most famously those of **Clinton Davisson and Lester Germer**---showed interference and diffraction effects characteristic of waves.
 
-<!-- VISUAL / ANIMATION: ELECTRON DIFFRACTION
-Type: historical experiment + conceptual animation
-
-Possible layout:
-- electron beam incident on a crystal
-- scattered intensity showing diffraction maxima
-- optional comparison with optical diffraction
-
-Purpose:
-Complete the symmetry of the historical story:
-light, once regarded as a wave, shows particle properties;
-electrons, once regarded as particles, show wave properties.
-
-ALT-TEXT PLACEHOLDER:
-Electron diffraction from a crystal, illustrating wave-like interference
-from particles traditionally described as localized matter.
--->
+![Original results from the Davisson–Germer experiment, showing the angular distribution of electrons scattered from a nickel single crystal. The observed diffraction maxima provided experimental evidence for the wave nature of electrons predicted by de Broglie. Source: C. Davisson and L. H. Germer, public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Scattering_of_Electrons_by_a_Single_Crystal_of_Nickel_Fig._2.jpg){target="_blank"}.](The_Scattering_of_Electrons_by_a_Single_Crystal_of_Nickel_Fig._2.jpg){#fig-davisson-germer width=85% fig-alt="Historical scientific figure showing measured electron scattering intensity as a function of scattering angle for electrons incident on a single crystal of nickel, with pronounced diffraction maxima."}
 
 The symmetry was difficult to ignore:
 

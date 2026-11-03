@@ -28,10 +28,19 @@ For those items, the original copyright and licensing terms apply. Please respec
 
 ---
 
-## Author
+## About the Author
 
-These notes were prepared by **Daniel Fischer** *(Associate Professor for Physics, Missouri University of Science and Technology, Rolla, MO 65409, USA)*   
-✉️ [fsch97@gmail.com](mailto:fsch97@gmail.com)
+**Daniel Fischer** is an Associate Professor of Physics at the **Missouri University of Science and Technology (Missouri S&T)** in Rolla, Missouri, USA.
+
+His research focuses on **atomic, molecular, and optical (AMO) physics**, particularly the interaction of atoms with laser light and the quantum dynamics of electrons. His experimental work explores coherent control, multiphoton ionization, and ultrafast atomic processes, using laser-cooled atoms and momentum-resolved electron spectroscopy.
+
+At Missouri S&T, he leads the **Laboratory for Atomic, Molecular, and Optical Physics (LAMOR)**, where he and his students investigate fundamental light–matter interactions.
+
+These lecture notes grew out of his undergraduate course in Atomic Physics. They are intended to connect the fundamental principles of quantum mechanics with the structure and behavior of atoms, modern spectroscopic techniques, and contemporary research in AMO physics. The notes combine theoretical explanations, worked examples, and interactive visualizations to support both classroom instruction and independent study.
+
+**Contact:** [fischerda@mst.edu](mailto:fischerda@mst.edu)  
+**Publications:** [Google Scholar](https://scholar.google.com/citations?user=EmAf1Q8AAAAJ)  
+**Affiliation:** Department of Physics, Missouri University of Science and Technology, Rolla, MO 65409, USA
 
 ---
 

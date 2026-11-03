@@ -8,7 +8,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [From Classical Physics to the Quantum World](mod1/index.qmd)
+## [From Classical Physics to the Quantum World of Atoms](mod1/index.qmd)
 
 ---
 
