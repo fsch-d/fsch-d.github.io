@@ -1,5 +1,5 @@
 ---
-title: Angular Momentum Coupling in Many-Electron Atoms 
+title: 6.5 Angular Momentum Coupling in Many-Electron Atoms
 author: Daniel Fischer
 ---
 
@@ -15,7 +15,7 @@ This chapter introduces the physical principles that determine how the individua
 
 ---
 
-# 1. Terms and Angular Momentum Coupling
+# 6.5.1. Terms and Angular Momentum Coupling
 
 In an atom containing several electrons, each electron contributes an **orbital angular momentum** $\hat{\vec{\ell}}_i$ and a **spin angular momentum** $\hat{\vec{s}}_i$. 
 The total Hamiltonian of the atom can be written schematically as
@@ -37,7 +37,7 @@ Understanding which coupling scheme applies allows us to predict the structure o
 
 ---
 
-## 1.1 $L$–$S$ coupling
+## 6.5.1.1 $L$–$S$ coupling
 
 In the $L$–$S$ (Russell–Saunders) coupling scheme, all orbital angular momenta $\hat{\vec{\ell}}_i$ of the individual electrons are first added to form a **total orbital angular momentum**
 
@@ -82,7 +82,7 @@ Hence, the **open subshells** determine the observable magnetic and spectroscopi
 
 ---
 
-## 1.2 $jj$ coupling
+## 6.5.1.2 $jj$ coupling
 
 When the spin–orbit interaction becomes comparable to or larger than the electrostatic electron–electron interaction, as is the case in **heavy atoms**, a different coupling order becomes appropriate.
 
@@ -102,7 +102,7 @@ This scheme is particularly relevant for heavy elements such as lead (Pb), where
 
 ---
 
-## 1.3 Evolution from $L$–$S$ to $jj$ coupling
+## 6.5.1.3 Evolution from $L$–$S$ to $jj$ coupling
 
 The figure below illustrates how the coupling of angular momenta evolves across the elements of **group VI** in the periodic table — from carbon ($Z=6$) to lead ($Z=82$). 
 Each column represents the energies of the excited configurations of the type $np\,(n+1)s$, plotted relative to their mean energy.
@@ -228,7 +228,7 @@ However, simply summing the $\ell_i$ and $s_i$ does not account for the Pauli ex
 
 
 
-# 2. Exchange Symmetry of Coupled Electrons in the Same Subshell
+# 6.5.2. Exchange Symmetry of Coupled Electrons in the Same Subshell
 
 When two or more electrons are coupled, the **Pauli exclusion principle** imposes a fundamental constraint:  
 
@@ -267,7 +267,7 @@ The Pauli principle eliminates those for which the total wavefunction would be s
 
 ---
 
-## 2.1 Symmetry under Exchange
+## 6.5.2.1 Symmetry under Exchange
 
 Each coupled angular momentum state—whether spatial ($L$ from $\ell_i$) or spin ($S$ from $s_i$)—has a definite **exchange symmetry**. 
 Let’s consider the case of **two equivalent electrons** with angular momenta $j_1 = j_2$ (where $j$ could stand for $\ell$ or $s$).
@@ -342,7 +342,7 @@ This gives the exchange parity: symmetric when $(-1)^{2j-J}=+1$, antisymmetric w
 
 ---
 
-## 2.2 Application to Spin and Orbital Coupling
+## 6.5.2.2 Application to Spin and Orbital Coupling
 
 Let’s apply this rule to the **spin** and **orbital** subsystems separately.
 
@@ -381,7 +381,7 @@ This pattern can be summarized:
 ---
 
 
-## 2.3 Generalization
+## 6.5.2.3 Generalization
 
 This alternation of exchange symmetry with decreasing $L$ or $S$ is a general feature of coupled angular momenta:
 
@@ -403,7 +403,7 @@ This rule is a cornerstone for determining which $L$–$S$ combinations are **al
 > This symmetry restriction applies **only to electrons within the same subshell**, where exchange of two electrons does not change the configuration (e.g., both are $2p$ electrons). If the electrons occupy **different subshells** (such as $2s$ and $2p$), exchange changes the orbital part of the state, and one can always construct an overall antisymmetric wavefunction—for instance, as a **Slater determinant**. Therefore, the even/odd $L$–$S$ symmetry rule is relevant **only for equivalent electrons**.
 
 
-# 3. Ground-State Terms and Hund’s Rules  
+# 6.5.3. Ground-State Terms and Hund’s Rules  
 
 In the previous section we introduced the concept of **term symbols** that describe how the angular momenta of several electrons combine to form the total quantum numbers $L$, $S$, and $J$. A natural next question is:  
 
@@ -518,7 +518,7 @@ Each box represents a specific one-electron state characterized by the quantum n
 
 ---
 
-### 3.1 Hund’s Rules  
+### 6.5.3.1 Hund’s Rules  
 
 Hund’s rules provide an empirical but remarkably successful way to predict which term corresponds to the **lowest energy** for a given electron configuration:
 
@@ -541,7 +541,7 @@ Hund’s rules provide an empirical but remarkably successful way to predict whi
 
 ---
 
-### 3.2 Interpreting the Figure  
+### 6.5.3.2 Interpreting the Figure  
 
 The figure illustrates how these rules apply to the first ten elements:
 
@@ -588,7 +588,7 @@ The figure highlights how Hund’s rules govern the balance between **spin align
 
 ---
 
-## 3.3 Physical Origin of Hund’s Rules  
+## 6.5.3.3 Physical Origin of Hund’s Rules  
 
 Hund’s rules emerge from the interplay between **electrostatic (Coulomb)** and **magnetic (spin–orbit and spin–spin)** interactions:
 

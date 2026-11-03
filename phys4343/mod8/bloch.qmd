@@ -1,5 +1,5 @@
 ---
-title: "The Bloch Sphere Representation"
+title: 8.6 The Bloch Sphere Representation
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -26,7 +26,7 @@ The following sections will
 
 ---
 
-# 1. Definition of Bloch Vectors
+# 8.6.1. Definition of Bloch Vectors
 
 Before deriving the Bloch equations in their vector form, we first introduce the Bloch vector itself. 
 The goal is to rewrite the quantum state of a two-level system—whether pure or mixed—in terms of three real numbers that capture its coherence and population imbalance. 
@@ -37,7 +37,7 @@ We begin by considering the case of a pure state, where the Bloch vector has uni
 
 ---
 
-## 1.1 Bloch vectors for pure states
+## 8.6.1.1 Bloch vectors for pure states
 
 Consider a coherent superposition of the excited and ground states,
 $$
@@ -265,7 +265,7 @@ A Bloch vector pointing along the $+u$ direction ($\varphi = 0$) describes an in
 
 ---
 
-## 1.2 General definition from the density matrix
+## 8.6.1.2 General definition from the density matrix
 
 The Bloch-vector representation naturally extends from pure states to *all* quantum states—pure or mixed—through its relation to the density matrix. 
 Any $2\times 2$ density operator can be expanded in the basis of the identity matrix and the Pauli matrices (cf. [*Two-Level Systems*](./twoleveltheory.qmd){target=blank_}):
@@ -409,7 +409,7 @@ the poles.
 ---
 
 
-# 2. The Optical Bloch Equations for Bloch Vectors
+# 8.6.2. The Optical Bloch Equations for Bloch Vectors
 
 To describe how a two-level atom evolves in time under the influence of a laser field, we use the **Optical Bloch Equations (OBEs)**. 
 These equations govern the motion of the Bloch vector
@@ -422,7 +422,7 @@ Throughout this section, we assume that the Rabi frequency $\Omega_0$ is **real*
 
 ---
 
-## 2.1 Component form of the OBEs
+## 8.6.2.1 Component form of the OBEs
 
 Starting from the equations of motion for the density-matrix elements ([Eqs. 9 and 10 in the section on OBEs](./obe.qmd#sec-reducedformobes){target=blank_}) and the definitions of the Bloch-vector components (@eq-blochu–@eq-blochw), one obtains the following differential equations:
 $$
@@ -442,7 +442,7 @@ Thus the light field tries to drive the Bloch vector around, while damping proce
 
 ---
 
-## 2.2 Compact vector form and the Rabi vector
+## 8.6.2.2 Compact vector form and the Rabi vector
 
 It is convenient to collect the driving terms into a single vector called the **Rabi vector**:
 $$
@@ -495,7 +495,7 @@ Overall, @eq-bvbe describes a competition between **coherent rotation** (laser-d
 
 ---
 
-# 3. Dynamics of Bloch Vectors without Damping
+# 8.6.3. Dynamics of Bloch Vectors without Damping
 
 When damping is absent (i.e., $\gamma = 0$), the Optical Bloch Equations for the Bloch vector simplify considerably. 
 Starting from @eq-bvbe, we obtain

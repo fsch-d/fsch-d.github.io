@@ -1,0 +1,39 @@
+---
+title: Summary — energy-level splitting
+author: Daniel Fischer
+lightbox: true
+---
+
+
+## Summary — energy-level splitting (Bohr → Dirac → Lamb → Hyperfine)
+
+The figure below summarizes the progressive refinements to the hydrogen energy-level picture:
+
+- **Left:** Bohr energies (nonrelativistic Schrödinger / Bohr model) that depend only on the principal quantum number $n$.  
+- **Center-left:** Dirac/relativistic corrections (fine structure) that split levels by total electronic angular momentum $j$ (relativistic kinetic + spin–orbit + Darwin).  
+- **Center-right:** Radiative QED corrections (Lamb shifts) which lift degeneracies not removed by Dirac theory (notably the $2S_{1/2}$–$2P_{1/2}$ splitting).  
+- **Right:** Hyperfine structure due to coupling of the electron angular momentum to the nuclear spin (e.g. the $1S$ ground-state doublet that gives the 21-cm line).
+
+![Energy-level refinements for hydrogen: Bohr (left) → Dirac/fine structure (center-left) → Lamb shifts (center-right) → hyperfine splitting (right). (Figure translated to english from [Wasserstoff_Aufspaltung](https://commons.wikimedia.org/w/index.php?title=File:Wasserstoff_Aufspaltung.svg){target="_blank"} by [Ellarie](https://commons.wikimedia.org/wiki/User:Ellarie){target="_blank"} under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en){target="_blank"}.)](hydrogen_splitting_lg.svg){width="100%" fig-alt="Schematic: Bohr → Dirac → Lamb → Hyperfine splitting of hydrogen energy levels."}
+
+---
+
+## Representative numerical magnitudes
+
+The table below lists representative energy differences for the lowest levels. Values are given both in electron-volts (eV) and in megahertz (MHz), since spectroscopy normally reports frequencies.
+
+| Effect / transition | $n=1$ (ground) | $n=2$ (representative) |
+|---|---:|---:|
+| Dirac / fine-structure (typical) | $\Delta E_\mathrm{fs}\,(1S_{1/2}) \approx 1.8\times10^{-4}\ \mathrm{eV}$   $\approx 4.35\times10^{4}\ \mathrm{MHz}$ | splitting $2P_{3/2}-2P_{1/2}$ $\approx 4.5\times10^{-5}\ \mathrm{eV}$  $\approx 1.09\times10^{4}\ \mathrm{MHz}$ |
+| Lamb shift (radiative) | $1S$ Lamb contribution $\approx 3.6\times10^{-5}\ \mathrm{eV}$  $\approx 8.70\times10^{3}\ \mathrm{MHz}$ | splitting $2S_{1/2}-2P_{1/2}$ $\approx 4.4\times10^{-6}\ \mathrm{eV}$  $\approx 1.06\times10^{3}\ \mathrm{MHz}$ |
+| Hyperfine splitting (magnetic dipole) | ground $1S$ (21-cm): $\approx 5.8\times10^{-6}\ \mathrm{eV}$  $\approx 1.40\times10^{3}\ \mathrm{MHz}$ | $2S$ hyperfine $\approx 7.3\times10^{-7}\ \mathrm{eV}$  $\approx 1.77\times10^{2}\ \mathrm{MHz}$ |
+
+**Conversion note.** $1\ \mathrm{eV}\approx 2.41799\times 10^{8}\ \mathrm{MHz}$ was used to produce the frequency entries.
+
+---
+
+## Short interpretive comment
+
+Although the Lamb shift and hyperfine splitting are tiny compared with the Bohr energies, they were historically decisive: measurement of the Lamb shift required a theoretical framework (renormalized QED) capable of producing finite radiative corrections, and hyperfine structure revealed the crucial role of nuclear spin and electron magnetic moments in atomic spectra. Today, these small shifts are used both to test QED at high precision and to determine fundamental constants.
+
+

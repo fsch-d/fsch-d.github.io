@@ -1,5 +1,5 @@
 ---
-title: "Molecular Transitions and Spectroscopy"
+title: 7.6 Molecular Transitions and Spectroscopy
 author: Daniel Fischer
 ---
 
@@ -27,7 +27,7 @@ This chapter provides the **quantitative and qualitative tools** needed to inter
 
 ---
 
-# 1. Transition Rates and Selection Rules
+# 7.6.1. Transition Rates and Selection Rules
 
 The interaction of a molecule with electromagnetic radiation allows it to **change energy states**, with the rate of these transitions governed by quantum mechanics. For a molecule initially in state $| \Psi_i \rangle$ and finally in state $| \Psi_k \rangle$, the **transition probability** is determined by the **electric dipole operator** $\hat{\vec \mu}$:
 
@@ -48,7 +48,7 @@ where $\omega_{ik} = (E_k - E_i)/\hbar$ is the transition frequency. In the foll
 ---
 
 
-# 1.1 Complete decomposition of the transition dipole
+# 7.6.1.1 Complete decomposition of the transition dipole
 
 The fundamental quantity that controls spectroscopic intensity is the transition dipole moment $M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle$, with the total dipole operator
 $$
@@ -82,7 +82,7 @@ Two remarks:
 
 ---
 
-## 1.2 Useful limits and how they produce observed spectra
+## 7.6.1.2 Useful limits and how they produce observed spectra
 
 From the single formula above one obtains the familiar spectroscopic cases by taking the appropriate limits.
 
@@ -238,7 +238,7 @@ For homonuclear diatomics symmetry forces $\vec\mu(R)\equiv\vec 0$ for all $R$. 
 
 ---
 
-## 1.3 Physical Interpretation
+## 7.6.1.3 Physical Interpretation
 
 
 - **Electronic transitions** involve changes in $\Phi(\vec{r};R)$ and occur in the visible or UV range.  
@@ -268,7 +268,7 @@ In contrast, heteronuclear molecules like HCl or CO have nonzero $\mu(R)$ and th
 
 ---
 
-# 2. Rovibrational Spectroscopy
+# 7.6.2. Rovibrational Spectroscopy
 
 As discussed in [Section 4.3](./nuclear.qmd#sec-speccons){target=_blank}, the total energy of a diatomic molecule in its ground electronic state can be written approximately as
 
@@ -288,7 +288,7 @@ where
 
 ---
 
-## 2.1 Rovibrational Spectrum Structure
+## 7.6.2.1 Rovibrational Spectrum Structure
 
 A typical infrared absorption spectrum of a diatomic molecule shows a characteristic **band structure** consisting of:
 
@@ -392,7 +392,7 @@ Modern **Fourier Transform Infrared (FTIR) spectrometers** with resolutions bett
 
 ---
 
-# 3. Raman Spectroscopy
+# 7.6.3. Raman Spectroscopy
 
 In **Raman spectroscopy**, molecular transitions are induced not by direct absorption but by **inelastic scattering** of photons. When a photon interacts with a molecule, it can exchange energy with a **vibrational or rotational mode**:
 
@@ -414,7 +414,7 @@ Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can
 
 ---
 
-## 3.1 IR vs. Raman Activity
+## 7.6.3.1 IR vs. Raman Activity
 
 | Spectroscopy Type | Transition Mechanism | Selection Rule | Example Active Molecules |
 |-------------------|----------------------|----------------|--------------------------|
@@ -429,7 +429,7 @@ Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can
 ---
 
 
-## 3.2 Polarizability and the Origin of Raman Scattering
+## 7.6.3.2 Polarizability and the Origin of Raman Scattering
 
 In Raman scattering, the **electric field of the incident light** induces an **oscillating dipole moment** in the molecule.
 If the molecule’s **polarizability** depends on its **nuclear configuration**, this induced dipole can oscillate not only at the frequency of the incoming light but also at **shifted frequencies** corresponding to molecular vibrations.
@@ -527,7 +527,7 @@ In the **far off-resonant limit**, this second-order interaction effectively red
 
 ---
 
-## 3.3 Relevance of Raman Spectroscopy for Chemistry
+## 7.6.3.3 Relevance of Raman Spectroscopy for Chemistry
 
 Raman spectroscopy is widely used in chemistry for **molecular identification**, **structure determination**, and **reaction monitoring**. It is particularly valuable for **symmetric molecules** that are IR-inactive but Raman-active, providing complementary vibrational information. Raman can probe **bond strengths**, **molecular symmetry**, and **phase changes** in solids, liquids, and gases.
 

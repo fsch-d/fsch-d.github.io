@@ -1,5 +1,5 @@
 ---
-title: Radiation and Selection Rules
+title: 5.4 Radiation and Selection Rules
 author: Daniel Fischer
 ---
 
@@ -18,7 +18,7 @@ By the end of this section students should understand how light polarization con
 
 ---
 
-# 1. Polarization of Light
+# 5.4.1. Polarization of Light
 
 The coupling between atomic states and the light field is governed by the [dipole matrix element](./dipolematrix.qmd)
 
@@ -116,11 +116,11 @@ By expressing polarization in the spherical basis, we see directly how light car
 
 ---
 
-# 2. Calculating Dipole Matrix Elements
+# 5.4.2. Calculating Dipole Matrix Elements
 
 To understand how atoms interact with light, we need to evaluate the dipole matrix elements. These quantities determine both **whether a transition is allowed** (through angular momentum constraints) and **how strong it is** (through the radial overlap of the wavefunctions). We will first write down the general expression and then separate it into its radial and angular parts.
 
-## 2.1 General Form of the Dipole Matrix Element
+## 5.4.2.1 General Form of the Dipole Matrix Element
 
 
 
@@ -239,7 +239,7 @@ $$
 
 ---
 
-## 2.2 Radial Integral: Overlap of Wavefunctions
+## 5.4.2.2 Radial Integral: Overlap of Wavefunctions
 
 The radial integral is
 
@@ -263,7 +263,7 @@ You can see this visually in [one of the previous sections](../mod3/hydrogen.qmd
 
 ---
 
-## 2.3 Angular Integral and Selection Rules {#sec-selectionrules}
+## 5.4.2.3 Angular Integral and Selection Rules {#sec-selectionrules}
 
 The angular contribution to the dipole matrix element is
 
@@ -536,7 +536,7 @@ and $\Delta J = 0, \pm 1$ (except $J=0 \not\leftrightarrow J=0$).
 
 
 
-# 3 Angular Distribution of Emission and Excitation
+# 5.4.3 Angular Distribution of Emission and Excitation
 
 So far, we have described the three polarization components ($\pi$, $\sigma^+$, $\sigma^-$) as if they were absolute:  
 - $\pi$: linear polarization along the quantization axis ($z$)  
@@ -550,7 +550,7 @@ $$
 
 ---
 
-## 3.1 Absorption (Excitation by Laser Light)
+## 5.4.3.1 Absorption (Excitation by Laser Light)
 
 - If the laser propagates **perpendicular to $z$** ($\vec k \perp z$), then the polarization must lie in the transverse plane ($xy$-plane).  
   * A field polarized along $z$ is allowed (this is pure $\pi$).  
@@ -565,7 +565,7 @@ $$
 
 ---
 
-## 3.2 Emission (Spontaneous Decay)
+## 5.4.3.2 Emission (Spontaneous Decay)
 
 The same geometry shows up in the **angular distribution of emitted radiation**. A dipole oriented along a given axis radiates anisotropically:
 
@@ -577,7 +577,7 @@ Thus, just as absorption depends on how the photon’s polarization decomposes i
 
 ---
 
-## 3.3 Summary: Symmetry Between Absorption and Emission
+## 5.4.3.3 Summary: Symmetry Between Absorption and Emission
 
 - **Absorption:** the ability of a photon to drive $\pi$ or $\sigma$ transitions depends on the angle between $\vec k$ and the quantization axis.  
 - **Emission:** the angular pattern and polarization of the emitted photon depend on whether the atomic dipole oscillates along $z$ ($\pi$) or rotates in the $xy$-plane ($\sigma^\pm$).  
@@ -735,14 +735,14 @@ plt.show()
 ```
 
 
-# 4. An Experimental Example: Optical Pumping
+# 5.4.4. An Experimental Example: Optical Pumping
 
 So far we have derived the **dipole selection rules** and discussed how light polarization controls the allowed transitions between quantum states. Let us now see how these rules can be exploited in practice — in particular, how we can use them to *align* or *orient* the angular momentum of an ensemble of atoms. The method is known as **optical pumping**.
 
 
 ---
 
-## 4.1 Optical pumping of $^{87}$Rb
+## 5.4.4.1 Optical pumping of $^{87}$Rb
 
 As a concrete example, consider optical pumping of **${}^{87}\text{Rb}$**. We focus on the transition from the ground state $5S_{1/2}, F=2$ to the excited state $5P_{3/2}, F'=3$ using $\sigma^+$ polarized light.
 
@@ -863,7 +863,7 @@ with open(os.devnull, 'w') as FNULL:
 
 ---
 
-## 4.2 Why It Matters
+## 5.4.4.2 Why It Matters
 
 Optical pumping is more than a neat trick — it is a cornerstone of modern atomic physics. It is used to:
 

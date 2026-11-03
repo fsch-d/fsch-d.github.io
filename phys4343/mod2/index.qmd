@@ -1,5 +1,5 @@
 ---
-title: "Quantum Mechanics — A Refresher"
+title: 2 Quantum Mechanics — A Refresher
 author: Daniel Fischer
 ---
 

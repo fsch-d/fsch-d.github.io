@@ -1,5 +1,5 @@
 ---
-title: "Laser Cooling"
+title: 8.5 Laser Cooling
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -22,14 +22,14 @@ After studying this chapter, you will be able to:
 
 ---
 
-# 1. Doppler Cooling
+# 8.5.1. Doppler Cooling
 
 Laser cooling relies on the fact that light can exert forces on atoms. 
 Before examining Doppler cooling in detail, we first analyze the *scattering force*, which arises when atoms repeatedly absorb and spontaneously emit photons. This force is central to all radiative cooling mechanisms and forms the foundation of optical molasses, magneto-optical traps, and most modern cold-atom techniques.
 
 ---
 
-## 1.1 The Scattering Force
+## 8.5.1.1 The Scattering Force
 
 To understand the scattering force, let us recall that a force is defined as the rate of change of momentum,
 $$
@@ -62,7 +62,7 @@ This force points along the laser beam direction and is largest when the detunin
 
 ----
 
-## 1.2 Doppler Cooling
+## 8.5.1.2 Doppler Cooling
 
 The expression in @eq-scatforce describes atoms at rest. For a moving atom, however, the laser frequency is Doppler-shifted in the atom’s rest frame. The first-order (non-relativistic) Doppler shift is
 
@@ -255,7 +255,7 @@ plt.show()
 
 ---
 
-## 1.3 Low-velocity limit
+## 8.5.1.3 Low-velocity limit
 
 For $kv \ll \gamma$ and $kv \ll |\delta|$, @eq-coolingforce reduces to a linear viscous force,
 
@@ -360,7 +360,7 @@ is reached at $\delta = -\gamma/2$. Both optimal detunings are of order $\gamma$
 
 ---
 
-## 1.4 The Doppler Cooling Limit
+## 8.5.1.4 The Doppler Cooling Limit
 
 Each spontaneous emission event imparts a random recoil momentum of magnitude $\hbar k$ to the atom.  
 These kicks act like a momentum-space diffusion process. Averaging over many such events gives a *heating rate*.
@@ -487,7 +487,7 @@ $$
 
 ---
 
-# 2. Magneto-Optical Traps (MOTs)
+# 8.5.2. Magneto-Optical Traps (MOTs)
 
 Laser cooling, as discussed in the previous section, can reduce the velocity spread of an atomic gas. 
 However, *optical molasses alone does not confine atoms spatially*: the ensemble slowly drifts away. 
@@ -495,7 +495,7 @@ This limitation is a consequence of the **Optical Earnshaw Theorem**, which stat
 
 ---
 
-## 2.1 Optical Earnshaw Theorem
+## 8.5.2.1 Optical Earnshaw Theorem
 
 The central assumption is that atoms are **point-like dipoles** with internal structure *independent* of position. Under this assumption, the scattering force from a laser field is proportional to the **Poynting vector**
 $$
@@ -534,7 +534,7 @@ This motivates adding a mechanism that **breaks the assumptions** of the Earnsha
 
 ---
 
-## 2.2 Position-dependent structure: Zeeman effect
+## 8.5.2.2 Position-dependent structure: Zeeman effect
 
 A MOT introduces a weak, spatially varying magnetic field produced by **anti-Helmholtz coils**, creating a near-linear field gradient,
 $$
@@ -561,7 +561,7 @@ This breaks the assumptions of the optical Earnshaw theorem and allows a restori
 
 ---
 
-## 2.3 Selection rules and polarization
+## 8.5.2.3 Selection rules and polarization
 
 A second ingredient is the ability to **drive transitions selectively** into specific Zeeman sublevels using circular polarization:
 

@@ -1,5 +1,5 @@
 ---
-title: "Hydrogen atom — Schrödinger equation and radial solutions"
+title: 3.2 Hydrogen atom — Schrödinger equation and radial solutions
 author: Daniel Fischer
 #engine: python3
 ---
@@ -14,7 +14,7 @@ We solve the time-independent Schrödinger equation for a single electron in the
 
 ---
 
-# 1. Hamiltonian and the angular-momentum form
+# 3.2.1. Hamiltonian and the angular-momentum form
 
 
 The non-relativistic time-independent Hamiltonian for an electron–proton system 
@@ -38,7 +38,7 @@ where $Z$ is the nuclear charge ($Z=1$ for hydrogen), $e$ the elementary charge,
 
 ---
 
-## 1.1 Center of Mass and Relative Motion
+## 3.2.1.1 Center of Mass and Relative Motion
 
 It is convenient to switch from the electron and proton coordinates 
 $(\vec r_e, \vec r_p)$ to
@@ -79,7 +79,7 @@ Since spectroscopy and bound-state problems are only sensitive to the
 
 ---
 
-## 1.2 Effective One-Body Hamiltonian
+## 3.2.1.2 Effective One-Body Hamiltonian
 
 Thus, for studying the hydrogen spectrum we keep only the relative motion:
 
@@ -98,7 +98,7 @@ For hydrogen, since $M \gg m$, one has $\mu \approx m$, but the correction is im
 
 ---
 
-## 1.3 The Laplacian and $\hat L^2$
+## 3.2.1.3 The Laplacian and $\hat L^2$
 
 We will rewrite the Laplacian in spherical coordinates and express the angular part in terms of $\hat L^2$.
 
@@ -145,7 +145,7 @@ $$
 
 <!---
 
-## 1.2 The rotational (centrifugal) barrier
+## 3.2.1.2 The rotational (centrifugal) barrier
 
 The term
 
@@ -168,7 +168,7 @@ This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radia
 
 
 
-# 2. Separation of variables: angular and radial parts
+# 3.2.2. Separation of variables: angular and radial parts
 
 Because the Coulomb potential depends only on the distance $r$, the Hamiltonian commutes with the angular momentum operators:
 
@@ -201,7 +201,7 @@ $$
 
 ---
 
-## 2.1 The rotational (centrifugal) barrier
+## 3.2.2.1 The rotational (centrifugal) barrier
 
 The term
 
@@ -218,7 +218,7 @@ This is often called the *centrifugal barrier*. Classically, it reflects the fac
 
 ---
 
-## 2.2 Convert to the reduced radial equation
+## 3.2.2.2 Convert to the reduced radial equation
 
 Define the reduced radial function
 
@@ -293,7 +293,7 @@ plt.show()
 
 ---
 
-# 3. Specialize to the Coulomb potential (hydrogen-like atom)
+# 3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)
 
 Set
 
@@ -312,7 +312,7 @@ We seek square-integrable bound-state solutions ($E<0$). The standard method pro
 
 ---
 
-## 3.1 Asymptotic behavior
+## 3.2.3.1 Asymptotic behavior
 
 **As $r\to\infty$**: the Coulomb potential is negligible compared to $E<0$, so the equation approximates
 
@@ -342,7 +342,7 @@ $$
 
 ---
 
-## 3.2 Polynomial Ansatz and reduced equation
+## 3.2.3.2 Polynomial Ansatz and reduced equation
 
 From the asymptotic analysis we propose
 
@@ -393,7 +393,7 @@ where $n$ is the **principal quantum number**.
 
 ---
 
-## 3.3 Energy quantization and the principal quantum number
+## 3.2.3.3 Energy quantization and the principal quantum number
 
 The requirement that the power-series solution terminates at a finite order fixes 
 the parameter $\kappa$. Using $\kappa^2 = \tfrac{-2\mu E}{\hbar^2}$, the allowed 
@@ -431,7 +431,7 @@ $$
 
 ---
 
-# 4. Radial eigenfunctions: closed form
+# 3.2.4. Radial eigenfunctions: closed form
 
 The bound-state normalized radial functions (in SI units) are
 
@@ -472,7 +472,7 @@ $$
 
 ---
 
-## 4.1 Explicit low-$n$ examples
+## 3.2.4.1 Explicit low-$n$ examples
 
 - **1s state** $(n=1,\ell=0)$:
 
@@ -746,7 +746,7 @@ plt.show()
 
 ---
 
-# 5. Remarks on degeneracy and physical interpretation
+# 3.2.5. Remarks on degeneracy and physical interpretation
 
 - The energy $E_n$ depends only on $n$ (not on $\ell$ or $m$) for the non-relativistic Coulomb problem.  
   Thus each energy level has the well-known degeneracy $n^2$, meaning there are $n^2$ orthonormal eigenstates of the Hamiltonian with the same eigenvalue:
@@ -769,7 +769,7 @@ plt.show()
 
 ---
 
-# 6. Atomic states in Dirac notation
+# 3.2.6. Atomic states in Dirac notation
 
 In the hydrogen atom, the solutions of the Schrödinger equation are labeled by the three quantum numbers:
 
@@ -827,7 +827,7 @@ We will use the compact ket notation $|n,\ell,m\rangle$ throughout the following
 
 ---
 
-# 7. Orbital Naming Conventions
+# 3.2.7. Orbital Naming Conventions
 
 In quantum mechanics, the orbital angular momentum quantum number $\ell$ dictates the shape of an electron's orbital and gives rise to a specific naming convention. These are the common designations for the first few values of $\ell$:
 

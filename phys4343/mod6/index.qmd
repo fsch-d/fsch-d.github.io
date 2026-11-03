@@ -1,5 +1,5 @@
 ---
-title: "More than One Electron Atoms"
+title: 6 More than One Electron Atoms
 author: Daniel Fischer
 ---
 

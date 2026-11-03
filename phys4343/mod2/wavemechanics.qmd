@@ -1,7 +1,7 @@
 ---
 author: Daniel Fischer
 jupyter: diffractio
-title: Wave Mechanics
+title: 2.1 Wave Mechanics
 ---
 
 # Wave Mechanics: Overview and Plan
@@ -139,9 +139,9 @@ The detailed interference derivations, Fourier-transform formulas, and Gaussian 
 
 ---
 
-# 1. Electron Interference and Matter Waves
+# 2.1.1. Electron Interference and Matter Waves
 
-## 1.1 What is an electron?
+## 2.1.1.1 What is an electron?
 
 By the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.  
 
@@ -329,7 +329,7 @@ The key observation is therefore:
 This behavior cannot be described by a simple classical particle picture or by a simple classical material wave.
 
 
-## 1.2 Historical perspective: Electron diffraction
+## 2.1.1.2 Historical perspective: Electron diffraction
 
 The electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.
 
@@ -351,9 +351,9 @@ George Paget Thomson was the son of **J. J. Thomson**, whose cathode-ray experim
 
 ---
 
-# 2. Waves and Complex Wave Amplitudes
+# 2.1.2. Waves and Complex Wave Amplitudes
 
-## 2.1 A traveling wave
+## 2.1.2.1 A traveling wave
 
 A one-dimensional harmonic traveling wave can be written as
 
@@ -441,7 +441,7 @@ $$
 
 More importantly for interference, two waves need not have the same phase at a given position. Their **relative phase** will determine whether they interfere constructively or destructively.
 
-## 2.2 Complex representation
+## 2.1.2.2 Complex representation
 
 Using Euler's relation,
 
@@ -468,7 +468,7 @@ For a classical wave, the complex notation is often only a mathematical convenie
 
 ---
 
-# 3. Superposition and Interference
+# 2.1.3. Superposition and Interference
 
 For two waves with amplitudes $A_1$ and $A_2$,
 
@@ -704,9 +704,9 @@ display(HTML(anim.to_html5_video()))
 
 ---
 
-# 4. Probability and the Born Rule
+# 2.1.4. Probability and the Born Rule
 
-## 4.1 Probability distributions
+## 2.1.4.1 Probability distributions
 
 Before assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.
 
@@ -748,7 +748,7 @@ $$
 \sigma_x=\sqrt{\operatorname{Var}(x)}.
 $$
 
-## 4.2 The Born interpretation
+## 2.1.4.2 The Born interpretation
 
 Quantum mechanics associates a complex wave function $\psi(\vec r,t)$ with the state of a particle. According to the **Born rule**, the probability density for position is
 
@@ -801,7 +801,7 @@ A plane wave extending over all space is not square-normalizable in the usual se
 
 ---
 
-# 5. Matter Waves and the de Broglie Relations
+# 2.1.5. Matter Waves and the de Broglie Relations
 
 The experiments discussed in Section 1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
 
@@ -845,7 +845,7 @@ $$
 
 so it is completely delocalized in position. This is consistent with the plane wave representing a state of precisely defined momentum.
 
-## 5.1 Wave packets and momentum space
+## 2.1.5.1 Wave packets and momentum space
 
 A localized particle cannot be represented by a single plane wave. Instead, it is represented by a **superposition of plane waves** with different wave vectors.
 
@@ -871,9 +871,9 @@ Because $p=\hbar k$, the distribution in $k$ is directly related to the distribu
 
 ---
 
-# 6. Time Evolution and the Schrödinger Equation
+# 2.1.6. Time Evolution and the Schrödinger Equation
 
-## 6.1 Energy and momentum as differential operators
+## 2.1.6.1 Energy and momentum as differential operators
 
 Consider again a plane wave,
 
@@ -924,7 +924,7 @@ $$
 
 These are examples of **operators**: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.
 
-## 6.2 Potential energy and the Hamiltonian
+## 2.1.6.2 Potential energy and the Hamiltonian
 
 For a nonrelativistic classical particle,
 
@@ -985,7 +985,7 @@ $$
 The argument above **motivates** the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law.
 :::
 
-## 6.3 Time-independent Schrödinger equation
+## 2.1.6.3 Time-independent Schrödinger equation
 
 If the potential has no explicit time dependence,
 
@@ -1024,7 +1024,7 @@ $$
 
 Such states are therefore called **stationary states**.
 
-## 6.4 Example: a free Gaussian wave packet
+## 2.1.6.4 Example: a free Gaussian wave packet
 
 A physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,
 

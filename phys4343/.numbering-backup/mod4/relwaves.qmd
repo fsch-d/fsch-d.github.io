@@ -1,0 +1,169 @@
+---
+title: Relativistic Wave Equations — the Dirac Equation
+author: Daniel Fischer
+#engine: python3
+#jupyter: python3
+---
+
+## Motivation
+
+Our goal is to find an equation that consistently describes a **free particle** in a way that is both **quantum mechanical** and **relativistic**.  
+
+Quantum mechanics, through the Schrödinger equation, successfully explains many microscopic phenomena but does not respect the principles of special relativity. On the other hand, special relativity dictates the correct relationship between energy and momentum, which must also hold at the quantum level. Reconciling these two frameworks is the challenge that led from the Schrödinger equation to the Klein–Gordon equation, and ultimately to the Dirac equation.
+
+
+
+## Schrödinger’s Equation
+
+The non-relativistic Schrödinger equation for a free particle is
+
+$$
+-\frac{\hbar^{2}}{2m}\,\nabla^{2}\phi(\mathbf{r},t)
+= i\hbar\,\frac{\partial}{\partial t}\phi(\mathbf{r},t).
+$$
+
+This equation successfully describes many quantum phenomena at low energies.  
+However, it has a serious limitation: it is not consistent with special relativity.  
+
+In relativity, the energy–momentum relation is
+
+$$
+E^{2} = p^{2}c^{2} + m^{2}c^{4}.
+$$
+
+The Schrödinger equation, being first-order in time but second-order in space, does not respect this relation. In other words, it is **not Lorentz invariant**.
+
+---
+
+## Klein–Gordon Equation
+
+A natural attempt to fix this is to take the relativistic dispersion relation and promote $E$ and $\mathbf{p}$ to quantum operators:
+
+$$
+E \;\to\; i\hbar \frac{\partial}{\partial t},
+\qquad
+\mathbf{p} \;\to\; -i\hbar \nabla.
+$$
+
+Applying these substitutions to $E^2 = p^2c^2 + m^2c^4$ leads to the **Klein–Gordon equation (KGE):**
+
+$$
+\left(-\frac{1}{c^{2}} \frac{\partial^{2}}{\partial t^{2}} + \nabla^{2}\right)\phi(\mathbf{r},t)
+= \frac{m^{2}c^{2}}{\hbar^{2}}\,\phi(\mathbf{r},t).
+$$
+
+The Klein–Gordon equation is **second-order in time**, unlike the Schrödinger equation.  
+It correctly incorporates special relativity, but it comes with its own challenges:
+
+- It naturally describes **spin-0 (scalar) particles** rather than spin-$\tfrac{1}{2}$ particles like the electron.  
+- Its probability density can take negative values, making the usual probabilistic interpretation of $\lvert\phi\rvert^2$ problematic.  
+
+Because of these issues, the KGE alone is not sufficient to describe electrons and other spin-$\tfrac{1}{2}$ particles.
+
+---
+
+## Dirac’s Approach
+
+Paul Dirac sought an equation that was:
+
+1. **First-order in both space and time derivatives**, so that the probability density would remain positive and the equation would resemble Schrödinger’s form.  
+2. **Relativistically invariant**, consistent with $E^{2} = p^{2}c^{2} + m^{2}c^{4}$.  
+
+To achieve this, Dirac proposed writing the Hamiltonian in a **linear** form:
+
+$$
+E = c\,\boldsymbol{\alpha}\cdot \mathbf{p} + \beta\,mc^{2},
+$$
+
+where $\boldsymbol{\alpha}$ and $\beta$ are not numbers but **matrices** chosen to satisfy specific algebraic relations.  
+
+Promoting $E \to i\hbar \partial_t$ and $\mathbf{p} \to -i\hbar \nabla$, one obtains the **Dirac equation**:
+
+$$
+i\hbar \frac{\partial}{\partial t}\psi
+= \Big(-i\hbar c\,\boldsymbol{\alpha}\cdot\nabla + \beta\,mc^{2}\Big)\psi.
+$$
+
+This can also be written in a compact, manifestly relativistic form using the **gamma matrices** $\gamma^\mu$:
+
+$$
+i\hbar\,\gamma^{\mu}\partial_{\mu}\psi - mc\,\psi = 0,
+$$
+
+where $\mu = 0,1,2,3$ runs over time and space components.  
+
+---
+
+## Gamma Matrices
+
+The matrices $\gamma^\mu$ must satisfy the **anticommutation relations**
+
+$$
+\{\gamma^\mu, \gamma^\nu\} \;=\; \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu
+= 2\,g^{\mu\nu}\,I,
+$$
+
+with $g^{\mu\nu}$ the Minkowski metric.  
+
+One explicit representation (the *Dirac representation*) uses $4\times 4$ matrices built from the **Pauli matrices** $\sigma_i$:
+
+$$
+\gamma^0 =
+\begin{pmatrix}
+I & 0 \\ 0 & -I
+\end{pmatrix},
+\qquad
+\gamma^i =
+\begin{pmatrix}
+0 & \sigma_i \\ -\sigma_i & 0
+\end{pmatrix},
+$$
+
+where $i=1,2,3$ and $I$ is the $2\times 2$ identity matrix.  
+
+The **Pauli matrices** are the fundamental $2\times 2$ matrices that encode spin-$\tfrac{1}{2}$ structure in quantum mechanics:
+
+$$
+\sigma_x = 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\quad
+\sigma_y = 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix},
+\quad
+\sigma_z =
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}.
+$$
+
+They satisfy the relations
+
+$$
+[\sigma_i, \sigma_j] = 2 i \,\epsilon_{ijk}\,\sigma_k,
+\qquad
+\{\sigma_i, \sigma_j\} = 2 \delta_{ij} I,
+$$
+
+which directly parallel the algebra of angular momentum operators.
+
+---
+
+## Key Features of the Dirac Equation
+
+The Dirac equation has profound physical consequences:
+
+- **Spin-$\tfrac{1}{2}$:** It naturally incorporates electron spin, without being put in by hand.  
+- **Four-component spinors:** The solutions $\psi$ have four components, corresponding to spin-up/spin-down and particle/antiparticle states.  
+- **Fine structure:** It predicts relativistic corrections and spin–orbit coupling in atomic spectra.  
+- **Antimatter:** It predicts the existence of antiparticles, such as the positron.  
+- **Magnetic moment:** It gives an electron $g$-factor of exactly 2 at tree level (later corrected slightly by quantum electrodynamics).
+
+---
+

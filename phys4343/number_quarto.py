@@ -34,7 +34,7 @@ def change_title(path, numbered_title):
     if not m:
         raise ValueError(f'Missing YAML front matter: {path}')
     body = m.group(2)
-    new_line = 'title: ' + yaml.safe_dump(numbered_title, allow_unicode=True, default_flow_style=True).strip()
+    new_line = 'title: ' + json.dumps(numbered_title, ensure_ascii=False)
     if TITLE_LINE.search(body):
         body = TITLE_LINE.sub(lambda _: new_line, body, count=1)
     else:

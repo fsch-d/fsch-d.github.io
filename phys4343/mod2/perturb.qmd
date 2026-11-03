@@ -1,5 +1,5 @@
 ---
-title: Time-Independent Perturbation Theory
+title: 2.7 Time-Independent Perturbation Theory
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua

@@ -1,5 +1,5 @@
 ---
-title: Angular Momenta and Their Couplings
+title: 2.5 Angular Momenta and Their Couplings
 author: Daniel Fischer
 ---
 
@@ -109,7 +109,7 @@ The derivations using rotations and ladder operators are included below to show 
 
 ::::
 
-# 1. Angular-Momentum Algebra
+# 2.5.1. Angular-Momentum Algebra
 
 Quantum-mechanical angular momentum is represented by an operator vector
 
@@ -441,7 +441,7 @@ This argument is more general than the orbital derivation: it does not assume $\
 
 ::::
 
-## 1.1 The operators $\hat j^2$ and $\hat j_z$
+## 2.5.1.1 The operators $\hat j^2$ and $\hat j_z$
 
 Define the squared angular-momentum operator as
 
@@ -593,11 +593,11 @@ $$
 
 Therefore $\hat j^2$ and $\hat j_z$ can be simultaneously diagonalized. We may choose states that are simultaneous eigenstates of both operators. At this stage, however, we have not yet determined their eigenvalues. That will follow from the algebra itself.
 
-# 2. Ladder Operators and the Angular-Momentum Spectrum
+# 2.5.2. Ladder Operators and the Angular-Momentum Spectrum
 
 Ladder operators are an algebraic tool that lets us derive the allowed angular-momentum eigenvalues directly from the commutation relations. They are useful here primarily because they provide the shortest route from the algebra to the spectrum, that is, the set of allowed eigenvalues of the angular-momentum operators.
 
-## 2.1 Definition
+## 2.5.2.1 Definition
 
 Define
 
@@ -761,7 +761,7 @@ $$
 ::::
 
 
-## 2.2 Ladder action before knowing the spectrum
+## 2.5.2.2 Ladder action before knowing the spectrum
 
 Let $|\lambda,m\rangle$ be a simultaneous normalized eigenstate of $\hat j^2$ and $\hat j_z$:
 
@@ -805,7 +805,7 @@ $$
 
 Because $[\hat j^2,\hat j_\pm]=0$, the value $\lambda$ is unchanged by this operation.
 
-## 2.3 Why the ladder must terminate
+## 2.5.2.3 Why the ladder must terminate
 
 The following identities are obtained directly from the definitions of $\hat j_\pm$:
 
@@ -952,7 +952,7 @@ This coefficient is useful in explicit calculations, but it is not necessary to 
 
 ::::
 
-# 3. Eigenvalue Relations and Physical Interpretation
+# 2.5.3. Eigenvalue Relations and Physical Interpretation
 
 The ladder-operator argument in the previous section led directly to the allowed angular-momentum eigenvalues. We can therefore summarize the result in the form that will be used throughout the rest of the course:
 
@@ -977,7 +977,7 @@ These two equations have a simple physical interpretation:
 - $\hat j^2$ determines the **magnitude** of the angular momentum;
 - $\hat j_z$ determines its **projection along a chosen axis**, and therefore gives information about its orientation relative to that axis.
 
-## 3.1 Magnitude of the angular momentum
+## 2.5.3.1 Magnitude of the angular momentum
 
 For a state with angular-momentum quantum number $j$, the operator
 $\hat j^2$ has the eigenvalue
@@ -1002,7 +1002,7 @@ $$
 j=0,\frac12,1,\frac32,\ldots.
 $$
 
-## 3.2 Projection and orientation
+## 2.5.3.2 Projection and orientation
 
 The second eigenvalue equation,
 
@@ -1051,7 +1051,7 @@ $$
 
 Thus a fixed value of $j$ fixes the length of the angular momentum, while the different allowed values of $m_j$ correspond to different allowed projections, or orientations relative to the chosen axis.
 
-## 3.3 Why do we use the $z$-axis?
+## 2.5.3.3 Why do we use the $z$-axis?
 
 There is nothing fundamentally special about the $z$-axis. In fact,
 
@@ -1222,7 +1222,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-# 4. Coupling of Angular Momenta
+# 2.5.4. Coupling of Angular Momenta
 
 So far we have considered a single angular momentum. Atomic systems, however, often contain several angular momenta at the same time. Examples are the orbital and spin angular momenta of an electron, or the electronic and nuclear angular momenta of an atom.
 
@@ -1240,7 +1240,7 @@ $$
 
 The central idea is that, for an isolated system with a rotationally invariant Hamiltonian, this total angular momentum is conserved. This conservation law also tells us which quantum numbers provide the most natural description of the coupled system.
 
-## 4.1 Coupling and Angular-Momentum Conservation
+## 2.5.4.1 Coupling and Angular-Momentum Conservation
 
 In quantum mechanics, conservation of an observable is expressed by the corresponding operator commuting with the Hamiltonian. For a rotationally invariant Hamiltonian,
 
@@ -1350,7 +1350,7 @@ A state $|L,S;J,M\rangle$ is an eigenstate of $\hat L^2$, $\hat S^2$, and $\hat 
 
 More generally, the most useful basis is usually the one built from operators that commute with the Hamiltonian. Which angular momenta should be coupled therefore depends on the interactions present in the physical system.
 
-## 4.2 Why does the total angular momentum obey the same algebra?
+## 2.5.4.2 Why does the total angular momentum obey the same algebra?
 
 The components of the two different angular momenta act on different degrees of freedom and therefore commute with one another,
 
@@ -1403,7 +1403,7 @@ $$
 \hbar M|J,M\rangle.
 $$
 
-## 4.3 Uncoupled and coupled bases
+## 2.5.4.3 Uncoupled and coupled bases
 
 There are two equivalent ways of describing the same combined system.
 
@@ -1455,7 +1455,7 @@ This is called the **coupled basis**.
 
 The two bases contain exactly the same physical states. They are simply different choices of basis.
 
-## 4.4 Which basis should we use?
+## 2.5.4.4 Which basis should we use?
 
 The appropriate basis is usually the one whose quantum numbers correspond
 to operators that commute with the Hamiltonian.
@@ -1484,7 +1484,7 @@ The two descriptions are not different physical theories; they are
 different bases for the same Hilbert space, chosen to suit the Hamiltonian
 of the problem.
 
-## 4.5 Allowed values of the total angular momentum
+## 2.5.4.5 Allowed values of the total angular momentum
 
 For two angular momenta with quantum numbers $j_1$ and $j_2$, the allowed values of the total angular-momentum quantum number are
 
@@ -1682,7 +1682,7 @@ so the allowed $J$ multiplets account for all states of the combined system.
 ::::
 
 
-## 4.6 Physical examples
+## 2.5.4.6 Physical examples
 
 | Coupling | Typical physical context | Example |
 |---|---|---|
@@ -1692,7 +1692,7 @@ so the allowed $J$ multiplets account for all states of the combined system.
 
 The mathematical rules are the same in each case; only the physical meaning of the individual angular momenta changes.
 
-# 5. Clebsch--Gordan Coefficients
+# 2.5.5. Clebsch--Gordan Coefficients
 
 The uncoupled and coupled bases are related by a change of basis:
 
@@ -1722,7 +1722,7 @@ $$
 
 The coefficients are normalized so that the coupled states are normalized. In practice they are taken from tables or calculated using symbolic or numerical software; they are not normally memorized.
 
-## 5.1 Example: $j_1=1$ and $j_2=\tfrac12$
+## 2.5.5.1 Example: $j_1=1$ and $j_2=\tfrac12$
 
 For $J=\tfrac32$, the state with maximum projection is unique:
 

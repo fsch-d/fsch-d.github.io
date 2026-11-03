@@ -1,5 +1,5 @@
 ---
-title: "Beyond H$_2^+$ and LCAO"
+title: 7.4 Beyond H$_2^+$ and LCAO
 author: Daniel Fischer
 ---
 
@@ -26,13 +26,13 @@ This chapter bridges **quantum mechanics and chemical intuition**, emphasizing h
 
 ---
 
-# 1. The Hydrogen Molecule (H$_2$)
+# 7.4.1. The Hydrogen Molecule (H$_2$)
 
 The hydrogen molecule represents the simplest example of a two-electron system that can form a chemical bond. Despite its simplicity, it already shows the limitations of the molecular orbital (MO) approach and motivates the need for more sophisticated descriptions.
 
 ---
 
-## 1.1 Linear Combination of Atomic Orbitals: The MO Approximation for H$_2$
+## 7.4.1.1 Linear Combination of Atomic Orbitals: The MO Approximation for H$_2$
 
 The LCAO–MO approximation provides a simple way to describe bonding in the hydrogen molecule by constructing delocalized molecular orbitals from atomic $1s$ orbitals. In the **molecular orbital (MO)** approximation, we construct orbitals for the entire molecule as linear combinations of atomic orbitals (LCAO). 
 
@@ -240,7 +240,7 @@ In particular, as we shall see next, it fails to reproduce the correct dissociat
 
 ---
 
-## 1.2 Incorrect Dissociation Limit: Where the MO Approximation Breaks Down
+## 7.4.1.2 Incorrect Dissociation Limit: Where the MO Approximation Breaks Down
 
 Expanding the two-electron Coulomb term (@eq-r12coulomb) for $\Phi$ expressed as a sum of atomic orbitals produces three distinct types of contributions:
 
@@ -277,7 +277,7 @@ $$
 
 ---
 
-## 1.3 The Heitler–London Approach
+## 7.4.1.3 The Heitler–London Approach
 
 A more accurate description of the H$_2$ molecule was developed by **Heitler and London (1927)**. 
 Instead of assigning electrons to delocalized molecular orbitals, they considered explicitly that **each electron is associated with one nucleus**, leading to the two-electron wavefunction:
@@ -301,7 +301,7 @@ It improves upon the LCAO–MO result because it explicitly incorporates **elect
 
 ---
 
-## 1.4 Improved Heitler–London (Ionic–Covalent Mixing) and Hylleraas-Type Wavefunction
+## 7.4.1.4 Improved Heitler–London (Ionic–Covalent Mixing) and Hylleraas-Type Wavefunction
 
 The **Heitler–London** wavefunction successfully describes the dissociation of H$_2$ by ensuring that each electron is primarily associated with a different nucleus. However, it neglects possible **ionic configurations** in which both electrons temporarily occupy the same nucleus (A or B). 
 At smaller internuclear separations, these ionic contributions can provide additional **stabilization** due to electrostatic attraction.
@@ -462,7 +462,7 @@ plt.show()
 
 ---
 
-## 1.5 Key Takeaways
+## 7.4.1.5 Key Takeaways
 
 - The **MO approach** provides a simple qualitative understanding of bonding but fails at large separations.  
 - The **Heitler–London approach** introduces electron correlation and gives more accurate energies.  
@@ -474,7 +474,7 @@ To extend this approach beyond H$_2$, we now discuss how molecular orbitals are 
 
 ---
 
-# 2. General Approach in Quantum Chemistry
+# 7.4.2. General Approach in Quantum Chemistry
 
 The general goal of quantum chemistry is to approximate the molecular wave function and energy of a system using a manageable basis set and variational optimization. This transforms the Schrödinger equation from a complicated differential equation into a linear-algebra problem. The main steps can be summarized as follows:
 
@@ -493,7 +493,7 @@ The general goal of quantum chemistry is to approximate the molecular wave funct
 
 ---
 
-## 2.1 Example: The Hydrogen Molecule ($\mathrm{H_2}$)
+## 7.4.2.1 Example: The Hydrogen Molecule ($\mathrm{H_2}$)
 
 When a basis set of $N = 13$ atomic orbitals is used, the resulting binding energy is approximately
 
@@ -511,7 +511,7 @@ $$E_B^{\text{exp}} = -4.7470(3)~\text{eV}.$$
 
 ---
 
-## 2.2 Task of Quantum Chemistry
+## 7.4.2.2 Task of Quantum Chemistry
 
 The main task of quantum chemistry is to find an **optimal basis set** and calculate molecular energies using **variational methods**.
 
@@ -520,7 +520,7 @@ The choice of basis functions relies on **physical intuition**, **computational 
 
 ---
 
-# 3. Naming Conventions for Diatomic Molecules
+# 7.4.3. Naming Conventions for Diatomic Molecules
 
 Having introduced how molecular orbitals are formed and combined, we now turn to how the resulting molecular states are classified and labeled according to their quantum numbers and symmetries.
 
@@ -545,7 +545,7 @@ In the following, we will examine these criteria in more detail.
 
 ---
 
-## 3.1 Energy Ordering and Quantum Labels
+## 7.4.3.1 Energy Ordering and Quantum Labels
 
 Each electronic state $E_i(R)$ can be labeled by an index 
 $i = (n, \ell, \Lambda, S)$, 
@@ -564,7 +564,7 @@ The **ground state** is denoted by X.
 
 ---
 
-## 3.2 Symmetry Properties
+## 7.4.3.2 Symmetry Properties
 
 Symmetry plays a central role in molecular labeling and determines many selection rules in spectroscopy. 
 For diatomic molecules, two symmetry operations are particularly important: **reflection** and **inversion**.
@@ -644,7 +644,7 @@ These labels (*g* and *u*) are essential for describing selection rules and dist
 
 ---
 
-## 3.3 Angular Momentum in Diatomic Molecules
+## 7.4.3.3 Angular Momentum in Diatomic Molecules
 
 In diatomic systems, angular momenta are best described relative to the **internuclear axis**, which defines a natural $z$-axis.
 
@@ -716,7 +716,7 @@ $$
 
 ---
 
-## 3.4 Molecular Configurations
+## 7.4.3.4 Molecular Configurations
 
 Electronic configurations of diatomic molecules are often expressed in terms of **molecular orbitals (MOs)** such as:  
 $$
@@ -751,7 +751,7 @@ To understand how molecular orbitals evolve from the dissociated atom limit ($R 
 
 ---
 
-## 3.5 Summary and Examples
+## 7.4.3.5 Summary and Examples
 
 The full label of a diatomic molecular state encodes:
 

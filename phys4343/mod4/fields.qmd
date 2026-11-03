@@ -1,5 +1,5 @@
 ---
-title: Hydrogen in Static External Fields
+title: 4.5 Hydrogen in Static External Fields
 author: Daniel Fischer
 ---
 
@@ -11,7 +11,7 @@ The presentation is perturbative: choose the largest interaction as the unpertur
 
 ---
 
-# 1. Zeeman effect: Magnetic interaction Hamiltonian
+# 4.5.1. Zeeman effect: Magnetic interaction Hamiltonian
 
 The magnetic moment operator of an atom has contributions from electronic orbital motion, electronic spin, and the nuclear magnetic moment. In SI units we write
 
@@ -51,7 +51,7 @@ These conversions are handy when comparing Zeeman splittings (in GHz) to hyperfi
 
 ---
 
-## 1.2 Why eigenstates change: non-commuting parts of the Hamiltonian
+## 4.5.1.2 Why eigenstates change: non-commuting parts of the Hamiltonian
 
 Let us write down the interaction Hamiltonians explicitly (schematically, suppressing constants):
 
@@ -109,7 +109,7 @@ which diagonalises $\hat L^2,\hat S^2,\hat J^2,\hat I^2,\hat F^2,\hat F_z$.
 
 ---
 
-# 2. Practical regimes (and convenient bases)
+# 4.5.2. Practical regimes (and convenient bases)
 
 Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fine-structure splitting $\Delta E_{\rm FS}$, and hyperfine splitting $\Delta E_{\rm HF}$, different bases are useful:
 
@@ -128,7 +128,7 @@ Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fin
 
 ---  
 
-## 2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
+## 4.5.2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
 
 If $\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$ and the nucleus carries no spin ($I=0$), then $M_J$ is a good quantum number and the convenient basis is $|L,S,J,M_J\rangle$.
 
@@ -337,7 +337,7 @@ The Landé factor can the be calculated using the eigenvalues of $\hat J^2,\hat 
 
 ---
 
-## 2.2 Case 2: Hyperfine regime and $g_F$
+## 4.5.2.2 Case 2: Hyperfine regime and $g_F$
 
 If hyperfine coupling dominates ($\Delta E_{\rm ZE} \ll \Delta E_{\rm HF}$) and the $z$ component of $\hat{\vec F} = \hat{\vec J} + \hat{\vec I}$ is a good quantum number, the first-order Zeeman shift is
 
@@ -387,7 +387,7 @@ $$
 
 ---
 
-## 2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
+## 4.5.2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
 
 When the Zeeman splitting is much larger than the hyperfine interaction ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$), the electronic and nuclear moments effectively decouple. In this regime the product basis
 
@@ -441,9 +441,9 @@ $$
 
 ---
 
-# 3. Zeeman effect: summary and some exact results
+# 4.5.3. Zeeman effect: summary and some exact results
 
-## 3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
+## 4.5.3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
 
 For the hydrogen ground state ($n=1$, $J=\tfrac12$, $I=\tfrac12$) the hyperfine + Zeeman Hamiltonian can be diagonalized exactly within the two $2\times2$ subspaces (labelled by $m_F=0$ and $m_F=\pm1$). The resulting $E(B)$ dependence is commonly referred to as the **Breit–Rabi** curve. It captures the gradual transition from hyperfine-dominated eigenstates at low field to Zeeman-dominated eigenstates at high field.
 
@@ -574,7 +574,7 @@ For an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu,
 
 ---
 
-## 3.2 Order-of-magnitude numbers (useful estimates)
+## 4.5.3.2 Order-of-magnitude numbers (useful estimates)
 
 - Hyperfine splitting of hydrogen ground state (21-cm line):
   $$\nu_{\rm hfs} \approx 1420.405751768\ \mathrm{MHz},\qquad
@@ -603,7 +603,7 @@ These numbers help decide which interactions dominate in a given laboratory situ
 ---
 
 
-# 4. Atoms in electric fields — quadratic Stark effect
+# 4.5.4. Atoms in electric fields — quadratic Stark effect
 
 The interaction of an atom with a static electric field $\vec{\mathcal E}$ is given by
 
@@ -620,7 +620,7 @@ $$
 
 ---
 
-## 4.1 Perturbation theory setup
+## 4.5.4.1 Perturbation theory setup
 
 We apply time-independent perturbation theory in the basis of hydrogen eigenstates $|n,\ell,m\rangle$. The first- and second-order energy corrections are
 
@@ -635,7 +635,7 @@ $$
 
 ---
 
-## 4.2 Why the first order vanishes
+## 4.5.4.2 Why the first order vanishes
 
 For hydrogen eigenstates, the expectation value $\langle n\ell m| z |n\ell m\rangle$ vanishes.  
 This can be seen in two ways:
@@ -648,7 +648,7 @@ Therefore, $\Delta E^{(1)}=0$ for all $|n,\ell,m\rangle$ eigenstates.
 
 ---
 
-## 4.3 Second-order shift and dipole matrix elements
+## 4.5.4.3 Second-order shift and dipole matrix elements
 
 The leading Stark effect is therefore quadratic, arising from the second-order term. It depends on dipole matrix elements of the form $\langle n'\ell' m'| z |n\ell m\rangle$, which connect states of opposite parity ($\ell'=\ell\pm 1$). These terms encode the atom’s ability to be polarized by the field.
 
@@ -679,7 +679,7 @@ the energy correction involves $|\langle\cdot|z|\cdot\rangle|^2\mathcal E^2$.
 
 ---
 
-## 4.4 Result for hydrogen ground state
+## 4.5.4.4 Result for hydrogen ground state
 
 For the hydrogen ground state ($1s$), the quadratic Stark shift can be summarized as
 
@@ -697,7 +697,7 @@ with $a_0$ the Bohr radius. In SI units, $\alpha$ may be converted to J/(V/m)$^2
 
 ---
 
-## 4.5 Order of magnitude estimate
+## 4.5.4.5 Order of magnitude estimate
 
 For a field of $\mathcal E=10^6\ \mathrm{V/m}$ (a large laboratory field) the shift is tiny:
 

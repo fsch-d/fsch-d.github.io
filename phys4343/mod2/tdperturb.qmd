@@ -1,5 +1,5 @@
 ---
-title: "Time-Dependent Perturbation Theory and Fermi's Golden Rule"
+title: 2.8 Time-Dependent Perturbation Theory and Fermi's Golden Rule
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -115,7 +115,7 @@ The detailed algebra leading from the time-dependent Schrödinger equation to th
 ::::
 
 
-# 1. The Basic Problem
+# 2.8.1. The Basic Problem
 
 Suppose that the Hamiltonian consists of a solvable time-independent part and a weak time-dependent perturbation,
 
@@ -152,7 +152,7 @@ A time-dependent perturbation can instead transfer amplitude between different u
 This is qualitatively different from time-independent perturbation theory. There we determine how stationary eigenstates and energies are modified. Here we are interested primarily in **transitions between states**.
 
 
-# 2. Expansion in the Unperturbed Basis
+# 2.8.2. Expansion in the Unperturbed Basis
 
 Because the eigenstates of $\hat H_0$ form a basis, we write the general time-dependent state as
 
@@ -188,7 +188,7 @@ P_n(t)=|c_n(t)|^2.
 $$
 
 
-## 2.1 Equation of motion for the coefficients
+## 2.8.2.1 Equation of motion for the coefficients
 
 Substituting the expansion into the time-dependent Schrödinger equation gives
 
@@ -328,7 +328,7 @@ produces the form used in the main text.
 ::::
 
 
-# 3. First-Order Time-Dependent Perturbation Theory
+# 2.8.3. First-Order Time-Dependent Perturbation Theory
 
 Suppose the system is initially prepared in one unperturbed eigenstate $\ket{i}$,
 
@@ -396,7 +396,7 @@ Two ingredients determine whether a transition is likely:
    which determines how contributions at different times add together.
 
 
-# 4. An Oscillating Perturbation and Resonance
+# 2.8.4. An Oscillating Perturbation and Resonance
 
 Many important perturbations are periodic. For example, interaction with monochromatic light produces terms oscillating with the field frequency.
 
@@ -606,7 +606,7 @@ $$
 
 ::::
 
-## 4.1 Finite interaction time
+## 2.8.4.1 Finite interaction time
 
 For a finite interaction time, the resonance is not infinitely narrow. The function
 
@@ -849,7 +849,7 @@ In the atom--radiation problem, the two signs correspond to processes in which t
 ::::
 
 
-# 5. From Transition Probability to Fermi's Golden Rule
+# 2.8.5. From Transition Probability to Fermi's Golden Rule
 
 For a single discrete final state, the finite-time probability above is the appropriate first-order result.
 
@@ -878,7 +878,7 @@ $$
 $$
 
 
-## 5.1 The long-time limit
+## 2.8.5.1 The long-time limit
 
 The central mathematical result is
 
@@ -923,7 +923,7 @@ $$
 and the coefficient of $t$ defines a transition rate.
 
 
-## 5.2 Fermi's Golden Rule
+## 2.8.5.2 Fermi's Golden Rule
 
 Carrying out the integral over final states gives
 
@@ -1097,7 +1097,7 @@ evaluated at the energy-conserving final energy.
 ::::
 
 
-# 6. When Does the Golden Rule Apply?
+# 2.8.6. When Does the Golden Rule Apply?
 
 Fermi's Golden Rule is extremely useful, but it is an approximation.
 
@@ -1140,7 +1140,7 @@ A coherently driven isolated two-level system instead exhibits **Rabi oscillatio
 ::::
 
 
-# 7. Connection to Atomic Transitions
+# 2.8.7. Connection to Atomic Transitions
 
 The formalism developed here is general. To apply it to absorption or emission of radiation, we must identify the perturbation that couples an atom to the electromagnetic field.
 

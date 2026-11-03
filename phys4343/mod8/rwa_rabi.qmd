@@ -1,5 +1,5 @@
 ---
-title: "Rotating Wave Approximation and Rabi Oscillations"
+title: 8.2 Rotating Wave Approximation and Rabi Oscillations
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -27,7 +27,7 @@ This framework forms the conceptual and mathematical foundation for much of **qu
 
 ---
 
-# 1. The Rotating-Wave Approximation (RWA)
+# 8.2.1. The Rotating-Wave Approximation (RWA)
 
 Before diving into the details, let us recall that the *Rotating-Wave Approximation* (RWA) is one of the most powerful simplifications in quantum optics. 
 It allows us to focus on the **slow, resonant dynamics** of a system while neglecting rapidly oscillating, non-resonant terms that average out over time. 
@@ -35,7 +35,7 @@ We begin by constructing the Hamiltonian for a two-level atom interacting with a
 
 ---
 
-## 1.1 Two-Level System Coupled to a Classical Field
+## 8.2.1.1 Two-Level System Coupled to a Classical Field
 
 We consider an atom (or any quantum two-level system) with a **ground state** $\ket{g}$ and an **excited state** $\ket{e}$.  
 The atomic Hamiltonian is
@@ -172,7 +172,7 @@ This transformation will also expose terms oscillating at $\omega_L \pm \omega_0
 
 ---
 
-## 1.2 Transformation to a Rotating Frame
+## 8.2.1.2 Transformation to a Rotating Frame
 
 So far, the coefficients $c_e(t)$ and $c_g(t)$ in our Schrödinger equation still carry the **rapid phase oscillations** associated with the stationary atomic energies $\pm \hbar \omega_0 / 2$. 
 It is convenient to remove this trivial time dependence by moving into a *rotating frame* that follows the free evolution of the atom. 
@@ -328,7 +328,7 @@ Substituting this back yields the rotating-frame Schrödinger equation quoted ab
 
 ---
 
-## 1.3 Physical Interpretation and Meaning of the Rotating Frame
+## 8.2.1.3 Physical Interpretation and Meaning of the Rotating Frame
 
 The representation in the rotating frame clarifies the time scales present in the interaction. Before analyzing those time scales, it is helpful to recall what the unitary transformation does physically and how the two representations relate.
 
@@ -364,7 +364,7 @@ When the drive is near resonance ($\omega_L \approx \omega_0$), the first term v
 
 ---
 
-## 1.4 The Rotating-Wave Approximation (RWA)  {#sec-rwa}
+## 8.2.1.4 The Rotating-Wave Approximation (RWA)  {#sec-rwa}
 
 The **rotating-wave approximation (RWA)** consists of neglecting the *counter-rotating* terms oscillating at $\omega_L+\omega_0$ (and similar fast combinations) in @eq-serot, yielding
 
@@ -467,7 +467,7 @@ Together, these transformations and approximations isolate the essential resonan
 
 ---
 
-# 2. Solutions in the RWA: Rabi oscillations and dressed states
+# 8.2.2. Solutions in the RWA: Rabi oscillations and dressed states
 
 In the previous section we have derived the equations of motion for a two-level atom interacting coherently with a near-resonant field, expressed in the rotating-wave approximation (RWA). We now turn to their solutions. 
 This section provides both a direct time-domain solution for the population dynamics and a more general perspective in terms of *dressed states*. 
@@ -475,7 +475,7 @@ Before discussing the energy structure, we start with the simplest yet fundament
 
 ---
 
-## 2.1 Resonant case: $\delta=0$ and Rabi oscillations {#sec-rabires}
+## 8.2.2.1 Resonant case: $\delta=0$ and Rabi oscillations {#sec-rabires}
 
 Set $\delta=0$ in @eq-serwarotl. For simplicity we also take $\Omega_0$ real (one can always absorb a global phase into the definition of $\ket{g}$ or $\ket{e}$).
 
@@ -537,7 +537,7 @@ However, the effects of spontaneous decay still remain to be included in this mo
 
 ---
 
-## 2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer {#sec-offresrabi}
+## 8.2.2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer {#sec-offresrabi}
 
 For the general case of nonzero detuning $\delta\neq 0$ and (again) constant $\Omega_0$ (possibly complex, with phase conventions fixed later), the exact solution of @eq-serwarotl for arbitrary initial amplitudes $C_e(0)$ and $C_g(0)$ is given by (see box below for proof)
 
@@ -720,7 +720,7 @@ plt.close()
 
 ---
 
-## 2.3 Dressed states, Autler–Townes splitting, and AC–Stark shift
+## 8.2.2.3 Dressed states, Autler–Townes splitting, and AC–Stark shift
 
 We now examine the eigenenergies of the coupled two-level system. 
 In the frame rotating with the laser frequency, the energies correspond to the eigenvalues $E_\pm$ of the Hamiltonian appearing in @eq-serwarotl. 
@@ -971,7 +971,7 @@ $$
 
 ---
 
-# 3. Physical consequences and applications
+# 8.2.3. Physical consequences and applications
 
 In the previous sections we derived how a two-level atom interacts coherently with a near-resonant optical field, obtained explicit time-dependent solutions for the amplitudes, and analyzed the corresponding energy structure in terms of dressed states. 
 The mathematical formalism developed there — Rabi oscillations, detuning, and light-induced energy shifts — now allows us to understand a broad range of physical effects and experimental techniques in atomic, molecular, and optical physics.
@@ -981,7 +981,7 @@ The goal is to connect the abstract theory to measurable phenomena: how precisel
 
 ---
 
-## 3.1 Pulse area control: coherent state preparation
+## 8.2.3.1 Pulse area control: coherent state preparation
 
 From the analytic solutions we saw that the system’s evolution depends on the *pulse area*
 
@@ -1003,7 +1003,7 @@ Thus, control of the pulse area translates mathematical parameters like $\Omega_
 
 ---
 
-## 3.2 Optical dipole traps and lattices
+## 8.2.3.2 Optical dipole traps and lattices
 
 Even when the driving laser is far detuned from resonance, the coupling still induces an energy shift of the atomic levels. 
 For red detuning ($\delta < 0$), the shift of the ground-state energy is (see @eq-acstark)
@@ -1030,7 +1030,7 @@ The underlying principle — the AC-Stark shift discussed earlier — thus conne
 
 ---
 
-## 3.3 Spectroscopic manifestation: Autler–Townes splitting
+## 8.2.3.3 Spectroscopic manifestation: Autler–Townes splitting
 
 The dressed-state picture derived in Section 2 also predicts clear and observable signatures in spectroscopy. 
 If a strong coupling laser drives one transition of an atom, and a weak probe laser scans across the same resonance, the probe no longer sees a single absorption line. 
@@ -1057,7 +1057,7 @@ These effects bridge fundamental quantum dynamics with observable phenomena in l
 
 ---
 
-# 4. Limitations of the RWA and beyond
+# 8.2.4. Limitations of the RWA and beyond
 
 Up to this point we have used the **rotating-wave approximation (RWA)** to simplify the atom–field interaction. 
 This approximation neglects the rapidly oscillating counter-rotating terms in the interaction Hamiltonian, retaining only those that vary slowly in the rotating frame. 
@@ -1074,7 +1074,7 @@ Most experiments in atomic, molecular, and optical physics fall safely within th
 
 ---
 
-## 4.1 Breakdown of the RWA: counter-rotating effects
+## 8.2.4.1 Breakdown of the RWA: counter-rotating effects
 
 When the driving field becomes extremely strong or very short in duration, the neglected terms begin to play a role. 
 In the full interaction Hamiltonian (before applying the RWA), one encounters contributions proportional to $\exp[\pm i(\omega_0+\omega_L)t]$, which oscillate at *sum frequencies* rather than near-resonant differences. 
@@ -1094,7 +1094,7 @@ These effects signal that the atom responds not only to the resonant component o
 
 ---
 
-## 4.2 Fully quantum description: the Jaynes–Cummings model
+## 8.2.4.2 Fully quantum description: the Jaynes–Cummings model
 
 So far, the field has been treated classically as an oscillating electromagnetic wave. 
 To describe situations involving single photons, spontaneous emission, or entanglement between atoms and light, we must quantize the field. 
@@ -1117,7 +1117,7 @@ Such effects represent the natural continuation of the ideas developed under the
 
 ---
 
-## 4.3 Summary
+## 8.2.4.3 Summary
 
 The rotating-wave approximation is one of the most powerful simplifications in light–matter theory. 
 It distills the essential resonant dynamics into a tractable form and accurately describes a vast range of optical phenomena. 

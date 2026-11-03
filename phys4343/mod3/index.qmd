@@ -1,5 +1,5 @@
 ---
-title: "Hydrogen Atom: Wave Functions"
+title: '3 Hydrogen Atom: Wave Functions'
 author: Daniel Fischer
 ---
 

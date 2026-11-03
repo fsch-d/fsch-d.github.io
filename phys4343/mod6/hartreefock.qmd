@@ -1,5 +1,5 @@
 ---
-title: Calculations for Multielectron Atoms
+title: 6.3 Calculations for Multielectron Atoms
 author: Daniel Fischer
 ---
 
@@ -21,7 +21,7 @@ Two main possibilities exist for treating multielectron atoms:
 
 In this chapter, we discuss several approximation methods that provide physical insight into the electronic structure of atoms. Each method represents a different balance between accuracy and computational simplicity, and understanding these approximations is essential for interpreting atomic spectra and chemical properties.
 
-# 1. The Independent Electron Model
+# 6.3.1. The Independent Electron Model
 
 The independent electron model is the simplest approximation for treating multielectron atoms. It provides a foundation for understanding more sophisticated methods while already capturing essential physics.
 
@@ -39,14 +39,14 @@ $$\psi(\vec{r}_i) = R(r_i) Y_{\ell m}(\theta_i, \phi_i)$$
 
 where the radial part $R(r_i)$ and the angular part $Y_{\ell m}$ (spherical harmonics) are separated. The solutions (eigenenergies $E_i(n_i, \ell_i, m_i, m_{s_i})$) depend on the same quantum numbers as hydrogen, but the actual values differ because the effective potential differs from the pure Coulomb potential.
 
-## 1.1 Key Features of the Independent Electron Model
+## 6.3.1.1 Key Features of the Independent Electron Model
 
 - The angular part is identical to the Coulomb-potential case (hydrogen-like), preserving the spherical symmetry of the problem  
 - The radial part depends on the effective potential and must be determined for each specific atom  
 - Solutions maintain the same quantum number structure as hydrogen: principal quantum number $n$, orbital angular momentum $\ell$, magnetic quantum number $m$, and spin $m_s$  
 - The effective potential approach transforms an intractable many-body problem into $N$ solvable one-body problems
   
-## 1.2 Example: A "Reasonable" Effective Potential (Electrostatic Case)
+## 6.3.1.2 Example: A "Reasonable" Effective Potential (Electrostatic Case)
 
 To make the independent electron model concrete, we need to specify what constitutes a "reasonable" effective potential. Consider the electrostatic case where we construct the potential from first principles.
 
@@ -79,7 +79,7 @@ This formulation reveals an inherent self-consistency requirement: the effective
 
 
 
-# 2. The Hartree–Fock Method
+# 6.3.2. The Hartree–Fock Method
 
 The **Hartree–Fock method** refines the independent-electron approach by determining the effective potential *self-consistently*. Instead of assuming a fixed average potential, we now **iteratively** solve for both the potential and the electron wave functions until they are mutually consistent.
 
@@ -87,7 +87,7 @@ In essence, the method enforces that each electron moves in the *average field c
 
 ---
 
-## 2.1 The Ansatz
+## 6.3.2.1 The Ansatz
 
 We start by guessing a spherically symmetric effective potential for a single electron:
 
@@ -103,7 +103,7 @@ The idea is that near the nucleus, the electron experiences the full nuclear cha
 
 ---
 
-## 2.2 Visualizing the Effective Potential
+## 6.3.2.2 Visualizing the Effective Potential
 
 The diagram below compares the Coulomb potential for different nuclear charges and a **screened potential** that transitions smoothly between them.
 
@@ -156,7 +156,7 @@ As expected:
 ---
 
 
-## 2.3 Self-Consistent Iteration
+## 6.3.2.3 Self-Consistent Iteration
 
 Once an initial potential $\phi^{(0)}(\vec{r})$ is chosen, we solve the one-electron Schrödinger equation:
 
@@ -232,7 +232,7 @@ flowchart TD
 
 ---
 
-## 2.4 The Exchange Term (Fock Correction)
+## 6.3.2.4 The Exchange Term (Fock Correction)
 
 The iterative procedure described so far is the Hartree method, and the wave function is constructed as a simple product of single-electron functions
 
@@ -264,7 +264,7 @@ This antisymmetrization introduces an additional **exchange interaction** term �
 
 ---
 
-## 2.5 Summary of the Hartree–Fock Scheme
+## 6.3.2.5 Summary of the Hartree–Fock Scheme
 
 1. **Start** with an initial guess for the potential $\phi^{(0)}(\vec{r})$.  
 2. **Solve** the one-electron Schrödinger equation to obtain orbitals $\psi_i^{(0)}$.  
@@ -280,7 +280,7 @@ This antisymmetrization introduces an additional **exchange interaction** term �
 
 
 
-# 3. Configuration Interaction
+# 6.3.3. Configuration Interaction
 
 The **Hartree–Fock method** provides a powerful mean-field description of multielectron atoms. However, it neglects **electron correlation**, i.e., the instantaneous interaction between electrons beyond the averaged Coulomb potential. To improve upon this, we can go beyond a single Slater determinant and express the total wave function as a **linear combination of multiple determinants**, each representing a different electron configuration:
 
@@ -297,7 +297,7 @@ It systematically includes *mixing* between different configurations, allowing t
 
 ---
 
-## 3.1 Energy Calculation
+## 6.3.3.1 Energy Calculation
 
 To find the energy associated with this mixed wavefunction, we insert the expansion into the expectation value of the Hamiltonian:
 
@@ -332,7 +332,7 @@ This procedure allows configurations to mix in a way that lowers the total energ
 
 ---
 
-# 4. Summary
+# 6.3.4. Summary
 
 The theoretical treatment of multielectron atoms requires a hierarchy of approximations that balance **accuracy** and **computational effort**:
 

@@ -1,5 +1,5 @@
 ---
-title: The Lamb Shift — An Introduction to Quantum Electrodynamics
+title: 4.2 The Lamb Shift — An Introduction to Quantum Electrodynamics
 author: Daniel Fischer
 ---
 
@@ -213,9 +213,9 @@ with open(os.devnull, 'w') as FNULL:
 
 
 
-# 1. Historical Background
+# 4.2.1. Historical Background
 
-## 1.1 The Lamb–Retherford Experiment
+## 4.2.1.1 The Lamb–Retherford Experiment
 
 In 1947, **Willis Lamb** and **Robert Retherford** carried out a groundbreaking experiment at Columbia University that revealed a subtle but profound flaw in the then-current understanding of atomic structure.  
 
@@ -399,7 +399,7 @@ In summary, the setup combines a **source of atomic hydrogen**, **excitation to 
 
 ---
 
-## 1.2 Theoretical Challenges
+## 4.2.1.2 Theoretical Challenges
 
 Physicists quickly realized that explaining the Lamb shift required a fully **quantum field theoretical** treatment, where the electron interacts with a quantized electromagnetic field. However, when theorists attempted such calculations, they encountered serious problems: the integrals describing electron–photon interactions diverged to infinity.  
 
@@ -407,7 +407,7 @@ This was alarming—if taken at face value, it would mean that quantum electrody
 
 ---
 
-## 1.3 Renormalization and the Birth of QED
+## 4.2.1.3 Renormalization and the Birth of QED
 
 The breakthrough came through the work of several theorists, including **Hans Bethe, Julian Schwinger, Richard Feynman, Sin-Itiro Tomonaga,** and later **Freeman Dyson**, who clarified and unified the emerging ideas.  
 
@@ -419,20 +419,20 @@ This renormalization procedure transformed QED from a seemingly hopeless theory 
 
 ---
 
-## 1.4 Legacy
+## 4.2.1.4 Legacy
 
 The successful explanation of the Lamb shift was a decisive victory for quantum field theory and marked the **birth of modern QED**. Since then, QED has become the most precisely tested theory in science: its predictions, such as the anomalous magnetic moment of the electron, have been confirmed to extraordinary accuracy (better than one part in $10^{12}$).  
 
 The Lamb shift thus stands not only as an experimental milestone but also as the historical bridge between early quantum mechanics and the modern quantum field theories that underpin our current understanding of fundamental physics.
 
 
-# 2. Feynman diagrams — picturing QED processes
+# 4.2.2. Feynman diagrams — picturing QED processes
 
 Feynman diagrams are a graphical shorthand used in quantum electrodynamics (QED) and other quantum field theories to represent terms in the perturbative expansion of interaction amplitudes. They serve as visual mnemonics: lines correspond to particles propagating through spacetime, and vertices represent interactions where particles meet and exchange energy or momentum.  
 
 
 
-## 2.1 Basic elements
+## 4.2.2.1 Basic elements
 
 - **Electron (fermion) propagator**:  
   A straight line with an arrow pointing **forward in time** (usually drawn upward or left-to-right) represents an electron moving through spacetime.
@@ -466,7 +466,7 @@ Feynman diagrams are a graphical shorthand used in quantum electrodynamics (QED)
 
 ---
 
-## 2.2 Examples
+## 4.2.2.2 Examples
 
 Feynman diagrams are not just abstract symbols — they represent real processes that can be measured:
 
@@ -482,11 +482,11 @@ Feynman diagrams are not just abstract symbols — they represent real processes
 ![](annihil.svg){fig-alt="The Feynman diagram of electron-positron annihilation." fig-align="center" width=30%}
 
 
-# 3. Physical origins of the Lamb shift
+# 4.2.3. Physical origins of the Lamb shift
 
 The Lamb shift arises from subtle quantum effects beyond the Dirac equation. These effects require the framework of quantum electrodynamics (QED), where both matter and the electromagnetic field are quantized. Several physical mechanisms contribute:
 
-## 3.1 Electron self-energy
+## 4.2.3.1 Electron self-energy
 The electron is not a point particle moving through empty space — it constantly interacts with its own electromagnetic field. In QED, this appears as the electron emitting and then reabsorbing a **virtual photon**.  
 
 This process alters the effective mass and binding energy of the electron, leading to small shifts in the energy levels. The effect is stronger for states where the electron wavefunction has significant probability density near the nucleus, such as the $2s_{1/2}$ state in hydrogen.  
@@ -501,7 +501,7 @@ Self-energy of a bound electron is represented by a **double line** (electron in
 
 ---
 
-## 3.2 Vacuum polarization
+## 4.2.3.2 Vacuum polarization
 The vacuum in QED is not empty: quantum fluctuations continually create and annihilate **virtual electron–positron pairs**. A real or virtual photon propagating through the vacuum can briefly convert into such a pair before recombining.  
 
 This changes the effective photon propagator, which in turn modifies the Coulomb potential between the nucleus and electron. The result is a slight *screening* of the nuclear charge, which again shifts atomic energy levels.  
@@ -515,14 +515,14 @@ Vacuum polarization is represented by a photon line that develops a closed elect
 
 ---
 
-## 3.3 Finite nuclear size
+## 4.2.3.3 Finite nuclear size
 So far, we have treated the nucleus as a pointlike particle producing a Coulomb potential. In reality, nuclei have a finite spatial extension, with a charge distribution that smears out the potential at very short distances.  
 
 For $s$-states, whose wavefunctions penetrate the nucleus, this modification alters the energy levels. While not a QED effect, it is always included in Lamb shift analyses, particularly for heavy nuclei.
 
 ---
 
-## 3.4 Higher-order QED contributions
+## 4.2.3.4 Higher-order QED contributions
 The Feynman diagrams discussed so far represent the leading-order QED corrections (lowest powers of the fine-structure constant $\alpha$). In practice, higher-order diagrams — involving multiple photon exchanges, loops, or vertex corrections — also contribute.  
 
 ![](SSEE.svg){fig-alt="Second order self energy Feynman diagram." fig-align="center" width=30%}

@@ -1,5 +1,5 @@
 ---
-title: "The One-Dimensional Quantum Harmonic Oscillator"
+title: 2.6 The One-Dimensional Quantum Harmonic Oscillator
 author: Daniel Fischer
 ---
 
@@ -23,7 +23,7 @@ In this chapter, we focus on the **algebraic method**, which introduces concepts
 
 ---
 
-# 1. The Hamiltonian, Ladder , and Number Operators
+# 2.6.1. The Hamiltonian, Ladder , and Number Operators
 
 The one-dimensional harmonic oscillator describes a particle of mass $m$ moving in a quadratic potential:
 
@@ -39,7 +39,7 @@ $$
 
 ---
 
-## 1.1 The Ladder Operators
+## 2.6.1.1 The Ladder Operators
 
 To simplify the algebra, we introduce **ladder operators** (also called **annihilation** and **creation** operators):
 
@@ -123,7 +123,7 @@ $$ {#eq-a}
 
 ---
 
-## 1.2 The Number Operator
+## 2.6.1.2 The Number Operator
 
 We introduce the **number operator**
 
@@ -212,7 +212,7 @@ $$
 
 ---
 
-# 2. Energy Eigenvalues
+# 2.6.2. Energy Eigenvalues
 
 Let $|n\rangle$ be an energy eigenstate of the oscillator, defined by:
 
@@ -273,7 +273,7 @@ Therefore, every energy eigenstate must correspond to $\hat{N}$ eigenvalue $n \i
 
 ---
 
-# 3. Finding the Wavefunctions
+# 2.6.3. Finding the Wavefunctions
 
 To find the explicit forms of the wavefunctions, we can apply the lowering operator definition to the coordinate representation.
 
@@ -441,7 +441,7 @@ plt.show()
 
 ---
 
-# 4. Coherent States
+# 2.6.4. Coherent States
 
 Although our focus is the stationary states of the harmonic oscillator, there exists a special class of **non-stationary states** — the **coherent states** — that behave most like classical oscillations.
 

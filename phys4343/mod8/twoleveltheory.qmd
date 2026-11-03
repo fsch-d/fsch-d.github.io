@@ -1,5 +1,5 @@
 ---
-title: "Two-Level Systems — The Theoretical Framework"
+title: 8.1 Two-Level Systems — The Theoretical Framework
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -13,7 +13,7 @@ They provide a minimal yet powerful platform for studying the **dynamics of cohe
 
 ---
 
-# 1. Two-Level Systems
+# 8.1.1. Two-Level Systems
 
 We consider an atom with a ground state $\ket{g}$ and an excited state $\ket{e}$, which are eigenstates of the atomic Hamiltonian $\hat{H}_A$, satisfying the time-independent Schrödinger equation:
 
@@ -43,7 +43,7 @@ Here, $|c_e(t)|^2$ and $|c_g(t)|^2$ represent the probabilities to find the syst
 
 ---
 
-## 1.1 Matrix Representation
+## 8.1.1.1 Matrix Representation
 
 Because the system is two-dimensional, we can represent the basis states as column vectors in $\mathbb{C}^2$:
 
@@ -84,7 +84,7 @@ $${#eq-opmatrix}
 
 ---
 
-## 1.2 Operator Basis and Pauli Matrices
+## 8.1.1.2 Operator Basis and Pauli Matrices
 
 A convenient set of linearly independent operators for the two-level system is given by:
 
@@ -107,7 +107,7 @@ $$
 
 ---
 
-## 1.3 Physical Interpretation
+## 8.1.1.3 Physical Interpretation
 
 The action of these operators on the general state $\ket{\psi} = c_e\ket{e} + c_g\ket{g}$ is:
 
@@ -132,7 +132,7 @@ Hence:
 
 ---
 
-## 1.4 Commutation and Anticommutation Relations
+## 8.1.1.4 Commutation and Anticommutation Relations
 
 The Pauli operators satisfy the following relations:
 
@@ -150,7 +150,7 @@ $$
 
 ---
 
-## 1.5 Atomic Hamiltonian in Pauli Representation
+## 8.1.1.5 Atomic Hamiltonian in Pauli Representation
 
 Using the operator basis above, the atomic Hamiltonian can be rewritten as:
 

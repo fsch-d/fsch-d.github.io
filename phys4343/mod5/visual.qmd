@@ -1,5 +1,5 @@
 ---
-title: "Visualizing Atomic Transitions: Intuition, Superposition, and Interference"
+title: '5.3 Visualizing Atomic Transitions: Intuition, Superposition, and Interference'
 author: "Daniel Fischer"
 ---
 

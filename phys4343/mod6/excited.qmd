@@ -1,5 +1,5 @@
 ---
-title: Excitation and Ionization
+title: 6.6 Excitation and Ionization
 author: Daniel Fischer
 ---
 
@@ -24,7 +24,7 @@ Instead, we will focus on a few **simple but representative scenarios** that ill
 
 ---
 
-# 1. Single-Electron Excitation
+# 6.6.1. Single-Electron Excitation
 
 In many atoms, low-lying excited configurations can be described as **single-electron excitations**: 
 one electron is promoted to a higher orbital while the rest of the atom remains in its ground-state configuration. 
@@ -37,7 +37,7 @@ However, because the electrons interact via the Coulomb force, changing the stat
 
 ---
 
-## 1.1 Example: Beryllium
+## 6.6.1.1 Example: Beryllium
 
 Beryllium provides a simple example. 
 Its **ground-state configuration** is:
@@ -57,7 +57,7 @@ The lowest **singly excited configurations** involve promoting one of the $2s$ e
 
 ---
 
-## 1.2 Typical Lifetimes of Excited States
+## 6.6.1.2 Typical Lifetimes of Excited States
 
 The **lifetime** of an excited state is inversely proportional to its **radiative decay rate** $A_{21}$:
 
@@ -86,7 +86,7 @@ Thus, the long lifetimes of Rydberg states arise not simply from the $1/n^2$ ene
 
 ---
 
-## 1.3 Metastable States
+## 6.6.1.3 Metastable States
 
 Some excited states have **very long lifetimes** because the lowest-order (electric-dipole) transitions to lower levels are **forbidden** by the selection rules.  As a result, decay must proceed via **higher-order** processes (magnetic dipole, electric quadrupole, or even two-photon transitions), or via weak mixing with allowed states — all of which lead to much smaller transition rates and therefore long lifetimes.
 
@@ -103,7 +103,7 @@ In some special cases, such as metastable helium, these long-lived states can al
 
 ---
 
-# 2. Doubly Excited States
+# 6.6.2. Doubly Excited States
 
 An atom is said to be **doubly excited** when *two* of its electrons are promoted from their ground-state configuration. 
 Such configurations reveal strong **electron–electron correlations**, since both excited electrons interact not only with the ionic core but also strongly with each other. 
@@ -112,7 +112,7 @@ They represent an important step beyond the **independent-electron model** intro
 ---
 
 
-## 2.1 Example: Doubly Excited States in Beryllium
+## 6.6.2.1 Example: Doubly Excited States in Beryllium
 
 We have already encountered **beryllium (Be)** in the previous section, where single-electron excitations could be described fairly well within the **independent-electron approximation**. 
 However, this picture begins to fail when *two* electrons are excited simultaneously. 
@@ -174,7 +174,7 @@ Approximate energy ordering (in eV, relative to the ground state):
 
 ---
 
-## 2.2 Radiative Decay Channels
+## 6.6.2.2 Radiative Decay Channels
 
 **Doubly excited states** lying *below* the first ionization threshold decay **radiatively** back to the ground state.
 
@@ -191,7 +191,7 @@ Their decay therefore proceeds only via **spin-forbidden intercombination transi
 
 ---
 
-## 2.3 Autoionization
+## 6.6.2.3 Autoionization
 
 When a **doubly excited state** lies *above* the first ionization threshold, it becomes energetically unstable with respect to electron emission. 
 In such cases, the atom can decay by transferring energy from one excited electron to the other—causing one electron to relax while the other escapes to the continuum. 
@@ -454,7 +454,7 @@ plt.show()
 
 ```
 
-## 2.4 Core Holes and Auger Decay
+## 6.6.2.4 Core Holes and Auger Decay
 
 While autoionization involves energy transfer between two *excited* electrons, a closely related process occurs after **inner-shell ionization** or **core excitation**. 
 When an inner-shell electron (for instance, from the $1s$ orbital) is removed or excited, a **core hole** is created. 

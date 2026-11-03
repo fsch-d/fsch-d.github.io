@@ -1,12 +1,11 @@
 project:
   type: website
   resources:
-    - manifest.webmanifest
-    - sw.js
-    - icons/
-
+  - manifest.webmanifest
+  - sw.js
+  - icons/
 website:
-  title: "Introduction into Atomic, Molecular, and Optical Physics"
+  title: Introduction into Atomic, Molecular, and Optical Physics
   site-url: https://fsch-d.github.io/
   page-navigation: true
   back-to-top-navigation: true
@@ -15,104 +14,132 @@ website:
   favicon: icons/icon-192.png
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: contents.qmd
-        text: Contents
-      - href: about.qmd
-        text: About
+    - href: index.qmd
+      text: Home
+    - href: contents.qmd
+      text: Contents
+    - href: about.qmd
+      text: About
   reader-mode: true
   sidebar:
-    style: "floating"
+    style: floating
     collapse-level: 1
     search: true
     contents:
-      - text: "Home"
-        href: index.qmd
-#      - section: "Basics"
-#        href: basics-summary.qmd
-#        contents:
-#          - index.qmd
-#          - basics-knitr.qmd
-#          - basics-jupyter.qmd
-      - text: "From Classical Physics to the Quantum World of Atoms"
-        href: mod1/index.qmd
-      - section: "Quantum Mechanics"
-        href: mod2/index.qmd
-        contents:
-          - mod2/wavemechanics.qmd
-          - mod2/braket.qmd
-          - mod2/measurement.qmd
-          - mod2/heisenberg.qmd
-          - mod2/amcoupling.qmd
-          - mod2/qosc.qmd
-          - mod2/perturb.qmd
-          - mod2/tdperturb.qmd
-          - mod2/variational.qmd
-          - mod2/exchange.qmd
-          - mod4/relwaves.qmd            
-      - section: "Hydrogen Atom: Wave Functions"
-        href: mod3/index.qmd
-        contents:
-          - mod3/angmom.qmd
-          - mod3/hydrogen.qmd
-          - mod3/orbitals.qmd
-      - section: "Hydrogen Atom: Shifts and Interactions"
-        href: mod4/index.qmd
-        contents:
-          - mod4/spin.qmd
-          - mod4/lamb.qmd
-          - mod4/hfs.qmd
-          - mod4/summary.qmd
-          - mod4/fields.qmd
-      - section: "Absorption and Emission of Radiation"
-        href: mod5/index.qmd
-        contents:
-          - mod5/einstein.qmd
-          - mod5/spontaneous.qmd
-          - text: "Visualizing Atomic Transitions"
-            href: mod5/visual.qmd
-          - mod5/selectionr.qmd
-          - mod5/spectroscopy.qmd
-          - mod5/dopplerfree.qmd
-      - section: "More than One Electron Atoms"
-        href: mod6/index.qmd
-        contents:
-          - mod6/helium.qmd
-          - mod6/twoelectron.qmd
-          - mod6/hartreefock.qmd
-          - mod6/manye.qmd
-          - mod6/coupling.qmd
-          - mod6/excited.qmd
-      - section: "Introduction to Molecular Physics"   
-        href: mod7/index.qmd
-        contents:
-          - mod7/molfound.qmd
-          - mod7/h2plus.qmd
-          - mod7/lcao.qmd
-          - mod7/beyondh2plus.qmd
-          - mod7/nuclear.qmd
-          - mod7/moltransitions.qmd
-      - section: "Laser–Atom Interactions"   
-        href: mod8/index.qmd
-        contents:
-          - mod8/twoleveltheory.qmd
-          - mod8/rwa_rabi.qmd
-          - mod8/densitym.qmd
-          - mod8/obe.qmd
-          - mod8/cooling.qmd
-          - mod8/bloch.qmd
-          - mod8/ramsey.qmd
-
-
-#      - section: advanced.qmd
-#        contents:
-#          - raw-code.qmd
-#          - custom-theme.qmd
-#      - acknowledgment.qmd
-
+    - text: Home
+      href: index.qmd
+    - text: 1 From Classical Physics to the Quantum World of Atoms
+      href: mod1/index.qmd
+    - section: 2 Quantum Mechanics
+      href: mod2/index.qmd
+      contents:
+      - href: mod2/wavemechanics.qmd
+        text: 2.1 Wave Mechanics
+      - href: mod2/braket.qmd
+        text: 2.2 States and Operators in Quantum Mechanics
+      - href: mod2/measurement.qmd
+        text: 2.3 Quantum Measurement and the Measurement Problem
+      - href: mod2/heisenberg.qmd
+        text: 2.4 Commutators and the Heisenberg Uncertainty Principle
+      - href: mod2/amcoupling.qmd
+        text: 2.5 Angular Momenta and Their Couplings
+      - href: mod2/qosc.qmd
+        text: 2.6 The One-Dimensional Quantum Harmonic Oscillator
+      - href: mod2/perturb.qmd
+        text: 2.7 Time-Independent Perturbation Theory
+      - href: mod2/tdperturb.qmd
+        text: 2.8 Time-Dependent Perturbation Theory and Fermi's Golden Rule
+      - href: mod2/variational.qmd
+        text: 2.9 The Variational Method
+      - href: mod2/exchange.qmd
+        text: '2.10 Exchange Interaction: Fermions and Bosons'
+      - href: mod4/relwaves.qmd
+        text: 2.11 Relativistic Wave Equations — the Dirac Equation
+    - section: '3 Hydrogen Atom: Wave Functions'
+      href: mod3/index.qmd
+      contents:
+      - href: mod3/angmom.qmd
+        text: 3.1 Orbital Angular Momentum in Quantum Mechanics
+      - href: mod3/hydrogen.qmd
+        text: 3.2 Hydrogen atom — Schrödinger equation and radial solutions
+      - href: mod3/orbitals.qmd
+        text: 3.3 Visualizing Hydrogen Orbitals
+    - section: '4 Hydrogen Atom: Shifts and Interactions'
+      href: mod4/index.qmd
+      contents:
+      - href: mod4/spin.qmd
+        text: 4.1 Electron Spin and Fine Structure
+      - href: mod4/lamb.qmd
+        text: 4.2 The Lamb Shift — An Introduction to Quantum Electrodynamics
+      - href: mod4/hfs.qmd
+        text: 4.3 The Hyperfine Structure
+      - href: mod4/summary.qmd
+        text: 4.4 Summary — energy-level splitting
+      - href: mod4/fields.qmd
+        text: 4.5 Hydrogen in Static External Fields
+    - section: 5 Absorption and Emission of Radiation
+      href: mod5/index.qmd
+      contents:
+      - href: mod5/einstein.qmd
+        text: 5.1 Transition Processes and Einstein Coefficients
+      - href: mod5/spontaneous.qmd
+        text: 5.2 Spontaneous Decay and Atomic Transition Rates
+      - text: 5.3 Visualizing Atomic Transitions
+        href: mod5/visual.qmd
+      - href: mod5/selectionr.qmd
+        text: 5.4 Radiation and Selection Rules
+      - href: mod5/spectroscopy.qmd
+        text: 5.5 Spectroscopy and Spectral Line Widths
+      - href: mod5/dopplerfree.qmd
+        text: 5.6 Doppler-Free Saturation Spectroscopy
+    - section: 6 More than One Electron Atoms
+      href: mod6/index.qmd
+      contents:
+      - href: mod6/helium.qmd
+        text: 6.1 Helium (Basics)
+      - href: mod6/twoelectron.qmd
+        text: 6.2 Two-Electron States in Helium
+      - href: mod6/hartreefock.qmd
+        text: 6.3 Calculations for Multielectron Atoms
+      - href: mod6/manye.qmd
+        text: 6.4 Shell Model and Periodic Table
+      - href: mod6/coupling.qmd
+        text: 6.5 Angular Momentum Coupling in Many-Electron Atoms
+      - href: mod6/excited.qmd
+        text: 6.6 Excitation and Ionization
+    - section: 7 Introduction to Molecular Physics
+      href: mod7/index.qmd
+      contents:
+      - href: mod7/molfound.qmd
+        text: 7.1 Foundations of Molecular Bonding
+      - href: mod7/h2plus.qmd
+        text: 7.2 The H$_2^+$ Molecular Ion
+      - href: mod7/lcao.qmd
+        text: 7.3 Molecular Orbitals and the LCAO Method
+      - href: mod7/beyondh2plus.qmd
+        text: 7.4 Beyond H$_2^+$ and LCAO
+      - href: mod7/nuclear.qmd
+        text: 7.5 Rotation and Vibration
+      - href: mod7/moltransitions.qmd
+        text: 7.6 Molecular Transitions and Spectroscopy
+    - section: 8 Laser–Atom Interactions
+      href: mod8/index.qmd
+      contents:
+      - href: mod8/twoleveltheory.qmd
+        text: 8.1 Two-Level Systems — The Theoretical Framework
+      - href: mod8/rwa_rabi.qmd
+        text: 8.2 Rotating Wave Approximation and Rabi Oscillations
+      - href: mod8/densitym.qmd
+        text: 8.3 The Density Matrix Formalism
+      - href: mod8/obe.qmd
+        text: 8.4 The Optical Bloch Equations
+      - href: mod8/cooling.qmd
+        text: 8.5 Laser Cooling
+      - href: mod8/bloch.qmd
+        text: 8.6 The Bloch Sphere Representation
+      - href: mod8/ramsey.qmd
+        text: 8.7 Ramsey Spectroscopy and Atomic Clocks
 lightbox: true
-
 format:
   html:
     theme:
@@ -120,14 +147,10 @@ format:
       dark: darkly
     css: styles.css
     toc: true
-#    number-sections: true
-#    number-depth: 2
     code-fold: true
     embed-resources: false
     self-contained: false
     fig-alt: true
     html-math-method: mathjax
     include-in-header:
-      - file: pwa-head.html
-#    include-in-header:
-#      - file: delay-mathjax.js
+    - file: pwa-head.html

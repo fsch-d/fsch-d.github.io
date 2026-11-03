@@ -1,5 +1,5 @@
 ---
-title: Doppler-Free Saturation Spectroscopy
+title: 5.6 Doppler-Free Saturation Spectroscopy
 author: Daniel Fischer
 ---
 
@@ -125,7 +125,7 @@ with open(os.devnull, 'w') as FNULL:
 
 ---
 
-# 1. Laser Absorption in a Thermal Gas
+# 5.6.1. Laser Absorption in a Thermal Gas
 
 Let us consider a simple situation: a narrow-band laser beam passing through an atomic gas. We want to see how the **transmitted laser intensity** changes as we scan the laser frequency.  
 
@@ -504,7 +504,7 @@ $$
 
 ---
 
-# 2. Back-Reflecting the Laser Beam
+# 5.6.2. Back-Reflecting the Laser Beam
 
 In the previous section, we considered a single laser beam passing through the gas, which produced a Doppler-broadened absorption profile. Now, we introduce a simple but powerful modification: **back-reflecting the laser beam** so that it passes through the gas in the opposite direction.  
 
@@ -822,7 +822,7 @@ Use the slider to scan the laser frequency:
 
 ---
 
-# 3. Single Laser Beam Absorption of a Three-Level $\Lambda$ System
+# 5.6.3. Single Laser Beam Absorption of a Three-Level $\Lambda$ System
 
 Many atoms used in laser spectroscopy have **two hyperfine levels in the ground state**, forming a **three-level $\Lambda$ system** when combined with a single excited state. In this situation, a single laser interacts with one of the ground states, but the **population dynamics become more complex**.
 
@@ -1102,7 +1102,7 @@ display(HTML(html))
 
 ---
 
-# 4. Saturated Absorption and Crossover Peaks in a $\Lambda$ System {#sec-lambdaspec}
+# 5.6.4. Saturated Absorption and Crossover Peaks in a $\Lambda$ System {#sec-lambdaspec}
 
 When the laser is **back-reflected**, atoms with **small velocities along the beam axis** can interact with **both forward and backward beams simultaneously**. This leads to **narrow saturation features** within the Doppler-broadened profile, analogous to the Lamb dips in a two-level system.
 
@@ -1355,13 +1355,13 @@ display(HTML(html))
 ```
 
 
-### 4.1 Lamb dips
+### 5.6.4.1 Lamb dips
 
 - In the $\Lambda$ system, each hyperfine transition shows a Lamb dip at the corresponding resonance frequency.
 - **Due to velocity-dependent population pumping into dark states**, these dips are **less pronounced** than in a simple two-level system.
 - The dip depth and shape depend on experimental parameters such as laser intensity, atomic density, and interaction time.
 
-### 4.2 Crossover peak
+### 5.6.4.2 Crossover peak
 
 - Consider the example in the plot, with two hyperfine ground states $N_1$ and $N_2$:
 
@@ -1383,7 +1383,7 @@ display(HTML(html))
 
 ---
 
-# 5. Doppler-Free Spectroscopy on Lithium-7
+# 5.6.5. Doppler-Free Spectroscopy on Lithium-7
 
 In this section, we look at a concrete experimental example. In the laser-cooling laboratory at Missouri S&T, we use **Doppler-free saturation spectroscopy** on lithium to generate a precise frequency reference.
 
@@ -1394,7 +1394,7 @@ A small fraction of the laser light (the laser is enclosed in the blue box) is s
 ![Setup for Doppler-free saturation absorption spectroscopy of lithium at Missouri S&T.](lilaserspectr_small-fs8.png){fig-alt="Setup for Doppler-free saturation absorption spectroscopy of lithium at Missouri S&T." fig-align="center"}
 
 
-## 5.1 Experimental Data
+## 5.6.5.1 Experimental Data
 
 When the laser frequency is scanned across the resonance, the **photodiode signal**—proportional to the transmitted laser intensity—is recorded as a function of frequency.  
 
@@ -1462,7 +1462,7 @@ fig.show()
 
 
 
-## 5.2 Interpretation of the Experimental Data
+## 5.6.5.2 Interpretation of the Experimental Data
 
 In the experimental spectrum, two broad absorption features can be seen. The **left dip** corresponds to the $2\,^2S_{1/2} \rightarrow 2\,^2P_{1/2}$ transition (commonly referred to in spectroscopy as the **D1 line**), and the **right dip** corresponds to the $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ transition (the **D2 line**).  
 

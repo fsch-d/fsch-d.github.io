@@ -1,5 +1,5 @@
 ---
-title: Spectroscopy and Spectral Line Widths
+title: 5.5 Spectroscopy and Spectral Line Widths
 author: Daniel Fischer
 ---
 
@@ -18,7 +18,7 @@ By the end of this section students should understand the physical origin of lin
 
 ---
 
-# 1. Spectroscopy and Spectral Lines
+# 5.5.1. Spectroscopy and Spectral Lines
 
 In spectroscopy we measure the **energy difference between two atomic states** by detecting how atoms interact with light of frequency $\nu$. The resonance condition is
 $$
@@ -131,7 +131,7 @@ with open(os.devnull, 'w') as FNULL:
 
 ---
 
-## 1.1 Line Properties
+## 5.5.1.1 Line Properties
 
 A spectral line is not infinitely sharp. Instead, it has a finite **profile** centered around the resonance frequency $\nu_0$ with a maximum intensity $P_0$. The width of this profile contains important physical information.
 
@@ -242,7 +242,7 @@ plt.show()
 
 ---
 
-## 1.2 Observed Line Widths and Broadening
+## 5.5.1.2 Observed Line Widths and Broadening
 
 In practice, several physical and technical mechanisms contribute to the observed line width:
 
@@ -269,7 +269,7 @@ In the following sections we will examine the **natural linewidth** and **Dopple
 
 
 
-# 2. Natural Line Width
+# 5.5.2. Natural Line Width
 
 The **natural line width** is an intrinsic property of any atomic transition. It originates from the fact that an excited state has only a finite lifetime. As a result, the emitted radiation cannot be perfectly monochromatic but acquires a characteristic spectral width.
 
@@ -289,7 +289,7 @@ where $\Gamma$ is the decay rate. This is the same decay law that appears in the
 
 ---
 
-## 2.1 The oscillating dipole
+## 5.5.2.1 The oscillating dipole
 
 The radiated field is driven by the atomic dipole expectation value
 $$
@@ -422,7 +422,7 @@ plt.show()
 
 ---
 
-## 2.2 From time to frequency
+## 5.5.2.2 From time to frequency
 
 The spectral profile of the emitted radiation is obtained by Fourier transforming this time-domain signal. The Fourier transform of an exponential decay yields a **Lorentzian function**,
 $$
@@ -581,7 +581,7 @@ plt.show()
 
 ---
 
-## 2.3 Subtleties of coherence
+## 5.5.2.3 Subtleties of coherence
 
 The simple picture of an exponential decay leading to a Lorentzian lineshape is very powerful — but it is also an **approximation**. In reality, the time evolution of the coherence term $c_e^*(t)c_g(t)$ shows two important deviations:
 
@@ -600,7 +600,7 @@ In practice, these deviations are extremely small and are not observed in most e
 
 ---
 
-## 2.4 Physical picture
+## 5.5.2.4 Physical picture
 
 The natural line width can be understood in several complementary ways:
 
@@ -611,14 +611,14 @@ The natural line width can be understood in several complementary ways:
 In short: the **Lorentzian natural line shape** is a universal consequence of finite excited-state lifetimes and the coherence properties of quantum superpositions.
 
 
-# 3. Doppler Broadening
+# 5.5.3. Doppler Broadening
 
 So far, we have considered atomic transitions at a fixed resonance frequency $\omega_0$.  
 In a gas, however, atoms move with thermal velocities, and the observed resonance frequency depends on the motion of each atom relative to the incident light. This effect is known as **Doppler broadening**.
 
 ---
 
-## 3.1 Frequency shift for a moving atom
+## 5.5.3.1 Frequency shift for a moving atom
 We first consider the relativistic Doppler formulas in three dimensions. Let:  
 - $\nu_s$ (or $\omega_s$) be the frequency (angular frequency) emitted in the **source** (atom) rest frame,  
 - $f\nu_r$ (or $\omega$) be the frequency measured in the **receiver / lab** frame,  
@@ -672,7 +672,7 @@ $$
 ---
 
 
-## 3.2 Mapping velocity distribution to frequency
+## 5.5.3.2 Mapping velocity distribution to frequency
 At thermal equilibrium, the distribution of atomic velocities is given by the Maxwell–Boltzmann law.  
 For the one-dimensional velocity component $v_z$, the probability density is
 $$
@@ -695,7 +695,7 @@ This is a **Gaussian distribution** centered at $\omega_0$.
 
 ---
 
-## 3.3 Width of the Doppler-broadened line
+## 5.5.3.3 Width of the Doppler-broadened line
 The Gaussian distribution has a standard deviation
 $$
 \sigma_\omega = \frac{\omega_0}{c}\sqrt{\frac{k_B T}{m}},
@@ -708,7 +708,7 @@ $$
 
 ---
 
-## 3.4 Summary
+## 5.5.3.4 Summary
 Doppler broadening leads to a Gaussian spectral profile with width that increases with temperature and decreases with atomic mass:
 - **Light atoms** (small $m$) and **high temperatures** (large $T$) → stronger broadening.
 - **Heavy atoms** or **low temperature samples** → narrower Doppler width.
@@ -716,7 +716,7 @@ Doppler broadening leads to a Gaussian spectral profile with width that increase
 This sets a fundamental limit to the spectral resolution in gaseous media unless Doppler-free spectroscopy techniques are employed.
 
 
-# 4. Worked example: hydrogen Ly-$\alpha$ ($2p \to 1s$)
+# 5.5.4. Worked example: hydrogen Ly-$\alpha$ ($2p \to 1s$)
 
 We now apply the concepts above to a concrete example: the hydrogen Ly-$\alpha$ transition, $2p \to 1s$, which has wavelength  
 
@@ -732,7 +732,7 @@ $$
 
 ---
 
-## 4.1 Natural linewidth (from lifetime)
+## 5.5.4.1 Natural linewidth (from lifetime)
 
 The $2p$ level in hydrogen has an Einstein $A$ coefficient of order  
 
@@ -755,7 +755,7 @@ $$
 
 ---
 
-## 4.2 Doppler width at room temperature
+## 5.5.4.2 Doppler width at room temperature
 
 For a gas at temperature $T$ the thermal one-dimensional velocity distribution yields a Gaussian frequency profile with (Gaussian) standard deviation  
 
@@ -778,7 +778,7 @@ $$
 
 ---
 
-## 4.3 Fine structure, Lamb shift, hyperfine (numerical references)
+## 5.5.4.3 Fine structure, Lamb shift, hyperfine (numerical references)
 
 - Fine structure splitting ($2p_{3/2}$–$2p_{1/2}$):  
   $$
@@ -805,7 +805,7 @@ we find that:
 
 ---
 
-## 4.4 Temperature required to resolve the Lamb shift
+## 5.5.4.4 Temperature required to resolve the Lamb shift
 
 Since $\Delta\nu_D \propto \sqrt{T}$,  
 
@@ -824,7 +824,7 @@ For the fine structure (11 GHz), the requirement is milder: $T \sim 39\ \text{K}
 
 ---
 
-## 4.5 Practical implications
+## 5.5.4.5 Practical implications
 
 Because Doppler broadening dominates, experimentalists use:
 

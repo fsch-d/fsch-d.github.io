@@ -1,5 +1,5 @@
 ---
-title: "Visualizing Hydrogen Orbitals"
+title: 3.3 Visualizing Hydrogen Orbitals
 author: Daniel Fischer
 ---
 
@@ -28,7 +28,7 @@ The purpose of this page is not to derive new wavefunctions. Instead, we will us
 
 ---
 
-# 1. What Does an Orbital Picture Show?
+# 3.3.1. What Does an Orbital Picture Show?
 
 A hydrogen orbital is the spatial wavefunction
 
@@ -73,7 +73,7 @@ The figures below are not displayed on a common spatial scale. Their purpose is 
 
 ---
 
-# 2. Putting the Radial and Angular Parts Together
+# 3.3.2. Putting the Radial and Angular Parts Together
 
 For hydrogen,
 
@@ -107,7 +107,7 @@ This is the main point of the visualizations below: the angular patterns studied
 
 ---
 
-# 3. Nodes of the Full Wavefunction
+# 3.3.3. Nodes of the Full Wavefunction
 
 A **node** is a region where the wavefunction vanishes,
 
@@ -117,7 +117,7 @@ $$
 
 Because the hydrogen wavefunction separates into radial and angular parts, zeros can arise from either factor.
 
-## 3.1 Radial Nodes
+## 3.3.3.1 Radial Nodes
 
 A radial node occurs when
 
@@ -146,7 +146,7 @@ For example,
 - the $3p$ states have one radial node;
 - the $3d$ states have no radial nodes.
 
-## 3.2 Angular Nodes
+## 3.3.3.2 Angular Nodes
 
 Angular zeros are determined by the spherical harmonic,
 
@@ -162,7 +162,7 @@ The following examples show how radial and angular nodes appear together.
 
 ---
 
-# 4. From $1s$ to $2s$: Purely Radial Structure
+# 3.3.4. From $1s$ to $2s$: Purely Radial Structure
 
 For an $s$ state,
 
@@ -221,7 +221,7 @@ This is the three-dimensional counterpart of the radial node already visible in 
 
 ---
 
-# 5. The $2p$ States: The Role of $m$
+# 3.3.5. The $2p$ States: The Role of $m$
 
 For $\ell=1$, the angular part is no longer spherically symmetric.
 
@@ -309,7 +309,7 @@ The $m=-1$ state has the same probability density as the $m=1$ state, but the ph
 
 ---
 
-# 6. Combining Radial and Angular Structure
+# 3.3.6. Combining Radial and Angular Structure
 
 For higher states, radial and angular structure can appear simultaneously.
 
@@ -384,7 +384,7 @@ These examples illustrate an important point: an orbital shape is not determined
 
 ---
 
-# 7. Why Do These Orbitals Look Different from $p_x$, $p_y$, and $d_{xy}$?
+# 3.3.7. Why Do These Orbitals Look Different from $p_x$, $p_y$, and $d_{xy}$?
 
 The hydrogen eigenstates used throughout this chapter were chosen to be simultaneous eigenstates of
 
@@ -446,7 +446,7 @@ For problems in which the $z$-component of angular momentum is important---for e
 
 ---
 
-# 8. Reading an Orbital Image
+# 3.3.8. Reading an Orbital Image
 
 When looking at a hydrogen orbital visualization, it is useful to ask several separate questions:
 

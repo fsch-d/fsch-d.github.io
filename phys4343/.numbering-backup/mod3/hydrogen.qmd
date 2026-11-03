@@ -1,0 +1,860 @@
+---
+title: "Hydrogen atom — Schrödinger equation and radial solutions"
+author: Daniel Fischer
+#engine: python3
+---
+
+# Hydrogen atom: overview and plan
+
+We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number $Z$). The goals of this chapter are:
+
+1. Re-express the Hamiltonian using the angular-momentum operator $\hat{\vec L}$.  
+2. Separate variables in spherical coordinates and reduce the problem to a radial ordinary differential equation (ODE).  
+3. Solve the radial ODE for bound states ($E<0$), perform the asymptotic analysis, obtain the quantization condition, and write the normalized eigenfunctions.  
+
+---
+
+# 1. Hamiltonian and the angular-momentum form
+
+
+The non-relativistic time-independent Hamiltonian for an electron–proton system 
+(masses $m$ and $M$, respectively) interacting via the Coulomb potential is
+
+$$
+\hat H = -\frac{\hbar^2}{2m}\nabla_e^2 -\frac{\hbar^2}{2M}\nabla_p^2 + V(r).
+$$
+
+Here  
+- $\nabla_e = \big(\tfrac{\partial}{\partial x_e}, \tfrac{\partial}{\partial y_e}, \tfrac{\partial}{\partial z_e}\big)$ is the gradient with respect to the **electron coordinates** $\vec r_e$,  
+- $\nabla_p = \big(\tfrac{\partial}{\partial x_p}, \tfrac{\partial}{\partial y_p}, \tfrac{\partial}{\partial z_p}\big)$ is the gradient with respect to the **proton coordinates** $\vec r_p$.
+
+For the hydrogen(-like) atom the potential is Coulombic:
+
+$$
+V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r},
+$$
+
+where $Z$ is the nuclear charge ($Z=1$ for hydrogen), $e$ the elementary charge, $\varepsilon_0$ the vacuum permittivity, and $r = |\vec r_e - \vec r_p|$ is the distance between the electron and the proton.
+
+---
+
+## 1.1 Center of Mass and Relative Motion
+
+It is convenient to switch from the electron and proton coordinates 
+$(\vec r_e, \vec r_p)$ to
+
+- the **center-of-mass coordinate**
+  $$
+  \vec R = \frac{m \vec r_e + M \vec r_p}{m+M},
+  $$
+- and the **relative coordinate**
+  $$
+  \vec r = \vec r_e - \vec r_p.
+  $$
+
+In these new variables the Hamiltonian separates into two parts:
+
+$$
+\hat H = -\frac{\hbar^2}{2(m+M)} \nabla_R^2 
+         -\frac{\hbar^2}{2\mu} \nabla_r^2 
+         + V(r),
+$$
+
+where
+
+$$
+\mu = \frac{mM}{m+M}
+$$
+
+is the **reduced mass** of the electron–proton system.
+
+
+The term 
+$$
+-\frac{\hbar^2}{2(m+M)}\nabla_R^2
+$$
+describes the free motion of the atom as a whole through space. 
+Since spectroscopy and bound-state problems are only sensitive to the 
+**internal dynamics**, this center-of-mass contribution can be ignored (or factored out as a plane wave).  
+
+---
+
+## 1.2 Effective One-Body Hamiltonian
+
+Thus, for studying the hydrogen spectrum we keep only the relative motion:
+
+$$
+\hat H = -\frac{\hbar^2}{2\mu}\nabla_r^2 
+         -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r}.
+$$
+
+This is the familiar hydrogen Hamiltonian, except that the electron mass $m$ 
+is replaced by the reduced mass $\mu$.  
+
+For hydrogen, since $M \gg m$, one has $\mu \approx m$, but the correction is important for 
+**high-precision spectroscopy**.
+
+
+
+---
+
+## 1.3 The Laplacian and $\hat L^2$
+
+We will rewrite the Laplacian in spherical coordinates and express the angular part in terms of $\hat L^2$.
+
+In spherical coordinates $(r,\theta,\varphi)$ the Laplacian acting on a scalar $\psi(r,\theta,\varphi)$ reads
+
+$$
+\nabla^2 \psi
+= \frac{1}{r^2}\frac{\partial}{\partial r}\!\Big(r^2\frac{\partial \psi}{\partial r}\Big)
++ \frac{1}{r^2}\Bigg[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\!\Big(\sin\theta\frac{\partial \psi}{\partial\theta}\Big)
++ \frac{1}{\sin^2\theta}\frac{\partial^2\psi}{\partial\varphi^2}\Bigg].
+$$
+
+Recall the angular momentum squared operator in coordinate representation:
+
+$$
+\hat L^2 = -\hbar^2\left[
+\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\!\Big(\sin\theta\frac{\partial}{\partial\theta}\Big)
++ \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\varphi^2}
+\right].
+$$
+
+Comparing the two expressions gives the useful identity (acting on any $\psi$)
+
+$$
+\nabla^2 = \frac{1}{r^2}\frac{\partial}{\partial r}\!\Big(r^2\frac{\partial}{\partial r}\Big) - \frac{1}{\hbar^2 r^2}\,\hat L^2 .
+$$
+
+Insert this into the kinetic term of the Hamiltonian to obtain
+
+$$
+\begin{aligned}
+-\frac{\hbar^2}{2\mu}\nabla^2
+&= -\frac{\hbar^2}{2\mu}\frac{1}{r^2}\frac{\partial}{\partial r}\!\Big(r^2\frac{\partial}{\partial r}\Big)
++ \frac{\hat L^2}{2 \mu r^2}.
+\end{aligned}
+$$
+
+Therefore the full Hamiltonian becomes
+
+$$
+\hat H = -\frac{\hbar^2}{2\mu}\frac{1}{r^2}\frac{\partial}{\partial r}\!\Big(r^2\frac{\partial}{\partial r}\Big)
++ \frac{\hat L^2}{2 \mu r^2} + V(r)
+$$
+
+<!---
+
+## 1.2 The rotational (centrifugal) barrier
+
+The term
+
+$$
+\frac{\hat L^2}{2 \mu r^2}
+$$
+
+acts like an angular-momentum-dependent potential. When the wave function is an eigenfunction of $\hat L^2$ with eigenvalue $\hbar^2 \ell(\ell+1)$, this term becomes
+
+$$
+\frac{\hbar^2 \ell(\ell+1)}{2 \mu r^2}.
+$$
+
+This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radial wavefunction near the origin* for $\ell>0$. It acts like a centrifugal barrier: classically it corresponds to the barrier produced by angular motion; quantum-mechanically it prevents the particle from accessing $r\approx 0$ as easily when $\ell$ is large.
+-->
+---
+
+
+
+
+
+
+# 2. Separation of variables: angular and radial parts
+
+Because the Coulomb potential depends only on the distance $r$, the Hamiltonian commutes with the angular momentum operators:
+
+$$
+[\hat H, \hat L^2] = 0, 
+\qquad 
+[\hat H, \hat L_z] = 0.
+$$
+
+This means that $\hat H$, $\hat L^2$, and $\hat L_z$ have a common set of eigenfunctions. In particular, the wavefunction can be chosen to be a simultaneous eigenfunction of $\hat L^2$ and $\hat L_z$, which motivates a separation of variables into radial and angular parts:
+
+$$
+\psi(r,\theta,\varphi) = R(r)\, Y_\ell^m(\theta,\varphi),
+$$
+
+where $Y_\ell^m(\theta,\varphi)$ are spherical harmonics satisfying
+
+$$
+\hat L^2 Y_\ell^m = \hbar^2 \ell(\ell+1) Y_\ell^m, 
+\qquad 
+\hat L_z Y_\ell^m = \hbar m Y_\ell^m.
+$$
+
+Inserting the separated form into $\hat H\psi=E\psi$ and using the Hamiltonian above yields the radial equation
+
+$$
+-\frac{\hbar^2}{2\mu}\frac{1}{r^2}\frac{d}{dr}\!\Big(r^2\frac{dR}{dr}\Big)
++ \frac{\hbar^2 \ell(\ell+1)}{2 \mu r^2} R(r) + V(r) R(r) = E R(r).
+$$
+
+---
+
+## 2.1 The rotational (centrifugal) barrier
+
+The term
+
+$$
+\frac{\hbar^2 \ell(\ell+1)}{2 \mu r^2}
+$$
+
+originates from the angular part of the kinetic energy. It acts like an effective potential that depends on $\ell$.  
+
+- For $\ell=0$, this term vanishes, and the particle can access the region near $r=0$.  
+- For $\ell>0$, the term grows rapidly as $r\to 0$, suppressing the radial wavefunction in the vicinity of the origin.  
+
+This is often called the *centrifugal barrier*. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.
+
+---
+
+## 2.2 Convert to the reduced radial equation
+
+Define the reduced radial function
+
+$$
+u(r) = r\, R(r).
+$$
+
+It is straightforward to check that
+
+$$
+\frac{1}{r^2}\frac{d}{dr}\!\Big(r^2\frac{dR}{dr}\Big)
+= \frac{1}{r}\frac{d^2}{dr^2}\big(r R\big)
+= \frac{1}{r}\frac{d^2 u}{dr^2}.
+$$
+
+Substituting into the radial equation gives the convenient one-dimensional form
+
+$$
+-\frac{\hbar^2}{2\mu}\frac{d^2 u}{dr^2}
++ \left[V(r) + \frac{\hbar^2 \ell(\ell+1)}{2\mu r^2}\right] u(r) = E\, u(r).
+$$
+
+This is exactly the time-independent Schrödinger equation for a one-dimensional motion of $u(r)$ on the half-line $r\in(0,\infty)$ with the *effective potential*
+
+$$
+V_{\text{eff}}(r) = V(r) + \frac{\hbar^2 \ell(\ell+1)}{2\mu r^2}.
+$$
+
+The boundary condition at the origin is $u(0)=0$ (regularity) and $u(r)$ must be square integrable on $(0,\infty)$.
+
+
+---
+
+```{python}
+#| label: fig-efectivepot
+#| fig-format: svg
+#| fig-cap: Effective radial Coulomb potential for different angular momenta.
+#| fig-alt: Effective radial Coulomb potential for different angular momenta.
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters (scaled units: ħ = m = k = 1)
+hbar = 1
+m = 1
+k = 1   # corresponds to e^2/(4πϵ0)
+
+# Define radial coordinate
+r = np.linspace(0.1, 30, 1000)  # avoid r=0 to prevent singularity
+
+def V_eff(r, ell):
+    centrifugal = hbar**2 * ell * (ell + 1) / (2 * m * r**2)
+    coulomb = -k / r
+    return coulomb + centrifugal
+
+# Plot effective potentials for different l
+ells = [0, 1, 2, 3]
+plt.figure(figsize=(8,6))
+
+for ell in ells:
+    plt.plot(r, V_eff(r, ell), label=f"$\ell={ell}$")
+
+plt.ylim(-0.5, 0.5)
+plt.xlim(0, 30)
+plt.axhline(0, color='black', linewidth=0.8)
+plt.title("Effective Radial Potential $V_{eff}(r)$")
+plt.xlabel("r (arb. units)")
+plt.ylabel("$V_{eff}(r)$ (arb. units)")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+---
+
+# 3. Specialize to the Coulomb potential (hydrogen-like atom)
+
+Set
+
+$$
+V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r}.
+$$
+
+The reduced radial ODE becomes
+
+$$
+-\frac{\hbar^2}{2\mu}\frac{d^2 u}{dr^2}
++ \left[ -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r} + \frac{\hbar^2 \ell(\ell+1)}{2\mu r^2}\right] u(r) = E\, u(r).
+$$
+
+We seek square-integrable bound-state solutions ($E<0$). The standard method proceeds in three steps: (A) analyze asymptotic behavior at $r\to 0$ and $r\to\infty$, (B) extract the dominant factors and reduce to a power-series equation, and (C) impose termination of the series to get quantized energies.
+
+---
+
+## 3.1 Asymptotic behavior
+
+**As $r\to\infty$**: the Coulomb potential is negligible compared to $E<0$, so the equation approximates
+
+$$
+-\frac{\hbar^2}{2\mu}\frac{d^2 u}{dr^2} \approx E\, u .
+$$
+
+Since $E<0$, set
+
+$$
+\kappa = \sqrt{\frac{-2\mu E}{\hbar^2}}\quad (>0),
+$$
+
+and $u(r)\sim e^{-\kappa r}$ as $r\to\infty$ (the exponentially growing solution is discarded for normalizability).
+
+**As $r\to 0$**: the dominant term is the centrifugal term $\propto 1/r^2$. Neglecting the Coulomb term for small $r$ gives
+
+$$
+-\frac{\hbar^2}{2\mu}\frac{d^2 u}{dr^2} + \frac{\hbar^2\ell(\ell+1)}{2\mu r^2} u \approx 0.
+$$
+
+Solving the indicial equation yields the leading behavior $u(r)\sim r^{\ell+1}$ (the second independent solution behaves like $r^{-\ell}$ and is non-physical because it is not regular at the origin). Therefore
+
+$$
+R(r) = \frac{u(r)}{r} \sim r^{\ell} \quad (r\to 0).
+$$
+
+---
+
+## 3.2 Polynomial Ansatz and reduced equation
+
+From the asymptotic analysis we propose
+
+$$
+u(r) = r^{\ell+1} e^{-\kappa r} v(r),
+$$
+
+where $v(r)$ should be regular everywhere. Substituting this form into the full radial equation and using the dimensionless variable
+
+$$
+\rho = 2\kappa r,
+$$
+
+one finds that $v(\rho)$ satisfies
+
+$$
+\rho \frac{d^2 v}{d\rho^2} + (2\ell + 2 - \rho)\frac{dv}{d\rho} + 
+\left( \frac{Z e^2}{2\pi \varepsilon_0 \hbar}\frac{\mu}{\kappa} - \ell - 1 \right) v = 0.
+$$
+
+This is of the **confluent hypergeometric form**.  
+
+To solve, assume $v(\rho)$ can be expressed as a power series:
+
+$$
+v(\rho) = \sum_{j=0}^{\infty} a_j \rho^j.
+$$
+
+Substituting this into the differential equation leads to a **recurrence relation** between coefficients:
+
+$$
+a_{j+1} = \frac{j + \ell + 1 - \frac{\mu Z e^2}{2\pi \varepsilon_0 \hbar^2 \kappa}}{(j+1)(j+2\ell+2)}\, a_j.
+$$
+
+### Termination condition
+
+- If the series does not terminate, the coefficients $a_j$ fall off too slowly and $v(\rho)$ grows exponentially, which spoils normalizability.  
+- Normalizable solutions exist only if the numerator vanishes for some finite $j=n_r$ (the **radial quantum number**). This forces the series to terminate, producing a polynomial.
+
+Thus the termination condition is:
+
+$$
+\frac{\mu Z e^2}{2\pi \varepsilon_0 \hbar^2 \kappa} = n_r + \ell + 1 \equiv n, \qquad n=1,2,3,\dots
+$$
+
+where $n$ is the **principal quantum number**.
+
+
+---
+
+## 3.3 Energy quantization and the principal quantum number
+
+The requirement that the power-series solution terminates at a finite order fixes 
+the parameter $\kappa$. Using $\kappa^2 = \tfrac{-2\mu E}{\hbar^2}$, the allowed 
+bound-state energies are
+
+::: {.callout-tip}
+## Bound-state energies
+$$
+E_n = - \frac{\mu e^4 Z^2}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2}
+= -\frac{R_\mathrm{y} Z^2}{n^2}, \qquad n = 1,2,3,\dots
+$$
+:::
+
+where 
+
+$$
+R_\mathrm{y} = \frac{\mu e^4}{2(4\pi\varepsilon_0)^2\hbar^2}
+$$ 
+
+is the **Rydberg energy** ($R_\mathrm{y} \approx 13.6057\ \text{eV}$). 
+
+It is convenient to introduce the Bohr radius
+
+$$
+a_0 = \frac{4\pi\varepsilon_0 \hbar^2}{\mu e^2},
+$$
+
+so that the energy can also be written as
+
+$$
+E_n = -\frac{1}{2}\frac{\mu e^4 Z^2}{(4\pi\varepsilon_0)^2 \hbar^2}\frac{1}{n^2}
+= -\frac{Z^2}{2}\,\frac{\hbar^2}{\mu a_0^2}\,\frac{1}{n^2}
+= -\frac{Z^2}{n^2}\,\frac{e^2}{8\pi\varepsilon_0 a_0}.
+$$
+
+---
+
+# 4. Radial eigenfunctions: closed form
+
+The bound-state normalized radial functions (in SI units) are
+
+::: {.callout-tip}
+## Radial wave function
+$$
+R_{n\ell}(r)
+= N_{n\ell}\,\left(\frac{2 r}{n a_0}\right)^{\ell}
+\,L_{n-\ell-1}^{2\ell+1}\!\bigg(\frac{2 r}{n a_0}\bigg)\,
+e^{- r/(n a_0)}
+$$
+:::
+
+
+where $L_{k}^{\alpha}(x)$ are associated Laguerre polynomials defined by
+
+$$
+L_{k}^{\alpha}(x) = \frac{x^{-\alpha} e^{x}}{k!}
+\frac{d^{\,k}}{dx^{\,k}}\!\left(e^{-x} x^{k+\alpha}\right) = \sum_{m=0}^{k} \frac{(k+\alpha)!}{(k-m)!\,(\alpha+m)!}\,\frac{(-x)^m}{m!},
+\qquad k = 0,1,2,\dots ,
+$$
+
+and the normalization constant is
+
+$$
+N_{n\ell} = \sqrt{\left(\frac{2}{n a_0}\right)^3
+\frac{(n-\ell-1)!}{2n\, (n+\ell)!}\ }.
+$$
+
+The full hydrogenic stationary state is
+
+::: {.callout-tip}
+## Hydrogen wave function
+$$
+\psi_{n\ell m}(r,\theta,\varphi) = R_{n\ell}(r)\, Y_\ell^m(\theta,\varphi).
+$$
+:::
+
+---
+
+## 4.1 Explicit low-$n$ examples
+
+- **1s state** $(n=1,\ell=0)$:
+
+  $$
+  R_{10}(r) = 2 \,a_0^{-3/2}\, e^{-r/a_0}.
+  $$
+
+- **2s state** $(n=2,\ell=0)$:
+
+  $$
+  R_{20}(r) = \frac{1}{2\sqrt{2}}\, a_0^{-3/2} \Big(2 - \frac{r}{a_0}\Big)\, e^{-r/(2 a_0)}.
+  $$
+
+- **2p states** $(n=2,\ell=1)$; e.g. $m=0$:
+
+  $$
+  R_{21}(r) = \frac{1}{2\sqrt{6}}\, a_0^{-3/2}\, \frac{r}{a_0}\, e^{-r/(2 a_0)} 
+  $$
+
+---
+
+- **3s state** $(n=3,\ell=0)$:
+
+  $$
+  R_{30}(r) = \frac{2}{81\sqrt{3}}\, a_0^{-3/2} \Big(27 - 18 \tfrac{r}{a_0} + 2 \big(\tfrac{r}{a_0}\big)^2\Big) e^{-r/(3a_0)}.
+  $$
+
+- **3p states** $(n=3,\ell=1)$; e.g. $m=0$:
+
+  $$
+  R_{31}(r) = \frac{4}{81\sqrt{6}}\, a_0^{-3/2} \Big(6 - \tfrac{r}{a_0}\Big)\, \frac{r}{a_0}\, e^{-r/(3a_0)}.
+  $$
+
+- **3d states** $(n=3,\ell=2)$; e.g. $m=0$:
+
+  $$
+  R_{32}(r) = \frac{4}{81\sqrt{30}}\, a_0^{-3/2} \Big(\tfrac{r}{a_0}\Big)^2 e^{-r/(3a_0)}.
+  $$
+
+---
+
+These explicit forms are obtained by substituting $n,\ell$ into the general hydrogen radial wavefunction formula and using the associated Laguerre polynomials for small $n$. 
+
+---
+
+```{python}
+#| label: fig-radwf
+#| fig-format: svg
+#| fig-cap: Radial wave functions and probability densities for low-$n$ states.
+#| fig-alt: Radial wave functions and probability densities for low n states.
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the Bohr radius
+a0 = 1.0
+
+def R_10(r):
+    """
+    1s radial wavefunction.
+    """
+    return 2 * (a0**(-1.5)) * np.exp(-r / a0)
+
+def R_20(r):
+    """
+    2s radial wavefunction.
+    """
+    return (1 / (2 * np.sqrt(2))) * (a0**(-1.5)) * (2 - r / a0) * np.exp(-r / (2 * a0))
+
+def R_21(r):
+    """
+    2p radial wavefunction.
+    """
+    return (1 / (2 * np.sqrt(6))) * (a0**(-1.5)) * (r / a0) * np.exp(-r / (2 * a0))
+
+def R_30(r):
+    """
+    3s radial wavefunction.
+    """
+    return (2 / (81 * np.sqrt(3))) * (a0**(-1.5)) * (27 - 18 * (r / a0) + 2 * (r / a0)**2) * np.exp(-r / (3 * a0))
+
+def R_31(r):
+    """
+    3p radial wavefunction.
+    """
+    return (4 / (81 * np.sqrt(6))) * (a0**(-1.5)) * (6 - r / a0) * (r / a0) * np.exp(-r / (3 * a0))
+
+def R_32(r):
+    """
+    3d radial wavefunction.
+    """
+    return (4 / (81 * np.sqrt(30))) * (a0**(-1.5)) * (r / a0)**2 * np.exp(-r / (3 * a0))
+
+def P(R, r):
+    """
+    Calculates the radial probability density P(r) = r^2 * |R(r)|^2
+    """
+    return r**2 * np.abs(R)**2
+
+# Create a range of r values
+r_values = np.linspace(0, 25 * a0, 500)
+
+# Set up the plot
+fig, axes = plt.subplots(3, 2, figsize=(8, 8))
+fig.suptitle("Hydrogen Radial Wave Functions $R_{n\ell}(r)$ and Probability Densities $P_{n\ell}(r)$", fontsize=16)
+
+# Plot for 1s state
+ax1 = axes[0, 0]
+ax1.set_title("1s State")
+ax1.plot(r_values, R_10(r_values), label='$R_{10}(r)$', color='blue')
+ax1.plot(r_values, P(R_10(r_values), r_values), label='$P_{10}(r)$', color='red', linestyle='--')
+ax1.set_xlabel('$r/a_0$')
+ax1.set_xlim(0, 25)
+ax1.legend()
+ax1.grid(True)
+
+# Plot for 2s state
+ax2 = axes[0, 1]
+ax2.set_title("2s State")
+ax2.plot(r_values, R_20(r_values), label='$R_{20}(r)$', color='blue')
+ax2.plot(r_values, P(R_20(r_values), r_values), label='$P_{20}(r)$', color='red', linestyle='--')
+ax2.set_xlabel('$r/a_0$')
+ax2.set_xlim(0, 25)
+ax2.legend()
+ax2.grid(True)
+
+# Plot for 2p state
+ax3 = axes[1, 0]
+ax3.set_title("2p State")
+ax3.plot(r_values, R_21(r_values), label='$R_{21}(r)$', color='blue')
+ax3.plot(r_values, P(R_21(r_values), r_values), label='$P_{21}(r)$', color='red', linestyle='--')
+ax3.set_xlabel('$r/a_0$')
+ax3.set_xlim(0, 25)
+ax3.legend()
+ax3.grid(True)
+
+# Plot for 3s state
+ax4 = axes[1, 1]
+ax4.set_title("3s State")
+ax4.plot(r_values, R_30(r_values), label='$R_{30}(r)$', color='blue')
+ax4.plot(r_values, P(R_30(r_values), r_values), label='$P_{30}(r)$', color='red', linestyle='--')
+ax4.set_xlabel('$r/a_0$')
+ax4.set_xlim(0, 25)
+ax4.legend()
+ax4.grid(True)
+
+# Plot for 3p state
+ax5 = axes[2, 0]
+ax5.set_title("3p State")
+ax5.plot(r_values, R_31(r_values), label='$R_{31}(r)$', color='blue')
+ax5.plot(r_values, P(R_31(r_values), r_values), label='$P_{31}(r)$', color='red', linestyle='--')
+ax5.set_xlabel('$r/a_0$')
+ax5.set_xlim(0, 25)
+ax5.legend()
+ax5.grid(True)
+
+# Plot for 3d state
+ax6 = axes[2, 1]
+ax6.set_title("3d State")
+ax6.plot(r_values, R_32(r_values), label='$R_{32}(r)$', color='blue')
+ax6.plot(r_values, P(R_32(r_values), r_values), label='$P_{32}(r)$', color='red', linestyle='--')
+ax6.set_xlabel('$r/a_0$')
+ax6.set_xlim(0, 25)
+ax6.legend()
+ax6.grid(True)
+
+# Adjust layout and show the plot
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.show()
+
+```
+
+
+```{python}
+#| label: fig-radprobdense
+#| fig-format: svg
+#| fig-cap: Radial wave probability densities in the effective potential for different $\ell$.
+#| fig-alt: Radial wave probability densities in the effective potential for different l.
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.constants import physical_constants
+from scipy.special import genlaguerre, factorial
+
+# Constants
+a0 = physical_constants["Bohr radius"][0]      # Bohr radius [m]
+Eh = physical_constants["Hartree energy"][0]   # Hartree energy [J]
+eV = physical_constants["electron volt"][0]    # 1 eV in J
+
+nmax = 4
+
+# General hydrogen radial wavefunction R_{nl}(r)
+def R_nl(r, n, l):
+    if l >= n or l < 0:
+        raise ValueError("Quantum number l must satisfy 0 <= l < n")
+    rho = 2 * r / (n * a0)
+    norm = np.sqrt((2/(n*a0))**3 * factorial(n-l-1)/(2*n*factorial(n+l)))
+    return norm * rho**l * np.exp(-rho/2) * genlaguerre(n-l-1, 2*l+1)(rho)
+
+# Radial probability densities P(r) = r^2 |R_{nl}(r)|^2
+def P_n(r, n, l):
+    R = R_nl(r, n, l)
+    return r**2 * np.abs(R)**2
+
+# Energy levels [J]
+def energy_n(n):
+    return -Eh / (2 * n**2)
+
+# Effective potential (Coulomb + centrifugal)
+def V_r(r, l):
+    return -Eh * a0 / r + Eh * a0**2 * l*(l+1) / (2 * r**2)
+
+# Prepare data
+r = np.linspace(0.01*a0, 60*a0, 2000)  # radial range
+
+# Colors
+prop_cycle = plt.rcParams['axes.prop_cycle']
+colors = prop_cycle.by_key()['color']
+
+# Set up 2x2 subplots
+fig, axes = plt.subplots(2, 2, figsize=(11, 10), sharex=True, sharey=True)
+axes = axes.flatten()
+
+for idx, myell in enumerate(range(4)):   # l = 0,1,2,3
+    ax = axes[idx]
+
+    # Effective potential
+    V = V_r(r, myell) / eV
+    ax.plot(r/a0, V, 'k', label="Effective potential")
+
+    # Energy levels + radial probabilities
+    for i, n in enumerate(range(myell+1, nmax+1)):
+        E = energy_n(n)/eV
+        ax.hlines(E, 0, 40, colors=colors[n-1], linestyles='--', label=f"n={n} level")
+
+        P = P_n(r, n, myell)
+        P_scaled = (P/np.max(P)) * 5 + E  # scale & shift to energy level
+        ax.plot(r/a0, P_scaled, colors[n-1], label=f"$P(r)$ for n={n}")
+
+    # E=0 line
+    ax.axhline(0, color='gray', linewidth=1.2)
+
+    ax.set_xlim(0, 45)
+    ax.set_ylim(-20, 10)
+    ax.set_title(fr"$\ell={myell}$", pad=10)
+    ax.grid(True)
+
+# Force ticks to show up only where wanted
+for ax in axes:
+    ax.tick_params(labelbottom=False, labelleft=False)  # start blank
+
+# left column: y labels
+axes[0].tick_params(labelleft=True)
+axes[2].tick_params(labelleft=True)
+
+# bottom row: x labels
+axes[2].tick_params(labelbottom=True)
+axes[3].tick_params(labelbottom=True)
+
+# Shared axis labels (outside the plots)
+fig.text(0.5, 0.01, r"$r/a_0$ (Bohr radii)", ha="center", fontsize=12)
+fig.text(0.01, 0.5, "Energy (eV)", va="center", rotation="vertical", fontsize=12)
+
+# Legend only in bottom-left subplot
+handles, labels = axes[0].get_legend_handles_labels()
+axes[2].legend(handles, labels, loc="lower left", fontsize=10)
+
+fig.suptitle("Effective Potential and Hydrogen Atom Radial Probabilities", fontsize=16)
+plt.tight_layout(rect=[0.04,0.04,1,0.95])
+plt.show()
+
+```
+
+---
+
+# 5. Remarks on degeneracy and physical interpretation
+
+- The energy $E_n$ depends only on $n$ (not on $\ell$ or $m$) for the non-relativistic Coulomb problem.  
+  Thus each energy level has the well-known degeneracy $n^2$, meaning there are $n^2$ orthonormal eigenstates of the Hamiltonian with the same eigenvalue:
+
+  $$
+  \sum_{\ell=0}^{n-1} (2\ell+1) 
+  = 2\sum_{\ell=0}^{n-1} \ell + \sum_{\ell=0}^{n-1} 1
+  = (n-1)n + n 
+  = n^2.
+  $$
+
+  The *accidental* degeneracy with respect to $\ell$ (states of different orbital angular momentum but the same $n$ having equal energy) is related to the existence of an additional conserved vector in the Coulomb problem, the **Runge–Lenz vector**.
+
+
+- The centrifugal term $\hbar^2\ell(\ell+1)/(2 m r^2)$ explains qualitative radial behavior:
+  - Larger $\ell$ suppresses probability density near the nucleus (nodes and behavior near $r=0$).
+  - For $\ell=0$ (s-states) the wavefunction is nonzero at the origin.
+
+- The quantization condition emerged here from the requirement of normalizable solutions (polynomial termination of a confluent hypergeometric series). This is the standard quantum analogue of Bohr’s quantization in the old theory and yields the same energy formula.
+
+---
+
+# 6. Atomic states in Dirac notation
+
+In the hydrogen atom, the solutions of the Schrödinger equation are labeled by the three quantum numbers:
+
+::: {.callout-tip}
+## Atomic quantum numbers
+- the **principal quantum number** $n = 1,2,3,\dots$,  
+- the **orbital angular momentum quantum number** $\ell = 0,1,\dots,n-1$,  
+- the **magnetic quantum number** $m = -\ell, -\ell+1, \dots, \ell$.
+:::
+
+A complete set of eigenstates of the Hamiltonian can therefore be denoted as
+
+$$
+|n,\ell,m\rangle.
+$$
+
+These states satisfy the following eigenvalue equations:
+
+::: {.callout-tip}
+## Eigenvalue equations
+$$
+\hat H |n,\ell,m\rangle = E_n |n,\ell,m\rangle,
+$$
+
+$$
+\hat L^2 |n,\ell,m\rangle = \hbar^2 \ell(\ell+1) |n,\ell,m\rangle,
+$$
+
+$$
+\hat L_z |n,\ell,m\rangle = \hbar m |n,\ell,m\rangle.
+$$
+:::
+
+---
+
+The wavefunctions in position space are related to these kets by
+
+$$
+\psi_{n\ell m}(\vec r) \;=\; \langle \vec r \,|\, n,\ell,m \rangle,
+$$
+
+with the explicit form
+
+$$
+\psi_{n\ell m}(r,\theta,\varphi) = R_{n\ell}(r)\, Y_\ell^m(\theta,\varphi),
+$$
+
+where $R_{n\ell}(r)$ is the radial wavefunction and $Y_\ell^m(\theta,\varphi)$ are the spherical harmonics.
+
+---
+
+**Why Dirac notation?**  
+We will use the compact ket notation $|n,\ell,m\rangle$ throughout the following discussions, since it highlights the algebraic properties (eigenvalues, degeneracies, operator actions) without always writing out the full coordinate-space wavefunctions.
+
+
+---
+
+# 7. Orbital Naming Conventions
+
+In quantum mechanics, the orbital angular momentum quantum number $\ell$ dictates the shape of an electron's orbital and gives rise to a specific naming convention. These are the common designations for the first few values of $\ell$:
+
+- $\ell = 0$: **s-state** (from "sharp")
+- $\ell = 1$: **p-state** (from "principal")
+- $\ell = 2$: **d-state** (from "diffuse")
+- $\ell = 3$: **f-state** (from "fundamental")
+
+This nomenclature is a historical convention from early spectroscopy, where these letters corresponded to the appearance of certain series of spectral lines: sharp, principal, diffuse, and fundamental.
+
+---
+
+# Appendix: useful expressions
+
+- Bohr radius:
+  $$
+  a_0 = \frac{4\pi\varepsilon_0 \hbar^2}{m e^2}.
+  $$
+
+- Rydberg energy:
+  $$
+  R_\mathrm{y} = \frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}.
+  $$
+
+- Energy levels:
+  $$
+  E_n = -\frac{R_\mathrm{y} Z^2}{n^2},\qquad n=1,2,\dots
+  $$
+
+

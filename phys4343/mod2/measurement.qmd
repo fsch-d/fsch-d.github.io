@@ -2,7 +2,7 @@
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
-title: Quantum Measurement and the Measurement Problem
+title: 2.3 Quantum Measurement and the Measurement Problem
 subtitle: State Reduction, Probability, and Interpretation
 ---
 
@@ -88,9 +88,9 @@ The discussion of Copenhagen-type interpretations, Everettian quantum mechanics,
 ::::
 
 
-# 1. Measurement and the Quantum State
+# 2.3.1. Measurement and the Quantum State
 
-## 1.1 Measurement probabilities
+## 2.3.1.1 Measurement probabilities
 
 Consider an observable represented by the Hermitian operator $\hat A$.
 
@@ -141,7 +141,7 @@ Quantum mechanics therefore does not, in general, predict the result of an indiv
 Instead, it predicts the probabilities of the possible outcomes.
 
 
-## 1.2 The state after a measurement
+## 2.3.1.2 The state after a measurement
 
 Suppose the initial state is
 
@@ -264,7 +264,7 @@ and this reduces to the familiar statement that the state collapses onto $\ket{a
 :::
 
 
-## 1.3 Deterministic evolution and probabilistic measurement
+## 2.3.1.3 Deterministic evolution and probabilistic measurement
 
 The Schrödinger equation determines the time evolution of a state:
 
@@ -328,9 +328,9 @@ $$
 The coexistence of these two kinds of evolution lies at the heart of the **quantum measurement problem**.
 
 
-# 2. The Quantum Measurement Problem
+# 2.3.2. The Quantum Measurement Problem
 
-## 2.1 Where does collapse come from?
+## 2.3.2.1 Where does collapse come from?
 
 To see the measurement problem more clearly, let us try to describe **both the quantum system and the measuring apparatus using quantum mechanics**.
 
@@ -567,7 +567,7 @@ The philosophical interpretations may differ, but the operational rules used for
 :::
 
 
-## 2.2 What we will use
+## 2.3.2.2 What we will use
 
 For the purposes of this course, we will use the standard operational measurement rules:
 
@@ -581,7 +581,7 @@ We do not need to choose a particular interpretation of quantum mechanics in ord
 What matters for our subsequent calculations is that **measurement changes the state**.
 
 
-# 3. From One Measurement to the Next
+# 2.3.3. From One Measurement to the Next
 
 Suppose we prepare a system in some state $\ket{\psi}$ and measure an observable $\hat A$.
 

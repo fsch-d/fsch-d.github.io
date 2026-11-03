@@ -1,5 +1,5 @@
 ---
-title: "Foundations of Molecular Bonding"
+title: 7.1 Foundations of Molecular Bonding
 author: Daniel Fischer
 ---
 
@@ -18,7 +18,7 @@ This foundation provides the conceptual framework for the more quantitative trea
 
 ---
 
-# 1. Formation of Molecular Bonds and Potential Energy Curves
+# 7.1.1. Formation of Molecular Bonds and Potential Energy Curves
 
 Molecules form because the **total energy of a system of atoms decreases** when they approach each other to a suitable distance.
 The total energy contains several competing contributions:
@@ -32,7 +32,7 @@ The balance of these effects determines whether the overall energy decreases upo
 
 ---
 
-## 1.1 Potential Energy Curves
+## 7.1.1.1 Potential Energy Curves
 
 To describe how the total energy changes with the **internuclear distance** $R$, we define a **potential energy curve** — the energy of the molecule as a function of $R$.
 
@@ -105,7 +105,7 @@ plt.show()
 
 ---
 
-## 1.2 The Concept of Molecular Orbitals
+## 7.1.1.2 The Concept of Molecular Orbitals
 
 The shape of a potential energy curve can be understood in terms of how **atomic orbitals** from neighboring atoms combine to form **molecular orbitals**.
 
@@ -124,7 +124,7 @@ Two qualitatively different combinations are possible:
 
 ---
 
-## 1.3 Why Bonding Lowers Energy
+## 7.1.1.3 Why Bonding Lowers Energy
 
 The stabilization of a bonding molecular orbital has two main origins:
 
@@ -143,7 +143,7 @@ Together, these effects explain why the **bonding molecular orbital** has **lowe
 
 ---
 
-## 1.4 Summary of the Qualitative Picture
+## 7.1.1.4 Summary of the Qualitative Picture
 
 | Feature | Bonding Orbital | Antibonding Orbital |
 |----------|----------------|---------------------|
@@ -159,13 +159,13 @@ under certain conditions, **sharing or redistributing electron density** allows 
 
 ---
 
-# 2. Different Types of Bonds
+# 7.1.2. Different Types of Bonds
 
 Molecular bonds can be classified based on **how electrons are distributed** and the **nature of the interaction**. In this section, we discuss covalent, ionic, and van der Waals bonds with qualitative explanations and visualizations.
 
 ---
 
-## 2.1 Covalent Bond
+## 7.1.2.1 Covalent Bond
 
 A **covalent bond** forms when **atomic orbitals from two atoms overlap significantly**.  
 
@@ -230,7 +230,7 @@ plt.show()
 
 ---
 
-## 2.2 Ionic Bond
+## 7.1.2.2 Ionic Bond
 
 Ionic bonds occur when one atom **transfers an electron** to another, forming a **cation and an anion**:
 
@@ -274,7 +274,7 @@ plt.show()
 
 ---
 
-## 2.3 Van der Waals Bond
+## 7.1.2.3 Van der Waals Bond
 
 Van der Waals bonds arise between **neutral atoms or molecules** due to **instantaneous or induced dipoles**. These are the **weakest type of bond**, but they play a crucial role in **condensed phases** such as liquids, solids, and biological molecules.
 

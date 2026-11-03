@@ -1,5 +1,5 @@
 ---
-title: Shell Model and Periodic Table
+title: 6.4 Shell Model and Periodic Table
 author: Daniel Fischer
 ---
 
@@ -21,12 +21,12 @@ In this chapter, we will develop physical approximations that allow us to unders
 
 ---
 
-# 1. The Shell Model
+# 6.4.1. The Shell Model
 
 We have already seen that the **screening** of the nuclear charge by other electrons plays a crucial role in determining the effective potential experienced by each electron. 
 To gain intuition for this, it is helpful to examine the **radial charge density** associated with a bound electron.
 
-## 1.1 Radial charge density
+## 6.4.1.1 Radial charge density
 
 For a single electron in a hydrogen-like orbital, the probability of finding the electron at a distance $r$ from the nucleus is proportional to
 
@@ -48,7 +48,7 @@ Thus, electrons with different $n$ occupy **spatially distinct regions** surroun
 
 ---
 
-## 1.2 The concept of shells
+## 6.4.1.2 The concept of shells
 
 For a given principal quantum number $n$, we can add up the contributions from all possible angular momenta $\ell$ and spin orientations to obtain the total charge density associated with that value of $n$:
 
@@ -71,7 +71,7 @@ $$
 
 Thus, a filled shell with principal quantum number $n$ can contain up to $2n^2$ electrons.
 
-## 1.3 Historical shell names
+## 6.4.1.3 Historical shell names
 
 From early X-ray spectroscopy, distinct groups of transitions were observed and labeled with the letters **K**, **L**, **M**, **N**, etc. 
 These correspond to the successive electron shells:
@@ -89,12 +89,12 @@ The terminology remains in use today, even though we now understand these shells
 ---
 
 
-# 2. Subshells and Electron Configuration
+# 6.4.2. Subshells and Electron Configuration
 
 The shell model provides a first, coarse picture of the atomic structure: electrons occupy discrete “shells” around the nucleus characterized by the principal quantum number $n$. 
 Within each shell, however, there are additional distinctions that arise from the **orbital angular momentum** $\ell$. These correspond to what we call **subshells**.
 
-## 2.1 Subshells and quantum numbers
+## 6.4.2.1 Subshells and quantum numbers
 
 Each shell with principal quantum number $n$ contains subshells corresponding to the allowed values of $\ell = 0, 1, 2, \dots, n-1$. 
 The values of $\ell$ are traditionally labeled using letters that originate from early spectroscopic classifications:
@@ -128,7 +128,7 @@ As we will see later, these capacities play a central role in shaping the period
 
 ---
 
-## 2.2 Electron configuration notation
+## 6.4.2.2 Electron configuration notation
 
 The **electron configuration** specifies how an atom’s electrons are distributed among the available shells characterized by the quantum numbers $(n, \ell)$. 
 Each combination of $(n, \ell)$ is indicated using the letter code introduced above ($s, p, d, f, \dots$), followed by a superscript that gives the number of electrons in that set:
@@ -170,11 +170,11 @@ This **core notation** highlights the electrons outside the closed shells — th
 
 
 
-# 3. How the Periodic Table Fills Up
+# 6.4.3. How the Periodic Table Fills Up
 
 We are now looking in detail at how the shells are successively filled up.
 
-## 3.1 Degeneracy and energy ordering
+## 6.4.3.1 Degeneracy and energy ordering
 
 In the hydrogen atom, the dominant dependence of the binding energy is on the principal quantum number $n$, because the potential is purely Coulombic.  
 However, even in hydrogen this degeneracy is only approximate: relativistic **fine structure**, **Lamb shifts**, and **hyperfine interactions** cause small but measurable splittings between levels of different $\ell$ and $j$.
@@ -195,7 +195,7 @@ This energy ordering — which reflects the competition between nuclear attracti
 
 ---
 
-## 3.2 The Aufbau Principle and the $n+\ell$ (Madelung) Rule
+## 6.4.3.2 The Aufbau Principle and the $n+\ell$ (Madelung) Rule
 
 When we go beyond hydrogen and consider atoms with several electrons, a natural question arises: **In what order do the available quantum states become occupied?**  
 This is where the **Aufbau principle** comes into play. It states that the electronic configuration of the ground state of an atom can be constructed by filling available states starting from the lowest energy and moving upward.
@@ -283,7 +283,7 @@ plt.show()
 
 ---
 
-## 3.3 The Periodic Table and Its Blocks
+## 6.4.3.3 The Periodic Table and Its Blocks
 
 The successive filling of electronic states according to the Madelung rule leads directly to the **block structure of the periodic table**:
 
@@ -320,7 +320,7 @@ These deviations highlight that while the Madelung rule provides a convenient an
 ![](./periodictable.svg){fig-alt="The periodic table of elements, showing the s-, p-, d-, and f-block structure."}
 
 
-## 3.4 Atomic Volume and Ionization Potential
+## 6.4.3.4 Atomic Volume and Ionization Potential
 
 Two measurable quantities — **atomic volume** and **ionization potential** — provide direct experimental evidence for the shell structure of atoms. Both properties can be interpreted in terms of the **radial extent** and **binding energy** of the outermost electrons.
 

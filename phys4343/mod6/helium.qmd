@@ -1,5 +1,5 @@
 ---
-title: Helium (Basics)
+title: 6.1 Helium (Basics)
 author: Daniel Fischer
 ---
 
@@ -9,13 +9,13 @@ Helium $(Z=2)$ provides our first look beyond hydrogen. After mastering the hydr
 
 In this chapter, we'll start with the helium ion (He$^+$), which we can solve exactly, and then tackle neutral helium, where we'll encounter the limitations of our current methods. This journey will help us appreciate why approximate methods are not just convenient, but absolutely necessary in atomic physics.
 
-# 1. The He$^+$ Ion
+# 6.1.1. The He$^+$ Ion
 
 We begin with the **helium ion** (He$^+$), which has lost one of its two electrons and therefore has only a single electron orbiting the nucleus. This makes it hydrogen-like, meaning we can use everything we learned about hydrogen with just a minor modification.
 
 The key insight is that for ions with only one electron, we can directly apply the hydrogen atom solutions that we have derived previously. The only change needed is to account for the fact that the nucleus now has a charge of $+2e$ instead of $+e$. Mathematically, this means replacing $e^2 \to Ze^2$ throughout all hydrogen equations, where $Z=2$ for helium.
 
-## 1.1 Energy levels
+## 6.1.1.1 Energy levels
 
 Let's see how this works for the energy levels. Recall that for hydrogen, we derived:
 $$
@@ -44,7 +44,7 @@ This is four times deeper than hydrogen's ground state of $-13.6$ eV. The electr
 The Rydberg is a convenient energy unit in atomic physics: $1\,\text{Rydberg} = 13.6\,\text{eV}$. In these units, hydrogen's ground state is exactly $-1$ Rydberg, and He$^+$ is $-4$ Rydberg. This makes comparing hydrogenic systems straightforward.
 :::
 
-## 1.2 Bohr radius
+## 6.1.1.2 Bohr radius
 
 The stronger nuclear attraction also affects the size of the electron's orbit. The Bohr radius, which characterizes the typical distance of the electron from the nucleus, also scales with nuclear charge.
 
@@ -60,7 +60,7 @@ $$
 
 For helium ($Z=2$), the electron orbit is compressed to half the hydrogen size. This makes physical sense: the stronger nuclear charge pulls the electron closer. The electron cloud in He$^+$ is much more compact than in hydrogen.
 
-## 1.3 Wave functions
+## 6.1.1.3 Wave functions
 
 The wave functions for hydrogenic ions follow the same functional form as hydrogen, but with the scaled Bohr radius $a = a_0/Z$. This reflects both the tighter binding and the smaller orbital size.
 
@@ -85,13 +85,13 @@ So far, everything has been straightforward. The He$^+$ ion is completely solved
 
 ---
 
-# 2. The Neutral Helium Atom
+# 6.1.2. The Neutral Helium Atom
 
 Now we consider **neutral helium** with **two electrons**. You might think we could just put two electrons into the ground state and be done with it. However, there's a complication: the two electrons repel each other. This electron-electron repulsion changes everything and makes the problem impossible to solve exactly.
 
 This is a watershed moment in atomic physics. With hydrogen and hydrogen-like ions, we could write down exact solutions. With helium, we encounter the first system that forces us to approximate.
 
-## 2.1 The Hamiltonian
+## 6.1.2.1 The Hamiltonian
 
 Let's write down the full Hamiltonian for neutral helium and see what we're up against. We need to include:  
 - The kinetic energy of both electrons  
@@ -114,7 +114,7 @@ The problem is that last term: $|\vec{r}_1 - \vec{r}_2|$ is the distance between
 
 It is important to recognize that no exact analytical solution exists for the helium atom. This is not due to insufficient mathematical sophistication, but rather reflects a fundamental property of systems with multiple interacting particles. If the two-electron problem defies exact solution, the situation for heavier atoms—with their many-body interactions—is considerably more challenging. The need for systematic approximation methods thus emerges as a central theme in atomic and molecular physics.
 
-## 2.2 Zeroth-order approximation
+## 6.1.2.2 Zeroth-order approximation
 
 Let's make the simplest possible approximation: what if we just ignore the electron-electron repulsion? This is obviously unphysical, but it will give us a baseline to compare against.
 
@@ -133,7 +133,7 @@ $$
 E_{100} = 2 \times (-54.4\,\text{eV}) = -108.8\,\text{eV} \approx -109\,\text{eV}
 $$
 
-## 2.3 Comparison with experiment
+## 6.1.2.3 Comparison with experiment
 
 Now for the moment of truth: how does our approximation compare to reality? The **experimental value** for the helium ground state is:
 $$
@@ -142,7 +142,7 @@ $$
 
 We're off by about $30$ eV! That's a huge discrepancy—roughly 40% of the experimental value. This tells us something important: **the interaction term contributes significantly** and cannot be neglected. Our zeroth-order approximation, while instructive, is far too crude.
 
-## 2.4 Physical interpretation
+## 6.1.2.4 Physical interpretation
 
 Why is our calculated energy so much more negative (lower) than the experimental value? The answer lies in what we ignored: electron-electron repulsion.
 
@@ -154,7 +154,7 @@ The $30$ eV difference is a direct measure of the average electron-electron repu
 
 ---
 
-# 3 First-Order Perturbation Theory
+# 6.1.3 First-Order Perturbation Theory
 
 To improve upon our crude zeroth-order approximation, we now treat the electron-electron repulsion term as a small perturbation ($H'$) to the main, solvable Hamiltonian ($H_0$).
 
@@ -167,7 +167,7 @@ $$ \hat{H}_0 = -\frac{\hbar^2}{2m_e}\nabla_1^2 -\frac{Ze^2}{4\pi\epsilon_0 r_1} 
 and the perturbation is the electron-electron repulsion term:
 $$ \hat{H}' = \frac{e^2}{4\pi\epsilon_0 r_{12}} $$
 
-## 3.1 The First-Order Energy Correction
+## 6.1.3.1 The First-Order Energy Correction
 
 The first-order correction to the ground state energy, $E^{(1)}$, is the expectation value of the perturbation over the unperturbed ground state wavefunction ($\psi^{(0)}$):
 $$ E^{(1)} = \langle \psi^{(0)} | \hat{H}' | \psi^{(0)} \rangle $$
@@ -183,7 +183,7 @@ This integral is non-trivial but can be solved. Its value is found to be $\frac{
 For helium ($Z=2$):
 $$ E^{(1)} = \frac{5}{8} (2) \left( \frac{e^2}{4\pi\epsilon_0 a_0} \right) = \frac{5}{4} \left( 13.6\,\text{eV} \right) = 34.0\,\text{eV} $$
 
-## 3.2 Result and Physical Interpretation
+## 6.1.3.2 Result and Physical Interpretation
 
 The new, first-order approximation for the helium ground state energy is the sum of the zeroth-order energy and the first-order correction:
 $$ E^{(1)}_{\text{total}} = E^{(0)} + E^{(1)} = -108.8\,\text{eV} + 34.0\,\text{eV} = -74.8\,\text{eV} $$
@@ -196,7 +196,7 @@ To get even closer to the experimental value, we would need to go to higher orde
 
 ---
 
-# 4. Summary
+# 6.1.4. Summary
 
 Let's recap what we've learned:
 

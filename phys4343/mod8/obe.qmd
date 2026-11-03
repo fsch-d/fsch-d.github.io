@@ -1,5 +1,5 @@
 ---
-title: "The Optical Bloch Equations"
+title: 8.4 The Optical Bloch Equations
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
@@ -48,7 +48,7 @@ their physical content.
 
 ---
 
-# 1. The Optical Bloch Equations (OBEs)
+# 8.4.1. The Optical Bloch Equations (OBEs)
 
 The time evolution of the density matrix of a two-level atom interacting with a classical laser field is obtained by inserting the Hamiltonian from Equation 5 on the page about the
 [*Rotating Wave Approximation*](rwa_rabi.qmd#eq-serwarotl){target=blank_} 
@@ -62,7 +62,7 @@ In this section we derive the **Optical Bloch Equations (OBEs)**. The derivation
 
 ---
 
-## 1.1 Spontaneous decay
+## 8.4.1.1 Spontaneous decay
 
 Real atoms decay from the excited state even in the absence of external fields. This effect is **not contained in the Hamiltonian**, because spontaneous emission originates from vacuum fluctuations of the quantized electromagnetic field. Since we are treating the field classically, we incorporate spontaneous decay phenomenologically by modifying the Liouville–von Neumann equation.
 
@@ -110,7 +110,7 @@ $${#eq-sesd}
 
 ---
 
-## 1.2 Coherent evolution in the rotating frame
+## 8.4.1.2 Coherent evolution in the rotating frame
 
 To obtain the full Optical Bloch Equations, we now include the **coherent atom–field interaction**.  
 We use the **Hamiltonian in the laser-rotating frame** derived in the RWA section:
@@ -211,7 +211,7 @@ These are the **Optical Bloch Equations**.
 
 ---
 
-## 1.3 Reducing the system: inversion and coherence
+## 8.4.1.3 Reducing the system: inversion and coherence
 
 Because the density matrix satisfies  
 
@@ -260,7 +260,7 @@ These two equations fully describe the dynamics of a driven two-level atom in th
 
 ---
 
-# 2. Solutions of the Optical Bloch Equations {#sec-obe-solutions}
+# 8.4.2. Solutions of the Optical Bloch Equations {#sec-obe-solutions}
 
 The Optical Bloch Equations (OBEs) describe the driven dynamics of a damped
 two-level system in the rotating frame. Analytic solutions exist in important
@@ -269,7 +269,7 @@ general case the equations are nonlinear and must be solved numerically.
 Before turning to analytic limits, we illustrate the full dynamics via direct
 numerical integration.
 
-## 2.1 General solution (numerical)
+## 8.4.2.1 General solution (numerical)
 
 The rotating-frame OBEs for a two-level atom driven with Rabi frequency
 $\Omega_0$ and detuning $\delta$ were derived in
@@ -410,7 +410,7 @@ that organize the regimes of operation.
 
 ---
 
-## 2.2 Saturation parameters
+## 8.4.2.2 Saturation parameters
 
 Using the definitions of $\Omega_0$ and $\gamma$
 
@@ -458,7 +458,7 @@ in the next section.
 
 ---
 
-## 2.3 Steady-State Solutions
+## 8.4.2.3 Steady-State Solutions
 
 In many practically relevant situations, atoms interact with a near-resonant, monochromatic laser field for times *much longer* than the natural lifetime of the excited state. 
 In such cases, all transient dynamics have decayed away, and the system reaches a **true steady state**, meaning that all time derivatives of the density-matrix elements vanish.
@@ -601,7 +601,7 @@ This saturation behavior is fundamental to two-level systems with spontaneous de
 ---
 
 
-## 2.4 Photon Scattering Rate and Intensity Broadening
+## 8.4.2.4 Photon Scattering Rate and Intensity Broadening
 
 When an atom is illuminated by near-resonant laser light, it undergoes a continuous cycle of **stimulated absorption**, **stimulated emission**, and—at random times—**spontaneous decay**. 
 The spontaneously emitted photons are the ones detected in a fluorescence experiment (see Fig. @fig-scat). 

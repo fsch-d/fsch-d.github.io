@@ -7,7 +7,7 @@ format:
     fig-alt: true
     self-contained: true
 subtitle: How a few small wrinkles changed our view of nature
-title: From Classical Physics to the Quantum World of Atoms
+title: 1 From Classical Physics to the Quantum World of Atoms
 ---
 
 # A world without quantum mechanics

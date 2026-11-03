@@ -1,5 +1,5 @@
 ---
-title: "Molecular Orbitals and the LCAO Method"
+title: 7.3 Molecular Orbitals and the LCAO Method
 author: Daniel Fischer
 ---
 
@@ -23,7 +23,7 @@ This chapter combines **analytical derivations, graphical visualizations, and qu
 
 ---
 
-# 1. Conceptual Overview of the Linear Combination of Atomic Orbitals (LCAO)
+# 7.3.1. Conceptual Overview of the Linear Combination of Atomic Orbitals (LCAO)
 
 The central idea of the **Linear Combination of Atomic Orbitals (LCAO)** method is that molecular orbitals can be expressed as a linear combination of atomic orbitals from the constituent atoms. 
 For a diatomic molecule, for instance, we might write
@@ -39,7 +39,7 @@ This transforms the Schrödinger equation from a complicated differential equati
 
 ---
 
-## 1.1 From the Variational Principle to the Secular Equation
+## 7.3.1.1 From the Variational Principle to the Secular Equation
 
 You have already encountered the [**Ritz variational principle**](../mod2/variational.qmd#sec-ritz){target=_blank}, which states that the best approximate energy within a chosen trial space minimizes the expectation value of the Hamiltonian:
 
@@ -78,14 +78,14 @@ This is why matrix methods play such a central role in modern quantum chemistry.
 
 ---
 
-# 2. The H$_2^+$ Molecular Ion
+# 7.3.2. The H$_2^+$ Molecular Ion
 
 The H$_2^+$ ion is the simplest possible molecule: two protons and one electron.  
 This one-electron system is ideal to study bonding from first principles.
 
 ---
 
-## 2.1 Atomic Orbitals
+## 7.3.2.1 Atomic Orbitals
 
 For each hydrogen nucleus, we use the 1s atomic orbital:
 
@@ -104,7 +104,7 @@ with $\vec{r}_A = \vec{r} + \frac{\vec{R}}{2}$ and $\vec{r}_B = \vec{r} - \frac{
 
 ---
 
-## 2.2 Normalization
+## 7.3.2.2 Normalization
 
 The normalization condition reads:
 
@@ -211,7 +211,7 @@ plt.show()
 
 ---
 
-## 2.3 Energies
+## 7.3.2.3 Energies
 
 The energies of these molecular orbitals are:
 
@@ -409,7 +409,7 @@ Despite its simplicity, the LCAO picture captures the **qualitative physics of b
 
 ---
 
-## 2.4 Qualitative Explanation of Bonding
+## 7.3.2.4 Qualitative Explanation of Bonding
 
 So far, we have derived molecular orbitals (MOs) for H$_2^+$ using linear combinations of atomic orbitals (LCAO) and found that the **symmetric (gerade)** combination leads to a lower energy — a **bonding orbital** — while the **antisymmetric (ungerade)** combination leads to a higher energy — an **antibonding orbital**.  
 But *why* does combining two 1$s$ atomic orbitals in this way produce an energy difference? We can gain some qualitative insight by thinking in terms of **electron density** and **kinetic energy**.
@@ -452,7 +452,7 @@ Together, these effects explain why $E_g < E_u$ and why the bonding orbital lead
 
 ---
 
-# 3. Molecular Symmetry and Orbital Classification
+# 7.3.3. Molecular Symmetry and Orbital Classification
 
 We have already encountered the essential ideas of molecular orbital symmetry in the context of the [H$_2^+$ molecular ion](h2plus.qmd){target=_blank}. 
 Here, we revisit these ideas more systematically and extend them to include orbitals formed from 2$p$ atomic orbitals.

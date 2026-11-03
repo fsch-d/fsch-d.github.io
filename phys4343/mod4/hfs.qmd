@@ -1,5 +1,5 @@
 ---
-title: The Hyperfine Structure
+title: 4.3 The Hyperfine Structure
 author: Daniel Fischer
 ---
 
@@ -20,7 +20,7 @@ By the end of this section students should be able to write the magnetic-dipole 
 
 ---
 
-# 1. Hyperfine Hamiltonian and multipole expansion
+# 4.3.1. Hyperfine Hamiltonian and multipole expansion
 
 The interaction between the electronic degrees of freedom and nuclear moments can be written in a multipole (tensor) expansion. A compact operator form is
 
@@ -38,7 +38,7 @@ In this section we concentrate on the magnetic-dipole ($k=1$) term.
 
 ---
 
-# 2. Magnetic-dipole hyperfine interaction
+# 4.3.2. Magnetic-dipole hyperfine interaction
 
 The dominant contribution to the hyperfine structure in many atoms is the
 interaction between the **magnetic moment of the nucleus** and the magnetic
@@ -167,7 +167,7 @@ are obtained from atomic-structure calculations or from experiment.
 
 ---
 
-# 3. Angular-momentum algebra and the energy formula
+# 4.3.3. Angular-momentum algebra and the energy formula
 
 The treatment of hyperfine structure closely parallels the **LS coupling scheme** already discussed: just as $\hat{\vec J} = \hat{\vec L} + \hat{\vec S}$ combines orbital and spin angular momentum, here we combine the **electronic total angular momentum** $\hat{\vec J}$ with the **nuclear spin** $\hat{\vec I}$ to form the **total atomic angular momentum** $\hat{\vec F}$:
 
@@ -177,7 +177,7 @@ $$
 
 ---
 
-## 3.1 Operator identities
+## 4.3.3.1 Operator identities
 
 The squared total angular momentum operator satisfies
 
@@ -200,7 +200,7 @@ $$
 
 ---
 
-## 3.2 New atomic eigenstates
+## 4.3.3.2 New atomic eigenstates
 
 Because $\hat{\vec F}$ is the relevant conserved total angular momentum, the natural basis states are
 
@@ -229,7 +229,7 @@ Thus, the hyperfine eigenstates are labeled by the coupled quantum numbers $(L, 
 
 ---
 
-## 3.3 Eigenvalue relations and energy formula
+## 4.3.3.3 Eigenvalue relations and energy formula
 
 For angular momentum operators, the general eigenvalue relation is
 
@@ -247,7 +247,7 @@ $$
 
 ---
 
-## 3.4 Possible $F$ values
+## 4.3.3.4 Possible $F$ values
 
 The possible values of $F$ follow the vector addition rule of angular momenta:
 
@@ -272,7 +272,7 @@ Thus there are $(2\,\min(I,J)+1)$ hyperfine components for a given electronic le
 
 ---
 
-# 4. Example: Hydrogen ground state ($1s_{1/2}$)
+# 4.3.4. Example: Hydrogen ground state ($1s_{1/2}$)
 
 For the hydrogen atom in the ground state:
 
@@ -358,13 +358,13 @@ plot_hyperfine_splitting()
 
 ---
 
-## 4.1 Comments on the sign and ordering
+## 4.3.4.1 Comments on the sign and ordering
 
 The sign of $A$ determines which $F$ level lies higher. For hydrogen the $F=1$ level lies above the $F=0$ level (positive $A$), producing the emitted 21-cm photon for the $F=1\to F=0$ transition in spontaneous emission.
 
 ---
 
-# 5. Finite-nucleus and higher-order corrections
+# 4.3.5. Finite-nucleus and higher-order corrections
 
 A few further points important for precision work:
 
@@ -374,7 +374,7 @@ A few further points important for precision work:
 
 ---
 
-# 6. The Significance of Hyperfine Structure
+# 4.3.6. The Significance of Hyperfine Structure
 
 The tiny energy shifts caused by the hyperfine interaction—the coupling between the electron's total angular momentum and the nucleus's spin—have profound and far-reaching consequences in modern physics and technology. While seemingly small, this interaction provides an exquisitely precise and stable quantum reference, which we can harness for a wide variety of applications.
 
