@@ -1,0 +1,33 @@
+QUARTO REFERENCE AUDIT
+Rendered HTML pages: 60
+Local links checked: 12527
+Broken links/anchors: 0
+Text-reference candidates: 10
+
+
+=== BROKEN LOCAL LINKS / ANCHORS ===
+
+None found.
+
+
+=== TEXT REFERENCES TO REVIEW (NOT AUTOMATICALLY BROKEN) ===
+
+mod2/amcoupling.qmd:1481: Section 2.5.4.1.
+
+mod2/wavemechanics.qmd:344: The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 2.1.5.
+
+mod2/wavemechanics.qmd:467: For a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function $\psi$ is itself generally complex and has 
+
+mod2/wavemechanics.qmd:806: The experiments discussed in Section 2.1.1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
+
+mod5/dopplerfree.qmd:1644: The excited $2\,^2P_{3/2}$ state contains four hyperfine sublevels ($F=0$ to $F=3$). However, their splittings are only a few megahertz—comparable to the natural linewidth—so they **cannot be resolved** in the experiment. This makes the obs
+
+mod6/hartreefock.qmd:76: This formulation reveals an inherent self-consistency requirement: the effective potential depends on the wave functions $\psi_j$ of all other electrons, but these wave functions are themselves solutions to Schrödinger equations that depend
+
+mod7/h2plus.qmd:355: as derived in Section 7.2.2. The Laplacian takes the form
+
+mod7/moltransitions.qmd:273: As discussed in [Section 7.5.4.3](./nuclear.qmd#sec-speccons){target=_blank}, the total energy of a diatomic molecule in its ground electronic state can be written approximately as
+
+mod7/nuclear.qmd:417: From Section 7.5.1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule:
+
+mod8/rwa_rabi.qmd:1035: The dressed-state picture derived in Section 8.2.2 also predicts clear and observable signatures in spectroscopy.

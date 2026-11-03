@@ -139,7 +139,9 @@ website:
         text: 8.6 The Bloch Sphere Representation
       - href: mod8/ramsey.qmd
         text: 8.7 Ramsey Spectroscopy and Atomic Clocks
-lightbox: true
+lightbox:
+  match: auto
+  effect: fade
 format:
   html:
     theme:
@@ -153,4 +155,6 @@ format:
     fig-alt: true
     html-math-method: mathjax
     include-in-header:
-    - file: pwa-head.html
+      - file: pwa-head.html
+    filters:
+      - filters/page-gallery.lua
