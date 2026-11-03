@@ -1032,7 +1032,7 @@ The underlying principle — the AC-Stark shift discussed earlier — thus conne
 
 ## 8.2.3.3 Spectroscopic manifestation: Autler–Townes splitting
 
-The dressed-state picture derived in Section 2 also predicts clear and observable signatures in spectroscopy. 
+The dressed-state picture derived in Section 8.2.2 also predicts clear and observable signatures in spectroscopy. 
 If a strong coupling laser drives one transition of an atom, and a weak probe laser scans across the same resonance, the probe no longer sees a single absorption line. 
 Instead, the spectrum splits into two distinct peaks separated by $\hbar\Omega$, where
 

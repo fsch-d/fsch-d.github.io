@@ -1641,7 +1641,7 @@ with open(os.devnull, 'w') as FNULL:
 
 The $2\,^2S_{1/2}$ ground state is split into two hyperfine levels with total angular momenta $F=1$ and $F=2$. Their separation is about $800\,$MHz, which is much larger than both the **natural linewidth** of the transition (approximately $6\,$MHz) and the **experimental resolution**.  
 
-The excited $2\,^2P_{3/2}$ state contains four hyperfine sublevels ($F=0$ to $F=3$). However, their splittings are only a few megahertz—comparable to the natural linewidth—so they **cannot be resolved** in the experiment. This makes the observed system effectively a **three-level $\Lambda$ system**, equivalent to the one discussed in [Section 4 @sec-lambdaspec].
+The excited $2\,^2P_{3/2}$ state contains four hyperfine sublevels ($F=0$ to $F=3$). However, their splittings are only a few megahertz—comparable to the natural linewidth—so they **cannot be resolved** in the experiment. This makes the observed system effectively a **three-level $\Lambda$ system**, equivalent to the one discussed in [Section 5.6.4 @sec-lambdaspec].
 
 In the experimental spectrum, a **Lamb dip** is observed on each side of the Doppler-broadened absorption profile, corresponding to the two ground-state hyperfine components.  
 Additionally, there is a **strong central feature**—the **crossover peak**—which arises when both counter-propagating laser beams interact with atoms of the same velocity, one via each ground-state hyperfine level.

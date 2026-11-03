@@ -270,7 +270,7 @@ In contrast, heteronuclear molecules like HCl or CO have nonzero $\mu(R)$ and th
 
 # 7.6.2. Rovibrational Spectroscopy
 
-As discussed in [Section 4.3](./nuclear.qmd#sec-speccons){target=_blank}, the total energy of a diatomic molecule in its ground electronic state can be written approximately as
+As discussed in [Section 7.5.4.3](./nuclear.qmd#sec-speccons){target=_blank}, the total energy of a diatomic molecule in its ground electronic state can be written approximately as
 
 $$
 E(v, J) \approx 

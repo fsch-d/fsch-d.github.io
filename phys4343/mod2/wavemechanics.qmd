@@ -341,7 +341,7 @@ At about the same time, **George Paget Thomson** investigated electrons transmit
 
 The two experiments used different geometries but led to the same conclusion: electrons, despite their particle-like properties such as charge and mass, can undergo diffraction. Davisson and Thomson later shared the **1937 Nobel Prize in Physics** for the experimental discovery of electron diffraction.
 
-The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 5.
+The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 2.1.5.
 
 ::: {.callout-note collapse="true"}
 ## Historical note
@@ -464,7 +464,7 @@ $$
 
 The complex representation keeps track of both **amplitude and phase** and makes the mathematics of superposition particularly simple.
 
-For a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function $\psi$ is itself generally complex and has a different physical interpretation, which we will introduce in Section 4.
+For a classical wave, the complex notation is often only a mathematical convenience and the measurable quantity is obtained from the real part. In quantum mechanics, by contrast, the wave function $\psi$ is itself generally complex and has a different physical interpretation, which we will introduce in Section 2.1.4.
 
 ---
 
@@ -803,7 +803,7 @@ A plane wave extending over all space is not square-normalizable in the usual se
 
 # 2.1.5. Matter Waves and the de Broglie Relations
 
-The experiments discussed in Section 1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
+The experiments discussed in Section 2.1.1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
 
 $$
 \boxed{\vec p=\hbar\vec k}

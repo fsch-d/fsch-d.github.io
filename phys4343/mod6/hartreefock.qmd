@@ -73,7 +73,7 @@ $$ {#eq-effpot}
 - The sum over $j \neq i$ includes contributions from all other electrons  
 - This is an *average* potential because the electron probability distributions $|\psi_j|^2$ represent time-averaged positions  
 
-This formulation reveals an inherent self-consistency requirement: the effective potential depends on the wave functions $\psi_j$ of all other electrons, but these wave functions are themselves solutions to Schrödinger equations that depend on the effective potential. This circular dependence motivates the self-consistent field methods discussed in Section 2.
+This formulation reveals an inherent self-consistency requirement: the effective potential depends on the wave functions $\psi_j$ of all other electrons, but these wave functions are themselves solutions to Schrödinger equations that depend on the effective potential. This circular dependence motivates the self-consistent field methods discussed in Section 6.3.2.
 
 **Key approximation:** This effective potential treats electron-electron interactions in an average sense, neglecting instantaneous correlations between electron positions. Despite this simplification, it captures the essential screening effect where inner electrons reduce the effective nuclear charge experienced by outer electrons.
 

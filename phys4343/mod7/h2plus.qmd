@@ -352,7 +352,7 @@ $$
 -\frac{4\xi}{R(\xi^2-\eta^2)},
 $$
 
-as derived in Section 2. The Laplacian takes the form
+as derived in Section 7.2.2. The Laplacian takes the form
 
 $$
 \begin{aligned}

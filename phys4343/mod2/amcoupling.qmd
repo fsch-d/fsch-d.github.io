@@ -1478,7 +1478,7 @@ $$
 $$
 
 is the natural choice, as illustrated by the spin--orbit interaction in
-Section 4.1.
+Section 2.5.4.1.
 
 The two descriptions are not different physical theories; they are
 different bases for the same Hilbert space, chosen to suit the Hamiltonian

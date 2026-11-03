@@ -414,7 +414,7 @@ where $D_J$ is the centrifugal distortion constant, typically much smaller than 
 
 # 7.5.3. Molecular Vibration
 
-From Section 1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule:
+From Section 7.5.1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule:
 $$\left[-\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2} + \frac{J(J+1)\hbar^2}{2\mu R^2} + E_n^{el}(R)\right]u(R) = E_{nJ}\,u(R)$$
 
 This equation describes the vibrational motion in the effective potential:
