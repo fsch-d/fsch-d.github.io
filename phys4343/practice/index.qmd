@@ -1,0 +1,8 @@
+---
+title: "Practice Your AMO Knowledge"
+---
+
+A collection of conceptual questions, practice problems, and worked
+solutions to reinforce the material covered in the lecture notes.
+
+Each problem includes optional hints and a collapsible worked solution.

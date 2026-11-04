@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>P1 Quantum Mechanics – Introduction into Atomic, Molecular, and Optical Physics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../practice/atomic.html" rel="next">
+<link href="../practice/index.html" rel="prev">
+<link href="../icons/icon-192.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8ba0f7c4899a1f6178dd4bd9efe5a1f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#0d6efd">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Atomic Physics">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .catch(err => console.warn("Service worker:", err));
+    });
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="P1 Quantum Mechanics – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Introduction into Atomic, Molecular, and Optical Physics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contents.html"> 
+<span class="menu-text">Contents</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/quantum.html">P1 Quantum Mechanics</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 From Classical Physics to the Quantum World of Atoms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Quantum Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/wavemechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Wave Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/braket.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 States and Operators in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/measurement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Quantum Measurement and the Measurement Problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/heisenberg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Commutators and the Heisenberg Uncertainty Principle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/amcoupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Angular Momenta and Their Couplings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/qosc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 The One-Dimensional Quantum Harmonic Oscillator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.7 Time-Independent Perturbation Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/tdperturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.9 The Variational Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.10 Exchange Interaction: Fermions and Bosons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.11 Relativistic Wave Equations — the Dirac Equation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Hydrogen Atom: Wave Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/angmom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Orbital Angular Momentum in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/hydrogen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Hydrogen atom — Schrödinger equation and radial solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/orbitals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Visualizing Hydrogen Orbitals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Hydrogen Atom: Shifts and Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 Electron Spin and Fine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/lamb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 The Lamb Shift — An Introduction to Quantum Electrodynamics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/hfs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3 The Hyperfine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Summary — energy-level splitting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Hydrogen in Static External Fields</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Absorption and Emission of Radiation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/einstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1 Transition Processes and Einstein Coefficients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spontaneous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2 Spontaneous Decay and Atomic Transition Rates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3 Visualizing Atomic Transitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/selectionr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4 Radiation and Selection Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5 Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/dopplerfree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6 Doppler-Free Saturation Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 More than One Electron Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/helium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.1 Helium (Basics)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/twoelectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2 Two-Electron States in Helium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/hartreefock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3 Calculations for Multielectron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/manye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 Shell Model and Periodic Table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/coupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 Angular Momentum Coupling in Many-Electron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/excited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 Excitation and Ionization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 Introduction to Molecular Physics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/molfound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Foundations of Molecular Bonding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 The H<span class="math inline">\(_2^+\)</span> Molecular Ion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/lcao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Molecular Orbitals and the LCAO Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/beyondh2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Beyond H<span class="math inline">\(_2^+\)</span> and LCAO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/nuclear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5 Rotation and Vibration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 Molecular Transitions and Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod8/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 Laser–Atom Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/twoleveltheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.1 Two-Level Systems — The Theoretical Framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/rwa_rabi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.2 Rotating Wave Approximation and Rabi Oscillations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/densitym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3 The Density Matrix Formalism</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/obe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4 The Optical Bloch Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/cooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 Laser Cooling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/bloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 The Bloch Sphere Representation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/ramsey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.7 Ramsey Spectroscopy and Atomic Clocks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Your AMO Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">P1 Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/atomic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Hydrogen Atom: Wave Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/shifts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Hydrogen Atom: Shifts and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/radiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P4 Interaction with Radiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/multielectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P5 Multielectron Atoms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quantum-states-and-time-evolution" id="toc-quantum-states-and-time-evolution" class="nav-link active" data-scroll-target="#quantum-states-and-time-evolution">Quantum States and Time Evolution</a>
+  <ul class="collapse">
+  <li><a href="#prob-p1-1" id="toc-prob-p1-1" class="nav-link" data-scroll-target="#prob-p1-1">Problem P1.1: The Time-Dependent Schrödinger Equation</a></li>
+  </ul></li>
+  <li><a href="#orbital-angular-momentum" id="toc-orbital-angular-momentum" class="nav-link" data-scroll-target="#orbital-angular-momentum">Orbital Angular Momentum</a>
+  <ul class="collapse">
+  <li><a href="#prob-p1-2" id="toc-prob-p1-2" class="nav-link" data-scroll-target="#prob-p1-2">Problem P1.2: Orbital Angular Momentum and Compatible Observables</a></li>
+  <li><a href="#prob-p1-3" id="toc-prob-p1-3" class="nav-link" data-scroll-target="#prob-p1-3">Problem P1.3: Angular Momentum in Coordinate Space</a></li>
+  </ul></li>
+  <li><a href="#quantum-to-classical-correspondence" id="toc-quantum-to-classical-correspondence" class="nav-link" data-scroll-target="#quantum-to-classical-correspondence">Quantum-to-Classical Correspondence</a>
+  <ul class="collapse">
+  <li><a href="#prob-p1-4" id="toc-prob-p1-4" class="nav-link" data-scroll-target="#prob-p1-4">Problem P1.4: From Quantum to Classical Behavior</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/quantum.html">P1 Quantum Mechanics</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">P1 Quantum Mechanics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>These problems reinforce the fundamental concepts of quantum mechanics used throughout atomic, molecular, and optical physics.</p>
+<p>Work through the problems independently before consulting your notes. Particular attention should be paid to the physical interpretation of the mathematical results.</p>
+<section id="quantum-states-and-time-evolution" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-states-and-time-evolution">Quantum States and Time Evolution</h2>
+<section id="prob-p1-1" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p1-1">Problem P1.1: The Time-Dependent Schrödinger Equation</h3>
+<p>The time-dependent Schrödinger equation for an electron, in atomic units, is</p>
+<p><span class="math display">\[
+i\frac{\partial}{\partial t}\psi(\vec r,t)
+=
+-\frac{\nabla^2}{2}\psi(\vec r,t)
++V(\vec r,t)\psi(\vec r,t).
+\]</span></p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>For a time-independent potential <span class="math inline">\(V(\vec r)\)</span>, the solution can be written as a product</p>
+<p><span class="math display">\[
+\psi(\vec r,t)=f(\vec r)g(t).
+\]</span></p>
+<p>Determine the form of <span class="math inline">\(g(t)\)</span>.</p></li>
+<li><p>What is the time dependence of the probability density</p>
+<p><span class="math display">\[
+|\psi(\vec r,t)|^2
+=
+\psi^*(\vec r,t)\psi(\vec r,t)
+\]</span></p>
+<p>for such a stationary state?</p></li>
+<li><p>Consider the superposition</p>
+<p><span class="math display">\[
+\psi(\vec r,t)
+=
+\frac{1}{\sqrt{2}}
+\left[
+\psi_1(\vec r,t)-\psi_2(\vec r,t)
+\right],
+\]</span></p>
+<p>where <span class="math inline">\(\psi_1\)</span> and <span class="math inline">\(\psi_2\)</span> are normalized energy eigenstates with distinct eigenfrequencies <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_2\)</span>.</p>
+<p>Derive an expression for the time-dependent probability density <span class="math inline">\(|\psi(\vec r,t)|^2\)</span>.</p>
+<p>Explain why the probability density can now depend on time.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Write each energy eigenstate as</p>
+<p><span class="math display">\[
+\psi_j(\vec r,t)=\phi_j(\vec r)e^{-i\omega_j t}.
+\]</span></p>
+<p>When calculating the probability density, pay particular attention to the interference terms.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Time dependence of a stationary state</strong></p>
+<p>For a time-independent potential, we use the separation ansatz</p>
+<p><span class="math display">\[
+\psi(\vec r,t)=f(\vec r)g(t).
+\]</span></p>
+<p>Substituting into the time-dependent Schrödinger equation (in atomic units),</p>
+<p><span class="math display">\[
+i f(\vec r)\frac{dg}{dt}
+=
+-\frac{g(t)}{2}\nabla^2 f(\vec r)
++V(\vec r)f(\vec r)g(t),
+\]</span></p>
+<p>and dividing by <span class="math inline">\(f(\vec r)g(t)\)</span> gives</p>
+<p><span class="math display">\[
+i\frac{1}{g}\frac{dg}{dt}
+=
+-\frac{1}{2f}\nabla^2 f+V(\vec r).
+\]</span></p>
+<p>The left side depends only on time, while the right side depends only on position. Both must therefore equal a constant <span class="math inline">\(E\)</span>, the energy eigenvalue.</p>
+<p>Thus,</p>
+<p><span class="math display">\[
+i\frac{dg}{dt}=Eg,
+\]</span></p>
+<p>with solution</p>
+<p><span class="math display">\[
+\boxed{g(t)=e^{-iEt}}
+\]</span></p>
+<p>up to a constant factor.</p>
+<p><strong>2. Probability density of a stationary state</strong></p>
+<p>For a stationary state,</p>
+<p><span class="math display">\[
+\psi(\vec r,t)=f(\vec r)e^{-iEt}.
+\]</span></p>
+<p>The probability density is</p>
+<p><span class="math display">\[
+\begin{aligned}
+|\psi(\vec r,t)|^2
+&amp;=f^*(\vec r)e^{iEt}f(\vec r)e^{-iEt}\\
+&amp;=|f(\vec r)|^2.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{|\psi(\vec r,t)|^2=|f(\vec r)|^2}
+\]</span></p>
+<p>is independent of time.</p>
+<p>Although the wavefunction acquires a time-dependent phase, this global phase has no effect on the probability density.</p>
+<p><strong>3. Superposition of two energy eigenstates</strong></p>
+<p>Write the two energy eigenstates as</p>
+<p><span class="math display">\[
+\psi_j(\vec r,t)=\phi_j(\vec r)e^{-i\omega_j t},
+\]</span></p>
+<p>where <span class="math inline">\(\omega_j=E_j\)</span> in atomic units.</p>
+<p>The superposition is</p>
+<p><span class="math display">\[
+\psi(\vec r,t)
+=
+\frac{1}{\sqrt{2}}
+\left[
+\phi_1(\vec r)e^{-i\omega_1 t}
+-
+\phi_2(\vec r)e^{-i\omega_2 t}
+\right].
+\]</span></p>
+<p>Taking the absolute square gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+|\psi(\vec r,t)|^2
+=\frac12\Big[
+&amp;|\phi_1(\vec r)|^2+|\phi_2(\vec r)|^2\\
+&amp;-\phi_1^*(\vec r)\phi_2(\vec r)
+  e^{i(\omega_1-\omega_2)t}\\
+&amp;-\phi_2^*(\vec r)\phi_1(\vec r)
+  e^{-i(\omega_1-\omega_2)t}
+\Big].
+\end{aligned}
+\]</span></p>
+<p>Combining the two interference terms,</p>
+<p><span class="math display">\[
+\boxed{
+|\psi(\vec r,t)|^2
+=
+\frac12\left[
+|\phi_1|^2+|\phi_2|^2
+-2\operatorname{Re}\left(
+\phi_1^*\phi_2 e^{i(\omega_1-\omega_2)t}
+\right)
+\right].
+}
+\]</span></p>
+<p>The probability density can oscillate at the <strong>beat frequency</strong></p>
+<p><span class="math display">\[
+\boxed{\omega_{\mathrm{beat}}=|\omega_1-\omega_2|.}
+\]</span></p>
+<p>Unlike a single energy eigenstate, a superposition of states with different energies has a time-dependent relative phase. This can produce observable interference effects.</p>
+<p>The time dependence of the local density requires spatial overlap between the two eigenfunctions.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="orbital-angular-momentum" class="level2">
+<h2 class="anchored" data-anchor-id="orbital-angular-momentum">Orbital Angular Momentum</h2>
+<section id="prob-p1-2" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p1-2">Problem P1.2: Orbital Angular Momentum and Compatible Observables</h3>
+<p>In coordinate space, the orbital angular momentum operator is</p>
+<p><span class="math display">\[
+\hat{\vec L}
+=
+\hat{\vec r}\times\hat{\vec p}
+=
+-i\hbar\,\vec r\times\vec\nabla,
+\]</span></p>
+<p>with Cartesian components</p>
+<p><span class="math display">\[
+\hat L_x
+=
+-i\hbar\left(
+y\frac{\partial}{\partial z}
+-z\frac{\partial}{\partial y}
+\right),
+\]</span></p>
+<p><span class="math display">\[
+\hat L_y
+=
+-i\hbar\left(
+z\frac{\partial}{\partial x}
+-x\frac{\partial}{\partial z}
+\right),
+\]</span></p>
+<p><span class="math display">\[
+\hat L_z
+=
+-i\hbar\left(
+x\frac{\partial}{\partial y}
+-y\frac{\partial}{\partial x}
+\right).
+\]</span></p>
+<p>The squared angular momentum operator is</p>
+<p><span class="math display">\[
+\hat L^2=\hat L_x^2+\hat L_y^2+\hat L_z^2.
+\]</span></p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>Explicitly evaluate the commutator</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]
+\]</span></p>
+<p>and demonstrate that</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]=i\hbar\hat L_z.
+\]</span></p>
+<p>State the corresponding commutation relations for the other two pairs of Cartesian components.</p></li>
+<li><p>Show that</p>
+<p><span class="math display">\[
+[\hat L^2,\hat L_z]=0.
+\]</span></p></li>
+<li><p>Discuss the implications of these commutation relations for simultaneous eigenstates and simultaneous measurements of</p>
+<p><span class="math display">\[
+(\hat L^2,\hat L_z)
+\qquad\text{and}\qquad
+(\hat L_x,\hat L_y).
+\]</span></p></li>
+<li><p>Suppose a quantum state is an eigenstate of both <span class="math inline">\(\hat L^2\)</span> and <span class="math inline">\(\hat L_z\)</span>.</p>
+<p>Does this imply that it is also an eigenstate of <span class="math inline">\(\hat L_x\)</span>? Explain briefly.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the second task, use the operator identity</p>
+<p><span class="math display">\[
+[A^2,B]=A[A,B]+[A,B]A.
+\]</span></p>
+<p>You can then apply the angular momentum commutation relations obtained in the first task.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Commutator <span class="math inline">\([\hat L_x,\hat L_y]\)</span></strong></p>
+<p>The angular momentum operators are</p>
+<p><span class="math display">\[
+\hat L_x=-i\hbar(y\partial_z-z\partial_y),
+\qquad
+\hat L_y=-i\hbar(z\partial_x-x\partial_z).
+\]</span></p>
+<p>To evaluate their commutator, we apply it to an arbitrary sufficiently smooth function <span class="math inline">\(f(x,y,z)\)</span>:</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]f
+=
+(\hat L_x\hat L_y-\hat L_y\hat L_x)f.
+\]</span></p>
+<p>First,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat L_x\hat L_y f
+=-\hbar^2\big[
+&amp;y\partial_x f
++yz\partial_z\partial_x f
+-xy\partial_z^2 f\\
+&amp;-z^2\partial_y\partial_x f
++xz\partial_y\partial_z f
+\big].
+\end{aligned}
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat L_y\hat L_x f
+=-\hbar^2\big[
+&amp;z^2\partial_x\partial_y f
+-yz\partial_x\partial_z f\\
+&amp;-x\partial_y f
+-xy\partial_z^2 f
++xz\partial_z\partial_y f
+\big].
+\end{aligned}
+\]</span></p>
+<p>Because mixed partial derivatives commute, all second-derivative terms cancel when subtracting.</p>
+<p>We obtain</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]f
+=
+-\hbar^2(y\partial_x-x\partial_y)f.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\hat L_z=-i\hbar(x\partial_y-y\partial_x),
+\]</span></p>
+<p>we recognize</p>
+<p><span class="math display">\[
+\boxed{[\hat L_x,\hat L_y]=i\hbar\hat L_z.}
+\]</span></p>
+<p>By cyclic permutation,</p>
+<p><span class="math display">\[
+\boxed{
+[\hat L_y,\hat L_z]=i\hbar\hat L_x,
+\qquad
+[\hat L_z,\hat L_x]=i\hbar\hat L_y.
+}
+\]</span></p>
+<p><strong>2. Commutator <span class="math inline">\([\hat L^2,\hat L_z]\)</span></strong></p>
+<p>Using</p>
+<p><span class="math display">\[
+\hat L^2=\hat L_x^2+\hat L_y^2+\hat L_z^2
+\]</span></p>
+<p>and the identity</p>
+<p><span class="math display">\[
+[A^2,B]=A[A,B]+[A,B]A,
+\]</span></p>
+<p>we find</p>
+<p><span class="math display">\[
+\begin{aligned}
+[\hat L^2,\hat L_z]
+={}&amp;[\hat L_x^2,\hat L_z]
++[\hat L_y^2,\hat L_z]
++[\hat L_z^2,\hat L_z].
+\end{aligned}
+\]</span></p>
+<p>The last term vanishes.</p>
+<p>From the angular momentum commutation relations,</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_z]=-i\hbar\hat L_y,
+\qquad
+[\hat L_y,\hat L_z]=i\hbar\hat L_x.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+[\hat L_x^2,\hat L_z]
+=
+-i\hbar(\hat L_x\hat L_y+\hat L_y\hat L_x)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+[\hat L_y^2,\hat L_z]
+=
+i\hbar(\hat L_y\hat L_x+\hat L_x\hat L_y).
+\]</span></p>
+<p>The two terms cancel:</p>
+<p><span class="math display">\[
+\boxed{[\hat L^2,\hat L_z]=0.}
+\]</span></p>
+<p><strong>3. Simultaneous eigenstates and measurements</strong></p>
+<p>Since</p>
+<p><span class="math display">\[
+[\hat L^2,\hat L_z]=0,
+\]</span></p>
+<p>the two operators possess a common eigenbasis. Their eigenstates can be labeled by the quantum numbers <span class="math inline">\(\ell\)</span> and <span class="math inline">\(m\)</span>:</p>
+<p><span class="math display">\[
+\hat L^2|\ell,m\rangle
+=
+\hbar^2\ell(\ell+1)|\ell,m\rangle,
+\]</span></p>
+<p><span class="math display">\[
+\hat L_z|\ell,m\rangle
+=
+\hbar m|\ell,m\rangle.
+\]</span></p>
+<p>Thus, the magnitude of the angular momentum and its <span class="math inline">\(z\)</span>-component can have simultaneously well-defined values.</p>
+<p>In contrast,</p>
+<p><span class="math display">\[
+[\hat L_x,\hat L_y]=i\hbar\hat L_z\neq 0
+\]</span></p>
+<p>as an operator identity.</p>
+<p>Consequently, <span class="math inline">\(\hat L_x\)</span> and <span class="math inline">\(\hat L_y\)</span> cannot be simultaneously diagonalized in a complete common eigenbasis.</p>
+<p>Their uncertainties satisfy</p>
+<p><span class="math display">\[
+\boxed{
+\Delta L_x\,\Delta L_y
+\geq
+\frac{\hbar}{2}|\langle\hat L_z\rangle|.
+}
+\]</span></p>
+<p><strong>4. Does an eigenstate of <span class="math inline">\(\hat L^2\)</span> and <span class="math inline">\(\hat L_z\)</span> also have a definite <span class="math inline">\(L_x\)</span>?</strong></p>
+<p>In general, <strong>no</strong>.</p>
+<p>The state <span class="math inline">\(|\ell,m\rangle\)</span> has definite values of <span class="math inline">\(L^2\)</span> and <span class="math inline">\(L_z\)</span>, but is generally a superposition of different <span class="math inline">\(L_x\)</span> eigenstates.</p>
+<p>For example, if <span class="math inline">\(m\neq 0\)</span>, the uncertainty relation implies that <span class="math inline">\(L_x\)</span> and <span class="math inline">\(L_y\)</span> cannot both be sharply defined.</p>
+<p>An important exception is <span class="math inline">\(\ell=0\)</span>, where</p>
+<p><span class="math display">\[
+\hat L_x|0,0\rangle
+=
+\hat L_y|0,0\rangle
+=
+\hat L_z|0,0\rangle=0.
+\]</span></p>
+<p>The <span class="math inline">\(\ell=0\)</span> state is therefore a simultaneous eigenstate of all three components.</p>
+<p>The fact that two operators do not commute does not exclude the existence of special common eigenstates.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="prob-p1-3" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p1-3">Problem P1.3: Angular Momentum in Coordinate Space</h3>
+<p>In spherical coordinates, the <span class="math inline">\(z\)</span>-component of the orbital angular momentum operator is</p>
+<p><span class="math display">\[
+\hat L_z=-i\hbar\frac{\partial}{\partial\phi}.
+\]</span></p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>Show that</p>
+<p><span class="math display">\[
+\Phi_m(\phi)=Ae^{im\phi}
+\]</span></p>
+<p>is an eigenfunction of <span class="math inline">\(\hat L_z\)</span>, and determine its eigenvalue.</p></li>
+<li><p>A physical orbital wavefunction must be single-valued. Apply the condition</p>
+<p><span class="math display">\[
+\Phi_m(\phi+2\pi)=\Phi_m(\phi)
+\]</span></p>
+<p>and determine the allowed values of <span class="math inline">\(m\)</span>.</p></li>
+<li><p>Consider the state</p>
+<p><span class="math display">\[
+\psi(\phi)
+=
+\frac{1}{\sqrt{2}}
+\left(e^{i\phi}+e^{-i\phi}\right).
+\]</span></p>
+<p>Here the exponentials represent normalized angular-momentum basis states, with their common normalization factor suppressed.</p>
+<p>Is this state an eigenstate of <span class="math inline">\(\hat L_z\)</span>?</p>
+<p>If <span class="math inline">\(\hat L_z\)</span> is measured, what values can be obtained, and with what probabilities?</p></li>
+<li><p>Consider instead</p>
+<p><span class="math display">\[
+\chi(\phi)=Ae^{i(3/2)\phi}.
+\]</span></p>
+<p>Show that <span class="math inline">\(\chi(\phi)\)</span> is formally an eigenfunction of the differential operator <span class="math inline">\(\hat L_z\)</span>.</p>
+<p>Why is it nevertheless <strong>not an allowed orbital-angular-momentum eigenfunction</strong>?</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the last task, evaluate</p>
+<p><span class="math display">\[
+\frac{\chi(\phi+2\pi)}{\chi(\phi)}.
+\]</span></p>
+<p>Remember that <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\phi+2\pi\)</span> describe the same spatial direction.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Eigenfunctions of <span class="math inline">\(\hat L_z\)</span></strong></p>
+<p>The operator is</p>
+<p><span class="math display">\[
+\hat L_z=-i\hbar\frac{\partial}{\partial\phi}.
+\]</span></p>
+<p>Applying it to</p>
+<p><span class="math display">\[
+\Phi_m(\phi)=Ae^{im\phi}
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat L_z\Phi_m
+&amp;=-i\hbar\frac{\partial}{\partial\phi}
+  \left(Ae^{im\phi}\right)\\
+&amp;=-i\hbar(im)Ae^{im\phi}\\
+&amp;=\hbar m\Phi_m.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{\hat L_z\Phi_m=\hbar m\Phi_m,}
+\]</span></p>
+<p>with eigenvalue</p>
+<p><span class="math display">\[
+\boxed{L_z=\hbar m.}
+\]</span></p>
+<p><strong>2. Allowed values of <span class="math inline">\(m\)</span></strong></p>
+<p>A physical orbital wavefunction must be single-valued:</p>
+<p><span class="math display">\[
+\Phi_m(\phi+2\pi)=\Phi_m(\phi).
+\]</span></p>
+<p>Substituting the exponential form,</p>
+<p><span class="math display">\[
+Ae^{im(\phi+2\pi)}=Ae^{im\phi}.
+\]</span></p>
+<p>For a nonzero wavefunction, this requires</p>
+<p><span class="math display">\[
+e^{i2\pi m}=1.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\boxed{m=0,\pm1,\pm2,\ldots}
+\]</span></p>
+<p>The orbital magnetic quantum number must be an integer.</p>
+<p><strong>3. Superposition of <span class="math inline">\(m=+1\)</span> and <span class="math inline">\(m=-1\)</span></strong></p>
+<p>The state is</p>
+<p><span class="math display">\[
+\psi(\phi)
+=
+\frac{1}{\sqrt2}
+\left(e^{i\phi}+e^{-i\phi}\right),
+\]</span></p>
+<p>where the normalized angular basis functions are understood.</p>
+<p>Applying <span class="math inline">\(\hat L_z\)</span>,</p>
+<p><span class="math display">\[
+\hat L_z\psi
+=
+\frac{\hbar}{\sqrt2}
+\left(e^{i\phi}-e^{-i\phi}\right).
+\]</span></p>
+<p>This is not proportional to the original state, so</p>
+<p><span class="math display">\[
+\boxed{\psi\text{ is not an eigenstate of }\hat L_z.}
+\]</span></p>
+<p>The state is an equal-weight superposition of two angular momentum eigenstates:</p>
+<p><span class="math display">\[
+\psi=\frac{1}{\sqrt2}
+\left(|m=1\rangle+|m=-1\rangle\right).
+\]</span></p>
+<p>The possible measurement outcomes are</p>
+<p><span class="math display">\[
+\boxed{
+L_z=+\hbar \quad (P=1/2),
+\qquad
+L_z=-\hbar \quad (P=1/2).
+}
+\]</span></p>
+<p>The expectation value is</p>
+<p><span class="math display">\[
+\langle L_z\rangle
+=
+\frac12(+\hbar)+\frac12(-\hbar)=0.
+\]</span></p>
+<p>A vanishing expectation value does not mean that every measurement produces zero.</p>
+<p><strong>4. The half-integer orbital state</strong></p>
+<p>Consider</p>
+<p><span class="math display">\[
+\chi(\phi)=Ae^{i(3/2)\phi}.
+\]</span></p>
+<p>Applying <span class="math inline">\(\hat L_z\)</span> gives</p>
+<p><span class="math display">\[
+\hat L_z\chi
+=
+-i\hbar\frac{\partial}{\partial\phi}
+\left(Ae^{i(3/2)\phi}\right)
+=
+\frac{3\hbar}{2}\chi.
+\]</span></p>
+<p>Thus, formally,</p>
+<p><span class="math display">\[
+\boxed{\hat L_z\chi=\frac{3\hbar}{2}\chi.}
+\]</span></p>
+<p>However,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi(\phi+2\pi)
+&amp;=Ae^{i(3/2)(\phi+2\pi)}\\
+&amp;=Ae^{i(3/2)\phi}e^{i3\pi}\\
+&amp;=-\chi(\phi).
+\end{aligned}
+\]</span></p>
+<p>The wavefunction changes sign after a full rotation in the azimuthal coordinate.</p>
+<p>Since <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\phi+2\pi\)</span> represent the same spatial point, this violates the required single-valuedness of a scalar orbital wavefunction.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+m=\frac32\text{ is not allowed for orbital angular momentum.}
+}
+\]</span></p>
+<p>Half-integer angular momentum does occur for <strong>spin</strong>, but spin states are not described by scalar orbital wavefunctions of this form.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="quantum-to-classical-correspondence" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-to-classical-correspondence">Quantum-to-Classical Correspondence</h2>
+<section id="prob-p1-4" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p1-4">Problem P1.4: From Quantum to Classical Behavior</h3>
+<p>According to Schrödinger’s wave mechanics, a massive particle passing through a diffracting object, such as a grating or a double slit, can exhibit constructive and destructive interference.</p>
+<p>The <strong>correspondence principle</strong> states that quantum theory reproduces classical physics in appropriate limits, for example for large quantum numbers, large energies, or large masses.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>Give <strong>two distinct reasons</strong> why interference becomes increasingly difficult to observe for very massive or macroscopic objects.</p></li>
+<li><p>Quantum mechanics allows systems to exist in superposition states.</p>
+<p>Does quantum mechanics itself forbid a macroscopic object from being in a superposition?</p>
+<p>Discuss why <strong>coherent superpositions of macroscopically distinguishable states</strong> are nevertheless extremely difficult to prepare and observe.</p>
+<p>You may use Schrödinger’s cat as a conceptual example.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider both the de Broglie wavelength and the interaction of a quantum system with its environment.</p>
+<p>Distinguish between what quantum mechanics permits in principle and what is experimentally observable.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Why is interference difficult to observe for macroscopic objects?</strong></p>
+<p>Two important reasons are:</p>
+<p><strong>(a) Extremely small de Broglie wavelength</strong></p>
+<p>The de Broglie wavelength is</p>
+<p><span class="math display">\[
+\lambda=\frac{h}{p}=\frac{h}{mv}.
+\]</span></p>
+<p>At a given velocity, increasing the mass decreases the wavelength.</p>
+<p>For a macroscopic object, the de Broglie wavelength becomes extraordinarily small. Consequently, the characteristic interference angles and fringe spacings become too small to resolve with ordinary experimental apparatus.</p>
+<p>For example, a particle passing through a diffraction grating with spacing <span class="math inline">\(d\)</span> has a characteristic first-order diffraction angle of approximately</p>
+<p><span class="math display">\[
+\theta\approx\frac{\lambda}{d},
+\]</span></p>
+<p>when <span class="math inline">\(\lambda\ll d\)</span>.</p>
+<p>As <span class="math inline">\(\lambda\)</span> decreases, the diffraction angle becomes correspondingly smaller.</p>
+<p><strong>(b) Decoherence through environmental interactions</strong></p>
+<p>Macroscopic objects interact strongly with their environment through processes such as</p>
+<ul>
+<li>scattering of air molecules,</li>
+<li>emission and absorption of thermal radiation,</li>
+<li>interactions with surrounding electromagnetic fields.</li>
+</ul>
+<p>These interactions can entangle the object’s quantum state with environmental degrees of freedom.</p>
+<p>Information about the different possible paths becomes encoded in the environment, reducing the coherence necessary for observable interference.</p>
+<p>The interference visibility can therefore decrease extremely rapidly.</p>
+<p><strong>2. Are macroscopic superpositions forbidden?</strong></p>
+<p>No.&nbsp;Quantum mechanics does not impose a fundamental mass or size limit beyond which superpositions become impossible.</p>
+<p>The superposition principle applies to macroscopic systems as well as microscopic ones.</p>
+<p>For example, one may formally construct a state</p>
+<p><span class="math display">\[
+|\Psi\rangle
+=
+\frac{1}{\sqrt2}
+\left(
+|\text{macroscopic state A}\rangle
++
+|\text{macroscopic state B}\rangle
+\right).
+\]</span></p>
+<p>The main difficulty is preserving the <strong>relative phase coherence</strong> between the two components.</p>
+<p>When the system interacts with its environment, the combined state may evolve into</p>
+<p><span class="math display">\[
+|\Psi_{\mathrm{total}}\rangle
+=
+\frac{1}{\sqrt2}
+\left(
+|A\rangle|E_A\rangle
++
+|B\rangle|E_B\rangle
+\right),
+\]</span></p>
+<p>where <span class="math inline">\(|E_A\rangle\)</span> and <span class="math inline">\(|E_B\rangle\)</span> describe environmental states correlated with the two alternatives.</p>
+<p>If the environmental states become nearly orthogonal,</p>
+<p><span class="math display">\[
+\langle E_A|E_B\rangle\approx0,
+\]</span></p>
+<p>the interference terms in measurements of the macroscopic system alone become strongly suppressed.</p>
+<p>This is the process of <strong>decoherence</strong>.</p>
+<p>The resulting system behaves approximately like a classical statistical mixture, even though the combined system and environment can remain in a pure quantum state.</p>
+<p><strong>Physical interpretation</strong></p>
+<p>The classical behavior of macroscopic objects is not simply a consequence of quantum mechanics ceasing to apply.</p>
+<p>Rather, classical behavior emerges because quantum interference is often extremely difficult to resolve and because coherence between macroscopically distinct alternatives is rapidly lost to the environment.</p>
+<p>Schrödinger’s cat illustrates precisely this tension between the linear superposition principle and the classical appearance of macroscopic objects.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fsch-d\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../practice/index.html" class="pagination-link" aria-label="Practice Your AMO Knowledge">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Practice Your AMO Knowledge</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../practice/atomic.html" class="pagination-link" aria-label="P2 Hydrogen Atom: Wave Functions">
+        <span class="nav-page-text">P2 Hydrogen Atom: Wave Functions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

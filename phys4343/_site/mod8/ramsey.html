@@ -66,6 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../practice/index.html" rel="next">
 <link href="../mod8/bloch.html" rel="prev">
 <link href="../icons/icon-192.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -748,6 +749,47 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Your AMO Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/atomic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Hydrogen Atom: Wave Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/shifts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Hydrogen Atom: Shifts and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/radiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P4 Interaction with Radiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/multielectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P5 Multielectron Atoms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -880,7 +922,7 @@ the Bloch vector rotates by <span class="math inline">\(\pi/2\)</span> around th
 \end{pmatrix}.
 \]</span></p>
 <p>The atom is now in an equal superposition of ground and excited states.</p>
-<div id="24e77ecc" class="cell" data-execution_count="1">
+<div id="fb1376ba" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -976,7 +1018,7 @@ The vector becomes<br>
 \]</span> Here, the field and the atomic dipole are <strong>out of phase</strong> by <span class="math inline">\(\pi\)</span> after the evolution time. As a result, the Bloch vector points to the opposite azimuthal direction in the equatorial plane.</p></li>
 </ul>
 <p>Any other detuning produces an intermediate azimuthal angle in the equatorial plane.</p>
-<div id="e34bd9ce" class="cell" data-execution_count="2">
+<div id="1b7ced86" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1097,7 +1139,7 @@ The vector becomes<br>
 <p>meaning <em>return to the ground state</em>.</p></li>
 </ul>
 <p>Intermediate angles lead to partial population transfer, generating the Ramsey interference pattern.</p>
-<div id="410e947b" class="cell" data-execution_count="3">
+<div id="02087dab" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1308,7 +1350,7 @@ P_e(\delta) = \cos^2\!\left(\frac{\delta T}{2}\right).
 <span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-ramseyfringes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Excited-state population vs detuning showing narrow Ramsey pattern." data-fig-align="center">
+<div id="fig-ramseyfringes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Excited-state population vs detuning showing narrow Ramsey pattern.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ramseyfringes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="ramsey_files/figure-html/fig-ramseyfringes-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;2: Ramsey fringes compared with single-pulse excitation."><img src="ramsey_files/figure-html/fig-ramseyfringes-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Excited-state population vs detuning showing narrow Ramsey pattern." width="699" height="459"></a>
@@ -1856,6 +1898,9 @@ producing narrow fringes ideal for precision metrology.</li>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../practice/index.html" class="pagination-link" aria-label="Practice Your AMO Knowledge">
+        <span class="nav-page-text">Practice Your AMO Knowledge</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -1,0 +1,438 @@
+---
+title: "P5 Multielectron Atoms"
+---
+
+These problems explore helium, electron exchange, atomic term symbols, Hund's rules, and autoionization.
+
+## Helium and Electron Exchange
+
+### Problem P5.1: The Helium Atom {#prob-p5-1}
+
+The Hamiltonian of helium ($Z=2$) is
+
+$$
+\hat H=\hat H_1+\hat H_2+\hat H_{12},
+$$
+
+where
+
+$$
+\hat H_i=-\frac{\hbar^2}{2m_e}\nabla_i^2-\frac{Ze^2}{4\pi\varepsilon_0r_i},
+\qquad
+\hat H_{12}=\frac{e^2}{4\pi\varepsilon_0|\mathbf r_1-\mathbf r_2|}.
+$$
+
+Initially neglect electron–electron repulsion ($\hat H_{12}=0$). The one-electron states satisfy $\hat H_i|n\ell m\rangle_i=E_n|n\ell m\rangle_i$.
+
+**Tasks**
+
+1. Show that $|\psi\rangle=|n_1\ell_1m_1\rangle_1|n_2\ell_2m_2\rangle_2$ is an eigenstate of $\hat H_1+\hat H_2$. Find its energy.
+2. Give the total energy of a configuration $n_1\ell_1\,n_2\ell_2$ using $E_n=-13.6\,\mathrm{eV}\,Z^2/n^2$.
+3. Calculate the energy and total binding energy of $1s4f$ if both electrons experience $Z=2$.
+4. Repeat using $Z_{\mathrm{eff}}=2$ for $1s$ and $Z_{\mathrm{eff}}=1$ for $4f$. Compare with the experimental total binding energy $55.2681\,\mathrm{eV}$ and explain screening.
+
+Now include electron spin. The total two-electron state must be antisymmetric under particle exchange. Let $|a\rangle$ and $|b\rangle$ be distinct, orthonormal spatial orbitals.
+
+5. Construct normalized symmetric and antisymmetric spatial states from $|a\rangle_1|b\rangle_2$ and $|b\rangle_1|a\rangle_2$.
+6. Write the four coupled two-electron spin states $|S,M_S\rangle$. Identify their exchange symmetries.
+7. Combine spatial and spin symmetries to obtain valid fermionic states. What happens when both electrons occupy the same spatial orbital?
+8. The singlet states of helium are called *parahelium* and the triplet states *orthohelium*. For distinct orbitals, what happens to the triplet spatial wavefunction at $\mathbf r_1=\mathbf r_2$? What does this imply qualitatively about electron–electron repulsion?
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The independent-electron energies add. For two orthonormal orbitals, use $\bigl(|ab\rangle\pm|ba\rangle\bigr)/\sqrt2$. The triplet spin functions are symmetric under exchange; the singlet is antisymmetric.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1–2. Independent-electron energies**
+
+Because $\hat H_1$ acts only on particle 1 and $\hat H_2$ only on particle 2,
+
+$$
+(\hat H_1+\hat H_2)|n_1\ell_1m_1\rangle_1|n_2\ell_2m_2\rangle_2
+=(E_{n_1}+E_{n_2})|\psi\rangle.
+$$
+
+Thus
+
+$$
+\boxed{E_{n_1n_2}=-13.6\,\mathrm{eV}\,Z^2\left(\frac1{n_1^2}+\frac1{n_2^2}\right).}
+$$
+
+**3. Unscreened $1s4f$**
+
+$$
+E_{1s}=-54.4\,\mathrm{eV},\qquad E_{4f}=-\frac{54.4}{16}\,\mathrm{eV}=-3.4\,\mathrm{eV}.
+$$
+
+Therefore $\boxed{E=-57.8\,\mathrm{eV}}$ and the total binding energy relative to $\mathrm{He}^{2+}+2e^-$ is $\boxed{57.8\,\mathrm{eV}}$.
+
+**4. Screened $1s4f$**
+
+With the specified effective charges,
+
+$$
+E_{1s}=-54.4\,\mathrm{eV},\qquad E_{4f}=-\frac{13.6}{16}\,\mathrm{eV}=-0.85\,\mathrm{eV}.
+$$
+
+Hence $\boxed{E=-55.25\,\mathrm{eV}}$, corresponding to a total binding energy of $\boxed{55.25\,\mathrm{eV}}$. This is only $0.0181\,\mathrm{eV}$ below the experimental binding energy, compared with a $2.5319\,\mathrm{eV}$ overestimate in the unscreened model. The inner electron partly shields the nuclear charge seen by the outer electron.
+
+**5. Spatial exchange symmetry**
+
+For distinct orthonormal orbitals,
+
+$$
+\boxed{|\psi_+\rangle=\frac{|ab\rangle+|ba\rangle}{\sqrt2}},
+\qquad
+\boxed{|\psi_-\rangle=\frac{|ab\rangle-|ba\rangle}{\sqrt2}}.
+$$
+
+The first is symmetric and the second antisymmetric under exchange.
+
+**6. Coupled spin states**
+
+The symmetric triplet is
+
+$$
+|1,1\rangle=|\uparrow\uparrow\rangle,\qquad
+|1,0\rangle=\frac{|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle}{\sqrt2},\qquad
+|1,-1\rangle=|\downarrow\downarrow\rangle.
+$$
+
+The antisymmetric singlet is
+
+$$
+|0,0\rangle=\frac{|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle}{\sqrt2}.
+$$
+
+**7. Fermionic antisymmetry**
+
+A singlet spin state must be combined with a **symmetric spatial state**, $|\psi_+\rangle|0,0\rangle$. A triplet spin state must be combined with an **antisymmetric spatial state**, $|\psi_-\rangle|1,M_S\rangle$.
+
+If both electrons occupy $|a\rangle$, the antisymmetric spatial combination vanishes identically. Only the symmetric spatial state $|aa\rangle$ remains, so $\boxed{S=0}$ is required. This is the Pauli exclusion principle.
+
+**8. Exchange and repulsion**
+
+For a triplet, $\psi_-(\mathbf r_1,\mathbf r_2)=0$ when $\mathbf r_1=\mathbf r_2$. The probability of finding both electrons at the same position vanishes. This *exchange hole* tends to reduce the electron–electron Coulomb repulsion compared with the corresponding singlet spatial state. The effect contributes to the generally lower energy of triplet states for the same configuration.
+
+:::
+
+## Helium Spectroscopy
+
+### Problem P5.2: Grotrian Diagram of Helium {#prob-p5-2}
+
+The following Grotrian diagram shows helium singlet states ($S=0$, left) and triplet states ($S=1$, right). **Seven energy levels are drawn with thick lines.** The energy axis contains a break for the deeply bound ground state.
+
+```{python}
+#| echo: false
+#| out-width: "100%"
+#| fig-align: "center"
+#| fig-alt: Incomplete Grotrian diagram of helium showing singlet and triplet energy levels; seven levels are emphasized by thick lines, with no decay arrows.
+import matplotlib.pyplot as plt
+import numpy as np
+
+energy_levels_singlet = {
+    '1S': -6.587, '2S': -3.97, '2P': -3.37,
+    '3S': -1.67, '3P': -1.5, '3D': -1.51,
+    '4S': -0.913, '4P': -0.845, '4D': -0.851, '4F': -0.850,
+}
+energy_levels_triplet = {
+    '2S': -4.769, '2P': -3.62,
+    '3S': -1.67, '3P': -1.58, '3D': -1.51,
+    '4S': -0.993, '4P': -0.879, '4D': -0.851, '4F': -0.850,
+}
+xs = {'S': 0.5, 'P': 1.5, 'D': 2.5, 'F': 3.5}
+xt = {'S': 5, 'P': 6, 'D': 7, 'F': 8}
+fig, ax = plt.subplots(figsize=(8, 5.5))
+ax.set_ylim(-8, 1)
+ax.set_xlim(0, 10.5)
+ax.set_yticks(range(-8, 1))
+ax.set_yticklabels(['-26', '-25', '-24', '-5', '-4', '-3', '-2', '-1', '0'])
+ax.set_ylabel('energy (eV)')
+ax.set_xticks([0.5, 1.5, 2.5, 3.5, 5, 6, 7, 8])
+ax.set_xticklabels(['0', '1', '2', '3', '0', '1', '2', '3'])
+ax.set_xlabel(r'orbital angular momentum $L$')
+ax.xaxis.set_label_coords(0.4, -0.1)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_bounds(0, 8.5)
+for levels, positions, thick in [
+    (energy_levels_singlet, xs, {'1S', '2S', '2P', '3D'}),
+    (energy_levels_triplet, xt, {'2S', '3P', '4F'}),
+]:
+    for term, energy in levels.items():
+        x = positions[term[-1]]
+        ax.hlines(energy, x - 0.4, x + 0.4,
+                  color='black', linewidth=3 if term in thick else 1)
+ax.text(2, 0.5, 'singlet', ha='center', fontsize=11)
+ax.text(6.5, 0.5, 'triplet', ha='center', fontsize=11)
+for n in range(2, 5):
+    y = -13.6 / n**2
+    ax.text(9.5, y, f'$n={n}$', va='center')
+    ax.hlines(y, 0, 9, color='black', ls=':', linewidth=0.3)
+ax.hlines(0, 0, 9, color='black', linewidth=1.5)
+ax.fill_between(np.linspace(0, 9, 100), 0, 1,
+                color='lightgrey', hatch='///', alpha=0.5)
+ax.text(4.5, 0.2, r'He$^+ + e^-$', ha='center', fontsize=11)
+ax.text(9.7, 0.5, 'H', ha='center', fontsize=11)
+ax.hlines(0, 9.2, 10.2, color='black', linewidth=1.5)
+ax.fill_between(np.linspace(9.2, 10.2, 10), 0, 1,
+                color='lightgrey', hatch='///', alpha=0.5)
+ax.vlines(0, -8, -5.6, color='black', linewidth=1)
+ax.vlines(0, -5.4, 1, color='black', linewidth=1)
+ax.text(0, -5.47, r'$//$', ha='center', va='center', rotation=90, fontsize=14)
+plt.show()
+```
+
+**Tasks**
+
+1. Label the seven thick levels with electron configurations (such as $1s2p$) and term symbols ${}^{2S+1}L_J$. Include all allowed $J$ values.
+2. Indicate allowed downward electric-dipole (E1) decay channels among the displayed levels. Use $\Delta L=\pm1$, $\Delta S=0$, $\Delta J=0,\pm1$ (but not $0\to0$), and the parity rule. You may omit connections between nearly degenerate levels.
+3. Explain why singlet–triplet E1 transitions are forbidden in the LS-coupling approximation.
+4. Identify the lowest triplet state. Why can it not decay directly to the helium ground state by E1 emission, and what does this imply for its lifetime?
+5. For the same electron configuration, which generally lies lower, singlet or triplet? Explain qualitatively using exchange symmetry.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+For a $1s\,n\ell$ configuration, the $1s$ electron has $\ell=0$, so $L=\ell$ of the outer electron. Singlets have $S=0$ and $J=L$; triplets have $S=1$ and $J=|L-1|,\ldots,L+1$. E1 transitions preserve $S$ and change parity.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Seven thick levels**
+
+| System | Configuration | Term symbol(s) |
+|---|---|---|
+| Singlet | $1s^2$ | $1s^2\;{}^1S_0$ |
+| Singlet | $1s2s$ | $1s2s\;{}^1S_0$ |
+| Singlet | $1s2p$ | $1s2p\;{}^1P_1$ |
+| Singlet | $1s3d$ | $1s3d\;{}^1D_2$ |
+| Triplet | $1s2s$ | $1s2s\;{}^3S_1$ |
+| Triplet | $1s3p$ | $1s3p\;{}^3P_{0,1,2}$ |
+| Triplet | $1s4f$ | $1s4f\;{}^3F_{2,3,4}$ |
+
+**2. Allowed downward E1 channels**
+
+An arrow may connect a higher state to a lower state **within the same spin system** when $\Delta L=\pm1$ and the chosen $J$ values satisfy $\Delta J=0,\pm1$ (excluding $0\to0$). The parity of $1s\,n\ell$ is $(-1)^\ell$, so $S\leftrightarrow P$, $P\leftrightarrow D$, and $D\leftrightarrow F$ change parity.
+
+Examples among the emphasized levels and nearby displayed levels are:
+
+- Singlets: $1s2p\;{}^1P_1\to1s^2\;{}^1S_0$ and $1s2p\;{}^1P_1\to1s2s\;{}^1S_0$; $1s3d\;{}^1D_2\to1s2p\;{}^1P_1$.
+- Triplets: $1s3p\;{}^3P_J\to1s2s\;{}^3S_1$ (where the component-level $J$ rule permits); $1s4f\;{}^3F_J\to1s3d\;{}^3D_{J'}$ (where permitted).
+
+The same rules identify further arrows involving the thin levels. An $S\to S$ or $P\to P$ transition is not E1 allowed. Transitions between nearly degenerate levels may be omitted as instructed.
+
+**3. Singlet–triplet transitions**
+
+The electric-dipole operator acts on spatial coordinates and does not change spin. Singlet and triplet spin functions are orthogonal, so the E1 matrix element vanishes in pure LS coupling: $\boxed{\Delta S=0}$.
+
+**4. Metastable triplet**
+
+The lowest triplet is $\boxed{1s2s\;{}^3S_1}$. It cannot undergo an E1 transition to $1s^2\;{}^1S_0$ because the total spin changes ($S=1\to0$); in addition, both configurations have even parity. Its lifetime is therefore very long compared with an ordinary E1-allowed excited state. Weak higher-order processes can still produce decay.
+
+**5. Exchange splitting**
+
+Triplet spin functions are symmetric, requiring an antisymmetric spatial wavefunction. This tends to keep the electrons apart and reduce their Coulomb repulsion. Consequently, triplet terms generally lie below corresponding singlet terms of the same configuration.
+
+:::
+
+## Angular-Momentum Coupling and Hund's Rules
+
+### Problem P5.3: Two-Electron $p$-State Configuration {#prob-p5-3}
+
+Consider two electrons in $p$ orbitals, $(np)(n'p)$. All other subshells are closed. The following term diagram is to be completed using Hund's rules.
+
+![Term diagram for the two-electron $(np)(n'p)$ configuration.](fig1.svg){fig-alt="Term diagram for two p electrons showing energy levels to be identified by spin, orbital angular momentum, and term symbols."}
+
+**Tasks**
+
+1. Use Hund's three rules to complete the diagram: identify the total spin $S$, total orbital angular momentum $L$, and term symbols ${}^{2S+1}L_J$ for each level.
+2. State which Hund rule determines the preferred ordering with respect to $S$, $L$, and $J$.
+3. Explain why the levels indicated by dotted lines occur only for $n\ne n'$. Relate this to exchange symmetry and the Pauli principle.
+4. Which terms disappear for equivalent electrons, $(np)^2$?
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Two $p$ electrons can couple to $L=0,1,2$ and $S=0,1$. For nonequivalent electrons all six LS terms can occur. For equivalent electrons, only combinations with the required overall antisymmetry survive.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Allowed terms for $(np)(n'p)$ with $n\ne n'$**
+
+Two orbital angular momenta $\ell_1=\ell_2=1$ give $L=0,1,2$ ($S,P,D$), while two spins $\frac12$ give $S=0,1$.
+
+| $S$ | $L$ | Term symbols |
+|---|---|---|
+| 1 | 2 | ${}^3D_{1,2,3}$ |
+| 1 | 1 | ${}^3P_{0,1,2}$ |
+| 1 | 0 | ${}^3S_1$ |
+| 0 | 2 | ${}^1D_2$ |
+| 0 | 1 | ${}^1P_1$ |
+| 0 | 0 | ${}^1S_0$ |
+
+Counting magnetic substates, ${}^3D$ has 15 magnetic substates, ${}^3P$ has 9, ${}^3S$ has 3, ${}^1D$ has 5, ${}^1P$ has 3, and ${}^1S$ has 1, totaling $36=6\times6$ one-electron spin-orbital combinations.
+
+**2. Hund's rules**
+
+- First rule: the term with the largest $S$ generally lies lowest.
+- Second rule: among terms with the same $S$, the term with the largest $L$ generally lies lowest.
+- Third rule: within an LS term, the smallest $J$ generally lies lowest for a less-than-half-filled subshell; the largest $J$ generally lies lowest for a more-than-half-filled subshell. For nonequivalent electrons in different subshells, applying this last rule requires care and is not universally predictive.
+
+These are approximate ordering rules; the diagram's energy hierarchy is schematic.
+
+**3–4. Equivalent-electron restriction**
+
+For two electrons with the same $n$ and $\ell=1$, the radial factors are identical. Exchange symmetry restricts the orbital part: for two equivalent $p$ electrons, $L=0,2$ are spatially symmetric and $L=1$ is spatially antisymmetric. Therefore, symmetric spatial states combine with the antisymmetric spin singlet, and the antisymmetric spatial state combines with the symmetric triplet.
+
+Only
+
+$$
+\boxed{(np)^2:\quad {}^1S_0,\quad{}^1D_2,\quad{}^3P_{0,1,2}}
+$$
+
+remain. The terms $\boxed{{}^3S_1,\;{}^3D_{1,2,3},\;{}^1P_1}$ disappear when $n=n'$. Their presence for $n\ne n'$ is possible because the distinct radial orbitals provide additional exchange-symmetry combinations.
+
+:::
+
+### Problem P5.4: Ground-State Term Symbols {#prob-p5-4}
+
+A closed subshell has $L=S=0$ and does not contribute to the total angular momentum.
+
+**Tasks**
+
+1. Potassium has ground-state configuration $[\mathrm{Ar}]\,4s^1$. Determine its ground-state term symbol and identify the contributing electron.
+2. The chromium ion $\mathrm{Cr}^{2+}$ has configuration $[\mathrm{Ar}]\,3d^4$ and ground-state term ${}^5D_0$. Explain using Hund's rules and the Pauli principle why $S=2$, $L=2$, and $J=0$.
+3. Phosphorus ($Z=15$): write its ground-state electron configuration and determine its ground-state term symbol.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+For $d^4$, maximize the number of parallel spins in distinct $d$ orbitals. For $p^3$, the three electrons can occupy all three $m_\ell=-1,0,+1$ orbitals with parallel spins.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Potassium**
+
+The $[\mathrm{Ar}]$ core is closed. The single $4s$ electron has $\ell=0$ and $s=\frac12$, giving $L=0$, $S=\frac12$, and $J=\frac12$:
+
+$$
+\boxed{[\mathrm{Ar}]\,4s^1:\quad{}^2S_{1/2}.}
+$$
+
+**2. $\mathrm{Cr}^{2+}$**
+
+For $3d^4$, four electrons occupy four different $d$ orbitals with parallel spins, maximizing $\boxed{S=4(1/2)=2}$ and giving multiplicity $2S+1=5$.
+
+To obtain the largest $M_L$ consistent with this spin arrangement, fill $m_\ell=2,1,0,-1$ (all with the same spin). Their sum is $M_L=2$, so the maximum allowed total orbital angular momentum is $\boxed{L=2}$, denoted $D$.
+
+The possible $J$ values are $0,1,2,3,4$. Because $d^4$ is less than half filled, Hund's third rule favors the smallest $J=|L-S|=0$:
+
+$$
+\boxed{[\mathrm{Ar}]\,3d^4:\quad{}^5D_0.}
+$$
+
+**3. Phosphorus**
+
+The ground-state configuration is
+
+$$
+\boxed{1s^2\,2s^2\,2p^6\,3s^2\,3p^3=[\mathrm{Ne}]\,3s^2\,3p^3.}
+$$
+
+Three $3p$ electrons occupy $m_\ell=-1,0,+1$ with parallel spins, giving $S=\frac32$. Their orbital projections sum to zero, and the ground term has $L=0$ ($S$ term). Thus $J=\frac32$:
+
+$$
+\boxed{{}^4S_{3/2}.}
+$$
+
+:::
+
+## Doubly Excited States
+
+### Problem P5.5: Autoionization of Doubly Excited Helium {#prob-p5-5}
+
+A helium atom absorbs ultraviolet radiation and is excited to the doubly excited configuration $2s4p$. It can decay by *autoionization*: one electron becomes more tightly bound while the other is emitted into the continuum.
+
+Use an independent-electron approximation: $Z_{\mathrm{eff}}=2$ for the $2s$ electron and $Z_{\mathrm{eff}}=1$ for the outer $4p$ electron, with
+
+$$
+E_n=-13.6\,\mathrm{eV}\,\frac{Z_{\mathrm{eff}}^2}{n^2}.
+$$
+
+**Tasks**
+
+1. Estimate the energies of the $2s$ and $4p$ electrons, and the total energy and binding energy of $2s4p$.
+2. The helium ground-state energy is approximately $-79\,\mathrm{eV}$. Estimate the UV photon energy needed for excitation to $2s4p$. Write the energy difference before inserting numbers.
+3. Calculate the energy of $\mathrm{He}^+(1s)$ using $Z=2$, $n=1$.
+4. Use energy conservation to determine the kinetic energy of the electron emitted when $2s4p$ autoionizes to $\mathrm{He}^+(1s)+e^-$. Explain why the process is energetically possible.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Choose the energy zero as $\mathrm{He}^{2+}+2e^-$ at rest. The excitation photon supplies $E_{2s4p}-E_{1s^2}$. For autoionization, use $E_{2s4p}=E_{\mathrm{He}^+(1s)}+K_e$, neglecting the small ion recoil energy.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Doubly excited configuration**
+
+$$
+E_{2s}=-13.6\frac{2^2}{2^2}\,\mathrm{eV}=-13.6\,\mathrm{eV},
+$$
+
+$$
+E_{4p}=-13.6\frac{1^2}{4^2}\,\mathrm{eV}=-0.85\,\mathrm{eV}.
+$$
+
+Thus
+
+$$
+\boxed{E_{2s4p}=-14.45\,\mathrm{eV}},
+\qquad
+\boxed{E_{\mathrm{binding}}=14.45\,\mathrm{eV}}.
+$$
+
+**2. Excitation energy**
+
+$$
+E_\gamma=E_{2s4p}-E_{1s^2}
+=(-14.45)-(-79)\,\mathrm{eV}.
+$$
+
+Therefore
+
+$$
+\boxed{E_\gamma=64.55\,\mathrm{eV}.}
+$$
+
+**3. Residual helium ion**
+
+$$
+\boxed{E_{\mathrm{He}^+(1s)}=-13.6\times 2^2\,\mathrm{eV}=-54.4\,\mathrm{eV}.}
+$$
+
+**4. Autoionization electron energy**
+
+Energy conservation gives
+
+$$
+E_{2s4p}=E_{\mathrm{He}^+(1s)}+K_e.
+$$
+
+Hence
+
+$$
+K_e=(-14.45)-(-54.4)\,\mathrm{eV}
+=\boxed{39.95\,\mathrm{eV}}.
+$$
+
+The $2s4p$ state lies $39.95\,\mathrm{eV}$ **above** the $\mathrm{He}^+(1s)+e^-$ threshold at $-54.4\,\mathrm{eV}$. Autoionization is therefore energetically allowed: the excess energy appears primarily as electron kinetic energy.
+
+:::

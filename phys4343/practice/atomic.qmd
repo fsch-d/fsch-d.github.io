@@ -1,0 +1,554 @@
+
+---
+title: "P2 Hydrogen Atom: Wave Functions"
+---
+
+These problems explore the Bohr model, hydrogenic atoms, positronium, and measurements of atomic quantum states.
+
+## The Bohr Model 
+
+### Problem P2.1: The Virial Theorem and the Bohr Model {#prob-p2-1}
+
+For an electron moving in the Coulomb potential of a proton,
+
+$$
+V(r)=-\frac{e^2}{4\pi\varepsilon_0r},
+$$
+
+the virial theorem predicts
+
+$$
+\langle E_{\mathrm{kin}}\rangle=-\frac12\langle V\rangle.
+$$
+
+**Task:** Demonstrate this relation for a classical electron moving in a circular orbit around a stationary proton. Assume $m_p\gg m_e$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Equate the Coulomb force to the centripetal force $m_ev^2/r$.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+The Coulomb force provides the centripetal force:
+
+$$
+\frac{m_ev^2}{r}
+=
+\frac{e^2}{4\pi\varepsilon_0r^2}.
+$$
+
+Multiplying by $r/2$,
+
+$$
+E_{\mathrm{kin}}
+=
+\frac12m_ev^2
+=
+\frac{e^2}{8\pi\varepsilon_0r}.
+$$
+
+Since
+
+$$
+V(r)=-\frac{e^2}{4\pi\varepsilon_0r},
+$$
+
+we obtain
+
+$$
+\boxed{E_{\mathrm{kin}}=-\frac12V(r).}
+$$
+
+For a circular orbit, both energies are constant, so this relation also holds for their time averages.
+
+The total energy is
+
+$$
+E=E_{\mathrm{kin}}+V
+=\frac12V=-E_{\mathrm{kin}}<0.
+$$
+
+The negative total energy indicates a bound orbit.
+
+:::
+
+### Problem P2.2: Bohr Radii and Binding Energies {#prob-p2-2}
+
+Consider the classical electron–proton system from Problem P2.1.
+
+Impose Bohr's angular-momentum quantization rule,
+
+$$
+L=m_evr=n\hbar,
+\qquad n=1,2,3,\ldots.
+$$
+
+**Tasks**
+
+1. Determine the allowed orbital radii $r_n$.
+2. Determine the total energies $E_n=E_{\mathrm{kin}}+V(r_n)$.
+3. Identify the scaling of $r_n$ and $E_n$ with $n$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Combine the circular-orbit force equation with the angular-momentum quantization rule. Use the virial theorem from P2.1 to calculate the total energy.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+The quantization condition gives
+
+$$
+v=\frac{n\hbar}{m_er}.
+$$
+
+Substituting into the force equation,
+
+$$
+\frac{n^2\hbar^2}{m_er^3}
+=
+\frac{e^2}{4\pi\varepsilon_0r^2}.
+$$
+
+Solving for $r$,
+
+$$
+\boxed{
+r_n=
+\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}n^2
+=a_0n^2,
+}
+$$
+
+where $a_0$ is the Bohr radius.
+
+Using the virial theorem,
+
+$$
+E_n=\frac12V(r_n)
+=-\frac{e^2}{8\pi\varepsilon_0r_n}.
+$$
+
+Substituting $r_n$,
+
+$$
+E_n=
+-\frac{m_ee^4}
+{2(4\pi\varepsilon_0)^2\hbar^2n^2}.
+$$
+
+Defining the Rydberg energy as
+
+$$
+Ry=
+\frac{m_ee^4}{2(4\pi\varepsilon_0)^2\hbar^2}
+\approx13.6\,\mathrm{eV},
+$$
+
+we obtain
+
+$$
+\boxed{E_n=-\frac{Ry}{n^2}.}
+$$
+
+Thus,
+
+$$
+\boxed{r_n\propto n^2,\qquad |E_n|\propto n^{-2}.}
+$$
+
+:::
+
+### Problem P2.3: Electron Speeds and Relativistic Effects {#prob-p2-3}
+
+For a hydrogen-like ion with nuclear charge $+Ze$, the Coulomb potential can be written as
+
+$$
+V(r)=-\frac{Z\alpha\hbar c}{r},
+$$
+
+where $\alpha\approx1/137$ is the fine-structure constant.
+
+**Tasks**
+
+1. Derive the electron speed on the first Bohr orbit ($n=1$) as a function of $Z$.
+2. Calculate $v/c$ for hydrogen ($Z=1$) and hydrogen-like gold ($Z=79$).
+3. Estimate the relativistic mass factor
+
+   $$
+   \gamma=\frac{1}{\sqrt{1-v^2/c^2}}
+   $$
+
+   and the corresponding percentage increase in relativistic mass.
+
+*For gold, consider a one-electron ion, $\mathrm{Au}^{78+}$. Use the nonrelativistic Bohr speed to estimate the relativistic correction.*
+
+::: {.callout-tip collapse="true" title="Hint"}
+Combine
+
+$$
+\frac{m_ev^2}{r}=\frac{Z\alpha\hbar c}{r^2}
+$$
+
+with $m_evr=n\hbar$.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+The force equation gives
+
+$$
+m_ev^2=\frac{Z\alpha\hbar c}{r}.
+$$
+
+From angular-momentum quantization,
+
+$$
+m_evr=n\hbar.
+$$
+
+Dividing the first equation by the second,
+
+$$
+\boxed{v_n=\frac{Z\alpha c}{n}.}
+$$
+
+For the first Bohr orbit,
+
+$$
+\boxed{\frac vc=Z\alpha.}
+$$
+
+For hydrogen,
+
+$$
+\frac vc\approx0.00730,
+$$
+
+and
+
+$$
+\gamma_H=\frac1{\sqrt{1-\alpha^2}}
+\approx1.0000266.
+$$
+
+The relativistic mass increase is approximately
+
+$$
+\boxed{0.00266\%.}
+$$
+
+For hydrogen-like gold,
+
+$$
+\frac vc\approx\frac{79}{137.036}\approx0.5765.
+$$
+
+Therefore,
+
+$$
+\gamma_{\mathrm{Au}}\approx1.224,
+$$
+
+corresponding to an increase of approximately
+
+$$
+\boxed{22.4\%.}
+$$
+
+**Physical interpretation:** Relativistic effects are negligible for hydrogen at this level of approximation but substantial for highly charged heavy ions. The large correction for gold also indicates that the nonrelativistic Bohr model is not quantitatively reliable in this regime.
+
+:::
+
+## Hydrogenic Systems 
+
+### Problem P2.4: Positronium {#prob-p2-4}
+
+Positronium is a bound state of an electron and a positron. The particles have equal masses $m_e$ and opposite charges.
+
+**Tasks**
+
+1. Write the Hamiltonian for the relative motion when the center of mass is at rest.
+2. Express the energy eigenvalues in terms of the Rydberg energy $Ry$ and the principal quantum number $n$.
+3. Compare the characteristic spatial extent of positronium with hydrogen. Which system is larger, and by what factor?
+
+Neglect spin-dependent, relativistic, and annihilation effects. Use the usual hydrogen Rydberg energy $Ry\approx13.6\,\mathrm{eV}$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Use the reduced mass of the electron–positron system and adapt the hydrogenic Hamiltonian.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+The reduced mass of two particles with equal masses is
+
+$$
+\mu=\frac{m_em_e}{m_e+m_e}=\frac{m_e}{2}.
+$$
+
+With the center-of-mass motion removed, the Hamiltonian for the relative coordinate is
+
+$$
+\hat H=
+-\frac{\hbar^2}{2\mu}\nabla_r^2
+-\frac{e^2}{4\pi\varepsilon_0r}.
+$$
+
+Thus,
+
+$$
+\boxed{
+\hat H=
+-\frac{\hbar^2}{m_e}\nabla_r^2
+-\frac{e^2}{4\pi\varepsilon_0r}.
+}
+$$
+
+Hydrogenic energies scale linearly with the reduced mass:
+
+$$
+E_n=-\frac{\mu}{m_e}\frac{Ry}{n^2}.
+$$
+
+For positronium,
+
+$$
+\boxed{E_n^{\mathrm{Ps}}=-\frac{Ry}{2n^2}.}
+$$
+
+The ground-state binding energy is approximately $6.8\,\mathrm{eV}$.
+
+The characteristic length scale is
+
+$$
+a_{\mathrm{Ps}}
+=
+\frac{4\pi\varepsilon_0\hbar^2}{\mu e^2}.
+$$
+
+Because $\mu=m_e/2$,
+
+$$
+\boxed{a_{\mathrm{Ps}}=2a_0.}
+$$
+
+Positronium is therefore approximately **twice as large as hydrogen** for corresponding quantum states, neglecting the small finite-proton-mass correction in real hydrogen.
+
+:::
+
+### Problem P2.5: Hydrogen Radial Probabilities {#prob-p2-5}
+
+The hydrogen wavefunction separates into radial and angular factors:
+
+$$
+\psi_{n\ell m}(r,\vartheta,\varphi)
+=
+R_{n\ell}(r)Y_{\ell m}(\vartheta,\varphi).
+$$
+
+The radial probability density is
+
+$$
+P_{n\ell}(r)=r^2|R_{n\ell}(r)|^2.
+$$
+
+**Tasks**
+
+1. Find the radius where $P_{n\ell}(r)$ is maximal for the states
+
+   $$
+   |n,\ell\rangle=|1,0\rangle,\quad |2,1\rangle,\quad |3,2\rangle.
+   $$
+
+2. Compare these maxima with the Bohr radii $r_n=n^2a_0$.
+3. Predict the position of the radial-probability maximum for a general state $|n,n-1\rangle$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+For these states, the radial wavefunction is proportional to
+
+$$
+R_{n,n-1}(r)\propto r^{n-1}e^{-r/(na_0)}.
+$$
+
+The normalization constant does not affect the position of the maximum.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+For the three states,
+
+$$
+R_{10}(r)\propto e^{-r/a_0},
+$$
+
+$$
+R_{21}(r)\propto r e^{-r/(2a_0)},
+$$
+
+$$
+R_{32}(r)\propto r^2e^{-r/(3a_0)}.
+$$
+
+Consequently,
+
+$$
+P_{10}(r)\propto r^2e^{-2r/a_0},
+$$
+
+$$
+P_{21}(r)\propto r^4e^{-r/a_0},
+$$
+
+$$
+P_{32}(r)\propto r^6e^{-2r/(3a_0)}.
+$$
+
+For a function of the form
+
+$$
+P(r)\propto r^ke^{-\beta r},
+$$
+
+the nonzero maximum satisfies
+
+$$
+\frac{d}{dr}\ln P(r)=\frac{k}{r}-\beta=0.
+$$
+
+Thus,
+
+$$
+r_{\max}=\frac{k}{\beta}.
+$$
+
+For the three states,
+
+$$
+\boxed{
+r_{\max}(1,0)=a_0,\quad
+r_{\max}(2,1)=4a_0,\quad
+r_{\max}(3,2)=9a_0.
+}
+$$
+
+These coincide with the Bohr radii for $n=1,2,3$.
+
+More generally,
+
+$$
+P_{n,n-1}(r)\propto
+r^{2n}e^{-2r/(na_0)}.
+$$
+
+Taking the logarithmic derivative,
+
+$$
+\frac{2n}{r}-\frac{2}{na_0}=0,
+$$
+
+which gives
+
+$$
+\boxed{r_{\max}=n^2a_0.}
+$$
+
+The agreement with the Bohr radius is characteristic of these maximum-$\ell$, or *circular*, states. Other hydrogenic states generally have different radial probability distributions.
+
+:::
+
+## Measurements of Atomic Quantum States 
+
+### Problem P2.6: Measurements of a Hydrogen Quantum State {#prob-p2-6}
+
+Consider a hydrogen atom in the normalized state
+
+$$
+\psi(r,\vartheta,\varphi)=R_{32}(r)
+\left[
+\sqrt{\frac16}Y_{21}
++i\sqrt{\frac12}Y_{20}
+-\sqrt{\frac13}Y_{2,-1}
+\right].
+$$
+
+The spherical harmonics depend on $(\vartheta,\varphi)$.
+
+**Tasks**
+
+1. Express the state as a superposition of $|n,\ell,m\rangle$ eigenstates.
+2. Determine all possible measurement results for $\hat{\mathbf L}^2$ and their probabilities.
+3. Determine all possible measurement results for $\hat L_z$ and their probabilities.
+4. Calculate $\langle\hat L_z\rangle$.
+5. If an $\hat L_z$ measurement gives $m=0$, what is the normalized state immediately afterward?
+
+::: {.callout-tip collapse="true" title="Hint"}
+The spherical harmonics are simultaneous eigenfunctions of $\hat L^2$ and $\hat L_z$. The probabilities are the squared magnitudes of the expansion coefficients.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Bra–ket notation**
+
+$$
+\boxed{
+|\Psi\rangle=
+\sqrt{\frac16}|3,2,1\rangle
++i\sqrt{\frac12}|3,2,0\rangle
+-\sqrt{\frac13}|3,2,-1\rangle.
+}
+$$
+
+The state is normalized because
+
+$$
+\frac16+\frac12+\frac13=1.
+$$
+
+**2. Measurement of $\hat L^2$**
+
+Every component has $\ell=2$, so the only possible outcome is
+
+$$
+\boxed{L^2=\ell(\ell+1)\hbar^2=6\hbar^2}
+$$
+
+with probability $1$.
+
+**3. Measurement of $\hat L_z$**
+
+The possible outcomes and probabilities are:
+
+| Outcome | Probability |
+|---|---:|
+| $+\hbar$, $m=1$ | $1/6$ |
+| $0$, $m=0$ | $1/2$ |
+| $-\hbar$, $m=-1$ | $1/3$ |
+
+**4. Expectation value**
+
+$$
+\begin{aligned}
+\langle\hat L_z\rangle
+&=\frac16(+\hbar)+\frac12(0)+\frac13(-\hbar)\\
+&=\boxed{-\frac{\hbar}{6}}.
+\end{aligned}
+$$
+
+**5. State after measuring $m=0$**
+
+The measurement projects the state onto its $m=0$ component.
+
+After normalization, the state is
+
+$$
+\boxed{|3,2,0\rangle,}
+$$
+
+up to an irrelevant global phase.
+
+In coordinate space, the resulting state is proportional to
+
+$$
+R_{32}(r)Y_{20}(\vartheta,\varphi).
+$$
+
+:::

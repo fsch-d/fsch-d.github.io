@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>P5 Multielectron Atoms – Introduction into Atomic, Molecular, and Optical Physics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../practice/radiation.html" rel="prev">
+<link href="../icons/icon-192.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8ba0f7c4899a1f6178dd4bd9efe5a1f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#0d6efd">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Atomic Physics">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .catch(err => console.warn("Service worker:", err));
+    });
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="P5 Multielectron Atoms – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://fsch-d.github.io/practice/multielectron_files/figure-html/cell-2-output-1.png">
+<meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:image:alt" content="Incomplete Grotrian diagram of helium showing singlet and triplet energy levels; seven levels are emphasized by thick lines, with no decay arrows.">
+<meta property="og:image:height" content="962">
+<meta property="og:image:width" content="1327">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Introduction into Atomic, Molecular, and Optical Physics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contents.html"> 
+<span class="menu-text">Contents</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/multielectron.html">P5 Multielectron Atoms</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 From Classical Physics to the Quantum World of Atoms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Quantum Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/wavemechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Wave Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/braket.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 States and Operators in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/measurement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Quantum Measurement and the Measurement Problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/heisenberg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Commutators and the Heisenberg Uncertainty Principle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/amcoupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Angular Momenta and Their Couplings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/qosc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 The One-Dimensional Quantum Harmonic Oscillator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.7 Time-Independent Perturbation Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/tdperturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.9 The Variational Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.10 Exchange Interaction: Fermions and Bosons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.11 Relativistic Wave Equations — the Dirac Equation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Hydrogen Atom: Wave Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/angmom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Orbital Angular Momentum in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/hydrogen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Hydrogen atom — Schrödinger equation and radial solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/orbitals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Visualizing Hydrogen Orbitals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Hydrogen Atom: Shifts and Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 Electron Spin and Fine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/lamb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 The Lamb Shift — An Introduction to Quantum Electrodynamics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/hfs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3 The Hyperfine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Summary — energy-level splitting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Hydrogen in Static External Fields</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Absorption and Emission of Radiation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/einstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1 Transition Processes and Einstein Coefficients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spontaneous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2 Spontaneous Decay and Atomic Transition Rates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3 Visualizing Atomic Transitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/selectionr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4 Radiation and Selection Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5 Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/dopplerfree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6 Doppler-Free Saturation Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 More than One Electron Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/helium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.1 Helium (Basics)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/twoelectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2 Two-Electron States in Helium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/hartreefock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3 Calculations for Multielectron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/manye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 Shell Model and Periodic Table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/coupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 Angular Momentum Coupling in Many-Electron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/excited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 Excitation and Ionization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 Introduction to Molecular Physics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/molfound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Foundations of Molecular Bonding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 The H<span class="math inline">\(_2^+\)</span> Molecular Ion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/lcao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Molecular Orbitals and the LCAO Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/beyondh2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Beyond H<span class="math inline">\(_2^+\)</span> and LCAO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/nuclear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5 Rotation and Vibration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 Molecular Transitions and Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod8/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 Laser–Atom Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/twoleveltheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.1 Two-Level Systems — The Theoretical Framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/rwa_rabi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.2 Rotating Wave Approximation and Rabi Oscillations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/densitym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3 The Density Matrix Formalism</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/obe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4 The Optical Bloch Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/cooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 Laser Cooling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/bloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 The Bloch Sphere Representation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/ramsey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.7 Ramsey Spectroscopy and Atomic Clocks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Your AMO Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/atomic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Hydrogen Atom: Wave Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/shifts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Hydrogen Atom: Shifts and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/radiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P4 Interaction with Radiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/multielectron.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">P5 Multielectron Atoms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#helium-and-electron-exchange" id="toc-helium-and-electron-exchange" class="nav-link active" data-scroll-target="#helium-and-electron-exchange">Helium and Electron Exchange</a>
+  <ul class="collapse">
+  <li><a href="#prob-p5-1" id="toc-prob-p5-1" class="nav-link" data-scroll-target="#prob-p5-1">Problem P5.1: The Helium Atom</a></li>
+  </ul></li>
+  <li><a href="#helium-spectroscopy" id="toc-helium-spectroscopy" class="nav-link" data-scroll-target="#helium-spectroscopy">Helium Spectroscopy</a>
+  <ul class="collapse">
+  <li><a href="#prob-p5-2" id="toc-prob-p5-2" class="nav-link" data-scroll-target="#prob-p5-2">Problem P5.2: Grotrian Diagram of Helium</a></li>
+  </ul></li>
+  <li><a href="#angular-momentum-coupling-and-hunds-rules" id="toc-angular-momentum-coupling-and-hunds-rules" class="nav-link" data-scroll-target="#angular-momentum-coupling-and-hunds-rules">Angular-Momentum Coupling and Hund’s Rules</a>
+  <ul class="collapse">
+  <li><a href="#prob-p5-3" id="toc-prob-p5-3" class="nav-link" data-scroll-target="#prob-p5-3">Problem P5.3: Two-Electron <span class="math inline">\(p\)</span>-State Configuration</a></li>
+  <li><a href="#prob-p5-4" id="toc-prob-p5-4" class="nav-link" data-scroll-target="#prob-p5-4">Problem P5.4: Ground-State Term Symbols</a></li>
+  </ul></li>
+  <li><a href="#doubly-excited-states" id="toc-doubly-excited-states" class="nav-link" data-scroll-target="#doubly-excited-states">Doubly Excited States</a>
+  <ul class="collapse">
+  <li><a href="#prob-p5-5" id="toc-prob-p5-5" class="nav-link" data-scroll-target="#prob-p5-5">Problem P5.5: Autoionization of Doubly Excited Helium</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/multielectron.html">P5 Multielectron Atoms</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">P5 Multielectron Atoms</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>These problems explore helium, electron exchange, atomic term symbols, Hund’s rules, and autoionization.</p>
+<section id="helium-and-electron-exchange" class="level2">
+<h2 class="anchored" data-anchor-id="helium-and-electron-exchange">Helium and Electron Exchange</h2>
+<section id="prob-p5-1" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p5-1">Problem P5.1: The Helium Atom</h3>
+<p>The Hamiltonian of helium (<span class="math inline">\(Z=2\)</span>) is</p>
+<p><span class="math display">\[
+\hat H=\hat H_1+\hat H_2+\hat H_{12},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\hat H_i=-\frac{\hbar^2}{2m_e}\nabla_i^2-\frac{Ze^2}{4\pi\varepsilon_0r_i},
+\qquad
+\hat H_{12}=\frac{e^2}{4\pi\varepsilon_0|\mathbf r_1-\mathbf r_2|}.
+\]</span></p>
+<p>Initially neglect electron–electron repulsion (<span class="math inline">\(\hat H_{12}=0\)</span>). The one-electron states satisfy <span class="math inline">\(\hat H_i|n\ell m\rangle_i=E_n|n\ell m\rangle_i\)</span>.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Show that <span class="math inline">\(|\psi\rangle=|n_1\ell_1m_1\rangle_1|n_2\ell_2m_2\rangle_2\)</span> is an eigenstate of <span class="math inline">\(\hat H_1+\hat H_2\)</span>. Find its energy.</li>
+<li>Give the total energy of a configuration <span class="math inline">\(n_1\ell_1\,n_2\ell_2\)</span> using <span class="math inline">\(E_n=-13.6\,\mathrm{eV}\,Z^2/n^2\)</span>.</li>
+<li>Calculate the energy and total binding energy of <span class="math inline">\(1s4f\)</span> if both electrons experience <span class="math inline">\(Z=2\)</span>.</li>
+<li>Repeat using <span class="math inline">\(Z_{\mathrm{eff}}=2\)</span> for <span class="math inline">\(1s\)</span> and <span class="math inline">\(Z_{\mathrm{eff}}=1\)</span> for <span class="math inline">\(4f\)</span>. Compare with the experimental total binding energy <span class="math inline">\(55.2681\,\mathrm{eV}\)</span> and explain screening.</li>
+</ol>
+<p>Now include electron spin. The total two-electron state must be antisymmetric under particle exchange. Let <span class="math inline">\(|a\rangle\)</span> and <span class="math inline">\(|b\rangle\)</span> be distinct, orthonormal spatial orbitals.</p>
+<ol start="5" type="1">
+<li>Construct normalized symmetric and antisymmetric spatial states from <span class="math inline">\(|a\rangle_1|b\rangle_2\)</span> and <span class="math inline">\(|b\rangle_1|a\rangle_2\)</span>.</li>
+<li>Write the four coupled two-electron spin states <span class="math inline">\(|S,M_S\rangle\)</span>. Identify their exchange symmetries.</li>
+<li>Combine spatial and spin symmetries to obtain valid fermionic states. What happens when both electrons occupy the same spatial orbital?</li>
+<li>The singlet states of helium are called <em>parahelium</em> and the triplet states <em>orthohelium</em>. For distinct orbitals, what happens to the triplet spatial wavefunction at <span class="math inline">\(\mathbf r_1=\mathbf r_2\)</span>? What does this imply qualitatively about electron–electron repulsion?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The independent-electron energies add. For two orthonormal orbitals, use <span class="math inline">\(\bigl(|ab\rangle\pm|ba\rangle\bigr)/\sqrt2\)</span>. The triplet spin functions are symmetric under exchange; the singlet is antisymmetric.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1–2. Independent-electron energies</strong></p>
+<p>Because <span class="math inline">\(\hat H_1\)</span> acts only on particle 1 and <span class="math inline">\(\hat H_2\)</span> only on particle 2,</p>
+<p><span class="math display">\[
+(\hat H_1+\hat H_2)|n_1\ell_1m_1\rangle_1|n_2\ell_2m_2\rangle_2
+=(E_{n_1}+E_{n_2})|\psi\rangle.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{E_{n_1n_2}=-13.6\,\mathrm{eV}\,Z^2\left(\frac1{n_1^2}+\frac1{n_2^2}\right).}
+\]</span></p>
+<p><strong>3. Unscreened <span class="math inline">\(1s4f\)</span></strong></p>
+<p><span class="math display">\[
+E_{1s}=-54.4\,\mathrm{eV},\qquad E_{4f}=-\frac{54.4}{16}\,\mathrm{eV}=-3.4\,\mathrm{eV}.
+\]</span></p>
+<p>Therefore <span class="math inline">\(\boxed{E=-57.8\,\mathrm{eV}}\)</span> and the total binding energy relative to <span class="math inline">\(\mathrm{He}^{2+}+2e^-\)</span> is <span class="math inline">\(\boxed{57.8\,\mathrm{eV}}\)</span>.</p>
+<p><strong>4. Screened <span class="math inline">\(1s4f\)</span></strong></p>
+<p>With the specified effective charges,</p>
+<p><span class="math display">\[
+E_{1s}=-54.4\,\mathrm{eV},\qquad E_{4f}=-\frac{13.6}{16}\,\mathrm{eV}=-0.85\,\mathrm{eV}.
+\]</span></p>
+<p>Hence <span class="math inline">\(\boxed{E=-55.25\,\mathrm{eV}}\)</span>, corresponding to a total binding energy of <span class="math inline">\(\boxed{55.25\,\mathrm{eV}}\)</span>. This is only <span class="math inline">\(0.0181\,\mathrm{eV}\)</span> below the experimental binding energy, compared with a <span class="math inline">\(2.5319\,\mathrm{eV}\)</span> overestimate in the unscreened model. The inner electron partly shields the nuclear charge seen by the outer electron.</p>
+<p><strong>5. Spatial exchange symmetry</strong></p>
+<p>For distinct orthonormal orbitals,</p>
+<p><span class="math display">\[
+\boxed{|\psi_+\rangle=\frac{|ab\rangle+|ba\rangle}{\sqrt2}},
+\qquad
+\boxed{|\psi_-\rangle=\frac{|ab\rangle-|ba\rangle}{\sqrt2}}.
+\]</span></p>
+<p>The first is symmetric and the second antisymmetric under exchange.</p>
+<p><strong>6. Coupled spin states</strong></p>
+<p>The symmetric triplet is</p>
+<p><span class="math display">\[
+|1,1\rangle=|\uparrow\uparrow\rangle,\qquad
+|1,0\rangle=\frac{|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle}{\sqrt2},\qquad
+|1,-1\rangle=|\downarrow\downarrow\rangle.
+\]</span></p>
+<p>The antisymmetric singlet is</p>
+<p><span class="math display">\[
+|0,0\rangle=\frac{|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle}{\sqrt2}.
+\]</span></p>
+<p><strong>7. Fermionic antisymmetry</strong></p>
+<p>A singlet spin state must be combined with a <strong>symmetric spatial state</strong>, <span class="math inline">\(|\psi_+\rangle|0,0\rangle\)</span>. A triplet spin state must be combined with an <strong>antisymmetric spatial state</strong>, <span class="math inline">\(|\psi_-\rangle|1,M_S\rangle\)</span>.</p>
+<p>If both electrons occupy <span class="math inline">\(|a\rangle\)</span>, the antisymmetric spatial combination vanishes identically. Only the symmetric spatial state <span class="math inline">\(|aa\rangle\)</span> remains, so <span class="math inline">\(\boxed{S=0}\)</span> is required. This is the Pauli exclusion principle.</p>
+<p><strong>8. Exchange and repulsion</strong></p>
+<p>For a triplet, <span class="math inline">\(\psi_-(\mathbf r_1,\mathbf r_2)=0\)</span> when <span class="math inline">\(\mathbf r_1=\mathbf r_2\)</span>. The probability of finding both electrons at the same position vanishes. This <em>exchange hole</em> tends to reduce the electron–electron Coulomb repulsion compared with the corresponding singlet spatial state. The effect contributes to the generally lower energy of triplet states for the same configuration.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="helium-spectroscopy" class="level2">
+<h2 class="anchored" data-anchor-id="helium-spectroscopy">Helium Spectroscopy</h2>
+<section id="prob-p5-2" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p5-2">Problem P5.2: Grotrian Diagram of Helium</h3>
+<p>The following Grotrian diagram shows helium singlet states (<span class="math inline">\(S=0\)</span>, left) and triplet states (<span class="math inline">\(S=1\)</span>, right). <strong>Seven energy levels are drawn with thick lines.</strong> The energy axis contains a break for the deeply bound ground state.</p>
+<div id="f9b21e70" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="multielectron_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="page-gallery"><img src="multielectron_files/figure-html/cell-2-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Incomplete Grotrian diagram of helium showing singlet and triplet energy levels; seven levels are emphasized by thick lines, with no decay arrows." width="664" height="481"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Label the seven thick levels with electron configurations (such as <span class="math inline">\(1s2p\)</span>) and term symbols <span class="math inline">\({}^{2S+1}L_J\)</span>. Include all allowed <span class="math inline">\(J\)</span> values.</li>
+<li>Indicate allowed downward electric-dipole (E1) decay channels among the displayed levels. Use <span class="math inline">\(\Delta L=\pm1\)</span>, <span class="math inline">\(\Delta S=0\)</span>, <span class="math inline">\(\Delta J=0,\pm1\)</span> (but not <span class="math inline">\(0\to0\)</span>), and the parity rule. You may omit connections between nearly degenerate levels.</li>
+<li>Explain why singlet–triplet E1 transitions are forbidden in the LS-coupling approximation.</li>
+<li>Identify the lowest triplet state. Why can it not decay directly to the helium ground state by E1 emission, and what does this imply for its lifetime?</li>
+<li>For the same electron configuration, which generally lies lower, singlet or triplet? Explain qualitatively using exchange symmetry.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a <span class="math inline">\(1s\,n\ell\)</span> configuration, the <span class="math inline">\(1s\)</span> electron has <span class="math inline">\(\ell=0\)</span>, so <span class="math inline">\(L=\ell\)</span> of the outer electron. Singlets have <span class="math inline">\(S=0\)</span> and <span class="math inline">\(J=L\)</span>; triplets have <span class="math inline">\(S=1\)</span> and <span class="math inline">\(J=|L-1|,\ldots,L+1\)</span>. E1 transitions preserve <span class="math inline">\(S\)</span> and change parity.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Seven thick levels</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Configuration</th>
+<th>Term symbol(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Singlet</td>
+<td><span class="math inline">\(1s^2\)</span></td>
+<td><span class="math inline">\(1s^2\;{}^1S_0\)</span></td>
+</tr>
+<tr class="even">
+<td>Singlet</td>
+<td><span class="math inline">\(1s2s\)</span></td>
+<td><span class="math inline">\(1s2s\;{}^1S_0\)</span></td>
+</tr>
+<tr class="odd">
+<td>Singlet</td>
+<td><span class="math inline">\(1s2p\)</span></td>
+<td><span class="math inline">\(1s2p\;{}^1P_1\)</span></td>
+</tr>
+<tr class="even">
+<td>Singlet</td>
+<td><span class="math inline">\(1s3d\)</span></td>
+<td><span class="math inline">\(1s3d\;{}^1D_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>Triplet</td>
+<td><span class="math inline">\(1s2s\)</span></td>
+<td><span class="math inline">\(1s2s\;{}^3S_1\)</span></td>
+</tr>
+<tr class="even">
+<td>Triplet</td>
+<td><span class="math inline">\(1s3p\)</span></td>
+<td><span class="math inline">\(1s3p\;{}^3P_{0,1,2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Triplet</td>
+<td><span class="math inline">\(1s4f\)</span></td>
+<td><span class="math inline">\(1s4f\;{}^3F_{2,3,4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Allowed downward E1 channels</strong></p>
+<p>An arrow may connect a higher state to a lower state <strong>within the same spin system</strong> when <span class="math inline">\(\Delta L=\pm1\)</span> and the chosen <span class="math inline">\(J\)</span> values satisfy <span class="math inline">\(\Delta J=0,\pm1\)</span> (excluding <span class="math inline">\(0\to0\)</span>). The parity of <span class="math inline">\(1s\,n\ell\)</span> is <span class="math inline">\((-1)^\ell\)</span>, so <span class="math inline">\(S\leftrightarrow P\)</span>, <span class="math inline">\(P\leftrightarrow D\)</span>, and <span class="math inline">\(D\leftrightarrow F\)</span> change parity.</p>
+<p>Examples among the emphasized levels and nearby displayed levels are:</p>
+<ul>
+<li>Singlets: <span class="math inline">\(1s2p\;{}^1P_1\to1s^2\;{}^1S_0\)</span> and <span class="math inline">\(1s2p\;{}^1P_1\to1s2s\;{}^1S_0\)</span>; <span class="math inline">\(1s3d\;{}^1D_2\to1s2p\;{}^1P_1\)</span>.</li>
+<li>Triplets: <span class="math inline">\(1s3p\;{}^3P_J\to1s2s\;{}^3S_1\)</span> (where the component-level <span class="math inline">\(J\)</span> rule permits); <span class="math inline">\(1s4f\;{}^3F_J\to1s3d\;{}^3D_{J'}\)</span> (where permitted).</li>
+</ul>
+<p>The same rules identify further arrows involving the thin levels. An <span class="math inline">\(S\to S\)</span> or <span class="math inline">\(P\to P\)</span> transition is not E1 allowed. Transitions between nearly degenerate levels may be omitted as instructed.</p>
+<p><strong>3. Singlet–triplet transitions</strong></p>
+<p>The electric-dipole operator acts on spatial coordinates and does not change spin. Singlet and triplet spin functions are orthogonal, so the E1 matrix element vanishes in pure LS coupling: <span class="math inline">\(\boxed{\Delta S=0}\)</span>.</p>
+<p><strong>4. Metastable triplet</strong></p>
+<p>The lowest triplet is <span class="math inline">\(\boxed{1s2s\;{}^3S_1}\)</span>. It cannot undergo an E1 transition to <span class="math inline">\(1s^2\;{}^1S_0\)</span> because the total spin changes (<span class="math inline">\(S=1\to0\)</span>); in addition, both configurations have even parity. Its lifetime is therefore very long compared with an ordinary E1-allowed excited state. Weak higher-order processes can still produce decay.</p>
+<p><strong>5. Exchange splitting</strong></p>
+<p>Triplet spin functions are symmetric, requiring an antisymmetric spatial wavefunction. This tends to keep the electrons apart and reduce their Coulomb repulsion. Consequently, triplet terms generally lie below corresponding singlet terms of the same configuration.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="angular-momentum-coupling-and-hunds-rules" class="level2">
+<h2 class="anchored" data-anchor-id="angular-momentum-coupling-and-hunds-rules">Angular-Momentum Coupling and Hund’s Rules</h2>
+<section id="prob-p5-3" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p5-3">Problem P5.3: Two-Electron <span class="math inline">\(p\)</span>-State Configuration</h3>
+<p>Consider two electrons in <span class="math inline">\(p\)</span> orbitals, <span class="math inline">\((np)(n'p)\)</span>. All other subshells are closed. The following term diagram is to be completed using Hund’s rules.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="fig1.svg" class="lightbox" data-gallery="page-gallery" title="Term diagram for the two-electron (np)(n'p) configuration."><img src="fig1.svg" class="img-fluid figure-img" alt="Term diagram for two p electrons showing energy levels to be identified by spin, orbital angular momentum, and term symbols."></a></p>
+<figcaption>Term diagram for the two-electron <span class="math inline">\((np)(n'p)\)</span> configuration.</figcaption>
+</figure>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Use Hund’s three rules to complete the diagram: identify the total spin <span class="math inline">\(S\)</span>, total orbital angular momentum <span class="math inline">\(L\)</span>, and term symbols <span class="math inline">\({}^{2S+1}L_J\)</span> for each level.</li>
+<li>State which Hund rule determines the preferred ordering with respect to <span class="math inline">\(S\)</span>, <span class="math inline">\(L\)</span>, and <span class="math inline">\(J\)</span>.</li>
+<li>Explain why the levels indicated by dotted lines occur only for <span class="math inline">\(n\ne n'\)</span>. Relate this to exchange symmetry and the Pauli principle.</li>
+<li>Which terms disappear for equivalent electrons, <span class="math inline">\((np)^2\)</span>?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Two <span class="math inline">\(p\)</span> electrons can couple to <span class="math inline">\(L=0,1,2\)</span> and <span class="math inline">\(S=0,1\)</span>. For nonequivalent electrons all six LS terms can occur. For equivalent electrons, only combinations with the required overall antisymmetry survive.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Allowed terms for <span class="math inline">\((np)(n'p)\)</span> with <span class="math inline">\(n\ne n'\)</span></strong></p>
+<p>Two orbital angular momenta <span class="math inline">\(\ell_1=\ell_2=1\)</span> give <span class="math inline">\(L=0,1,2\)</span> (<span class="math inline">\(S,P,D\)</span>), while two spins <span class="math inline">\(\frac12\)</span> give <span class="math inline">\(S=0,1\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(S\)</span></th>
+<th><span class="math inline">\(L\)</span></th>
+<th>Term symbols</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td><span class="math inline">\({}^3D_{1,2,3}\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td><span class="math inline">\({}^3P_{0,1,2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td><span class="math inline">\({}^3S_1\)</span></td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>2</td>
+<td><span class="math inline">\({}^1D_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td><span class="math inline">\({}^1P_1\)</span></td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td><span class="math inline">\({}^1S_0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Counting magnetic substates, <span class="math inline">\({}^3D\)</span> has 15 magnetic substates, <span class="math inline">\({}^3P\)</span> has 9, <span class="math inline">\({}^3S\)</span> has 3, <span class="math inline">\({}^1D\)</span> has 5, <span class="math inline">\({}^1P\)</span> has 3, and <span class="math inline">\({}^1S\)</span> has 1, totaling <span class="math inline">\(36=6\times6\)</span> one-electron spin-orbital combinations.</p>
+<p><strong>2. Hund’s rules</strong></p>
+<ul>
+<li>First rule: the term with the largest <span class="math inline">\(S\)</span> generally lies lowest.</li>
+<li>Second rule: among terms with the same <span class="math inline">\(S\)</span>, the term with the largest <span class="math inline">\(L\)</span> generally lies lowest.</li>
+<li>Third rule: within an LS term, the smallest <span class="math inline">\(J\)</span> generally lies lowest for a less-than-half-filled subshell; the largest <span class="math inline">\(J\)</span> generally lies lowest for a more-than-half-filled subshell. For nonequivalent electrons in different subshells, applying this last rule requires care and is not universally predictive.</li>
+</ul>
+<p>These are approximate ordering rules; the diagram’s energy hierarchy is schematic.</p>
+<p><strong>3–4. Equivalent-electron restriction</strong></p>
+<p>For two electrons with the same <span class="math inline">\(n\)</span> and <span class="math inline">\(\ell=1\)</span>, the radial factors are identical. Exchange symmetry restricts the orbital part: for two equivalent <span class="math inline">\(p\)</span> electrons, <span class="math inline">\(L=0,2\)</span> are spatially symmetric and <span class="math inline">\(L=1\)</span> is spatially antisymmetric. Therefore, symmetric spatial states combine with the antisymmetric spin singlet, and the antisymmetric spatial state combines with the symmetric triplet.</p>
+<p>Only</p>
+<p><span class="math display">\[
+\boxed{(np)^2:\quad {}^1S_0,\quad{}^1D_2,\quad{}^3P_{0,1,2}}
+\]</span></p>
+<p>remain. The terms <span class="math inline">\(\boxed{{}^3S_1,\;{}^3D_{1,2,3},\;{}^1P_1}\)</span> disappear when <span class="math inline">\(n=n'\)</span>. Their presence for <span class="math inline">\(n\ne n'\)</span> is possible because the distinct radial orbitals provide additional exchange-symmetry combinations.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="prob-p5-4" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p5-4">Problem P5.4: Ground-State Term Symbols</h3>
+<p>A closed subshell has <span class="math inline">\(L=S=0\)</span> and does not contribute to the total angular momentum.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Potassium has ground-state configuration <span class="math inline">\([\mathrm{Ar}]\,4s^1\)</span>. Determine its ground-state term symbol and identify the contributing electron.</li>
+<li>The chromium ion <span class="math inline">\(\mathrm{Cr}^{2+}\)</span> has configuration <span class="math inline">\([\mathrm{Ar}]\,3d^4\)</span> and ground-state term <span class="math inline">\({}^5D_0\)</span>. Explain using Hund’s rules and the Pauli principle why <span class="math inline">\(S=2\)</span>, <span class="math inline">\(L=2\)</span>, and <span class="math inline">\(J=0\)</span>.</li>
+<li>Phosphorus (<span class="math inline">\(Z=15\)</span>): write its ground-state electron configuration and determine its ground-state term symbol.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(d^4\)</span>, maximize the number of parallel spins in distinct <span class="math inline">\(d\)</span> orbitals. For <span class="math inline">\(p^3\)</span>, the three electrons can occupy all three <span class="math inline">\(m_\ell=-1,0,+1\)</span> orbitals with parallel spins.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Potassium</strong></p>
+<p>The <span class="math inline">\([\mathrm{Ar}]\)</span> core is closed. The single <span class="math inline">\(4s\)</span> electron has <span class="math inline">\(\ell=0\)</span> and <span class="math inline">\(s=\frac12\)</span>, giving <span class="math inline">\(L=0\)</span>, <span class="math inline">\(S=\frac12\)</span>, and <span class="math inline">\(J=\frac12\)</span>:</p>
+<p><span class="math display">\[
+\boxed{[\mathrm{Ar}]\,4s^1:\quad{}^2S_{1/2}.}
+\]</span></p>
+<p><strong>2. <span class="math inline">\(\mathrm{Cr}^{2+}\)</span></strong></p>
+<p>For <span class="math inline">\(3d^4\)</span>, four electrons occupy four different <span class="math inline">\(d\)</span> orbitals with parallel spins, maximizing <span class="math inline">\(\boxed{S=4(1/2)=2}\)</span> and giving multiplicity <span class="math inline">\(2S+1=5\)</span>.</p>
+<p>To obtain the largest <span class="math inline">\(M_L\)</span> consistent with this spin arrangement, fill <span class="math inline">\(m_\ell=2,1,0,-1\)</span> (all with the same spin). Their sum is <span class="math inline">\(M_L=2\)</span>, so the maximum allowed total orbital angular momentum is <span class="math inline">\(\boxed{L=2}\)</span>, denoted <span class="math inline">\(D\)</span>.</p>
+<p>The possible <span class="math inline">\(J\)</span> values are <span class="math inline">\(0,1,2,3,4\)</span>. Because <span class="math inline">\(d^4\)</span> is less than half filled, Hund’s third rule favors the smallest <span class="math inline">\(J=|L-S|=0\)</span>:</p>
+<p><span class="math display">\[
+\boxed{[\mathrm{Ar}]\,3d^4:\quad{}^5D_0.}
+\]</span></p>
+<p><strong>3. Phosphorus</strong></p>
+<p>The ground-state configuration is</p>
+<p><span class="math display">\[
+\boxed{1s^2\,2s^2\,2p^6\,3s^2\,3p^3=[\mathrm{Ne}]\,3s^2\,3p^3.}
+\]</span></p>
+<p>Three <span class="math inline">\(3p\)</span> electrons occupy <span class="math inline">\(m_\ell=-1,0,+1\)</span> with parallel spins, giving <span class="math inline">\(S=\frac32\)</span>. Their orbital projections sum to zero, and the ground term has <span class="math inline">\(L=0\)</span> (<span class="math inline">\(S\)</span> term). Thus <span class="math inline">\(J=\frac32\)</span>:</p>
+<p><span class="math display">\[
+\boxed{{}^4S_{3/2}.}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="doubly-excited-states" class="level2">
+<h2 class="anchored" data-anchor-id="doubly-excited-states">Doubly Excited States</h2>
+<section id="prob-p5-5" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p5-5">Problem P5.5: Autoionization of Doubly Excited Helium</h3>
+<p>A helium atom absorbs ultraviolet radiation and is excited to the doubly excited configuration <span class="math inline">\(2s4p\)</span>. It can decay by <em>autoionization</em>: one electron becomes more tightly bound while the other is emitted into the continuum.</p>
+<p>Use an independent-electron approximation: <span class="math inline">\(Z_{\mathrm{eff}}=2\)</span> for the <span class="math inline">\(2s\)</span> electron and <span class="math inline">\(Z_{\mathrm{eff}}=1\)</span> for the outer <span class="math inline">\(4p\)</span> electron, with</p>
+<p><span class="math display">\[
+E_n=-13.6\,\mathrm{eV}\,\frac{Z_{\mathrm{eff}}^2}{n^2}.
+\]</span></p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Estimate the energies of the <span class="math inline">\(2s\)</span> and <span class="math inline">\(4p\)</span> electrons, and the total energy and binding energy of <span class="math inline">\(2s4p\)</span>.</li>
+<li>The helium ground-state energy is approximately <span class="math inline">\(-79\,\mathrm{eV}\)</span>. Estimate the UV photon energy needed for excitation to <span class="math inline">\(2s4p\)</span>. Write the energy difference before inserting numbers.</li>
+<li>Calculate the energy of <span class="math inline">\(\mathrm{He}^+(1s)\)</span> using <span class="math inline">\(Z=2\)</span>, <span class="math inline">\(n=1\)</span>.</li>
+<li>Use energy conservation to determine the kinetic energy of the electron emitted when <span class="math inline">\(2s4p\)</span> autoionizes to <span class="math inline">\(\mathrm{He}^+(1s)+e^-\)</span>. Explain why the process is energetically possible.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose the energy zero as <span class="math inline">\(\mathrm{He}^{2+}+2e^-\)</span> at rest. The excitation photon supplies <span class="math inline">\(E_{2s4p}-E_{1s^2}\)</span>. For autoionization, use <span class="math inline">\(E_{2s4p}=E_{\mathrm{He}^+(1s)}+K_e\)</span>, neglecting the small ion recoil energy.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Doubly excited configuration</strong></p>
+<p><span class="math display">\[
+E_{2s}=-13.6\frac{2^2}{2^2}\,\mathrm{eV}=-13.6\,\mathrm{eV},
+\]</span></p>
+<p><span class="math display">\[
+E_{4p}=-13.6\frac{1^2}{4^2}\,\mathrm{eV}=-0.85\,\mathrm{eV}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{E_{2s4p}=-14.45\,\mathrm{eV}},
+\qquad
+\boxed{E_{\mathrm{binding}}=14.45\,\mathrm{eV}}.
+\]</span></p>
+<p><strong>2. Excitation energy</strong></p>
+<p><span class="math display">\[
+E_\gamma=E_{2s4p}-E_{1s^2}
+=(-14.45)-(-79)\,\mathrm{eV}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{E_\gamma=64.55\,\mathrm{eV}.}
+\]</span></p>
+<p><strong>3. Residual helium ion</strong></p>
+<p><span class="math display">\[
+\boxed{E_{\mathrm{He}^+(1s)}=-13.6\times 2^2\,\mathrm{eV}=-54.4\,\mathrm{eV}.}
+\]</span></p>
+<p><strong>4. Autoionization electron energy</strong></p>
+<p>Energy conservation gives</p>
+<p><span class="math display">\[
+E_{2s4p}=E_{\mathrm{He}^+(1s)}+K_e.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+K_e=(-14.45)-(-54.4)\,\mathrm{eV}
+=\boxed{39.95\,\mathrm{eV}}.
+\]</span></p>
+<p>The <span class="math inline">\(2s4p\)</span> state lies <span class="math inline">\(39.95\,\mathrm{eV}\)</span> <strong>above</strong> the <span class="math inline">\(\mathrm{He}^+(1s)+e^-\)</span> threshold at <span class="math inline">\(-54.4\,\mathrm{eV}\)</span>. Autoionization is therefore energetically allowed: the excess energy appears primarily as electron kinetic energy.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fsch-d\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../practice/radiation.html" class="pagination-link" aria-label="P4 Interaction with Radiation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">P4 Interaction with Radiation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"bottom","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

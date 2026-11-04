@@ -1,0 +1,458 @@
+---
+title: "P4 Interaction with Radiation"
+---
+
+These problems explore electric-dipole transitions, selection rules, Einstein rate equations, and spectral linewidths.
+
+## Electric-Dipole Transitions
+
+### Problem P4.1: The $2p\rightarrow1s$ Transition in Hydrogen {#prob-p4-1}
+
+A hydrogen atom is in the excited $2p$ state with wavefunction
+
+$$
+\langle\mathbf r|2,1,0\rangle=\psi_{210}(\mathbf r)
+=\frac{1}{4\sqrt{2\pi a_0^3}}\frac{r}{a_0}e^{-r/(2a_0)}\cos\vartheta.
+$$
+
+The ground-state wavefunction is
+
+$$
+\langle\mathbf r|1,0,0\rangle=\psi_{100}(\mathbf r)
+=\frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0}.
+$$
+
+**Tasks**
+
+1. Before evaluating any integrals, use symmetry to determine which Cartesian components of the electric-dipole transition matrix element
+
+   $$
+   \langle1,0,0|\mathbf r|2,1,0\rangle
+   $$
+
+   can be nonzero.
+2. Calculate the complete transition matrix element as a three-dimensional vector.
+3. The Einstein coefficient for spontaneous decay is
+
+   $$
+   A_{21}=\frac43\alpha c\left(\frac{\omega}{c}\right)^3
+   \left|\langle1,0,0|\mathbf r|2,1,0\rangle\right|^2.
+   $$
+
+   Calculate the lifetime $\tau=1/A_{21}$ of the excited $2p$ state in seconds.
+
+You may use
+
+$$
+E_n=-\frac{13.6\,\mathrm{eV}}{n^2},\qquad
+\hbar\omega=E_2-E_1,
+$$
+
+and
+
+$$
+\alpha\simeq\frac1{137},\quad
+a_0=5.292\times10^{-11}\,\mathrm m,\quad
+\hbar=6.582\times10^{-16}\,\mathrm{eV\,s}.
+$$
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The $1s$ state is spherically symmetric, while the $2p,m=0$ wavefunction is proportional to $\cos\vartheta=z/r$. Examine the parity of the integrands for the $x$, $y$, and $z$ components.
+
+For the nonzero component, use $z=r\cos\vartheta$, $d^3r=r^2\sin\vartheta\,dr\,d\vartheta\,d\varphi$, and
+
+$$
+\int_0^\infty r^n e^{-\beta r}\,dr=\frac{n!}{\beta^{n+1}}.
+$$
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Symmetry**
+
+The product $\psi_{100}^*\psi_{210}$ is proportional to $\cos\vartheta=z/r$. Multiplication by $x$ or $y$ produces an integrand that is odd under $x\to-x$ or $y\to-y$, respectively. Both integrals vanish. Multiplication by $z$ gives an even integrand, so only the $z$ component can be nonzero.
+
+**2. Transition matrix element**
+
+The nonzero component is
+
+$$
+\begin{aligned}
+\langle100|z|210\rangle
+&=\int\psi_{100}^*(\mathbf r)\,r\cos\vartheta\,\psi_{210}(\mathbf r)\,d^3r\\
+&=\frac{1}{4\sqrt2\pi a_0^4}
+\left(\int_0^\infty r^4e^{-3r/(2a_0)}\,dr\right)
+\left(\int_0^{2\pi}d\varphi\int_0^\pi\cos^2\vartheta\sin\vartheta\,d\vartheta\right).
+\end{aligned}
+$$
+
+The angular integral is $4\pi/3$, and the radial integral is
+
+$$
+\int_0^\infty r^4e^{-3r/(2a_0)}\,dr
+=4!\left(\frac{2a_0}{3}\right)^5.
+$$
+
+Thus,
+
+$$
+\boxed{\langle100|\mathbf r|210\rangle
+=\frac{256}{243\sqrt2}a_0\,\hat{\mathbf z}.}
+$$
+
+Numerically, its magnitude is approximately $3.94\times10^{-11}\,\mathrm m$.
+
+**3. Spontaneous decay and lifetime**
+
+The transition energy is
+
+$$
+\hbar\omega=E_2-E_1=-3.4\,\mathrm{eV}-(-13.6\,\mathrm{eV})
+=10.2\,\mathrm{eV},
+$$
+
+so
+
+$$
+\omega=\frac{10.2\,\mathrm{eV}}{6.582\times10^{-16}\,\mathrm{eV\,s}}
+\approx1.55\times10^{16}\,\mathrm{s^{-1}}.
+$$
+
+Substituting into the Einstein coefficient,
+
+$$
+\begin{aligned}
+A_{21}
+&=\frac43\alpha\frac{\omega^3}{c^2}
+\left(\frac{256}{243\sqrt2}a_0\right)^2\\
+&\approx6.27\times10^8\,\mathrm{s^{-1}}.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{\tau=\frac1{A_{21}}\approx1.60\times10^{-9}\,\mathrm s=1.60\,\mathrm{ns}.}
+$$
+
+:::
+
+### Problem P4.2: Electric-Dipole Selection Rules {#prob-p4-2}
+
+For electric-dipole (E1) transitions in LS coupling, the relevant selection rules are
+
+$$
+\Delta L=\pm1,\qquad \Delta S=0,\qquad \Delta J=0,\pm1,
+$$
+
+with transitions between two states with $J=0$ forbidden.
+
+**Tasks**
+
+Determine which of the following transitions are electric-dipole allowed. If a transition is forbidden, identify the violated selection rule or rules.
+
+1. $4\,{}^2P_{3/2}\rightarrow1\,{}^2S_{1/2}$
+2. $3\,{}^2D_{3/2}\rightarrow2\,{}^2S_{1/2}$
+3. $4\,{}^2F_{5/2}\rightarrow3\,{}^2D_{3/2}$
+4. $5\,{}^4S_{1/2}\rightarrow3\,{}^4P_{5/2}$
+5. $2\,{}^2P_{1/2}\rightarrow1\,{}^2S_{1/2}$
+6. $2\,{}^3P_0\rightarrow1\,{}^1S_0$
+
+One of the term symbols listed above is itself **not physically possible**. Which one is it? Explain why its values of $L$, $S$, and $J$ are inconsistent.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The letter $S,P,D,F$ specifies $L=0,1,2,3$, respectively. The superscript $2S+1$ gives the spin multiplicity. For a given $L$ and $S$, the allowed values of $J$ run from $|L-S|$ to $L+S$ in integer steps.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+| Transition | E1 allowed? | Reason |
+|---|---|---|
+| $4\,{}^2P_{3/2}\to1\,{}^2S_{1/2}$ | **Yes** | $\Delta L=-1$, $\Delta S=0$, $\Delta J=-1$ |
+| $3\,{}^2D_{3/2}\to2\,{}^2S_{1/2}$ | **No** | $\Delta L=-2$ |
+| $4\,{}^2F_{5/2}\to3\,{}^2D_{3/2}$ | **Yes** | $\Delta L=-1$, $\Delta S=0$, $\Delta J=-1$ |
+| $5\,{}^4S_{1/2}\to3\,{}^4P_{5/2}$ | **Invalid term symbol** | ${}^4S_{1/2}$ is impossible; the displayed $\Delta J=2$ also violates the E1 rule |
+| $2\,{}^2P_{1/2}\to1\,{}^2S_{1/2}$ | **Yes** | $\Delta L=-1$, $\Delta S=0$, $\Delta J=0$ |
+| $2\,{}^3P_0\to1\,{}^1S_0$ | **No** | $\Delta S\ne0$ and $J=0\to J=0$ is forbidden |
+
+The impossible term symbol is
+
+$$
+\boxed{{}^4S_{1/2}.}
+$$
+
+Its multiplicity $4$ implies $S=3/2$, while the letter $S$ implies $L=0$. Angular-momentum addition then requires
+
+$$
+J=|L-S|=\frac32,
+$$
+
+not $J=1/2$. The only possible ${}^4S$ term has $J=3/2$.
+
+:::
+
+## Einstein Rate Equations
+
+### Problem P4.3: Rate Equations for Hydrogen Populations {#prob-p4-3}
+
+Consider a sample of $N$ hydrogen atoms. Let $N_1$ denote the number in the $1^2S_{1/2}$ ground state and $N_2$ the number in the $2^2P_{3/2}$ excited state.
+
+The populations evolve according to
+
+$$
+\frac{dN_1}{dt}=-N_1B_{12}w(\nu)
++N_2\left[B_{21}w(\nu)+A_{21}\right],
+$$
+
+$$
+\frac{dN_2}{dt}=-\frac{dN_1}{dt}.
+$$
+
+Here $w(\nu)$ is the spectral energy density of the radiation field, while $B_{12}$, $B_{21}$, and $A_{21}$ are the Einstein coefficients for absorption, stimulated emission, and spontaneous emission. The total number of atoms is conserved:
+
+$$
+N_1(t)+N_2(t)=N.
+$$
+
+**Tasks**
+
+1. Suppose all atoms are initially excited, $N_2(0)=N$, and the radiation field is absent, $w(\nu)=0$. Derive $N_2(t)$.
+2. Suppose again that $N_2(0)=N$, but the atoms are exposed to a radiation field with spectral energy density
+
+   $$
+   w(\nu)=\frac{4\pi h\nu^3}{5c^3}.
+   $$
+
+   Determine the steady-state excited population $N_2(\infty)$.
+3. Show that the time-dependent solution in the presence of this field is
+
+   $$
+   N_2(t)=\frac N{13}\left(11e^{-\frac{13}{10}A_{21}t}+2\right).
+   $$
+
+   Check the initial population at $t=0$ and the steady-state limit as $t\to\infty$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The Einstein coefficients obey
+
+$$
+g_1B_{12}=g_2B_{21},\qquad
+\frac{A_{21}}{B_{21}}=\frac{8\pi h\nu^3}{c^3}.
+$$
+
+For $1^2S_{1/2}$, $g_1=2$; for $2^2P_{3/2}$, $g_2=4$.
+
+Eliminate $N_1=N-N_2$ to obtain a first-order differential equation of the form
+
+$$
+\frac{dN_2}{dt}=R-\Gamma N_2.
+$$
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Spontaneous decay without radiation**
+
+With $w(\nu)=0$,
+
+$$
+\frac{dN_2}{dt}=-A_{21}N_2.
+$$
+
+Integrating and applying $N_2(0)=N$ gives
+
+$$
+\boxed{N_2(t)=Ne^{-A_{21}t}.}
+$$
+
+**2. Steady-state population in the radiation field**
+
+From the Einstein relations and the degeneracies,
+
+$$
+B_{12}=\frac{g_2}{g_1}B_{21}=2B_{21}.
+$$
+
+The specified radiation field gives
+
+$$
+B_{21}w(\nu)
+=B_{21}\frac{4\pi h\nu^3}{5c^3}
+=\frac{A_{21}}{10},
+$$
+
+and hence
+
+$$
+B_{12}w(\nu)=\frac{A_{21}}5.
+$$
+
+Using $N_1=N-N_2$, the excited-state rate equation becomes
+
+$$
+\begin{aligned}
+\frac{dN_2}{dt}
+&=(N-N_2)\frac{A_{21}}5
+-N_2\left(\frac{A_{21}}{10}+A_{21}\right)\\
+&=\frac{A_{21}N}{5}-\frac{13A_{21}}{10}N_2.
+\end{aligned}
+$$
+
+At steady state, $dN_2/dt=0$, so
+
+$$
+\boxed{N_2(\infty)=\frac{2N}{13}.}
+$$
+
+**3. Time-dependent solution**
+
+Rearrange the rate equation as
+
+$$
+\frac{dN_2}{dt}
+=-\frac{13A_{21}}{10}\left(N_2-\frac{2N}{13}\right).
+$$
+
+Its solution is
+
+$$
+N_2(t)=\frac{2N}{13}+C e^{-13A_{21}t/10}.
+$$
+
+The initial condition $N_2(0)=N$ gives $C=11N/13$. Therefore,
+
+$$
+\boxed{
+N_2(t)=\frac N{13}\left(11e^{-\frac{13}{10}A_{21}t}+2\right).
+}
+$$
+
+At $t=0$, the exponential is $1$ and $N_2(0)=N(11+2)/13=N$. As $t\to\infty$, the exponential vanishes and $N_2\to2N/13$, as required.
+
+**Physical interpretation:** Rate equations describe atomic **populations**. Coherent atom–light dynamics, including Rabi oscillations, require a treatment of coherences, such as the optical Bloch equations.
+
+:::
+
+## Spectral Linewidths
+
+### Problem P4.4: Lithium Spectroscopy {#prob-p4-4}
+
+You perform fluorescence spectroscopy on the lithium transition
+
+$$
+2\,{}^2P_{3/2}\rightarrow2\,{}^2S_{1/2}.
+$$
+
+The excited state has a lifetime of $\tau=27.1\,\mathrm{ns}$.
+
+**Tasks**
+
+1. What is the natural linewidth $\delta\omega_{\mathrm{nat}}$? Use
+
+   $$
+   \delta\omega_{\mathrm{nat}}=\frac1\tau.
+   $$
+
+2. The lithium atoms are evaporated from an oven at $400^\circ\mathrm C$. What is the Doppler broadening $\delta\omega_D$ of the observed line? Use the Doppler full width at half maximum (FWHM),
+
+   $$
+   \delta\omega_D=\omega_0\sqrt{\frac{8k_BT\ln2}{mc^2}}.
+   $$
+
+3. Compare the Doppler linewidth with the natural linewidth at $400^\circ\mathrm C$. Which mechanism dominates, and by approximately what factor?
+4. At which temperature are Doppler broadening and natural linewidth of the same magnitude?
+
+Use
+
+$$
+\omega_0=2.81\times10^{15}\,\mathrm{s^{-1}},\quad
+m\simeq7u,\quad
+u=\text{(not needed)},\quad
+u_0=\frac{\omega_0}{2\pi},
+$$
+
+where $u=1.6605\times10^{-27}\,\mathrm{kg}$. You may also use $k_B=1.38065\times10^{-23}\,\mathrm{J/K}$ and $c=2.99792\times10^8\,\mathrm{m/s}$.
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Convert the oven temperature to kelvin. Both linewidths are expressed as **angular frequencies**, in $\mathrm{rad/s}$ (or equivalently $\mathrm{s^{-1}}$). To find the crossover temperature, set $\delta\omega_D=\delta\omega_{\mathrm{nat}}$ and solve for $T$.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Natural linewidth**
+
+$$
+\delta\omega_{\mathrm{nat}}
+=\frac1{27.1\times10^{-9}\,\mathrm s}
+\approx\boxed{3.69\times10^7\,\mathrm{s^{-1}}}.
+$$
+
+In ordinary frequency units, this corresponds to $\delta\nu_{\mathrm{nat}}=\delta\omega_{\mathrm{nat}}/(2\pi)\approx5.87\,\mathrm{MHz}$.
+
+**2. Doppler linewidth**
+
+The oven temperature and atomic mass are
+
+$$
+T=400+273.15=673.15\,\mathrm K,
+$$
+
+$$
+m=7(1.6605\times10^{-27})\approx1.1624\times10^{-26}\,\mathrm{kg}.
+$$
+
+Substitution gives
+
+$$
+\begin{aligned}
+\delta\omega_D
+&=2.81\times10^{15}
+\sqrt{\frac{8(1.38065\times10^{-23})(673.15)\ln2}
+{(1.1624\times10^{-26})(2.99792\times10^8)^2}}\\
+&\approx\boxed{1.97\times10^{10}\,\mathrm{s^{-1}}}.
+\end{aligned}
+$$
+
+This is $\delta\nu_D\approx3.14\,\mathrm{GHz}$ in ordinary frequency units.
+
+**3. Comparison**
+
+$$
+\frac{\delta\omega_D}{\delta\omega_{\mathrm{nat}}}
+\approx\frac{1.97\times10^{10}}{3.69\times10^7}
+\approx\boxed{535}.
+$$
+
+Doppler broadening dominates the observed line at $400^\circ\mathrm C$ by more than two orders of magnitude.
+
+**4. Temperature at equal widths**
+
+Set the two linewidths equal:
+
+$$
+\frac1\tau=\omega_0\sqrt{\frac{8k_BT\ln2}{mc^2}}.
+$$
+
+Squaring and solving for $T$ gives
+
+$$
+\boxed{T=\frac{mc^2}{8k_B\ln2}\frac1{(\omega_0\tau)^2}.}
+$$
+
+Numerically,
+
+$$
+\boxed{T\approx2.35\times10^{-3}\,\mathrm K=2.35\,\mathrm{mK}.}
+$$
+
+This estimate shows why cooling atoms strongly suppresses Doppler broadening. The calculation assumes the stated thermal Doppler formula remains applicable and neglects other broadening mechanisms.
+
+:::

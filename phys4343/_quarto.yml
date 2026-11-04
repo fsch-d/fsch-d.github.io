@@ -139,6 +139,20 @@ website:
         text: 8.6 The Bloch Sphere Representation
       - href: mod8/ramsey.qmd
         text: 8.7 Ramsey Spectroscopy and Atomic Clocks
+    - section: "Practice Your AMO Knowledge"
+      href: practice/index.qmd
+      contents:
+        - text: "P1 Quantum Mechanics"
+          href: practice/quantum.qmd
+        - text: "P2 Hydrogen Atom: Wave Functions"
+          href: practice/atomic.qmd
+        - text: "P3 Hydrogen Atom: Shifts and Interactions"
+          href: practice/shifts.qmd
+        - text: "P4 Interaction with Radiation"
+          href: practice/radiation.qmd
+        - text: "P5 Multielectron Atoms"
+          href: practice/multielectron.qmd
+
 lightbox:
   match: auto
   effect: fade

@@ -751,6 +751,47 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Your AMO Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/atomic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Hydrogen Atom: Wave Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/shifts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Hydrogen Atom: Shifts and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/radiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P4 Interaction with Radiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/multielectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P5 Multielectron Atoms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -848,7 +889,7 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 \]</span></p>
 <hr>
 <p>Here’s a sketch of the molecular geometry, including the relevant position vectors:</p>
-<div id="752c06b1" class="cell" data-fig-format="png" data-execution_count="1">
+<div id="0921dd76" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -948,7 +989,7 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 = \frac{4\xi}{R(\xi^2-\eta^2)}.
 \]</span> Thus the potential is a rational function of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>, and—crucially—has the simple factor structure <span class="math inline">\(\propto \xi/(\xi^2-\eta^2)\)</span>.</p>
 <p>The figure visualizes the prolate spheroidal coordinate system: on the left, <span class="math inline">\(\xi\)</span>– and <span class="math inline">\(\eta\)</span>–lines form a two-dimensional grid in the <span class="math inline">\(xz\)</span>–plane, while on the right, an ellipsoid of constant <span class="math inline">\(\xi\)</span> is shown together with its <span class="math inline">\(\eta\)</span>– and <span class="math inline">\(\phi\)</span>–grid lines.</p>
-<div id="57ea8033" class="cell" data-execution_count="2">
+<div id="253bbe19" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1479,7 +1520,7 @@ L_z &amp;= xp_y-yp_x.
 <p>Imagine a wheel rotating around the <span class="math inline">\(z\)</span>-axis. Viewed along the positive <span class="math inline">\(z\)</span>-direction, a counterclockwise rotation corresponds to angular momentum along <span class="math inline">\(+z\)</span>, according to the right-hand rule.</p>
 <p>Now reflect the wheel in a plane containing its rotation axis. The reflected motion is clockwise, and the angular momentum therefore points along <span class="math inline">\(-z\)</span>.</p>
 <p>The following illustration shows this reversal. The coordinates are drawn in the <span class="math inline">\(xy\)</span>-plane, viewed along the molecular axis.</p>
-<div id="1ddaa602" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
+<div id="3fcf13dc" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1504,7 +1545,7 @@ L_z &amp;= xp_y-yp_x.
 (A_x,A_y,A_z)\longrightarrow(-A_x,A_y,-A_z).
 \]</span></p>
 <p>The following figure compares these transformations for vectors oriented parallel, perpendicular, and diagonally to the mirror plane. The blue arrows represent the original vectors, and the orange arrows their reflected counterparts.</p>
-<div id="c6345521" class="cell" data-execution_count="4">
+<div id="744202b9" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1876,7 +1917,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <p>If we now plot these electronic energies as a function of <span class="math inline">\(R\)</span>, we obtain the <strong>potential energy curves</strong> for the molecule. These curves determine how the total molecular energy changes as the nuclei move relative to one another.</p>
 <p>At certain distances, one of the potential curves may exhibit a <strong>minimum</strong>—indicating a stable or quasi-stable equilibrium separation. Such a minimum corresponds to a <strong>bound molecular state</strong>. Higher-lying curves may be purely repulsive or correspond to excited electronic configurations that dissociate more easily.</p>
 <p>Below is an illustrative plot showing four typical potential energy curves for H<span class="math inline">\(_2^+\)</span>, labeled according to their symmetry.</p>
-<div id="c88601d2" class="cell" data-execution_count="5">
+<div id="48df8d0e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""H2+ Born-Oppenheimer curves, from numerical finite differences.</span></span>

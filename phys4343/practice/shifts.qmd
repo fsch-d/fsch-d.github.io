@@ -1,0 +1,714 @@
+
+---
+title: "P3 Hydrogen Atom: Shifts and Interactions"
+---
+
+These problems explore electron spin, magnetic interactions, coupled spins, and the hyperfine structure of hydrogen.
+
+## Spin and Magnetic Interactions
+
+### Problem P3.1: Spin in a Magnetic Field {#prob-p3-1}
+
+A sodium atom is placed in a homogeneous magnetic field $\mathbf B=B_z\hat{\mathbf z}$. The interaction between the magnetic field and the magnetic moment of the valence electron is described by
+
+$$
+\hat H=-\boldsymbol{\mu}\cdot\mathbf B
+=2\frac{\mu_{\mathrm B}}{\hbar}B_z\hat S_z.
+$$
+
+The spin operators in the Pauli spinor representation are
+
+$$
+\hat S_x=\frac{\hbar}{2}
+\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\hat S_y=\frac{\hbar}{2}
+\begin{pmatrix}0&-i\\i&0\end{pmatrix},
+\qquad
+\hat S_z=\frac{\hbar}{2}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+$$
+
+**Tasks**
+
+1. Determine the two eigenvalues of the Hamiltonian and their corresponding normalized spinors.
+2. Determine the time dependence of each energy eigenstate.
+
+Now suppose the atom is prepared at $t=0$ in the state
+
+$$
+|\psi(0)\rangle=\frac{1}{\sqrt2}
+\begin{pmatrix}1\\1\end{pmatrix}.
+$$
+
+3. Express $|\psi(0)\rangle$ as a superposition of the two energy eigenstates.
+4. Write down the time-dependent state $|\psi(t)\rangle$.
+5. Calculate the time-dependent expectation values $\langle\hat S_x\rangle$, $\langle\hat S_y\rangle$, and $\langle\hat S_z\rangle$.
+6. Describe physically what happens to the expectation value of the spin. About which axis does it precess?
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+An energy eigenstate with energy $E$ evolves with the phase factor $e^{-iEt/\hbar}$.
+
+For the expectation values, use
+
+$$
+\langle\hat S_i\rangle
+=\langle\psi(t)|\hat S_i|\psi(t)\rangle.
+$$
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Energy eigenvalues and eigenstates**
+
+Using the matrix representation of $\hat S_z$,
+
+$$
+\hat H=\mu_{\mathrm B}B_z
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+$$
+
+The eigenvalues are
+
+$$
+\boxed{E_+=+\mu_{\mathrm B}B_z,\qquad
+E_-=-\mu_{\mathrm B}B_z.}
+$$
+
+The corresponding normalized spinors are
+
+$$
+|+\rangle=\begin{pmatrix}1\\0\end{pmatrix},
+\qquad
+|-\rangle=\begin{pmatrix}0\\1\end{pmatrix}.
+$$
+
+**2. Time evolution of the eigenstates**
+
+Each energy eigenstate acquires a phase:
+
+$$
+|+(t)\rangle=e^{-i\mu_{\mathrm B}B_zt/\hbar}|+\rangle,
+$$
+
+$$
+|-(t)\rangle=e^{+i\mu_{\mathrm B}B_zt/\hbar}|-\rangle.
+$$
+
+These phases do not change the spin expectation values of the individual eigenstates.
+
+**3. Initial superposition**
+
+The initial state is
+
+$$
+\boxed{
+|\psi(0)\rangle=\frac{1}{\sqrt2}
+\left(|+\rangle+|-\rangle\right).
+}
+$$
+
+**4. Time-dependent state**
+
+Define
+
+$$
+\omega=\frac{2\mu_{\mathrm B}B_z}{\hbar}.
+$$
+
+The state becomes
+
+$$
+\boxed{
+|\psi(t)\rangle=
+\frac{1}{\sqrt2}
+\begin{pmatrix}
+e^{-i\omega t/2}\\
+e^{+i\omega t/2}
+\end{pmatrix}.
+}
+$$
+
+**5. Spin expectation values**
+
+For the $x$ component,
+
+$$
+\begin{aligned}
+\langle\hat S_x\rangle
+&=\frac{\hbar}{4}
+\begin{pmatrix}
+e^{i\omega t/2}&e^{-i\omega t/2}
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}
+\begin{pmatrix}
+e^{-i\omega t/2}\\e^{i\omega t/2}
+\end{pmatrix}\\
+&=\boxed{\frac{\hbar}{2}\cos(\omega t)}.
+\end{aligned}
+$$
+
+Similarly,
+
+$$
+\boxed{
+\langle\hat S_y\rangle
+=\frac{\hbar}{2}\sin(\omega t)
+}
+$$
+
+and
+
+$$
+\boxed{\langle\hat S_z\rangle=0.}
+$$
+
+**6. Physical interpretation**
+
+The expectation value of the spin is
+
+$$
+\boxed{
+\langle\hat{\mathbf S}\rangle
+=\frac{\hbar}{2}
+\begin{pmatrix}
+\cos(\omega t)\\
+\sin(\omega t)\\
+0
+\end{pmatrix}.
+}
+$$
+
+Its magnitude remains constant, but its direction rotates in the $xy$ plane.
+
+The spin therefore **precesses around the magnetic-field axis**, which is the $z$ axis, with angular frequency
+
+$$
+\boxed{
+\omega=\frac{2\mu_{\mathrm B}B_z}{\hbar}.
+}
+$$
+
+This is Larmor precession. For $B_z>0$, the expectation value rotates from the positive $x$ direction toward the positive $y$ direction.
+
+:::
+
+### Problem P3.2: Two-Spin System {#prob-p3-2}
+
+Consider two interacting particles, each with spin $s_1=s_2=\frac12$. Their spins add to form the total spin
+
+$$
+\hat{\mathbf S}=\hat{\mathbf s}_1+\hat{\mathbf s}_2.
+$$
+
+**Tasks**
+
+1. What values of the total-spin quantum number $S$ are possible? For each value of $S$, list the allowed values of $M_S$.
+2. How many independent spin states are there altogether? Identify which states form the triplet and which form the singlet.
+3. Starting from $\hat{\mathbf S}=\hat{\mathbf s}_1+\hat{\mathbf s}_2$, show that
+
+   $$
+   \hat{\mathbf s}_1\cdot\hat{\mathbf s}_2
+   =\frac12\left(
+   \hat{\mathbf S}^2-\hat{\mathbf s}_1^{\,2}
+   -\hat{\mathbf s}_2^{\,2}
+   \right).
+   $$
+
+Now consider the Hamiltonian
+
+$$
+\hat H=
+\frac{a}{\hbar^2}\hat{\mathbf s}_1\cdot\hat{\mathbf s}_2
++\frac{b}{\hbar}\hat S_z.
+$$
+
+4. Use the previous result to determine the energy eigenvalues in terms of $S$ and $M_S$.
+5. Determine the energies of all four spin states explicitly.
+6. Which states are degenerate when $b=0$? What happens to this degeneracy when $b\neq0$?
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Use the angular-momentum addition rule
+
+$$
+S=|s_1-s_2|,\ldots,s_1+s_2.
+$$
+
+The coupled states $|S,M_S\rangle$ are simultaneous eigenstates of $\hat{\mathbf S}^2$ and $\hat S_z$.
+
+For each individual spin,
+
+$$
+\hat{\mathbf s}_i^{\,2}
+=s_i(s_i+1)\hbar^2.
+$$
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Total-spin quantum numbers**
+
+Adding two spins $s_1=s_2=\frac12$ gives
+
+$$
+\boxed{S=1\quad\text{or}\quad S=0.}
+$$
+
+For $S=1$, the allowed projections are
+
+$$
+M_S=1,0,-1.
+$$
+
+For $S=0$, only $M_S=0$ is possible.
+
+**2. Triplet and singlet states**
+
+The triplet consists of three states:
+
+$$
+|1,1\rangle=|\uparrow\uparrow\rangle,
+$$
+
+$$
+|1,0\rangle=
+\frac{|\uparrow\downarrow\rangle+
+|\downarrow\uparrow\rangle}{\sqrt2},
+$$
+
+$$
+|1,-1\rangle=|\downarrow\downarrow\rangle.
+$$
+
+The singlet is
+
+$$
+|0,0\rangle=
+\frac{|\uparrow\downarrow\rangle-
+|\downarrow\uparrow\rangle}{\sqrt2}.
+$$
+
+Thus, there are
+
+$$
+\boxed{3+1=4}
+$$
+
+independent spin states, as expected from $2\times2=4$.
+
+**3. Spin-coupling identity**
+
+Squaring the total-spin operator,
+
+$$
+\begin{aligned}
+\hat{\mathbf S}^2
+&=(\hat{\mathbf s}_1+\hat{\mathbf s}_2)^2\\
+&=\hat{\mathbf s}_1^{\,2}
++\hat{\mathbf s}_2^{\,2}
++2\hat{\mathbf s}_1\cdot\hat{\mathbf s}_2.
+\end{aligned}
+$$
+
+Rearranging,
+
+$$
+\boxed{
+\hat{\mathbf s}_1\cdot\hat{\mathbf s}_2
+=\frac12\left(
+\hat{\mathbf S}^2-\hat{\mathbf s}_1^{\,2}
+-\hat{\mathbf s}_2^{\,2}
+\right).
+}
+$$
+
+**4. General energy eigenvalues**
+
+For a coupled state $|S,M_S\rangle$,
+
+$$
+\hat{\mathbf S}^2|S,M_S\rangle
+=S(S+1)\hbar^2|S,M_S\rangle
+$$
+
+and
+
+$$
+\hat S_z|S,M_S\rangle
+=M_S\hbar|S,M_S\rangle.
+$$
+
+Since
+
+$$
+s_1(s_1+1)=s_2(s_2+1)=\frac34,
+$$
+
+we obtain
+
+$$
+\boxed{
+E(S,M_S)=
+\frac a2\left[S(S+1)-\frac32\right]+bM_S.
+}
+$$
+
+**5. Energies of the four states**
+
+For the triplet, $S=1$ and $S(S+1)=2$, giving
+
+$$
+E(1,M_S)=\frac a4+bM_S.
+$$
+
+For the singlet, $S=0$, giving
+
+$$
+E(0,0)=-\frac{3a}{4}.
+$$
+
+The four energies are therefore:
+
+| State | Energy |
+|---|---|
+| $|1,1\rangle$ | $a/4+b$ |
+| $|1,0\rangle$ | $a/4$ |
+| $|1,-1\rangle$ | $a/4-b$ |
+| $|0,0\rangle$ | $-3a/4$ |
+
+**6. Degeneracies**
+
+When $b=0$, all three triplet states have the same energy,
+
+$$
+\boxed{E_{\mathrm{triplet}}=\frac a4.}
+$$
+
+The singlet has energy
+
+$$
+\boxed{E_{\mathrm{singlet}}=-\frac{3a}{4}.}
+$$
+
+The singlet–triplet separation is $a$.
+
+When $b\neq0$, the three triplet states split into three distinct energies separated by $b$ (for $b>0$). The singlet remains unaffected because $M_S=0$.
+
+The magnetic field therefore lifts the triplet degeneracy. Additional crossings between singlet and triplet energies can occur for particular values of $b$ relative to $a$.
+
+:::
+
+## Hyperfine Structure
+
+### Problem P3.3: Hyperfine Splitting in Hydrogen {#prob-p3-3}
+
+The ground state of hydrogen is split into two hyperfine levels with $F=1$ and $F=0$. This splitting arises from the magnetic interaction between the electron spin and the proton spin.
+
+The magnetic moment of the proton is
+
+$$
+\boldsymbol{\mu}_p
+=g_p\mu_N\frac{\mathbf I}{\hbar},
+$$
+
+where $I=\frac12$, $g_p=5.5857$, and
+
+$$
+\mu_N=\frac{e\hbar}{2m_p}
+$$
+
+is the nuclear magneton.
+
+The magnetic field produced by an ideal magnetic dipole $\boldsymbol{\mu}_e$ is
+
+$$
+\mathbf B(\mathbf r)=
+\frac{\mu_0}{4\pi r^3}
+\left[
+3(\boldsymbol{\mu}_e\cdot\hat{\mathbf r})\hat{\mathbf r}
+-\boldsymbol{\mu}_e
+\right]
++\frac{2\mu_0}{3}\boldsymbol{\mu}_e\delta^3(\mathbf r).
+$$
+
+The second term is the **Fermi contact field**,
+
+$$
+\mathbf B_{\mathrm{contact}}
+=\frac{2\mu_0}{3}\boldsymbol{\mu}_e\delta^3(\mathbf r),
+$$
+
+where the electron magnetic moment is approximately
+
+$$
+\boldsymbol{\mu}_e
+=-g_e\mu_B\frac{\mathbf S}{\hbar},
+\qquad g_e\simeq2.
+$$
+
+For the hydrogen ground state,
+
+$$
+\psi_{100}(\mathbf r)
+=\frac{e^{-r/a_0}}{\sqrt{\pi a_0^3}}.
+$$
+
+**Tasks**
+
+1. Show that
+
+   $$
+   \left\langle\delta^3(\mathbf r)\right\rangle
+   =|\psi_{100}(0)|^2
+   $$
+
+   and evaluate $|\psi_{100}(0)|^2$.
+
+2. Using
+
+   $$
+   H_{\mathrm{HF}}
+   =-\boldsymbol{\mu}_p\cdot\mathbf B_{\mathrm{contact}},
+   $$
+
+   show that the effective hyperfine Hamiltonian can be written as
+
+   $$
+   H_{\mathrm{HF}}=
+   \frac{A}{\hbar^2}\mathbf I\cdot\mathbf S
+   $$
+
+   and determine an expression for the hyperfine constant $A$.
+
+3. Using
+
+   $$
+   \mathbf F=\mathbf I+\mathbf S,
+   $$
+
+   express $\mathbf I\cdot\mathbf S$ in terms of $F$, $I$, and $S$. Calculate the hyperfine energies for $F=1$ and $F=0$, and determine their energy difference.
+
+4. Evaluate the splitting numerically as a frequency
+
+   $$
+   \nu=\frac{\Delta E}{h}
+   $$
+
+   in MHz. Then calculate the corresponding wavelength and confirm that the transition produces the well-known **21-cm line** observed in radio astronomy.
+
+Use the following constants:
+
+$$
+\begin{aligned}
+\mu_0&=4\pi\times10^{-7}\,\mathrm{N/A^2},\\
+\mu_B&=9.2740\times10^{-24}\,\mathrm{J/T},\\
+\mu_N&=5.0508\times10^{-27}\,\mathrm{J/T},\\
+a_0&=5.2918\times10^{-11}\,\mathrm{m},\\
+h&=6.6261\times10^{-34}\,\mathrm{J\,s},\\
+c&=2.9979\times10^8\,\mathrm{m/s}.
+\end{aligned}
+$$
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The delta function selects the value of the wavefunction at $\mathbf r=0$. You do not need to perform a three-dimensional integral explicitly.
+
+For the spin coupling, use
+
+$$
+\mathbf I\cdot\mathbf S
+=\frac12\left(\mathbf F^2-\mathbf I^2-\mathbf S^2\right).
+$$
+
+Remember that both the electron and proton have spin $\frac12$.
+
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Electron probability density at the nucleus**
+
+By the defining property of the three-dimensional delta function,
+
+$$
+\begin{aligned}
+\left\langle\delta^3(\mathbf r)\right\rangle
+&=\int d^3r\,|\psi_{100}(\mathbf r)|^2
+\delta^3(\mathbf r)\\
+&=|\psi_{100}(0)|^2.
+\end{aligned}
+$$
+
+Since
+
+$$
+\psi_{100}(0)=\frac1{\sqrt{\pi a_0^3}},
+$$
+
+we obtain
+
+$$
+\boxed{
+\left\langle\delta^3(\mathbf r)\right\rangle
+=\frac1{\pi a_0^3}.
+}
+$$
+
+**2. Hyperfine Hamiltonian**
+
+Substituting the electron magnetic moment into the contact field gives
+
+$$
+\mathbf B_{\mathrm{contact}}
+=-\frac{2\mu_0}{3}
+g_e\mu_B\frac{\mathbf S}{\hbar}
+\delta^3(\mathbf r).
+$$
+
+The interaction with the proton magnetic moment is
+
+$$
+H_{\mathrm{HF}}
+=-\boldsymbol{\mu}_p\cdot
+\mathbf B_{\mathrm{contact}}.
+$$
+
+Therefore,
+
+$$
+H_{\mathrm{HF}}
+=\frac{2\mu_0}{3}
+g_eg_p\mu_B\mu_N
+\frac{\mathbf I\cdot\mathbf S}{\hbar^2}
+\delta^3(\mathbf r).
+$$
+
+Taking the expectation value over the $1s$ spatial wavefunction produces the effective spin Hamiltonian
+
+$$
+\boxed{
+H_{\mathrm{HF}}
+=\frac{A}{\hbar^2}\mathbf I\cdot\mathbf S,
+}
+$$
+
+with
+
+$$
+\boxed{
+A=\frac{2\mu_0}{3}
+\frac{g_eg_p\mu_B\mu_N}{\pi a_0^3}.
+}
+$$
+
+**3. Hyperfine energies**
+
+Using $\mathbf F=\mathbf I+\mathbf S$,
+
+$$
+\mathbf F^2=\mathbf I^2+\mathbf S^2
++2\mathbf I\cdot\mathbf S.
+$$
+
+Thus,
+
+$$
+\boxed{
+\mathbf I\cdot\mathbf S
+=\frac12(\mathbf F^2-\mathbf I^2-\mathbf S^2).
+}
+$$
+
+The energy of a state with total angular momentum $F$ is
+
+$$
+E_F=\frac A2
+\left[F(F+1)-I(I+1)-S(S+1)\right].
+$$
+
+For $I=S=\frac12$,
+
+$$
+I(I+1)=S(S+1)=\frac34.
+$$
+
+For $F=1$,
+
+$$
+E_{F=1}
+=\frac A2\left(2-\frac32\right)
+=\boxed{\frac A4}.
+$$
+
+For $F=0$,
+
+$$
+E_{F=0}
+=\frac A2\left(0-\frac32\right)
+=\boxed{-\frac{3A}{4}}.
+$$
+
+The energy difference is
+
+$$
+\boxed{
+\Delta E=E_{F=1}-E_{F=0}=A.
+}
+$$
+
+The $F=1$ triplet lies above the $F=0$ singlet.
+
+**4. Numerical splitting and wavelength**
+
+Using $g_e\simeq2$ and the supplied constants,
+
+$$
+A=
+\frac{2\mu_0}{3}
+\frac{g_eg_p\mu_B\mu_N}{\pi a_0^3}
+\approx9.42\times10^{-25}\,\mathrm J.
+$$
+
+The corresponding frequency is
+
+$$
+\nu=\frac Ah
+\approx1.421\times10^9\,\mathrm{Hz}.
+$$
+
+Thus,
+
+$$
+\boxed{\nu\approx1421\,\mathrm{MHz}.}
+$$
+
+The wavelength is
+
+$$
+\lambda=\frac c\nu
+\approx0.211\,\mathrm m,
+$$
+
+or
+
+$$
+\boxed{\lambda\approx21.1\,\mathrm{cm}.}
+$$
+
+This agrees closely with the famous **21-cm hydrogen line**. Its measured frequency is approximately $1420.406\,\mathrm{MHz}$.
+
+The small difference arises from approximations in this calculation, including the treatment of the electron magnetic moment and the neglect of higher-order corrections.
+
+**Physical interpretation**
+
+The contact interaction is nonzero because the hydrogen $1s$ wavefunction has finite probability density at the nucleus.
+
+For states with $\ell>0$, the wavefunction vanishes at the origin, so the contact contribution is zero. Other magnetic interactions can nevertheless produce hyperfine structure in those states.
+
+:::

@@ -1,0 +1,876 @@
+
+---
+title: "P1 Quantum Mechanics"
+---
+
+
+These problems reinforce the fundamental concepts of quantum mechanics used throughout atomic, molecular, and optical physics.
+
+Work through the problems independently before consulting your notes. Particular attention should be paid to the physical interpretation of the mathematical results.
+
+## Quantum States and Time Evolution
+
+### Problem P1.1: The Time-Dependent Schrödinger Equation {#prob-p1-1}
+
+The time-dependent Schrödinger equation for an electron, in atomic units, is
+
+$$
+i\frac{\partial}{\partial t}\psi(\vec r,t)
+=
+-\frac{\nabla^2}{2}\psi(\vec r,t)
++V(\vec r,t)\psi(\vec r,t).
+$$
+
+**Tasks**
+
+1. For a time-independent potential $V(\vec r)$, the solution can be written as a product
+
+   $$
+   \psi(\vec r,t)=f(\vec r)g(t).
+   $$
+
+   Determine the form of $g(t)$.
+
+2. What is the time dependence of the probability density
+
+   $$
+   |\psi(\vec r,t)|^2
+   =
+   \psi^*(\vec r,t)\psi(\vec r,t)
+   $$
+
+   for such a stationary state?
+
+3. Consider the superposition
+
+   $$
+   \psi(\vec r,t)
+   =
+   \frac{1}{\sqrt{2}}
+   \left[
+   \psi_1(\vec r,t)-\psi_2(\vec r,t)
+   \right],
+   $$
+
+   where $\psi_1$ and $\psi_2$ are normalized energy eigenstates with distinct eigenfrequencies $\omega_1$ and $\omega_2$.
+
+   Derive an expression for the time-dependent probability density $|\psi(\vec r,t)|^2$.
+
+   Explain why the probability density can now depend on time.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Write each energy eigenstate as
+
+$$
+\psi_j(\vec r,t)=\phi_j(\vec r)e^{-i\omega_j t}.
+$$
+
+When calculating the probability density, pay particular attention to the interference terms.
+:::
+
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Time dependence of a stationary state**
+
+For a time-independent potential, we use the separation ansatz
+
+$$
+\psi(\vec r,t)=f(\vec r)g(t).
+$$
+
+Substituting into the time-dependent Schrödinger equation (in atomic units),
+
+$$
+i f(\vec r)\frac{dg}{dt}
+=
+-\frac{g(t)}{2}\nabla^2 f(\vec r)
++V(\vec r)f(\vec r)g(t),
+$$
+
+and dividing by $f(\vec r)g(t)$ gives
+
+$$
+i\frac{1}{g}\frac{dg}{dt}
+=
+-\frac{1}{2f}\nabla^2 f+V(\vec r).
+$$
+
+The left side depends only on time, while the right side depends only on position. Both must therefore equal a constant $E$, the energy eigenvalue.
+
+Thus,
+
+$$
+i\frac{dg}{dt}=Eg,
+$$
+
+with solution
+
+$$
+\boxed{g(t)=e^{-iEt}}
+$$
+
+up to a constant factor.
+
+**2. Probability density of a stationary state**
+
+For a stationary state,
+
+$$
+\psi(\vec r,t)=f(\vec r)e^{-iEt}.
+$$
+
+The probability density is
+
+$$
+\begin{aligned}
+|\psi(\vec r,t)|^2
+&=f^*(\vec r)e^{iEt}f(\vec r)e^{-iEt}\\
+&=|f(\vec r)|^2.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{|\psi(\vec r,t)|^2=|f(\vec r)|^2}
+$$
+
+is independent of time.
+
+Although the wavefunction acquires a time-dependent phase, this global phase has no effect on the probability density.
+
+**3. Superposition of two energy eigenstates**
+
+Write the two energy eigenstates as
+
+$$
+\psi_j(\vec r,t)=\phi_j(\vec r)e^{-i\omega_j t},
+$$
+
+where $\omega_j=E_j$ in atomic units.
+
+The superposition is
+
+$$
+\psi(\vec r,t)
+=
+\frac{1}{\sqrt{2}}
+\left[
+\phi_1(\vec r)e^{-i\omega_1 t}
+-
+\phi_2(\vec r)e^{-i\omega_2 t}
+\right].
+$$
+
+Taking the absolute square gives
+
+$$
+\begin{aligned}
+|\psi(\vec r,t)|^2
+=\frac12\Big[
+&|\phi_1(\vec r)|^2+|\phi_2(\vec r)|^2\\
+&-\phi_1^*(\vec r)\phi_2(\vec r)
+  e^{i(\omega_1-\omega_2)t}\\
+&-\phi_2^*(\vec r)\phi_1(\vec r)
+  e^{-i(\omega_1-\omega_2)t}
+\Big].
+\end{aligned}
+$$
+
+Combining the two interference terms,
+
+$$
+\boxed{
+|\psi(\vec r,t)|^2
+=
+\frac12\left[
+|\phi_1|^2+|\phi_2|^2
+-2\operatorname{Re}\left(
+\phi_1^*\phi_2 e^{i(\omega_1-\omega_2)t}
+\right)
+\right].
+}
+$$
+
+The probability density can oscillate at the **beat frequency**
+
+$$
+\boxed{\omega_{\mathrm{beat}}=|\omega_1-\omega_2|.}
+$$
+
+Unlike a single energy eigenstate, a superposition of states with different energies has a time-dependent relative phase. This can produce observable interference effects.
+
+The time dependence of the local density requires spatial overlap between the two eigenfunctions.
+
+:::
+
+
+
+## Orbital Angular Momentum
+
+### Problem P1.2: Orbital Angular Momentum and Compatible Observables {#prob-p1-2}
+
+In coordinate space, the orbital angular momentum operator is
+
+$$
+\hat{\vec L}
+=
+\hat{\vec r}\times\hat{\vec p}
+=
+-i\hbar\,\vec r\times\vec\nabla,
+$$
+
+with Cartesian components
+
+$$
+\hat L_x
+=
+-i\hbar\left(
+y\frac{\partial}{\partial z}
+-z\frac{\partial}{\partial y}
+\right),
+$$
+
+$$
+\hat L_y
+=
+-i\hbar\left(
+z\frac{\partial}{\partial x}
+-x\frac{\partial}{\partial z}
+\right),
+$$
+
+$$
+\hat L_z
+=
+-i\hbar\left(
+x\frac{\partial}{\partial y}
+-y\frac{\partial}{\partial x}
+\right).
+$$
+
+The squared angular momentum operator is
+
+$$
+\hat L^2=\hat L_x^2+\hat L_y^2+\hat L_z^2.
+$$
+
+**Tasks**
+
+1. Explicitly evaluate the commutator
+
+   $$
+   [\hat L_x,\hat L_y]
+   $$
+
+   and demonstrate that
+
+   $$
+   [\hat L_x,\hat L_y]=i\hbar\hat L_z.
+   $$
+
+   State the corresponding commutation relations for the other two pairs of Cartesian components.
+
+2. Show that
+
+   $$
+   [\hat L^2,\hat L_z]=0.
+   $$
+
+3. Discuss the implications of these commutation relations for simultaneous eigenstates and simultaneous measurements of
+
+   $$
+   (\hat L^2,\hat L_z)
+   \qquad\text{and}\qquad
+   (\hat L_x,\hat L_y).
+   $$
+
+4. Suppose a quantum state is an eigenstate of both $\hat L^2$ and $\hat L_z$.
+
+   Does this imply that it is also an eigenstate of $\hat L_x$? Explain briefly.
+
+::: {.callout-tip collapse="true" title="Hint"}
+For the second task, use the operator identity
+
+$$
+[A^2,B]=A[A,B]+[A,B]A.
+$$
+
+You can then apply the angular momentum commutation relations obtained in the first task.
+:::
+
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Commutator $[\hat L_x,\hat L_y]$**
+
+The angular momentum operators are
+
+$$
+\hat L_x=-i\hbar(y\partial_z-z\partial_y),
+\qquad
+\hat L_y=-i\hbar(z\partial_x-x\partial_z).
+$$
+
+To evaluate their commutator, we apply it to an arbitrary sufficiently smooth function $f(x,y,z)$:
+
+$$
+[\hat L_x,\hat L_y]f
+=
+(\hat L_x\hat L_y-\hat L_y\hat L_x)f.
+$$
+
+First,
+
+$$
+\begin{aligned}
+\hat L_x\hat L_y f
+=-\hbar^2\big[
+&y\partial_x f
++yz\partial_z\partial_x f
+-xy\partial_z^2 f\\
+&-z^2\partial_y\partial_x f
++xz\partial_y\partial_z f
+\big].
+\end{aligned}
+$$
+
+Similarly,
+
+$$
+\begin{aligned}
+\hat L_y\hat L_x f
+=-\hbar^2\big[
+&z^2\partial_x\partial_y f
+-yz\partial_x\partial_z f\\
+&-x\partial_y f
+-xy\partial_z^2 f
++xz\partial_z\partial_y f
+\big].
+\end{aligned}
+$$
+
+Because mixed partial derivatives commute, all second-derivative terms cancel when subtracting.
+
+We obtain
+
+$$
+[\hat L_x,\hat L_y]f
+=
+-\hbar^2(y\partial_x-x\partial_y)f.
+$$
+
+Using
+
+$$
+\hat L_z=-i\hbar(x\partial_y-y\partial_x),
+$$
+
+we recognize
+
+$$
+\boxed{[\hat L_x,\hat L_y]=i\hbar\hat L_z.}
+$$
+
+By cyclic permutation,
+
+$$
+\boxed{
+[\hat L_y,\hat L_z]=i\hbar\hat L_x,
+\qquad
+[\hat L_z,\hat L_x]=i\hbar\hat L_y.
+}
+$$
+
+**2. Commutator $[\hat L^2,\hat L_z]$**
+
+Using
+
+$$
+\hat L^2=\hat L_x^2+\hat L_y^2+\hat L_z^2
+$$
+
+and the identity
+
+$$
+[A^2,B]=A[A,B]+[A,B]A,
+$$
+
+we find
+
+$$
+\begin{aligned}
+[\hat L^2,\hat L_z]
+={}&[\hat L_x^2,\hat L_z]
++[\hat L_y^2,\hat L_z]
++[\hat L_z^2,\hat L_z].
+\end{aligned}
+$$
+
+The last term vanishes.
+
+From the angular momentum commutation relations,
+
+$$
+[\hat L_x,\hat L_z]=-i\hbar\hat L_y,
+\qquad
+[\hat L_y,\hat L_z]=i\hbar\hat L_x.
+$$
+
+Therefore,
+
+$$
+[\hat L_x^2,\hat L_z]
+=
+-i\hbar(\hat L_x\hat L_y+\hat L_y\hat L_x)
+$$
+
+and
+
+$$
+[\hat L_y^2,\hat L_z]
+=
+i\hbar(\hat L_y\hat L_x+\hat L_x\hat L_y).
+$$
+
+The two terms cancel:
+
+$$
+\boxed{[\hat L^2,\hat L_z]=0.}
+$$
+
+**3. Simultaneous eigenstates and measurements**
+
+Since
+
+$$
+[\hat L^2,\hat L_z]=0,
+$$
+
+the two operators possess a common eigenbasis. Their eigenstates can be labeled by the quantum numbers $\ell$ and $m$:
+
+$$
+\hat L^2|\ell,m\rangle
+=
+\hbar^2\ell(\ell+1)|\ell,m\rangle,
+$$
+
+$$
+\hat L_z|\ell,m\rangle
+=
+\hbar m|\ell,m\rangle.
+$$
+
+Thus, the magnitude of the angular momentum and its $z$-component can have simultaneously well-defined values.
+
+In contrast,
+
+$$
+[\hat L_x,\hat L_y]=i\hbar\hat L_z\neq 0
+$$
+
+as an operator identity.
+
+Consequently, $\hat L_x$ and $\hat L_y$ cannot be simultaneously diagonalized in a complete common eigenbasis.
+
+Their uncertainties satisfy
+
+$$
+\boxed{
+\Delta L_x\,\Delta L_y
+\geq
+\frac{\hbar}{2}|\langle\hat L_z\rangle|.
+}
+$$
+
+**4. Does an eigenstate of $\hat L^2$ and $\hat L_z$ also have a definite $L_x$?**
+
+In general, **no**.
+
+The state $|\ell,m\rangle$ has definite values of $L^2$ and $L_z$, but is generally a superposition of different $L_x$ eigenstates.
+
+For example, if $m\neq 0$, the uncertainty relation implies that $L_x$ and $L_y$ cannot both be sharply defined.
+
+An important exception is $\ell=0$, where
+
+$$
+\hat L_x|0,0\rangle
+=
+\hat L_y|0,0\rangle
+=
+\hat L_z|0,0\rangle=0.
+$$
+
+The $\ell=0$ state is therefore a simultaneous eigenstate of all three components.
+
+The fact that two operators do not commute does not exclude the existence of special common eigenstates.
+
+:::
+
+
+### Problem P1.3: Angular Momentum in Coordinate Space {#prob-p1-3}
+
+In spherical coordinates, the $z$-component of the orbital angular momentum operator is
+
+$$
+\hat L_z=-i\hbar\frac{\partial}{\partial\phi}.
+$$
+
+**Tasks**
+
+1. Show that
+
+   $$
+   \Phi_m(\phi)=Ae^{im\phi}
+   $$
+
+   is an eigenfunction of $\hat L_z$, and determine its eigenvalue.
+
+2. A physical orbital wavefunction must be single-valued. Apply the condition
+
+   $$
+   \Phi_m(\phi+2\pi)=\Phi_m(\phi)
+   $$
+
+   and determine the allowed values of $m$.
+
+3. Consider the state
+
+   $$
+   \psi(\phi)
+   =
+   \frac{1}{\sqrt{2}}
+   \left(e^{i\phi}+e^{-i\phi}\right).
+   $$
+
+   Here the exponentials represent normalized angular-momentum basis states, with their common normalization factor suppressed.
+
+   Is this state an eigenstate of $\hat L_z$?
+
+   If $\hat L_z$ is measured, what values can be obtained, and with what probabilities?
+
+4. Consider instead
+
+   $$
+   \chi(\phi)=Ae^{i(3/2)\phi}.
+   $$
+
+   Show that $\chi(\phi)$ is formally an eigenfunction of the differential operator $\hat L_z$.
+
+   Why is it nevertheless **not an allowed orbital-angular-momentum eigenfunction**?
+
+::: {.callout-tip collapse="true" title="Hint"}
+For the last task, evaluate
+
+$$
+\frac{\chi(\phi+2\pi)}{\chi(\phi)}.
+$$
+
+Remember that $\phi$ and $\phi+2\pi$ describe the same spatial direction.
+:::
+
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Eigenfunctions of $\hat L_z$**
+
+The operator is
+
+$$
+\hat L_z=-i\hbar\frac{\partial}{\partial\phi}.
+$$
+
+Applying it to
+
+$$
+\Phi_m(\phi)=Ae^{im\phi}
+$$
+
+gives
+
+$$
+\begin{aligned}
+\hat L_z\Phi_m
+&=-i\hbar\frac{\partial}{\partial\phi}
+  \left(Ae^{im\phi}\right)\\
+&=-i\hbar(im)Ae^{im\phi}\\
+&=\hbar m\Phi_m.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{\hat L_z\Phi_m=\hbar m\Phi_m,}
+$$
+
+with eigenvalue
+
+$$
+\boxed{L_z=\hbar m.}
+$$
+
+**2. Allowed values of $m$**
+
+A physical orbital wavefunction must be single-valued:
+
+$$
+\Phi_m(\phi+2\pi)=\Phi_m(\phi).
+$$
+
+Substituting the exponential form,
+
+$$
+Ae^{im(\phi+2\pi)}=Ae^{im\phi}.
+$$
+
+For a nonzero wavefunction, this requires
+
+$$
+e^{i2\pi m}=1.
+$$
+
+Hence,
+
+$$
+\boxed{m=0,\pm1,\pm2,\ldots}
+$$
+
+The orbital magnetic quantum number must be an integer.
+
+**3. Superposition of $m=+1$ and $m=-1$**
+
+The state is
+
+$$
+\psi(\phi)
+=
+\frac{1}{\sqrt2}
+\left(e^{i\phi}+e^{-i\phi}\right),
+$$
+
+where the normalized angular basis functions are understood.
+
+Applying $\hat L_z$,
+
+$$
+\hat L_z\psi
+=
+\frac{\hbar}{\sqrt2}
+\left(e^{i\phi}-e^{-i\phi}\right).
+$$
+
+This is not proportional to the original state, so
+
+$$
+\boxed{\psi\text{ is not an eigenstate of }\hat L_z.}
+$$
+
+The state is an equal-weight superposition of two angular momentum eigenstates:
+
+$$
+\psi=\frac{1}{\sqrt2}
+\left(|m=1\rangle+|m=-1\rangle\right).
+$$
+
+The possible measurement outcomes are
+
+$$
+\boxed{
+L_z=+\hbar \quad (P=1/2),
+\qquad
+L_z=-\hbar \quad (P=1/2).
+}
+$$
+
+The expectation value is
+
+$$
+\langle L_z\rangle
+=
+\frac12(+\hbar)+\frac12(-\hbar)=0.
+$$
+
+A vanishing expectation value does not mean that every measurement produces zero.
+
+**4. The half-integer orbital state**
+
+Consider
+
+$$
+\chi(\phi)=Ae^{i(3/2)\phi}.
+$$
+
+Applying $\hat L_z$ gives
+
+$$
+\hat L_z\chi
+=
+-i\hbar\frac{\partial}{\partial\phi}
+\left(Ae^{i(3/2)\phi}\right)
+=
+\frac{3\hbar}{2}\chi.
+$$
+
+Thus, formally,
+
+$$
+\boxed{\hat L_z\chi=\frac{3\hbar}{2}\chi.}
+$$
+
+However,
+
+$$
+\begin{aligned}
+\chi(\phi+2\pi)
+&=Ae^{i(3/2)(\phi+2\pi)}\\
+&=Ae^{i(3/2)\phi}e^{i3\pi}\\
+&=-\chi(\phi).
+\end{aligned}
+$$
+
+The wavefunction changes sign after a full rotation in the azimuthal coordinate.
+
+Since $\phi$ and $\phi+2\pi$ represent the same spatial point, this violates the required single-valuedness of a scalar orbital wavefunction.
+
+Therefore,
+
+$$
+\boxed{
+m=\frac32\text{ is not allowed for orbital angular momentum.}
+}
+$$
+
+Half-integer angular momentum does occur for **spin**, but spin states are not described by scalar orbital wavefunctions of this form.
+
+:::
+
+
+## Quantum-to-Classical Correspondence
+
+### Problem P1.4: From Quantum to Classical Behavior {#prob-p1-4}
+
+According to Schrödinger's wave mechanics, a massive particle passing through a diffracting object, such as a grating or a double slit, can exhibit constructive and destructive interference.
+
+The **correspondence principle** states that quantum theory reproduces classical physics in appropriate limits, for example for large quantum numbers, large energies, or large masses.
+
+**Tasks**
+
+1. Give **two distinct reasons** why interference becomes increasingly difficult to observe for very massive or macroscopic objects.
+
+2. Quantum mechanics allows systems to exist in superposition states.
+
+   Does quantum mechanics itself forbid a macroscopic object from being in a superposition?
+
+   Discuss why **coherent superpositions of macroscopically distinguishable states** are nevertheless extremely difficult to prepare and observe.
+
+   You may use Schrödinger's cat as a conceptual example.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Consider both the de Broglie wavelength and the interaction of a quantum system with its environment.
+
+Distinguish between what quantum mechanics permits in principle and what is experimentally observable.
+:::
+
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+**1. Why is interference difficult to observe for macroscopic objects?**
+
+Two important reasons are:
+
+**(a) Extremely small de Broglie wavelength**
+
+The de Broglie wavelength is
+
+$$
+\lambda=\frac{h}{p}=\frac{h}{mv}.
+$$
+
+At a given velocity, increasing the mass decreases the wavelength.
+
+For a macroscopic object, the de Broglie wavelength becomes extraordinarily small. Consequently, the characteristic interference angles and fringe spacings become too small to resolve with ordinary experimental apparatus.
+
+For example, a particle passing through a diffraction grating with spacing $d$ has a characteristic first-order diffraction angle of approximately
+
+$$
+\theta\approx\frac{\lambda}{d},
+$$
+
+when $\lambda\ll d$.
+
+As $\lambda$ decreases, the diffraction angle becomes correspondingly smaller.
+
+**(b) Decoherence through environmental interactions**
+
+Macroscopic objects interact strongly with their environment through processes such as
+
+- scattering of air molecules,
+- emission and absorption of thermal radiation,
+- interactions with surrounding electromagnetic fields.
+
+These interactions can entangle the object's quantum state with environmental degrees of freedom.
+
+Information about the different possible paths becomes encoded in the environment, reducing the coherence necessary for observable interference.
+
+The interference visibility can therefore decrease extremely rapidly.
+
+**2. Are macroscopic superpositions forbidden?**
+
+No. Quantum mechanics does not impose a fundamental mass or size limit beyond which superpositions become impossible.
+
+The superposition principle applies to macroscopic systems as well as microscopic ones.
+
+For example, one may formally construct a state
+
+$$
+|\Psi\rangle
+=
+\frac{1}{\sqrt2}
+\left(
+|\text{macroscopic state A}\rangle
++
+|\text{macroscopic state B}\rangle
+\right).
+$$
+
+The main difficulty is preserving the **relative phase coherence** between the two components.
+
+When the system interacts with its environment, the combined state may evolve into
+
+$$
+|\Psi_{\mathrm{total}}\rangle
+=
+\frac{1}{\sqrt2}
+\left(
+|A\rangle|E_A\rangle
++
+|B\rangle|E_B\rangle
+\right),
+$$
+
+where $|E_A\rangle$ and $|E_B\rangle$ describe environmental states correlated with the two alternatives.
+
+If the environmental states become nearly orthogonal,
+
+$$
+\langle E_A|E_B\rangle\approx0,
+$$
+
+the interference terms in measurements of the macroscopic system alone become strongly suppressed.
+
+This is the process of **decoherence**.
+
+The resulting system behaves approximately like a classical statistical mixture, even though the combined system and environment can remain in a pure quantum state.
+
+**Physical interpretation**
+
+The classical behavior of macroscopic objects is not simply a consequence of quantum mechanics ceasing to apply.
+
+Rather, classical behavior emerges because quantum interference is often extremely difficult to resolve and because coherence between macroscopically distinct alternatives is rapidly lost to the environment.
+
+Schrödinger's cat illustrates precisely this tension between the linear superposition principle and the classical appearance of macroscopic objects.
+
+:::
+
