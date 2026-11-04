@@ -1,0 +1,360 @@
+---
+title: "P6 Molecular Physics"
+---
+
+This collection explores intermolecular forces, molecular orbitals, vibrations, and rotational–vibrational spectroscopy. Try each problem before opening its hint or worked solution.
+
+## Problems
+
+### Problem P6.1: Ground State of the Argon Dimer {#prob-p6-1}
+
+The ground state of the argon dimer $\mathrm{Ar}_2$ is bound by the van der Waals interaction, modeled here by the Lennard–Jones potential
+
+$$
+V^{\mathrm{LJ}}(R)=\frac{a}{R^{12}}-\frac{b}{R^6},
+$$
+
+where $a,b>0$ and $R$ is the internuclear separation.
+
+**Tasks**
+
+1. Determine the equilibrium separation $R_e$ in terms of $a$ and $b$.
+2. Verify that this stationary point is a minimum.
+3. Find $V^{\mathrm{LJ}}(R_e)$ and the positive binding energy $E_b$ measured relative to dissociation at $R\to\infty$.
+4. Identify the repulsive and attractive contributions and explain why their competition produces a stable equilibrium.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Set $dV/dR=0$, then evaluate $d^2V/dR^2$ at the resulting $R_e$. Use $R_e^6=2a/b$ to simplify the energy.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+Differentiating,
+
+$$
+\frac{dV}{dR}=-\frac{12a}{R^{13}}+\frac{6b}{R^7}=0
+\quad\Longrightarrow\quad R_e^6=\frac{2a}{b},
+$$
+
+so
+
+$$
+\boxed{R_e=\left(\frac{2a}{b}\right)^{1/6}}.
+$$
+
+The second derivative is
+
+$$
+\frac{d^2V}{dR^2}=\frac{156a}{R^{14}}-\frac{42b}{R^8}.
+$$
+
+Using $bR_e^6=2a$ gives
+
+$$
+\left.\frac{d^2V}{dR^2}\right|_{R_e}
+=\frac{72a}{R_e^{14}}>0.
+$$
+
+At equilibrium,
+
+$$
+V(R_e)=\frac{a}{R_e^{12}}-\frac{b}{R_e^6}
+=\frac{b^2}{4a}-\frac{b^2}{2a}
+=\boxed{-\frac{b^2}{4a}}.
+$$
+
+Because $V(\infty)=0$, the well depth (binding energy in this classical potential model) is
+
+$$
+\boxed{E_b=\frac{b^2}{4a}}.
+$$
+
+The positive $a/R^{12}$ term models strong short-range repulsion, while the negative $-b/R^6$ term models attractive dispersion forces. Their competition creates a minimum at finite $R$. Strictly speaking, the binding energy of the quantum vibrational ground state is slightly smaller than the well depth because of zero-point motion.
+:::
+
+### Problem P6.2: Molecular Orbitals of $\mathrm{H}_2^+$ {#prob-p6-2}
+
+Consider the one-electron molecular ion $\mathrm{H}_2^+$. Its symmetric molecular orbital is approximated by
+
+$$
+|\Phi_+\rangle=\frac{|\phi_A\rangle+|\phi_B\rangle}{\sqrt{2+2S}},
+\qquad S=\langle\phi_A|\phi_B\rangle,
+$$
+
+where the normalized atomic orbitals are centered on nuclei $A$ and $B$, separated by $R$.
+
+**Tasks**
+
+1. Write the Hamiltonian in the fixed-nuclei approximation, including the internuclear repulsion. Use $r_A$ and $r_B$ for the electron–nucleus distances.
+2. Show that the energy expectation value is
+
+   $$
+   E_+(R)=E_H+\frac{e^2}{4\pi\varepsilon_0R}
+   +\frac{J+K}{1+S},
+   $$
+
+   where
+
+   $$
+   J=\left\langle\phi_A\left|-\frac{e^2}{4\pi\varepsilon_0r_B}\right|\phi_A\right\rangle,
+   \qquad
+   K=\left\langle\phi_A\left|-\frac{e^2}{4\pi\varepsilon_0r_A}\right|\phi_B\right\rangle.
+   $$
+
+3. Which terms depend on $R$? Which raise or lower the energy?
+4. Discuss the behavior of $S$, $J$, and $K$ for widely separated nuclei, especially the exchange contribution.
+
+Now consider two orbitals with the angular forms
+
+$$
+\phi_A(\mathbf r)=C\cos\theta\,f(r),\qquad
+\phi_B(\mathbf r)=C\sin\theta\sin\varphi\,f(r),
+$$
+
+in the coincident-center limit $R=0$.
+
+**Note:** In the conventional spherical-coordinate definition ($x=r\sin\theta\cos\varphi$, $y=r\sin\theta\sin\varphi$), the second orbital as *written* is $2p_y$, not $2p_x$. A $2p_x$ orbital would have $\sin\theta\cos\varphi$. Either choice is orthogonal to $2p_z$.
+
+5. Sketch the orbital lobes and their signs. Describe the angular dependence of $|\phi|^2$. In particular, explain what the given $2p_y$ orbital looks like in the $xz$-plane; optionally compare it with a $2p_x$ orbital.
+6. Show that the overlap $S$ vanishes at $R=0$.
+7. Explain qualitatively why symmetry-forbidden overlap limits the formation of a bonding combination of these orbitals.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Write $\hat H=\hat H_A+V_B+V_{NN}$ with $\hat H_A|\phi_A\rangle=E_H|\phi_A\rangle$. Evaluate the diagonal and off-diagonal matrix elements separately. For the angular overlap, use the integral over $\varphi$.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+In the Born–Oppenheimer (fixed-nuclei) approximation,
+
+$$
+\boxed{\hat H=-\frac{\hbar^2}{2m_e}\nabla^2
+-\frac{e^2}{4\pi\varepsilon_0r_A}
+-\frac{e^2}{4\pi\varepsilon_0r_B}
++\frac{e^2}{4\pi\varepsilon_0R}}.
+$$
+
+Let $V_A=-e^2/(4\pi\varepsilon_0r_A)$ and similarly for $V_B$. The atomic Hamiltonian $\hat H_A=\hat T+V_A$ obeys $\hat H_A|\phi_A\rangle=E_H|\phi_A\rangle$. By symmetry,
+
+$$
+\langle\phi_A|\hat H|\phi_A\rangle
+=E_H+J+V_{NN},
+$$
+
+where $V_{NN}=e^2/(4\pi\varepsilon_0R)$. For the off-diagonal term, use $\hat H=\hat H_B+V_A+V_{NN}$:
+
+$$
+\langle\phi_A|\hat H|\phi_B\rangle
+=E_HS+K+V_{NN}S.
+$$
+
+Thus
+
+$$
+\begin{aligned}
+E_+&=\frac{2(E_H+J+V_{NN})+2(E_HS+K+V_{NN}S)}{2(1+S)}\\
+&=\boxed{E_H+V_{NN}+\frac{J+K}{1+S}}.
+\end{aligned}
+$$
+
+$E_H$ is constant for the chosen isolated atomic orbitals. $V_{NN}>0$ raises the energy and decreases as $1/R$. The Coulomb integral $J<0$ represents attraction to the other nucleus. For real, positive $1s$ orbitals, $K<0$ and provides an additional stabilizing contribution to the symmetric combination. $S$, $J$, and $K$ depend on $R$.
+
+At large $R$, $S\to0$ and $K\to0$ exponentially with decreasing orbital overlap, while $J\sim-e^2/(4\pi\varepsilon_0R)\to0$. The long-range part of $J$ cancels the internuclear repulsion to leading order, leaving the separated-atom limit $E_+\to E_H$.
+
+The $2p_z$ orbital has positive and negative lobes along $+z$ and $-z$, with density proportional to $\cos^2\theta$. The orbital specified by $\sin\theta\sin\varphi$ has lobes along $\pm y$, with density proportional to $\sin^2\theta\sin^2\varphi$. It vanishes throughout the $xz$-plane ($y=0$). A conventional $2p_x$ orbital instead has lobes along $\pm x$ and density proportional to $\sin^2\theta\cos^2\varphi$.
+
+For coincident centers, the overlap of the stated orbitals factors into radial and angular integrals, and
+
+$$
+S\propto\int_0^{2\pi}\!\sin\varphi\,d\varphi
+\int_0^\pi\!\cos\theta\sin^2\theta\,d\theta=0.
+$$
+
+The same conclusion holds for $2p_z$ and $2p_x$ (replace $\sin\varphi$ with $\cos\varphi$). Their angular symmetries are orthogonal. Zero overlap alone is not a universal proof of zero bonding, but here it indicates that the usual overlap-driven stabilization is absent in this symmetry arrangement.
+:::
+
+### Problem P6.3: Vibrational States in a Morse Potential {#prob-p6-3}
+
+Consider a diatomic molecule whose electronic potential-energy curve is modeled by
+
+$$
+E_P(R)=E_B\left(1-e^{-a(R-R_e)}\right)^2,
+$$
+
+where $E_B>0$ is the dissociation energy measured from the potential minimum, $R_e$ is the equilibrium separation, $a>0$, and $M$ is the nuclear reduced mass. Here $E_P(R_e)=0$ and $E_P(\infty)=E_B$.
+
+**Tasks**
+
+1. Expand $E_P(R)$ to second order about $R_e$. By comparing with $\frac12M\omega_0^2(R-R_e)^2$, determine $\omega_0$.
+2. The vibrational eigenenergies are
+
+   $$
+   E(v)=\hbar\omega_0\left(v+\frac12\right)
+   -\frac{\hbar^2\omega_0^2}{4E_B}\left(v+\frac12\right)^2,
+   \qquad v=0,1,2,\ldots
+   $$
+
+   Find the neighboring-level spacing $\Delta E_v=E(v+1)-E(v)$ and explain how it changes with $v$.
+3. Determine the condition on $v$ for a **bound** Morse vibrational state and hence the number of bound vibrational levels.
+
+::: {.callout-tip collapse="true" title="Hint"}
+Let $x=R-R_e$ and expand $e^{-ax}=1-ax+\frac12a^2x^2+\cdots$. For the level count, define $\lambda=2E_B/(\hbar\omega_0)$ and remember that the dissociation threshold itself is not a normalizable bound state.
+:::
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+Near equilibrium,
+
+$$
+1-e^{-ax}=ax-\frac12a^2x^2+\cdots,
+\qquad E_P(R)=E_Ba^2x^2+O(x^3).
+$$
+
+Equating the quadratic coefficient to $\frac12M\omega_0^2$ gives
+
+$$
+\boxed{\omega_0=a\sqrt{\frac{2E_B}{M}}}.
+$$
+
+The adjacent-level spacing is
+
+$$
+\begin{aligned}
+\Delta E_v
+&=\hbar\omega_0-\frac{\hbar^2\omega_0^2}{4E_B}
+\left[\left(v+\frac32\right)^2-\left(v+\frac12\right)^2\right]\\
+&=\boxed{\hbar\omega_0-\frac{\hbar^2\omega_0^2}{2E_B}(v+1)}.
+\end{aligned}
+$$
+
+The spacing decreases linearly with $v$, unlike in a harmonic oscillator.
+
+The exact Morse bound-state condition is
+
+$$
+\boxed{v+\frac12<\lambda},\qquad
+\lambda=\frac{2E_B}{\hbar\omega_0}
+=\frac{\sqrt{2ME_B}}{a\hbar}.
+$$
+
+Thus $v=0,1,\ldots$ up to the largest integer strictly smaller than $\lambda-\frac12$. The number of bound states is
+
+$$
+\boxed{N_{\mathrm{bound}}=\max\!\left(0,\left\lceil\lambda-\frac12\right\rceil\right)}.
+$$
+
+If $\lambda-\frac12$ is an integer, the state at equality lies at the dissociation threshold and is **not** counted as bound. The condition $\lambda>\frac12$ is required for at least one bound level.
+:::
+
+### Problem P6.4: Ro-vibrational Spectrum of HCl {#prob-p6-4}
+
+The figure shows the infrared ro-vibrational absorption spectrum of HCl, along with a diagram of the rotational levels associated with $v''=0$ and $v'=1$. Neglect centrifugal distortion and differences in the rotational constant between the two vibrational states. The absorption energy is
+
+$$
+E_{J',J''}=E_0+\frac{\hbar^2}{2MR_e^2}
+\left[J'(J'+1)-J''(J''+1)\right],
+$$
+
+where $E_0\approx\hbar\omega_0$, $M$ is the reduced mass, and $R_e$ is the equilibrium bond length. Use $m_H\approx1836\,m_e$ and $m_{^{35}\mathrm{Cl}}\approx35\cdot1836\,m_e$.
+
+
+```{python}
+#| echo: false
+#| fig-cap: "Infrared ro-vibrational absorption spectrum of HCl, showing the P and R branches."
+#| fig-alt: "HCl absorption spectrum with rotational lines on either side of the vibrational band center."
+#| fig-width: 8
+#| fig-height: 4.5
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.loadtxt("HCl.csv", delimiter=",", comments="#")
+E, I = data[:, 0], data[:, 1]
+
+absorbance = np.maximum(I - 0.07, 0)
+
+fig, ax = plt.subplots()
+
+ax.plot(E, absorbance, color="tab:blue", lw=0.8)
+
+ax.set_xlabel(r"Wavenumber (cm$^{-1}$)")
+ax.set_ylabel("Absorbance")
+ax.set_yticks([])
+
+ax.set_ylim(0, 11.5)
+
+ax.text(2800, 0.92, "P branch",
+        ha="center", transform=ax.get_xaxis_transform())
+ax.text(2950, 0.92, "R branch",
+        ha="center", transform=ax.get_xaxis_transform())
+
+# Vibrational band center
+ax.axvline(2886, color="gray", ls="--", lw=1)
+ax.text(2886, 0.82, r"$\tilde{\nu}_0$",
+        ha="right", transform=ax.get_xaxis_transform())
+
+# Rotational line spacing (example: adjacent R lines)
+ax.annotate(
+    "", xy=(2927, 5.5), xytext=(2901, 5.5),
+    arrowprops=dict(arrowstyle="<->", color="black", lw=1.2)
+)
+ax.text(2914.5, 5.8, r"$\Delta\tilde{\nu}$",
+        ha="center")        
+
+plt.tight_layout()
+plt.show()
+```
+
+
+**Tasks**
+
+1. Identify the transitions $J''\to J'$ corresponding to $R(i)$, for $i=0,1,2,\ldots$.
+2. Derive the transition energy $E(R_i)$.
+3. Calculate $E(R_{i+1})-E(R_i)$ and show that the R-branch lines are equally spaced in this approximation.
+4. Estimate $R_e$ from the observed line spacing. Give the result in atomic units and ångströms. Use $1\ \mathrm{Hartree}=27.2\ \mathrm{eV}$, $1\ a_0=0.529\ \text{Å}$, and, if needed, $1\ \mathrm{Hartree}/(hc)\approx219475\ \mathrm{cm}^{-1}$.
+5. Estimate the harmonic force constant $k=M\omega_0^2$ in atomic units from the vibrational band center.
+
+::: {.callout-tip collapse="true" title="Hint"}
+For the R branch, $\Delta J=+1$. Write $B=\hbar^2/(2MR_e^2)$ and $\tilde B=B/(hc)$. The R-branch spacing in wavenumbers is $2\tilde B$. Read both the line spacing and the band center $\tilde\nu_0$ approximately from the figure. In atomic units $\hbar=m_e=e=1$, so $B=1/(2MR_e^2)$ and $k=M\omega_0^2$.
+:::
+
+
+
+::: {.callout-note collapse="true" title="Worked Solution"}
+
+For the R branch, $J''=i\rightarrow J'=i+1$. Using the rigid-rotor energies $E_J=\hbar^2J(J+1)/(2MR_e^2)$, the transition energies are
+
+$$
+E(R_i)=E_0+\frac{\hbar^2}{MR_e^2}(i+1),
+$$
+
+so adjacent R-branch lines are separated by
+
+$$
+\Delta E=\frac{\hbar^2}{MR_e^2}=hc\,\Delta\tilde{\nu}.
+$$
+
+From the spectrum, $\Delta\tilde{\nu}\approx18\ \mathrm{cm}^{-1}$, corresponding to a rotational constant $B\approx9\ \mathrm{cm}^{-1}$. With the reduced mass $M\approx1785\,m_e$, the equilibrium bond length becomes
+
+$$
+R_e=\sqrt{\frac{\hbar^2}{Mhc\,\Delta\tilde{\nu}}}
+=\sqrt{\frac{1}{1785(18/219475)}}\,a_0
+\approx2.61\,a_0
+\approx1.38\ \text{Å}.
+$$
+
+The vibrational band center is $\tilde{\nu}_0\approx2886\ \mathrm{cm}^{-1}$. Since $\hbar\omega_0=hc\tilde{\nu}_0$, the vibrational angular frequency in atomic units is
+
+$$
+\omega_0=\frac{2886}{219475}\approx0.01315\ \mathrm{a.u.}
+$$
+
+Finally, using the harmonic approximation $\omega_0=\sqrt{k/M}$, the effective spring constant is
+
+$$
+k=M\omega_0^2
+\approx1785(0.01315)^2
+\approx0.309\ \mathrm{Hartree}/a_0^2
+\approx480\ \mathrm{N/m}.
+$$
+
+:::
+

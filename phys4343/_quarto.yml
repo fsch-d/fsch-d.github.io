@@ -152,6 +152,8 @@ website:
           href: practice/radiation.qmd
         - text: "P5 Multielectron Atoms"
           href: practice/multielectron.qmd
+        - text: "P6 Molecular Physics"
+          href: practice/molecular.qmd
 
 lightbox:
   match: auto

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>molecular – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>P6 Molecular Physics – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../practice/multielectron.html" rel="prev">
 <link href="../icons/icon-192.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -46,6 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-8ba0f7c4899a1f6178dd4bd9efe5a1f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,8 +124,13 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:title" content="P6 Molecular Physics – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://fsch-d.github.io/practice/molecular_files/figure-html/cell-2-output-1.png">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:image:alt" content="HCl absorption spectrum with rotational lines on either side of the vibrational band center.">
+<meta property="og:image:height" content="938">
+<meta property="og:image:width" content="1324">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -332,7 +341,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/molecular.html">P6 Molecular Physics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -709,11 +718,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice Your AMO Knowledge</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link">
@@ -744,6 +753,12 @@ window.Quarto = {
  <span class="menu-text">P5 Multielectron Atoms</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/molecular.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">P6 Molecular Physics</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -751,18 +766,396 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problems" id="toc-problems" class="nav-link active" data-scroll-target="#problems">Problems</a>
+  <ul class="collapse">
+  <li><a href="#prob-p6-1" id="toc-prob-p6-1" class="nav-link" data-scroll-target="#prob-p6-1">Problem P6.1: Ground State of the Argon Dimer</a></li>
+  <li><a href="#prob-p6-2" id="toc-prob-p6-2" class="nav-link" data-scroll-target="#prob-p6-2">Problem P6.2: Molecular Orbitals of <span class="math inline">\(\mathrm{H}_2^+\)</span></a></li>
+  <li><a href="#prob-p6-3" id="toc-prob-p6-3" class="nav-link" data-scroll-target="#prob-p6-3">Problem P6.3: Vibrational States in a Morse Potential</a></li>
+  <li><a href="#prob-p6-4" id="toc-prob-p6-4" class="nav-link" data-scroll-target="#prob-p6-4">Problem P6.4: Ro-vibrational Spectrum of HCl</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice Your AMO Knowledge</a></li><li class="breadcrumb-item"><a href="../practice/molecular.html">P6 Molecular Physics</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">P6 Molecular Physics</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>This collection explores intermolecular forces, molecular orbitals, vibrations, and rotational–vibrational spectroscopy. Try each problem before opening its hint or worked solution.</p>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
+<section id="prob-p6-1" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p6-1">Problem P6.1: Ground State of the Argon Dimer</h3>
+<p>The ground state of the argon dimer <span class="math inline">\(\mathrm{Ar}_2\)</span> is bound by the van der Waals interaction, modeled here by the Lennard–Jones potential</p>
+<p><span class="math display">\[
+V^{\mathrm{LJ}}(R)=\frac{a}{R^{12}}-\frac{b}{R^6},
+\]</span></p>
+<p>where <span class="math inline">\(a,b&gt;0\)</span> and <span class="math inline">\(R\)</span> is the internuclear separation.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Determine the equilibrium separation <span class="math inline">\(R_e\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</li>
+<li>Verify that this stationary point is a minimum.</li>
+<li>Find <span class="math inline">\(V^{\mathrm{LJ}}(R_e)\)</span> and the positive binding energy <span class="math inline">\(E_b\)</span> measured relative to dissociation at <span class="math inline">\(R\to\infty\)</span>.</li>
+<li>Identify the repulsive and attractive contributions and explain why their competition produces a stable equilibrium.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Set <span class="math inline">\(dV/dR=0\)</span>, then evaluate <span class="math inline">\(d^2V/dR^2\)</span> at the resulting <span class="math inline">\(R_e\)</span>. Use <span class="math inline">\(R_e^6=2a/b\)</span> to simplify the energy.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Differentiating,</p>
+<p><span class="math display">\[
+\frac{dV}{dR}=-\frac{12a}{R^{13}}+\frac{6b}{R^7}=0
+\quad\Longrightarrow\quad R_e^6=\frac{2a}{b},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{R_e=\left(\frac{2a}{b}\right)^{1/6}}.
+\]</span></p>
+<p>The second derivative is</p>
+<p><span class="math display">\[
+\frac{d^2V}{dR^2}=\frac{156a}{R^{14}}-\frac{42b}{R^8}.
+\]</span></p>
+<p>Using <span class="math inline">\(bR_e^6=2a\)</span> gives</p>
+<p><span class="math display">\[
+\left.\frac{d^2V}{dR^2}\right|_{R_e}
+=\frac{72a}{R_e^{14}}&gt;0.
+\]</span></p>
+<p>At equilibrium,</p>
+<p><span class="math display">\[
+V(R_e)=\frac{a}{R_e^{12}}-\frac{b}{R_e^6}
+=\frac{b^2}{4a}-\frac{b^2}{2a}
+=\boxed{-\frac{b^2}{4a}}.
+\]</span></p>
+<p>Because <span class="math inline">\(V(\infty)=0\)</span>, the well depth (binding energy in this classical potential model) is</p>
+<p><span class="math display">\[
+\boxed{E_b=\frac{b^2}{4a}}.
+\]</span></p>
+<p>The positive <span class="math inline">\(a/R^{12}\)</span> term models strong short-range repulsion, while the negative <span class="math inline">\(-b/R^6\)</span> term models attractive dispersion forces. Their competition creates a minimum at finite <span class="math inline">\(R\)</span>. Strictly speaking, the binding energy of the quantum vibrational ground state is slightly smaller than the well depth because of zero-point motion.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="prob-p6-2" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p6-2">Problem P6.2: Molecular Orbitals of <span class="math inline">\(\mathrm{H}_2^+\)</span></h3>
+<p>Consider the one-electron molecular ion <span class="math inline">\(\mathrm{H}_2^+\)</span>. Its symmetric molecular orbital is approximated by</p>
+<p><span class="math display">\[
+|\Phi_+\rangle=\frac{|\phi_A\rangle+|\phi_B\rangle}{\sqrt{2+2S}},
+\qquad S=\langle\phi_A|\phi_B\rangle,
+\]</span></p>
+<p>where the normalized atomic orbitals are centered on nuclei <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, separated by <span class="math inline">\(R\)</span>.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>Write the Hamiltonian in the fixed-nuclei approximation, including the internuclear repulsion. Use <span class="math inline">\(r_A\)</span> and <span class="math inline">\(r_B\)</span> for the electron–nucleus distances.</p></li>
+<li><p>Show that the energy expectation value is</p>
+<p><span class="math display">\[
+E_+(R)=E_H+\frac{e^2}{4\pi\varepsilon_0R}
++\frac{J+K}{1+S},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+J=\left\langle\phi_A\left|-\frac{e^2}{4\pi\varepsilon_0r_B}\right|\phi_A\right\rangle,
+\qquad
+K=\left\langle\phi_A\left|-\frac{e^2}{4\pi\varepsilon_0r_A}\right|\phi_B\right\rangle.
+\]</span></p></li>
+<li><p>Which terms depend on <span class="math inline">\(R\)</span>? Which raise or lower the energy?</p></li>
+<li><p>Discuss the behavior of <span class="math inline">\(S\)</span>, <span class="math inline">\(J\)</span>, and <span class="math inline">\(K\)</span> for widely separated nuclei, especially the exchange contribution.</p></li>
+</ol>
+<p>Now consider two orbitals with the angular forms</p>
+<p><span class="math display">\[
+\phi_A(\mathbf r)=C\cos\theta\,f(r),\qquad
+\phi_B(\mathbf r)=C\sin\theta\sin\varphi\,f(r),
+\]</span></p>
+<p>in the coincident-center limit <span class="math inline">\(R=0\)</span>.</p>
+<p><strong>Note:</strong> In the conventional spherical-coordinate definition (<span class="math inline">\(x=r\sin\theta\cos\varphi\)</span>, <span class="math inline">\(y=r\sin\theta\sin\varphi\)</span>), the second orbital as <em>written</em> is <span class="math inline">\(2p_y\)</span>, not <span class="math inline">\(2p_x\)</span>. A <span class="math inline">\(2p_x\)</span> orbital would have <span class="math inline">\(\sin\theta\cos\varphi\)</span>. Either choice is orthogonal to <span class="math inline">\(2p_z\)</span>.</p>
+<ol start="5" type="1">
+<li>Sketch the orbital lobes and their signs. Describe the angular dependence of <span class="math inline">\(|\phi|^2\)</span>. In particular, explain what the given <span class="math inline">\(2p_y\)</span> orbital looks like in the <span class="math inline">\(xz\)</span>-plane; optionally compare it with a <span class="math inline">\(2p_x\)</span> orbital.</li>
+<li>Show that the overlap <span class="math inline">\(S\)</span> vanishes at <span class="math inline">\(R=0\)</span>.</li>
+<li>Explain qualitatively why symmetry-forbidden overlap limits the formation of a bonding combination of these orbitals.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Write <span class="math inline">\(\hat H=\hat H_A+V_B+V_{NN}\)</span> with <span class="math inline">\(\hat H_A|\phi_A\rangle=E_H|\phi_A\rangle\)</span>. Evaluate the diagonal and off-diagonal matrix elements separately. For the angular overlap, use the integral over <span class="math inline">\(\varphi\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In the Born–Oppenheimer (fixed-nuclei) approximation,</p>
+<p><span class="math display">\[
+\boxed{\hat H=-\frac{\hbar^2}{2m_e}\nabla^2
+-\frac{e^2}{4\pi\varepsilon_0r_A}
+-\frac{e^2}{4\pi\varepsilon_0r_B}
++\frac{e^2}{4\pi\varepsilon_0R}}.
+\]</span></p>
+<p>Let <span class="math inline">\(V_A=-e^2/(4\pi\varepsilon_0r_A)\)</span> and similarly for <span class="math inline">\(V_B\)</span>. The atomic Hamiltonian <span class="math inline">\(\hat H_A=\hat T+V_A\)</span> obeys <span class="math inline">\(\hat H_A|\phi_A\rangle=E_H|\phi_A\rangle\)</span>. By symmetry,</p>
+<p><span class="math display">\[
+\langle\phi_A|\hat H|\phi_A\rangle
+=E_H+J+V_{NN},
+\]</span></p>
+<p>where <span class="math inline">\(V_{NN}=e^2/(4\pi\varepsilon_0R)\)</span>. For the off-diagonal term, use <span class="math inline">\(\hat H=\hat H_B+V_A+V_{NN}\)</span>:</p>
+<p><span class="math display">\[
+\langle\phi_A|\hat H|\phi_B\rangle
+=E_HS+K+V_{NN}S.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\begin{aligned}
+E_+&amp;=\frac{2(E_H+J+V_{NN})+2(E_HS+K+V_{NN}S)}{2(1+S)}\\
+&amp;=\boxed{E_H+V_{NN}+\frac{J+K}{1+S}}.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(E_H\)</span> is constant for the chosen isolated atomic orbitals. <span class="math inline">\(V_{NN}&gt;0\)</span> raises the energy and decreases as <span class="math inline">\(1/R\)</span>. The Coulomb integral <span class="math inline">\(J&lt;0\)</span> represents attraction to the other nucleus. For real, positive <span class="math inline">\(1s\)</span> orbitals, <span class="math inline">\(K&lt;0\)</span> and provides an additional stabilizing contribution to the symmetric combination. <span class="math inline">\(S\)</span>, <span class="math inline">\(J\)</span>, and <span class="math inline">\(K\)</span> depend on <span class="math inline">\(R\)</span>.</p>
+<p>At large <span class="math inline">\(R\)</span>, <span class="math inline">\(S\to0\)</span> and <span class="math inline">\(K\to0\)</span> exponentially with decreasing orbital overlap, while <span class="math inline">\(J\sim-e^2/(4\pi\varepsilon_0R)\to0\)</span>. The long-range part of <span class="math inline">\(J\)</span> cancels the internuclear repulsion to leading order, leaving the separated-atom limit <span class="math inline">\(E_+\to E_H\)</span>.</p>
+<p>The <span class="math inline">\(2p_z\)</span> orbital has positive and negative lobes along <span class="math inline">\(+z\)</span> and <span class="math inline">\(-z\)</span>, with density proportional to <span class="math inline">\(\cos^2\theta\)</span>. The orbital specified by <span class="math inline">\(\sin\theta\sin\varphi\)</span> has lobes along <span class="math inline">\(\pm y\)</span>, with density proportional to <span class="math inline">\(\sin^2\theta\sin^2\varphi\)</span>. It vanishes throughout the <span class="math inline">\(xz\)</span>-plane (<span class="math inline">\(y=0\)</span>). A conventional <span class="math inline">\(2p_x\)</span> orbital instead has lobes along <span class="math inline">\(\pm x\)</span> and density proportional to <span class="math inline">\(\sin^2\theta\cos^2\varphi\)</span>.</p>
+<p>For coincident centers, the overlap of the stated orbitals factors into radial and angular integrals, and</p>
+<p><span class="math display">\[
+S\propto\int_0^{2\pi}\!\sin\varphi\,d\varphi
+\int_0^\pi\!\cos\theta\sin^2\theta\,d\theta=0.
+\]</span></p>
+<p>The same conclusion holds for <span class="math inline">\(2p_z\)</span> and <span class="math inline">\(2p_x\)</span> (replace <span class="math inline">\(\sin\varphi\)</span> with <span class="math inline">\(\cos\varphi\)</span>). Their angular symmetries are orthogonal. Zero overlap alone is not a universal proof of zero bonding, but here it indicates that the usual overlap-driven stabilization is absent in this symmetry arrangement.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="prob-p6-3" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p6-3">Problem P6.3: Vibrational States in a Morse Potential</h3>
+<p>Consider a diatomic molecule whose electronic potential-energy curve is modeled by</p>
+<p><span class="math display">\[
+E_P(R)=E_B\left(1-e^{-a(R-R_e)}\right)^2,
+\]</span></p>
+<p>where <span class="math inline">\(E_B&gt;0\)</span> is the dissociation energy measured from the potential minimum, <span class="math inline">\(R_e\)</span> is the equilibrium separation, <span class="math inline">\(a&gt;0\)</span>, and <span class="math inline">\(M\)</span> is the nuclear reduced mass. Here <span class="math inline">\(E_P(R_e)=0\)</span> and <span class="math inline">\(E_P(\infty)=E_B\)</span>.</p>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li><p>Expand <span class="math inline">\(E_P(R)\)</span> to second order about <span class="math inline">\(R_e\)</span>. By comparing with <span class="math inline">\(\frac12M\omega_0^2(R-R_e)^2\)</span>, determine <span class="math inline">\(\omega_0\)</span>.</p></li>
+<li><p>The vibrational eigenenergies are</p>
+<p><span class="math display">\[
+E(v)=\hbar\omega_0\left(v+\frac12\right)
+-\frac{\hbar^2\omega_0^2}{4E_B}\left(v+\frac12\right)^2,
+\qquad v=0,1,2,\ldots
+\]</span></p>
+<p>Find the neighboring-level spacing <span class="math inline">\(\Delta E_v=E(v+1)-E(v)\)</span> and explain how it changes with <span class="math inline">\(v\)</span>.</p></li>
+<li><p>Determine the condition on <span class="math inline">\(v\)</span> for a <strong>bound</strong> Morse vibrational state and hence the number of bound vibrational levels.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(x=R-R_e\)</span> and expand <span class="math inline">\(e^{-ax}=1-ax+\frac12a^2x^2+\cdots\)</span>. For the level count, define <span class="math inline">\(\lambda=2E_B/(\hbar\omega_0)\)</span> and remember that the dissociation threshold itself is not a normalizable bound state.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Near equilibrium,</p>
+<p><span class="math display">\[
+1-e^{-ax}=ax-\frac12a^2x^2+\cdots,
+\qquad E_P(R)=E_Ba^2x^2+O(x^3).
+\]</span></p>
+<p>Equating the quadratic coefficient to <span class="math inline">\(\frac12M\omega_0^2\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{\omega_0=a\sqrt{\frac{2E_B}{M}}}.
+\]</span></p>
+<p>The adjacent-level spacing is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta E_v
+&amp;=\hbar\omega_0-\frac{\hbar^2\omega_0^2}{4E_B}
+\left[\left(v+\frac32\right)^2-\left(v+\frac12\right)^2\right]\\
+&amp;=\boxed{\hbar\omega_0-\frac{\hbar^2\omega_0^2}{2E_B}(v+1)}.
+\end{aligned}
+\]</span></p>
+<p>The spacing decreases linearly with <span class="math inline">\(v\)</span>, unlike in a harmonic oscillator.</p>
+<p>The exact Morse bound-state condition is</p>
+<p><span class="math display">\[
+\boxed{v+\frac12&lt;\lambda},\qquad
+\lambda=\frac{2E_B}{\hbar\omega_0}
+=\frac{\sqrt{2ME_B}}{a\hbar}.
+\]</span></p>
+<p>Thus <span class="math inline">\(v=0,1,\ldots\)</span> up to the largest integer strictly smaller than <span class="math inline">\(\lambda-\frac12\)</span>. The number of bound states is</p>
+<p><span class="math display">\[
+\boxed{N_{\mathrm{bound}}=\max\!\left(0,\left\lceil\lambda-\frac12\right\rceil\right)}.
+\]</span></p>
+<p>If <span class="math inline">\(\lambda-\frac12\)</span> is an integer, the state at equality lies at the dissociation threshold and is <strong>not</strong> counted as bound. The condition <span class="math inline">\(\lambda&gt;\frac12\)</span> is required for at least one bound level.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="prob-p6-4" class="level3">
+<h3 class="anchored" data-anchor-id="prob-p6-4">Problem P6.4: Ro-vibrational Spectrum of HCl</h3>
+<p>The figure shows the infrared ro-vibrational absorption spectrum of HCl, along with a diagram of the rotational levels associated with <span class="math inline">\(v''=0\)</span> and <span class="math inline">\(v'=1\)</span>. Neglect centrifugal distortion and differences in the rotational constant between the two vibrational states. The absorption energy is</p>
+<p><span class="math display">\[
+E_{J',J''}=E_0+\frac{\hbar^2}{2MR_e^2}
+\left[J'(J'+1)-J''(J''+1)\right],
+\]</span></p>
+<p>where <span class="math inline">\(E_0\approx\hbar\omega_0\)</span>, <span class="math inline">\(M\)</span> is the reduced mass, and <span class="math inline">\(R_e\)</span> is the equilibrium bond length. Use <span class="math inline">\(m_H\approx1836\,m_e\)</span> and <span class="math inline">\(m_{^{35}\mathrm{Cl}}\approx35\cdot1836\,m_e\)</span>.</p>
+<div id="1e9c2915" class="cell" data-fig-height="4.5" data-fig-width="8" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="molecular_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="page-gallery" title="Infrared ro-vibrational absorption spectrum of HCl, showing the P and R branches."><img src="molecular_files/figure-html/cell-2-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="HCl absorption spectrum with rotational lines on either side of the vibrational band center." width="662" height="469"></a></p>
+</figure>
+</div>
+<figcaption>Infrared ro-vibrational absorption spectrum of HCl, showing the P and R branches.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="1">
+<li>Identify the transitions <span class="math inline">\(J''\to J'\)</span> corresponding to <span class="math inline">\(R(i)\)</span>, for <span class="math inline">\(i=0,1,2,\ldots\)</span>.</li>
+<li>Derive the transition energy <span class="math inline">\(E(R_i)\)</span>.</li>
+<li>Calculate <span class="math inline">\(E(R_{i+1})-E(R_i)\)</span> and show that the R-branch lines are equally spaced in this approximation.</li>
+<li>Estimate <span class="math inline">\(R_e\)</span> from the observed line spacing. Give the result in atomic units and ångströms. Use <span class="math inline">\(1\ \mathrm{Hartree}=27.2\ \mathrm{eV}\)</span>, <span class="math inline">\(1\ a_0=0.529\ \text{Å}\)</span>, and, if needed, <span class="math inline">\(1\ \mathrm{Hartree}/(hc)\approx219475\ \mathrm{cm}^{-1}\)</span>.</li>
+<li>Estimate the harmonic force constant <span class="math inline">\(k=M\omega_0^2\)</span> in atomic units from the vibrational band center.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the R branch, <span class="math inline">\(\Delta J=+1\)</span>. Write <span class="math inline">\(B=\hbar^2/(2MR_e^2)\)</span> and <span class="math inline">\(\tilde B=B/(hc)\)</span>. The R-branch spacing in wavenumbers is <span class="math inline">\(2\tilde B\)</span>. Read both the line spacing and the band center <span class="math inline">\(\tilde\nu_0\)</span> approximately from the figure. In atomic units <span class="math inline">\(\hbar=m_e=e=1\)</span>, so <span class="math inline">\(B=1/(2MR_e^2)\)</span> and <span class="math inline">\(k=M\omega_0^2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Worked Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the R branch, <span class="math inline">\(J''=i\rightarrow J'=i+1\)</span>. Using the rigid-rotor energies <span class="math inline">\(E_J=\hbar^2J(J+1)/(2MR_e^2)\)</span>, the transition energies are</p>
+<p><span class="math display">\[
+E(R_i)=E_0+\frac{\hbar^2}{MR_e^2}(i+1),
+\]</span></p>
+<p>so adjacent R-branch lines are separated by</p>
+<p><span class="math display">\[
+\Delta E=\frac{\hbar^2}{MR_e^2}=hc\,\Delta\tilde{\nu}.
+\]</span></p>
+<p>From the spectrum, <span class="math inline">\(\Delta\tilde{\nu}\approx18\ \mathrm{cm}^{-1}\)</span>, corresponding to a rotational constant <span class="math inline">\(B\approx9\ \mathrm{cm}^{-1}\)</span>. With the reduced mass <span class="math inline">\(M\approx1785\,m_e\)</span>, the equilibrium bond length becomes</p>
+<p><span class="math display">\[
+R_e=\sqrt{\frac{\hbar^2}{Mhc\,\Delta\tilde{\nu}}}
+=\sqrt{\frac{1}{1785(18/219475)}}\,a_0
+\approx2.61\,a_0
+\approx1.38\ \text{Å}.
+\]</span></p>
+<p>The vibrational band center is <span class="math inline">\(\tilde{\nu}_0\approx2886\ \mathrm{cm}^{-1}\)</span>. Since <span class="math inline">\(\hbar\omega_0=hc\tilde{\nu}_0\)</span>, the vibrational angular frequency in atomic units is</p>
+<p><span class="math display">\[
+\omega_0=\frac{2886}{219475}\approx0.01315\ \mathrm{a.u.}
+\]</span></p>
+<p>Finally, using the harmonic approximation <span class="math inline">\(\omega_0=\sqrt{k/M}\)</span>, the effective spring constant is</p>
+<p><span class="math display">\[
+k=M\omega_0^2
+\approx1785(0.01315)^2
+\approx0.309\ \mathrm{Hartree}/a_0^2
+\approx480\ \mathrm{N/m}.
+\]</span></p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1178,7 +1571,48 @@ window.Quarto = {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../practice/multielectron.html" class="pagination-link" aria-label="P5 Multielectron Atoms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">P5 Multielectron Atoms</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"bottom","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
