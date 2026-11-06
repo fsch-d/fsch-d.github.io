@@ -45,40 +45,116 @@ $$
 
 where $\omega_{ik} = (E_k - E_i)/\hbar$ is the transition frequency. In the following sections, we will **decompose the transition dipole** into electronic and nuclear contributions, and explore how **selection rules** arise for electronic, vibrational, and rotational transitions.
 
+
 ---
 
 
-# 7.6.1.1 Complete decomposition of the transition dipole
+## 7.6.1.1 Complete decomposition of the transition dipole
 
-The fundamental quantity that controls spectroscopic intensity is the transition dipole moment $M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle$, with the total dipole operator
+The fundamental quantity that controls spectroscopic intensity is the transition dipole moment
+
 $$
-\hat{\vec\mu} \;=\; -e\sum_{\text{electrons}} \vec r_i \;+\; e\sum_{\text{nuclei}} Z_A \vec R_A
-\;=\;\hat{\vec\mu}_{\rm el} + \hat{\vec\mu}_N.
+M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle,
 $$
 
+where the total dipole operator contains contributions from both electrons and nuclei:
 
-Within the Born–Oppenheimer approximation, the total molecular wavefunction can be written as $\Psi(\mathbf r, {\mathbf R}) = \Phi(\mathbf r; {\mathbf R}),\chi({\mathbf R})$, where $\mathbf r$ denotes all electronic coordinates $\vec r_i$ and $\mathbf R$ all nuclear positions ${\vec R_A}$. For a diatomic molecule, the nuclear geometry is determined by a single vector $\vec R = \vec R_2 - \vec R_1$ (or equivalently its length $R$), so the wavefunction simplifies to $\Psi(\mathbf r, R) = \Phi(\mathbf r; R),\chi(R)$. Using this ansatz, the matrix element separates into an inner electronic integral and an outer nuclear integral. For a transition between two states that (possibly) differ in electronic, vibrational and rotational quantum numbers one obtains the standard decomposition:
+$$
+\hat{\vec\mu}
+=
+-e\sum_{\text{electrons}}\vec r_i
++
+e\sum_{\text{nuclei}}Z_A\vec R_A
+=
+\hat{\vec\mu}_{\rm el}+\hat{\vec\mu}_N.
+$$
+
+One might naively expect that the electronic contribution is responsible for electronic transitions, while the nuclear contribution drives rotational and vibrational transitions. However, **the distinction is not quite that simple**, as we can see by evaluating the transition matrix element.
+
+Within the Born–Oppenheimer approximation, the molecular wavefunction is written as
+
+$$
+\Psi(\mathbf r,\mathbf R)
+=
+\Phi(\mathbf r;\mathbf R)\,\chi(\mathbf R),
+$$
+
+where $\mathbf r$ denotes all electronic coordinates and $\mathbf R$ all nuclear coordinates.
+
+Substituting into the transition dipole and integrating over the electronic coordinates first yields
 
 $$
 M_{ik}
-= \int d^3R\; \chi_k^*(R)\,\rho_{ik}(R)\, \chi_i(R)
-\;+\; \int d^3R\; \chi_k^*(R)\;
-\bigg[\langle\Phi_k|\hat{\vec\mu}_N|\Phi_i\rangle_{\mathbf r}\bigg]\;\chi_i(R),
+=
+\int d^3R\;\chi_k^*(\mathbf R)
+\left[
+\rho_{ik}(\mathbf R)
++
+\langle\Phi_k|\Phi_i\rangle_{\mathbf r}
+\,\vec\mu_N(\mathbf R)
+\right]
+\chi_i(\mathbf R),
 $$
 
-where the electronic transition dipole (at fixed nuclear geometry) is
+with
 
 $$
-\rho_{ik}(R)\;=\;\langle\Phi_k(\mathbf r;R)|\hat{\vec\mu}_{\rm el}|\Phi_i(\mathbf r;R)\rangle_{\mathbf r}
-\;=\;\int d^3\mathbf r\;\Phi_k^*(\mathbf r;R)\,\hat{\vec\mu}_{\rm el}\,\Phi_i(\mathbf r;R).
+\rho_{ik}(\mathbf R)
+=
+\langle\Phi_k|\hat{\vec\mu}_{\rm el}|\Phi_i\rangle_{\mathbf r}.
 $$
 
-Two remarks:  
-- $\langle\cdots\rangle_{\mathbf r}$ means integrate over electronic coordinates only (parametric dependence on $R$ remains).  
-- The first term is the **electronic contribution weighted by nuclear overlap**; the second involves the nuclear dipole operator and overlaps of electronic states (often zero unless the electronic states are the same).
+Here, $\langle\cdots\rangle_{\mathbf r}$ denotes integration over electronic coordinates only, leaving the nuclear geometry fixed.
 
-> *Note:* If the coordinate origin is placed at the **center of nuclear charge**, the **expectation value** of the nuclear dipole vanishes for the equilibrium geometry. For this reason, the nuclear term is often omitted in textbooks, though it is implicitly included through the choice of coordinates.
+We can now distinguish two cases:
 
+**Transitions between different electronic states ($k\neq i$).** Since electronic eigenstates are orthogonal at fixed nuclear geometry,
+
+$$
+\langle\Phi_k|\Phi_i\rangle_{\mathbf r}=0,
+$$
+
+and only the electronic transition dipole remains:
+
+$$
+\boxed{
+M_{ik}
+=
+\int d^3R\;
+\chi_k^*(\mathbf R)\,
+\rho_{ik}(\mathbf R)\,
+\chi_i(\mathbf R).
+}
+$$
+
+**Transitions within the same electronic state ($k=i$).** Both contributions survive and combine to form the permanent molecular dipole moment,
+
+$$
+\boxed{
+\vec\mu(\mathbf R)
+=
+\langle\Phi_i|\hat{\vec\mu}_{\rm el}|\Phi_i\rangle_{\mathbf r}
++
+\vec\mu_N(\mathbf R).
+}
+$$
+
+The corresponding transition matrix element is
+
+$$
+M_{ik}
+=
+\int d^3R\;
+\chi_k^*(\mathbf R)\,
+\vec\mu(\mathbf R)\,
+\chi_i(\mathbf R),
+$$
+
+where the initial and final states have the same electronic component but may differ in their vibrational or rotational quantum numbers.
+
+Thus, **rotational and vibrational transitions are governed by the total molecular dipole**, including both electronic and nuclear charge distributions. Its dependence on nuclear geometry determines the transition strengths and selection rules discussed below.
+
+> *Note:* If the coordinate origin is placed at the **center of nuclear charge**, the nuclear contribution to the dipole operator vanishes by definition. The total molecular dipole can then be expressed entirely through the electronic contribution, evaluated relative to this origin. This is why the nuclear term is often omitted in textbooks; its contribution is accounted for through the choice of coordinates.
 
 ---
 
@@ -181,7 +257,7 @@ For homonuclear diatomics, $\mu(R) \equiv 0$ by symmetry, so electric-dipole vib
   $$
   \mu(R) = \int \Phi_0^*(\vec r;R)\, \hat{\vec \mu}\!\cdot\!\hat z_{\rm mol}\, \Phi_0(\vec r;R)\, d^3r.
   $$
-> The sign of $\mu(R)$ depends on the chosen coordinate origin and molecular orientation; using the center of nuclear charge as the origin provides a consistent convention.
+> The sign of $\mu(R)$ depends on the chosen orientation of the molecular axis. For a neutral molecule, the total permanent dipole moment is independent of the coordinate origin.
 
 
 **Consequences:**  
@@ -222,7 +298,7 @@ For **electric dipole transitions** in diatomic molecules:
 Take the same electronic and vibrational levels ($v'=v$) so the radial factor becomes approximately the permanent dipole evaluated at the vibrational state:
 
 $$
-\int u_v(R)\,\mu(R)\,u_v(R)\,\frac{dR}{R^2} \equiv \langle\mu\rangle_v \simeq \mu_e \quad\text{(to leading order)}.
+\int u_v(R)\,\mu(R)\,u_v(R)\,dR \equiv \langle\mu\rangle_v \simeq \mu_e \quad\text{(to leading order)}.
 $$
 
 Then
