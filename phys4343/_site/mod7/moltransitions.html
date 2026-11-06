@@ -810,9 +810,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#goals-of-this-chapter" id="toc-goals-of-this-chapter" class="nav-link" data-scroll-target="#goals-of-this-chapter">Goals of this Chapter</a></li>
   </ul></li>
-  <li><a href="#transition-rates-and-selection-rules" id="toc-transition-rates-and-selection-rules" class="nav-link" data-scroll-target="#transition-rates-and-selection-rules">7.6.1. Transition Rates and Selection Rules</a></li>
-  <li><a href="#complete-decomposition-of-the-transition-dipole" id="toc-complete-decomposition-of-the-transition-dipole" class="nav-link" data-scroll-target="#complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</a>
+  <li><a href="#transition-rates-and-selection-rules" id="toc-transition-rates-and-selection-rules" class="nav-link" data-scroll-target="#transition-rates-and-selection-rules">7.6.1. Transition Rates and Selection Rules</a>
   <ul class="collapse">
+  <li><a href="#complete-decomposition-of-the-transition-dipole" id="toc-complete-decomposition-of-the-transition-dipole" class="nav-link" data-scroll-target="#complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</a></li>
   <li><a href="#useful-limits-and-how-they-produce-observed-spectra" id="toc-useful-limits-and-how-they-produce-observed-spectra" class="nav-link" data-scroll-target="#useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</a>
   <ul class="collapse">
   <li><a href="#a-electronic-transitions-i-and-k-different-electronic-states" id="toc-a-electronic-transitions-i-and-k-different-electronic-states" class="nav-link" data-scroll-target="#a-electronic-transitions-i-and-k-different-electronic-states">(A) Electronic transitions (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> different electronic states)</a></li>
@@ -911,32 +911,92 @@ A_{ik} = \frac{2\omega_{ik}^3}{3\varepsilon_0 c^3 \hbar} |M_{ik}|^2,
 \]</span></p>
 <p>where <span class="math inline">\(\omega_{ik} = (E_k - E_i)/\hbar\)</span> is the transition frequency. In the following sections, we will <strong>decompose the transition dipole</strong> into electronic and nuclear contributions, and explore how <strong>selection rules</strong> arise for electronic, vibrational, and rotational transitions.</p>
 <hr>
-</section>
-<section id="complete-decomposition-of-the-transition-dipole" class="level1">
-<h1>7.6.1.1 Complete decomposition of the transition dipole</h1>
-<p>The fundamental quantity that controls spectroscopic intensity is the transition dipole moment <span class="math inline">\(M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle\)</span>, with the total dipole operator <span class="math display">\[
-\hat{\vec\mu} \;=\; -e\sum_{\text{electrons}} \vec r_i \;+\; e\sum_{\text{nuclei}} Z_A \vec R_A
-\;=\;\hat{\vec\mu}_{\rm el} + \hat{\vec\mu}_N.
+<section id="complete-decomposition-of-the-transition-dipole" class="level2">
+<h2 class="anchored" data-anchor-id="complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</h2>
+<p>The fundamental quantity that controls spectroscopic intensity is the transition dipole moment</p>
+<p><span class="math display">\[
+M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle,
 \]</span></p>
-<p>Within the Born–Oppenheimer approximation, the total molecular wavefunction can be written as <span class="math inline">\(\Psi(\mathbf r, {\mathbf R}) = \Phi(\mathbf r; {\mathbf R}),\chi({\mathbf R})\)</span>, where <span class="math inline">\(\mathbf r\)</span> denotes all electronic coordinates <span class="math inline">\(\vec r_i\)</span> and <span class="math inline">\(\mathbf R\)</span> all nuclear positions <span class="math inline">\({\vec R_A}\)</span>. For a diatomic molecule, the nuclear geometry is determined by a single vector <span class="math inline">\(\vec R = \vec R_2 - \vec R_1\)</span> (or equivalently its length <span class="math inline">\(R\)</span>), so the wavefunction simplifies to <span class="math inline">\(\Psi(\mathbf r, R) = \Phi(\mathbf r; R),\chi(R)\)</span>. Using this ansatz, the matrix element separates into an inner electronic integral and an outer nuclear integral. For a transition between two states that (possibly) differ in electronic, vibrational and rotational quantum numbers one obtains the standard decomposition:</p>
+<p>where the total dipole operator contains contributions from both electrons and nuclei:</p>
+<p><span class="math display">\[
+\hat{\vec\mu}
+=
+-e\sum_{\text{electrons}}\vec r_i
++
+e\sum_{\text{nuclei}}Z_A\vec R_A
+=
+\hat{\vec\mu}_{\rm el}+\hat{\vec\mu}_N.
+\]</span></p>
+<p>One might naively expect that the electronic contribution is responsible for electronic transitions, while the nuclear contribution drives rotational and vibrational transitions. However, <strong>the distinction is not quite that simple</strong>, as we can see by evaluating the transition matrix element.</p>
+<p>Within the Born–Oppenheimer approximation, the molecular wavefunction is written as</p>
+<p><span class="math display">\[
+\Psi(\mathbf r,\mathbf R)
+=
+\Phi(\mathbf r;\mathbf R)\,\chi(\mathbf R),
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf r\)</span> denotes all electronic coordinates and <span class="math inline">\(\mathbf R\)</span> all nuclear coordinates.</p>
+<p>Substituting into the transition dipole and integrating over the electronic coordinates first yields</p>
 <p><span class="math display">\[
 M_{ik}
-= \int d^3R\; \chi_k^*(R)\,\rho_{ik}(R)\, \chi_i(R)
-\;+\; \int d^3R\; \chi_k^*(R)\;
-\bigg[\langle\Phi_k|\hat{\vec\mu}_N|\Phi_i\rangle_{\mathbf r}\bigg]\;\chi_i(R),
+=
+\int d^3R\;\chi_k^*(\mathbf R)
+\left[
+\rho_{ik}(\mathbf R)
++
+\langle\Phi_k|\Phi_i\rangle_{\mathbf r}
+\,\vec\mu_N(\mathbf R)
+\right]
+\chi_i(\mathbf R),
 \]</span></p>
-<p>where the electronic transition dipole (at fixed nuclear geometry) is</p>
+<p>with</p>
 <p><span class="math display">\[
-\rho_{ik}(R)\;=\;\langle\Phi_k(\mathbf r;R)|\hat{\vec\mu}_{\rm el}|\Phi_i(\mathbf r;R)\rangle_{\mathbf r}
-\;=\;\int d^3\mathbf r\;\Phi_k^*(\mathbf r;R)\,\hat{\vec\mu}_{\rm el}\,\Phi_i(\mathbf r;R).
+\rho_{ik}(\mathbf R)
+=
+\langle\Phi_k|\hat{\vec\mu}_{\rm el}|\Phi_i\rangle_{\mathbf r}.
 \]</span></p>
-<p>Two remarks:<br>
-- <span class="math inline">\(\langle\cdots\rangle_{\mathbf r}\)</span> means integrate over electronic coordinates only (parametric dependence on <span class="math inline">\(R\)</span> remains).<br>
-- The first term is the <strong>electronic contribution weighted by nuclear overlap</strong>; the second involves the nuclear dipole operator and overlaps of electronic states (often zero unless the electronic states are the same).</p>
+<p>Here, <span class="math inline">\(\langle\cdots\rangle_{\mathbf r}\)</span> denotes integration over electronic coordinates only, leaving the nuclear geometry fixed.</p>
+<p>We can now distinguish two cases:</p>
+<p><strong>Transitions between different electronic states (<span class="math inline">\(k\neq i\)</span>).</strong> Since electronic eigenstates are orthogonal at fixed nuclear geometry,</p>
+<p><span class="math display">\[
+\langle\Phi_k|\Phi_i\rangle_{\mathbf r}=0,
+\]</span></p>
+<p>and only the electronic transition dipole remains:</p>
+<p><span class="math display">\[
+\boxed{
+M_{ik}
+=
+\int d^3R\;
+\chi_k^*(\mathbf R)\,
+\rho_{ik}(\mathbf R)\,
+\chi_i(\mathbf R).
+}
+\]</span></p>
+<p><strong>Transitions within the same electronic state (<span class="math inline">\(k=i\)</span>).</strong> Both contributions survive and combine to form the permanent molecular dipole moment,</p>
+<p><span class="math display">\[
+\boxed{
+\vec\mu(\mathbf R)
+=
+\langle\Phi_i|\hat{\vec\mu}_{\rm el}|\Phi_i\rangle_{\mathbf r}
++
+\vec\mu_N(\mathbf R).
+}
+\]</span></p>
+<p>The corresponding transition matrix element is</p>
+<p><span class="math display">\[
+M_{ik}
+=
+\int d^3R\;
+\chi_k^*(\mathbf R)\,
+\vec\mu(\mathbf R)\,
+\chi_i(\mathbf R),
+\]</span></p>
+<p>where the initial and final states have the same electronic component but may differ in their vibrational or rotational quantum numbers.</p>
+<p>Thus, <strong>rotational and vibrational transitions are governed by the total molecular dipole</strong>, including both electronic and nuclear charge distributions. Its dependence on nuclear geometry determines the transition strengths and selection rules discussed below.</p>
 <blockquote class="blockquote">
-<p><em>Note:</em> If the coordinate origin is placed at the <strong>center of nuclear charge</strong>, the <strong>expectation value</strong> of the nuclear dipole vanishes for the equilibrium geometry. For this reason, the nuclear term is often omitted in textbooks, though it is implicitly included through the choice of coordinates.</p>
+<p><em>Note:</em> If the coordinate origin is placed at the <strong>center of nuclear charge</strong>, the nuclear contribution to the dipole operator vanishes by definition. The total molecular dipole can then be expressed entirely through the electronic contribution, evaluated relative to this origin. This is why the nuclear term is often omitted in textbooks; its contribution is accounted for through the choice of coordinates.</p>
 </blockquote>
 <hr>
+</section>
 <section id="useful-limits-and-how-they-produce-observed-spectra" class="level2">
 <h2 class="anchored" data-anchor-id="useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</h2>
 <p>From the single formula above one obtains the familiar spectroscopic cases by taking the appropriate limits.</p>
@@ -1029,7 +1089,7 @@ Y_{J'M'}^*(\Omega)\,\cos\theta\,Y_{JM}(\Omega)\,d\Omega}_{\text{rotational (angu
 <p><em>Remark:</em><br>
 In electronic structure calculations, <span class="math inline">\(\mu(R)\)</span> can be obtained as the expectation value <span class="math display">\[
 \mu(R) = \int \Phi_0^*(\vec r;R)\, \hat{\vec \mu}\!\cdot\!\hat z_{\rm mol}\, \Phi_0(\vec r;R)\, d^3r.
-\]</span> The sign of <span class="math inline">\(\mu(R)\)</span> depends on the chosen coordinate origin and molecular orientation; using the center of nuclear charge as the origin provides a consistent convention.</p>
+\]</span> The sign of <span class="math inline">\(\mu(R)\)</span> depends on the chosen orientation of the molecular axis. For a neutral molecule, the total permanent dipole moment is independent of the coordinate origin.</p>
 </blockquote>
 <p><strong>Consequences:</strong></p>
 <ul>
@@ -1075,7 +1135,7 @@ Figure&nbsp;2: Rovibrational energy levels of a diatomic molecule showing vibrat
 <h3 class="anchored" data-anchor-id="c-pure-rotational-transitions-microwave-region">(C) Pure rotational transitions (microwave region)</h3>
 <p>Take the same electronic and vibrational levels (<span class="math inline">\(v'=v\)</span>) so the radial factor becomes approximately the permanent dipole evaluated at the vibrational state:</p>
 <p><span class="math display">\[
-\int u_v(R)\,\mu(R)\,u_v(R)\,\frac{dR}{R^2} \equiv \langle\mu\rangle_v \simeq \mu_e \quad\text{(to leading order)}.
+\int u_v(R)\,\mu(R)\,u_v(R)\,dR \equiv \langle\mu\rangle_v \simeq \mu_e \quad\text{(to leading order)}.
 \]</span></p>
 <p>Then <span class="math display">\[
 M_{J'\!,J}\approx \langle\mu\rangle_v \int Y_{J'M'}^*(\Omega)\cos\theta\,Y_{JM}(\Omega)\,d\Omega,
@@ -1144,7 +1204,7 @@ E(v, J) \approx
 </li>
 <li><strong>R-branch</strong> (<span class="math inline">\(\Delta J = +1\)</span>): Lines at frequencies higher than the band center</li>
 </ol>
-<div id="7be943d8" class="cell" data-execution_count="1">
+<div id="a0935232" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
