@@ -404,12 +404,23 @@ window.Quarto = {
  <span class="menu-text">Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 From Classical Physics to the Quantum World of Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod1/natconst.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Natural Constants and Atomic Units</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod2/index.html" class="sidebar-item-text sidebar-link">
@@ -1021,7 +1032,7 @@ u \\ v \\ w
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-bloch-spheres" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Three Bloch spheres showing vectors: up, down, and a vector at angles theta and phi, each labeled with the u, v, w axes.">
+<div id="fig-bloch-spheres" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three Bloch spheres showing vectors: up, down, and a vector at angles theta and phi, each labeled with the u, v, w axes." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bloch-spheres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="bloch_files/figure-html/fig-bloch-spheres-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Bloch-sphere representation of three pure states: (left) the excited state with Bloch vector along +w; (middle) the ground state with Bloch vector along -w; (right) a general superposition state with polar angle \vartheta and azimuthal angle \varphi. The angles \vartheta and \varphi determine the population inversion and the relative phase between the state amplitudes."><img src="bloch_files/figure-html/fig-bloch-spheres-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Three Bloch spheres showing vectors: up, down, and a vector at angles theta and phi, each labeled with the u, v, w axes." width="747" height="248"></a>
@@ -1349,7 +1360,7 @@ The second term<br>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-resrabi" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Bloch sphere showing a vector starting at the south pole and precessing around a horizontal Rabi vector.">
+<div id="fig-resrabi" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Bloch sphere showing a vector starting at the south pole and precessing around a horizontal Rabi vector." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-resrabi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="bloch_files/figure-html/fig-resrabi-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;2: Resonant Bloch-vector precession for a system initially in the ground state."><img src="bloch_files/figure-html/fig-resrabi-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Bloch sphere showing a vector starting at the south pole and precessing around a horizontal Rabi vector." width="463" height="463"></a>
@@ -1425,7 +1436,7 @@ This is precisely the resonant case discussed in the section on <a href="../mod8
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-rabidet" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Bloch sphere showing a tilted precession circle on the lower back side of the sphere.">
+<div id="fig-rabidet" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Bloch sphere showing a tilted precession circle on the lower back side of the sphere." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rabidet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="bloch_files/figure-html/fig-rabidet-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;3: Bloch-vector motion for a detuned laser (\delta = \Omega_0) showing a tilted precession circle on the lower back side of the sphere."><img src="bloch_files/figure-html/fig-rabidet-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Bloch sphere showing a tilted precession circle on the lower back side of the sphere." width="463" height="463"></a>

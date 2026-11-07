@@ -30,6 +30,9 @@ website:
       href: index.qmd
     - text: 1 From Classical Physics to the Quantum World of Atoms
       href: mod1/index.qmd
+      contents:
+      - href: mod1/natconst.qmd
+        text: 1.1 Natural Constants and Atomic Units   
     - section: 2 Quantum Mechanics
       href: mod2/index.qmd
       contents:

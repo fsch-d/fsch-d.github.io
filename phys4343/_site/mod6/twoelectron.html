@@ -402,12 +402,23 @@ window.Quarto = {
  <span class="menu-text">Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 From Classical Physics to the Quantum World of Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod1/natconst.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Natural Constants and Atomic Units</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod2/index.html" class="sidebar-item-text sidebar-link">
@@ -1064,7 +1075,7 @@ For example:</p>
 </tbody>
 </table>
 <p>In the <strong>Grotrian diagram</strong>, allowed electric dipole transitions connect levels according to the rules above. Thus, <span class="math inline">\({}^1P_1 \leftrightarrow {}^1S_0\)</span> is allowed (ΔS = 0, Δℓ = ±1), while <span class="math inline">\({}^3P_1 \to {}^1S_0\)</span> is strongly suppressed (ΔS ≠ 0).</p>
-<div id="44ef7051" class="cell" data-execution_count="2">
+<div id="5aa1b982" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>

@@ -1,0 +1,278 @@
+---
+title: "1.1 Natural Constants and Atomic Units"
+author: Daniel Fischer
+filters:
+  - ../physics-macros.lua
+---
+
+# Introduction
+
+The historical development of atomic physics revealed a world governed by the same fundamental laws as the macroscopic world, but characterized by very different scales of length, time, and energy. Before developing the quantum-mechanical description of atoms, it is useful to identify these scales and introduce a system of units adapted to them.
+
+# 1.1.1 Fundamental constants
+
+Several universal constants and particle properties enter repeatedly in atomic physics. The following values are rounded for orientation.
+
+| Quantity | Symbol | Value (SI) |
+|:--|:--:|--:|
+| Speed of light | $c$ | $2.998\times10^8\ \mathrm{m/s}$ |
+| Reduced Planck constant | $\hbar=h/(2\pi)$ | $1.055\times10^{-34}\ \mathrm{J\,s}$ |
+| Elementary charge | $e$ | $1.602\times10^{-19}\ \mathrm{C}$ |
+| Electron mass | $m_e$ | $9.109\times10^{-31}\ \mathrm{kg}$ |
+| Proton mass | $m_p$ | $1.673\times10^{-27}\ \mathrm{kg}$ |
+| Vacuum permittivity | $\varepsilon_0$ | $8.854\times10^{-12}\ \mathrm{F/m}$ |
+| Boltzmann constant | $k_B$ | $1.381\times10^{-23}\ \mathrm{J/K}$ |
+
+A particularly important *dimensionless* combination is the **fine-structure constant**,
+
+$$
+\alpha=\frac{e^2}{4\pi\varepsilon_0\hbar c}\approx\frac{1}{137.036}.
+$$
+
+Unlike the numerical values of dimensional constants, $\alpha$ does not depend on the choice of units. It measures the strength of the electromagnetic interaction and will appear throughout atomic physics.
+
+# 1.1.2 The hydrogen atom as a natural scale
+
+The Bohr model provides a simple way to connect the constants above to characteristic atomic quantities. Although electrons do not follow classical trajectories in quantum mechanics, the model correctly identifies the scales of the hydrogen atom.
+
+```{python}
+#| echo: false
+#| label: fig-bohr-atomic-units
+#| fig-cap: "Schematic Bohr model of hydrogen, illustrating the characteristic atomic radius and velocity. The curved arrow indicates the sense of orbital motion in the Bohr model, not the direction of the angular-momentum vector."
+#| fig-alt: "Hydrogen Bohr model with a central proton, a circular electron orbit, the Bohr radius, tangential electron velocity, particle charges and masses, and a curved arrow labeled L equals h-bar."
+#| fig-width: 8
+#| fig-height: 7
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Arc
+
+# --------------------------------------------------
+# Bohr model of hydrogen — schematic illustration
+# --------------------------------------------------
+
+plt.rcParams.update({
+    "text.usetex": False,  # MathText also works without an external LaTeX installation
+    "mathtext.fontset": "cm",
+    "font.family": "serif",
+    "font.size": 15,
+})
+
+fig, ax = plt.subplots(figsize=(8, 7))
+
+# Diagram geometry (not physical particle sizes)
+R = 2.5
+theta = np.deg2rad(35)
+
+x_e = R * np.cos(theta)
+y_e = R * np.sin(theta)
+
+# Colors
+orbit_color = "0.5"
+electron_color = "tab:blue"
+proton_color = "tab:red"
+radius_color = "tab:green"
+
+# Circular Bohr orbit
+orbit = Circle(
+    (0, 0), R,
+    fill=False, lw=1.5, ls="--",
+    edgecolor=orbit_color
+)
+ax.add_patch(orbit)
+
+# Proton at the center
+ax.add_patch(Circle(
+    (0, 0), 0.17,
+    facecolor=proton_color,
+    edgecolor="black",
+    lw=0.8,
+    zorder=5
+))
+ax.text(0, 0, r"$+$",
+        ha="center", va="center",
+        color="white", fontsize=16, zorder=6)
+
+# Electron on the orbit
+ax.add_patch(Circle(
+    (x_e, y_e), 0.11,
+    facecolor=electron_color,
+    edgecolor="black",
+    lw=0.8,
+    zorder=5
+))
+
+# Radius vector
+ax.annotate(
+    "",
+    xy=(x_e, y_e),
+    xytext=(0, 0),
+    arrowprops=dict(
+        arrowstyle="->",
+        lw=1.8,
+        color=radius_color,
+        shrinkA=12,
+        shrinkB=8
+    )
+)
+
+ax.text(
+    0.47*x_e, 0.47*y_e + 0.22,
+    r"$a_0$",
+    color=radius_color,
+    ha="center"
+)
+
+# Tangential electron velocity (counterclockwise)
+tangent = np.array([-np.sin(theta), np.cos(theta)])
+v_length = 1.25
+
+ax.annotate(
+    "",
+    xy=(x_e + v_length*tangent[0],
+        y_e + v_length*tangent[1]),
+    xytext=(x_e, y_e),
+    arrowprops=dict(
+        arrowstyle="->",
+        lw=2,
+        color=electron_color
+    )
+)
+
+ax.text(
+    x_e + 1.35*tangent[0] + 0.15,
+    y_e + 1.35*tangent[1],
+    r"$v_0=\alpha c$",
+    color=electron_color
+)
+
+# Particle labels
+ax.annotate(
+    r"$m_e,\,-e$",
+    xy=(x_e, y_e),
+    xytext=(2.2, 1.6),
+    ha="left"
+)
+
+ax.annotate(
+    r"$m_p,\,+e$",
+    xy=(0, 0),
+    xytext=(-0.3, -0.5),
+    ha="center"
+)
+
+# Angular momentum: curved arrow along the orbit
+phi = np.linspace(theta, theta + np.deg2rad(45), 100)
+
+ax.plot(R*np.cos(phi), R*np.sin(phi),
+        color="tab:purple", lw=2)
+
+ax.annotate(
+    "",
+    xy=(R*np.cos(phi[-1]), R*np.sin(phi[-1])),
+    xytext=(R*np.cos(phi[-2]), R*np.sin(phi[-2])),
+    arrowprops=dict(arrowstyle="->", color="tab:purple", lw=2)
+)
+
+ax.text(R*np.cos(phi[-1]) - 0.4, R*np.sin(phi[-1]) + 0.25,
+        r"$L=\hbar$", color="tab:purple")
+
+# Formatting
+ax.set_aspect("equal")
+ax.set_xlim(-3.8, 4.3)
+ax.set_ylim(-3.5, 4.2)
+ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+```
+
+In the Bohr picture, the Coulomb attraction supplies the centripetal force, while the ground-state orbital angular momentum is set to $\hbar$:
+
+$$
+\frac{m_e v_0^2}{a_0}=\frac{e^2}{4\pi\varepsilon_0 a_0^2},
+\qquad m_e v_0 a_0=\hbar.
+$$
+
+Combining these relations gives the **Bohr radius** and **Bohr velocity**,
+
+$$
+a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_e e^2}
+=\frac{\hbar}{m_e\alpha c}
+\approx 5.29\times10^{-11}\ \mathrm{m}=0.529\ \text{Å},
+$$
+
+$$
+v_0=\alpha c\approx 2.19\times10^6\ \mathrm{m/s}.
+$$
+
+The characteristic energy scale is the **Hartree energy**,
+
+$$
+E_h=\frac{e^2}{4\pi\varepsilon_0 a_0}
+=m_e\alpha^2c^2
+\approx 27.21\ \mathrm{eV}.
+$$
+
+The Bohr-model ground-state energy is $-E_h/2=-13.6\ \mathrm{eV}$: the Hartree is **twice** the hydrogen ionization energy. A natural time scale follows from the energy-time relation,
+
+$$
+t_0=\frac{\hbar}{E_h}\approx 2.42\times10^{-17}\ \mathrm{s}=24.2\ \mathrm{as}.
+$$
+
+::: {.callout-important title="Bohr orbit versus quantum mechanics"}
+The diagram is a **semiclassical model**, useful for introducing characteristic scales. Its relation $L=\hbar$ is the Bohr quantization condition for the $n=1$ orbit. In the quantum-mechanical hydrogen ground state ($1s$), however, the orbital angular momentum quantum number is $\ell=0$, so the orbital angular momentum is **zero**. The scales $a_0$ and $E_h$ remain fundamental in the quantum theory.
+:::
+
+# 1.1.3 Atomic units
+
+The characteristic hydrogen scales suggest a convenient choice of units. In **Hartree atomic units**, we set
+
+$$
+\boxed{m_e=e=\hbar=4\pi\varepsilon_0=1.}
+$$
+
+This does not change the physics: it simply expresses quantities in units chosen so that these constants have numerical value one.
+
+| Quantity | Atomic unit | SI equivalent |
+|:--|:--|--:|
+| Length | Bohr radius $a_0$ | $5.292\times10^{-11}\ \mathrm{m}$ |
+| Energy | Hartree $E_h$ | $4.360\times10^{-18}\ \mathrm{J}=27.21\ \mathrm{eV}$ |
+| Time | $t_0=\hbar/E_h$ | $2.419\times10^{-17}\ \mathrm{s}$ |
+| Velocity | $v_0=\alpha c$ | $2.188\times10^6\ \mathrm{m/s}$ |
+| Angular momentum | $\hbar$ | $1.055\times10^{-34}\ \mathrm{J\,s}$ |
+| Electric field | $E_h/(ea_0)$ | $5.142\times10^{11}\ \mathrm{V/m}$ |
+
+For example, the nonrelativistic Hamiltonian of an electron in the Coulomb field of a fixed proton is, in SI units,
+
+$$
+\hat H=-\frac{\hbar^2}{2m_e}\nabla^2
+-\frac{e^2}{4\pi\varepsilon_0 r}.
+$$
+
+When distances are measured in $a_0$ and energies in $E_h$, it becomes
+
+$$
+\boxed{\hat H=-\frac12\nabla^2-\frac1r.}
+$$
+
+Atomic units remove repeated constants and make the relative sizes of terms easier to recognize. Unless stated otherwise, we will use conventional SI units when discussing measurements and atomic units when they simplify calculations.
+
+# 1.1.4 Connecting atomic and everyday scales
+
+Atomic energies are often quoted in electronvolts rather than joules. Useful conversions include
+
+$$
+1\ \mathrm{eV}=1.602\times10^{-19}\ \mathrm{J},
+\qquad
+1\ E_h\approx27.21\ \mathrm{eV},
+$$
+
+$$
+1\ \mathrm{eV}\approx8065.5\ \mathrm{cm}^{-1},
+\qquad
+k_BT\approx25.9\ \mathrm{meV}\quad (T=300\ \mathrm{K}).
+$$
+
+These comparisons give a first sense of scale: typical electronic binding energies in atoms are measured in electronvolts, while room-temperature thermal energies are only a few hundredths of an electronvolt. We will return to these distinctions when discussing atomic spectra and transitions.
