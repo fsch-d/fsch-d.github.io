@@ -208,89 +208,226 @@ Electric dipole–allowed **electronic transitions** in diatomic molecules must 
 
 ### (B) Vibrational / rovibrational transitions within the same electronic state ($i$ and $k$ same electronic state)
 
-For transitions within the same electronic state, we set $\Phi_k = \Phi_i \equiv \Phi_0$. 
-The **total transition dipole matrix element** is then
+For transitions within the same electronic state, we first recall the expression derived in the previous section:
 
 $$
-M_{v'J',\,vJ} = \int d^3R\;
-\chi_{v'J'}^*(R,\Omega)\,
-\langle \Phi_0 | \hat{\vec \mu} | \Phi_0 \rangle_{\mathbf r}\,
-\chi_{vJ}(R,\Omega),
+\boxed{
+\vec\mu(\mathbf R)
+=
+\langle\Phi_i|\hat{\vec\mu}_{\rm el}|\Phi_i\rangle_{\mathbf r}
++
+\vec\mu_N(\mathbf R).
+}
 $$
 
-where the total dipole operator is
+This quantity is the **permanent electric dipole moment of the molecule** for a given nuclear configuration $\mathbf R$. It describes the separation between the positive nuclear charge distribution and the negative electronic charge distribution, with the latter determined by the electronic wavefunction $\Phi_i$.
+
+For a neutral molecule, the dipole moment can be interpreted as the vector connecting the **center of negative charge** to the **center of positive charge**, multiplied by the total positive charge $Q= N_e e$:
 
 $$
-\hat{\vec \mu} = \hat{\vec \mu}_{\rm el} + \hat{\vec \mu}_N,
-\quad
-\hat{\vec \mu}_{\rm el} = -e \sum_i \vec r_i, \;\;
-\hat{\vec \mu}_N = e \sum_A Z_A \vec R_A.
+\vec\mu(\mathbf R)=Q(\mathbf R_+-\mathbf R_-),
 $$
 
-The electronic expectation value of the dipole operator is a **vector** that depends on the internuclear distance $R$:
+where $\mathbf R_+$ and $\mathbf R_-$ denote the centers of positive and negative charge, respectively.
+
+For a diatomic molecule, symmetry requires that the permanent dipole moment lies along the internuclear axis. We can therefore write
 
 $$
-\langle \Phi_0 | \hat{\vec \mu} | \Phi_0 \rangle_{\mathbf r}
-= \mu(R)\, \hat z_{\rm mol}.
+\boxed{
+\vec\mu(R)=\mu(R)\,\hat z_{\rm mol},
+}
 $$
 
-Here, $\hat z_{\rm mol}$ denotes the unit vector along the molecular axis, and $\mu(R)$ is the **signed** projection of the permanent dipole moment onto this axis (it can be positive or negative depending on which atom carries the partial negative charge).
+where $\hat z_{\rm mol}$ denotes the unit vector along the molecular axis and $\mu(R)$ is the **signed dipole moment**, which depends on the internuclear separation $R$.
 
-Using the separation $\chi(R,\Omega) = \dfrac{u_v(R)}{R} Y_{JM}(\Omega)$ and noting that the dipole vector lies along the molecular axis, the matrix element **factors** into a **radial (vibrational)** and an **angular (rotational)** part:
+**The important point is that $\mu(R)$ depends on the internuclear distance.** As the molecule vibrates, the electronic charge distribution changes, and consequently so does its dipole moment. This dependence allows electromagnetic radiation to induce vibrational transitions.
+
+#### Transition matrix element
+
+For transitions within the same electronic state, we set $\Phi_k=\Phi_i\equiv\Phi_0$. The transition dipole matrix element then becomes
 
 $$
-M_{v'J',vJ}
-= \underbrace{\int_0^\infty
-u_{v'}(R)\,\mu(R)\,u_v(R)\,\frac{dR}{R^{2}}}_{\text{vibrational (radial) factor}}
-\times
-\underbrace{\int
-Y_{J'M'}^*(\Omega)\,\cos\theta\,Y_{JM}(\Omega)\,d\Omega}_{\text{rotational (angular) factor}}.
+M_{v'J'M',\,vJM}
+=
+\int d^3R\;
+\chi_{v'J'M'}^*(R,\Omega)\,
+\vec\mu(R)\,
+\chi_{vJM}(R,\Omega).
 $$
 
-The angular factor arises because $\hat z_{\rm mol} \cdot \hat z_{\rm space} = \cos\theta$. 
-It is important to retain the sign of $\mu(R)$, as it determines the **direction** of the permanent dipole and thus affects interference and transition intensities. 
-For homonuclear diatomics, $\mu(R) \equiv 0$ by symmetry, so electric-dipole vibrational transitions are forbidden.
+Using the separation of the nuclear wavefunction,
 
+$$
+\chi_{vJM}(R,\Omega)
+=
+\frac{u_v(R)}{R}Y_{JM}(\Omega),
+$$
 
->*Remark:*  
-> In electronic structure calculations, $\mu(R)$ can be obtained as the expectation value
-  $$
-  \mu(R) = \int \Phi_0^*(\vec r;R)\, \hat{\vec \mu}\!\cdot\!\hat z_{\rm mol}\, \Phi_0(\vec r;R)\, d^3r.
-  $$
-> The sign of $\mu(R)$ depends on the chosen orientation of the molecular axis. For a neutral molecule, the total permanent dipole moment is independent of the coordinate origin.
+we can separate the matrix element into a **radial (vibrational)** and an **angular (rotational)** contribution.
 
+Since the molecular dipole points along the molecular axis, its projection onto the laboratory $z$-axis is
 
-**Consequences:**  
+$$
+\vec\mu(R)\cdot\hat z_{\rm lab}
+=
+\mu(R)\cos\theta,
+$$
 
-- The **radial integral** determines the **vibrational selection rules**.  
-  Expanding $\mu(R)$ around the equilibrium distance $R_e$,
-  $$
-  \mu(R)\approx \mu_e + \mu'_e (R-R_e)+\tfrac12\mu''_e(R-R_e)^2+\cdots,
-  $$
-  the leading linear term $\mu'_e(R-R_e)$ couples harmonic oscillator levels with $\Delta v=\pm1$ (the **fundamental**). 
-  Higher derivatives allow weaker **overtones** $\Delta v=\pm2,\pm3,\dots$.  
+where $\theta$ is the angle between the molecular axis and the laboratory $z$-axis.
 
-- The **angular integral** determines the **rotational selection rules**.
-  Since $\cos\theta\propto Y_{1,0}$, the integral is nonzero only for $\Delta J=0,\pm1$.
-  For $\Sigma$ electronic states, parity forbids $\Delta J=0$,
-  leaving $\Delta J=\pm1$.  
-  Thus rovibrational spectra display two branches: **P** ($\Delta J=-1$) and **R** ($\Delta J=+1$).
+For this component of the transition dipole, we obtain
 
-![Rovibrational energy levels of a diatomic molecule showing vibrational ladders with rotational substructure. Transitions with $\Delta v=\pm1$ and $\Delta J=\pm1$ form the characteristic P and R branches.  
-*(Image: David-i98, Public domain, [source file](https://commons.wikimedia.org/wiki/File:Vibrationrotationenergy.svg){target="_blank"})*](./Vibrationrotationenergy.svg){#fig-rovibrational-energy width=75% fig-alt="Diagram of vibrational and rotational energy levels in a diatomic molecule showing transitions with Δv=±1 and ΔJ=±1, illustrating the P and R branches."}
+$$
+\boxed{
+M_{v'J'M',\,vJM}^{(z)}
+=
+\underbrace{
+\int_0^\infty
+u_{v'}^*(R)\,\mu(R)\,u_v(R)\,dR
+}_{\text{vibrational (radial) factor}}
+\;
+\underbrace{
+\int
+Y_{J'M'}^*(\Omega)\cos\theta\,
+Y_{JM}(\Omega)\,d\Omega
+}_{\text{rotational (angular) factor}}.
+}
+$$
 
-::: {.callout-note title="Dipole Selection Rules for Vibrational and Rotational Transitions"}
-For **electric dipole transitions** in diatomic molecules:  
+The radial factor describes how the dipole moment changes during molecular vibrations, while the angular factor describes how the rotating molecular dipole couples to the electric field of the radiation.
 
-- **Vibrational:** $\Delta v = \pm 1$ (fundamental), weaker overtones with $\Delta v = \pm 2, \pm 3, \dots$ 
+For homonuclear diatomic molecules, symmetry requires $\mu(R)=0$ for every internuclear separation. Consequently, electric-dipole vibrational and rotational transitions are forbidden.
 
-- **Rotational:** $\Delta J = \pm 1$ (P and R branches)  
+#### Consequences
 
-- **Parity constraint:** $\Delta J = 0$ forbidden for $\Sigma$ states  
+**1. Vibrational selection rules**
 
-- **Molecular symmetry:** Transitions require a *permanent dipole moment* — **homonuclear** diatomics (H₂, N₂, O₂) are infrared-inactive.
+The radial integral determines the strength of transitions between vibrational states:
+
+$$
+M_{v'v}^{\rm vib}
+=
+\int_0^\infty
+u_{v'}^*(R)\,\mu(R)\,u_v(R)\,dR.
+$$
+
+To understand which transitions are allowed, we expand the dipole moment around the equilibrium internuclear distance $R_e$:
+
+$$
+\mu(R)
+\approx
+\mu_e
++
+\mu'_e(R-R_e)
++
+\frac12\mu''_e(R-R_e)^2
++\cdots.
+$$
+
+If we approximate the molecular vibrations by a **harmonic oscillator**, the vibrational wavefunctions $u_v(R)$ are harmonic oscillator eigenstates.
+
+- The **constant term** $\mu_e$ cannot induce transitions between different vibrational states because of their orthogonality.
+- The **linear term** $\mu'_e(R-R_e)$ connects only states with $\Delta v=\pm1$. These are the **fundamental vibrational transitions**.
+- **Higher-order terms** can connect states with $\Delta v=\pm2,\pm3,\ldots$, producing weaker **overtones**.
+
+Thus, the familiar selection rule
+
+$$
+\boxed{\Delta v=\pm1}
+$$
+
+follows from the **harmonic oscillator approximation together with a linear dependence of the dipole moment on internuclear distance**.
+
+In real molecules, anharmonicity of the vibrational potential and nonlinear terms in $\mu(R)$ relax this approximate selection rule, allowing weaker overtone transitions.
+
+::: {.callout-note collapse="true" title="Derivation: Harmonic-oscillator selection rule"}
+
+Introduce the displacement from equilibrium,
+
+$$
+q=R-R_e.
+$$
+
+For a [harmonic oscillator](../mod2/qosc.qmd){target="_blank"}, the displacement operator can be expressed in terms of the raising and lowering operators:
+
+$$
+\hat q
+=
+\sqrt{\frac{\hbar}{2\mu_{\rm red}\omega}}
+(\hat a+\hat a^\dagger),
+$$
+
+where $\mu_{\rm red}$ is the nuclear reduced mass and $\omega$ the vibrational angular frequency.
+
+The operators act on vibrational states according to
+
+$$
+\hat a|v\rangle=\sqrt{v}\,|v-1\rangle,
+\qquad
+\hat a^\dagger|v\rangle=\sqrt{v+1}\,|v+1\rangle.
+$$
+
+Consequently,
+
+$$
+\boxed{
+\langle v'|\hat q|v\rangle
+=
+\sqrt{\frac{\hbar}{2\mu_{\rm red}\omega}}
+\left[
+\sqrt{v}\,\delta_{v',v-1}
++
+\sqrt{v+1}\,\delta_{v',v+1}
+\right].
+}
+$$
+
+The matrix element vanishes unless $v'=v\pm1$, establishing the selection rule $\Delta v=\pm1$ for the linear term in the dipole expansion.
+
+Similarly, the quadratic term $\hat q^2$ connects states with $\Delta v=0,\pm2$, allowing the first overtone ($\Delta v=\pm2$).
 
 :::
+
+**2. Rotational selection rules**
+
+The angular integral determines the rotational selection rules:
+
+$$
+\int
+Y_{J'M'}^*(\Omega)\cos\theta\,
+Y_{JM}(\Omega)\,d\Omega.
+$$
+
+For the rotational states described by spherical harmonics $Y_{JM}$, the angular factor $\cos\theta$ connects only states with
+
+$$
+\boxed{\Delta J=\pm1.}
+$$
+
+The selection rule $\Delta J=0$ is forbidden by parity for these rotational states.
+
+Thus, rovibrational spectra of diatomic molecules in a $\Sigma$ electronic state display two characteristic branches:
+
+- **P-branch:** $\Delta J=-1$
+- **R-branch:** $\Delta J=+1$
+
+![Rovibrational energy levels of a diatomic molecule illustrating the P-branch ($\Delta J=-1$), Q-branch ($\Delta J=0$), and R-branch ($\Delta J=+1$). For the $\Sigma\to\Sigma$ transitions considered here, the Q-branch is forbidden by the electric-dipole selection rules, leaving only the P- and R-branches. Q-branches can occur in other types of molecular transitions.
+*(Image: David-i98, Public domain, [source file](https://commons.wikimedia.org/wiki/File:Vibrationrotationenergy.svg){target="_blank"})*](./Vibrationrotationenergy.svg){#fig-rovibrational-energy width=75% fig-alt="Rovibrational energy-level diagram showing P, Q, and R branches corresponding to changes in rotational quantum number of minus one, zero, and plus one."}
+
+
+::: {.callout-note title="Dipole Selection Rules for Vibrational and Rotational Transitions"}
+
+For **electric-dipole transitions** in diatomic molecules in a $\Sigma$ electronic state:
+
+- **Vibrational:** $\Delta v=\pm1$ for the fundamental transition in the harmonic approximation; weaker overtones with $\Delta v=\pm2,\pm3,\ldots$ are possible.
+
+- **Rotational:** $\Delta J=\pm1$, giving the P and R branches.
+
+- **Molecular symmetry:** Homonuclear diatomics (H$_2$, N$_2$, O$_2$) have $\mu(R)=0$ and therefore exhibit no electric-dipole rovibrational transitions.
+
+:::
+
+
 
 
 ### (C) Pure rotational transitions (microwave region)
@@ -470,19 +607,18 @@ Modern **Fourier Transform Infrared (FTIR) spectrometers** with resolutions bett
 
 # 7.6.3. Raman Spectroscopy
 
-In **Raman spectroscopy**, molecular transitions are induced not by direct absorption but by **inelastic scattering** of photons. When a photon interacts with a molecule, it can exchange energy with a **vibrational or rotational mode**:
+**Raman spectroscopy** is based on the **inelastic scattering of light** by molecules. During the scattering process, energy is exchanged between the radiation field and the molecule's vibrational or rotational degrees of freedom. Consequently, the scattered photon has a frequency different from that of the incident photon.
 
-- **Stokes line:** scattered photon loses energy (molecule gains vibrational energy)  
-- **Anti-Stokes line:** scattered photon gains energy (molecule loses vibrational energy)
+Unlike the electric-dipole absorption and emission processes discussed above, which involve the absorption or emission of a single photon, Raman scattering involves two interactions with the electromagnetic field: an incoming photon is absorbed and an outgoing photon is emitted through a virtual intermediate state. Raman scattering is therefore a **second-order quantum-mechanical process**, involving two dipole interactions.
 
-The **selection rule** arises from the requirement that the **molecular polarizability** changes during the nuclear motion:
+Depending on the direction of energy transfer, we distinguish:
 
-$$
-\Delta \alpha \neq 0
-$$
+- **Stokes scattering:** The scattered photon loses energy (the molecule gains vibrational or rotational energy).
+- **Anti-Stokes scattering:** The scattered photon gains energy (the molecule loses vibrational or rotational energy).
 
-Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can be Raman active.
+If no energy is exchanged with the molecule, the scattering is **elastic (Rayleigh scattering)** rather than Raman scattering.
 
+The key to understanding Raman scattering is the **molecular polarizability**: molecular vibrations and rotations can modify how the electronic charge distribution responds to an applied electric field. Unlike infrared absorption, which requires a **change in the molecular dipole moment**, Raman scattering requires a **change in polarizability**. This allows light to be scattered at frequencies shifted relative to the incident radiation, even when the molecule has no permanent dipole moment. Hence, homonuclear molecules such as N$_2$ and O$_2$, which are inactive in electric-dipole infrared spectroscopy, can be Raman active.
 
 ![Raman energy level diagram illustrating Stokes and anti-Stokes scattering.  
 *(Image: Dake / Wikimedia Commons, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/){target="_blank"}, [source file](https://commons.wikimedia.org/wiki/File:Raman_energy_levels.svg){target="_blank"})*](./Raman_energy_levels.svg){#fig-raman-energy width=70% fig-alt="Energy level diagram showing Stokes and anti-Stokes Raman scattering with vibrational transitions."}
@@ -508,19 +644,28 @@ Hence, even molecules without a permanent dipole moment (e.g., N$_2$, O$_2$) can
 ## 7.6.3.2 Polarizability and the Origin of Raman Scattering
 
 In Raman scattering, the **electric field of the incident light** induces an **oscillating dipole moment** in the molecule.
-If the molecule’s **polarizability** depends on its **nuclear configuration**, this induced dipole can oscillate not only at the frequency of the incoming light but also at **shifted frequencies** corresponding to molecular vibrations.
+If the molecule's **polarizability** depends on its **nuclear configuration**, this induced dipole can oscillate not only at the frequency of the incoming light but also at **shifted frequencies** corresponding to molecular vibrations.
+
+The **polarizability** describes how easily the charge distribution of a molecule can be distorted by an external electric field. In other words, it measures how rigidly the electrons are bound: a more easily deformable electron cloud corresponds to a larger polarizability.
 
 The **induced dipole moment** is given by
 
 $$
-\vec p_{\rm ind}(t) = \alpha(t) \, \vec E(t),
+\vec p_{\rm ind}(t) = \boldsymbol{\alpha}(t)\,\vec E(t),
 $$
 
-where $\alpha$ is the molecular **polarizability tensor** and $\vec E(t)$ the electric field of the light wave. 
+where $\boldsymbol{\alpha}$ is the molecular **polarizability tensor** and $\vec E(t)$ the electric field of the light wave.
+
+For simplicity, we consider a linearly polarized electric field and only the component of the induced dipole along that field. We can then describe the response by an effective scalar polarizability $\alpha$:
+
+$$
+p_{\rm ind}(t)=\alpha(t)E(t).
+$$
+
 For a monochromatic field,
 
 $$
-\vec E(t) = \vec E_0 \cos(\omega_{\rm in} t).
+E(t)=E_0\cos(\omega_{\rm in}t).
 $$
 
 ---
