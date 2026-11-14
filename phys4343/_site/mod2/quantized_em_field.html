@@ -1,0 +1,3667 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Fischer">
+
+<title>2.7 Quantization of the Electromagnetic Field – Introduction into Atomic, Molecular, and Optical Physics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../mod2/perturb.html" rel="next">
+<link href="../mod2/qosc.html" rel="prev">
+<link href="../icons/icon-192.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8ba0f7c4899a1f6178dd4bd9efe5a1f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dcefd0697d8718c8cee825c826c1a77c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#0d6efd">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Atomic Physics">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .catch(err => console.warn("Service worker:", err));
+    });
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="2.7 Quantization of the Electromagnetic Field – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:description" content="From classical electrodynamics to photons">
+<meta property="og:image" content="https://fsch-d.github.io/mod2/quantized_em_field_files/figure-html/fig-helmholtz-decomposition-output-1.png">
+<meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:image:alt" content="Two schematic vector fields. Left: eight blue arrows radiate outward from an orange positive charge, illustrating a curl-free longitudinal field. Right: three concentric blue circles with clockwise arrows illustrate a divergence-free transverse field.">
+<meta property="og:image:height" content="935">
+<meta property="og:image:width" content="2087">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Introduction into Atomic, Molecular, and Optical Physics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contents.html"> 
+<span class="menu-text">Contents</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/quantized_em_field.html">2.7 Quantization of the Electromagnetic Field</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 From Classical Physics to the Quantum World of Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod1/natconst.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Natural Constants and Atomic Units</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Quantum Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/wavemechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Wave Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/braket.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 States and Operators in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/measurement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Quantum Measurement and the Measurement Problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/heisenberg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Commutators and the Heisenberg Uncertainty Principle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/amcoupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Angular Momenta and Their Couplings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/qosc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 The One-Dimensional Quantum Harmonic Oscillator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/quantized_em_field.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.7 Quantization of the Electromagnetic Field</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.8 Time-Independent Perturbation Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/tdperturb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.9 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.10 The Variational Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.11 Exchange Interaction: Fermions and Bosons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Hydrogen Atom: Wave Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/angmom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Orbital Angular Momentum in Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/hydrogen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Hydrogen atom — Schrödinger equation and radial solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod3/orbitals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Visualizing Hydrogen Orbitals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Hydrogen Atom: Shifts and Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 Electron Spin and Fine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/lamb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 The Lamb Shift — An Introduction to Quantum Electrodynamics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/hfs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3 The Hyperfine Structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Summary — energy-level splitting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod4/fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Hydrogen in Static External Fields</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Absorption and Emission of Radiation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/einstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1 Transition Processes and Einstein Coefficients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spontaneous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2 Spontaneous Decay and Atomic Transition Rates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3 Visualizing Atomic Transitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/selectionr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4 Radiation and Selection Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/spectroscopy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5 Spectroscopy and Spectral Line Widths</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod5/dopplerfree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6 Doppler-Free Saturation Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 More than One Electron Atoms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/helium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.1 Helium (Basics)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/twoelectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2 Two-Electron States in Helium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/hartreefock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3 Calculations for Multielectron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/manye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 Shell Model and Periodic Table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/coupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 Angular Momentum Coupling in Many-Electron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod6/excited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 Excitation and Ionization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 Introduction to Molecular Physics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/molfound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Foundations of Molecular Bonding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/h2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 The H<span class="math inline">\(_2^+\)</span> Molecular Ion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/lcao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Molecular Orbitals and the LCAO Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/beyondh2plus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Beyond H<span class="math inline">\(_2^+\)</span> and LCAO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/nuclear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5 Rotation and Vibration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod7/moltransitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 Molecular Transitions and Spectroscopy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mod8/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 Laser–Atom Interactions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/twoleveltheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.1 Two-Level Systems — The Theoretical Framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/rwa_rabi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.2 Rotating Wave Approximation and Rabi Oscillations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/densitym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3 The Density Matrix Formalism</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/obe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4 The Optical Bloch Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/cooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 Laser Cooling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/bloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 The Bloch Sphere Representation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mod8/ramsey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.7 Ramsey Spectroscopy and Atomic Clocks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Your AMO Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/quantum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Quantum Mechanics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/atomic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Hydrogen Atom: Wave Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/shifts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Hydrogen Atom: Shifts and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/radiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P4 Interaction with Radiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/multielectron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P5 Multielectron Atoms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practice/molecular.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P6 Molecular Physics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#charged-particles-and-electromagnetic-potentials" id="toc-charged-particles-and-electromagnetic-potentials" class="nav-link" data-scroll-target="#charged-particles-and-electromagnetic-potentials">2.7.1. Charged particles and electromagnetic potentials</a></li>
+  <li><a href="#minimal-coupling-from-the-classical-lagrangian" id="toc-minimal-coupling-from-the-classical-lagrangian" class="nav-link" data-scroll-target="#minimal-coupling-from-the-classical-lagrangian">2.7.2. Minimal coupling from the classical Lagrangian</a>
+  <ul class="collapse">
+  <li><a href="#the-lagrangian-of-a-charged-particle" id="toc-the-lagrangian-of-a-charged-particle" class="nav-link" data-scroll-target="#the-lagrangian-of-a-charged-particle">2.7.2.1 The Lagrangian of a charged particle</a></li>
+  <li><a href="#from-lagrangian-to-hamiltonian-mechanics" id="toc-from-lagrangian-to-hamiltonian-mechanics" class="nav-link" data-scroll-target="#from-lagrangian-to-hamiltonian-mechanics">2.7.2.2 From Lagrangian to Hamiltonian mechanics</a></li>
+  <li><a href="#the-hamiltonian-and-minimal-coupling" id="toc-the-hamiltonian-and-minimal-coupling" class="nav-link" data-scroll-target="#the-hamiltonian-and-minimal-coupling">2.7.2.3 The Hamiltonian and minimal coupling</a></li>
+  <li><a href="#minimal-coupling-in-quantum-mechanics" id="toc-minimal-coupling-in-quantum-mechanics" class="nav-link" data-scroll-target="#minimal-coupling-in-quantum-mechanics">2.7.2.4 Minimal coupling in quantum mechanics</a></li>
+  </ul></li>
+  <li><a href="#which-parts-of-the-electromagnetic-field-are-independent" id="toc-which-parts-of-the-electromagnetic-field-are-independent" class="nav-link" data-scroll-target="#which-parts-of-the-electromagnetic-field-are-independent">2.7.3. Which parts of the electromagnetic field are independent?</a>
+  <ul class="collapse">
+  <li><a href="#the-helmholtz-decomposition" id="toc-the-helmholtz-decomposition" class="nav-link" data-scroll-target="#the-helmholtz-decomposition">2.7.3.1. The Helmholtz decomposition</a></li>
+  <li><a href="#the-coulomb-gauge" id="toc-the-coulomb-gauge" class="nav-link" data-scroll-target="#the-coulomb-gauge">2.7.3.2. The Coulomb gauge</a></li>
+  <li><a href="#the-longitudinal-field-and-coulomb-interaction" id="toc-the-longitudinal-field-and-coulomb-interaction" class="nav-link" data-scroll-target="#the-longitudinal-field-and-coulomb-interaction">2.7.3.3. The longitudinal field and Coulomb interaction</a></li>
+  <li><a href="#the-independent-radiation-field" id="toc-the-independent-radiation-field" class="nav-link" data-scroll-target="#the-independent-radiation-field">2.7.3.4. The independent radiation field</a></li>
+  </ul></li>
+  <li><a href="#normal-modes-of-the-free-electromagnetic-field" id="toc-normal-modes-of-the-free-electromagnetic-field" class="nav-link" data-scroll-target="#normal-modes-of-the-free-electromagnetic-field">2.7.4. Normal modes of the free electromagnetic field</a>
+  <ul class="collapse">
+  <li><a href="#the-wave-equation" id="toc-the-wave-equation" class="nav-link" data-scroll-target="#the-wave-equation">2.7.4.1. The wave equation</a></li>
+  <li><a href="#normal-modes-as-a-basis-for-the-electromagnetic-field" id="toc-normal-modes-as-a-basis-for-the-electromagnetic-field" class="nav-link" data-scroll-target="#normal-modes-as-a-basis-for-the-electromagnetic-field">2.7.4.2. Normal modes as a basis for the electromagnetic field</a></li>
+  <li><a href="#equations-of-motion-for-the-normal-modes" id="toc-equations-of-motion-for-the-normal-modes" class="nav-link" data-scroll-target="#equations-of-motion-for-the-normal-modes">2.7.4.3. Equations of motion for the normal modes</a></li>
+  <li><a href="#the-electromagnetic-field-as-a-collection-of-harmonic-oscillators" id="toc-the-electromagnetic-field-as-a-collection-of-harmonic-oscillators" class="nav-link" data-scroll-target="#the-electromagnetic-field-as-a-collection-of-harmonic-oscillators">2.7.4.4. The electromagnetic field as a collection of harmonic oscillators</a></li>
+  </ul></li>
+  <li><a href="#quantization-photons-as-oscillator-excitations" id="toc-quantization-photons-as-oscillator-excitations" class="nav-link" data-scroll-target="#quantization-photons-as-oscillator-excitations">2.7.5. Quantization: photons as oscillator excitations</a>
+  <ul class="collapse">
+  <li><a href="#the-quantized-electromagnetic-field" id="toc-the-quantized-electromagnetic-field" class="nav-link" data-scroll-target="#the-quantized-electromagnetic-field">2.7.5.1. The quantized electromagnetic field</a></li>
+  <li><a href="#vacuum-fluctuations-and-the-uncertainty-principle" id="toc-vacuum-fluctuations-and-the-uncertainty-principle" class="nav-link" data-scroll-target="#vacuum-fluctuations-and-the-uncertainty-principle">2.7.5.2. Vacuum fluctuations and the uncertainty principle</a></li>
+  </ul></li>
+  <li><a href="#quantum-states-of-the-electromagnetic-field" id="toc-quantum-states-of-the-electromagnetic-field" class="nav-link" data-scroll-target="#quantum-states-of-the-electromagnetic-field">2.7.6. Quantum States of the Electromagnetic Field</a>
+  <ul class="collapse">
+  <li><a href="#field-quadratures-and-the-uncertainty-principle" id="toc-field-quadratures-and-the-uncertainty-principle" class="nav-link" data-scroll-target="#field-quadratures-and-the-uncertainty-principle">Field quadratures and the uncertainty principle</a></li>
+  <li><a href="#fock-states-light-with-a-definite-photon-number" id="toc-fock-states-light-with-a-definite-photon-number" class="nav-link" data-scroll-target="#fock-states-light-with-a-definite-photon-number">2.7.6.1. Fock states: Light with a definite photon number</a></li>
+  <li><a href="#coherent-states-the-quantum-description-of-classical-light" id="toc-coherent-states-the-quantum-description-of-classical-light" class="nav-link" data-scroll-target="#coherent-states-the-quantum-description-of-classical-light">2.7.6.2. Coherent states: The quantum description of classical light</a></li>
+  <li><a href="#squeezed-states-redistributing-quantum-uncertainty" id="toc-squeezed-states-redistributing-quantum-uncertainty" class="nav-link" data-scroll-target="#squeezed-states-redistributing-quantum-uncertainty">2.7.6.3. Squeezed states: Redistributing quantum uncertainty</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">2.7.8. Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/quantized_em_field.html">2.7 Quantization of the Electromagnetic Field</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">2.7 Quantization of the Electromagnetic Field</h1>
+<p class="subtitle lead">From classical electrodynamics to photons</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Fischer </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The quantum harmonic oscillator is more than a model for a particle moving near a stable equilibrium. It also provides the mathematical framework for describing the electromagnetic field quantum mechanically. The central result of this chapter is that <strong>each independent normal mode of the free electromagnetic field is equivalent to a harmonic oscillator</strong>. Its quantized excitations are photons.</p>
+<p>Establishing this connection requires concepts from classical mechanics and electrodynamics that go beyond the usual introductory physics curriculum. These include the Lagrangian and Hamiltonian formulations of mechanics, electromagnetic potentials, gauge transformations, and the energy of electromagnetic fields. A complete and mathematically rigorous treatment would require considerably more background and is beyond the scope of this course.</p>
+<p>This chapter therefore aims to <strong>strike a balance between theoretical foundations and practical relevance</strong>. Rather than developing all the underlying classical theory from first principles, we introduce the essential concepts and use them to motivate the quantization of the electromagnetic field. The emphasis is on understanding the physical principles and the origin of the results that we will use in atomic, molecular, and optical physics.</p>
+<p>We begin by examining how charged particles interact with classical electromagnetic potentials, leading to the <em>minimal-coupling Hamiltonian</em>. We then describe the electromagnetic field in terms of independent normal modes and show how their quantization leads to photons, vacuum fluctuations, and different quantum states of light.</p>
+<p>These results provide the foundation for the quantum description of light–matter interactions developed later in this course, particularly the treatment of atomic transitions, photon absorption, and spontaneous emission in Chapter 5.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Scope of this chapter">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope of this chapter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter draws on theoretical concepts that may not yet be familiar to all students. The detailed derivations are included for those who wish to explore the foundations more deeply, but working through every step is <strong>not required for this course</strong>.</p>
+<p>The primary learning goal is to understand the physical meaning of field quantization, the nature of photons, and how this framework connects to atomic physics.</p>
+</div>
+</div>
+</section>
+<section id="charged-particles-and-electromagnetic-potentials" class="level2">
+<h2 class="anchored" data-anchor-id="charged-particles-and-electromagnetic-potentials">2.7.1. Charged particles and electromagnetic potentials</h2>
+<p>A particle of mass <span class="math inline">\(m\)</span> and charge <span class="math inline">\(q\)</span> moving with velocity <span class="math inline">\(\vec v=\dot{\vec r}\)</span> in an electromagnetic field experiences the <strong>Lorentz force</strong>,</p>
+<p><span class="math display">\[
+m\ddot{\vec r}
+=q\left[\vec E(\vec r,t)+\dot{\vec r}\times\vec B(\vec r,t)\right].
+\]</span></p>
+<p>The electromagnetic fields themselves are governed by <strong>Maxwell’s equations</strong>. In SI units, these are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec\nabla\cdot\vec E &amp;= \frac{\rho}{\varepsilon_0},
+&amp;\qquad
+\vec\nabla\cdot\vec B &amp;= 0,\\[6pt]
+\vec\nabla\times\vec E &amp;= -\frac{\partial\vec B}{\partial t},
+&amp;\qquad
+\vec\nabla\times\vec B
+&amp;= \mu_0\vec j+\mu_0\varepsilon_0
+\frac{\partial\vec E}{\partial t}.
+\end{aligned}
+\]</span></p>
+<p>Here, <span class="math inline">\(\rho(\vec r,t)\)</span> and <span class="math inline">\(\vec j(\vec r,t)\)</span> denote the electric charge and current densities, respectively.</p>
+<p>Rather than working directly with the electric and magnetic fields, it is often convenient to introduce a <strong>scalar potential</strong> <span class="math inline">\(\phi(\vec r,t)\)</span> and a <strong>vector potential</strong> <span class="math inline">\(\vec A(\vec r,t)\)</span>, such that</p>
+<p><span class="math display">\[
+\boxed{
+\vec E=-\vec\nabla\phi-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A.
+}
+\]</span></p>
+<p>These expressions automatically satisfy two of Maxwell’s equations: <span class="math inline">\(\vec\nabla\cdot\vec B=0\)</span> and <span class="math inline">\(\vec\nabla\times\vec E=-\partial_t\vec B\)</span>. The remaining two Maxwell equations determine the potentials in terms of the charge and current distributions.</p>
+<p>An important property of this description is that the potentials are <strong>not uniquely determined</strong> by the electromagnetic fields. Consider an arbitrary, sufficiently smooth scalar function <span class="math inline">\(\chi(\vec r,t)\)</span> of position and time. We can define new potentials through the <strong>gauge transformation</strong></p>
+<p><span class="math display">\[
+\boxed{
+\vec A'=\vec A+\vec\nabla\chi,
+\qquad
+\phi'=\phi-\frac{\partial\chi}{\partial t}.
+}
+\]</span></p>
+<p>Although the potentials change, the physical electromagnetic fields remain exactly the same. Thus, different choices of <span class="math inline">\(\chi(\vec r,t)\)</span> correspond to different mathematical descriptions of the same electromagnetic field.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Gauge transformations leave the fields unchanged">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Gauge transformations leave the fields unchanged
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the magnetic field, we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec B'
+&amp;=\vec\nabla\times\vec A'\\
+&amp;=\vec\nabla\times(\vec A+\vec\nabla\chi)\\
+&amp;=\vec\nabla\times\vec A
++\underbrace{\vec\nabla\times(\vec\nabla\chi)}_{=0}\\
+&amp;=\vec B.
+\end{aligned}
+\]</span></p>
+<p>For the electric field,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec E'
+&amp;=-\vec\nabla\phi'-\frac{\partial\vec A'}{\partial t}\\
+&amp;=-\vec\nabla\left(\phi-\frac{\partial\chi}{\partial t}\right)
+-\frac{\partial}{\partial t}
+\left(\vec A+\vec\nabla\chi\right)\\
+&amp;=-\vec\nabla\phi-\frac{\partial\vec A}{\partial t}
++\underbrace{\vec\nabla\frac{\partial\chi}{\partial t}
+-\frac{\partial}{\partial t}(\vec\nabla\chi)}_{=0}\\
+&amp;=\vec E.
+\end{aligned}
+\]</span></p>
+<p>Here we used the fact that spatial and temporal derivatives commute for sufficiently smooth functions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="minimal-coupling-from-the-classical-lagrangian" class="level2">
+<h2 class="anchored" data-anchor-id="minimal-coupling-from-the-classical-lagrangian">2.7.2. Minimal coupling from the classical Lagrangian</h2>
+<p>In Newtonian mechanics, the motion of a particle is determined by Newton’s second law, <span class="math inline">\(\vec F=m\ddot{\vec r}\)</span>. An equivalent description is provided by <strong>Lagrangian mechanics</strong>, which formulates the equations of motion in terms of a single function, the <em>Lagrangian</em> <span class="math inline">\(L\)</span>.</p>
+<p>For a particle moving in a conservative potential <span class="math inline">\(V(\vec r)\)</span>, the Lagrangian is simply the difference between kinetic and potential energy,</p>
+<p><span class="math display">\[
+L=T-V=\frac12m\dot{\vec r}^{\,2}-V(\vec r).
+\]</span></p>
+<p>More generally, the equations of motion follow from the <strong>principle of stationary action</strong>: the actual trajectory between two fixed endpoints makes the action</p>
+<p><span class="math display">\[
+S=\int_{t_i}^{t_f}L\,dt
+\]</span></p>
+<p>stationary with respect to small variations of the trajectory. This leads to the <strong>Euler–Lagrange equations</strong> (also called Lagrange’s equations of the second kind),</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d}{dt}\frac{\partial L}{\partial\dot x_i}
+-\frac{\partial L}{\partial x_i}=0.
+}
+\]</span></p>
+<p>For <span class="math inline">\(L=T-V\)</span>, these equations reproduce Newton’s second law, <span class="math inline">\(m\ddot{\vec r}=-\vec\nabla V\)</span>. Thus, Lagrangian mechanics does not introduce different physics; it provides another way of describing the same motion.</p>
+<section id="the-lagrangian-of-a-charged-particle" class="level3">
+<h3 class="anchored" data-anchor-id="the-lagrangian-of-a-charged-particle">2.7.2.1 The Lagrangian of a charged particle</h3>
+<p>For a charged particle in an electromagnetic field, the situation is slightly more complicated. The magnetic part of the Lorentz force, <span class="math inline">\(q\vec v\times\vec B\)</span>, depends on the particle’s velocity and therefore cannot be obtained from an ordinary position-dependent potential energy <span class="math inline">\(V(\vec r)\)</span>.</p>
+<p>Instead, the electromagnetic interaction requires a velocity-dependent term in the Lagrangian. For a particle of mass <span class="math inline">\(m\)</span> and charge <span class="math inline">\(q\)</span> moving in prescribed electromagnetic potentials <span class="math inline">\(\phi(\vec r,t)\)</span> and <span class="math inline">\(\vec A(\vec r,t)\)</span>, we use</p>
+<p><span class="math display">\[
+\boxed{
+L=\frac12m\dot{\vec r}^{\,2}
++q\dot{\vec r}\cdot\vec A(\vec r,t)
+-q\phi(\vec r,t).
+}
+\]</span></p>
+<p>The first term is the kinetic energy. The term <span class="math inline">\(-q\phi\)</span> describes the interaction with the scalar potential, while <span class="math inline">\(q\dot{\vec r}\cdot\vec A\)</span> accounts for the velocity-dependent electromagnetic interaction.</p>
+<p><strong>Why is this the correct Lagrangian?</strong> We can establish its consistency with classical electrodynamics by checking two essential properties:</p>
+<ol type="1">
+<li><p><strong>Lorentz force:</strong> The Euler–Lagrange equations must reproduce the familiar equation of motion <span class="math inline">\(m\ddot{\vec r}=q(\vec E+\vec v\times\vec B)\)</span>.</p></li>
+<li><p><strong>Gauge invariance:</strong> Changing the electromagnetic potentials by a gauge transformation must not change the particle’s physical motion.</p></li>
+</ol>
+<p>We verify the first property below. The second will be demonstrated after introducing the canonical momentum and Hamiltonian.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: recover the Lorentz force, component by component">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: recover the Lorentz force, component by component
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a Cartesian coordinate <span class="math inline">\(x_i\)</span>, the Euler–Lagrange equation is</p>
+<p><span class="math display">\[
+\frac{d}{dt}\frac{\partial L}{\partial\dot x_i}
+-\frac{\partial L}{\partial x_i}=0.
+\]</span></p>
+<p>First,</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial\dot x_i}=m\dot x_i+qA_i,
+\]</span></p>
+<p>and therefore, using the chain rule along the trajectory,</p>
+<p><span class="math display">\[
+\frac{d}{dt}\frac{\partial L}{\partial\dot x_i}
+=m\ddot x_i+q\partial_t A_i
++q\sum_j\dot x_j\partial_j A_i.
+\]</span></p>
+<p>On the other hand,</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial x_i}
+=q\sum_j\dot x_j\partial_i A_j-q\partial_i\phi.
+\]</span></p>
+<p>Combining the two expressions gives</p>
+<p><span class="math display">\[
+m\ddot x_i=q(-\partial_i\phi-\partial_t A_i)
++q\sum_j\dot x_j(\partial_i A_j-\partial_j A_i).
+\]</span></p>
+<p>The first parentheses equal <span class="math inline">\(E_i\)</span>. The vector identity</p>
+<p><span class="math display">\[
+(\mathbf v\times(\boldsymbol\nabla\times\mathbf A))_i
+=\sum_jv_j(\partial_iA_j-\partial_jA_i)
+\]</span></p>
+<p>identifies the second term as <span class="math inline">\((\mathbf v\times\mathbf B)_i\)</span>. Thus</p>
+<p><span class="math display">\[
+m\ddot{\mathbf r}=q(\mathbf E+\mathbf v\times\mathbf B).
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="from-lagrangian-to-hamiltonian-mechanics" class="level3">
+<h3 class="anchored" data-anchor-id="from-lagrangian-to-hamiltonian-mechanics">2.7.2.2 From Lagrangian to Hamiltonian mechanics</h3>
+<p>The Lagrangian formulation describes the motion of a particle in terms of its position <span class="math inline">\(\vec r\)</span> and velocity <span class="math inline">\(\dot{\vec r}\)</span>. There is, however, another equivalent formulation of classical mechanics that is particularly useful for our purposes: <strong>Hamiltonian mechanics</strong>.</p>
+<p>Instead of working with positions and velocities, Hamiltonian mechanics uses <strong>positions and momenta</strong> as its fundamental variables. Together, these define the <em>phase space</em> of a system, which combines position and momentum space. A point in phase space specifies the instantaneous state of a classical system.</p>
+<p>To make this change of variables, we first need to define the momentum associated with each coordinate. In Lagrangian mechanics, this is done through</p>
+<p><span class="math display">\[
+\boxed{
+p_i=\frac{\partial L}{\partial\dot x_i}.
+}
+\]</span></p>
+<p>This quantity is called the <strong>canonical momentum</strong>, or the <em>momentum conjugate</em> to the coordinate <span class="math inline">\(x_i\)</span>. The term <em>conjugate</em> indicates that <span class="math inline">\(x_i\)</span> and <span class="math inline">\(p_i\)</span> form a corresponding pair of phase-space coordinates.</p>
+<p>For the familiar Lagrangian <span class="math inline">\(L=T-V\)</span>, where the potential energy does not depend on velocity, we find</p>
+<p><span class="math display">\[
+p_i=\frac{\partial}{\partial\dot x_i}
+\left(\frac12m\dot{\vec r}^{\,2}-V\right)
+=m\dot x_i.
+\]</span></p>
+<p>Thus, in this case, canonical momentum is identical to the familiar <strong>mechanical momentum</strong> <span class="math inline">\(m\dot{\vec r}\)</span>.</p>
+<p>For a charged particle in an electromagnetic field, however, the Lagrangian contains an additional velocity-dependent term, <span class="math inline">\(q\dot{\vec r}\cdot\vec A\)</span>. Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\vec p=\frac{\partial L}{\partial\dot{\vec r}}
+=m\dot{\vec r}+q\vec A.
+}
+\]</span></p>
+<p>The canonical momentum therefore differs from the mechanical momentum:</p>
+<p><span class="math display">\[
+\boxed{
+\underbrace{m\dot{\vec r}}_{\text{mechanical momentum}}
+=
+\underbrace{\vec p}_{\text{canonical momentum}}
+-q\vec A.
+}
+\]</span></p>
+<p>This distinction is important because the canonical momentum is the variable used in Hamiltonian mechanics and, subsequently, in the canonical formulation of quantum mechanics.</p>
+</section>
+<section id="the-hamiltonian-and-minimal-coupling" class="level3">
+<h3 class="anchored" data-anchor-id="the-hamiltonian-and-minimal-coupling">2.7.2.3 The Hamiltonian and minimal coupling</h3>
+<p>Having introduced positions and canonical momenta as our new variables, we now need a function that describes the dynamics in terms of these variables.</p>
+<p>In Lagrangian mechanics, this role is played by the Lagrangian <span class="math inline">\(L(\vec r,\dot{\vec r},t)\)</span>. In Hamiltonian mechanics, it is played by the <strong>Hamiltonian</strong> <span class="math inline">\(H(\vec r,\vec p,t)\)</span>.</p>
+<p>The two functions are related by a mathematical transformation known as the <strong>Legendre transformation</strong>:</p>
+<p><span class="math display">\[
+\boxed{
+H=\vec p\cdot\dot{\vec r}-L.
+}
+\]</span></p>
+<p>This transformation replaces the dependence on velocity by a dependence on canonical momentum. In particular, the velocities on the right-hand side must be expressed in terms of <span class="math inline">\(\vec r\)</span> and <span class="math inline">\(\vec p\)</span>.</p>
+<p>The Hamiltonian determines the time evolution of the phase-space coordinates through <strong>Hamilton’s equations</strong>,</p>
+<p><span class="math display">\[
+\boxed{
+\dot x_i=\frac{\partial H}{\partial p_i},
+\qquad
+\dot p_i=-\frac{\partial H}{\partial x_i}.
+}
+\]</span></p>
+<p>These equations are equivalent to the Euler–Lagrange equations and therefore to Newton’s equations of motion. They simply express the same physics in terms of positions and momenta rather than positions and velocities.</p>
+<p>For a particle with the familiar Lagrangian <span class="math inline">\(L=T-V\)</span>, the Legendre transformation gives</p>
+<p><span class="math display">\[
+H=\frac{\vec p^{\,2}}{2m}+V(\vec r),
+\]</span></p>
+<p>which is just the total mechanical energy <span class="math inline">\(T+V\)</span>. This is the Hamiltonian already familiar from elementary quantum mechanics.</p>
+<p>We now apply the same procedure to a charged particle in an electromagnetic field. For our electromagnetic Lagrangian, we substitute <span class="math inline">\(\vec p=m\dot{\vec r}+q\vec A\)</span> and obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+H
+&amp;=(m\dot{\vec r}+q\vec A)\cdot\dot{\vec r}
+-\left(
+\frac12m\dot{\vec r}^{\,2}
++q\dot{\vec r}\cdot\vec A-q\phi
+\right)\\
+&amp;=\frac12m\dot{\vec r}^{\,2}+q\phi.
+\end{aligned}
+\]</span></p>
+<p>This expression has a familiar form: the kinetic energy plus the electric potential energy. The magnetic field does not contribute a separate potential-energy term.</p>
+<p>However, the Hamiltonian must be expressed in terms of the canonical momentum <span class="math inline">\(\vec p\)</span>, rather than the velocity. Using</p>
+<p><span class="math display">\[
+\dot{\vec r}=\frac{\vec p-q\vec A}{m},
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\boxed{
+H(\vec r,\vec p,t)
+=\frac{[\vec p-q\vec A(\vec r,t)]^2}{2m}
++q\phi(\vec r,t).
+}
+\]</span></p>
+<p>This is the <strong>minimal-coupling Hamiltonian</strong>.</p>
+<p>Compared with the Hamiltonian of a free particle, <span class="math inline">\(H_0=\vec p^{\,2}/(2m)\)</span>, the electromagnetic interaction enters through the replacement</p>
+<p><span class="math display">\[
+\boxed{
+\vec p\longrightarrow\vec p-q\vec A,
+}
+\]</span></p>
+<p>together with the scalar-potential term <span class="math inline">\(q\phi\)</span>.</p>
+<p>The replacement is not an arbitrary prescription. It follows directly from the distinction between canonical and mechanical momentum.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why gauge transformations do not change the particle's motion">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why gauge transformations do not change the particle’s motion
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Under a gauge transformation,</p>
+<p><span class="math display">\[
+\vec A'=\vec A+\vec\nabla\chi,
+\qquad
+\phi'=\phi-\frac{\partial\chi}{\partial t},
+\]</span></p>
+<p>the Lagrangian changes by</p>
+<p><span class="math display">\[
+\begin{aligned}
+L'-L
+&amp;=q\dot{\vec r}\cdot\vec\nabla\chi
++q\frac{\partial\chi}{\partial t}\\
+&amp;=q\frac{d}{dt}\chi(\vec r(t),t).
+\end{aligned}
+\]</span></p>
+<p>The last step uses the <strong>chain rule</strong>. Notice the distinction between partial and total derivatives:</p>
+<ul>
+<li>The <strong>partial derivative</strong> <span class="math inline">\(\partial\chi/\partial t\)</span> describes how <span class="math inline">\(\chi(\vec r,t)\)</span> changes with time at a <em>fixed position</em>.</li>
+<li>The <strong>total derivative</strong> <span class="math inline">\(d\chi/dt\)</span> describes how <span class="math inline">\(\chi\)</span> changes as we follow the moving particle along its trajectory <span class="math inline">\(\vec r(t)\)</span>.</li>
+</ul>
+<p>Since <span class="math inline">\(\chi\)</span> depends on both position and time,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d}{dt}\chi(\vec r(t),t)
+=
+\underbrace{\dot{\vec r}\cdot\vec\nabla\chi}_{
+\text{change due to motion}}
++
+\underbrace{\frac{\partial\chi}{\partial t}}_{
+\text{change at fixed position}}.
+}
+\]</span></p>
+<p>Thus, the Lagrangian changes by a <strong>total time derivative</strong>. When we integrate over time to obtain the action, this gives</p>
+<p><span class="math display">\[
+S'=S+q[\chi(\vec r_f,t_f)-\chi(\vec r_i,t_i)].
+\]</span></p>
+<p><strong>Why does this not affect the motion?</strong></p>
+<p>Recall that the principle of stationary action compares possible trajectories connecting the same initial and final positions at fixed times.</p>
+<p>The additional term depends only on these endpoints, <strong>not on the path taken between them</strong>. Consequently, every possible trajectory acquires exactly the same additional contribution to its action.</p>
+<p>Adding the same constant to the action of every trajectory cannot change which trajectory makes the action stationary.</p>
+<p>Therefore, the equations of motion remain unchanged. This establishes the <strong>gauge invariance of the particle dynamics</strong>, our second consistency requirement.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="minimal-coupling-in-quantum-mechanics" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-coupling-in-quantum-mechanics">2.7.2.4 Minimal coupling in quantum mechanics</h3>
+<p>We can now make the connection to quantum mechanics.</p>
+<p>In the position representation, the canonical momentum is represented by the differential operator</p>
+<p><span class="math display">\[
+\hat{\vec p}=-i\hbar\vec\nabla.
+\]</span></p>
+<p>Replacing the classical canonical momentum in the minimal-coupling Hamiltonian by this operator gives</p>
+<p><span class="math display">\[
+\boxed{
+\hat H=
+\frac{1}{2m}
+\left[-i\hbar\vec\nabla-q\vec A(\vec r,t)\right]^2
++q\phi(\vec r,t).
+}
+\]</span></p>
+<p>The corresponding mechanical-momentum operator is</p>
+<p><span class="math display">\[
+\hat{\vec p}_{\mathrm{mech}}
+=\hat{\vec p}-q\vec A.
+\]</span></p>
+<p>An important detail is that <span class="math inline">\(\hat{\vec p}\)</span> is a differential operator. If <span class="math inline">\(\vec A\)</span> depends on position, the two generally do not commute. The square in the Hamiltonian therefore represents the complete operator product, including derivatives acting on the vector potential.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Proof: Gauge invariance of the Schrödinger equation">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof: Gauge invariance of the Schrödinger equation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Statement.</strong> Consider a wavefunction <span class="math inline">\(\psi(\vec r,t)\)</span> that satisfies the Schrödinger equation</p>
+<p><span class="math display">\[
+i\hbar\frac{\partial\psi}{\partial t}=\hat H\psi,
+\]</span></p>
+<p>with the minimal-coupling Hamiltonian</p>
+<p><span class="math display">\[
+\hat H=\frac{1}{2m}(-i\hbar\vec\nabla-q\vec A)^2+q\phi.
+\]</span></p>
+<p>We want to demonstrate that a gauge transformation of the electromagnetic potentials,</p>
+<p><span class="math display">\[
+\vec A'=\vec A+\vec\nabla\chi,
+\qquad
+\phi'=\phi-\frac{\partial\chi}{\partial t},
+\]</span></p>
+<p>does not change the physical predictions of quantum mechanics.</p>
+<p>More precisely, we will show that if <span class="math inline">\(\psi\)</span> solves the original Schrödinger equation, then the <strong>phase-transformed wavefunction</strong></p>
+<p><span class="math display">\[
+\boxed{
+\psi'(\vec r,t)=e^{iq\chi(\vec r,t)/\hbar}\psi(\vec r,t)
+}
+\]</span></p>
+<p>solves the Schrödinger equation with the transformed Hamiltonian <span class="math inline">\(\hat H'\)</span>.</p>
+<p><strong>Proof.</strong> We begin with the momentum-dependent part of the Hamiltonian. In the new gauge, the mechanical-momentum operator is</p>
+<p><span class="math display">\[
+\hat{\vec p}_{\mathrm{mech}}'
+=-i\hbar\vec\nabla-q\vec A'.
+\]</span></p>
+<p>When this operator acts on the transformed wavefunction, the gradient acts on both the exponential phase factor and the original wavefunction. Using the product rule,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left[-i\hbar\vec\nabla-q\left(\vec A+\vec\nabla\chi\right)\right]
+\left(e^{iq\chi/\hbar}\psi\right)\\
+&amp;\quad=
+-i\hbar\vec\nabla\left(e^{iq\chi/\hbar}\psi\right)
+-q\left(\vec A+\vec\nabla\chi\right)e^{iq\chi/\hbar}\psi\\
+&amp;\quad=
+e^{iq\chi/\hbar}
+\left[
+-i\hbar\vec\nabla\psi
++q(\vec\nabla\chi)\psi
+-q\vec A\psi
+-q(\vec\nabla\chi)\psi
+\right]\\
+&amp;\quad=
+e^{iq\chi/\hbar}
+\left(-i\hbar\vec\nabla-q\vec A\right)\psi.
+\end{aligned}
+\]</span></p>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> The gradient <span class="math inline">\(\vec\nabla\chi\)</span> acts only on the gauge function <span class="math inline">\(\chi\)</span> and is therefore an ordinary vector-valued function. In contrast, the standalone gradient operator <span class="math inline">\(\vec\nabla\)</span> acts on the entire product <span class="math inline">\(e^{iq\chi/\hbar}\psi\)</span>, requiring the product rule. The two resulting terms involving <span class="math inline">\(\vec\nabla\chi\)</span> cancel exactly.</p>
+</blockquote>
+<p>Applying the same relation once more shows that the entire kinetic-energy operator transforms in the same way:</p>
+<p><span class="math display">\[
+\frac{1}{2m}(-i\hbar\vec\nabla-q\vec A')^2\psi'
+=
+e^{iq\chi/\hbar}
+\frac{1}{2m}(-i\hbar\vec\nabla-q\vec A)^2\psi.
+\]</span></p>
+<p>We must also account for the scalar potential. Since <span class="math inline">\(\phi'=\phi-\partial_t\chi\)</span>, the transformed Hamiltonian acting on <span class="math inline">\(\psi'\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{
+\hat H'\psi'
+=e^{iq\chi/\hbar}
+\left(\hat H\psi-q\frac{\partial\chi}{\partial t}\psi\right).
+}
+\]</span></p>
+<p>Now consider the <strong>time derivative</strong> on the left-hand side of the Schrödinger equation. Because the phase factor also depends on time, the product rule gives</p>
+<p><span class="math display">\[
+i\hbar\frac{\partial\psi'}{\partial t}
+=e^{iq\chi/\hbar}
+\left(i\hbar\frac{\partial\psi}{\partial t}
+-q\frac{\partial\chi}{\partial t}\psi\right).
+\]</span></p>
+<p>But the original wavefunction satisfies <span class="math inline">\(i\hbar\partial_t\psi=\hat H\psi\)</span>. Substituting this into the last expression, we obtain</p>
+<p><span class="math display">\[
+i\hbar\frac{\partial\psi'}{\partial t}
+=e^{iq\chi/\hbar}
+\left(\hat H\psi-q\frac{\partial\chi}{\partial t}\psi\right).
+\]</span></p>
+<p>This is exactly the expression we obtained for <span class="math inline">\(\hat H'\psi'\)</span>. Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+i\hbar\frac{\partial\psi'}{\partial t}=\hat H'\psi'.
+}
+\]</span></p>
+<p><strong>Conclusion.</strong> The Schrödinger equation retains its form under a gauge transformation, provided the wavefunction acquires the corresponding position- and time-dependent phase factor.</p>
+<p>Since this factor has unit magnitude, the probability density is unchanged:</p>
+<p><span class="math display">\[
+|\psi'(\vec r,t)|^2=|\psi(\vec r,t)|^2.
+\]</span></p>
+<p>Other physical observables are likewise gauge independent when their operators are transformed consistently. The wavefunction and electromagnetic potentials may change, but they still describe the <strong>same physical system</strong>.</p>
+</div>
+</div>
+</div>
+<p>At this point, the electromagnetic potentials <span class="math inline">\(\vec A\)</span> and <span class="math inline">\(\phi\)</span> are still prescribed classical functions. In the following sections, we will describe the electromagnetic field itself as a dynamical system and ultimately quantize its independent degrees of freedom.</p>
+</section>
+</section>
+<section id="which-parts-of-the-electromagnetic-field-are-independent" class="level2">
+<h2 class="anchored" data-anchor-id="which-parts-of-the-electromagnetic-field-are-independent">2.7.3. Which parts of the electromagnetic field are independent?</h2>
+<p>In the previous section, we treated the electromagnetic potentials as prescribed classical functions. Our next goal is to describe the electromagnetic field itself as a dynamical system, and eventually to quantize it.</p>
+<p>To do so, we must first identify its <strong>independent degrees of freedom</strong>. For a particle, we can use its position and canonical momentum as dynamical variables. But what are the corresponding variables for an electromagnetic field?</p>
+<p>At first glance, we might consider the three components of the electric field <span class="math inline">\(\vec E\)</span> and the three components of the magnetic field <span class="math inline">\(\vec B\)</span>. However, these six components are not independent: they must satisfy Maxwell’s equations.</p>
+<p>In particular, two of Maxwell’s equations,</p>
+<p><span class="math display">\[
+\vec\nabla\cdot\vec E=\frac{\rho}{\varepsilon_0},
+\qquad
+\vec\nabla\cdot\vec B=0,
+\]</span></p>
+<p>contain no time derivatives. They impose <strong>constraints</strong> on the fields at any given instant.</p>
+<p>The first equation tells us that the divergence of the electric field is determined by the charge distribution. The second requires the magnetic field to have zero divergence.</p>
+<p>The remaining Maxwell equations describe how the electric and magnetic fields evolve in time. Thus, Maxwell’s equations contain both <strong>constraints</strong> and <strong>dynamical equations</strong>.</p>
+<p>Before quantizing the field, we need to distinguish the parts constrained by the charge distribution from those that can evolve as independent electromagnetic degrees of freedom.</p>
+<section id="the-helmholtz-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="the-helmholtz-decomposition">2.7.3.1. The Helmholtz decomposition</h3>
+<p>A useful mathematical result, known as the <strong>Helmholtz decomposition</strong>, states that a sufficiently well-behaved vector field can be separated into two parts:</p>
+<ul>
+<li>A <strong>longitudinal</strong>, or <em>curl-free</em>, component.</li>
+<li>A <strong>transverse</strong>, or <em>divergence-free</em>, component.</li>
+</ul>
+<p>For the electric field, we write</p>
+<p><span class="math display">\[
+\boxed{
+\vec E=\vec E_{\mathrm L}+\vec E_{\mathrm T},
+}
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+\boxed{
+\vec\nabla\times\vec E_{\mathrm L}=0,
+\qquad
+\vec\nabla\cdot\vec E_{\mathrm T}=0.
+}
+\]</span></p>
+<p>The longitudinal component has no curl, while the transverse component has no divergence.</p>
+<p>The terms <em>longitudinal</em> and <em>transverse</em> may seem unusual at this point. For now, they are simply names for these two mathematical properties. Their geometric interpretation will become clearer when we introduce the normal modes of the field.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why can a vector field be separated into longitudinal and transverse parts?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why can a vector field be separated into longitudinal and transverse parts?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong>Helmholtz decomposition</strong> states that a sufficiently smooth vector field <span class="math inline">\(\vec F(\vec r)\)</span>, with suitable boundary conditions, can be written as</p>
+<p><span class="math display">\[
+\vec F=\vec F_{\mathrm L}+\vec F_{\mathrm T},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\vec\nabla\times\vec F_{\mathrm L}=0,
+\qquad
+\vec\nabla\cdot\vec F_{\mathrm T}=0.
+\]</span></p>
+<p><strong>How can we construct these two components?</strong></p>
+<p>We first introduce a scalar function <span class="math inline">\(\Phi(\vec r)\)</span> satisfying Poisson’s equation,</p>
+<p><span class="math display">\[
+\nabla^2\Phi=-\vec\nabla\cdot\vec F.
+\]</span></p>
+<p>We then define the longitudinal component as</p>
+<p><span class="math display">\[
+\boxed{
+\vec F_{\mathrm L}=-\vec\nabla\Phi.
+}
+\]</span></p>
+<p>Because the curl of a gradient always vanishes,</p>
+<p><span class="math display">\[
+\vec\nabla\times\vec F_{\mathrm L}
+=-\vec\nabla\times(\vec\nabla\Phi)=0.
+\]</span></p>
+<p>Next, define the remaining part of the field by</p>
+<p><span class="math display">\[
+\boxed{
+\vec F_{\mathrm T}=\vec F-\vec F_{\mathrm L}.
+}
+\]</span></p>
+<p>Taking its divergence gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec\nabla\cdot\vec F_{\mathrm T}
+&amp;=\vec\nabla\cdot\vec F
+  -\vec\nabla\cdot\vec F_{\mathrm L}\\
+&amp;=\vec\nabla\cdot\vec F+\nabla^2\Phi\\
+&amp;=0.
+\end{aligned}
+\]</span></p>
+<p>Thus, the first component is curl-free and the second is divergence-free, as required.</p>
+<p>For fields that vanish sufficiently rapidly at infinity, Poisson’s equation has the solution</p>
+<p><span class="math display">\[
+\Phi(\vec r)=
+\frac{1}{4\pi}
+\int
+\frac{\vec\nabla'\cdot\vec F(\vec r')}
+{|\vec r-\vec r'|}
+\,d^3r'.
+\]</span></p>
+<p>This construction establishes the decomposition without assuming that the field describes a wave.</p>
+<p><strong>What about the names?</strong></p>
+<p>The terms <em>longitudinal</em> and <em>transverse</em> become geometrically transparent when the field is later expanded into spatial Fourier components. For each component, longitudinal means parallel to its spatial wave vector and transverse means perpendicular to it.</p>
+<p>That interpretation does not require the field to be an electromagnetic wave; Fourier components can describe arbitrary spatial field distributions.</p>
+</div>
+</div>
+</div>
+<p><strong>Why is this decomposition useful?</strong></p>
+<p>Consider Gauss’s law. Substituting the decomposition of the electric field gives</p>
+<p><span class="math display">\[
+\vec\nabla\cdot\vec E_{\mathrm L}
++\vec\nabla\cdot\vec E_{\mathrm T}
+=\frac{\rho}{\varepsilon_0}.
+\]</span></p>
+<p>By definition, the transverse component has zero divergence. Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\vec\nabla\cdot\vec E_{\mathrm L}
+=\frac{\rho}{\varepsilon_0}.
+}
+\]</span></p>
+<p>Together with the condition <span class="math inline">\(\vec\nabla\times\vec E_{\mathrm L}=0\)</span> and suitable boundary conditions, this determines the longitudinal electric field from the charge distribution.</p>
+<p>The transverse component, on the other hand, is not determined by Gauss’s law.</p>
+<p>We have therefore achieved our first objective: <strong>the decomposition separates the electric field constrained by the charges from the part that can possess independent dynamics.</strong></p>
+<div id="cell-fig-helmholtz-decomposition" class="cell" data-fig-height="5.5" data-fig-width="11.6" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Circle, FancyArrowPatch</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure settings</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>BLUE <span class="op">=</span> <span class="st">"#287dbb"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ORANGE <span class="op">=</span> <span class="st">"#d87c34"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>GRAY <span class="op">=</span> <span class="st">"#666666"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>FIELD_WIDTH <span class="op">=</span> <span class="fl">2.6</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>ARROW_SIZE <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>CENTER_Y <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">11.6</span>, <span class="fl">5.5</span>))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Both panels use the same coordinate system and have no axes.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">2.6</span>, <span class="fl">2.6</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">2.35</span>, <span class="fl">2.5</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Left panel: longitudinal (curl-free) field</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: radial electric field of a positive charge.</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># The arrows point outward from the charge.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>]</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the positive charge.</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>ax.add_patch(</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    Circle((<span class="dv">0</span>, CENTER_Y), <span class="fl">0.34</span>, color<span class="op">=</span>ORANGE, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>ax.text(</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, CENTER_Y, <span class="st">"+"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"white"</span>, fontsize<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>, zorder<span class="op">=</span><span class="dv">4</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw eight equally spaced radial field arrows.</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> angle_deg <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dv">45</span>):</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    angle <span class="op">=</span> np.deg2rad(angle_deg)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    start_radius <span class="op">=</span> <span class="fl">0.53</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    end_radius <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> (</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        start_radius <span class="op">*</span> np.cos(angle),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        CENTER_Y <span class="op">+</span> start_radius <span class="op">*</span> np.sin(angle),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    end <span class="op">=</span> (</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        end_radius <span class="op">*</span> np.cos(angle),</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        CENTER_Y <span class="op">+</span> end_radius <span class="op">*</span> np.sin(angle),</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        FancyArrowPatch(</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>            start, end,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>            arrowstyle<span class="op">=</span><span class="st">"-&gt;"</span>,</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>            mutation_scale<span class="op">=</span>ARROW_SIZE,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span>FIELD_WIDTH,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>BLUE,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>ax.text(</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="op">-</span><span class="fl">1.97</span>, <span class="st">"Curl-free (longitudinal)"</span>,</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">13</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>ax.text(</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="op">-</span><span class="fl">2.28</span>, <span class="st">"Radial electric field of a positive charge"</span>,</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span>GRAY</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Right panel: transverse (divergence-free) field</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: a circulating vector field.</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Closed field lines have no beginning or end.</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">1</span>]</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>center <span class="op">=</span> (<span class="dv">0</span>, CENTER_Y)</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the center of circulation.</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>ax.add_patch(</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    Circle(center, <span class="fl">0.075</span>, color<span class="op">=</span><span class="st">"#222222"</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw three circular field lines with clockwise arrows.</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> radius <span class="kw">in</span> (<span class="fl">0.62</span>, <span class="fl">1.12</span>, <span class="fl">1.65</span>):</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>        Circle(</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>            center, radius,</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>            edgecolor<span class="op">=</span>BLUE,</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">2.5</span>,</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A downward-pointing tangent arrow on the right side</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># indicates clockwise circulation.</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>        FancyArrowPatch(</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>            (radius, CENTER_Y),</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>            (radius, CENTER_Y <span class="op">-</span> <span class="fl">0.1</span>),</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>            arrowstyle<span class="op">=</span><span class="st">"-&gt;"</span>,</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>            mutation_scale<span class="op">=</span><span class="dv">22</span>,</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span>FIELD_WIDTH,</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>BLUE,</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>ax.text(</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="op">-</span><span class="fl">1.97</span>, <span class="st">"Divergence-free (transverse)"</span>,</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">13</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>ax.text(</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="op">-</span><span class="fl">2.28</span>, <span class="st">"Illustrative circulating field: closed field lines"</span>,</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span>GRAY</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Final layout</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>fig.subplots_adjust(</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>    left<span class="op">=</span><span class="fl">0.04</span>,</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>    right<span class="op">=</span><span class="fl">0.96</span>,</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>    top<span class="op">=</span><span class="fl">0.95</span>,</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>    bottom<span class="op">=</span><span class="fl">0.10</span>,</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>    wspace<span class="op">=</span><span class="fl">0.13</span>,</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-helmholtz-decomposition" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two schematic vector fields. Left: eight blue arrows radiate outward from an orange positive charge, illustrating a curl-free longitudinal field. Right: three concentric blue circles with clockwise arrows illustrate a divergence-free transverse field.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-helmholtz-decomposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-helmholtz-decomposition-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Illustration of longitudinal and transverse vector fields. The longitudinal field is curl-free, while the transverse field is divergence-free. The radial and circulating patterns are illustrative examples, not general requirements."><img src="quantized_em_field_files/figure-html/fig-helmholtz-decomposition-output-1.png" alt="Two schematic vector fields. Left: eight blue arrows radiate outward from an orange positive charge, illustrating a curl-free longitudinal field. Right: three concentric blue circles with clockwise arrows illustrate a divergence-free transverse field." width="1044" height="468" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-helmholtz-decomposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Illustration of longitudinal and transverse vector fields. The longitudinal field is curl-free, while the transverse field is divergence-free. The radial and circulating patterns are illustrative examples, not general requirements.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This does not mean that the transverse field is unaffected by charged particles. Currents can generate electromagnetic radiation. The distinction is that the transverse field is not fixed by the instantaneous charge distribution alone.</p>
+</section>
+<section id="the-coulomb-gauge" class="level3">
+<h3 class="anchored" data-anchor-id="the-coulomb-gauge">2.7.3.2. The Coulomb gauge</h3>
+<p>We now want to express this separation in terms of the electromagnetic potentials introduced earlier.</p>
+<p>Recall that</p>
+<p><span class="math display">\[
+\vec E=-\vec\nabla\phi-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A.
+\]</span></p>
+<p>Since the electromagnetic potentials are not unique, we can choose a gauge that makes the separation particularly convenient.</p>
+<p>We choose the <strong>Coulomb gauge</strong>, defined by</p>
+<p><span class="math display">\[
+\boxed{
+\vec\nabla\cdot\vec A=0.
+}
+\]</span></p>
+<p>In this gauge, the vector potential is divergence-free and therefore purely transverse.</p>
+<p>The electric field becomes</p>
+<p><span class="math display">\[
+\vec E=
+\underbrace{-\vec\nabla\phi}_{\vec E_{\mathrm L}}
+\underbrace{-\frac{\partial\vec A}{\partial t}}_{\vec E_{\mathrm T}}.
+\]</span></p>
+<p>This identification follows directly from the definitions of the two components:</p>
+<ul>
+<li>The gradient of a scalar function is curl-free, so <span class="math inline">\(-\vec\nabla\phi\)</span> is longitudinal.</li>
+<li>Since <span class="math inline">\(\vec\nabla\cdot\vec A=0\)</span>, its time derivative is also divergence-free, so <span class="math inline">\(-\partial\vec A/\partial t\)</span> is transverse.</li>
+</ul>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\vec E_{\mathrm L}=-\vec\nabla\phi,
+\qquad
+\vec E_{\mathrm T}=-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A.
+}
+\]</span></p>
+<p>The Coulomb gauge has therefore achieved something important: it assigns the longitudinal electric field to the scalar potential <span class="math inline">\(\phi\)</span>, while the vector potential <span class="math inline">\(\vec A\)</span> describes the transverse field.</p>
+</section>
+<section id="the-longitudinal-field-and-coulomb-interaction" class="level3">
+<h3 class="anchored" data-anchor-id="the-longitudinal-field-and-coulomb-interaction">2.7.3.3. The longitudinal field and Coulomb interaction</h3>
+<p>Let us examine what happens to Gauss’s law in Coulomb gauge.</p>
+<p>Using the expression for the electric field,</p>
+<p><span class="math display">\[
+\vec\nabla\cdot\vec E
+=-\nabla^2\phi
+-\frac{\partial}{\partial t}
+(\vec\nabla\cdot\vec A).
+\]</span></p>
+<p>The second term vanishes because of the Coulomb-gauge condition. We obtain</p>
+<p><span class="math display">\[
+\boxed{
+\nabla^2\phi=-\frac{\rho}{\varepsilon_0}.
+}
+\]</span></p>
+<p>This is <strong>Poisson’s equation</strong>, familiar from electrostatics.</p>
+<p>For a charge distribution in free space, with the potential vanishing at infinity, its solution is</p>
+<p><span class="math display">\[
+\boxed{
+\phi(\vec r,t)=
+\frac{1}{4\pi\varepsilon_0}
+\int
+\frac{\rho(\vec r',t)}
+{|\vec r-\vec r'|}
+\,d^3r'.
+}
+\]</span></p>
+<p>Thus, once the charge distribution is known, the scalar potential and therefore the longitudinal electric field are determined.</p>
+<p>Notice that this equation contains no second time derivative of <span class="math inline">\(\phi\)</span>. The scalar potential is not an independent oscillator-like degree of freedom; it is constrained by the charge distribution.</p>
+<div id="coulomb-energy" class="callout callout-style-default callout-note callout-titled" title="Derivation: The longitudinal field contains the Coulomb energy">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: The longitudinal field contains the Coulomb energy
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The energy stored in the longitudinal electric field is</p>
+<p><span class="math display">\[
+U_{\mathrm L}
+=\frac{\varepsilon_0}{2}
+\int |\vec E_{\mathrm L}|^2\,d^3r.
+\]</span></p>
+<p>Since <span class="math inline">\(\vec E_{\mathrm L}=-\vec\nabla\phi\)</span>,</p>
+<p><span class="math display">\[
+U_{\mathrm L}
+=\frac{\varepsilon_0}{2}
+\int |\vec\nabla\phi|^2\,d^3r.
+\]</span></p>
+<p>We can simplify this expression by integrating by parts. Assuming that the boundary contribution vanishes, we obtain</p>
+<p><span class="math display">\[
+U_{\mathrm L}
+=-\frac{\varepsilon_0}{2}
+\int\phi\,\nabla^2\phi\,d^3r.
+\]</span></p>
+<p>Using Poisson’s equation, <span class="math inline">\(\nabla^2\phi=-\rho/\varepsilon_0\)</span>, gives</p>
+<p><span class="math display">\[
+\boxed{
+U_{\mathrm L}=\frac12\int\rho\phi\,d^3r.
+}
+\]</span></p>
+<p>Finally, inserting the solution for the scalar potential yields</p>
+<p><span class="math display">\[
+U_{\mathrm L}
+=\frac{1}{8\pi\varepsilon_0}
+\int\!\!\int
+\frac{\rho(\vec r)\rho(\vec r')}
+{|\vec r-\vec r'|}
+\,d^3r\,d^3r'.
+\]</span></p>
+<p>For a collection of point charges, the interaction terms reproduce the familiar Coulomb potential energy between pairs of charges. The expression also contains self-energy terms, which require separate treatment.</p>
+<p>Thus, the longitudinal electric field accounts for the Coulomb interaction between charges.</p>
+<p><strong>Connection to hydrogen.</strong> For a hydrogen atom, the charge density of a proton at <span class="math inline">\(\vec r_p\)</span> and an electron at <span class="math inline">\(\vec r_e\)</span> is</p>
+<p><span class="math display">\[
+\rho(\vec r)
+=e\,\delta(\vec r-\vec r_p)
+-e\,\delta(\vec r-\vec r_e).
+\]</span></p>
+<p>Substituting this charge distribution into the expression for <span class="math inline">\(U_{\mathrm L}\)</span> and excluding the self-energy terms gives</p>
+<p><span class="math display">\[
+\boxed{
+U_{\mathrm L}^{(\mathrm{int})}
+=-\frac{e^2}{4\pi\varepsilon_0
+|\vec r_e-\vec r_p|}.
+}
+\]</span></p>
+<p>This is precisely the Coulomb potential in the hydrogen Hamiltonian. In the Coulomb-gauge formulation of nonrelativistic QED, the longitudinal field accounts for this interaction, while the transverse field provides the independent photon degrees of freedom.</p>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> In Coulomb gauge, the scalar potential is determined by the charge distribution at the same instant. This does not imply that electromagnetic signals propagate instantaneously. The complete electric field also contains the transverse contribution, and physical electromagnetic disturbances propagate causally.</p>
+</blockquote>
+</section>
+<section id="the-independent-radiation-field" class="level3">
+<h3 class="anchored" data-anchor-id="the-independent-radiation-field">2.7.3.4. The independent radiation field</h3>
+<p>We can now return to our original question: <strong>Which parts of the electromagnetic field should we quantize?</strong></p>
+<p>The longitudinal electric field is determined by the charge distribution and accounts for the Coulomb interaction. The independent electromagnetic degrees of freedom are contained in the transverse vector potential <span class="math inline">\(\vec A\)</span>.</p>
+<p>To see how their energy enters, recall the classical electromagnetic field energy,</p>
+<p><span class="math display">\[
+U_{\mathrm{field}}
+=\frac12\int_V
+\left(
+\varepsilon_0\vec E^{\,2}
++\frac{1}{\mu_0}\vec B^{\,2}
+\right)d^3r.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Electromagnetic energy conservation — Poynting's theorem">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Electromagnetic energy conservation — Poynting’s theorem
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The electromagnetic field carries energy. But how do we determine its energy density?</p>
+<p>We can derive it directly from <strong>Maxwell’s equations</strong> by considering how electromagnetic fields exchange energy with charged particles.</p>
+<p>We start with Ampère–Maxwell’s law and Faraday’s law:</p>
+<p><span class="math display">\[
+\vec\nabla\times\vec B
+=\mu_0\vec j+\mu_0\varepsilon_0
+\frac{\partial\vec E}{\partial t},
+\qquad
+\vec\nabla\times\vec E
+=-\frac{\partial\vec B}{\partial t}.
+\]</span></p>
+<p>Taking the scalar product of the first equation with <span class="math inline">\(\vec E/\mu_0\)</span> gives</p>
+<p><span class="math display">\[
+\frac{1}{\mu_0}\vec E\cdot(\vec\nabla\times\vec B)
+=\vec j\cdot\vec E
++\frac{\varepsilon_0}{2}
+\frac{\partial}{\partial t}\vec E^{\,2}.
+\]</span></p>
+<p>Similarly, taking the scalar product of Faraday’s law with <span class="math inline">\(\vec B/\mu_0\)</span> gives</p>
+<p><span class="math display">\[
+\frac{1}{\mu_0}\vec B\cdot(\vec\nabla\times\vec E)
+=-\frac{1}{2\mu_0}
+\frac{\partial}{\partial t}\vec B^{\,2}.
+\]</span></p>
+<p>We now use the vector identity</p>
+<p><span class="math display">\[
+\vec\nabla\cdot(\vec E\times\vec B)
+=\vec B\cdot(\vec\nabla\times\vec E)
+-\vec E\cdot(\vec\nabla\times\vec B).
+\]</span></p>
+<p>Combining the previous expressions, we obtain</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\partial}{\partial t}
+\left(
+\frac{\varepsilon_0}{2}\vec E^{\,2}
++\frac{1}{2\mu_0}\vec B^{\,2}
+\right)
++
+\vec\nabla\cdot
+\left(\frac{\vec E\times\vec B}{\mu_0}\right)
+=-\vec j\cdot\vec E.
+}
+\]</span></p>
+<p>This is <strong>Poynting’s theorem</strong>, the local conservation law for electromagnetic energy.</p>
+<p>It has three contributions:</p>
+<ul>
+<li>The first term describes the change in energy stored in the electromagnetic field.</li>
+<li>The second describes the flow of electromagnetic energy through space.</li>
+<li>The right-hand side describes the rate at which the electric field transfers energy to charged matter.</li>
+</ul>
+<p>We can therefore identify the <strong>electromagnetic energy density</strong> as</p>
+<p><span class="math display">\[
+\boxed{
+u_{\mathrm{EM}}
+=\frac{\varepsilon_0}{2}\vec E^{\,2}
++\frac{1}{2\mu_0}\vec B^{\,2},
+}
+\]</span></p>
+<p>and the <strong>Poynting vector</strong>, which describes the energy flux, as</p>
+<p><span class="math display">\[
+\vec S=\frac{1}{\mu_0}\vec E\times\vec B.
+\]</span></p>
+<p>Integrating the energy density over a volume <span class="math inline">\(V\)</span> gives the total electromagnetic field energy,</p>
+<p><span class="math display">\[
+\boxed{
+U_{\mathrm{EM}}
+=\frac12\int_V
+\left(
+\varepsilon_0\vec E^{\,2}
++\frac{1}{\mu_0}\vec B^{\,2}
+\right)d^3r.
+}
+\]</span></p>
+<p>This is the expression we will use to construct the Hamiltonian of the electromagnetic field.</p>
+</div>
+</div>
+</div>
+<p>Because the longitudinal and transverse electric fields are orthogonal under spatial integration, the energy separates into</p>
+<p><span class="math display">\[
+\boxed{
+U_{\mathrm{field}}=U_{\mathrm L}+H_{\mathrm T},
+}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\boxed{
+H_{\mathrm T}
+=\frac12\int_V
+\left(
+\varepsilon_0\vec E_{\mathrm T}^{\,2}
++\frac{1}{\mu_0}\vec B^{\,2}
+\right)d^3r.
+}
+\]</span></p>
+<p>The first term, <span class="math inline">\(U_{\mathrm L}\)</span>, represents the <a href="#coulomb-energy" onclick="document.querySelector('#coulomb-energy .callout-header.collapsed')?.click()"> Coulomb interaction derived above </a>. The second, <span class="math inline">\(H_{\mathrm T}\)</span>, is the energy associated with the independent transverse electromagnetic field.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why are the longitudinal and transverse electric fields orthogonal?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why are the longitudinal and transverse electric fields orthogonal?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In Coulomb gauge, the longitudinal electric field is <span class="math inline">\(\vec E_{\mathrm L}=-\vec\nabla\phi\)</span>, while the transverse field satisfies <span class="math inline">\(\vec\nabla\cdot\vec E_{\mathrm T}=0\)</span>.</p>
+<p>Consider the cross term in the electromagnetic energy:</p>
+<p><span class="math display">\[
+\int_V\vec E_{\mathrm L}\cdot\vec E_{\mathrm T}\,d^3r
+=
+-\int_V(\vec\nabla\phi)\cdot\vec E_{\mathrm T}\,d^3r.
+\]</span></p>
+<p>Using the product rule,</p>
+<p><span class="math display">\[
+\vec\nabla\cdot(\phi\vec E_{\mathrm T})
+=
+(\vec\nabla\phi)\cdot\vec E_{\mathrm T}
++\phi\,\vec\nabla\cdot\vec E_{\mathrm T},
+\]</span></p>
+<p>and applying the divergence theorem gives</p>
+<p><span class="math display">\[
+\int_V\vec E_{\mathrm L}\cdot\vec E_{\mathrm T}\,d^3r
+=
+-\oint_{\partial V}\phi\vec E_{\mathrm T}\cdot d\vec S
++\int_V\phi\,\vec\nabla\cdot\vec E_{\mathrm T}\,d^3r.
+\]</span></p>
+<p>The second term vanishes because the transverse field is divergence-free. For fields that vanish sufficiently rapidly at infinity, or for suitable boundary conditions, the surface term also vanishes.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\int_V\vec E_{\mathrm L}\cdot\vec E_{\mathrm T}\,d^3r=0.
+}
+\]</span></p>
+<p>This explains why the electromagnetic energy separates into longitudinal and transverse contributions without a cross term.</p>
+</div>
+</div>
+</div>
+<p>For the <strong>free electromagnetic field</strong>, where there are no charges or currents, we can choose <span class="math inline">\(\phi=0\)</span>. The remaining field is described entirely by the transverse vector potential:</p>
+<p><span class="math display">\[
+\vec E=-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A,
+\qquad
+\vec\nabla\cdot\vec A=0.
+\]</span></p>
+<p>We have now identified the dynamical field that we want to quantize.</p>
+<p><strong>Our next task is to determine how this field evolves and whether its energy can be expressed in terms of familiar mechanical systems.</strong></p>
+<p>As we will see in the next section, the transverse electromagnetic field can be decomposed into independent normal modes, each behaving exactly like a harmonic oscillator.</p>
+</section>
+</section>
+<section id="normal-modes-of-the-free-electromagnetic-field" class="level2">
+<h2 class="anchored" data-anchor-id="normal-modes-of-the-free-electromagnetic-field">2.7.4. Normal modes of the free electromagnetic field</h2>
+<p>In the previous section, we established that the independent electromagnetic degrees of freedom are contained in the transverse vector potential <span class="math inline">\(\vec A\)</span>.</p>
+<p>Our next goal is to describe the motion of these degrees of freedom and determine whether they can be represented by familiar mechanical systems.</p>
+<section id="the-wave-equation" class="level3">
+<h3 class="anchored" data-anchor-id="the-wave-equation">2.7.4.1. The wave equation</h3>
+<p>We consider the <strong>free electromagnetic field</strong>, in the absence of charges and currents:</p>
+<p><span class="math display">\[
+\rho=0,\qquad \vec j=0.
+\]</span></p>
+<p>In Coulomb gauge, we can choose <span class="math inline">\(\phi=0\)</span>, so that</p>
+<p><span class="math display">\[
+\vec E=-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A,
+\qquad
+\vec\nabla\cdot\vec A=0.
+\]</span></p>
+<p>Ampère–Maxwell’s law then becomes</p>
+<p><span class="math display">\[
+\vec\nabla\times\vec B
+=\mu_0\varepsilon_0
+\frac{\partial\vec E}{\partial t}.
+\]</span></p>
+<p>Substituting the potentials gives</p>
+<p><span class="math display">\[
+\vec\nabla\times(\vec\nabla\times\vec A)
+=-\mu_0\varepsilon_0
+\frac{\partial^2\vec A}{\partial t^2}.
+\]</span></p>
+<p>Using the vector identity</p>
+<p><span class="math display">\[
+\vec\nabla\times(\vec\nabla\times\vec A)
+=
+\vec\nabla(\vec\nabla\cdot\vec A)-\nabla^2\vec A
+\]</span></p>
+<p>and the Coulomb-gauge condition, we obtain</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\partial^2\vec A}{\partial t^2}
+-c^2\nabla^2\vec A=0,
+}
+\]</span></p>
+<p>where <span class="math inline">\(c=1/\sqrt{\mu_0\varepsilon_0}\)</span>.</p>
+<p>This is the familiar <strong>electromagnetic wave equation</strong>. It describes how the transverse vector potential evolves in space and time.</p>
+</section>
+<section id="normal-modes-as-a-basis-for-the-electromagnetic-field" class="level3">
+<h3 class="anchored" data-anchor-id="normal-modes-as-a-basis-for-the-electromagnetic-field">2.7.4.2. Normal modes as a basis for the electromagnetic field</h3>
+<p>The wave equation describes a field with infinitely many degrees of freedom: the vector potential can take different values at every position in space.</p>
+<p>However, the wave equation is <strong>linear</strong>, so a superposition of solutions is itself a solution. We can therefore describe the field in terms of a basis of independent solutions, called <strong>normal modes</strong>.</p>
+<p>This is closely related to a familiar idea from quantum mechanics. Just as we can expand a quantum state in an orthonormal basis,</p>
+<p><span class="math display">\[
+|\psi\rangle=\sum_n c_n|n\rangle,
+\]</span></p>
+<p>we can expand a classical field in a basis of spatial functions,</p>
+<p><span class="math display">\[
+\vec A(\vec r,t)
+=\sum_\alpha Q_\alpha(t)\vec u_\alpha(\vec r).
+\]</span></p>
+<p>Here, the functions <span class="math inline">\(\vec u_\alpha(\vec r)\)</span> describe the spatial structure of the modes, while <span class="math inline">\(Q_\alpha(t)\)</span> are their time-dependent amplitudes. Unlike the coefficients of a quantum state, these are initially <strong>classical field amplitudes</strong>.</p>
+<p>For the free electromagnetic field, plane waves provide a particularly convenient basis.</p>
+<p><strong>Periodic boundary conditions.</strong></p>
+<p>To obtain a discrete set of modes, we imagine the field in a large cubic box of side length <span class="math inline">\(L\)</span> and volume <span class="math inline">\(V=L^3\)</span>. We impose periodic boundary conditions: the field and its spatial derivatives agree on opposite faces of the box.</p>
+<p>In one dimension, this means</p>
+<p><span class="math display">\[
+A(x+L,t)=A(x,t).
+\]</span></p>
+<p>A plane-wave factor <span class="math inline">\(e^{ikx}\)</span> satisfies this condition only if</p>
+<p><span class="math display">\[
+e^{ikL}=1,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\boxed{k_n=\frac{2\pi n}{L},\qquad n\in\mathbb Z.}
+\]</span></p>
+<p>The integer <span class="math inline">\(n\)</span> counts the number of complete spatial oscillations across the box. <a href="#fig-periodic-modes" class="quarto-xref">Figure&nbsp;2</a> illustrates the real part of several such modes at a fixed time.</p>
+<div id="cell-fig-periodic-modes" class="cell" data-fig-height="6" data-fig-width="8" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, L, <span class="dv">800</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span>, layout<span class="op">=</span><span class="st">"constrained"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, n <span class="kw">in</span> <span class="bu">zip</span>(axes, <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">5</span>)):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    ax.plot(x, np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">*</span>x<span class="op">/</span>L), lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, lw<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, lw<span class="op">=</span><span class="fl">0.7</span>, ls<span class="op">=</span><span class="st">":"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    ax.axvline(L, color<span class="op">=</span><span class="st">"gray"</span>, lw<span class="op">=</span><span class="fl">0.7</span>, ls<span class="op">=</span><span class="st">":"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">1.25</span>, <span class="fl">1.25</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="ss">f"$n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">$"</span>, rotation<span class="op">=</span><span class="dv">0</span>, labelpad<span class="op">=</span><span class="dv">22</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_xticks(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>],</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"$0$"</span>, <span class="st">"$L/4$"</span>, <span class="st">"$L/2$"</span>, <span class="st">"$3L/4$"</span>, <span class="st">"$L$"</span>]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">"Position $x$"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-periodic-modes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Cosine waves with one, two, three, and four complete oscillations across a periodic interval.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-periodic-modes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-periodic-modes-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;2: One-dimensional periodic Fourier modes. The integer n counts the number of complete oscillations across the box."><img src="quantized_em_field_files/figure-html/fig-periodic-modes-output-1.png" alt="Cosine waves with one, two, three, and four complete oscillations across a periodic interval." width="779" height="587" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-periodic-modes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: One-dimensional periodic Fourier modes. The integer n counts the number of complete oscillations across the box.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The box is a mathematical convenience, not a physical cavity with reflecting walls. Eventually, we can take the limit <span class="math inline">\(L\to\infty\)</span>.</p>
+<p><strong>Extension to three dimensions.</strong></p>
+<p>In three dimensions, the allowed wave vectors are</p>
+<p><span class="math display">\[
+\vec k=\frac{2\pi}{L}(n_x,n_y,n_z),
+\qquad n_x,n_y,n_z\in\mathbb Z.
+\]</span></p>
+<p>The Fourier expansion of the vector potential becomes</p>
+<p><span class="math display">\[
+\vec A(\vec r,t)
+=
+\frac{1}{\sqrt V}
+\sum_{\vec k}
+\vec A_{\vec k}(t)e^{i\vec k\cdot\vec r}.
+\]</span></p>
+<p>The wave vector <span class="math inline">\(\vec k\)</span> determines the spatial variation of each mode. Its direction is perpendicular to surfaces of constant phase, and its magnitude determines the wavelength <span class="math inline">\(\lambda=2\pi/|\vec k|\)</span>.</p>
+<p><strong>Transverse polarizations.</strong></p>
+<p>The Coulomb-gauge condition places an additional restriction on these Fourier components.</p>
+<p>Applying the divergence gives</p>
+<p><span class="math display">\[
+\vec\nabla\cdot\vec A
+=
+\frac{1}{\sqrt V}
+\sum_{\vec k}
+i\vec k\cdot\vec A_{\vec k}(t)
+e^{i\vec k\cdot\vec r}.
+\]</span></p>
+<p>Because the Fourier functions are linearly independent, the condition <span class="math inline">\(\vec\nabla\cdot\vec A=0\)</span> requires</p>
+<p><span class="math display">\[
+\boxed{\vec k\cdot\vec A_{\vec k}(t)=0}
+\]</span></p>
+<p>for each nonzero <span class="math inline">\(\vec k\)</span>.</p>
+<p>Thus, each Fourier amplitude is perpendicular to its wave vector: the electromagnetic field is <strong>transverse</strong>.</p>
+<p>For any nonzero <span class="math inline">\(\vec k\)</span>, there are two independent directions perpendicular to it. We introduce two orthonormal polarization vectors <span class="math inline">\(\vec\epsilon_{\vec k1}\)</span> and <span class="math inline">\(\vec\epsilon_{\vec k2}\)</span>, satisfying</p>
+<p><span class="math display">\[
+\boxed{
+\vec k\cdot\vec\epsilon_{\vec k\lambda}=0,
+\qquad
+\vec\epsilon_{\vec k\lambda}\cdot
+\vec\epsilon_{\vec k\lambda'}
+=\delta_{\lambda\lambda'}.
+}
+\]</span></p>
+<p>The index <span class="math inline">\(\lambda=1,2\)</span> labels the two independent transverse polarizations.</p>
+<p>We can now express the vector potential as</p>
+<p><span class="math display">\[
+\boxed{
+\vec A(\vec r,t)
+=
+\frac{1}{\sqrt V}
+\sum_{\vec k,\lambda}
+Q_{\vec k\lambda}(t)
+\vec\epsilon_{\vec k\lambda}
+e^{i\vec k\cdot\vec r}.
+}
+\]</span></p>
+<p>The vector structure of the field is contained in the polarization vectors, while the coefficients <span class="math inline">\(Q_{\vec k\lambda}(t)\)</span> describe the time-dependent amplitudes of the individual modes.</p>
+<p><strong>Reality condition.</strong></p>
+<p>Although complex exponentials are convenient mathematical basis functions, the physical vector potential <span class="math inline">\(\vec A(\vec r,t)\)</span> must be real.</p>
+<p>Since</p>
+<p><span class="math display">\[
+\left(e^{i\vec k\cdot\vec r}\right)^*
+=e^{-i\vec k\cdot\vec r},
+\]</span></p>
+<p>the Fourier amplitudes at opposite wave vectors must be related. Choosing the same real polarization basis for <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span>, we obtain</p>
+<p><span class="math display">\[
+\boxed{
+Q_{-\vec k,\lambda}
+=Q_{\vec k\lambda}^{*}.
+}
+\]</span></p>
+<p>Consequently, the coefficients at <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span> are <strong>not independent</strong>.</p>
+<p>We will retain the complex Fourier representation because it is convenient for describing traveling waves. When identifying the independent harmonic oscillators, we will simply use the real and imaginary parts of these amplitudes.</p>
+<p>In the following, we restrict ourselves to nonzero wave vectors <span class="math inline">\(\vec k\ne0\)</span>, corresponding to the propagating electromagnetic modes.</p>
+</section>
+<section id="equations-of-motion-for-the-normal-modes" class="level3">
+<h3 class="anchored" data-anchor-id="equations-of-motion-for-the-normal-modes">2.7.4.3. Equations of motion for the normal modes</h3>
+<p>We now determine how the Fourier amplitudes evolve in time.</p>
+<p>Substituting the normal-mode expansion into the electromagnetic wave equation,</p>
+<p><span class="math display">\[
+\frac{\partial^2\vec A}{\partial t^2}
+-c^2\nabla^2\vec A=0,
+\]</span></p>
+<p>we use the fact that</p>
+<p><span class="math display">\[
+\nabla^2e^{i\vec k\cdot\vec r}
+=-|\vec k|^2e^{i\vec k\cdot\vec r}.
+\]</span></p>
+<p>This gives</p>
+<p><span class="math display">\[
+\sum_{\vec k,\lambda}
+\left(
+\ddot Q_{\vec k\lambda}
++c^2|\vec k|^2Q_{\vec k\lambda}
+\right)
+\vec\epsilon_{\vec k\lambda}
+e^{i\vec k\cdot\vec r}
+=0.
+\]</span></p>
+<p>Because the Fourier modes are linearly independent, the coefficient of each mode must vanish:</p>
+<p><span class="math display">\[
+\boxed{
+\ddot Q_{\vec k\lambda}
++\omega_k^2Q_{\vec k\lambda}=0,
+\qquad
+\omega_k=c|\vec k|.
+}
+\]</span></p>
+<p>This is precisely the <strong>equation of motion of a harmonic oscillator</strong>.</p>
+<p>Each Fourier amplitude evolves independently with frequency <span class="math inline">\(\omega_k\)</span>. The reality condition ensures that the amplitudes at opposite wave vectors remain related.</p>
+<p>However, the equation of motion alone does not establish the full equivalence with a mechanical harmonic oscillator. We must also examine the energy of the electromagnetic field.</p>
+</section>
+<section id="the-electromagnetic-field-as-a-collection-of-harmonic-oscillators" class="level3">
+<h3 class="anchored" data-anchor-id="the-electromagnetic-field-as-a-collection-of-harmonic-oscillators">2.7.4.4. The electromagnetic field as a collection of harmonic oscillators</h3>
+<p>The energy of the free transverse electromagnetic field is</p>
+<p><span class="math display">\[
+H_{\mathrm T}
+=
+\frac12\int_V
+\left(
+\varepsilon_0|\vec E|^2
++\frac{1}{\mu_0}|\vec B|^2
+\right)d^3r.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\vec E=-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A,
+\]</span></p>
+<p>and substituting the Fourier expansion, we obtain</p>
+<p><span class="math display">\[
+\boxed{
+H_{\mathrm T}
+=
+\frac{\varepsilon_0}{2}
+\sum_{\vec k,\lambda}
+\left(
+|\dot Q_{\vec k\lambda}|^2
++\omega_k^2|Q_{\vec k\lambda}|^2
+\right).
+}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Field energy in terms of Fourier amplitudes">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Field energy in terms of Fourier amplitudes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We start from the normal-mode expansion</p>
+<p><span class="math display">\[
+\vec A(\vec r,t)
+=
+\frac{1}{\sqrt V}
+\sum_{\vec k,\lambda}
+Q_{\vec k\lambda}(t)
+\vec\epsilon_{\vec k\lambda}
+e^{i\vec k\cdot\vec r}.
+\]</span></p>
+<p><strong>Electric field energy.</strong></p>
+<p>Taking the time derivative gives</p>
+<p><span class="math display">\[
+\vec E(\vec r,t)
+=
+-\frac{1}{\sqrt V}
+\sum_{\vec k,\lambda}
+\dot Q_{\vec k\lambda}
+\vec\epsilon_{\vec k\lambda}
+e^{i\vec k\cdot\vec r}.
+\]</span></p>
+<p>Substituting into the electric field energy,</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_E
+&amp;=\frac{\varepsilon_0}{2}
+\int_V\vec E\cdot\vec E\,d^3r\\
+&amp;=\frac{\varepsilon_0}{2V}
+\sum_{\vec k,\lambda}
+\sum_{\vec k',\lambda'}
+\dot Q_{\vec k\lambda}
+\dot Q_{\vec k'\lambda'}
+(\vec\epsilon_{\vec k\lambda}\cdot
+\vec\epsilon_{\vec k'\lambda'})
+\int_V e^{i(\vec k+\vec k')\cdot\vec r}\,d^3r.
+\end{aligned}
+\]</span></p>
+<p>Periodic boundary conditions give the Fourier orthogonality relation</p>
+<p><span class="math display">\[
+\frac1V\int_V
+e^{i(\vec k+\vec k')\cdot\vec r}\,d^3r
+=\delta_{\vec k',-\vec k}.
+\]</span></p>
+<p>Thus, only terms with <span class="math inline">\(\vec k'=-\vec k\)</span> survive. Since the polarization vectors satisfy</p>
+<p><span class="math display">\[
+\vec\epsilon_{-\vec k,\lambda}
+=\vec\epsilon_{\vec k,\lambda},
+\]</span></p>
+<p>their orthonormality gives</p>
+<p><span class="math display">\[
+U_E
+=
+\frac{\varepsilon_0}{2}
+\sum_{\vec k,\lambda}
+\dot Q_{\vec k\lambda}
+\dot Q_{-\vec k,\lambda}.
+\]</span></p>
+<p>Using the reality condition</p>
+<p><span class="math display">\[
+Q_{-\vec k,\lambda}=Q_{\vec k\lambda}^{*},
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\boxed{
+U_E
+=
+\frac{\varepsilon_0}{2}
+\sum_{\vec k,\lambda}
+|\dot Q_{\vec k\lambda}|^2.
+}
+\]</span></p>
+<p><strong>Magnetic field energy.</strong></p>
+<p>Taking the curl of the vector potential gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\vec B(\vec r,t)
+&amp;=\vec\nabla\times\vec A\\
+&amp;=\frac{i}{\sqrt V}
+\sum_{\vec k,\lambda}
+Q_{\vec k\lambda}
+(\vec k\times\vec\epsilon_{\vec k\lambda})
+e^{i\vec k\cdot\vec r}.
+\end{aligned}
+\]</span></p>
+<p>Substituting into the magnetic field energy and using the same Fourier orthogonality relation,</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_B
+&amp;=\frac{1}{2\mu_0}
+\int_V\vec B\cdot\vec B\,d^3r\\
+&amp;=-\frac{1}{2\mu_0}
+\sum_{\vec k,\lambda,\lambda'}
+Q_{\vec k\lambda}
+Q_{-\vec k,\lambda'}
+(\vec k\times\vec\epsilon_{\vec k\lambda})
+\cdot
+(-\vec k\times\vec\epsilon_{-\vec k,\lambda'}).
+\end{aligned}
+\]</span></p>
+<p>The two minus signs cancel.</p>
+<p>Using the vector identity</p>
+<p><span class="math display">\[
+(\vec a\times\vec b)\cdot
+(\vec a\times\vec c)
+=
+|\vec a|^2(\vec b\cdot\vec c)
+-(\vec a\cdot\vec b)(\vec a\cdot\vec c),
+\]</span></p>
+<p>together with transversality, we find</p>
+<p><span class="math display">\[
+(\vec k\times\vec\epsilon_{\vec k\lambda})
+\cdot
+(\vec k\times\vec\epsilon_{\vec k\lambda'})
+=
+|\vec k|^2\delta_{\lambda\lambda'}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+U_B
+=
+\frac{1}{2\mu_0}
+\sum_{\vec k,\lambda}
+|\vec k|^2
+Q_{\vec k\lambda}Q_{-\vec k,\lambda}.
+\]</span></p>
+<p>Using the reality condition and <span class="math inline">\(1/\mu_0=\varepsilon_0c^2\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+U_B
+=
+\frac{\varepsilon_0}{2}
+\sum_{\vec k,\lambda}
+\omega_k^2|Q_{\vec k\lambda}|^2.
+}
+\]</span></p>
+<p><strong>Total field energy.</strong></p>
+<p>Adding the electric and magnetic contributions,</p>
+<p><span class="math display">\[
+\boxed{
+H_{\mathrm T}
+=
+\frac{\varepsilon_0}{2}
+\sum_{\vec k,\lambda}
+\left(
+|\dot Q_{\vec k\lambda}|^2
++\omega_k^2|Q_{\vec k\lambda}|^2
+\right).
+}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Independent harmonic oscillators.</strong></p>
+<p>The energy expression already resembles that of a collection of harmonic oscillators. However, the reality condition</p>
+<p><span class="math display">\[
+Q_{-\vec k,\lambda}=Q_{\vec k\lambda}^{*}
+\]</span></p>
+<p>means that the contributions from <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span> are equal.</p>
+<p>We can therefore restrict the sum to one representative from each pair:</p>
+<p><span class="math display">\[
+\boxed{
+H_{\mathrm T}
+=
+\varepsilon_0
+\sum_{\vec k&gt;0,\lambda}
+\left(
+|\dot Q_{\vec k\lambda}|^2
++\omega_k^2|Q_{\vec k\lambda}|^2
+\right).
+}
+\]</span></p>
+<p>Here, <span class="math inline">\(\vec k&gt;0\)</span> is shorthand for selecting exactly one representative from each pair of opposite nonzero wave vectors. It does not imply an ordering of vectors by magnitude.</p>
+<p>Each complex amplitude contains two independent real coordinates, which we define as</p>
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+q_{\vec k\lambda}^{(1)}
+&amp;=\sqrt{2\varepsilon_0}\,
+\operatorname{Re}Q_{\vec k\lambda},\\
+q_{\vec k\lambda}^{(2)}
+&amp;=\sqrt{2\varepsilon_0}\,
+\operatorname{Im}Q_{\vec k\lambda}.
+\end{aligned}
+}
+\]</span></p>
+<p>Their corresponding canonical momenta are</p>
+<p><span class="math display">\[
+p_{\vec k\lambda}^{(1)}
+=\dot q_{\vec k\lambda}^{(1)},
+\qquad
+p_{\vec k\lambda}^{(2)}
+=\dot q_{\vec k\lambda}^{(2)}.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+|Q|^2
+=(\operatorname{Re}Q)^2
++(\operatorname{Im}Q)^2,
+\]</span></p>
+<p>the field energy becomes</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_{\mathrm T}
+=\sum_{\vec k&gt;0,\lambda}
+\Bigg[
+&amp;\frac{(p_{\vec k\lambda}^{(1)})^2}{2}
++\frac{\omega_k^2(q_{\vec k\lambda}^{(1)})^2}{2}\\
++&amp;\frac{(p_{\vec k\lambda}^{(2)})^2}{2}
++\frac{\omega_k^2(q_{\vec k\lambda}^{(2)})^2}{2}
+\Bigg].
+\end{aligned}
+\]</span></p>
+<p>Each complex Fourier amplitude therefore corresponds to <strong>two independent real harmonic oscillators</strong>, associated with its real and imaginary parts.</p>
+<p>For simplicity, we can collectively label all independent real oscillators by a single index <span class="math inline">\(s\)</span>. The Hamiltonian then takes the familiar form</p>
+<p><span class="math display">\[
+\boxed{
+H_{\mathrm T}
+=
+\sum_s
+\left(
+\frac{p_s^2}{2}
++\frac{\omega_s^2q_s^2}{2}
+\right).
+}
+\]</span></p>
+<p>We have now established the equivalence at the level of both the <strong>equations of motion</strong> and the <strong>energy</strong>:</p>
+<p><strong>The free transverse electromagnetic field is mathematically equivalent to an infinite collection of independent harmonic oscillators.</strong></p>
+<p>This provides the starting point for quantizing the electromagnetic field. Instead of quantizing the field at every position separately, we can apply the familiar quantum mechanics of the harmonic oscillator to each independent mode.</p>
+<p>The complex Fourier representation will remain useful later when we describe photons associated with traveling electromagnetic waves.</p>
+</section>
+</section>
+<section id="quantization-photons-as-oscillator-excitations" class="level2">
+<h2 class="anchored" data-anchor-id="quantization-photons-as-oscillator-excitations">2.7.5. Quantization: photons as oscillator excitations</h2>
+<p>In the previous section, we showed that the free transverse electromagnetic field is mathematically equivalent to a collection of independent harmonic oscillators:</p>
+<p><span class="math display">\[
+H_{\mathrm T}
+=
+\sum_s
+\left(
+\frac{p_s^2}{2}
++\frac{\omega_s^2q_s^2}{2}
+\right).
+\]</span></p>
+<p>We can now quantize these oscillators using exactly the same procedure developed in <a href="../mod2/qosc.html">Section 2.6, The One-Dimensional Quantum Harmonic Oscillator</a>.</p>
+<p>We promote the classical coordinates and momenta to operators,</p>
+<p><span class="math display">\[
+q_s\longrightarrow\hat q_s,
+\qquad
+p_s\longrightarrow\hat p_s,
+\]</span></p>
+<p>and impose the canonical commutation relations</p>
+<p><span class="math display">\[
+\boxed{
+[\hat q_s,\hat p_{s'}]
+=i\hbar\delta_{ss'},
+\qquad
+[\hat q_s,\hat q_{s'}]
+=[\hat p_s,\hat p_{s'}]=0.
+}
+\]</span></p>
+<p>For each mode, we introduce the annihilation and creation operators</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat a_s
+&amp;=
+\sqrt{\frac{\omega_s}{2\hbar}}\hat q_s
++\frac{i}{\sqrt{2\hbar\omega_s}}\hat p_s,\\
+\hat a_s^\dagger
+&amp;=
+\sqrt{\frac{\omega_s}{2\hbar}}\hat q_s
+-\frac{i}{\sqrt{2\hbar\omega_s}}\hat p_s.
+\end{aligned}
+\]</span></p>
+<p>They satisfy</p>
+<p><span class="math display">\[
+[\hat a_s,\hat a_{s'}^\dagger]
+=\delta_{ss'}.
+\]</span></p>
+<p>The Hamiltonian of the electromagnetic field therefore becomes</p>
+<p><span class="math display">\[
+\boxed{
+\hat H_{\mathrm{EM}}
+=
+\sum_s\hbar\omega_s
+\left(
+\hat a_s^\dagger\hat a_s+\frac12
+\right).
+}
+\]</span></p>
+<p><strong>Photons and occupation numbers.</strong></p>
+<p>We define the number operator for each mode,</p>
+<p><span class="math display">\[
+\hat N_s=\hat a_s^\dagger\hat a_s,
+\qquad
+\hat N_s|n_s\rangle=n_s|n_s\rangle.
+\]</span></p>
+<p>The energy of a mode containing <span class="math inline">\(n_s\)</span> excitations is</p>
+<p><span class="math display">\[
+E_{n_s}
+=
+\hbar\omega_s
+\left(n_s+\frac12\right).
+\]</span></p>
+<p>The creation operator increases the excitation number by one,</p>
+<p><span class="math display">\[
+\hat a_s^\dagger|n_s\rangle
+=\sqrt{n_s+1}|n_s+1\rangle,
+\]</span></p>
+<p>while the annihilation operator decreases it:</p>
+<p><span class="math display">\[
+\hat a_s|n_s\rangle
+=\sqrt{n_s}|n_s-1\rangle.
+\]</span></p>
+<p>Each excitation carries an energy <span class="math inline">\(\hbar\omega_s\)</span>. We interpret it as <strong>one photon in that electromagnetic field mode</strong>.</p>
+<p>The quantum state of the entire field is specified by the occupation numbers of all modes. A basis of such states is</p>
+<p><span class="math display">\[
+|n_1,n_2,\ldots\rangle
+=
+|n_1\rangle\otimes|n_2\rangle\otimes\cdots.
+\]</span></p>
+<p>These are called <strong>photon number states</strong>, or <strong>Fock states</strong>.</p>
+<p>The vacuum state <span class="math inline">\(|0\rangle\)</span> contains no photons in any mode:</p>
+<p><span class="math display">\[
+\hat a_s|0\rangle=0
+\qquad\text{for every }s.
+\]</span></p>
+<p>Nevertheless, each mode contributes a zero-point energy <span class="math inline">\(\hbar\omega_s/2\)</span>, giving</p>
+<p><span class="math display">\[
+\langle0|\hat H_{\mathrm{EM}}|0\rangle
+=
+\frac12\sum_s\hbar\omega_s.
+\]</span></p>
+<p>This sum formally diverges when arbitrarily high-frequency modes are included. In our nonrelativistic treatment, we can set aside this constant energy contribution and concentrate on the observable excitations and fluctuations of the field.</p>
+<p>In particular, the vacuum has nonzero <strong>electromagnetic field fluctuations</strong>, even though it contains no photons.</p>
+<section id="the-quantized-electromagnetic-field" class="level3">
+<h3 class="anchored" data-anchor-id="the-quantized-electromagnetic-field">2.7.5.1. The quantized electromagnetic field</h3>
+<p>We have quantized the electromagnetic field as a collection of independent harmonic oscillators. However, we have not yet established how their quantum excitations are related to the photons we normally associate with propagating light.</p>
+<p><strong>From harmonic oscillators to traveling-wave photons.</strong></p>
+<p>Recall that the classical Fourier amplitudes at <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span> are related by the reality condition,</p>
+<p><span class="math display">\[
+Q_{-\vec k,\lambda}=Q_{\vec k\lambda}^*.
+\]</span></p>
+<p>Each pair therefore corresponds to two independent real oscillators, associated with the cosine and sine components of the electromagnetic field.</p>
+<p>Neither component individually describes a wave propagating in a definite direction. However, traveling waves can be constructed by combining these components with an appropriate relative phase:</p>
+<p><span class="math display">\[
+e^{\pm i\vec k\cdot\vec r}
+=
+\cos(\vec k\cdot\vec r)
+\pm i\sin(\vec k\cdot\vec r).
+\]</span></p>
+<p>We can make the same transformation at the quantum level. Combining the annihilation operators <span class="math inline">\(\hat b_1\)</span> and <span class="math inline">\(\hat b_2\)</span> of the two real oscillators, we define</p>
+<p><span class="math display">\[
+\boxed{
+\hat a_{\vec k\lambda}
+=\frac{\hat b_1+i\hat b_2}{\sqrt2},
+\qquad
+\hat a_{-\vec k,\lambda}
+=\frac{\hat b_1-i\hat b_2}{\sqrt2}.
+}
+\]</span></p>
+<p>These operators describe photons propagating in opposite directions. They satisfy</p>
+<p><span class="math display">\[
+\boxed{
+[\hat a_{\vec k\lambda},
+\hat a_{\vec k'\lambda'}^\dagger]
+=
+\delta_{\vec k\vec k'}\delta_{\lambda\lambda'}.
+}
+\]</span></p>
+<p>The transformation preserves the Hamiltonian and does not introduce additional degrees of freedom. We have simply chosen a representation in which each photon has a definite propagation direction.</p>
+<p><strong>The vector potential operator.</strong></p>
+<p>We can now express the electromagnetic field in terms of these traveling-wave photon operators.</p>
+<p>The quantized vector potential is</p>
+<p><span class="math display">\[
+\boxed{
+\hat{\vec A}(\vec r)
+=
+\sum_{\vec k,\lambda}
+\sqrt{\frac{\hbar}
+{2\varepsilon_0\omega_k V}}
+\vec\epsilon_{\vec k\lambda}
+\left(
+\hat a_{\vec k\lambda}e^{i\vec k\cdot\vec r}
++
+\hat a_{\vec k\lambda}^\dagger
+e^{-i\vec k\cdot\vec r}
+\right).
+}
+\]</span></p>
+<p>Here, we use real polarization vectors, consistent with the classical discussion.</p>
+<p>Each annihilation term is accompanied by its Hermitian conjugate. Consequently,</p>
+<p><span class="math display">\[
+\hat{\vec A}^\dagger(\vec r)
+=
+\hat{\vec A}(\vec r),
+\]</span></p>
+<p>as required for the quantum operator representing the physical vector potential.</p>
+<p>The following derivation shows how this expression follows directly from the independent oscillator coordinates introduced in Section 2.7.4.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Traveling-wave operators and the quantized vector potential">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Traveling-wave operators and the quantized vector potential
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider one pair of opposite wave vectors <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span>, with a fixed polarization <span class="math inline">\(\lambda\)</span>.</p>
+<p>The two independent real oscillator coordinates introduced in Section 2.7.4 are</p>
+<p><span class="math display">\[
+q^{(1)}
+=\sqrt{2\varepsilon_0}\operatorname{Re}Q_{\vec k\lambda},
+\qquad
+q^{(2)}
+=\sqrt{2\varepsilon_0}\operatorname{Im}Q_{\vec k\lambda}.
+\]</span></p>
+<p>After quantization, their annihilation operators are</p>
+<p><span class="math display">\[
+\hat b_j
+=
+\sqrt{\frac{\omega_k}{2\hbar}}\hat q^{(j)}
++\frac{i}{\sqrt{2\hbar\omega_k}}\hat p^{(j)},
+\qquad j=1,2.
+\]</span></p>
+<p>They satisfy</p>
+<p><span class="math display">\[
+[\hat b_j,\hat b_{j'}^\dagger]
+=\delta_{jj'}.
+\]</span></p>
+<p>Defining</p>
+<p><span class="math display">\[
+\hat a_{\vec k\lambda}
+=\frac{\hat b_1+i\hat b_2}{\sqrt2},
+\qquad
+\hat a_{-\vec k,\lambda}
+=\frac{\hat b_1-i\hat b_2}{\sqrt2},
+\]</span></p>
+<p>we find that these operators obey the usual bosonic commutation relations.</p>
+<p>The transformation also preserves the oscillator Hamiltonian:</p>
+<p><span class="math display">\[
+\hat b_1^\dagger\hat b_1
++\hat b_2^\dagger\hat b_2
+=
+\hat a_{\vec k\lambda}^\dagger
+\hat a_{\vec k\lambda}
++
+\hat a_{-\vec k,\lambda}^\dagger
+\hat a_{-\vec k,\lambda}.
+\]</span></p>
+<p><strong>Constructing the vector potential.</strong></p>
+<p>Recall the classical Fourier amplitude</p>
+<p><span class="math display">\[
+Q_{\vec k\lambda}
+=
+\frac{q^{(1)}+iq^{(2)}}
+{\sqrt{2\varepsilon_0}}.
+\]</span></p>
+<p>After quantization,</p>
+<p><span class="math display">\[
+\hat Q_{\vec k\lambda}
+=
+\frac{\hat q^{(1)}+i\hat q^{(2)}}
+{\sqrt{2\varepsilon_0}}.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\hat q^{(j)}
+=
+\sqrt{\frac{\hbar}{2\omega_k}}
+(\hat b_j+\hat b_j^\dagger),
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\boxed{
+\hat Q_{\vec k\lambda}
+=
+\sqrt{\frac{\hbar}{2\varepsilon_0\omega_k}}
+\left(
+\hat a_{\vec k\lambda}
++\hat a_{-\vec k,\lambda}^\dagger
+\right).
+}
+\]</span></p>
+<p>The Fourier amplitude at the opposite wave vector is its Hermitian conjugate,</p>
+<p><span class="math display">\[
+\hat Q_{-\vec k,\lambda}
+=
+\hat Q_{\vec k\lambda}^\dagger.
+\]</span></p>
+<p>Substituting these expressions into</p>
+<p><span class="math display">\[
+\hat{\vec A}(\vec r)
+=
+\frac{1}{\sqrt V}
+\sum_{\vec k,\lambda}
+\hat Q_{\vec k\lambda}
+\vec\epsilon_{\vec k\lambda}
+e^{i\vec k\cdot\vec r},
+\]</span></p>
+<p>and relabeling the wave vectors in the creation-operator terms gives</p>
+<p><span class="math display">\[
+\boxed{
+\hat{\vec A}(\vec r)
+=
+\sum_{\vec k,\lambda}
+\sqrt{\frac{\hbar}
+{2\varepsilon_0\omega_k V}}
+\vec\epsilon_{\vec k\lambda}
+\left(
+\hat a_{\vec k\lambda}e^{i\vec k\cdot\vec r}
++
+\hat a_{\vec k\lambda}^\dagger
+e^{-i\vec k\cdot\vec r}
+\right).
+}
+\]</span></p>
+<p>Thus, the traveling-wave expansion follows directly from the quantization of the two independent real oscillators.</p>
+</div>
+</div>
+</div>
+<p><strong>The electric field operator.</strong></p>
+<p>For the free electromagnetic field, the transverse electric field is related to the vector potential by</p>
+<p><span class="math display">\[
+\vec E_{\mathrm T}
+=-\frac{\partial\vec A}{\partial t}.
+\]</span></p>
+<p>Recall that the momentum of a harmonic oscillator is related to the time derivative of its coordinate, <span class="math inline">\(p_s=\dot q_s\)</span>. After quantization, the momentum operator can be expressed as</p>
+<p><span class="math display">\[
+\hat p_s
+=
+-i\sqrt{\frac{\hbar\omega_s}{2}}
+(\hat a_s-\hat a_s^\dagger).
+\]</span></p>
+<p>Using this relation for the independent field oscillators, we obtain the transverse electric field operator</p>
+<p><span class="math display">\[
+\boxed{
+\hat{\vec E}_{\mathrm T}(\vec r)
+=
+i\sum_{\vec k,\lambda}
+\sqrt{\frac{\hbar\omega_k}
+{2\varepsilon_0 V}}
+\vec\epsilon_{\vec k\lambda}
+\left(
+\hat a_{\vec k\lambda}e^{i\vec k\cdot\vec r}
+-
+\hat a_{\vec k\lambda}^\dagger
+e^{-i\vec k\cdot\vec r}
+\right).
+}
+\]</span></p>
+<p>The electromagnetic field is no longer merely a prescribed function of space and time. Its amplitude is an operator that connects quantum states with different photon numbers.</p>
+<p>Because the electric field operator contains both annihilation and creation operators, it can describe processes in which photons are absorbed or emitted by an atom.</p>
+</section>
+<section id="vacuum-fluctuations-and-the-uncertainty-principle" class="level3">
+<h3 class="anchored" data-anchor-id="vacuum-fluctuations-and-the-uncertainty-principle">2.7.5.2. Vacuum fluctuations and the uncertainty principle</h3>
+<p>The vacuum contains no photons, but does that mean the electromagnetic field vanishes?</p>
+<p>To answer this question, consider a single electromagnetic mode with frequency <span class="math inline">\(\omega\)</span>. At a fixed position, choosing the spatial phase to be zero, the electric field component along its polarization direction can be written</p>
+<p><span class="math display">\[
+\hat E
+=
+iE_0(\hat a-\hat a^\dagger),
+\qquad
+E_0=
+\sqrt{\frac{\hbar\omega}
+{2\varepsilon_0 V}}.
+\]</span></p>
+<p>In the vacuum state,</p>
+<p><span class="math display">\[
+\boxed{
+\langle0|\hat E|0\rangle=0.
+}
+\]</span></p>
+<p>However, the expectation value of the <strong>square of the electric field</strong> is not zero:</p>
+<p><span class="math display">\[
+\boxed{
+\langle0|\hat E^2|0\rangle
+=
+\frac{\hbar\omega}{2\varepsilon_0 V}.
+}
+\]</span></p>
+<p>Since the average field vanishes, this is also its variance:</p>
+<p><span class="math display">\[
+\boxed{
+(\Delta E)^2
+=
+\langle\hat E^2\rangle
+-\langle\hat E\rangle^2
+=
+\frac{\hbar\omega}{2\varepsilon_0 V}.
+}
+\]</span></p>
+<p>Thus, even in the absence of photons, the electric field has nonzero quantum fluctuations.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Electric field fluctuations in the vacuum">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Electric field fluctuations in the vacuum
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a single mode, we write</p>
+<p><span class="math display">\[
+\hat E=iE_0(\hat a-\hat a^\dagger).
+\]</span></p>
+<p>Squaring the operator gives</p>
+<p><span class="math display">\[
+\hat E^2
+=
+-E_0^2
+\left(
+\hat a^2
+-\hat a\hat a^\dagger
+-\hat a^\dagger\hat a
++\hat a^{\dagger 2}
+\right).
+\]</span></p>
+<p>The vacuum satisfies</p>
+<p><span class="math display">\[
+\hat a|0\rangle=0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\langle0|\hat a^2|0\rangle
+=
+\langle0|\hat a^{\dagger 2}|0\rangle
+=
+\langle0|\hat a^\dagger\hat a|0\rangle
+=0.
+\]</span></p>
+<p>Using the commutation relation</p>
+<p><span class="math display">\[
+[\hat a,\hat a^\dagger]=1,
+\]</span></p>
+<p>we find</p>
+<p><span class="math display">\[
+\langle0|\hat a\hat a^\dagger|0\rangle=1.
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\langle0|\hat E^2|0\rangle
+=E_0^2
+=\frac{\hbar\omega}{2\varepsilon_0 V}.
+}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Connection to the uncertainty principle.</strong></p>
+<p>These vacuum fluctuations are closely related to the uncertainty principle for a quantum harmonic oscillator.</p>
+<p>Recall that the oscillator coordinate and momentum satisfy</p>
+<p><span class="math display">\[
+\boxed{
+\Delta q\,\Delta p\geq\frac{\hbar}{2}.
+}
+\]</span></p>
+<p>In classical mechanics, an oscillator can be completely at rest at its equilibrium position, with <span class="math inline">\(q=p=0\)</span>. In quantum mechanics, however, the coordinate and momentum cannot both have precisely defined values.</p>
+<p>For the harmonic oscillator ground state,</p>
+<p><span class="math display">\[
+\langle\hat q\rangle
+=
+\langle\hat p\rangle=0,
+\]</span></p>
+<p>but their variances are nonzero:</p>
+<p><span class="math display">\[
+(\Delta q)^2=\frac{\hbar}{2\omega},
+\qquad
+(\Delta p)^2=\frac{\hbar\omega}{2}.
+\]</span></p>
+<p>As we have seen, each independent mode of the electromagnetic field behaves like a quantum harmonic oscillator. The electric field is related to the oscillator momenta, so their quantum uncertainties appear as fluctuations of the electromagnetic field.</p>
+<p>The electromagnetic vacuum is therefore not a state in which the electric field has a precisely defined value of zero. Rather, it is the lowest-energy state of the field, with a vanishing average electric field but nonzero fluctuations.</p>
+<p>This calculation concerns a single mode. For the full electromagnetic field, the fluctuations involve contributions from all modes, and the field variance at an idealized point requires additional care.</p>
+</section>
+</section>
+<section id="quantum-states-of-the-electromagnetic-field" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-states-of-the-electromagnetic-field">2.7.6. Quantum States of the Electromagnetic Field</h2>
+<p>Quantizing the electromagnetic field allows us to describe light in terms of photons. However, specifying the number of photons is not the only way to characterize a quantum state of light.</p>
+<p>Different quantum states can have very different electric-field properties. In particular, they differ in their average electric field and in the quantum fluctuations around that average.</p>
+<p>To visualize these differences, it is useful to introduce a representation based on the two <strong>field quadratures</strong>.</p>
+<section id="field-quadratures-and-the-uncertainty-principle" class="level3">
+<h3 class="anchored" data-anchor-id="field-quadratures-and-the-uncertainty-principle">Field quadratures and the uncertainty principle</h3>
+<p>Recall that each electromagnetic mode is described by a quantum harmonic oscillator with coordinate <span class="math inline">\(\hat q\)</span> and momentum <span class="math inline">\(\hat p\)</span>.</p>
+<p>For a single mode of frequency <span class="math inline">\(\omega\)</span>, we define the dimensionless quadrature operators</p>
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+\hat X
+&amp;=\frac{\hat a+\hat a^\dagger}{2}
+=\sqrt{\frac{\omega}{2\hbar}}\,\hat q,\\[6pt]
+\hat Y
+&amp;=\frac{\hat a-\hat a^\dagger}{2i}
+=\frac{\hat p}{\sqrt{2\hbar\omega}}.
+\end{aligned}
+}
+\]</span></p>
+<p>Thus, the field quadratures are simply rescaled versions of the familiar harmonic oscillator coordinate and momentum.</p>
+<p>Since</p>
+<p><span class="math display">\[
+[\hat q,\hat p]=i\hbar,
+\]</span></p>
+<p>the quadratures satisfy</p>
+<p><span class="math display">\[
+[\hat X,\hat Y]=\frac{i}{2}.
+\]</span></p>
+<p>The position–momentum uncertainty principle therefore becomes</p>
+<p><span class="math display">\[
+\boxed{
+\Delta X\,\Delta Y\geq\frac14.
+}
+\]</span></p>
+<p>The quadratures also have a simple connection to the amplitude and phase of an electromagnetic wave.</p>
+<p>A classical monochromatic electric field can be written as</p>
+<p><span class="math display">\[
+E(t)=E_c\cos(\omega t)+E_s\sin(\omega t),
+\]</span></p>
+<p>or equivalently,</p>
+<p><span class="math display">\[
+E(t)=E_A\cos(\omega t-\phi),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+E_c=E_A\cos\phi,
+\qquad
+E_s=E_A\sin\phi.
+\]</span></p>
+<p>The two coefficients <span class="math inline">\(E_c\)</span> and <span class="math inline">\(E_s\)</span> determine the amplitude <span class="math inline">\(E_A\)</span> and phase <span class="math inline">\(\phi\)</span> of the wave.</p>
+<p>In the quantum description, the corresponding field components are represented by the operators <span class="math inline">\(\hat X\)</span> and <span class="math inline">\(\hat Y\)</span> (up to a choice of phase convention).</p>
+<p>We can therefore visualize a quantum state in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane:</p>
+<ul>
+<li>The mean values <span class="math inline">\(\langle\hat X\rangle\)</span> and <span class="math inline">\(\langle\hat Y\rangle\)</span> specify the center of the state’s distribution.</li>
+<li>The distance of this center from the origin is proportional to the mean field amplitude <span class="math inline">\(E_A\)</span>.</li>
+<li>Its angle determines the phase of the mean electromagnetic field. During free evolution, this angle changes as <span class="math inline">\(\phi-\omega t\)</span>.</li>
+<li>The spread around the center represents quantum fluctuations of the field.</li>
+</ul>
+<p>The uncertainty principle prevents the distribution from being arbitrarily narrow in both directions.</p>
+<p>We will use this representation to compare three important types of quantum states of light.</p>
+</section>
+<section id="fock-states-light-with-a-definite-photon-number" class="level3">
+<h3 class="anchored" data-anchor-id="fock-states-light-with-a-definite-photon-number">2.7.6.1. Fock states: Light with a definite photon number</h3>
+<p>A Fock state <span class="math inline">\(|n\rangle\)</span> contains exactly <span class="math inline">\(n\)</span> photons in a given electromagnetic mode:</p>
+<p><span class="math display">\[
+\hat N|n\rangle=n|n\rangle,
+\qquad
+\hat N=\hat a^\dagger\hat a.
+\]</span></p>
+<p>Consequently, its photon-number uncertainty vanishes:</p>
+<p><span class="math display">\[
+\boxed{
+\Delta N=0.
+}
+\]</span></p>
+<p>However, a Fock state does not have a nonzero average electric field.</p>
+<p>Since the annihilation and creation operators change the photon number,</p>
+<p><span class="math display">\[
+\langle n|\hat a|n\rangle
+=
+\langle n|\hat a^\dagger|n\rangle=0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\langle n|\hat E(t)|n\rangle=0.
+}
+\]</span></p>
+<p>This remains true even for a state containing many photons.</p>
+<p>The field nevertheless exhibits quantum fluctuations. For the quadratures, we find</p>
+<p><span class="math display">\[
+\boxed{
+(\Delta X)^2
+=
+(\Delta Y)^2
+=
+\frac{2n+1}{4}.
+}
+\]</span></p>
+<p>The uncertainties are equal in both directions and increase with photon number.</p>
+<p>In the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane, Fock states are therefore rotationally symmetric around the origin. They have no preferred optical phase.</p>
+<p>The vacuum state <span class="math inline">\(|0\rangle\)</span> is the simplest example, with</p>
+<p><span class="math display">\[
+(\Delta X)^2
+=
+(\Delta Y)^2
+=
+\frac14.
+\]</span></p>
+<p>For <span class="math inline">\(n&gt;0\)</span>, the full phase-space distribution has a more complicated, non-Gaussian structure, which cannot be represented completely by an uncertainty circle.</p>
+<p>The important distinction is that a Fock state has a precisely defined photon number, but no classical oscillating mean electric field.</p>
+</section>
+<section id="coherent-states-the-quantum-description-of-classical-light" class="level3">
+<h3 class="anchored" data-anchor-id="coherent-states-the-quantum-description-of-classical-light">2.7.6.2. Coherent states: The quantum description of classical light</h3>
+<p>A coherent state <span class="math inline">\(|\alpha\rangle\)</span> is defined as an eigenstate of the annihilation operator:</p>
+<p><span class="math display">\[
+\boxed{
+\hat a|\alpha\rangle
+=
+\alpha|\alpha\rangle,
+}
+\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is a complex number.</p>
+<p>Writing</p>
+<p><span class="math display">\[
+\alpha=|\alpha|e^{i\phi},
+\]</span></p>
+<p>we obtain the time-dependent expectation values</p>
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+\langle\hat X\rangle(t)
+&amp;=|\alpha|\cos(\phi-\omega t),\\
+\langle\hat Y\rangle(t)
+&amp;=|\alpha|\sin(\phi-\omega t).
+\end{aligned}
+}
+\]</span></p>
+<p>Thus, the mean-field vector rotates in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane at angular frequency <span class="math inline">\(\omega\)</span>, while its distance from the origin remains constant.</p>
+<p>Unlike a Fock state, a coherent state therefore has a nonzero mean field amplitude and a well-defined mean optical phase when <span class="math inline">\(\alpha\ne0\)</span>.</p>
+<p>For a single mode, the expectation value of the electric field is</p>
+<p><span class="math display">\[
+\boxed{
+\langle\hat E(t)\rangle
+=
+2E_0|\alpha|\sin(\omega t-\phi),
+}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+E_0=
+\sqrt{\frac{\hbar\omega}{2\varepsilon_0V}}.
+\]</span></p>
+<p>Thus, the average electric field oscillates exactly like a classical electromagnetic wave.</p>
+<p>However, the photon number is not precisely defined. Instead,</p>
+<p><span class="math display">\[
+\boxed{
+\langle\hat N\rangle=|\alpha|^2,
+\qquad
+(\Delta N)^2=|\alpha|^2.
+}
+\]</span></p>
+<p>Coherent states have a Poisson distribution of photon numbers. Their relative photon-number uncertainty is</p>
+<p><span class="math display">\[
+\frac{\Delta N}{\langle\hat N\rangle}
+=
+\frac{1}{\sqrt{\langle\hat N\rangle}}.
+\]</span></p>
+<p>For large photon numbers, this relative uncertainty becomes small.</p>
+<p>The quadrature variances are</p>
+<p><span class="math display">\[
+\boxed{
+(\Delta X)^2
+=
+(\Delta Y)^2
+=
+\frac14.
+}
+\]</span></p>
+<p>Remarkably, these are exactly the same uncertainties as in the vacuum.</p>
+<p>In the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane, a coherent state is therefore represented by a circular Gaussian distribution displaced from the origin.</p>
+<p>As the mean photon number increases, the displacement grows while the absolute quadrature uncertainties remain unchanged. The fluctuations therefore become small relative to the mean field amplitude.</p>
+<p>This explains why coherent states with large photon occupation numbers provide an excellent quantum description of classical electromagnetic waves.</p>
+</section>
+<section id="squeezed-states-redistributing-quantum-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="squeezed-states-redistributing-quantum-uncertainty">2.7.6.3. Squeezed states: Redistributing quantum uncertainty</h3>
+<p>The uncertainty principle requires</p>
+<p><span class="math display">\[
+\Delta X\,\Delta Y\geq\frac14,
+\]</span></p>
+<p>but it does not require the uncertainties in the two quadratures to be equal.</p>
+<p>A <strong>squeezed state</strong> has reduced fluctuations in one quadrature at the expense of increased fluctuations in the other.</p>
+<p>For an appropriately oriented minimum-uncertainty squeezed state, the variances can be written as</p>
+<p><span class="math display">\[
+\boxed{
+(\Delta X)^2=\frac14e^{-2r},
+\qquad
+(\Delta Y)^2=\frac14e^{2r},
+}
+\]</span></p>
+<p>where <span class="math inline">\(r\geq0\)</span> describes the degree of squeezing.</p>
+<p>Their product remains</p>
+<p><span class="math display">\[
+\Delta X\,\Delta Y=\frac14.
+\]</span></p>
+<p>The uncertainty principle is therefore not violated. Instead, the quantum fluctuations are redistributed between the two field components.</p>
+<p>In the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane, the circular uncertainty region of a coherent state becomes an ellipse.</p>
+<p>For a state with a nonzero mean field amplitude, we can distinguish two particularly important cases:</p>
+<p><strong>Amplitude-squeezed light.</strong></p>
+<p>The uncertainty is reduced along the direction of the mean field amplitude, corresponding to the radial direction in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane.</p>
+<p>The field amplitude becomes more precisely defined, while its phase uncertainty increases.</p>
+<p><strong>Phase-squeezed light.</strong></p>
+<p>The uncertainty is reduced perpendicular to the mean field amplitude, corresponding to the tangential direction in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane.</p>
+<p>The phase becomes more precisely defined, while the amplitude uncertainty increases.</p>
+<p>These descriptions apply most naturally to states with a sufficiently large mean field amplitude, for which radial and angular fluctuations can be interpreted approximately as amplitude and phase noise.</p>
+<!-- FIGURE 1:
+     Multi-panel X–Y phase-space representation:
+     vacuum, Fock state, coherent state,
+     amplitude-squeezed coherent state,
+     phase-squeezed coherent state.
+     Show mean-field vectors and uncertainty
+     regions. Distinguish the non-Gaussian
+     Fock-state distribution from Gaussian
+     uncertainty ellipses.
+-->
+<!-- FIGURE 2:
+     Three panels showing the mean electric
+     field and illustrative quantum
+     fluctuations for:
+     (a) coherent light,
+     (b) amplitude-squeezed light,
+     (c) phase-squeezed light.
+     Use the same mean sinusoidal field
+     in all three panels.
+-->
+<p>Squeezed states illustrate an important feature of quantum light: the fluctuations of the electromagnetic field are not necessarily fixed at the vacuum level. They can be redistributed, allowing one field component to be measured with reduced quantum uncertainty.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Physical interpretation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Physical interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A photon is not a small classical wave packet attached to a point in space. It is a quantum excitation of an electromagnetic <em>mode</em>.</p>
+<p>The mode specifies the spatial structure, frequency, and polarization of the field. The quantum state determines its photon occupation and the statistical properties of its electric field.</p>
+<p>Fock states, coherent states, and squeezed states are different quantum states of the same electromagnetic mode.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">2.7.8. Summary</h2>
+<p>The route from classical electrodynamics to the quantum description of light can now be summarized:</p>
+<ol type="1">
+<li>The Lorentz force follows from a Lagrangian containing the scalar and vector potentials.</li>
+<li>The canonical momentum <span class="math inline">\(\vec p=m\vec v+q\vec A\)</span> leads to the minimal-coupling Hamiltonian, which describes the interaction between charged particles and electromagnetic fields.</li>
+<li>In Coulomb gauge, the longitudinal electric field accounts for electrostatic interactions, while the transverse field contains the independent radiation degrees of freedom.</li>
+<li>Each transverse electromagnetic mode behaves as a harmonic oscillator. Quantizing these oscillators introduces photon creation and annihilation operators, with photons representing discrete excitations of the field modes.</li>
+<li>Even in the vacuum state, the electromagnetic field exhibits quantum fluctuations, reflecting the uncertainty principle and the nonzero ground-state energy of each mode.</li>
+<li>Different quantum states describe different properties of light: <strong>Fock states</strong> have a definite photon number, <strong>coherent states</strong> most closely resemble classical electromagnetic waves, and <strong>squeezed states</strong> redistribute quantum uncertainty between field quadratures.</li>
+</ol>
+<p>The central result is that <strong>light is a quantum field whose excitations are photons</strong>. Classical electromagnetic waves emerge from suitable quantum states of this field, particularly coherent states with large mean photon numbers.</p>
+<p><strong>Further reading.</strong> C. Cohen-Tannoudji, B. Diu, and F. Laloë, <em>Quantum Mechanics</em>, Vol. III, Chapter XVIII, especially the discussion of transverse fields and normal variables. The present exposition uses real oscillator coordinates to identify the independent degrees of freedom before introducing traveling-wave photon modes and their quantum states.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fsch-d\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../mod2/qosc.html" class="pagination-link" aria-label="2.6 The One-Dimensional Quantum Harmonic Oscillator">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.6 The One-Dimensional Quantum Harmonic Oscillator</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../mod2/perturb.html" class="pagination-link" aria-label="2.8 Time-Independent Perturbation Theory">
+        <span class="nav-page-text">2.8 Time-Independent Perturbation Theory</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"bottom","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

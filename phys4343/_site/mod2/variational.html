@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>2.9 The Variational Method – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>2.10 The Variational Method – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="2.9 The Variational Method – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:title" content="2.10 The Variational Method – Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 </head>
@@ -336,7 +336,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/variational.html">2.9 The Variational Method</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/variational.html">2.10 The Variational Method</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -426,32 +426,38 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../mod2/quantized_em_field.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.7 Quantization of the Electromagnetic Field</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.7 Time-Independent Perturbation Theory</span></a>
+ <span class="menu-text">2.8 Time-Independent Perturbation Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/tdperturb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
+ <span class="menu-text">2.9 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2.9 The Variational Method</span></a>
+ <span class="menu-text">2.10 The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.10 Exchange Interaction: Fermions and Bosons</span></a>
+ <span class="menu-text">2.11 Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.11 Relativistic Wave Equations — the Dirac Equation</span></a>
+ <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
       </ul>
@@ -778,29 +784,29 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-variational-principle-in-quantum-mechanics" id="toc-the-variational-principle-in-quantum-mechanics" class="nav-link" data-scroll-target="#the-variational-principle-in-quantum-mechanics">2.9.1. The Variational Principle in Quantum Mechanics</a>
+  <li><a href="#the-variational-principle-in-quantum-mechanics" id="toc-the-variational-principle-in-quantum-mechanics" class="nav-link" data-scroll-target="#the-variational-principle-in-quantum-mechanics">2.10.1. The Variational Principle in Quantum Mechanics</a>
   <ul class="collapse">
-  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">2.9.1.1 Why It Works</a></li>
-  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link" data-scroll-target="#how-to-use-it">2.9.1.2 How to Use It</a></li>
-  <li><a href="#example-the-hydrogen-ground-state" id="toc-example-the-hydrogen-ground-state" class="nav-link" data-scroll-target="#example-the-hydrogen-ground-state">2.9.1.3 Example: The Hydrogen Ground State</a>
+  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">2.10.1.1 Why It Works</a></li>
+  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link" data-scroll-target="#how-to-use-it">2.10.1.2 How to Use It</a></li>
+  <li><a href="#example-the-hydrogen-ground-state" id="toc-example-the-hydrogen-ground-state" class="nav-link" data-scroll-target="#example-the-hydrogen-ground-state">2.10.1.3 Example: The Hydrogen Ground State</a>
   <ul class="collapse">
   <li><a href="#step-1-normalize" id="toc-step-1-normalize" class="nav-link" data-scroll-target="#step-1-normalize">Step 1: Normalize</a></li>
   <li><a href="#step-2-compute-the-energy-expectation" id="toc-step-2-compute-the-energy-expectation" class="nav-link" data-scroll-target="#step-2-compute-the-energy-expectation">Step 2: Compute the Energy Expectation</a></li>
   <li><a href="#step-3-minimize" id="toc-step-3-minimize" class="nav-link" data-scroll-target="#step-3-minimize">Step 3: Minimize</a></li>
   <li><a href="#step-4-evaluate" id="toc-step-4-evaluate" class="nav-link" data-scroll-target="#step-4-evaluate">Step 4: Evaluate</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">2.9.1.4 Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">2.10.1.4 Summary</a></li>
   </ul></li>
-  <li><a href="#sec-ritz" id="toc-sec-ritz" class="nav-link" data-scroll-target="#sec-ritz">2.9.2. Ritz’s Method</a>
+  <li><a href="#sec-ritz" id="toc-sec-ritz" class="nav-link" data-scroll-target="#sec-ritz">2.10.2. Ritz’s Method</a>
   <ul class="collapse">
-  <li><a href="#the-linear-variational-method" id="toc-the-linear-variational-method" class="nav-link" data-scroll-target="#the-linear-variational-method">2.9.2.1 The Linear Variational Method</a></li>
-  <li><a href="#derivation-of-the-secular-equation" id="toc-derivation-of-the-secular-equation" class="nav-link" data-scroll-target="#derivation-of-the-secular-equation">2.9.2.2 Derivation of the Secular Equation</a></li>
-  <li><a href="#interpretation-and-computational-aspects" id="toc-interpretation-and-computational-aspects" class="nav-link" data-scroll-target="#interpretation-and-computational-aspects">2.9.2.3 Interpretation and Computational Aspects</a></li>
-  <li><a href="#advantages-of-the-ritz-approach" id="toc-advantages-of-the-ritz-approach" class="nav-link" data-scroll-target="#advantages-of-the-ritz-approach">2.9.2.4 Advantages of the Ritz Approach</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">2.9.2.5 Applications</a></li>
-  <li><a href="#summary-and-takeaways" id="toc-summary-and-takeaways" class="nav-link" data-scroll-target="#summary-and-takeaways">2.9.2.6 Summary and Takeaways</a></li>
+  <li><a href="#the-linear-variational-method" id="toc-the-linear-variational-method" class="nav-link" data-scroll-target="#the-linear-variational-method">2.10.2.1 The Linear Variational Method</a></li>
+  <li><a href="#derivation-of-the-secular-equation" id="toc-derivation-of-the-secular-equation" class="nav-link" data-scroll-target="#derivation-of-the-secular-equation">2.10.2.2 Derivation of the Secular Equation</a></li>
+  <li><a href="#interpretation-and-computational-aspects" id="toc-interpretation-and-computational-aspects" class="nav-link" data-scroll-target="#interpretation-and-computational-aspects">2.10.2.3 Interpretation and Computational Aspects</a></li>
+  <li><a href="#advantages-of-the-ritz-approach" id="toc-advantages-of-the-ritz-approach" class="nav-link" data-scroll-target="#advantages-of-the-ritz-approach">2.10.2.4 Advantages of the Ritz Approach</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">2.10.2.5 Applications</a></li>
+  <li><a href="#summary-and-takeaways" id="toc-summary-and-takeaways" class="nav-link" data-scroll-target="#summary-and-takeaways">2.10.2.6 Summary and Takeaways</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">2.9.3. Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">2.10.3. Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -808,9 +814,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/variational.html">2.9 The Variational Method</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/variational.html">2.10 The Variational Method</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2.9 The Variational Method</h1>
+<h1 class="title">2.10 The Variational Method</h1>
 </div>
 
 
@@ -849,7 +855,7 @@ window.Quarto = {
 <p>By the end, you’ll see how this principle transforms an impossible differential equation into a solvable problem of <strong>optimization</strong>—a theme that reappears throughout all of modern quantum physics.</p>
 </section>
 <section id="the-variational-principle-in-quantum-mechanics" class="level1">
-<h1>2.9.1. The Variational Principle in Quantum Mechanics</h1>
+<h1>2.10.1. The Variational Principle in Quantum Mechanics</h1>
 <p>In quantum mechanics, we often seek the <strong>ground-state energy</strong> (lowest possible energy) and its corresponding <strong>wavefunction</strong>. The <strong>variational principle</strong> provides a general and remarkably useful way to approximate both.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -886,7 +892,7 @@ Note
 </div>
 <hr>
 <section id="why-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="why-it-works">2.9.1.1 Why It Works</h2>
+<h2 class="anchored" data-anchor-id="why-it-works">2.10.1.1 Why It Works</h2>
 <p>Let <span class="math inline">\(\{|n\rangle\}\)</span> be the complete set of energy eigenstates of <span class="math inline">\(\hat{H}\)</span>:</p>
 <p><span class="math display">\[
 \hat{H}|n\rangle = E_n |n\rangle, \qquad E_0 \le E_1 \le E_2 \le \dots
@@ -907,7 +913,7 @@ Note
 <hr>
 </section>
 <section id="how-to-use-it" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-it">2.9.1.2 How to Use It</h2>
+<h2 class="anchored" data-anchor-id="how-to-use-it">2.10.1.2 How to Use It</h2>
 <p>In practice, the method becomes a systematic algorithm:</p>
 <ol type="1">
 <li><p><strong>Choose a trial wavefunction</strong> <span class="math inline">\(\psi(\mathbf{r};\alpha_1,\alpha_2,\dots)\)</span> containing one or more adjustable parameters (e.g.&nbsp;width, decay rate).</p></li>
@@ -925,7 +931,7 @@ The minimized <span class="math inline">\(\langle E\rangle\)</span> gives your b
 <hr>
 </section>
 <section id="example-the-hydrogen-ground-state" class="level2">
-<h2 class="anchored" data-anchor-id="example-the-hydrogen-ground-state">2.9.1.3 Example: The Hydrogen Ground State</h2>
+<h2 class="anchored" data-anchor-id="example-the-hydrogen-ground-state">2.10.1.3 Example: The Hydrogen Ground State</h2>
 <p>To see the method in action, let’s approximate the ground-state energy of the hydrogen atom without solving Schrödinger’s equation directly.</p>
 <p>The exact ground state is known to be an exponential, so we choose a <strong>trial function of the same form but with adjustable decay rate:</strong></p>
 <p><span class="math display">\[
@@ -966,7 +972,7 @@ E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
 </section>
 </section>
 <section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">2.9.1.4 Summary</h2>
+<h2 class="anchored" data-anchor-id="summary">2.10.1.4 Summary</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1002,11 +1008,11 @@ E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
 </section>
 </section>
 <section id="sec-ritz" class="level1">
-<h1>2.9.2. Ritz’s Method</h1>
+<h1>2.10.2. Ritz’s Method</h1>
 <p>The <strong>Ritz variational method</strong> generalizes the basic variational principle into a systematic and computationally tractable form. Instead of relying on a single trial function with a few adjustable parameters, it allows the wavefunction to be expressed as a <em>flexible linear combination</em> of simpler building blocks.</p>
 <hr>
 <section id="the-linear-variational-method" class="level2">
-<h2 class="anchored" data-anchor-id="the-linear-variational-method">2.9.2.1 The Linear Variational Method</h2>
+<h2 class="anchored" data-anchor-id="the-linear-variational-method">2.10.2.1 The Linear Variational Method</h2>
 <p>Rather than guessing one function <span class="math inline">\(\psi(r)\)</span>, we represent the trial wavefunction as a <strong>linear combination of known basis functions</strong>:</p>
 <p><span class="math display">\[
 \psi(r) = \sum_{i=1}^{n} c_i\, \phi_i(r)
@@ -1020,7 +1026,7 @@ E_\text{min} = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2} = -13.6\ \text{eV}.
 <hr>
 </section>
 <section id="derivation-of-the-secular-equation" class="level2">
-<h2 class="anchored" data-anchor-id="derivation-of-the-secular-equation">2.9.2.2 Derivation of the Secular Equation</h2>
+<h2 class="anchored" data-anchor-id="derivation-of-the-secular-equation">2.10.2.2 Derivation of the Secular Equation</h2>
 <p>We start from the energy expectation value for the trial wave function</p>
 <p><span class="math display">\[
 E[\psi] =
@@ -1209,7 +1215,7 @@ E\frac{\partial D}{\partial c_k^*}=0.
 <hr>
 </section>
 <section id="interpretation-and-computational-aspects" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation-and-computational-aspects">2.9.2.3 Interpretation and Computational Aspects</h2>
+<h2 class="anchored" data-anchor-id="interpretation-and-computational-aspects">2.10.2.3 Interpretation and Computational Aspects</h2>
 <p>The secular equation represents a <strong>generalized eigenvalue problem</strong>:</p>
 <p><span class="math display">\[
 \mathbf{H} \vec{c} = E\, \mathbf{S} \vec{c}.
@@ -1225,7 +1231,7 @@ E\frac{\partial D}{\partial c_k^*}=0.
 <hr>
 </section>
 <section id="advantages-of-the-ritz-approach" class="level2">
-<h2 class="anchored" data-anchor-id="advantages-of-the-ritz-approach">2.9.2.4 Advantages of the Ritz Approach</h2>
+<h2 class="anchored" data-anchor-id="advantages-of-the-ritz-approach">2.10.2.4 Advantages of the Ritz Approach</h2>
 <ol type="1">
 <li><p><strong>Systematic improvement</strong><br>
 Increasing the number of basis functions (<span class="math inline">\(n\)</span>) always lowers the ground-state energy estimate, converging toward the exact value.</p></li>
@@ -1239,7 +1245,7 @@ Each approximate eigenvalue <span class="math inline">\(E_k^{(\text{approx})}\)<
 <hr>
 </section>
 <section id="applications" class="level2">
-<h2 class="anchored" data-anchor-id="applications">2.9.2.5 Applications</h2>
+<h2 class="anchored" data-anchor-id="applications">2.10.2.5 Applications</h2>
 <p>The Ritz variational method underlies many modern computational frameworks:</p>
 <ul>
 <li><strong>Hartree–Fock theory:</strong> Represents many-electron wavefunctions as Slater determinants optimized variationally.<br>
@@ -1254,7 +1260,7 @@ Each approximate eigenvalue <span class="math inline">\(E_k^{(\text{approx})}\)<
 <hr>
 </section>
 <section id="summary-and-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="summary-and-takeaways">2.9.2.6 Summary and Takeaways</h2>
+<h2 class="anchored" data-anchor-id="summary-and-takeaways">2.10.2.6 Summary and Takeaways</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1290,7 +1296,7 @@ Each approximate eigenvalue <span class="math inline">\(E_k^{(\text{approx})}\)<
 </section>
 </section>
 <section id="conclusion" class="level1">
-<h1>2.9.3. Conclusion</h1>
+<h1>2.10.3. Conclusion</h1>
 <p>The <strong>variational method</strong> is one of the most powerful and conceptually elegant tools in quantum mechanics. Even a rough trial function yields a rigorous <strong>upper bound</strong> to the true energy. Combined with the <strong>Ritz method</strong>, it becomes a general computational strategy — the foundation of modern quantum chemistry and condensed matter physics.</p>
 
 
@@ -1712,13 +1718,13 @@ Each approximate eigenvalue <span class="math inline">\(E_k^{(\text{approx})}\)<
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../mod2/tdperturb.html" class="pagination-link" aria-label="2.8 Time-Dependent Perturbation Theory and Fermi's Golden Rule">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span>
+      <a href="../mod2/tdperturb.html" class="pagination-link" aria-label="2.9 Time-Dependent Perturbation Theory and Fermi's Golden Rule">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.9 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../mod2/exchange.html" class="pagination-link" aria-label="2.10 Exchange Interaction: Fermions and Bosons">
-        <span class="nav-page-text">2.10 Exchange Interaction: Fermions and Bosons</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../mod2/exchange.html" class="pagination-link" aria-label="2.11 Exchange Interaction: Fermions and Bosons">
+        <span class="nav-page-text">2.11 Exchange Interaction: Fermions and Bosons</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

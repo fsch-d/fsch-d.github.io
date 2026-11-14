@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>2.7 Time-Independent Perturbation Theory – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>2.8 Time-Independent Perturbation Theory – Introduction into Atomic, Molecular, and Optical Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../mod2/tdperturb.html" rel="next">
-<link href="../mod2/qosc.html" rel="prev">
+<link href="../mod2/quantized_em_field.html" rel="prev">
 <link href="../icons/icon-192.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -123,7 +123,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="2.7 Time-Independent Perturbation Theory – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:title" content="2.8 Time-Independent Perturbation Theory – Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 </head>
 
@@ -335,7 +335,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/perturb.html">2.7 Time-Independent Perturbation Theory</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/perturb.html">2.8 Time-Independent Perturbation Theory</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -425,32 +425,38 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../mod2/quantized_em_field.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.7 Quantization of the Electromagnetic Field</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../mod2/perturb.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2.7 Time-Independent Perturbation Theory</span></a>
+ <span class="menu-text">2.8 Time-Independent Perturbation Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/tdperturb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
+ <span class="menu-text">2.9 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/variational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.9 The Variational Method</span></a>
+ <span class="menu-text">2.10 The Variational Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod2/exchange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.10 Exchange Interaction: Fermions and Bosons</span></a>
+ <span class="menu-text">2.11 Exchange Interaction: Fermions and Bosons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.11 Relativistic Wave Equations — the Dirac Equation</span></a>
+ <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
       </ul>
@@ -794,9 +800,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/perturb.html">2.7 Time-Independent Perturbation Theory</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/perturb.html">2.8 Time-Independent Perturbation Theory</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2.7 Time-Independent Perturbation Theory</h1>
+<h1 class="title">2.8 Time-Independent Perturbation Theory</h1>
 </div>
 
 
@@ -1381,13 +1387,13 @@ E_n^{(2)} = \sum_{k \neq n} \frac{|\left\langle k^{(0)} \right\rvert\hat{V} \lef
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../mod2/qosc.html" class="pagination-link" aria-label="2.6 The One-Dimensional Quantum Harmonic Oscillator">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.6 The One-Dimensional Quantum Harmonic Oscillator</span>
+      <a href="../mod2/quantized_em_field.html" class="pagination-link" aria-label="2.7 Quantization of the Electromagnetic Field">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.7 Quantization of the Electromagnetic Field</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../mod2/tdperturb.html" class="pagination-link" aria-label="2.8 Time-Dependent Perturbation Theory and Fermi's Golden Rule">
-        <span class="nav-page-text">2.8 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../mod2/tdperturb.html" class="pagination-link" aria-label="2.9 Time-Dependent Perturbation Theory and Fermi's Golden Rule">
+        <span class="nav-page-text">2.9 Time-Dependent Perturbation Theory and Fermi’s Golden Rule</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,6 +7,7 @@ format:
     fig-alt: true
 subtitle: How a few small wrinkles changed our view of nature
 title: 1 From Classical Physics to the Quantum World of Atoms
+author: "Daniel Fischer"
 ---
 
 # A world without quantum mechanics

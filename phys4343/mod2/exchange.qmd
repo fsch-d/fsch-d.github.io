@@ -1,17 +1,17 @@
 ---
-title: '2.10 Exchange Interaction: Fermions and Bosons'
+title: '2.11 Exchange Interaction: Fermions and Bosons'
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
 ---
 
-# 2.10.1. Indistinguishability of Identical Particles
+# 2.11.1. Indistinguishability of Identical Particles
 
 In quantum mechanics, **identical particles** cannot be distinguished from one another, even in principle. If we exchange two identical particles, there is no way—either in theory or in experiment—to tell that anything has changed. This simple idea has deep implications for how we describe many-particle systems.
 
 ---
 
-## 2.10.1.1 Product States and Indistinguishability
+## 2.11.1.1 Product States and Indistinguishability
 
 Suppose particle 1 (with coordinate $\vec{r}_1$) is in state $\psi_a$,  
 and particle 2 (with coordinate $\vec{r}_2$) is in state $\psi_b$.
@@ -30,7 +30,7 @@ This expression assumes we can tell which particle is “particle 1” and which
 
 ---
 
-## 2.10.1.2 Example: Scattering of Indistinguishable Particles
+## 2.11.1.2 Example: Scattering of Indistinguishable Particles
 
 Imagine two identical particles scattering off each other. Classically, there are two possible paths:
 
@@ -130,7 +130,7 @@ For identical particles in quantum mechanics, these two alternatives are *indist
 
 ---
 
-# 2.10.2. Exchange
+# 2.11.2. Exchange
 
 In quantum mechanics, if we exchange two **identical particles**, the system must end up in the **same physical state**. However, the wavefunction itself may change by a *phase factor*.
 
@@ -138,7 +138,7 @@ Mathematically, this is captured by introducing an operator that performs the ex
 
 ---
 
-## 2.10.2.1 The Exchange Operator
+## 2.11.2.1 The Exchange Operator
 
 We define the **permutation (or exchange) operator** $P_{12}$, which swaps the coordinates of the two particles:
 
@@ -174,7 +174,7 @@ These two possibilities correspond to two fundamentally different kinds of parti
 
 ---
 
-## 2.10.2.2 Symmetrized and Antisymmetrized States
+## 2.11.2.2 Symmetrized and Antisymmetrized States
 
 For two identical particles, we cannot meaningfully assign labels “1” and “2.” The wavefunction must reflect this symmetry by being either **symmetric** or **antisymmetric** under exchange.
 
@@ -199,7 +199,7 @@ where $A$ is a normalization constant ensuring that $\int |\Psi|^2 \, d^3r_1\, d
 
 ---
 
-## 2.10.2.3 Spin and Statistics
+## 2.11.2.3 Spin and Statistics
 
 In non-relativistic quantum mechanics, we take as an **axiom** the following rule:
 
@@ -215,7 +215,7 @@ This fundamental connection between spin and exchange symmetry is a consequence 
 
 ---
 
-## 2.10.2.4 The Pauli Exclusion Principle
+## 2.11.2.4 The Pauli Exclusion Principle
 
 Let’s consider two identical fermions that try to occupy the *same* one-particle state $\psi_a$:
 
@@ -239,7 +239,7 @@ This principle explains the structure of the periodic table, the stability of ma
 
 ---
 
-# 2.10.3. Generalization Beyond Coordinates
+# 2.11.3. Generalization Beyond Coordinates
 
 So far, we have discussed the exchange operation in **coordinate space**, where $P_{12}$ swaps the position arguments $\vec{r}_1$ and $\vec{r}_2$. However, the same idea applies much more generally: a *quantum state* can be labeled by any set of quantum numbers — such as energy level, orbital angular momentum, spin projection, etc.
 
@@ -257,7 +257,7 @@ The physical requirement is exactly the same as before: **exchanging two identic
 
 ---
 
-# 2.10.4. Summary
+# 2.11.4. Summary
 
 | Property | Bosons | Fermions |
 |-----------|---------|-----------|

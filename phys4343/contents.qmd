@@ -19,11 +19,12 @@ This page provides an overview and links to all the sections of the website.
 * [2.4 Commutators and the Heisenberg Uncertainty Principle](mod2/heisenberg.qmd)
 * [2.5 Angular Momenta and Their Couplings](mod2/amcoupling.qmd)
 * [2.6 The One-Dimensional Quantum Harmonic Oscillator](mod2/qosc.qmd)
-* [2.7 Time-Independent Perturbation Theory](mod2/perturb.qmd)
-* [2.8 Time-Dependent Perturbation Theory and Fermi's Golden Rule](mod2/tdperturb.qmd)
-* [2.9 The Variational Method](mod2/variational.qmd)
-* [2.10 Exchange Interaction: Fermions and Bosons](mod2/exchange.qmd)
-* [2.11 Relativistic Wave Equations — the Dirac Equation](mod4/relwaves.qmd)
+* [2.7 Quantization of the Electromagnetic Field](mod2/quantized_em_field.qmd)
+* [2.8 Time-Independent Perturbation Theory](mod2/perturb.qmd)
+* [2.9 Time-Dependent Perturbation Theory and Fermi's Golden Rule](mod2/tdperturb.qmd)
+* [2.10 The Variational Method](mod2/variational.qmd)
+* [2.11 Exchange Interaction: Fermions and Bosons](mod2/exchange.qmd)
+* [2.12 Relativistic Wave Equations — the Dirac Equation](mod4/relwaves.qmd)
 
 ---
 

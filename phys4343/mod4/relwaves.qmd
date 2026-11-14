@@ -1,5 +1,5 @@
 ---
-title: 2.11 Relativistic Wave Equations — the Dirac Equation
+title: 2.12 Relativistic Wave Equations — the Dirac Equation
 author: Daniel Fischer
 #engine: python3
 #jupyter: python3

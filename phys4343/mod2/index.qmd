@@ -26,6 +26,7 @@ These chapters apply the general formalism to systems that occur repeatedly in A
 
 1. [**Angular Momenta and Their Couplings**](amcoupling.qmd) — Angular-momentum eigenvalues, quantum numbers, and coupling.
 2. [**The One-Dimensional Quantum Harmonic Oscillator**](qosc.qmd) — Ladder operators, oscillator states, and coherent states. This chapter can be used as a reference when the harmonic oscillator appears later.
+3. [**Quantization of the Electromagnetic Field**](quantized_em_field.qmd) — Electromagnetic modes, photons, vacuum fluctuations, and quantum states of light.
 
 ## III. Approximation Methods
 
