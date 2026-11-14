@@ -18,12 +18,133 @@ We begin by examining how charged particles interact with classical electromagne
 
 These results provide the foundation for the quantum description of light–matter interactions developed later in this course, particularly the treatment of atomic transitions, photon absorption, and spontaneous emission in Chapter 5.
 
-::: {.callout-note title="Scope of this chapter"}
-This chapter draws on theoretical concepts that may not yet be familiar to all students. The detailed derivations are included for those who wish to explore the foundations more deeply, but working through every step is **not required for this course**.
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
 
-The primary learning goal is to understand the physical meaning of field quantization, the nature of photons, and how this framework connects to atomic physics.
-:::
+### Electromagnetic potentials and minimal coupling
 
+The electromagnetic fields are expressed in terms of the scalar and vector potentials:
+
+$$
+\boxed{
+\vec E=-\vec\nabla\phi-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A.
+}
+$$
+
+For a particle of charge $q$, the **canonical momentum** and **minimal-coupling Hamiltonian** are
+
+$$
+\boxed{
+\vec p=m\vec v+q\vec A,
+\qquad
+H=\frac{(\vec p-q\vec A)^2}{2m}+q\phi.
+}
+$$
+
+In the **Coulomb gauge**, $\vec\nabla\cdot\vec A=0$, the independent radiation degrees of freedom are transverse.
+
+### Quantization of the electromagnetic field
+
+Each independent transverse electromagnetic mode behaves as a harmonic oscillator. Promoting its canonical variables $q_s$ and $p_s$ to operators gives
+
+$$
+[\hat q_s,\hat p_{s'}]=i\hbar\delta_{ss'}.
+$$
+
+The **quantized electromagnetic-field Hamiltonian** can be written as
+
+$$
+\boxed{
+\hat H_{\mathrm{EM}}
+=\sum_s\left(
+\frac{\hat p_s^2}{2}
++\frac{\omega_s^2\hat q_s^2}{2}
+\right)
+=\sum_s\hbar\omega_s
+\left(\hat a_s^\dagger\hat a_s+\frac12\right).
+}
+$$
+
+The creation and annihilation operators satisfy
+
+$$
+[\hat a_s,\hat a_{s'}^\dagger]=\delta_{ss'},
+$$
+
+and act on photon-number states according to
+
+$$
+\hat a_s|n_s\rangle=\sqrt{n_s}\,|n_s-1\rangle,
+\qquad
+\hat a_s^\dagger|n_s\rangle=\sqrt{n_s+1}\,|n_s+1\rangle.
+$$
+
+Each photon contributes an energy $\hbar\omega_s$ to its electromagnetic mode.
+
+### Quantum states and uncertainty
+
+For a single electromagnetic mode, the **field quadratures** are
+
+$$
+\boxed{
+\hat X=\sqrt{\frac{\omega}{2\hbar}}\,\hat q
+=\frac{\hat a+\hat a^\dagger}{2},
+\qquad
+\hat Y=\frac{\hat p}{\sqrt{2\hbar\omega}}
+=\frac{\hat a-\hat a^\dagger}{2i}.
+}
+$$
+
+with the uncertainty relation
+
+$$
+\boxed{\Delta X\,\Delta Y\geq\frac14.}
+$$
+
+Three important quantum states of light are:
+
+- **Fock states** $|n\rangle$: definite photon number, $\Delta N=0$, and vanishing mean electric field.
+- **Coherent states** $|\alpha\rangle$: eigenstates of $\hat a$, with Poissonian photon-number statistics,
+
+  $$
+  (\Delta N)^2=\langle N\rangle=|\alpha|^2.
+  $$
+
+- **Squeezed states**: reduced uncertainty in one quadrature at the expense of increased uncertainty in the other.
+
+::::
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+### Electromagnetic potentials and minimal coupling
+
+- Gauge transformations change the scalar and vector potentials without changing the physical electromagnetic fields.
+- Canonical momentum differs from mechanical momentum in the presence of a vector potential. This distinction leads to the minimal-coupling Hamiltonian.
+- In Coulomb gauge, the longitudinal electric field describes electrostatic interactions, while the transverse field contains the independent radiation degrees of freedom.
+
+### Classical field Hamiltonian
+
+- The electromagnetic field can be decomposed into independent normal modes, each equivalent to a harmonic oscillator.
+- The canonical variables $q_s$ and $p_s$ describe field modes, not the position and momentum of individual photons.
+- The classical field energy becomes a sum of harmonic-oscillator Hamiltonians.
+
+### Quantization of the electromagnetic field
+
+- Quantizing the normal modes introduces photon creation and annihilation operators.
+- Photons are quantum excitations of electromagnetic modes, characterized by their frequency, spatial structure, and polarization.
+- The vacuum state contains no photons but still possesses zero-point energy and nonzero field fluctuations.
+
+### Quantum states and uncertainty
+
+- **Fock states** have definite photon number but no preferred optical phase. Their mean electric field vanishes, although they can still exhibit interference.
+- **Coherent states** most closely resemble classical electromagnetic waves, with an oscillating mean electric field and equal quadrature uncertainties.
+- **Squeezed states** redistribute quantum fluctuations. Amplitude squeezing reduces fluctuations along the mean field amplitude, while phase squeezing reduces fluctuations perpendicular to it.
+- Squeezing can improve optical measurement precision by reducing quantum noise in the relevant quadrature, without violating the uncertainty principle.
+
+The detailed derivations of minimal coupling, the normal-mode expansion, and field quantization are included to explain **how the quantum description of light emerges from classical electrodynamics**. The intermediate algebra and normalization calculations are not intended as material to memorize.
+
+::::
 
 
 ## 2.7.1. Charged particles and electromagnetic potentials
@@ -3046,9 +3167,255 @@ in the $X$–$Y$ plane:
   quantum fluctuations of the field.
 
 
-The uncertainty principle prevents the
-distribution from being arbitrarily narrow
-in both directions.
+
+The figure below illustrates a classical monochromatic electromagnetic
+field. Its amplitude and phase are precisely defined, and the field
+follows a sinusoidal oscillation in time.
+
+```{python}
+#| label: fig-classical-field-quadratures
+#| fig-cap: "Two equivalent representations of a classical monochromatic electromagnetic field. (a) The field quadratures describe a vector of constant amplitude rotating in the X–Y plane. Its angle is measured counterclockwise from the positive X-axis. (b) The corresponding sinusoidal electric field as a function of time. The highlighted point at t₀ corresponds to the vector shown in panel (a)."
+#| fig-alt: "Two-panel illustration of a classical monochromatic electromagnetic field. Left: X–Y quadrature plane with X horizontal and Y vertical, a dashed circular trajectory, and a red vector pointing into the first quadrant at angle phi minus omega t-zero. Right: a red sinusoidal electric field plotted over three optical periods, with a point and vertical dotted line marking the corresponding time t-zero."
+#| fig-width: 11
+#| fig-height: 4.2
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ------------------------------------------------------------
+# Classical monochromatic electromagnetic field
+#
+# Left:  Quadrature plane (X horizontal, Y vertical)
+# Right: Electric field as a function of time
+#
+# Convention:
+#   X(t) = A cos(phi - omega*t)
+#   Y(t) = A sin(phi - omega*t)
+#   E(t) = -E_A Y(t)/A
+#        = E_A sin(omega*t - phi)
+# ------------------------------------------------------------
+
+# Parameters
+A = 1.0
+phi = np.pi / 2
+omega = 1.0
+
+T = 2 * np.pi / omega
+t0 = T / 8
+
+t = np.linspace(0, 3 * T, 1500)
+
+# Quadratures at the selected instant
+theta = phi - omega * t0
+
+X0 = A * np.cos(theta)
+Y0 = A * np.sin(theta)
+
+# Normalized electric field
+E = np.sin(omega * t - phi)
+E0 = np.sin(omega * t0 - phi)
+
+# Colors and styling
+red = "#8b1e1e"
+gray = "#999999"
+
+plt.rcParams.update({
+    "font.size": 12,
+    "mathtext.fontset": "cm",
+    "axes.linewidth": 1.0,
+})
+
+fig, (ax1, ax2) = plt.subplots(
+    1, 2,
+    figsize=(11, 4.2),
+    gridspec_kw={"width_ratios": [1, 1.6]},
+    constrained_layout=True
+)
+
+# ------------------------------------------------------------
+# LEFT: X-Y quadrature plane
+# ------------------------------------------------------------
+
+angle = np.linspace(0, 2 * np.pi, 500)
+
+# Circular trajectory
+ax1.plot(
+    A * np.cos(angle),
+    A * np.sin(angle),
+    color=gray,
+    ls="--",
+    lw=1.4
+)
+
+# Coordinate axes
+ax1.axhline(0, color="black", lw=0.9)
+ax1.axvline(0, color="black", lw=0.9)
+
+# Field vector
+ax1.annotate(
+    "",
+    xy=(X0, Y0),
+    xytext=(0, 0),
+    arrowprops=dict(
+        arrowstyle="-|>",
+        color=red,
+        lw=2.2,
+        mutation_scale=16
+    )
+)
+
+# Projections onto the coordinate axes
+ax1.plot(
+    [X0, X0], [0, Y0],
+    color=gray, ls=":", lw=1.2
+)
+ax1.plot(
+    [0, X0], [Y0, Y0],
+    color=gray, ls=":", lw=1.2
+)
+
+# Angle arc, measured counterclockwise from +X
+r_arc = 0.30 * A
+arc = np.linspace(0, theta, 100)
+
+ax1.plot(
+    r_arc * np.cos(arc),
+    r_arc * np.sin(arc),
+    color=red,
+    lw=1.3
+)
+
+# Arrowhead indicating positive angular direction
+dtheta = 0.12
+
+ax1.annotate(
+    "",
+    xy=(
+        r_arc * np.cos(theta),
+        r_arc * np.sin(theta)
+    ),
+    xytext=(
+        r_arc * np.cos(theta - dtheta),
+        r_arc * np.sin(theta - dtheta)
+    ),
+    arrowprops=dict(
+        arrowstyle="-|>",
+        color=red,
+        lw=1.2,
+        mutation_scale=10
+    )
+)
+
+# Angle label
+ax1.text(
+    0.54 * A * np.cos(theta / 2),
+    0.54 * A * np.sin(theta / 2),
+    r"$\phi-\omega t_0$",
+    color=red,
+    ha="center",
+    va="center",
+    fontsize=11
+)
+
+# Amplitude label
+ax1.text(
+    0.65 * X0 - 0.12,
+    0.65 * Y0 + 0.12,
+    r"$A$",
+    color=red
+)
+
+ax1.set_xlim(-1.4 * A, 1.4 * A)
+ax1.set_ylim(-1.4 * A, 1.4 * A)
+ax1.set_aspect("equal")
+
+# Labels at the positive ends of the axes
+ax1.text(
+    1.34 * A, 0.05 * A,
+    r"$X$",
+    ha="center",
+    va="bottom"
+)
+
+ax1.text(
+    0.05 * A, 1.34 * A,
+    r"$Y$",
+    ha="left",
+    va="center"
+)
+
+ax1.set_title("(a) Field quadratures")
+
+ax1.set_xticks([])
+ax1.set_yticks([])
+
+for spine in ax1.spines.values():
+    spine.set_visible(False)
+
+# ------------------------------------------------------------
+# RIGHT: Electric field versus time
+# ------------------------------------------------------------
+
+ax2.plot(
+    t / T, E,
+    color=red,
+    lw=2.0
+)
+
+ax2.axhline(0, color="black", lw=0.9)
+
+# Highlight the selected instant t0
+ax2.scatter(
+    [t0 / T], [E0],
+    color=red,
+    s=55,
+    zorder=5
+)
+
+# Dotted projection onto the time axis
+ax2.plot(
+    [t0 / T, t0 / T],
+    [0, E0],
+    color=gray,
+    ls=":",
+    lw=1.2
+)
+
+# Label t0 on the time axis
+ax2.annotate(
+    r"$t_0$",
+    xy=(t0 / T, 0),
+    xytext=(0, 9),
+    textcoords="offset points",
+    ha="center",
+    va="bottom",
+    fontsize=11
+)
+
+ax2.set_xlim(0, 3)
+ax2.set_ylim(-1.35, 1.35)
+
+ax2.set_xlabel(r"Time $t/T$")
+ax2.set_ylabel(r"$E(t)/E_A$")
+ax2.set_title("(b) Classical electric field")
+
+ax2.set_xticks([0, 1, 2, 3])
+ax2.set_yticks([-1, 0, 1])
+
+ax2.spines["top"].set_visible(False)
+ax2.spines["right"].set_visible(False)
+
+plt.show()
+```
+
+For a quantum state of the electromagnetic field, the mean values of
+the quadratures still describe the average field, but quantum
+fluctuations introduce uncertainty around these values. The uncertainty
+principle prevents both quadratures from being arbitrarily well defined
+simultaneously. Different quantum states of light are distinguished
+by their mean fields and by how these fluctuations are distributed
+in the $X$–$Y$ plane.
 
 We will use this representation to compare
 three important types of quantum states
@@ -3129,16 +3496,203 @@ $$
 \frac14.
 $$
 
-For $n>0$, the full phase-space
-distribution has a more complicated,
-non-Gaussian structure, which cannot
-be represented completely by an
-uncertainty circle.
+For $n>0$, the full phase-space distribution has a more
+complicated, non-Gaussian structure. Rather than a simple
+uncertainty circle centered at the origin, it exhibits
+a ring-like structure, reflecting the absence of a
+preferred optical phase.
 
 The important distinction is that a
 Fock state has a precisely defined
 photon number, but no classical
 oscillating mean electric field.
+
+
+```{python}
+#| label: fig-fock-state-field
+#| fig-cap: "A Fock state with a definite photon number (n = 3). (a) Rotationally symmetric phase-space representation, illustrating the absence of a preferred optical phase. The ring-like distribution reflects the quantum fluctuations of the field. (b) The expectation value of the electric field vanishes at all times, although the field has nonzero quantum fluctuations. The red shading illustrates the rms field uncertainty, which is independent of time."
+#| fig-alt: "Two-panel illustration of a three-photon Fock state. Left: X–Y quadrature plane with a red annular probability distribution centered at the origin, showing no preferred phase. Right: a horizontal dark red line at zero electric field with a symmetric red gradient band above and below it, representing quantum fluctuations rather than a classical oscillating field."
+#| fig-width: 11
+#| fig-height: 4.2
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from math import factorial
+
+# ------------------------------------------------------------
+# Fock state |n>
+#
+# Left:  Husimi Q distribution in the X-Y plane
+# Right: Mean electric field and quantum fluctuations
+#
+# <X> = <Y> = 0
+# (Delta X)^2 = (Delta Y)^2 = (2n+1)/4
+# <E(t)> = 0
+# ------------------------------------------------------------
+
+# Parameters
+n = 3
+omega = 1.0
+
+T = 2 * np.pi / omega
+t = np.linspace(0, 3 * T, 1200)
+
+# Quadrature uncertainty
+delta_X = np.sqrt((2 * n + 1) / 4)
+
+# For E(t) = -2 E0 Y(t), the field rms uncertainty is
+# Delta E / E0 = 2 Delta Y = sqrt(2n+1).
+delta_E = np.sqrt(2 * n + 1)
+
+# Colors
+red = "#8b1e1e"
+gray = "#999999"
+
+cmap = LinearSegmentedColormap.from_list(
+    "field_grad",
+    ["#ffffff", "#f4a582", "#c0392b", "#5c0000"]
+)
+
+plt.rcParams.update({
+    "font.size": 12,
+    "mathtext.fontset": "cm",
+    "axes.linewidth": 1.0,
+})
+
+fig, (ax1, ax2) = plt.subplots(
+    1, 2,
+    figsize=(11, 4.2),
+    gridspec_kw={"width_ratios": [1, 1.6]},
+    constrained_layout=True
+)
+
+# ------------------------------------------------------------
+# LEFT: Husimi Q distribution
+# ------------------------------------------------------------
+
+# Coherent-state coordinate alpha = X + iY.
+#
+# Q_n(alpha) = exp(-|alpha|^2) |alpha|^(2n) / (pi n!)
+#
+# The maximum occurs at |alpha| = sqrt(n).
+
+limit = 3.8
+
+x = np.linspace(-limit, limit, 550)
+y = np.linspace(-limit, limit, 550)
+
+X, Y = np.meshgrid(x, y)
+R2 = X**2 + Y**2
+
+Q = np.exp(-R2) * R2**n / (np.pi * factorial(n))
+Q /= Q.max()
+
+# Display probability density with white background
+ax1.imshow(
+    Q,
+    extent=[-limit, limit, -limit, limit],
+    origin="lower",
+    cmap=cmap,
+    vmin=0,
+    vmax=1,
+    interpolation="bilinear"
+)
+
+# Coordinate axes
+ax1.axhline(0, color="black", lw=0.9, alpha=0.8)
+ax1.axvline(0, color="black", lw=0.9, alpha=0.8)
+
+# Axis labels
+ax1.text(
+    0.96 * limit, 0.06 * limit,
+    r"$X$", ha="center", va="bottom"
+)
+ax1.text(
+    0.06 * limit, 0.96 * limit,
+    r"$Y$", ha="left", va="center"
+)
+
+ax1.set_xlim(-limit, limit)
+ax1.set_ylim(-limit, limit)
+ax1.set_aspect("equal")
+
+ax1.set_title(rf"(a) Fock state $|n={n}\rangle$")
+ax1.set_xticks([])
+ax1.set_yticks([])
+
+for spine in ax1.spines.values():
+    spine.set_visible(False)
+
+# ------------------------------------------------------------
+# RIGHT: Mean electric field and fluctuation band
+# ------------------------------------------------------------
+
+# Mean field is zero at all times
+E_mean = np.zeros_like(t)
+
+# The band extends to +/- one rms field uncertainty.
+# The gradient is darkest at the mean and fades to white
+# at the edges, matching the requested visual style.
+
+ny = 500
+y_field = np.linspace(
+    -1.3 * delta_E,
+     1.3 * delta_E,
+    ny
+)
+
+TT, EE = np.meshgrid(t / T, y_field)
+
+distance = np.abs(EE)
+
+inside = distance <= delta_E
+intensity = np.clip(1 - distance / delta_E, 0, 1)
+
+rgba = cmap(intensity)
+rgba[..., 3] = np.where(inside, 1.0, 0.0)
+
+ax2.imshow(
+    rgba,
+    extent=[
+        0, 3,
+        y_field.min(), y_field.max()
+    ],
+    origin="lower",
+    aspect="auto",
+    interpolation="bilinear"
+)
+
+# Mean field
+ax2.plot(
+    t / T,
+    E_mean,
+    color=red,
+    lw=2.0
+)
+
+ax2.set_xlim(0, 3)
+ax2.set_ylim(-1.3 * delta_E, 1.3 * delta_E)
+
+ax2.set_xlabel(r"Time $t/T$")
+ax2.set_ylabel(r"$E(t)/E_0$")
+ax2.set_title("(b) Electric-field fluctuations")
+
+ax2.set_xticks([0, 1, 2, 3])
+ax2.set_yticks([-delta_E, 0, delta_E])
+ax2.set_yticklabels([
+    r"$-\Delta E/E_0$",
+    "$0$",
+    r"$+\Delta E/E_0$"
+])
+
+ax2.spines["top"].set_visible(False)
+ax2.spines["right"].set_visible(False)
+
+plt.show()
+```
+
 
 ### 2.7.6.2. Coherent states: The quantum description of classical light
 
@@ -3264,6 +3818,311 @@ provide an excellent quantum
 description of classical
 electromagnetic waves.
 
+```{python}
+#| label: fig-coherent-state-field
+#| fig-cap: "Coherent state of a single electromagnetic mode. (a) The circular Gaussian distribution is displaced from the origin, indicating a nonzero mean field amplitude and a definite mean optical phase. The red vector shows the mean quadratures at time t₀; the shaded region represents quantum fluctuations. (b) The mean electric field oscillates sinusoidally, while the shaded band indicates its rms quantum uncertainty. The fluctuations have the same absolute magnitude as in the vacuum state."
+#| fig-alt: "Two-panel illustration of a coherent state. Left: X–Y quadrature plane with a red mean-field vector pointing into the first quadrant, surrounded by a circular red Gaussian distribution. A dashed circle indicates the trajectory of the mean vector. Right: a sinusoidal dark red mean electric field surrounded by a red-to-white gradient band representing constant rms quantum fluctuations, with the instant t-zero marked."
+#| fig-width: 11
+#| fig-height: 4.2
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+
+# ------------------------------------------------------------
+# Coherent state |alpha>
+#
+# Left:  Quadrature distribution at t0
+# Right: Mean electric field and quantum fluctuations
+#
+# <X>(t) = |alpha| cos(phi - omega*t)
+# <Y>(t) = |alpha| sin(phi - omega*t)
+#
+# (Delta X)^2 = (Delta Y)^2 = 1/4
+#
+# <E(t)> / E0 = 2 |alpha| sin(omega*t - phi)
+# Delta E / E0 = 1
+# ------------------------------------------------------------
+
+# Parameters
+alpha_abs = 2.0
+phi = np.pi / 2
+omega = 1.0
+
+T = 2 * np.pi / omega
+t0 = T / 8
+
+t = np.linspace(0, 3 * T, 1500)
+
+theta = phi - omega * t0
+
+X0 = alpha_abs * np.cos(theta)
+Y0 = alpha_abs * np.sin(theta)
+
+# Mean electric field and rms uncertainty, in units of E0
+E_mean = 2 * alpha_abs * np.sin(omega * t - phi)
+E0_mean = 2 * alpha_abs * np.sin(omega * t0 - phi)
+
+delta_X = 0.5
+delta_Y = 0.5
+delta_E = 1.0
+
+# Colors
+red = "#8b1e1e"
+gray = "#999999"
+
+cmap = LinearSegmentedColormap.from_list(
+    "field_grad",
+    ["#ffffff", "#f4a582", "#c0392b", "#5c0000"]
+)
+
+plt.rcParams.update({
+    "font.size": 12,
+    "mathtext.fontset": "cm",
+    "axes.linewidth": 1.0,
+})
+
+fig, (ax1, ax2) = plt.subplots(
+    1, 2,
+    figsize=(11, 4.2),
+    gridspec_kw={"width_ratios": [1, 1.6]},
+    constrained_layout=True
+)
+
+# ------------------------------------------------------------
+# LEFT: Coherent state in the X-Y plane
+# ------------------------------------------------------------
+
+limit = 3.6
+grid = np.linspace(-limit, limit, 600)
+X, Y = np.meshgrid(grid, grid)
+
+# Circular Gaussian centered on the mean quadratures.
+# This is a schematic Gaussian density with standard
+# deviations Delta X = Delta Y = 1/2.
+density = np.exp(
+    -0.5 * (
+        ((X - X0) / delta_X)**2
+        + ((Y - Y0) / delta_Y)**2
+    )
+)
+
+# Transparent background outside the Gaussian
+rgba = cmap(density)
+rgba[..., 3] = np.clip(density, 0, 1)
+
+ax1.imshow(
+    rgba,
+    extent=[-limit, limit, -limit, limit],
+    origin="lower",
+    interpolation="bilinear"
+)
+
+# Dashed circular trajectory of the mean field
+angle = np.linspace(0, 2 * np.pi, 500)
+
+ax1.plot(
+    alpha_abs * np.cos(angle),
+    alpha_abs * np.sin(angle),
+    color=gray,
+    ls="--",
+    lw=1.2
+)
+
+# Coordinate axes
+ax1.axhline(0, color="black", lw=0.9)
+ax1.axvline(0, color="black", lw=0.9)
+
+# Mean-field vector
+ax1.annotate(
+    "",
+    xy=(X0, Y0),
+    xytext=(0, 0),
+    arrowprops=dict(
+        arrowstyle="-|>",
+        color=red,
+        lw=2.2,
+        mutation_scale=16
+    )
+)
+
+# Projections onto the coordinate axes
+ax1.plot(
+    [X0, X0], [0, Y0],
+    color=gray, ls=":", lw=1.2
+)
+ax1.plot(
+    [0, X0], [Y0, Y0],
+    color=gray, ls=":", lw=1.2
+)
+
+# Phase angle, measured counterclockwise from +X
+r_arc = 0.42
+arc = np.linspace(0, theta, 100)
+
+ax1.plot(
+    r_arc * np.cos(arc),
+    r_arc * np.sin(arc),
+    color=red,
+    lw=1.3
+)
+
+ax1.annotate(
+    "",
+    xy=(
+        r_arc * np.cos(theta),
+        r_arc * np.sin(theta)
+    ),
+    xytext=(
+        r_arc * np.cos(theta - 0.12),
+        r_arc * np.sin(theta - 0.12)
+    ),
+    arrowprops=dict(
+        arrowstyle="-|>",
+        color=red,
+        lw=1.2,
+        mutation_scale=10
+    )
+)
+
+# Phase label
+ax1.text(
+    0.85 * np.cos(theta / 2) + 0.4,
+    0.85 * np.sin(theta / 2),
+    r"$\phi-\omega t_0$",
+    color=red,
+    ha="center",
+    va="center",
+    fontsize=11
+)
+
+# Mean amplitude label
+ax1.text(
+    0.65 * X0 - 0.55,
+    0.65 * Y0 + 0.15,
+    r"$|\alpha|$",
+    color=red
+)
+
+ax1.set_xlim(-limit, limit)
+ax1.set_ylim(-limit, limit)
+ax1.set_aspect("equal")
+
+# Labels at positive ends of axes
+ax1.text(
+    0.96 * limit, 0.04 * limit,
+    r"$X$",
+    ha="center",
+    va="bottom"
+)
+
+ax1.text(
+    0.04 * limit, 0.96 * limit,
+    r"$Y$",
+    ha="left",
+    va="center"
+)
+
+ax1.set_title("(a) Coherent state")
+ax1.set_xticks([])
+ax1.set_yticks([])
+
+for spine in ax1.spines.values():
+    spine.set_visible(False)
+
+# ------------------------------------------------------------
+# RIGHT: Mean electric field and fluctuation band
+# ------------------------------------------------------------
+
+# Gaussian-style gradient within +/- one rms uncertainty.
+# The band follows the sinusoidal mean electric field.
+
+ny = 600
+
+y_min = E_mean.min() - 1.5 * delta_E
+y_max = E_mean.max() + 1.5 * delta_E
+
+y_field = np.linspace(y_min, y_max, ny)
+
+TT, EE = np.meshgrid(t / T, y_field)
+
+mean_grid = E_mean[np.newaxis, :]
+
+distance = np.abs(EE - mean_grid)
+
+inside = distance <= delta_E
+intensity = np.clip(1 - distance / delta_E, 0, 1)
+
+rgba = cmap(intensity)
+rgba[..., 3] = np.where(inside, 1.0, 0.0)
+
+ax2.imshow(
+    rgba,
+    extent=[0, 3, y_min, y_max],
+    origin="lower",
+    aspect="auto",
+    interpolation="bilinear"
+)
+
+# Mean electric field
+ax2.plot(
+    t / T,
+    E_mean,
+    color=red,
+    lw=1.8
+)
+
+ax2.axhline(0, color="black", lw=0.8)
+
+# Highlight the instant t0
+ax2.scatter(
+    [t0 / T],
+    [E0_mean],
+    color=red,
+    s=50,
+    zorder=5
+)
+
+ax2.plot(
+    [t0 / T, t0 / T],
+    [0, E0_mean],
+    color=gray,
+    ls=":",
+    lw=1.2
+)
+
+ax2.annotate(
+    r"$t_0$",
+    xy=(t0 / T, 0),
+    xytext=(0, 9),
+    textcoords="offset points",
+    ha="center",
+    va="bottom",
+    fontsize=11
+)
+
+ax2.set_xlim(0, 3)
+ax2.set_ylim(y_min, y_max)
+
+ax2.set_xlabel(r"Time $t/T$")
+ax2.set_ylabel(r"$E(t)/E_0$")
+ax2.set_title("(b) Electric field and fluctuations")
+
+ax2.set_xticks([0, 1, 2, 3])
+ax2.set_yticks([
+    -2 * alpha_abs,
+    0,
+    2 * alpha_abs
+])
+
+ax2.spines["top"].set_visible(False)
+ax2.spines["right"].set_visible(False)
+
+plt.show()
+```
+
+
 ### 2.7.6.3. Squeezed states: Redistributing quantum uncertainty
 
 The uncertainty principle requires
@@ -3348,27 +4207,381 @@ and angular fluctuations can
 be interpreted approximately
 as amplitude and phase noise.
 
-<!-- FIGURE 1:
-     Multi-panel X–Y phase-space representation:
-     vacuum, Fock state, coherent state,
-     amplitude-squeezed coherent state,
-     phase-squeezed coherent state.
-     Show mean-field vectors and uncertainty
-     regions. Distinguish the non-Gaussian
-     Fock-state distribution from Gaussian
-     uncertainty ellipses.
--->
+```{python}
+#| label: fig-squeezed-states-field
+#| fig-cap: "Amplitude- and phase-squeezed coherent states of a single electromagnetic mode. Top row: amplitude squeezing reduces fluctuations along the mean-field vector, producing an uncertainty ellipse elongated in the tangential direction. The electric-field uncertainty is smallest near the extrema of the mean oscillation. Bottom row: phase squeezing reduces fluctuations perpendicular to the mean-field vector, producing a radially elongated ellipse. The electric-field uncertainty is smallest near the zero crossings. Both states have the same mean electric field, and neither violates the uncertainty principle."
+#| fig-alt: "Four-panel illustration arranged in two rows. Top left: X–Y quadrature plane with a red mean-field vector and a tangentially elongated uncertainty ellipse for amplitude squeezing. Top right: sinusoidal mean electric field with a red gradient fluctuation band that narrows near field extrema and widens near zero crossings. Bottom left: the same mean-field vector with a radially elongated uncertainty ellipse for phase squeezing. Bottom right: the same sinusoidal mean field with a fluctuation band that narrows near zero crossings and widens near extrema."
+#| fig-width: 11
+#| fig-height: 8
+#| echo: true
 
-<!-- FIGURE 2:
-     Three panels showing the mean electric
-     field and illustrative quantum
-     fluctuations for:
-     (a) coherent light,
-     (b) amplitude-squeezed light,
-     (c) phase-squeezed light.
-     Use the same mean sinusoidal field
-     in all three panels.
--->
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+
+# ------------------------------------------------------------
+# Squeezed coherent states
+#
+# Top row:    Amplitude squeezing (radial)
+# Bottom row: Phase squeezing (tangential)
+#
+# X(t) = |alpha| cos(phi - omega*t)
+# Y(t) = |alpha| sin(phi - omega*t)
+#
+# E(t)/E0 = -2 Y(t)
+#         = 2 |alpha| sin(omega*t - phi)
+#
+# Vacuum quadrature uncertainty: Delta X = Delta Y = 1/2
+# ------------------------------------------------------------
+
+# Parameters
+alpha_abs = 2.0
+phi = np.pi / 2
+omega = 1.0
+r = 0.65
+
+T = 2 * np.pi / omega
+t0 = T / 8
+
+t = np.linspace(0, 3 * T, 1500)
+
+theta0 = phi - omega * t0
+
+X0 = alpha_abs * np.cos(theta0)
+Y0 = alpha_abs * np.sin(theta0)
+
+# Mean electric field, normalized to E0
+E_mean = 2 * alpha_abs * np.sin(omega * t - phi)
+E_at_t0 = 2 * alpha_abs * np.sin(omega * t0 - phi)
+
+# Radial and tangential unit vectors at t0
+u_r = np.array([np.cos(theta0), np.sin(theta0)])
+u_t = np.array([-np.sin(theta0), np.cos(theta0)])
+
+# Minimum-uncertainty squeezed quadrature standard deviations
+sigma_small = 0.5 * np.exp(-r)
+sigma_large = 0.5 * np.exp(r)
+
+# Colors
+red = "#8b1e1e"
+gray = "#999999"
+
+cmap = LinearSegmentedColormap.from_list(
+    "field_grad",
+    ["#ffffff", "#f4a582", "#c0392b", "#5c0000"]
+)
+
+plt.rcParams.update({
+    "font.size": 12,
+    "mathtext.fontset": "cm",
+    "axes.linewidth": 1.0,
+})
+
+fig, axes = plt.subplots(
+    2, 2,
+    figsize=(11, 8),
+    gridspec_kw={"width_ratios": [1, 1.6]},
+    constrained_layout=True
+)
+
+# ------------------------------------------------------------
+# Helper: X-Y phase-space panel
+# ------------------------------------------------------------
+
+def plot_phase_space(ax, sigma_radial, sigma_tangential, title):
+
+    limit = 3.8
+    grid = np.linspace(-limit, limit, 600)
+    X, Y = np.meshgrid(grid, grid)
+
+    dx = X - X0
+    dy = Y - Y0
+
+    # Coordinates relative to radial and tangential directions
+    radial = dx * u_r[0] + dy * u_r[1]
+    tangential = dx * u_t[0] + dy * u_t[1]
+
+    # Elliptical Gaussian visualization
+    density = np.exp(
+        -0.5 * (
+            (radial / sigma_radial)**2
+            + (tangential / sigma_tangential)**2
+        )
+    )
+
+    rgba = cmap(density)
+    rgba[..., 3] = np.clip(density, 0, 1)
+
+    ax.imshow(
+        rgba,
+        extent=[-limit, limit, -limit, limit],
+        origin="lower",
+        interpolation="bilinear"
+    )
+
+    # Circular trajectory of the mean-field vector
+    angle = np.linspace(0, 2 * np.pi, 500)
+
+    ax.plot(
+        alpha_abs * np.cos(angle),
+        alpha_abs * np.sin(angle),
+        color=gray,
+        ls="--",
+        lw=1.2
+    )
+
+    # Coordinate axes
+    ax.axhline(0, color="black", lw=0.9)
+    ax.axvline(0, color="black", lw=0.9)
+
+    # Mean-field vector
+    ax.annotate(
+        "",
+        xy=(X0, Y0),
+        xytext=(0, 0),
+        arrowprops=dict(
+            arrowstyle="-|>",
+            color=red,
+            lw=2.2,
+            mutation_scale=16
+        )
+    )
+
+    # Quadrature projections
+    ax.plot(
+        [X0, X0], [0, Y0],
+        color=gray, ls=":", lw=1.2
+    )
+    ax.plot(
+        [0, X0], [Y0, Y0],
+        color=gray, ls=":", lw=1.2
+    )
+
+    # Phase angle measured counterclockwise from +X
+    r_arc = 0.42
+    arc = np.linspace(0, theta0, 100)
+
+    ax.plot(
+        r_arc * np.cos(arc),
+        r_arc * np.sin(arc),
+        color=red,
+        lw=1.3
+    )
+
+    ax.annotate(
+        "",
+        xy=(
+            r_arc * np.cos(theta0),
+            r_arc * np.sin(theta0)
+        ),
+        xytext=(
+            r_arc * np.cos(theta0 - 0.12),
+            r_arc * np.sin(theta0 - 0.12)
+        ),
+        arrowprops=dict(
+            arrowstyle="-|>",
+            color=red,
+            lw=1.2,
+            mutation_scale=10
+        )
+    )
+
+    ax.text(
+        0.85 * np.cos(theta0 / 2) + 0.4,
+        0.85 * np.sin(theta0 / 2),
+        r"$\phi-\omega t_0$",
+        color=red,
+        ha="center",
+        va="center",
+        fontsize=11
+    )
+
+    # Amplitude label
+    ax.text(
+        0.65 * X0 - 0.55,
+        0.65 * Y0 + 0.15,
+        r"$|\alpha|$",
+        color=red
+    )
+
+    # Coordinate-axis labels
+    ax.text(
+        0.96 * limit, 0.04 * limit,
+        r"$X$",
+        ha="center",
+        va="bottom"
+    )
+
+    ax.text(
+        0.04 * limit, 0.96 * limit,
+        r"$Y$",
+        ha="left",
+        va="center"
+    )
+
+    ax.set_xlim(-limit, limit)
+    ax.set_ylim(-limit, limit)
+    ax.set_aspect("equal")
+
+    ax.set_title(title)
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+
+# ------------------------------------------------------------
+# Helper: Time-dependent electric-field panel
+# ------------------------------------------------------------
+
+def plot_electric_field(ax, squeezing_type, title):
+
+    # The squeezing ellipse rotates with the mean field.
+    # Its projection onto the Y quadrature determines
+    # the instantaneous electric-field uncertainty.
+
+    theta = phi - omega * t
+
+    if squeezing_type == "amplitude":
+        sigma_r = sigma_small
+        sigma_t = sigma_large
+    else:
+        sigma_r = sigma_large
+        sigma_t = sigma_small
+
+    # Variance of the Y projection:
+    #
+    # Delta Y^2(t) =
+    #   sigma_r^2 sin^2(theta)
+    # + sigma_t^2 cos^2(theta)
+    #
+    # Since E/E0 = -2Y:
+    # Delta E/E0 = 2 Delta Y
+
+    delta_E = 2 * np.sqrt(
+        sigma_r**2 * np.sin(theta)**2
+        + sigma_t**2 * np.cos(theta)**2
+    )
+
+    ny = 650
+
+    y_min = E_mean.min() - 1.6 * delta_E.max()
+    y_max = E_mean.max() + 1.6 * delta_E.max()
+
+    y_field = np.linspace(y_min, y_max, ny)
+
+    TT, EE = np.meshgrid(t / T, y_field)
+
+    mean_grid = E_mean[np.newaxis, :]
+    width_grid = delta_E[np.newaxis, :]
+
+    distance = np.abs(EE - mean_grid)
+
+    inside = distance <= width_grid
+    intensity = np.clip(
+        1 - distance / width_grid,
+        0, 1
+    )
+
+    rgba = cmap(intensity)
+    rgba[..., 3] = np.where(inside, 1.0, 0.0)
+
+    ax.imshow(
+        rgba,
+        extent=[0, 3, y_min, y_max],
+        origin="lower",
+        aspect="auto",
+        interpolation="bilinear"
+    )
+
+    # Mean electric field
+    ax.plot(
+        t / T,
+        E_mean,
+        color=red,
+        lw=1.8
+    )
+
+    ax.axhline(0, color="black", lw=0.8)
+
+    # Highlight t0
+    ax.scatter(
+        [t0 / T],
+        [E_at_t0],
+        color=red,
+        s=50,
+        zorder=5
+    )
+
+    ax.plot(
+        [t0 / T, t0 / T],
+        [0, E_at_t0],
+        color=gray,
+        ls=":",
+        lw=1.2
+    )
+
+    ax.annotate(
+        r"$t_0$",
+        xy=(t0 / T, 0),
+        xytext=(0, 9),
+        textcoords="offset points",
+        ha="center",
+        va="bottom",
+        fontsize=11
+    )
+
+    ax.set_xlim(0, 3)
+    ax.set_ylim(y_min, y_max)
+
+    ax.set_xlabel(r"Time $t/T$")
+    ax.set_ylabel(r"$E(t)/E_0$")
+    ax.set_title(title)
+
+    ax.set_xticks([0, 1, 2, 3])
+    ax.set_yticks([-2 * alpha_abs, 0, 2 * alpha_abs])
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+
+# ------------------------------------------------------------
+# TOP ROW: Amplitude-squeezed coherent state
+# ------------------------------------------------------------
+
+plot_phase_space(
+    axes[0, 0],
+    sigma_radial=sigma_small,
+    sigma_tangential=sigma_large,
+    title="(a) Amplitude-squeezed state"
+)
+
+plot_electric_field(
+    axes[0, 1],
+    squeezing_type="amplitude",
+    title="(b) Electric field: amplitude squeezing"
+)
+
+# ------------------------------------------------------------
+# BOTTOM ROW: Phase-squeezed coherent state
+# ------------------------------------------------------------
+
+plot_phase_space(
+    axes[1, 0],
+    sigma_radial=sigma_large,
+    sigma_tangential=sigma_small,
+    title="(c) Phase-squeezed state"
+)
+
+plot_electric_field(
+    axes[1, 1],
+    squeezing_type="phase",
+    title="(d) Electric field: phase squeezing"
+)
+
+plt.show()
+```
 
 Squeezed states illustrate an important
 feature of quantum light: the fluctuations

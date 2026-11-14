@@ -901,18 +901,144 @@ window.Quarto = {
 <p>This chapter therefore aims to <strong>strike a balance between theoretical foundations and practical relevance</strong>. Rather than developing all the underlying classical theory from first principles, we introduce the essential concepts and use them to motivate the quantization of the electromagnetic field. The emphasis is on understanding the physical principles and the origin of the results that we will use in atomic, molecular, and optical physics.</p>
 <p>We begin by examining how charged particles interact with classical electromagnetic potentials, leading to the <em>minimal-coupling Hamiltonian</em>. We then describe the electromagnetic field in terms of independent normal modes and show how their quantization leads to photons, vacuum fluctuations, and different quantum states of light.</p>
 <p>These results provide the foundation for the quantum description of light–matter interactions developed later in this course, particularly the treatment of atomic transitions, photon absorption, and spontaneous emission in Chapter 5.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Scope of this chapter">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Scope of this chapter
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This chapter draws on theoretical concepts that may not yet be familiar to all students. The detailed derivations are included for those who wish to explore the foundations more deeply, but working through every step is <strong>not required for this course</strong>.</p>
-<p>The primary learning goal is to understand the physical meaning of field quantization, the nature of photons, and how this framework connects to atomic physics.</p>
+<section id="electromagnetic-potentials-and-minimal-coupling" class="level3">
+<h3 class="anchored" data-anchor-id="electromagnetic-potentials-and-minimal-coupling">Electromagnetic potentials and minimal coupling</h3>
+<p>The electromagnetic fields are expressed in terms of the scalar and vector potentials:</p>
+<p><span class="math display">\[
+\boxed{
+\vec E=-\vec\nabla\phi-\frac{\partial\vec A}{\partial t},
+\qquad
+\vec B=\vec\nabla\times\vec A.
+}
+\]</span></p>
+<p>For a particle of charge <span class="math inline">\(q\)</span>, the <strong>canonical momentum</strong> and <strong>minimal-coupling Hamiltonian</strong> are</p>
+<p><span class="math display">\[
+\boxed{
+\vec p=m\vec v+q\vec A,
+\qquad
+H=\frac{(\vec p-q\vec A)^2}{2m}+q\phi.
+}
+\]</span></p>
+<p>In the <strong>Coulomb gauge</strong>, <span class="math inline">\(\vec\nabla\cdot\vec A=0\)</span>, the independent radiation degrees of freedom are transverse.</p>
+</section>
+<section id="quantization-of-the-electromagnetic-field" class="level3">
+<h3 class="anchored" data-anchor-id="quantization-of-the-electromagnetic-field">Quantization of the electromagnetic field</h3>
+<p>Each independent transverse electromagnetic mode behaves as a harmonic oscillator. Promoting its canonical variables <span class="math inline">\(q_s\)</span> and <span class="math inline">\(p_s\)</span> to operators gives</p>
+<p><span class="math display">\[
+[\hat q_s,\hat p_{s'}]=i\hbar\delta_{ss'}.
+\]</span></p>
+<p>The <strong>quantized electromagnetic-field Hamiltonian</strong> can be written as</p>
+<p><span class="math display">\[
+\boxed{
+\hat H_{\mathrm{EM}}
+=\sum_s\left(
+\frac{\hat p_s^2}{2}
++\frac{\omega_s^2\hat q_s^2}{2}
+\right)
+=\sum_s\hbar\omega_s
+\left(\hat a_s^\dagger\hat a_s+\frac12\right).
+}
+\]</span></p>
+<p>The creation and annihilation operators satisfy</p>
+<p><span class="math display">\[
+[\hat a_s,\hat a_{s'}^\dagger]=\delta_{ss'},
+\]</span></p>
+<p>and act on photon-number states according to</p>
+<p><span class="math display">\[
+\hat a_s|n_s\rangle=\sqrt{n_s}\,|n_s-1\rangle,
+\qquad
+\hat a_s^\dagger|n_s\rangle=\sqrt{n_s+1}\,|n_s+1\rangle.
+\]</span></p>
+<p>Each photon contributes an energy <span class="math inline">\(\hbar\omega_s\)</span> to its electromagnetic mode.</p>
+</section>
+<section id="quantum-states-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="quantum-states-and-uncertainty">Quantum states and uncertainty</h3>
+<p>For a single electromagnetic mode, the <strong>field quadratures</strong> are</p>
+<p><span class="math display">\[
+\boxed{
+\hat X=\sqrt{\frac{\omega}{2\hbar}}\,\hat q
+=\frac{\hat a+\hat a^\dagger}{2},
+\qquad
+\hat Y=\frac{\hat p}{\sqrt{2\hbar\omega}}
+=\frac{\hat a-\hat a^\dagger}{2i}.
+}
+\]</span></p>
+<p>with the uncertainty relation</p>
+<p><span class="math display">\[
+\boxed{\Delta X\,\Delta Y\geq\frac14.}
+\]</span></p>
+<p>Three important quantum states of light are:</p>
+<ul>
+<li><p><strong>Fock states</strong> <span class="math inline">\(|n\rangle\)</span>: definite photon number, <span class="math inline">\(\Delta N=0\)</span>, and vanishing mean electric field.</p></li>
+<li><p><strong>Coherent states</strong> <span class="math inline">\(|\alpha\rangle\)</span>: eigenstates of <span class="math inline">\(\hat a\)</span>, with Poissonian photon-number statistics,</p>
+<p><span class="math display">\[
+(\Delta N)^2=\langle N\rangle=|\alpha|^2.
+\]</span></p></li>
+<li><p><strong>Squeezed states</strong>: reduced uncertainty in one quadrature at the expense of increased uncertainty in the other.</p></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="electromagnetic-potentials-and-minimal-coupling-1" class="level3">
+<h3 class="anchored" data-anchor-id="electromagnetic-potentials-and-minimal-coupling-1">Electromagnetic potentials and minimal coupling</h3>
+<ul>
+<li>Gauge transformations change the scalar and vector potentials without changing the physical electromagnetic fields.</li>
+<li>Canonical momentum differs from mechanical momentum in the presence of a vector potential. This distinction leads to the minimal-coupling Hamiltonian.</li>
+<li>In Coulomb gauge, the longitudinal electric field describes electrostatic interactions, while the transverse field contains the independent radiation degrees of freedom.</li>
+</ul>
+</section>
+<section id="classical-field-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="classical-field-hamiltonian">Classical field Hamiltonian</h3>
+<ul>
+<li>The electromagnetic field can be decomposed into independent normal modes, each equivalent to a harmonic oscillator.</li>
+<li>The canonical variables <span class="math inline">\(q_s\)</span> and <span class="math inline">\(p_s\)</span> describe field modes, not the position and momentum of individual photons.</li>
+<li>The classical field energy becomes a sum of harmonic-oscillator Hamiltonians.</li>
+</ul>
+</section>
+<section id="quantization-of-the-electromagnetic-field-1" class="level3">
+<h3 class="anchored" data-anchor-id="quantization-of-the-electromagnetic-field-1">Quantization of the electromagnetic field</h3>
+<ul>
+<li>Quantizing the normal modes introduces photon creation and annihilation operators.</li>
+<li>Photons are quantum excitations of electromagnetic modes, characterized by their frequency, spatial structure, and polarization.</li>
+<li>The vacuum state contains no photons but still possesses zero-point energy and nonzero field fluctuations.</li>
+</ul>
+</section>
+<section id="quantum-states-and-uncertainty-1" class="level3">
+<h3 class="anchored" data-anchor-id="quantum-states-and-uncertainty-1">Quantum states and uncertainty</h3>
+<ul>
+<li><strong>Fock states</strong> have definite photon number but no preferred optical phase. Their mean electric field vanishes, although they can still exhibit interference.</li>
+<li><strong>Coherent states</strong> most closely resemble classical electromagnetic waves, with an oscillating mean electric field and equal quadrature uncertainties.</li>
+<li><strong>Squeezed states</strong> redistribute quantum fluctuations. Amplitude squeezing reduces fluctuations along the mean field amplitude, while phase squeezing reduces fluctuations perpendicular to it.</li>
+<li>Squeezing can improve optical measurement precision by reducing quantum noise in the relevant quadrature, without violating the uncertainty principle.</li>
+</ul>
+<p>The detailed derivations of minimal coupling, the normal-mode expansion, and field quantization are included to explain <strong>how the quantum description of light emerges from classical electrodynamics</strong>. The intermediate algebra and normalization calculations are not intended as material to memorize.</p>
+</section>
+</div>
 </div>
 </div>
 </section>
@@ -956,7 +1082,7 @@ m\ddot{\vec r}
 \]</span></p>
 <p>Although the potentials change, the physical electromagnetic fields remain exactly the same. Thus, different choices of <span class="math inline">\(\chi(\vec r,t)\)</span> correspond to different mathematical descriptions of the same electromagnetic field.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: Gauge transformations leave the fields unchanged">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -965,7 +1091,7 @@ m\ddot{\vec r}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For the magnetic field, we obtain</p>
 <p><span class="math display">\[
@@ -1035,7 +1161,7 @@ L=\frac12m\dot{\vec r}^{\,2}
 </ol>
 <p>We verify the first property below. The second will be demonstrated after introducing the canonical momentum and Hamiltonian.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: recover the Lorentz force, component by component">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1044,7 +1170,7 @@ L=\frac12m\dot{\vec r}^{\,2}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For a Cartesian coordinate <span class="math inline">\(x_i\)</span>, the Euler–Lagrange equation is</p>
 <p><span class="math display">\[
@@ -1180,7 +1306,7 @@ H(\vec r,\vec p,t)
 <p>together with the scalar-potential term <span class="math inline">\(q\phi\)</span>.</p>
 <p>The replacement is not an arbitrary prescription. It follows directly from the distinction between canonical and mechanical momentum.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Why gauge transformations do not change the particle's motion">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1189,7 +1315,7 @@ H(\vec r,\vec p,t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Under a gauge transformation,</p>
 <p><span class="math display">\[
@@ -1259,7 +1385,7 @@ S'=S+q[\chi(\vec r_f,t_f)-\chi(\vec r_i,t_i)].
 \]</span></p>
 <p>An important detail is that <span class="math inline">\(\hat{\vec p}\)</span> is a differential operator. If <span class="math inline">\(\vec A\)</span> depends on position, the two generally do not commute. The square in the Hamiltonian therefore represents the complete operator product, including derivatives acting on the vector potential.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Proof: Gauge invariance of the Schrödinger equation">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1268,7 +1394,7 @@ S'=S+q[\chi(\vec r_f,t_f)-\chi(\vec r_i,t_i)].
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Statement.</strong> Consider a wavefunction <span class="math inline">\(\psi(\vec r,t)\)</span> that satisfies the Schrödinger equation</p>
 <p><span class="math display">\[
@@ -1406,7 +1532,7 @@ i\hbar\frac{\partial\psi'}{\partial t}=\hat H'\psi'.
 <p>The longitudinal component has no curl, while the transverse component has no divergence.</p>
 <p>The terms <em>longitudinal</em> and <em>transverse</em> may seem unusual at this point. For now, they are simply names for these two mathematical properties. Their geometric interpretation will become clearer when we introduce the normal modes of the field.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Why can a vector field be separated into longitudinal and transverse parts?">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1415,7 +1541,7 @@ i\hbar\frac{\partial\psi'}{\partial t}=\hat H'\psi'.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <strong>Helmholtz decomposition</strong> states that a sufficiently smooth vector field <span class="math inline">\(\vec F(\vec r)\)</span>, with suitable boundary conditions, can be written as</p>
 <p><span class="math display">\[
@@ -1727,7 +1853,7 @@ Figure&nbsp;1: Illustration of longitudinal and transverse vector fields. The lo
 <p>Thus, once the charge distribution is known, the scalar potential and therefore the longitudinal electric field are determined.</p>
 <p>Notice that this equation contains no second time derivative of <span class="math inline">\(\phi\)</span>. The scalar potential is not an independent oscillator-like degree of freedom; it is constrained by the charge distribution.</p>
 <div id="coulomb-energy" class="callout callout-style-default callout-note callout-titled" title="Derivation: The longitudinal field contains the Coulomb energy">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1736,7 +1862,7 @@ Figure&nbsp;1: Illustration of longitudinal and transverse vector fields. The lo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The energy stored in the longitudinal electric field is</p>
 <p><span class="math display">\[
@@ -1809,7 +1935,7 @@ U_{\mathrm{field}}
 \right)d^3r.
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: Electromagnetic energy conservation — Poynting's theorem">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1818,7 +1944,7 @@ U_{\mathrm{field}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The electromagnetic field carries energy. But how do we determine its energy density?</p>
 <p>We can derive it directly from <strong>Maxwell’s equations</strong> by considering how electromagnetic fields exchange energy with charged particles.</p>
@@ -1917,7 +2043,7 @@ H_{\mathrm T}
 \]</span></p>
 <p>The first term, <span class="math inline">\(U_{\mathrm L}\)</span>, represents the <a href="#coulomb-energy" onclick="document.querySelector('#coulomb-energy .callout-header.collapsed')?.click()"> Coulomb interaction derived above </a>. The second, <span class="math inline">\(H_{\mathrm T}\)</span>, is the energy associated with the independent transverse electromagnetic field.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Why are the longitudinal and transverse electric fields orthogonal?">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1926,7 +2052,7 @@ H_{\mathrm T}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In Coulomb gauge, the longitudinal electric field is <span class="math inline">\(\vec E_{\mathrm L}=-\vec\nabla\phi\)</span>, while the transverse field satisfies <span class="math inline">\(\vec\nabla\cdot\vec E_{\mathrm T}=0\)</span>.</p>
 <p>Consider the cross term in the electromagnetic energy:</p>
@@ -2237,7 +2363,7 @@ H_{\mathrm T}
 }
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: Field energy in terms of Fourier amplitudes">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2246,7 +2372,7 @@ H_{\mathrm T}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We start from the normal-mode expansion</p>
 <p><span class="math display">\[
@@ -2647,7 +2773,7 @@ e^{-i\vec k\cdot\vec r}
 <p>as required for the quantum operator representing the physical vector potential.</p>
 <p>The following derivation shows how this expression follows directly from the independent oscillator coordinates introduced in Section 2.7.4.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: Traveling-wave operators and the quantized vector potential">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2656,7 +2782,7 @@ e^{-i\vec k\cdot\vec r}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider one pair of opposite wave vectors <span class="math inline">\(\vec k\)</span> and <span class="math inline">\(-\vec k\)</span>, with a fixed polarization <span class="math inline">\(\lambda\)</span>.</p>
 <p>The two independent real oscillator coordinates introduced in Section 2.7.4 are</p>
@@ -2844,7 +2970,7 @@ E_0=
 \]</span></p>
 <p>Thus, even in the absence of photons, the electric field has nonzero quantum fluctuations.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Derivation: Electric field fluctuations in the vacuum">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2853,7 +2979,7 @@ E_0=
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For a single mode, we write</p>
 <p><span class="math display">\[
@@ -2989,7 +3115,252 @@ E_s=E_A\sin\phi.
 <li>Its angle determines the phase of the mean electromagnetic field. During free evolution, this angle changes as <span class="math inline">\(\phi-\omega t\)</span>.</li>
 <li>The spread around the center represents quantum fluctuations of the field.</li>
 </ul>
-<p>The uncertainty principle prevents the distribution from being arbitrarily narrow in both directions.</p>
+<p>The figure below illustrates a classical monochromatic electromagnetic field. Its amplitude and phase are precisely defined, and the field follows a sinusoidal oscillation in time.</p>
+<div id="cell-fig-classical-field-quadratures" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Classical monochromatic electromagnetic field</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Left:  Quadrature plane (X horizontal, Y vertical)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Electric field as a function of time</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convention:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   X(t) = A cos(phi - omega*t)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Y(t) = A sin(phi - omega*t)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   E(t) = -E_A Y(t)/A</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#        = E_A sin(omega*t - phi)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">/</span> omega</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> T <span class="op">/</span> <span class="dv">8</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> T, <span class="dv">1500</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Quadratures at the selected instant</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> phi <span class="op">-</span> omega <span class="op">*</span> t0</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>X0 <span class="op">=</span> A <span class="op">*</span> np.cos(theta)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> A <span class="op">*</span> np.sin(theta)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalized electric field</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> np.sin(omega <span class="op">*</span> t <span class="op">-</span> phi)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>E0 <span class="op">=</span> np.sin(omega <span class="op">*</span> t0 <span class="op">-</span> phi)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors and styling</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> <span class="st">"#8b1e1e"</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> <span class="st">"#999999"</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: <span class="dv">12</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mathtext.fontset"</span>: <span class="st">"cm"</span>,</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.linewidth"</span>: <span class="fl">1.0</span>,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>),</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    gridspec_kw<span class="op">=</span>{<span class="st">"width_ratios"</span>: [<span class="dv">1</span>, <span class="fl">1.6</span>]},</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co"># LEFT: X-Y quadrature plane</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>angle <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">500</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Circular trajectory</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    A <span class="op">*</span> np.cos(angle),</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    A <span class="op">*</span> np.sin(angle),</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray,</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    ls<span class="op">=</span><span class="st">"--"</span>,</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.4</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinate axes</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>ax1.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Field vector</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>ax1.annotate(</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(X0, Y0),</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>        arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>        mutation_scale<span class="op">=</span><span class="dv">16</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Projections onto the coordinate axes</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>    [X0, X0], [<span class="dv">0</span>, Y0],</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, X0], [Y0, Y0],</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Angle arc, measured counterclockwise from +X</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>r_arc <span class="op">=</span> <span class="fl">0.30</span> <span class="op">*</span> A</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>arc <span class="op">=</span> np.linspace(<span class="dv">0</span>, theta, <span class="dv">100</span>)</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>    r_arc <span class="op">*</span> np.cos(arc),</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    r_arc <span class="op">*</span> np.sin(arc),</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.3</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrowhead indicating positive angular direction</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>dtheta <span class="op">=</span> <span class="fl">0.12</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>ax1.annotate(</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.cos(theta),</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.sin(theta)</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.cos(theta <span class="op">-</span> dtheta),</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.sin(theta <span class="op">-</span> dtheta)</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>        arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>        mutation_scale<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="co"># Angle label</span></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.54</span> <span class="op">*</span> A <span class="op">*</span> np.cos(theta <span class="op">/</span> <span class="dv">2</span>),</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.54</span> <span class="op">*</span> A <span class="op">*</span> np.sin(theta <span class="op">/</span> <span class="dv">2</span>),</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">phi-</span><span class="er">\</span><span class="vs">omega t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Amplitude label</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.65</span> <span class="op">*</span> X0 <span class="op">-</span> <span class="fl">0.12</span>,</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.65</span> <span class="op">*</span> Y0 <span class="op">+</span> <span class="fl">0.12</span>,</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">A</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="op">-</span><span class="fl">1.4</span> <span class="op">*</span> A, <span class="fl">1.4</span> <span class="op">*</span> A)</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.4</span> <span class="op">*</span> A, <span class="fl">1.4</span> <span class="op">*</span> A)</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>ax1.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels at the positive ends of the axes</span></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>    <span class="fl">1.34</span> <span class="op">*</span> A, <span class="fl">0.05</span> <span class="op">*</span> A,</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"bottom"</span></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.05</span> <span class="op">*</span> A, <span class="fl">1.34</span> <span class="op">*</span> A,</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">Y</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"center"</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"(a) Field quadratures"</span>)</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks([])</span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>ax1.set_yticks([])</span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> ax1.spines.values():</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>    spine.set_visible(<span class="va">False</span>)</span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="co"># RIGHT: Electric field versus time</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>ax2.plot(</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>    t <span class="op">/</span> T, E,</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">2.0</span></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>ax2.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a><span class="co"># Highlight the selected instant t0</span></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>ax2.scatter(</span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>    [t0 <span class="op">/</span> T], [E0],</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">55</span>,</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">5</span></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="co"># Dotted projection onto the time axis</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>ax2.plot(</span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>    [t0 <span class="op">/</span> T, t0 <span class="op">/</span> T],</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, E0],</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray,</span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>    ls<span class="op">=</span><span class="st">":"</span>,</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Label t0 on the time axis</span></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>ax2.annotate(</span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(t0 <span class="op">/</span> T, <span class="dv">0</span>),</span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">9</span>),</span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>    textcoords<span class="op">=</span><span class="st">"offset points"</span>,</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="fl">1.35</span>, <span class="fl">1.35</span>)</span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="vs">r"Time </span><span class="dv">$</span><span class="vs">t/T</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">E</span><span class="kw">(</span><span class="vs">t</span><span class="kw">)</span><span class="vs">/E_A</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"(b) Classical electric field"</span>)</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>ax2.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"top"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"right"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-classical-field-quadratures" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two-panel illustration of a classical monochromatic electromagnetic field. Left: X–Y quadrature plane with X horizontal and Y vertical, a dashed circular trajectory, and a red vector pointing into the first quadrant at angle phi minus omega t-zero. Right: a red sinusoidal electric field plotted over three optical periods, with a point and vertical dotted line marking the corresponding time t-zero.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-classical-field-quadratures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-classical-field-quadratures-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;3: Two equivalent representations of a classical monochromatic electromagnetic field. (a) The field quadratures describe a vector of constant amplitude rotating in the X–Y plane. Its angle is measured counterclockwise from the positive X-axis. (b) The corresponding sinusoidal electric field as a function of time. The highlighted point at t₀ corresponds to the vector shown in panel (a)."><img src="quantized_em_field_files/figure-html/fig-classical-field-quadratures-output-1.png" alt="Two-panel illustration of a classical monochromatic electromagnetic field. Left: X–Y quadrature plane with X horizontal and Y vertical, a dashed circular trajectory, and a red vector pointing into the first quadrant at angle phi minus omega t-zero. Right: a red sinusoidal electric field plotted over three optical periods, with a point and vertical dotted line marking the corresponding time t-zero." width="1042" height="414" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-classical-field-quadratures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Two equivalent representations of a classical monochromatic electromagnetic field. (a) The field quadratures describe a vector of constant amplitude rotating in the X–Y plane. Its angle is measured counterclockwise from the positive X-axis. (b) The corresponding sinusoidal electric field as a function of time. The highlighted point at t₀ corresponds to the vector shown in panel (a).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For a quantum state of the electromagnetic field, the mean values of the quadratures still describe the average field, but quantum fluctuations introduce uncertainty around these values. The uncertainty principle prevents both quadratures from being arbitrarily well defined simultaneously. Different quantum states of light are distinguished by their mean fields and by how these fluctuations are distributed in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane.</p>
 <p>We will use this representation to compare three important types of quantum states of light.</p>
 </section>
 <section id="fock-states-light-with-a-definite-photon-number" class="level3">
@@ -3040,8 +3411,200 @@ E_s=E_A\sin\phi.
 =
 \frac14.
 \]</span></p>
-<p>For <span class="math inline">\(n&gt;0\)</span>, the full phase-space distribution has a more complicated, non-Gaussian structure, which cannot be represented completely by an uncertainty circle.</p>
+<p>For <span class="math inline">\(n&gt;0\)</span>, the full phase-space distribution has a more complicated, non-Gaussian structure. Rather than a simple uncertainty circle centered at the origin, it exhibits a ring-like structure, reflecting the absence of a preferred optical phase.</p>
 <p>The important distinction is that a Fock state has a precisely defined photon number, but no classical oscillating mean electric field.</p>
+<div id="cell-fig-fock-state-field" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LinearSegmentedColormap</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fock state |n&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Left:  Husimi Q distribution in the X-Y plane</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Mean electric field and quantum fluctuations</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;X&gt; = &lt;Y&gt; = 0</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># (Delta X)^2 = (Delta Y)^2 = (2n+1)/4</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;E(t)&gt; = 0</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">/</span> omega</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> T, <span class="dv">1200</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Quadrature uncertainty</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>delta_X <span class="op">=</span> np.sqrt((<span class="dv">2</span> <span class="op">*</span> n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">4</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># For E(t) = -2 E0 Y(t), the field rms uncertainty is</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Delta E / E0 = 2 Delta Y = sqrt(2n+1).</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>delta_E <span class="op">=</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> n <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> <span class="st">"#8b1e1e"</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> <span class="st">"#999999"</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> LinearSegmentedColormap.from_list(</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"field_grad"</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"#ffffff"</span>, <span class="st">"#f4a582"</span>, <span class="st">"#c0392b"</span>, <span class="st">"#5c0000"</span>]</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: <span class="dv">12</span>,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mathtext.fontset"</span>: <span class="st">"cm"</span>,</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.linewidth"</span>: <span class="fl">1.0</span>,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>),</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    gridspec_kw<span class="op">=</span>{<span class="st">"width_ratios"</span>: [<span class="dv">1</span>, <span class="fl">1.6</span>]},</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># LEFT: Husimi Q distribution</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Coherent-state coordinate alpha = X + iY.</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Q_n(alpha) = exp(-|alpha|^2) |alpha|^(2n) / (pi n!)</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co"># The maximum occurs at |alpha| = sqrt(n).</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>limit <span class="op">=</span> <span class="fl">3.8</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span>limit, limit, <span class="dv">550</span>)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span>limit, limit, <span class="dv">550</span>)</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>R2 <span class="op">=</span> X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> np.exp(<span class="op">-</span>R2) <span class="op">*</span> R2<span class="op">**</span>n <span class="op">/</span> (np.pi <span class="op">*</span> factorial(n))</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>Q <span class="op">/=</span> Q.<span class="bu">max</span>()</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Display probability density with white background</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>ax1.imshow(</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    Q,</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    extent<span class="op">=</span>[<span class="op">-</span>limit, limit, <span class="op">-</span>limit, limit],</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span>cmap,</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    vmin<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>    vmax<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinate axes</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>ax1.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Axis labels</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.96</span> <span class="op">*</span> limit, <span class="fl">0.06</span> <span class="op">*</span> limit,</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">"</span>, ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"bottom"</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.06</span> <span class="op">*</span> limit, <span class="fl">0.96</span> <span class="op">*</span> limit,</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">Y</span><span class="dv">$</span><span class="vs">"</span>, ha<span class="op">=</span><span class="st">"left"</span>, va<span class="op">=</span><span class="st">"center"</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="op">-</span>limit, limit)</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span>limit, limit)</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>ax1.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">rf"</span><span class="kw">(</span><span class="vs">a</span><span class="kw">)</span><span class="vs"> Fock state </span><span class="dv">$</span><span class="cf">|</span><span class="vs">n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ch">\r</span><span class="vs">angle</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks([])</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>ax1.set_yticks([])</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> ax1.spines.values():</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>    spine.set_visible(<span class="va">False</span>)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="co"># RIGHT: Mean electric field and fluctuation band</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean field is zero at all times</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>E_mean <span class="op">=</span> np.zeros_like(t)</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="co"># The band extends to +/- one rms field uncertainty.</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="co"># The gradient is darkest at the mean and fades to white</span></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="co"># at the edges, matching the requested visual style.</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>ny <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>y_field <span class="op">=</span> np.linspace(</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">1.3</span> <span class="op">*</span> delta_E,</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>     <span class="fl">1.3</span> <span class="op">*</span> delta_E,</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>    ny</span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>TT, EE <span class="op">=</span> np.meshgrid(t <span class="op">/</span> T, y_field)</span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> np.<span class="bu">abs</span>(EE)</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>inside <span class="op">=</span> distance <span class="op">&lt;=</span> delta_E</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> np.clip(<span class="dv">1</span> <span class="op">-</span> distance <span class="op">/</span> delta_E, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> cmap(intensity)</span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>rgba[..., <span class="dv">3</span>] <span class="op">=</span> np.where(inside, <span class="fl">1.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>ax2.imshow(</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>    rgba,</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>    extent<span class="op">=</span>[</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">3</span>,</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>        y_field.<span class="bu">min</span>(), y_field.<span class="bu">max</span>()</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>    origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>    aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>    interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean field</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>ax2.plot(</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>    t <span class="op">/</span> T,</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>    E_mean,</span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">2.0</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="fl">1.3</span> <span class="op">*</span> delta_E, <span class="fl">1.3</span> <span class="op">*</span> delta_E)</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="vs">r"Time </span><span class="dv">$</span><span class="vs">t/T</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">E</span><span class="kw">(</span><span class="vs">t</span><span class="kw">)</span><span class="vs">/E_0</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"(b) Electric-field fluctuations"</span>)</span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>ax2.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks([<span class="op">-</span>delta_E, <span class="dv">0</span>, delta_E])</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>ax2.set_yticklabels([</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">-</span><span class="dv">\D</span><span class="vs">elta E/E_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$0$"</span>,</span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="op">+</span><span class="dv">\D</span><span class="vs">elta E/E_0</span><span class="dv">$</span><span class="vs">"</span></span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"top"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"right"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-fock-state-field" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two-panel illustration of a three-photon Fock state. Left: X–Y quadrature plane with a red annular probability distribution centered at the origin, showing no preferred phase. Right: a horizontal dark red line at zero electric field with a symmetric red gradient band above and below it, representing quantum fluctuations rather than a classical oscillating field.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fock-state-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-fock-state-field-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;4: A Fock state with a definite photon number (n = 3). (a) Rotationally symmetric phase-space representation, illustrating the absence of a preferred optical phase. The ring-like distribution reflects the quantum fluctuations of the field. (b) The expectation value of the electric field vanishes at all times, although the field has nonzero quantum fluctuations. The red shading illustrates the rms field uncertainty, which is independent of time."><img src="quantized_em_field_files/figure-html/fig-fock-state-field-output-1.png" alt="Two-panel illustration of a three-photon Fock state. Left: X–Y quadrature plane with a red annular probability distribution centered at the origin, showing no preferred phase. Right: a horizontal dark red line at zero electric field with a symmetric red gradient band above and below it, representing quantum fluctuations rather than a classical oscillating field." width="1047" height="414" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fock-state-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: A Fock state with a definite photon number (n = 3). (a) Rotationally symmetric phase-space representation, illustrating the absence of a preferred optical phase. The ring-like distribution reflects the quantum fluctuations of the field. (b) The expectation value of the electric field vanishes at all times, although the field has nonzero quantum fluctuations. The red shading illustrates the rms field uncertainty, which is independent of time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="coherent-states-the-quantum-description-of-classical-light" class="level3">
 <h3 class="anchored" data-anchor-id="coherent-states-the-quantum-description-of-classical-light">2.7.6.2. Coherent states: The quantum description of classical light</h3>
@@ -3114,6 +3677,317 @@ E_0=
 <p>In the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane, a coherent state is therefore represented by a circular Gaussian distribution displaced from the origin.</p>
 <p>As the mean photon number increases, the displacement grows while the absolute quadrature uncertainties remain unchanged. The fluctuations therefore become small relative to the mean field amplitude.</p>
 <p>This explains why coherent states with large photon occupation numbers provide an excellent quantum description of classical electromagnetic waves.</p>
+<div id="cell-fig-coherent-state-field" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LinearSegmentedColormap</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Coherent state |alpha&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Left:  Quadrature distribution at t0</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Mean electric field and quantum fluctuations</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;X&gt;(t) = |alpha| cos(phi - omega*t)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;Y&gt;(t) = |alpha| sin(phi - omega*t)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (Delta X)^2 = (Delta Y)^2 = 1/4</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;E(t)&gt; / E0 = 2 |alpha| sin(omega*t - phi)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Delta E / E0 = 1</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>alpha_abs <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">/</span> omega</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> T <span class="op">/</span> <span class="dv">8</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> T, <span class="dv">1500</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> phi <span class="op">-</span> omega <span class="op">*</span> t0</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>X0 <span class="op">=</span> alpha_abs <span class="op">*</span> np.cos(theta)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> alpha_abs <span class="op">*</span> np.sin(theta)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean electric field and rms uncertainty, in units of E0</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>E_mean <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> alpha_abs <span class="op">*</span> np.sin(omega <span class="op">*</span> t <span class="op">-</span> phi)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>E0_mean <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> alpha_abs <span class="op">*</span> np.sin(omega <span class="op">*</span> t0 <span class="op">-</span> phi)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>delta_X <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>delta_Y <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>delta_E <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> <span class="st">"#8b1e1e"</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> <span class="st">"#999999"</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> LinearSegmentedColormap.from_list(</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"field_grad"</span>,</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"#ffffff"</span>, <span class="st">"#f4a582"</span>, <span class="st">"#c0392b"</span>, <span class="st">"#5c0000"</span>]</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: <span class="dv">12</span>,</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mathtext.fontset"</span>: <span class="st">"cm"</span>,</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.linewidth"</span>: <span class="fl">1.0</span>,</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>),</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    gridspec_kw<span class="op">=</span>{<span class="st">"width_ratios"</span>: [<span class="dv">1</span>, <span class="fl">1.6</span>]},</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="co"># LEFT: Coherent state in the X-Y plane</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>limit <span class="op">=</span> <span class="fl">3.6</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> np.linspace(<span class="op">-</span>limit, limit, <span class="dv">600</span>)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(grid, grid)</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Circular Gaussian centered on the mean quadratures.</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a schematic Gaussian density with standard</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="co"># deviations Delta X = Delta Y = 1/2.</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>density <span class="op">=</span> np.exp(</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> (</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>        ((X <span class="op">-</span> X0) <span class="op">/</span> delta_X)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> ((Y <span class="op">-</span> Y0) <span class="op">/</span> delta_Y)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Transparent background outside the Gaussian</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> cmap(density)</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>rgba[..., <span class="dv">3</span>] <span class="op">=</span> np.clip(density, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>ax1.imshow(</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    rgba,</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    extent<span class="op">=</span>[<span class="op">-</span>limit, limit, <span class="op">-</span>limit, limit],</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Dashed circular trajectory of the mean field</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>angle <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">500</span>)</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    alpha_abs <span class="op">*</span> np.cos(angle),</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    alpha_abs <span class="op">*</span> np.sin(angle),</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray,</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    ls<span class="op">=</span><span class="st">"--"</span>,</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinate axes</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>ax1.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean-field vector</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>ax1.annotate(</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(X0, Y0),</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>        arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>        mutation_scale<span class="op">=</span><span class="dv">16</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="co"># Projections onto the coordinate axes</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    [X0, X0], [<span class="dv">0</span>, Y0],</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, X0], [Y0, Y0],</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Phase angle, measured counterclockwise from +X</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>r_arc <span class="op">=</span> <span class="fl">0.42</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>arc <span class="op">=</span> np.linspace(<span class="dv">0</span>, theta, <span class="dv">100</span>)</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>ax1.plot(</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>    r_arc <span class="op">*</span> np.cos(arc),</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>    r_arc <span class="op">*</span> np.sin(arc),</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.3</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>ax1.annotate(</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.cos(theta),</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.sin(theta)</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.cos(theta <span class="op">-</span> <span class="fl">0.12</span>),</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.sin(theta <span class="op">-</span> <span class="fl">0.12</span>)</span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>        arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>        mutation_scale<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="co"># Phase label</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.85</span> <span class="op">*</span> np.cos(theta <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="fl">0.4</span>,</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.85</span> <span class="op">*</span> np.sin(theta <span class="op">/</span> <span class="dv">2</span>),</span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">phi-</span><span class="er">\</span><span class="vs">omega t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean amplitude label</span></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.65</span> <span class="op">*</span> X0 <span class="op">-</span> <span class="fl">0.55</span>,</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.65</span> <span class="op">*</span> Y0 <span class="op">+</span> <span class="fl">0.15</span>,</span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="cf">|</span><span class="ch">\a</span><span class="vs">lpha</span><span class="cf">|</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red</span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="op">-</span>limit, limit)</span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span>limit, limit)</span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>ax1.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels at positive ends of axes</span></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.96</span> <span class="op">*</span> limit, <span class="fl">0.04</span> <span class="op">*</span> limit,</span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"bottom"</span></span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a>ax1.text(</span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.04</span> <span class="op">*</span> limit, <span class="fl">0.96</span> <span class="op">*</span> limit,</span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">Y</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"center"</span></span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"(a) Coherent state"</span>)</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks([])</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a>ax1.set_yticks([])</span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> ax1.spines.values():</span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a>    spine.set_visible(<span class="va">False</span>)</span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="co"># RIGHT: Mean electric field and fluctuation band</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="co"># Gaussian-style gradient within +/- one rms uncertainty.</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="co"># The band follows the sinusoidal mean electric field.</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a>ny <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a>y_min <span class="op">=</span> E_mean.<span class="bu">min</span>() <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> delta_E</span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>y_max <span class="op">=</span> E_mean.<span class="bu">max</span>() <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> delta_E</span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>y_field <span class="op">=</span> np.linspace(y_min, y_max, ny)</span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>TT, EE <span class="op">=</span> np.meshgrid(t <span class="op">/</span> T, y_field)</span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a>mean_grid <span class="op">=</span> E_mean[np.newaxis, :]</span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> np.<span class="bu">abs</span>(EE <span class="op">-</span> mean_grid)</span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a>inside <span class="op">=</span> distance <span class="op">&lt;=</span> delta_E</span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> np.clip(<span class="dv">1</span> <span class="op">-</span> distance <span class="op">/</span> delta_E, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> cmap(intensity)</span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a>rgba[..., <span class="dv">3</span>] <span class="op">=</span> np.where(inside, <span class="fl">1.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a>ax2.imshow(</span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a>    rgba,</span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a>    extent<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">3</span>, y_min, y_max],</span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a>    origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a>    aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a>    interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean electric field</span></span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a>ax2.plot(</span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a>    t <span class="op">/</span> T,</span>
+<span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a>    E_mean,</span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.8</span></span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>ax2.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a><span class="co"># Highlight the instant t0</span></span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a>ax2.scatter(</span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>    [t0 <span class="op">/</span> T],</span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a>    [E0_mean],</span>
+<span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>red,</span>
+<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">5</span></span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a>ax2.plot(</span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a>    [t0 <span class="op">/</span> T, t0 <span class="op">/</span> T],</span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, E0_mean],</span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>gray,</span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a>    ls<span class="op">=</span><span class="st">":"</span>,</span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a>    lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a>ax2.annotate(</span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a>    <span class="vs">r"</span><span class="dv">$</span><span class="vs">t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a>    xy<span class="op">=</span>(t0 <span class="op">/</span> T, <span class="dv">0</span>),</span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">9</span>),</span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a>    textcoords<span class="op">=</span><span class="st">"offset points"</span>,</span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a>    ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a>    va<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(y_min, y_max)</span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="vs">r"Time </span><span class="dv">$</span><span class="vs">t/T</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">E</span><span class="kw">(</span><span class="vs">t</span><span class="kw">)</span><span class="vs">/E_0</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"(b) Electric field and fluctuations"</span>)</span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a>ax2.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks([</span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> alpha_abs,</span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
+<span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="op">*</span> alpha_abs</span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"top"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a>ax2.spines[<span class="st">"right"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-coherent-state-field" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two-panel illustration of a coherent state. Left: X–Y quadrature plane with a red mean-field vector pointing into the first quadrant, surrounded by a circular red Gaussian distribution. A dashed circle indicates the trajectory of the mean vector. Right: a sinusoidal dark red mean electric field surrounded by a red-to-white gradient band representing constant rms quantum fluctuations, with the instant t-zero marked.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coherent-state-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-coherent-state-field-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;5: Coherent state of a single electromagnetic mode. (a) The circular Gaussian distribution is displaced from the origin, indicating a nonzero mean field amplitude and a definite mean optical phase. The red vector shows the mean quadratures at time t₀; the shaded region represents quantum fluctuations. (b) The mean electric field oscillates sinusoidally, while the shaded band indicates its rms quantum uncertainty. The fluctuations have the same absolute magnitude as in the vacuum state."><img src="quantized_em_field_files/figure-html/fig-coherent-state-field-output-1.png" alt="Two-panel illustration of a coherent state. Left: X–Y quadrature plane with a red mean-field vector pointing into the first quadrant, surrounded by a circular red Gaussian distribution. A dashed circle indicates the trajectory of the mean vector. Right: a sinusoidal dark red mean electric field surrounded by a red-to-white gradient band representing constant rms quantum fluctuations, with the instant t-zero marked." width="1042" height="414" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coherent-state-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Coherent state of a single electromagnetic mode. (a) The circular Gaussian distribution is displaced from the origin, indicating a nonzero mean field amplitude and a definite mean optical phase. The red vector shows the mean quadratures at time t₀; the shaded region represents quantum fluctuations. (b) The mean electric field oscillates sinusoidally, while the shaded band indicates its rms quantum uncertainty. The fluctuations have the same absolute magnitude as in the vacuum state.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="squeezed-states-redistributing-quantum-uncertainty" class="level3">
 <h3 class="anchored" data-anchor-id="squeezed-states-redistributing-quantum-uncertainty">2.7.6.3. Squeezed states: Redistributing quantum uncertainty</h3>
@@ -3146,26 +4020,389 @@ E_0=
 <p>The uncertainty is reduced perpendicular to the mean field amplitude, corresponding to the tangential direction in the <span class="math inline">\(X\)</span>–<span class="math inline">\(Y\)</span> plane.</p>
 <p>The phase becomes more precisely defined, while the amplitude uncertainty increases.</p>
 <p>These descriptions apply most naturally to states with a sufficiently large mean field amplitude, for which radial and angular fluctuations can be interpreted approximately as amplitude and phase noise.</p>
-<!-- FIGURE 1:
-     Multi-panel X–Y phase-space representation:
-     vacuum, Fock state, coherent state,
-     amplitude-squeezed coherent state,
-     phase-squeezed coherent state.
-     Show mean-field vectors and uncertainty
-     regions. Distinguish the non-Gaussian
-     Fock-state distribution from Gaussian
-     uncertainty ellipses.
--->
-<!-- FIGURE 2:
-     Three panels showing the mean electric
-     field and illustrative quantum
-     fluctuations for:
-     (a) coherent light,
-     (b) amplitude-squeezed light,
-     (c) phase-squeezed light.
-     Use the same mean sinusoidal field
-     in all three panels.
--->
+<div id="cell-fig-squeezed-states-field" class="cell" data-fig-height="8" data-fig-width="11" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LinearSegmentedColormap</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Squeezed coherent states</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Top row:    Amplitude squeezing (radial)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Bottom row: Phase squeezing (tangential)</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># X(t) = |alpha| cos(phi - omega*t)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Y(t) = |alpha| sin(phi - omega*t)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># E(t)/E0 = -2 Y(t)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#         = 2 |alpha| sin(omega*t - phi)</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Vacuum quadrature uncertainty: Delta X = Delta Y = 1/2</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>alpha_abs <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.65</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">/</span> omega</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> T <span class="op">/</span> <span class="dv">8</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> T, <span class="dv">1500</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>theta0 <span class="op">=</span> phi <span class="op">-</span> omega <span class="op">*</span> t0</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>X0 <span class="op">=</span> alpha_abs <span class="op">*</span> np.cos(theta0)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>Y0 <span class="op">=</span> alpha_abs <span class="op">*</span> np.sin(theta0)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean electric field, normalized to E0</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>E_mean <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> alpha_abs <span class="op">*</span> np.sin(omega <span class="op">*</span> t <span class="op">-</span> phi)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>E_at_t0 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> alpha_abs <span class="op">*</span> np.sin(omega <span class="op">*</span> t0 <span class="op">-</span> phi)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Radial and tangential unit vectors at t0</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>u_r <span class="op">=</span> np.array([np.cos(theta0), np.sin(theta0)])</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>u_t <span class="op">=</span> np.array([<span class="op">-</span>np.sin(theta0), np.cos(theta0)])</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum-uncertainty squeezed quadrature standard deviations</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>sigma_small <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> np.exp(<span class="op">-</span>r)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>sigma_large <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> np.exp(r)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> <span class="st">"#8b1e1e"</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> <span class="st">"#999999"</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> LinearSegmentedColormap.from_list(</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"field_grad"</span>,</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"#ffffff"</span>, <span class="st">"#f4a582"</span>, <span class="st">"#c0392b"</span>, <span class="st">"#5c0000"</span>]</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: <span class="dv">12</span>,</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mathtext.fontset"</span>: <span class="st">"cm"</span>,</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.linewidth"</span>: <span class="fl">1.0</span>,</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>, <span class="dv">2</span>,</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">8</span>),</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    gridspec_kw<span class="op">=</span>{<span class="st">"width_ratios"</span>: [<span class="dv">1</span>, <span class="fl">1.6</span>]},</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper: X-Y phase-space panel</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_phase_space(ax, sigma_radial, sigma_tangential, title):</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    limit <span class="op">=</span> <span class="fl">3.8</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> np.linspace(<span class="op">-</span>limit, limit, <span class="dv">600</span>)</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    X, Y <span class="op">=</span> np.meshgrid(grid, grid)</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> X <span class="op">-</span> X0</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>    dy <span class="op">=</span> Y <span class="op">-</span> Y0</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Coordinates relative to radial and tangential directions</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>    radial <span class="op">=</span> dx <span class="op">*</span> u_r[<span class="dv">0</span>] <span class="op">+</span> dy <span class="op">*</span> u_r[<span class="dv">1</span>]</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    tangential <span class="op">=</span> dx <span class="op">*</span> u_t[<span class="dv">0</span>] <span class="op">+</span> dy <span class="op">*</span> u_t[<span class="dv">1</span>]</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Elliptical Gaussian visualization</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>    density <span class="op">=</span> np.exp(</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> (</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>            (radial <span class="op">/</span> sigma_radial)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> (tangential <span class="op">/</span> sigma_tangential)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    rgba <span class="op">=</span> cmap(density)</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>    rgba[..., <span class="dv">3</span>] <span class="op">=</span> np.clip(density, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>    ax.imshow(</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>        rgba,</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>        extent<span class="op">=</span>[<span class="op">-</span>limit, limit, <span class="op">-</span>limit, limit],</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>        origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>        interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Circular trajectory of the mean-field vector</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>    angle <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">500</span>)</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>        alpha_abs <span class="op">*</span> np.cos(angle),</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>        alpha_abs <span class="op">*</span> np.sin(angle),</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>gray,</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>        ls<span class="op">=</span><span class="st">"--"</span>,</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Coordinate axes</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>    ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mean-field vector</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>    ax.annotate(</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>        <span class="st">""</span>,</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>        xy<span class="op">=</span>(X0, Y0),</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>        xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>        arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>            arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>red,</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>            lw<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>            mutation_scale<span class="op">=</span><span class="dv">16</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Quadrature projections</span></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>        [X0, X0], [<span class="dv">0</span>, Y0],</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, X0], [Y0, Y0],</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>gray, ls<span class="op">=</span><span class="st">":"</span>, lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Phase angle measured counterclockwise from +X</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>    r_arc <span class="op">=</span> <span class="fl">0.42</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>    arc <span class="op">=</span> np.linspace(<span class="dv">0</span>, theta0, <span class="dv">100</span>)</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.cos(arc),</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>        r_arc <span class="op">*</span> np.sin(arc),</span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.3</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>    ax.annotate(</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>        <span class="st">""</span>,</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>        xy<span class="op">=</span>(</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>            r_arc <span class="op">*</span> np.cos(theta0),</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>            r_arc <span class="op">*</span> np.sin(theta0)</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>        xytext<span class="op">=</span>(</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>            r_arc <span class="op">*</span> np.cos(theta0 <span class="op">-</span> <span class="fl">0.12</span>),</span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>            r_arc <span class="op">*</span> np.sin(theta0 <span class="op">-</span> <span class="fl">0.12</span>)</span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>        arrowprops<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>            arrowstyle<span class="op">=</span><span class="st">"-|&gt;"</span>,</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>red,</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>            lw<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>            mutation_scale<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>    ax.text(</span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.85</span> <span class="op">*</span> np.cos(theta0 <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="fl">0.4</span>,</span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.85</span> <span class="op">*</span> np.sin(theta0 <span class="op">/</span> <span class="dv">2</span>),</span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">phi-</span><span class="er">\</span><span class="vs">omega t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>        fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Amplitude label</span></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    ax.text(</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.65</span> <span class="op">*</span> X0 <span class="op">-</span> <span class="fl">0.55</span>,</span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.65</span> <span class="op">*</span> Y0 <span class="op">+</span> <span class="fl">0.15</span>,</span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r"</span><span class="dv">$</span><span class="cf">|</span><span class="ch">\a</span><span class="vs">lpha</span><span class="cf">|</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Coordinate-axis labels</span></span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>    ax.text(</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.96</span> <span class="op">*</span> limit, <span class="fl">0.04</span> <span class="op">*</span> limit,</span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r"</span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">"bottom"</span></span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>    ax.text(</span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.04</span> <span class="op">*</span> limit, <span class="fl">0.96</span> <span class="op">*</span> limit,</span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r"</span><span class="dv">$</span><span class="vs">Y</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">"center"</span></span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span>limit, limit)</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span>limit, limit)</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks([])</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([])</span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> spine <span class="kw">in</span> ax.spines.values():</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>        spine.set_visible(<span class="va">False</span>)</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper: Time-dependent electric-field panel</span></span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_electric_field(ax, squeezing_type, title):</span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The squeezing ellipse rotates with the mean field.</span></span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Its projection onto the Y quadrature determines</span></span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the instantaneous electric-field uncertainty.</span></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> phi <span class="op">-</span> omega <span class="op">*</span> t</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> squeezing_type <span class="op">==</span> <span class="st">"amplitude"</span>:</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>        sigma_r <span class="op">=</span> sigma_small</span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>        sigma_t <span class="op">=</span> sigma_large</span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>        sigma_r <span class="op">=</span> sigma_large</span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>        sigma_t <span class="op">=</span> sigma_small</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variance of the Y projection:</span></span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delta Y^2(t) =</span></span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   sigma_r^2 sin^2(theta)</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>    <span class="co"># + sigma_t^2 cos^2(theta)</span></span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Since E/E0 = -2Y:</span></span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delta E/E0 = 2 Delta Y</span></span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>    delta_E <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.sqrt(</span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>        sigma_r<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.sin(theta)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> sigma_t<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.cos(theta)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>    ny <span class="op">=</span> <span class="dv">650</span></span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a>    y_min <span class="op">=</span> E_mean.<span class="bu">min</span>() <span class="op">-</span> <span class="fl">1.6</span> <span class="op">*</span> delta_E.<span class="bu">max</span>()</span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a>    y_max <span class="op">=</span> E_mean.<span class="bu">max</span>() <span class="op">+</span> <span class="fl">1.6</span> <span class="op">*</span> delta_E.<span class="bu">max</span>()</span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a>    y_field <span class="op">=</span> np.linspace(y_min, y_max, ny)</span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a>    TT, EE <span class="op">=</span> np.meshgrid(t <span class="op">/</span> T, y_field)</span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a>    mean_grid <span class="op">=</span> E_mean[np.newaxis, :]</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>    width_grid <span class="op">=</span> delta_E[np.newaxis, :]</span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a>    distance <span class="op">=</span> np.<span class="bu">abs</span>(EE <span class="op">-</span> mean_grid)</span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a>    inside <span class="op">=</span> distance <span class="op">&lt;=</span> width_grid</span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>    intensity <span class="op">=</span> np.clip(</span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span> <span class="op">-</span> distance <span class="op">/</span> width_grid,</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">1</span></span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a>    rgba <span class="op">=</span> cmap(intensity)</span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a>    rgba[..., <span class="dv">3</span>] <span class="op">=</span> np.where(inside, <span class="fl">1.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>    ax.imshow(</span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a>        rgba,</span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>        extent<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">3</span>, y_min, y_max],</span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>        origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a>        aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a>        interpolation<span class="op">=</span><span class="st">"bilinear"</span></span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mean electric field</span></span>
+<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a>        t <span class="op">/</span> T,</span>
+<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a>        E_mean,</span>
+<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.8</span></span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Highlight t0</span></span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>    ax.scatter(</span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a>        [t0 <span class="op">/</span> T],</span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>        [E_at_t0],</span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>red,</span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a>        zorder<span class="op">=</span><span class="dv">5</span></span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a>        [t0 <span class="op">/</span> T, t0 <span class="op">/</span> T],</span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, E_at_t0],</span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>gray,</span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>        ls<span class="op">=</span><span class="st">":"</span>,</span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.2</span></span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a>    ax.annotate(</span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r"</span><span class="dv">$</span><span class="vs">t_0</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a>        xy<span class="op">=</span>(t0 <span class="op">/</span> T, <span class="dv">0</span>),</span>
+<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a>        xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">9</span>),</span>
+<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a>        textcoords<span class="op">=</span><span class="st">"offset points"</span>,</span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a>        fontsize<span class="op">=</span><span class="dv">11</span></span>
+<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(y_min, y_max)</span>
+<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="vs">r"Time </span><span class="dv">$</span><span class="vs">t/T</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">E</span><span class="kw">(</span><span class="vs">t</span><span class="kw">)</span><span class="vs">/E_0</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
+<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> alpha_abs, <span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> alpha_abs])</span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a>    ax.spines[<span class="st">"top"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a>    ax.spines[<span class="st">"right"</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="co"># TOP ROW: Amplitude-squeezed coherent state</span></span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a>plot_phase_space(</span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a>    sigma_radial<span class="op">=</span>sigma_small,</span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a>    sigma_tangential<span class="op">=</span>sigma_large,</span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"(a) Amplitude-squeezed state"</span></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a>plot_electric_field(</span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a>    squeezing_type<span class="op">=</span><span class="st">"amplitude"</span>,</span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"(b) Electric field: amplitude squeezing"</span></span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a><span class="co"># BOTTOM ROW: Phase-squeezed coherent state</span></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a>plot_phase_space(</span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>    sigma_radial<span class="op">=</span>sigma_large,</span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>    sigma_tangential<span class="op">=</span>sigma_small,</span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"(c) Phase-squeezed state"</span></span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a>plot_electric_field(</span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a>    squeezing_type<span class="op">=</span><span class="st">"phase"</span>,</span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"(d) Electric field: phase squeezing"</span></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-squeezed-states-field" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four-panel illustration arranged in two rows. Top left: X–Y quadrature plane with a red mean-field vector and a tangentially elongated uncertainty ellipse for amplitude squeezing. Top right: sinusoidal mean electric field with a red gradient fluctuation band that narrows near field extrema and widens near zero crossings. Bottom left: the same mean-field vector with a radially elongated uncertainty ellipse for phase squeezing. Bottom right: the same sinusoidal mean field with a fluctuation band that narrows near zero crossings and widens near extrema.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-squeezed-states-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="quantized_em_field_files/figure-html/fig-squeezed-states-field-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;6: Amplitude- and phase-squeezed coherent states of a single electromagnetic mode. Top row: amplitude squeezing reduces fluctuations along the mean-field vector, producing an uncertainty ellipse elongated in the tangential direction. The electric-field uncertainty is smallest near the extrema of the mean oscillation. Bottom row: phase squeezing reduces fluctuations perpendicular to the mean-field vector, producing a radially elongated ellipse. The electric-field uncertainty is smallest near the zero crossings. Both states have the same mean electric field, and neither violates the uncertainty principle."><img src="quantized_em_field_files/figure-html/fig-squeezed-states-field-output-1.png" alt="Four-panel illustration arranged in two rows. Top left: X–Y quadrature plane with a red mean-field vector and a tangentially elongated uncertainty ellipse for amplitude squeezing. Top right: sinusoidal mean electric field with a red gradient fluctuation band that narrows near field extrema and widens near zero crossings. Bottom left: the same mean-field vector with a radially elongated uncertainty ellipse for phase squeezing. Bottom right: the same sinusoidal mean field with a fluctuation band that narrows near zero crossings and widens near extrema." width="1032" height="779" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-squeezed-states-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Amplitude- and phase-squeezed coherent states of a single electromagnetic mode. Top row: amplitude squeezing reduces fluctuations along the mean-field vector, producing an uncertainty ellipse elongated in the tangential direction. The electric-field uncertainty is smallest near the extrema of the mean oscillation. Bottom row: phase squeezing reduces fluctuations perpendicular to the mean-field vector, producing a radially elongated ellipse. The electric-field uncertainty is smallest near the zero crossings. Both states have the same mean electric field, and neither violates the uncertainty principle.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>Squeezed states illustrate an important feature of quantum light: the fluctuations of the electromagnetic field are not necessarily fixed at the vacuum level. They can be redistributed, allowing one field component to be measured with reduced quantum uncertainty.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Physical interpretation">
 <div class="callout-header d-flex align-content-center">
