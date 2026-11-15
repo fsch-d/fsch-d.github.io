@@ -101,4 +101,30 @@ img[src$=".svg"] {
   #quarto-back-to-top {
     display: none !important;
   }
+
+
+  /* ==========================================
+     Mobile sidebar navigation
+     ========================================== */
+
+  /* Keep navigation within the mobile viewport */
+  #quarto-sidebar,
+  #quarto-sidebar .sidebar-menu-container,
+  #quarto-sidebar .sidebar-item {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Allow long chapter and section titles to wrap */
+  #quarto-sidebar .sidebar-item-text,
+  #quarto-sidebar .sidebar-item-text a {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+
+  /* Allow flex containers to shrink */
+  #quarto-sidebar .sidebar-item-container {
+    min-width: 0;
+  }
 }
