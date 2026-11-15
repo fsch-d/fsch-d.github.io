@@ -36,7 +36,7 @@ In a Ramsey experiment (@fig-ramseyexp), an atomic beam passes through:
 
 This pulse–drift–pulse sequence creates quantum interference fringes that allow extremely precise determination of $\omega_0$.
 
-![Schematic of a Ramsey experiment.](ramseyexp.svg){#fig-ramseyexp fig-alt="Two interaction zones separated by a drift region" fig-align="center" width="50%"}
+![Schematic of a Ramsey experiment.](ramseyexp.png){#fig-ramseyexp fig-alt="Two interaction zones separated by a drift region" fig-align="center" width="50%"}
 
 
 ---

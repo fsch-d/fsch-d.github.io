@@ -353,7 +353,7 @@ def plot_hyperfine_splitting():
 plot_hyperfine_splitting()
 ```
 <div style="text-align: center;">
-![Hyperfine splitting in the hydrogen ground state](./hyperfine.svg){fig-alt="Hyperfine splitting in the hydrogen ground state." fig-align="center"}
+![Hyperfine splitting in the hydrogen ground state.](./hyperfine.svg){fig-alt="Hyperfine splitting in the hydrogen ground state." fig-align="center"}
 </div>
 
 ---

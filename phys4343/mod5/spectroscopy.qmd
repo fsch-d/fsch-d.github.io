@@ -120,14 +120,15 @@ with open(os.devnull, 'w') as FNULL:
         output_svg = f"{name}.svg"
         
         # Convert the PDF page to a specific SVG file
-        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
         # Scale the newly created SVG file
-        scale_svg(output_svg, 2)
+        # scale_svg(output_svg, 2)
+        subprocess.run(["pdftoppm", "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", "diagram.pdf", name], stdout=FNULL, stderr=FNULL)
 
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Principle of absorption and fluorescence spectroscopy](./absfluor.svg){fig-alt="Principle of absorption and fluorescence spectroscopy" fig-align="center" width=70%}
+![Principle of absorption and fluorescence spectroscopy.](./absfluor.png){fig-alt="Principle of absorption and fluorescence spectroscopy" fig-align="center" width=70%}
 
 ---
 

@@ -313,7 +313,13 @@ anim = FuncAnimation(
 plt.close(fig)
 
 # Display as looping HTML5 video
-HTML(anim.to_html5_video())
+HTML(
+    anim.to_html5_video().replace(
+        "<video ",
+        '<video muted playsinline ',
+        1
+    )
+)
 ```
 
 The result immediately raises a question:
@@ -576,7 +582,8 @@ $$
 #| label: fig-double-slit-animation
 #| fig-cap: "Double-slit interference. Instantaneous real part of a monochromatic wave propagating through two narrow slits. The waves emerging from the slits overlap and interfere as they propagate."
 #| fig-alt: "Animation of a wave propagating from left to right through two narrow slits. Beyond the slits, two circular wave patterns spread outward and overlap, producing alternating regions of constructive and destructive interference."
-#| output: asis
+#| fig-align: center
+# output: asis
 # echo: false
 
 from diffractio import degrees, mm, np, um
@@ -659,7 +666,7 @@ z_plot = z0[64:-64] / um
 fps = 20
 n_frames = 20
 
-fig, ax = plt.subplots(figsize=(8, 8))
+fig, ax = plt.subplots(figsize=(8, 8), dpi=80)
 
 im = ax.imshow(
     field.real,
@@ -699,7 +706,14 @@ anim = animation.FuncAnimation(
 
 plt.close(fig)
 
-display(HTML(anim.to_html5_video()))
+# Display as looping HTML5 video
+HTML(
+    anim.to_html5_video().replace(
+        "<video ",
+        '<video muted playsinline ',
+        1
+    )
+)
 ```
 
 ---

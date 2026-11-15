@@ -117,14 +117,15 @@ with open(os.devnull, 'w') as FNULL:
         output_svg = f"{name}.svg"
         
         # Convert the PDF page to a specific SVG file
-        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
         # Scale the newly created SVG file
-        scale_svg(output_svg, 1.5)
+        # scale_svg(output_svg, 1.5)
+        subprocess.run(["pdftoppm", "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", "diagram.pdf", name], stdout=FNULL, stderr=FNULL)
 
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![](./exch_scat.svg){fig-alt="Exchange in scattering pathways." fig-align="center" width=70%}  
+![](./exch_scat.png){fig-alt="Exchange in scattering pathways." fig-align="center" width=70%}  
 
 For identical particles in quantum mechanics, these two alternatives are *indistinguishable*. The total probability amplitude must include **both processes at once**, and the two amplitudes **interfere** with each other. This interference is a hallmark of quantum indistinguishability.
 

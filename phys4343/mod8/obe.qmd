@@ -624,7 +624,7 @@ $${#eq-scatrate}
 
 ---
 
-![Sketch of an atom in a laser field that continuously undergoes absorption, stimulated emission, and spontaneous emission. Spontaneous decay (i.e., fluorescence) occurs at the scattering rate  $\Gamma$.](scattering.svg){#fig-scat width=40% fig-alt="Sketch of an atom in a laser field that continuously undergoes absorption, stimulated emission, and spontaneous emission. Spontaneous decay (i.e., fluorescence) occurs at the scattering rate Γ."}
+![Sketch of an atom in a laser field that continuously undergoes absorption, stimulated emission, and spontaneous emission. Spontaneous decay (i.e., fluorescence) occurs at the scattering rate  $\Gamma$.](scattering.png){#fig-scat width=40% fig-alt="Sketch of an atom in a laser field that continuously undergoes absorption, stimulated emission, and spontaneous emission. Spontaneous decay (i.e., fluorescence) occurs at the scattering rate Γ."}
 
 ---
 

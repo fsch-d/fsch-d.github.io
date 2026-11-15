@@ -130,14 +130,15 @@ with open(os.devnull, 'w') as FNULL:
         output_svg = f"{name}.svg"
         
         # Convert the PDF page to a specific SVG file
-        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
         # Scale the newly created SVG file
-        scale_svg(output_svg, 2)
+        # scale_svg(output_svg, 2)
+        subprocess.run(["pdftoppm", "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", "diagram.pdf", name], stdout=FNULL, stderr=FNULL)
 
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Transitions in a simple two-level atom. An excited atom can decay to the lower state by spontaneous emission ($A_{21}$). A photon of the right frequency can be absorbed to excite the atom ($B_{12}$), or it can stimulate an excited atom to emit a second, identical photon ($B_{21}$).](./transitions.svg){fig-alt="Diagram of transitions in a two-level system." fig-align="center"}
+![Transitions in a simple two-level atom. An excited atom can decay to the lower state by spontaneous emission ($A_{21}$). A photon of the right frequency can be absorbed to excite the atom ($B_{12}$), or it can stimulate an excited atom to emit a second, identical photon ($B_{21}$).](./transitions.png){fig-alt="Diagram of transitions in a two-level system." fig-align="center"}
 
 
 To make this precise, we first introduce the radiation field itself and then define the transition rates for each process.

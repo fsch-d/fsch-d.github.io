@@ -246,7 +246,7 @@ Triplet spin functions are symmetric, requiring an antisymmetric spatial wavefun
 
 Consider two electrons in $p$ orbitals, $(np)(n'p)$. All other subshells are closed. The following term diagram is to be completed using Hund's rules.
 
-![Term diagram for the two-electron $(np)(n'p)$ configuration.](fig1.svg){fig-alt="Term diagram for two p electrons showing energy levels to be identified by spin, orbital angular momentum, and term symbols."}
+![Term diagram for the two-electron $(np)(n'p)$ configuration.](fig1.png){fig-alt="Term diagram for two p electrons showing energy levels to be identified by spin, orbital angular momentum, and term symbols."}
 
 **Tasks**
 

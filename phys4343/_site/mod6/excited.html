@@ -134,6 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 </script>
 <script src="../scaled-plotly.js" defer=""></script>
+<script src="../lightbox-math.js" defer=""></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -168,9 +169,11 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="6.6 Excitation and Ionization – Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fsch-d.github.io/mod6/autoionization.svg">
+<meta property="og:image" content="https://fsch-d.github.io/mod6/autoionization.png">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:image:alt" content="Level diagrams for autoionization.">
+<meta property="og:image:height" content="583">
+<meta property="og:image:width" content="1020">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -1142,7 +1145,7 @@ A_{21} \propto \omega^3 |\langle 1 | \hat{r} | 2 \rangle|^2,
 <p>In the independent electron picture (left), each electron occupies an orbital with a specific energy. A doubly excited state such as <span class="math inline">\(2s^22p^2\,{}^1S\)</span> has both electrons in excited orbitals. The total electronic energy of the atom is shown in the two diagrams on the right. Doubly excited states lying above the first ionization threshold (hatched continuum region) can autoionize by ejecting one electron, transitioning from Be<span class="math inline">\(^{**}\)</span> to Be<span class="math inline">\(^+\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./autoionization.svg" class="lightbox" data-gallery="page-gallery"><img src="./autoionization.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Level diagrams for autoionization."></a></p>
+<p><a href="./autoionization.png" class="lightbox" data-gallery="page-gallery"><img src="./autoionization.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Level diagrams for autoionization."></a></p>
 </figure>
 </div>
 <hr>
@@ -1189,7 +1192,7 @@ A + h\nu \rightarrow A^{**} \rightarrow A^+ + e^-  \quad \text{(auto-ionization)
 \]</span></p>
 <p>where <span class="math inline">\(\epsilon = (E - E_r)/(\Gamma/2)\)</span>, <span class="math inline">\(E_r\)</span> is the resonance energy, <span class="math inline">\(\Gamma\)</span> is the full width at half maximum (FWHM) related to the autoionization lifetime by <span class="math inline">\(\Gamma = \hbar/\tau\)</span>, and <span class="math inline">\(q\)</span> is the Fano asymmetry parameter describing the interference strength.</p>
 <p>A typical resonance profile for Be’s <span class="math inline">\({}^1S_0\)</span> doubly excited state (assuming a Fano paramter of <span class="math inline">\(q=-2\)</span>) is shown below.</p>
-<div id="7842f8c2" class="cell" data-execution_count="2">
+<div id="d980bab5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

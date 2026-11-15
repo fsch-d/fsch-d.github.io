@@ -134,6 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 </script>
 <script src="../scaled-plotly.js" defer=""></script>
+<script src="../lightbox-math.js" defer=""></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -168,9 +169,11 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="8.7 Ramsey Spectroscopy and Atomic Clocks – Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fsch-d.github.io/mod8/ramseyexp.svg">
+<meta property="og:image" content="https://fsch-d.github.io/mod8/ramseyexp.png">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:image:alt" content="Two interaction zones separated by a drift region">
+<meta property="og:image:height" content="4075">
+<meta property="og:image:width" content="6497">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -908,10 +911,10 @@ window.Quarto = {
 <li><strong>Detection region</strong>, where populations are measured.</li>
 </ol>
 <p>This pulse–drift–pulse sequence creates quantum interference fringes that allow extremely precise determination of <span class="math inline">\(\omega_0\)</span>.</p>
-<div id="fig-ramseyexp" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two interaction zones separated by a drift region" data-fig-align="center">
+<div id="fig-ramseyexp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two interaction zones separated by a drift region">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ramseyexp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="ramseyexp.svg" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Schematic of a Ramsey experiment."><img src="ramseyexp.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Two interaction zones separated by a drift region"></a>
+<a href="ramseyexp.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Schematic of a Ramsey experiment."><img src="ramseyexp.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Two interaction zones separated by a drift region"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ramseyexp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Schematic of a Ramsey experiment.
@@ -950,7 +953,7 @@ the Bloch vector rotates by <span class="math inline">\(\pi/2\)</span> around th
 \end{pmatrix}.
 \]</span></p>
 <p>The atom is now in an equal superposition of ground and excited states.</p>
-<div id="299add22" class="cell" data-execution_count="1">
+<div id="7ed63153" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1046,7 +1049,7 @@ The vector becomes<br>
 \]</span> Here, the field and the atomic dipole are <strong>out of phase</strong> by <span class="math inline">\(\pi\)</span> after the evolution time. As a result, the Bloch vector points to the opposite azimuthal direction in the equatorial plane.</p></li>
 </ul>
 <p>Any other detuning produces an intermediate azimuthal angle in the equatorial plane.</p>
-<div id="8cdc8b21" class="cell" data-execution_count="2">
+<div id="a5adef5b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1167,7 +1170,7 @@ The vector becomes<br>
 <p>meaning <em>return to the ground state</em>.</p></li>
 </ul>
 <p>Intermediate angles lead to partial population transfer, generating the Ramsey interference pattern.</p>
-<div id="8e8ae4d0" class="cell" data-execution_count="3">
+<div id="60935743" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1378,7 +1381,7 @@ P_e(\delta) = \cos^2\!\left(\frac{\delta T}{2}\right).
 <span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-ramseyfringes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Excited-state population vs detuning showing narrow Ramsey pattern." data-fig-align="center">
+<div id="fig-ramseyfringes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Excited-state population vs detuning showing narrow Ramsey pattern.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ramseyfringes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="ramsey_files/figure-html/fig-ramseyfringes-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;2: Ramsey fringes compared with single-pulse excitation."><img src="ramsey_files/figure-html/fig-ramseyfringes-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Excited-state population vs detuning showing narrow Ramsey pattern." width="699" height="459"></a>

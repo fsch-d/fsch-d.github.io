@@ -38,7 +38,7 @@ Here, $|c_e(t)|^2$ and $|c_g(t)|^2$ represent the probabilities to find the syst
 
 ---
 
-![Energy diagram of a two-level system.](two-level.svg){#fig-two-level width=50% fig-align="center" fig-alt="Energy diagram of a two-level system."}
+![Energy diagram of a two-level system.](two-level.png){#fig-two-level width=50% fig-align="center" fig-alt="Energy diagram of a two-level system."}
 
 
 ---

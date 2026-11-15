@@ -1653,14 +1653,15 @@ with open(os.devnull, 'w') as FNULL:
         output_svg = f"{name}.svg"
         
         # Convert the PDF page to a specific SVG file
-        subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
+        # subprocess.run(["pdf2svg", "diagram.pdf", output_svg, str(page_number)], stdout=FNULL, stderr=FNULL)        
         # Scale the newly created SVG file
-        scale_svg(output_svg, 2)
+        # scale_svg(output_svg, 2)
+        subprocess.run(["pdftoppm", "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", "diagram.pdf", name], stdout=FNULL, stderr=FNULL)
 
     # Clean up temporary files
     subprocess.run(["rm", "diagram.tex", "diagram.pdf", "diagram.log", "diagram.aux"], stdout=FNULL, stderr=FNULL)
 ```
-![Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale).](./lithiumlevels.svg){fig-alt="Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale)." fig-align="center" width=75%}
+![Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale).](./lithiumlevels.png){fig-alt="Qualitative level diagram of the $^7$Li $2^2S_{1/2}$, $2^2P_{1/2}$, and $2^2P_{3/2}$ states (not to scale)." fig-align="center" width=75%}
 
 
 ### The $2\,^2S_{1/2} \rightarrow 2\,^2P_{3/2}$ transition
