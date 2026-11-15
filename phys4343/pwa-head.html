@@ -1,3 +1,4 @@
+
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0d6efd">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -8,8 +9,11 @@
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js")
-        .catch(err => console.warn("Service worker:", err));
+      navigator.serviceWorker.register("/sw.js", {
+        updateViaCache: "none"
+      }).catch(err =>
+        console.warn("Service worker:", err)
+      );
     });
   }
 </script>

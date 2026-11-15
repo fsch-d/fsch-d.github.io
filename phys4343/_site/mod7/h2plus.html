@@ -114,6 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#0d6efd">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -124,11 +125,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js")
-        .catch(err => console.warn("Service worker:", err));
+      navigator.serviceWorker.register("/sw.js", {
+        updateViaCache: "none"
+      }).catch(err =>
+        console.warn("Service worker:", err)
+      );
     });
   }
 </script>
+<script src="../scaled-plotly.js" defer=""></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -912,7 +917,7 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 \]</span></p>
 <hr>
 <p>Here’s a sketch of the molecular geometry, including the relevant position vectors:</p>
-<div id="56d33aa1" class="cell" data-fig-format="png" data-execution_count="1">
+<div id="8aa9b91c" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1012,7 +1017,7 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 = \frac{4\xi}{R(\xi^2-\eta^2)}.
 \]</span> Thus the potential is a rational function of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>, and—crucially—has the simple factor structure <span class="math inline">\(\propto \xi/(\xi^2-\eta^2)\)</span>.</p>
 <p>The figure visualizes the prolate spheroidal coordinate system: on the left, <span class="math inline">\(\xi\)</span>– and <span class="math inline">\(\eta\)</span>–lines form a two-dimensional grid in the <span class="math inline">\(xz\)</span>–plane, while on the right, an ellipsoid of constant <span class="math inline">\(\xi\)</span> is shown together with its <span class="math inline">\(\eta\)</span>– and <span class="math inline">\(\phi\)</span>–grid lines.</p>
-<div id="55701bc7" class="cell" data-execution_count="2">
+<div id="254fdc98" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1543,7 +1548,7 @@ L_z &amp;= xp_y-yp_x.
 <p>Imagine a wheel rotating around the <span class="math inline">\(z\)</span>-axis. Viewed along the positive <span class="math inline">\(z\)</span>-direction, a counterclockwise rotation corresponds to angular momentum along <span class="math inline">\(+z\)</span>, according to the right-hand rule.</p>
 <p>Now reflect the wheel in a plane containing its rotation axis. The reflected motion is clockwise, and the angular momentum therefore points along <span class="math inline">\(-z\)</span>.</p>
 <p>The following illustration shows this reversal. The coordinates are drawn in the <span class="math inline">\(xy\)</span>-plane, viewed along the molecular axis.</p>
-<div id="e56acb9a" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
+<div id="dd42f8dc" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1568,7 +1573,7 @@ L_z &amp;= xp_y-yp_x.
 (A_x,A_y,A_z)\longrightarrow(-A_x,A_y,-A_z).
 \]</span></p>
 <p>The following figure compares these transformations for vectors oriented parallel, perpendicular, and diagonally to the mirror plane. The blue arrows represent the original vectors, and the orange arrows their reflected counterparts.</p>
-<div id="725a357d" class="cell" data-execution_count="4">
+<div id="851c038e" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1940,7 +1945,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <p>If we now plot these electronic energies as a function of <span class="math inline">\(R\)</span>, we obtain the <strong>potential energy curves</strong> for the molecule. These curves determine how the total molecular energy changes as the nuclei move relative to one another.</p>
 <p>At certain distances, one of the potential curves may exhibit a <strong>minimum</strong>—indicating a stable or quasi-stable equilibrium separation. Such a minimum corresponds to a <strong>bound molecular state</strong>. Higher-lying curves may be purely repulsive or correspond to excited electronic configurations that dissociate more easily.</p>
 <p>Below is an illustrative plot showing four typical potential energy curves for H<span class="math inline">\(_2^+\)</span>, labeled according to their symmetry.</p>
-<div id="8aad483b" class="cell" data-execution_count="5">
+<div id="a93f7ed0" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""H2+ Born-Oppenheimer curves, from numerical finite differences.</span></span>

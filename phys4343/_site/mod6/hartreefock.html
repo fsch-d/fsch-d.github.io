@@ -117,6 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#0d6efd">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,11 +128,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js")
-        .catch(err => console.warn("Service worker:", err));
+      navigator.serviceWorker.register("/sw.js", {
+        updateViaCache: "none"
+      }).catch(err =>
+        console.warn("Service worker:", err)
+      );
     });
   }
 </script>
+<script src="../scaled-plotly.js" defer=""></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -956,7 +961,7 @@ window.Quarto = {
 <section id="visualizing-the-effective-potential" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-the-effective-potential">6.3.2.2 Visualizing the Effective Potential</h2>
 <p>The diagram below compares the Coulomb potential for different nuclear charges and a <strong>screened potential</strong> that transitions smoothly between them.</p>
-<div id="e1e55ea6" class="cell" data-execution_count="1">
+<div id="2d0bfd17" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

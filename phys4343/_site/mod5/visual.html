@@ -111,6 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#0d6efd">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -121,11 +122,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js")
-        .catch(err => console.warn("Service worker:", err));
+      navigator.serviceWorker.register("/sw.js", {
+        updateViaCache: "none"
+      }).catch(err =>
+        console.warn("Service worker:", err)
+      );
     });
   }
 </script>
+<script src="../scaled-plotly.js" defer=""></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -892,7 +897,7 @@ window.Quarto = {
 <li><a href="#fig-exc2p1" class="quarto-xref">Figure&nbsp;2</a>: excitation from <span class="math inline">\(1s\)</span> to <span class="math inline">\(2p\,(m=1)\)</span>.</li>
 </ul>
 <p>The animations reveal <strong>interference patterns</strong> resulting from the <strong>time-dependent superposition</strong> of stationary states. The changing shapes reflect the relative phase evolution of the superposition.</p>
-<div id="bd7cc1a0" class="cell" data-execution_count="1">
+<div id="cc01b072" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

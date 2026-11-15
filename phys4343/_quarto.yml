@@ -177,5 +177,7 @@ format:
     html-math-method: mathjax
     include-in-header:
       - file: pwa-head.html
+      - text: |
+          <script src="/scaled-plotly.js" defer></script>
     filters:
       - filters/page-gallery.lua
