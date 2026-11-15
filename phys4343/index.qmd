@@ -2,6 +2,11 @@
 title: "Introduction to Atomic, Molecular, and Optical Physics"
 subtitle: "PHYS 4343 — Missouri S&T, Fall 2026"
 author: "Daniel Fischer"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="google-site-verification" content="21RE9_PY5tEqEJ0wGgmEvqK8Ub2NrGq51TGpgY-_pWk" />
 ---
 
 # Welcome
