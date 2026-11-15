@@ -186,6 +186,8 @@ format:
           <script type="module"
             src="https://static.cloudflareinsights.com/beacon.min.js"
             data-cf-beacon='{"token":"b9c37e17eea14260aaa09c0e9ade06a9"}'>
-          </script>          
+          </script>
+      - text: |          
+          <script defer src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
     filters:
       - filters/page-gallery.lua
