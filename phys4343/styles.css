@@ -127,4 +127,12 @@ img[src$=".svg"] {
   #quarto-sidebar .sidebar-item-container {
     min-width: 0;
   }
+
+  /* Allow the mobile navigation to scroll independently */
+  #quarto-sidebar {
+    max-height: calc(100dvh - 60px);
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
 }
