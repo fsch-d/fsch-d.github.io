@@ -181,5 +181,11 @@ format:
           <script src="/scaled-plotly.js" defer></script>
       - text: |
           <script src="/lightbox-math.js" defer></script>
+      - text: |
+          <!-- Cloudflare Web Analytics -->
+          <script type="module"
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token":"b9c37e17eea14260aaa09c0e9ade06a9"}'>
+          </script>          
     filters:
       - filters/page-gallery.lua
