@@ -4,6 +4,7 @@ project:
   - manifest.webmanifest
   - sw.js
   - icons/
+  - robots.txt
 website:
   title: Introduction into Atomic, Molecular, and Optical Physics
   site-url: https://fsch-d.github.io/
