@@ -2,6 +2,11 @@
 title: '4 Hydrogen Atom: Shifts and Interactions'
 author: Daniel Fischer
 lightbox: true
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore fine structure, the Lamb shift, hyperfine splitting, and Zeeman and Stark effects in hydrogen, revealing the physics behind atomic spectral lines.">
 ---
 
 ## Introduction
@@ -22,7 +27,7 @@ In that approximation the spectrum looks simple: photon energies correspond to e
 ```{python}
 #| echo: false
 #| fig-cap: "Illustration of hydrogen spectral series. (*Left*) Energy-level diagram showing the Lyman, Balmer, and Paschen series. (*Top right*) Balmer spectrum. (*Middle right*) Example of Doppler broadening in a hydrogen line. (*Bottom right*) High-resolution spectrum revealing fine structure. The experimental spectrum is based on data extracted from *A. L. Schawlow, Lasers, light, and matter, J. Opt. Soc. Am. 67, 140–147 (1977)*."
-#| fig-alt: Momentum Eigenvector in Quantum Mechanics.
+#| fig-alt: "Hydrogen energy levels and spectral series, illustrating Doppler broadening and fine-structure splitting in high-resolution spectroscopy."
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import FancyArrowPatch
@@ -271,8 +276,8 @@ In this chapter we will use the following conventions:
 
 - $n,\ell,m_\ell$ for single-electron principal, orbital and magnetic quantum numbers (lowercase where appropriate).  
 - $s$ for the electron spin (for a single electron $s=\tfrac{1}{2}$).  
-- $j$ for the single-electron total angular momentum $j=\ell+s$.  
-- $I$ for the nuclear spin and $F$ for the total atomic angular momentum $F=J+I$.  
+- $j$ for the single-electron total angular momentum $\vec j=\vec\ell+\vec s$.  
+- $I$ for the nuclear spin and $F$ for the total atomic angular momentum $\vec F=\vec J+ \vec I$.  
 
 (If a section couples many electrons, capital $L,S,J$ denote the total orbital, total spin, and total electronic angular momentum.)
 

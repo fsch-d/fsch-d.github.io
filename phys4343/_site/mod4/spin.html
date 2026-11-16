@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>4.1 Electron Spin and Fine Structure – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>4.1 Electron Spin and Fine Structure</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,6 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Learn about electron spin, Pauli matrices, the Stern–Gerlach experiment, spin–orbit coupling, fine-structure energy shifts, and atomic term symbols.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -805,12 +806,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#the-sterngerlach-experiment" id="toc-the-sterngerlach-experiment" class="nav-link" data-scroll-target="#the-sterngerlach-experiment">4.1.1.1 The Stern–Gerlach Experiment</a></li>
   <li><a href="#the-einsteinde-haas-experiment" id="toc-the-einsteinde-haas-experiment" class="nav-link" data-scroll-target="#the-einsteinde-haas-experiment">4.1.1.2 The Einstein–de Haas Experiment</a></li>
-  <li><a href="#historical-perspective" id="toc-historical-perspective" class="nav-link" data-scroll-target="#historical-perspective">4.1.1.3 Historical Perspective</a>
-  <ul class="collapse">
-  <li><a href="#the-sterngerlach-experiment-1" id="toc-the-sterngerlach-experiment-1" class="nav-link" data-scroll-target="#the-sterngerlach-experiment-1">The Stern–Gerlach experiment</a></li>
-  <li><a href="#the-einsteinde-haas-experiment-1" id="toc-the-einsteinde-haas-experiment-1" class="nav-link" data-scroll-target="#the-einsteinde-haas-experiment-1">The Einstein–de Haas experiment</a></li>
-  <li><a href="#synthesis" id="toc-synthesis" class="nav-link" data-scroll-target="#synthesis">Synthesis</a></li>
-  </ul></li>
+  <li><a href="#historical-perspective" id="toc-historical-perspective" class="nav-link" data-scroll-target="#historical-perspective">4.1.1.3 Historical Perspective</a></li>
   </ul></li>
   <li><a href="#the-electron-spin" id="toc-the-electron-spin" class="nav-link" data-scroll-target="#the-electron-spin">4.1.2. The Electron Spin</a>
   <ul class="collapse">
@@ -859,8 +855,8 @@ window.Quarto = {
 </header>
 
 
-<section id="electron-spin-and-fine-structure-overview-and-plan" class="level1">
-<h1>Electron Spin and Fine Structure: Overview and Plan</h1>
+<section id="electron-spin-and-fine-structure-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="electron-spin-and-fine-structure-overview-and-plan">Electron Spin and Fine Structure: Overview and Plan</h2>
 <p>This chapter introduces the concept of <strong>electron spin</strong> and its consequences for the energy structure of atoms, particularly the hydrogen atom. We discuss how spin interacts with orbital angular momentum to produce <strong>fine structure</strong> in atomic spectra and how relativistic corrections refine the energy levels.</p>
 <p>The specific goals for this chapter are:</p>
 <ol type="1">
@@ -875,12 +871,12 @@ window.Quarto = {
 <p>By the end of this chapter, the student should be able to describe the spin of the electron, understand its contribution to the fine structure of atomic spectra, and connect the quantum numbers of total angular momentum to the observed energy level splittings.</p>
 <hr>
 </section>
-<section id="historical-pretext" class="level1">
-<h1>4.1.1. Historical Pretext</h1>
+<section id="historical-pretext" class="level2">
+<h2 class="anchored" data-anchor-id="historical-pretext">4.1.1. Historical Pretext</h2>
 <p>Before introducing the modern concept of electron spin, it is useful to recall two classic experiments that shaped our understanding of angular momentum and magnetic moments in atoms: the <strong>Stern–Gerlach experiment</strong> (1922) and the <strong>Einstein–de Haas experiment</strong> (1915).</p>
 <p>These experiments predate the explicit formulation of electron spin, and neither was originally interpreted in terms of spin. Nevertheless, they demonstrated crucial features of angular momentum quantization and the connection between angular momentum and magnetism.</p>
-<section id="the-sterngerlach-experiment" class="level2">
-<h2 class="anchored" data-anchor-id="the-sterngerlach-experiment">4.1.1.1 The Stern–Gerlach Experiment</h2>
+<section id="the-sterngerlach-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="the-sterngerlach-experiment">4.1.1.1 The Stern–Gerlach Experiment</h3>
 <p>In 1922, Otto Stern and Walther Gerlach sent a beam of neutral silver atoms through an <strong>inhomogeneous magnetic field</strong> (<a href="https://doi.org/10.1007%2FBF01326983" target="_blank">Stern &amp; Gerlach, 1922</a>).</p>
 <ul>
 <li><strong>Setup</strong>: A heated oven produces a <strong>jet of silver atoms</strong>, which is then collimated into a narrow beam. The beam enters a region between specially shaped <strong>magnet poles</strong>, arranged so that the magnetic field is not uniform but has a strong vertical gradient.<br>
@@ -897,8 +893,8 @@ The silver atom has a single unpaired electron, whose magnetic moment interacts 
 </div>
 <hr>
 </section>
-<section id="the-einsteinde-haas-experiment" class="level2">
-<h2 class="anchored" data-anchor-id="the-einsteinde-haas-experiment">4.1.1.2 The Einstein–de Haas Experiment</h2>
+<section id="the-einsteinde-haas-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="the-einsteinde-haas-experiment">4.1.1.2 The Einstein–de Haas Experiment</h3>
 <p>Several years earlier, in 1915, Albert Einstein and Wander Johannes de Haas performed an elegant experiment demonstrating the intimate relation between magnetism and angular momentum (<a href="https://dwc.knaw.nl/DL/publications/PU00012546.pdf" target="_blank">Einstein &amp; de Haas, 1915</a>).</p>
 <ul>
 <li><strong>Setup</strong>: A <strong>ferromagnetic cylinder</strong> (often iron) is suspended by a thin fiber, allowing it to rotate freely about its vertical axis.<br>
@@ -919,16 +915,16 @@ When the magnetization of the cylinder is reversed, its internal electron magnet
 </div>
 <hr>
 </section>
-<section id="historical-perspective" class="level2">
-<h2 class="anchored" data-anchor-id="historical-perspective">4.1.1.3 Historical Perspective</h2>
+<section id="historical-perspective" class="level3">
+<h3 class="anchored" data-anchor-id="historical-perspective">4.1.1.3 Historical Perspective</h3>
 <p>At the time of their original publication, neither the Stern–Gerlach nor the Einstein–de Haas experiment was interpreted in terms of an intrinsic electron spin — the very concept did not yet exist. Instead, both were framed within the language of <strong>orbital angular momentum</strong> and the then-prevailing Bohr–Sommerfeld model of the atom.</p>
-<section id="the-sterngerlach-experiment-1" class="level3">
-<h3 class="anchored" data-anchor-id="the-sterngerlach-experiment-1">The Stern–Gerlach experiment</h3>
+<section id="the-sterngerlach-experiment-1" class="level4">
+<h4 class="anchored" data-anchor-id="the-sterngerlach-experiment-1">The Stern–Gerlach experiment</h4>
 <p>Stern and Gerlach themselves interpreted their observation of beam splitting as evidence for the <strong>quantization of orbital angular momentum</strong> along the field axis (“Richtungsquantelung”). Within the Bohr–Sommerfeld picture, an electron orbiting in a quantized elliptical trajectory would carry an orbital magnetic moment. Measuring its projection along the <span class="math inline">\(z\)</span>-axis should then yield discrete values, consistent with their result.</p>
 <p>What is striking in hindsight is that the silver atom has only a single valence electron in an <span class="math inline">\(s\)</span>-orbital (<span class="math inline">\(\ell = 0\)</span>). The Schrödinger wave mechanics (formulated a few years later, in 1926) would predict <strong>no orbital magnetic moment at all</strong> in this case, and thus no splitting. Yet Stern and Gerlach observed <strong>two distinct components</strong>, not more and not less.</p>
 <p>This outcome was “accidentally” consistent with the Bohr–Sommerfeld model, which predicted two possible orientations for the angular momentum in this situation, but it could not be reconciled with a purely orbital picture once quantum mechanics matured. Only the later concept of an intrinsic two-valuedness of the electron (Pauli, 1925) and the introduction of spin provided the correct interpretation: the silver beam splits into two components because the unpaired electron has spin <span class="math inline">\(s = \tfrac{1}{2}\)</span>.</p>
-<section id="historical-note-a-postcard-to-bohr" class="level4">
-<h4 class="anchored" data-anchor-id="historical-note-a-postcard-to-bohr">Historical note: A postcard to Bohr</h4>
+<section id="historical-note-a-postcard-to-bohr" class="level5">
+<h5 class="anchored" data-anchor-id="historical-note-a-postcard-to-bohr">Historical note: A postcard to Bohr</h5>
 <p>The excitement of the discovery is nicely captured in a postcard Walter Gerlach sent to Niels Bohr on February 8, 1922. On the front was a microphotograph showing the silver-beam deposit without and with a magnetic field. The message reads (in translation):</p>
 <blockquote class="blockquote">
 <p><em>“Dear Professor Bohr, enclosed is the continuation of our work (see Zeitschrift für Physik VIII, p.&nbsp;110, 1921): the experimental proof of space quantization…. Silver without magnetic field … with field… Congratulations on the confirmation of your theory. Respectfully yours, Walter Gerlach, Frankfurt, 8/2/22.”</em></p>
@@ -942,14 +938,14 @@ When the magnetization of the cylinder is reversed, its internal electron magnet
 </div>
 </section>
 </section>
-<section id="the-einsteinde-haas-experiment-1" class="level3">
-<h3 class="anchored" data-anchor-id="the-einsteinde-haas-experiment-1">The Einstein–de Haas experiment</h3>
+<section id="the-einsteinde-haas-experiment-1" class="level4">
+<h4 class="anchored" data-anchor-id="the-einsteinde-haas-experiment-1">The Einstein–de Haas experiment</h4>
 <p>Einstein and de Haas (1915) were motivated by the idea of <strong>ring currents</strong> — circulating electrons in atomic orbits — as the microscopic origin of magnetization. Their experiment showed directly that reversing the magnetization of a ferromagnetic sample induces mechanical rotation of the whole body, thus establishing the deep connection between <strong>magnetic moments and angular momentum</strong>.</p>
 <p>However, when they compared the proportionality, they encountered a puzzle: the magnetic moment per unit angular momentum came out to be about <strong>twice</strong> the classical value expected from orbital currents. This discrepancy was a mystery at the time. In their language, it was often expressed as a “gyromagnetic ratio” differing by a factor of two from theoretical expectations.</p>
 <p>It was only later, with the recognition that the electron carries an intrinsic spin with <span class="math inline">\(g \approx 2\)</span>, that this factor found its natural explanation. In other words, the Einstein–de Haas effect had already measured the electron’s <span class="math inline">\(g\)</span>-factor without knowing that spin existed.</p>
 </section>
-<section id="synthesis" class="level3">
-<h3 class="anchored" data-anchor-id="synthesis">Synthesis</h3>
+<section id="synthesis" class="level4">
+<h4 class="anchored" data-anchor-id="synthesis">Synthesis</h4>
 <p>From today’s perspective, both experiments provided indirect evidence for electron spin long before the concept was articulated. But historically, they were interpreted through the lens of orbital angular momentum:</p>
 <ul>
 <li><strong>Stern–Gerlach</strong>: seen as proof of spatial quantization of orbital angular momentum projections, though the peculiar “two-spot” pattern foreshadowed something deeper.<br>
@@ -961,8 +957,8 @@ When the magnetization of the cylinder is reversed, its internal electron magnet
 </section>
 </section>
 </section>
-<section id="the-electron-spin" class="level1">
-<h1>4.1.2. The Electron Spin</h1>
+<section id="the-electron-spin" class="level2">
+<h2 class="anchored" data-anchor-id="the-electron-spin">4.1.2. The Electron Spin</h2>
 <p>Electrons possess an <strong>intrinsic angular momentum</strong> called <strong>spin</strong> (<span class="math inline">\(\hat{\vec{S}}\)</span>). Unlike orbital angular momentum, spin has <strong>no classical analog</strong>: it is a purely quantum property that must be described algebraically.</p>
 <p>The spin operator satisfies the <strong>same eigenvalue equations</strong> as orbital angular momentum:</p>
 <p><span class="math display">\[
@@ -982,8 +978,8 @@ s &amp;= \tfrac{1}{2}\\
 m_s &amp;= \pm \tfrac{1}{2}
 \end{align}
 \]</span></p>
-<section id="notation" class="level2">
-<h2 class="anchored" data-anchor-id="notation">4.1.2.1 Notation</h2>
+<section id="notation" class="level3">
+<h3 class="anchored" data-anchor-id="notation">4.1.2.1 Notation</h3>
 <p>It is conventional to introduce the shorthand:</p>
 <ul>
 <li><strong>Spin-up</strong>: <span class="math inline">\(|\tfrac{1}{2}, +\tfrac{1}{2}\rangle \equiv |\uparrow\rangle \equiv \begin{pmatrix}1 \\ 0\end{pmatrix}\)</span></li>
@@ -991,8 +987,8 @@ m_s &amp;= \pm \tfrac{1}{2}
 </ul>
 <p>Unlike orbital states, there is <strong>no spatial wavefunction representation</strong> for spin alone. Electron spin is a purely quantum property and does not correspond, as orbital angular momentum does, to the rotation of an object in space. Therefore, there is no coordinate-space representation of the spin operator (such as a differential operator) and no spatial wavefunction for spin. Instead, spin states are always described algebraically by two-component spinors.</p>
 </section>
-<section id="spin-operators" class="level2">
-<h2 class="anchored" data-anchor-id="spin-operators">4.1.2.2 Spin Operators</h2>
+<section id="spin-operators" class="level3">
+<h3 class="anchored" data-anchor-id="spin-operators">4.1.2.2 Spin Operators</h3>
 <p>To satisfy the eigenvalue and commutation relations, the spin operators are represented using the <strong>Pauli matrices</strong>, which provide a concrete <span class="math inline">\(2\times 2\)</span> matrix representation of spin-<span class="math inline">\(\tfrac{1}{2}\)</span> systems. Unlike orbital angular momentum, which is represented by differential operators acting on spatial wavefunctions, spin has no spatial representation and is instead described purely through this matrix formalism.</p>
 <p><span class="math display">\[
 \hat{S}_x = \frac{\hbar}{2}\,\sigma_x,
@@ -1007,7 +1003,7 @@ m_s &amp;= \pm \tfrac{1}{2}
 \sigma_y = \begin{pmatrix}0 &amp; -i \\ i &amp; 0\end{pmatrix}, \quad
 \sigma_z = \begin{pmatrix}1 &amp; 0 \\ 0 &amp; -1\end{pmatrix}.
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1098,8 +1094,8 @@ m_s &amp;= \pm \tfrac{1}{2}
 </div>
 </div>
 </section>
-<section id="spin-in-hydrogen-states" class="level2">
-<h2 class="anchored" data-anchor-id="spin-in-hydrogen-states">4.1.2.3 Spin in Hydrogen States</h2>
+<section id="spin-in-hydrogen-states" class="level3">
+<h3 class="anchored" data-anchor-id="spin-in-hydrogen-states">4.1.2.3 Spin in Hydrogen States</h3>
 <p>When spin is included, the state of the electron in the hydrogen atom must be specified not only by the spatial quantum numbers <span class="math inline">\((n, \ell, m_\ell)\)</span> but also by the spin quantum numbers <span class="math inline">\((s, m_s)\)</span>.</p>
 <p>A <strong>complete basis state</strong> can thus be written as</p>
 <p><span class="math display">\[
@@ -1115,15 +1111,15 @@ m_s &amp;= \pm \tfrac{1}{2}
 <hr>
 </section>
 </section>
-<section id="magnetic-moments" class="level1">
-<h1>4.1.3. Magnetic Moments</h1>
+<section id="magnetic-moments" class="level2">
+<h2 class="anchored" data-anchor-id="magnetic-moments">4.1.3. Magnetic Moments</h2>
 <p>The angular momentum of an electron is associated with a magnetic moment <span class="math inline">\(\vec \mu\)</span>. There are two contributions:</p>
 <ul>
 <li><strong>Orbital magnetic moment</strong>: <span class="math display">\[
-\vec{\mu}_\ell = g_\ell \, \mu_B \, \vec{L}, \quad \text{with } g_\ell = 1
+\vec{\mu}_\ell = -g_\ell \, \frac{\mu_B}{\hbar} \, \vec{L}, \quad \text{with } g_\ell = 1
 \]</span></li>
 <li><strong>Spin magnetic moment</strong>: <span class="math display">\[
-\vec{\mu}_s = g_s \, \mu_B \, \vec{S}, \quad \text{with } g_s \approx 2
+\vec{\mu}_s = -g_s \, \frac{\mu_B}{\hbar} \, \vec{S}, \quad \text{with } g_s \approx 2
 \]</span></li>
 </ul>
 <p>Here, <span class="math inline">\(g\)</span> is the <strong>g-factor</strong>, and <span class="math inline">\(\mu_B = \frac{e\hbar}{2m_e}\)</span> is the <strong>Bohr magneton</strong>.</p>
@@ -1131,10 +1127,10 @@ m_s &amp;= \pm \tfrac{1}{2}
 <p>For the electron spin, <span class="math inline">\(g_s \approx 2\)</span>, which <strong>cannot be explained classically</strong>. This value emerges rigorously from <strong>relativistic quantum mechanics</strong> via the Dirac equation (not derived here), and it is confirmed experimentally, for example in the <strong>Einstein–de Haas experiment</strong> (1915). The factor <span class="math inline">\(g_s \neq 1\)</span> is therefore a pure quantum-relativistic effect, reflecting the intrinsic nature of spin.</p>
 <hr>
 </section>
-<section id="the-fine-structure-interaction" class="level1">
-<h1>4.1.4. The Fine Structure Interaction</h1>
-<section id="spinorbit-interaction-and-the-hamiltonian" class="level2">
-<h2 class="anchored" data-anchor-id="spinorbit-interaction-and-the-hamiltonian">4.1.4.1 Spin–Orbit Interaction and the Hamiltonian</h2>
+<section id="the-fine-structure-interaction" class="level2">
+<h2 class="anchored" data-anchor-id="the-fine-structure-interaction">4.1.4. The Fine Structure Interaction</h2>
+<section id="spinorbit-interaction-and-the-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="spinorbit-interaction-and-the-hamiltonian">4.1.4.1 Spin–Orbit Interaction and the Hamiltonian</h3>
 <p>Because both orbital and spin angular momenta give rise to magnetic moments, they interact with each other. This interaction contributes an additional <strong>spin–orbit term</strong>, <span class="math inline">\(\hat{H}_{\rm SO}\)</span>, to the Hamiltonian. Including spin, a convenient operator form of the one-electron Hamiltonian in a central potential <span class="math inline">\(V(\hat{\vec r})\)</span> is</p>
 <p><span class="math display">\[
 \hat{H} \;=\; \frac{\hat{\vec p}^{\,2}}{2\mu} \;+\; V(\hat{\vec r})
@@ -1169,7 +1165,7 @@ Note
 [\hat{H},\hat{L}_z] \;=\; [\hat{H}_{\rm SO},\hat{L}_z] \quad\text{and}\quad
 [\hat{H},\hat{S}_z] \;=\; [\hat{H}_{\rm SO},\hat{S}_z].
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1181,14 +1177,14 @@ Note
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To see that these commutators are nonzero, compute (componentwise) the commutator of <span class="math inline">\(\hat{\mathbf L}\!\cdot\!\hat{\mathbf S}\)</span> with <span class="math inline">\(\hat{L}_z\)</span>:</p>
+<p>To see that these commutators are nonzero, compute (componentwise) the commutator of <span class="math inline">\(\hat{\vec L}\!\cdot\!\hat{\vec S}\)</span> with <span class="math inline">\(\hat{L}_z\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\big[\hat{\mathbf L}\!\cdot\!\hat{\mathbf S},\,\hat{L}_z\big]
+\big[\hat{\vec L}\!\cdot\!\hat{\vec S},\,\hat{L}_z\big]
 &amp;= \big[L_x S_x + L_y S_y + L_z S_z,\; L_z\big] \\
 &amp;= [L_x,L_z]\,S_x + [L_y,L_z]\,S_y + [L_z,L_z]\,S_z \\
-&amp;= -i\hbar\,L_y S_x - i\hbar\,L_x S_y \\
-&amp;= -i\hbar\,(L_y S_x + L_x S_y),
+&amp;= -i\hbar\,L_y S_x + i\hbar\,L_x S_y \\
+&amp;= i\hbar\,(L_x S_y - L_y S_x),
 \end{aligned}
 \]</span></p>
 <p>which is generally nonzero (it vanishes only for special states). Hence</p>
@@ -1199,7 +1195,7 @@ Note
 <p>Similarly, using <span class="math inline">\([S_i,S_j]=i\hbar\varepsilon_{ijk}S_k\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
-\big[\hat{\mathbf L}\!\cdot\!\hat{\mathbf S},\,\hat{S}_z\big]
+\big[\hat{\vec L}\!\cdot\!\hat{\vec S},\,\hat{S}_z\big]
 &amp;= L_x\,[S_x,S_z] + L_y\,[S_y,S_z] + L_z\,[S_z,S_z] \\
 &amp;= -i\hbar\,L_x S_y + i\hbar\,L_y S_x \\
 &amp;= i\hbar\,(L_y S_x - L_x S_y),
@@ -1215,8 +1211,8 @@ Note
 </div>
 <p>Because <span class="math inline">\(\hat{L}_z\)</span> and <span class="math inline">\(\hat{S}_z\)</span> do not commute with the Hamiltonian containing spin–orbit coupling, the state <span class="math inline">\(|n, \ell, m_\ell, s, m_s\rangle\)</span> is not an eigenstate of the Hamiltonian anymore and the quantum numbers <span class="math inline">\(m_\ell\)</span> and <span class="math inline">\(m_s\)</span> are no longer conserved.</p>
 </section>
-<section id="the-total-electron-angular-momentum" class="level2">
-<h2 class="anchored" data-anchor-id="the-total-electron-angular-momentum">4.1.4.2 The Total Electron Angular Momentum</h2>
+<section id="the-total-electron-angular-momentum" class="level3">
+<h3 class="anchored" data-anchor-id="the-total-electron-angular-momentum">4.1.4.2 The Total Electron Angular Momentum</h3>
 <p>The solution is to introduce the <strong>total electron angular momentum</strong>, <span class="math inline">\(\hat{\vec{J}} = \hat{\vec{L}} + \hat{\vec{S}}\)</span>. We can express the interaction term using the total angular momentum:</p>
 <p><span class="math display">\[
 \hat{\vec{J}}^2 = \hat{\vec{L}}^2 + \hat{\vec{S}}^2 + 2\,\hat{\vec{L}}\cdot\hat{\vec{S}}
@@ -1264,7 +1260,7 @@ Note
 <span class="math display">\[\langle n,\ell,m_\ell,s,m_s \,|\, n,\ell,s,j,m_j\rangle\]</span><br>
 are precisely the <strong>Clebsch–Gordan coefficients</strong>, which describe how to combine orbital and spin angular momenta into total angular momentum.</p>
 <p>Thus, the new basis states are superpositions of the old <span class="math inline">\(|m_\ell, m_s\rangle\)</span> states, weighted by these coefficients.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Note: The Identity Operator in a Complete Basis">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1299,8 +1295,8 @@ are precisely the <strong>Clebsch–Gordan coefficients</strong>, which describe
 </div>
 </div>
 </section>
-<section id="eigenenergies" class="level2">
-<h2 class="anchored" data-anchor-id="eigenenergies">4.1.4.3 Eigenenergies</h2>
+<section id="eigenenergies" class="level3">
+<h3 class="anchored" data-anchor-id="eigenenergies">4.1.4.3 Eigenenergies</h3>
 <p>If we include the spin–orbit interaction in the Hamiltonian</p>
 <p><span class="math display">\[
 \hat{H} \;=\; \frac{\hat{\vec p}^{\,2}}{2\mu} \;+\; V(\hat{\vec r})
@@ -1325,8 +1321,8 @@ E_{n,j} \;=\; m c^2 \left[ 1 +
 <p>The above energies depend only on <span class="math inline">\(n\)</span> and <span class="math inline">\(j\)</span>. Thus, while the Schrödinger equation with spin–orbit interaction suggests a dependence on <span class="math inline">\(\ell\)</span>, the <strong>full relativistic treatment (or including the missing correction terms) removes this <span class="math inline">\(\ell\)</span>-dependence</strong>.</p>
 <hr>
 </section>
-<section id="fine-structure-energy-shift" class="level2">
-<h2 class="anchored" data-anchor-id="fine-structure-energy-shift">4.1.4.4 Fine-Structure Energy Shift</h2>
+<section id="fine-structure-energy-shift" class="level3">
+<h3 class="anchored" data-anchor-id="fine-structure-energy-shift">4.1.4.4 Fine-Structure Energy Shift</h3>
 <p>It is often more useful to consider the <strong>fine-structure shift</strong> rather than the full electron energy given above. This shift can be viewed as a small correction to the non-relativistic Bohr energies, which are expressed as:</p>
 <p><span class="math display">\[
 E_n^{(0)} = - \frac{\mu c^2 (Z\alpha)^2}{2 n^2},
@@ -1350,8 +1346,8 @@ E_{n,j} \approx E_n^{(0)} + \Delta E_{n,j}^{\rm FS}.
 <hr>
 </section>
 </section>
-<section id="term-symbols-and-naming-conventions" class="level1">
-<h1>4.1.5. Term Symbols and Naming Conventions</h1>
+<section id="term-symbols-and-naming-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="term-symbols-and-naming-conventions">4.1.5. Term Symbols and Naming Conventions</h2>
 <p>In atomic and molecular physics (AMO), <strong>term symbols</strong> are used to describe the electronic states, including the splitting due to the fine structure. The general notation is:</p>
 <p><span class="math display">\[{}^{2S+1}L_J\]</span></p>
 <ul>

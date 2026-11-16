@@ -2,6 +2,11 @@
 title: 4.4 Summary — energy-level splitting
 author: Daniel Fischer
 lightbox: true
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Compare Bohr, Dirac, Lamb-shift, and hyperfine corrections to hydrogen energy levels, with diagrams and representative splittings in eV and MHz.">
 ---
 
 

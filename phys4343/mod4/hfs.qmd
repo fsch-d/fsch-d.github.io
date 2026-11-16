@@ -1,11 +1,16 @@
 ---
 title: 4.3 The Hyperfine Structure
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Learn how nuclear spin and electronic angular momentum produce atomic hyperfine splitting, derive the hyperfine energy formula, and explore hydrogen's 21-cm line.">
 ---
 
 
 
-# Hyperfine Structure: Overview and Plan
+## Hyperfine Structure: Overview and Plan
 
 This section introduces the interaction between the atomic electrons and nuclear moments that gives rise to **hyperfine structure (HFS)** in atomic spectra. We focus on the magnetic-dipole interaction (the dominant contribution in many atoms), explain how electronic and nuclear angular momenta couple, and derive the usual formula for hyperfine splitting. We also discuss the physical origin of the hyperfine constant $A$ and give the hydrogen ground-state as a worked example.
 
@@ -20,7 +25,7 @@ By the end of this section students should be able to write the magnetic-dipole 
 
 ---
 
-# 4.3.1. Hyperfine Hamiltonian and multipole expansion
+## 4.3.1. Hyperfine Hamiltonian and multipole expansion
 
 The interaction between the electronic degrees of freedom and nuclear moments can be written in a multipole (tensor) expansion. A compact operator form is
 
@@ -38,7 +43,7 @@ In this section we concentrate on the magnetic-dipole ($k=1$) term.
 
 ---
 
-# 4.3.2. Magnetic-dipole hyperfine interaction
+## 4.3.2. Magnetic-dipole hyperfine interaction
 
 The dominant contribution to the hyperfine structure in many atoms is the
 interaction between the **magnetic moment of the nucleus** and the magnetic
@@ -96,9 +101,8 @@ B_J
 \frac{\vec J}{\sqrt{J(J+1)}\,\hbar},
 $$
 
-where $B_J$ denotes the magnitude of the effective magnetic field at the
-nucleus.
 
+where $B_J$ is a signed coefficient describing the effective electronic magnetic field. Its sign indicates whether the field is parallel or antiparallel to $\vec J$, while its magnitude depends on the electronic state.
 
 Substituting this expression and the nuclear magnetic moment into the
 interaction Hamiltonian gives
@@ -148,8 +152,7 @@ The constant $A$ contains the details of both the nucleus and the electronic
 wavefunction. In particular, it depends on the nuclear magnetic moment and
 on the magnetic field produced by the electrons at the nucleus.
 
-::: callout-note
-## What determines $B_J$?
+:::{.callout-note title="What determines $B_J$?"}
 
 The effective field $B_J$ depends on the electronic state. For an
 $s$-electron, an important contribution is the **Fermi contact interaction**,
@@ -167,7 +170,7 @@ are obtained from atomic-structure calculations or from experiment.
 
 ---
 
-# 4.3.3. Angular-momentum algebra and the energy formula
+## 4.3.3. Angular-momentum algebra and the energy formula
 
 The treatment of hyperfine structure closely parallels the **LS coupling scheme** already discussed: just as $\hat{\vec J} = \hat{\vec L} + \hat{\vec S}$ combines orbital and spin angular momentum, here we combine the **electronic total angular momentum** $\hat{\vec J}$ with the **nuclear spin** $\hat{\vec I}$ to form the **total atomic angular momentum** $\hat{\vec F}$:
 
@@ -177,7 +180,7 @@ $$
 
 ---
 
-## 4.3.3.1 Operator identities
+### 4.3.3.1 Operator identities
 
 The squared total angular momentum operator satisfies
 
@@ -200,7 +203,7 @@ $$
 
 ---
 
-## 4.3.3.2 New atomic eigenstates
+### 4.3.3.2 New atomic eigenstates
 
 Because $\hat{\vec F}$ is the relevant conserved total angular momentum, the natural basis states are
 
@@ -222,14 +225,14 @@ where:
 > - **Capital letters** ($L, S, J, F$) denote **total angular momentum quantum numbers** arising from the coupling of multiple components:  
 >   - $L$ (total orbital angular momentum of the electrons).  
 >   - $S$ (total electron spin).  
->   - $J = L+S$ (total electronic angular momentum).  
->   - $F = J+I$ (total atomic angular momentum, including nuclear spin $I$).  
+>   - $\vec J = \vec L+ \vec S$ (total electronic angular momentum).  
+>   - $\vec F = \vec J+\vec I$ (total atomic angular momentum, including nuclear spin $I$).  
 
 Thus, the hyperfine eigenstates are labeled by the coupled quantum numbers $(L, S, J, I, F, M_F)$, with $F$ and $M_F$ replacing $M_J$ and $M_I$ as the good quantum numbers once hyperfine interactions are included.
 
 ---
 
-## 4.3.3.3 Eigenvalue relations and energy formula
+### 4.3.3.3 Eigenvalue relations and energy formula
 
 For angular momentum operators, the general eigenvalue relation is
 
@@ -247,7 +250,7 @@ $$
 
 ---
 
-## 4.3.3.4 Possible $F$ values
+### 4.3.3.4 Possible $F$ values
 
 The possible values of $F$ follow the vector addition rule of angular momenta:
 
@@ -272,7 +275,7 @@ Thus there are $(2\,\min(I,J)+1)$ hyperfine components for a given electronic le
 
 ---
 
-# 4.3.4. Example: Hydrogen ground state ($1s_{1/2}$)
+## 4.3.4. Example: Hydrogen ground state ($1s_{1/2}$)
 
 For the hydrogen atom in the ground state:
 
@@ -358,13 +361,13 @@ plot_hyperfine_splitting()
 
 ---
 
-## 4.3.4.1 Comments on the sign and ordering
+### 4.3.4.1 Comments on the sign and ordering
 
 The sign of $A$ determines which $F$ level lies higher. For hydrogen the $F=1$ level lies above the $F=0$ level (positive $A$), producing the emitted 21-cm photon for the $F=1\to F=0$ transition in spontaneous emission.
 
 ---
 
-# 4.3.5. Finite-nucleus and higher-order corrections
+## 4.3.5. Finite-nucleus and higher-order corrections
 
 A few further points important for precision work:
 
@@ -374,7 +377,7 @@ A few further points important for precision work:
 
 ---
 
-# 4.3.6. The Significance of Hyperfine Structure
+## 4.3.6. The Significance of Hyperfine Structure
 
 The tiny energy shifts caused by the hyperfine interaction—the coupling between the electron's total angular momentum and the nucleus's spin—have profound and far-reaching consequences in modern physics and technology. While seemingly small, this interaction provides an exquisitely precise and stable quantum reference, which we can harness for a wide variety of applications.
 
@@ -384,7 +387,7 @@ Here are a few key examples:
 
 * **Quantum Computing and Qubits:** The well-defined, stable energy levels of hyperfine states make them ideal candidates for building **qubits**, the fundamental units of quantum information. Systems like trapped ions and neutral atoms are used to encode quantum information in their hyperfine states, providing a robust platform for quantum computing and quantum simulation. Their long coherence times allow them to store information for an extended period, which is a crucial requirement for building a quantum computer. 
 
-* **Medical Imaging:** **Magnetic Resonance Imaging (MRI)** relies on the principles of nuclear magnetic resonance (NMR), which is a form of hyperfine spectroscopy. In an MRI machine, a strong magnetic field is used to split the nuclear spin energy levels of hydrogen atoms in the body's water molecules. By applying radiofrequency pulses, these nuclei can be excited and their subsequent relaxation provides detailed information about the tissues and organs, creating the high-resolution images used in medical diagnostics.
+* **Medical Imaging:** **Magnetic Resonance Imaging (MRI)** relies on nuclear magnetic resonance (NMR). In a strong external magnetic field, nuclear spin states acquire different energies through the Zeeman interaction. Radiofrequency pulses induce transitions between these states, and the resulting signals provide detailed information about tissues and organs. Although MRI does not directly exploit atomic hyperfine splitting, both phenomena originate from the magnetic properties of nuclear spins.
 
 * **Chemical Analysis and NMR Spectroscopy:** On a smaller scale, **Nuclear Magnetic Resonance (NMR) spectroscopy** is an indispensable tool in chemistry. It exploits the same principles as MRI to determine the structure of molecules. By analyzing the unique hyperfine splitting patterns of atomic nuclei, chemists can identify the types of atoms in a molecule and their spatial arrangement, providing a powerful method for structural elucidation.
 

@@ -1,9 +1,14 @@
 ---
 title: 4.5 Hydrogen in Static External Fields
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore the Zeeman and Stark effects in hydrogen, including Landé g-factors, hyperfine coupling, Breit–Rabi energy levels, and electric polarizability.">
 ---
 
-# Hydrogen in External Fields
+## Hydrogen in External Fields
 
 This chapter collects commonly used formulae and order-of-magnitude estimates for how a hydrogenic atom responds to *static* external fields. We concentrate on the **Zeeman effect** (magnetic fields) and the leading **quadratic Stark effect** (electric fields), emphasising the interplay with fine and hyperfine structure and which quantum numbers remain "good" in the different parameter regimes.
 
@@ -11,12 +16,12 @@ The presentation is perturbative: choose the largest interaction as the unpertur
 
 ---
 
-# 4.5.1. Zeeman effect: Magnetic interaction Hamiltonian
+## 4.5.1. Zeeman effect: Magnetic interaction Hamiltonian
 
 The magnetic moment operator of an atom has contributions from electronic orbital motion, electronic spin, and the nuclear magnetic moment. In SI units we write
 
 $$
-\hat{\vec{\mu}} = -\mu_B\,\hat{\vec{L}} - g_s \mu_B\,\hat{\vec{S}} + g_I \mu_N\,\hat{\vec{I}},
+\hat{\vec{\mu}} = -\frac{\mu_B}{\hbar}\,\hat{\vec{L}} - g_s \frac{\mu_B}{\hbar}\,\hat{\vec{S}} + g_I \frac{\mu_N}{\hbar}\,\hat{\vec{I}},
 $$
 
 where
@@ -51,7 +56,7 @@ These conversions are handy when comparing Zeeman splittings (in GHz) to hyperfi
 
 ---
 
-## 4.5.1.2 Why eigenstates change: non-commuting parts of the Hamiltonian
+### 4.5.1.1 Why eigenstates change: non-commuting parts of the Hamiltonian
 
 Let us write down the interaction Hamiltonians explicitly (schematically, suppressing constants):
 
@@ -72,7 +77,7 @@ Let us write down the interaction Hamiltonians explicitly (schematically, suppre
 
 ---
 
-### Step 1. What would be the ideal basis?
+#### Step 1. What would be the ideal basis?
 
 If all three Hamiltonians commuted, there would be a common eigenbasis diagonalising them simultaneously. The obvious candidate would be the coupled basis
 $$
@@ -82,10 +87,10 @@ which diagonalises $\hat L^2,\hat S^2,\hat J^2,\hat I^2,\hat F^2,\hat F_z$.
 
 ---
 
-### Step 2. Commutation relations
+#### Step 2. Commutation relations
 
 - $[\hat H_{\rm SO}, \hat H_{\rm HF}] = 0$  
-  **Reason:** Both are *rotational scalars*, i.e. invariant under rotations and independent of the choice of coordinate system.  
+  **Reason:** Both interactions can be expressed in terms of the squared angular momentum operators $\hat L^2$, $\hat S^2$, $\hat J^2$, $\hat I^2$, and $\hat F^2$, which all commute with each other.  
   ⇒ They share common eigenstates $|L,S,J,I;F,M_F\rangle$.
 
 - $[\hat H_{\rm ZE}, \hat H_{\rm SO}] \neq 0$  
@@ -98,7 +103,7 @@ which diagonalises $\hat L^2,\hat S^2,\hat J^2,\hat I^2,\hat F^2,\hat F_z$.
   
 ---
 
-### Step 3. Consequence for basis choice
+#### Step 3. Consequence for basis choice
 
 - If **fine + hyperfine dominate** (Zeeman weak): good basis is $|L,S,J,I;F,M_F\rangle$.  
 - If **Zeeman dominates over hyperfine but not over spin–orbit**: good basis is $|L,S,J,M_J; I,M_I\rangle$.  
@@ -109,7 +114,7 @@ which diagonalises $\hat L^2,\hat S^2,\hat J^2,\hat I^2,\hat F^2,\hat F_z$.
 
 ---
 
-# 4.5.2. Practical regimes (and convenient bases)
+## 4.5.2. Practical regimes (and convenient bases)
 
 Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fine-structure splitting $\Delta E_{\rm FS}$, and hyperfine splitting $\Delta E_{\rm HF}$, different bases are useful:
 
@@ -128,7 +133,7 @@ Depending on the relative sizes of the Zeeman splitting $\Delta E_{\rm ZE}$, fin
 
 ---  
 
-## 4.5.2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
+### 4.5.2.1 Case 1: Landé $g_J$ and the electronic (LS) Zeeman shift
 
 If $\Delta E_{\rm ZE} \ll \Delta E_{\rm FS}$ and the nucleus carries no spin ($I=0$), then $M_J$ is a good quantum number and the convenient basis is $|L,S,J,M_J\rangle$.
 
@@ -165,8 +170,8 @@ $$
 
 Inserting these expressions into the first-order shift leads to the familiar Landé formula in the LS-coupling limit:
 
-::: {.callout-tip}
-### Zeeman shift in the LS-coupling limit
+::: {.callout-tip title="Zeeman shift in the LS-coupling limit"}
+
 $$
 \Delta E^{(1)} = \mu_B\,B\,g_J\,M_J\,
 $$
@@ -182,8 +187,8 @@ $$
 
 Thus, qualitatively: when $\hat{\vec J}$ is fixed by strong spin–orbit coupling, the Zeeman interaction projects onto $\hat J_z$ and produces shifts proportional to $M_J$; the proportionality factor is the Landé $g_J$ which encodes how orbital and spin contributions combine.
 
-::: {.callout-note collapse="true"}
-### Plausibility argument for the projection formulas (sketch)
+::: {.callout-note collapse="true" title="Plausibility argument for the projection formulas (sketch)"}
+
 
 ```{python}
 #| echo: false
@@ -311,8 +316,8 @@ This geometric picture is illustrated in the figure: the cones of allowed orient
 The scalar product $\langle\vec L\cdot\vec J\rangle$ and $\langle\vec S\cdot\vec J\rangle$ can be rewritten using the identies
 $$
 \begin{align}
-\vec{S}^2 &= (\vec J - \vec L)^2 =\vec{J}^2 + 2\, \vec{L}\cdot\vec{J} - \vec{L}^2\\
-\vec{L}^2 &= (\vec J - \vec S)^2 =\vec{J}^2 + 2\, \vec{S}\cdot\vec{J} - \vec{S}^2
+\vec{S}^2 &= (\vec J - \vec L)^2 =\vec{J}^2 - 2\, \vec{L}\cdot\vec{J} + \vec{L}^2\\
+\vec{L}^2 &= (\vec J - \vec S)^2 =\vec{J}^2 - 2\, \vec{S}\cdot\vec{J} + \vec{S}^2
 \end{align}
 $$
 yielding (in operator form):
@@ -338,7 +343,7 @@ The Landé factor can the be calculated using the eigenvalues of $\hat J^2,\hat 
 
 ---
 
-## 4.5.2.2 Case 2: Hyperfine regime and $g_F$
+### 4.5.2.2 Case 2: Hyperfine regime and $g_F$
 
 If hyperfine coupling dominates ($\Delta E_{\rm ZE} \ll \Delta E_{\rm HF}$) and the $z$ component of $\hat{\vec F} = \hat{\vec J} + \hat{\vec I}$ is a good quantum number, the first-order Zeeman shift is
 
@@ -367,13 +372,13 @@ $$
 Inserting this into the expression above yields
 
 $$
-\Delta E^{(1)} \;=\; \mu_B\,B \,\frac{\langle \hat{\vec J}\cdot \hat{\vec F}\rangle}{F(F+1)}\, M_F.
+\Delta E^{(1)} \;=\; \mu_B\,B\,g_J \,\frac{\langle \hat{\vec J}\cdot \hat{\vec F}\rangle}{F(F+1)\hbar^2}\, M_F.
 $$
 
 This can be written compactly as
 
-::: {.callout-tip}
-### Zeeman shift in the hyperfine regime
+::: {.callout-tip title="Zeeman shift in the hyperfine regime"}
+
 $$
 \Delta E^{(1)} \;=\; \mu_B\,B\,g_F\,M_F,
 $$
@@ -388,7 +393,7 @@ $$
 
 ---
 
-## 4.5.2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
+### 4.5.2.3 Case 3: Strong fields — (Hyperfine) Paschen–Back limit
 
 When the Zeeman splitting is much larger than the hyperfine interaction ($\Delta E_{\rm ZE} \gg \Delta E_{\rm HF}$), the electronic and nuclear moments effectively decouple. In this regime the product basis
 
@@ -409,7 +414,7 @@ The hyperfine Hamiltonian can then be treated perturbatively. To first order we 
 $$
 \Delta E^{(1)}_{\rm HF}
 \;=\; \langle J,M_J; I,M_I|\hat H_{\rm HF}|J,M_J; I,M_I\rangle
-\;=\; A\,\langle \hat{\vec I}\cdot \hat{\vec J}\rangle,
+\;=\; \frac{A}{\hbar^2}\,\langle \hat{\vec I}\cdot \hat{\vec J}\rangle,
 $$
 
 where $A$ is the hyperfine constant.  
@@ -427,13 +432,13 @@ Thus, the leading hyperfine contribution reduces to
 
 $$
 \langle \hat{\vec I}\cdot \hat{\vec J}\rangle \;\approx\; \langle \hat I_z \hat J_z\rangle
-\;=\; M_I M_J.
+\;=\; \hbar^2 M_I M_J.
 $$
 
 Accordingly, the hyperfine correction produces only small, $M_I M_J$–dependent energy shifts:
 
-::: {.callout-tip}
-### Hyperfine shift in the LS-coupling limit
+::: {.callout-tip title="Hyperfine shift in the Paschen–Back limit"}
+
 $$
 \Delta E^{(1)}_{\rm HF} \;=\; A\,M_I M_J.
 $$
@@ -442,9 +447,9 @@ $$
 
 ---
 
-# 4.5.3. Zeeman effect: summary and some exact results
+## 4.5.3. Zeeman effect: summary and some exact results
 
-## 4.5.3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
+### 4.5.3.1 Exact diagonalization for hydrogen ground state — Breit–Rabi behaviour
 
 For the hydrogen ground state ($n=1$, $J=\tfrac12$, $I=\tfrac12$) the hyperfine + Zeeman Hamiltonian can be diagonalized exactly within the two $2\times2$ subspaces (labelled by $m_F=0$ and $m_F=\pm1$). The resulting $E(B)$ dependence is commonly referred to as the **Breit–Rabi** curve. It captures the gradual transition from hyperfine-dominated eigenstates at low field to Zeeman-dominated eigenstates at high field.
 
@@ -560,8 +565,7 @@ plt.show()
 
 (For completeness: the full Breit–Rabi formula and its derivation are standard and can be found in many textbooks — see the note below for a compact statement and derivation sketch.)
 
-::: {.callout-note collapse="true"}
-### The Breit–Rabi formula (reference and sketch)
+::: {.callout-note collapse="true" title="The Breit–Rabi formula (reference and sketch)"}
 
 The Breit–Rabi formula gives closed expressions for the energy levels of an atom with $J=\tfrac12$ and arbitrary nuclear spin $I$ in an external magnetic field. For the special case $I=\tfrac12$ (hydrogen ground state) the formula simplifies considerably and yields the usual two linear Zeeman branches ($m_F=\pm1$) and two levels that mix and show the characteristic avoided-crossing behaviour for $m_F=0$.
 
@@ -575,7 +579,7 @@ For an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu,
 
 ---
 
-## 4.5.3.2 Order-of-magnitude numbers (useful estimates)
+### 4.5.3.2 Order-of-magnitude numbers (useful estimates)
 
 - Hyperfine splitting of hydrogen ground state (21-cm line):
   $$\nu_{\rm hfs} \approx 1420.405751768\ \mathrm{MHz},\qquad
@@ -594,7 +598,7 @@ For an authoritative source and compact formula see: C. Cohen-Tannoudji, B. Diu,
 
 These numbers help decide which interactions dominate in a given laboratory situation.
 
-### Typical experimental magnitudes
+#### Typical experimental magnitudes
 
 - Weak laboratory fields ($B\lesssim 1\ \mathrm{mT}$): Zeeman shifts are tiny; hyperfine structure typically dominates.
 - Modest fields ($B\sim 0.01\!-\!0.2\ \mathrm{T}$): interesting interplay — use the Breit–Rabi description.
@@ -604,7 +608,7 @@ These numbers help decide which interactions dominate in a given laboratory situ
 ---
 
 
-# 4.5.4. Atoms in electric fields — quadratic Stark effect
+## 4.5.4. Atoms in electric fields — quadratic Stark effect
 
 The interaction of an atom with a static electric field $\vec{\mathcal E}$ is given by
 
@@ -621,7 +625,7 @@ $$
 
 ---
 
-## 4.5.4.1 Perturbation theory setup
+### 4.5.4.1 Perturbation theory setup
 
 We apply time-independent perturbation theory in the basis of hydrogen eigenstates $|n,\ell,m\rangle$. The first- and second-order energy corrections are
 
@@ -636,7 +640,7 @@ $$
 
 ---
 
-## 4.5.4.2 Why the first order vanishes
+### 4.5.4.2 Why the first order vanishes
 
 For hydrogen eigenstates, the expectation value $\langle n\ell m| z |n\ell m\rangle$ vanishes.  
 This can be seen in two ways:
@@ -645,18 +649,18 @@ This can be seen in two ways:
 
 - **Physical picture.** Stationary hydrogen states have no permanent dipole moment. The probability distribution is symmetric around the nucleus, so the average $z$ coordinate vanishes.
 
-Therefore, $\Delta E^{(1)}=0$ for all $|n,\ell,m\rangle$ eigenstates.
+Therefore, the diagonal first-order correction vanishes for hydrogen eigenstates of definite parity. For nondegenerate states, the leading Stark shift is consequently quadratic in the electric field. However, excited hydrogen levels can contain degenerate states of opposite parity, which are coupled by the electric field. In this case, degenerate perturbation theory is required, and a linear Stark effect can occur.
+
 
 ---
 
-## 4.5.4.3 Second-order shift and dipole matrix elements
+### 4.5.4.3 Second-order shift and dipole matrix elements
 
-The leading Stark effect is therefore quadratic, arising from the second-order term. It depends on dipole matrix elements of the form $\langle n'\ell' m'| z |n\ell m\rangle$, which connect states of opposite parity ($\ell'=\ell\pm 1$). These terms encode the atom’s ability to be polarized by the field.
+For nondegenerate states, the leading Stark effect is quadratic and arises from the second-order term. It depends on dipole matrix elements of the form $\langle n'\ell' m'| z |n\ell m\rangle$, which connect states of opposite parity ($\ell'=\ell\pm 1$). These terms encode the atom’s ability to be polarized by the field.
 
 We will not evaluate these matrix elements here — they become central in the discussion of light–matter interaction, where the dipole operator governs optical transitions.
 
-::: {.callout-example}
-### Worked example: $2s$–$2p$ mixing
+::: {.callout-example title="Worked example: $2s$–$2p$ mixing"}
 
 The $2s$ state has $\ell=0$ (even parity). The operator $z$ connects it to $2p$ states ($\ell=1$), which have odd parity:
 
@@ -680,7 +684,7 @@ the energy correction involves $|\langle\cdot|z|\cdot\rangle|^2\mathcal E^2$.
 
 ---
 
-## 4.5.4.4 Result for hydrogen ground state
+### 4.5.4.4 Result for hydrogen ground state
 
 For the hydrogen ground state ($1s$), the quadratic Stark shift can be summarized as
 
@@ -691,25 +695,26 @@ $$
 where $\alpha$ is the static electric polarizability. For $1s$ hydrogen:
 
 $$
-\alpha(1s) \approx 4.5\,a_0^3,
+\alpha(1s) = 4\pi\varepsilon_0\,\frac{9}{2}\,a_0^3,
 $$
 
-with $a_0$ the Bohr radius. In SI units, $\alpha$ may be converted to J/(V/m)$^2$.
+with $a_0$ the Bohr radius. The polarizability is $4.5\,a_0^3$ in atomic units; the expression above includes the factor $4\pi\varepsilon_0$ required for SI units.
 
 ---
 
-## 4.5.4.5 Order of magnitude estimate
+### 4.5.4.5 Order of magnitude estimate
 
 For a field of $\mathcal E=10^6\ \mathrm{V/m}$ (a large laboratory field) the shift is tiny:
 
 $$
-\Delta E \sim -\tfrac{1}{2}\,(4.5\,a_0^3)\,(10^6\ \mathrm{V/m})^2,
+\Delta E \sim -\frac{1}{2}\,(4\pi\varepsilon_0)\,(4.5\,a_0^3)\,
+(10^6\ \mathrm{V/m})^2
+\approx -4.6\times10^{-10}\ \mathrm{eV}.
 $$
 
 which is negligible compared with hyperfine and Zeeman splittings under similar conditions.
 
-::: {.callout-note collapse="true"}
-### Quick remark on polarizability and units
+::: {.callout-note collapse="true" title="Quick remark on polarizability and units"}
 
 The quoted polarizability $\alpha(1s)\approx 4.5\,a_0^3$ is in atomic units. To convert to SI (J m$^2$/V$^2$ or C m$^2$/V), apply the standard atomic-unit conversion factors. For conceptual discussions, the $a_0^3$ form is typically sufficient.
 :::
