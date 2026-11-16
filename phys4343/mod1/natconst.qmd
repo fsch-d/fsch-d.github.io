@@ -3,13 +3,18 @@ title: "1.1 Natural Constants and Atomic Units"
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to fundamental physical constants, the Bohr radius, Hartree energy, and atomic units, with applications to the hydrogen atom and atomic energy scales.">
 ---
 
-# Introduction
+## Introduction
 
 The historical development of atomic physics revealed a world governed by the same fundamental laws as the macroscopic world, but characterized by very different scales of length, time, and energy. Before developing the quantum-mechanical description of atoms, it is useful to identify these scales and introduce a system of units adapted to them.
 
-# 1.1.1 Fundamental constants
+## 1.1.1 Fundamental constants
 
 Several universal constants and particle properties enter repeatedly in atomic physics. The following values are rounded for orientation.
 
@@ -31,7 +36,7 @@ $$
 
 Unlike the numerical values of dimensional constants, $\alpha$ does not depend on the choice of units. It measures the strength of the electromagnetic interaction and will appear throughout atomic physics.
 
-# 1.1.2 The hydrogen atom as a natural scale
+## 1.1.2 The hydrogen atom as a natural scale
 
 The Bohr model provides a simple way to connect the constants above to characteristic atomic quantities. Although electrons do not follow classical trajectories in quantum mechanics, the model correctly identifies the scales of the hydrogen atom.
 
@@ -225,7 +230,7 @@ $$
 The diagram is a **semiclassical model**, useful for introducing characteristic scales. Its relation $L=\hbar$ is the Bohr quantization condition for the $n=1$ orbit. In the quantum-mechanical hydrogen ground state ($1s$), however, the orbital angular momentum quantum number is $\ell=0$, so the orbital angular momentum is **zero**. The scales $a_0$ and $E_h$ remain fundamental in the quantum theory.
 :::
 
-# 1.1.3 Atomic units
+## 1.1.3 Atomic units
 
 The characteristic hydrogen scales suggest a convenient choice of units. In **Hartree atomic units**, we set
 
@@ -259,7 +264,7 @@ $$
 
 Atomic units remove repeated constants and make the relative sizes of terms easier to recognize. Unless stated otherwise, we will use conventional SI units when discussing measurements and atomic units when they simplify calculations.
 
-# 1.1.4 Connecting atomic and everyday scales
+## 1.1.4 Connecting atomic and everyday scales
 
 Atomic energies are often quoted in electronvolts rather than joules. Useful conversions include
 

@@ -2,9 +2,14 @@
 author: Daniel Fischer
 jupyter: diffractio
 title: 2.1 Wave Mechanics
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to quantum wave mechanics, covering electron interference, complex wave functions, superposition, the Born rule, de Broglie relations, and the Schrödinger equation.">
 ---
 
-# Wave Mechanics: Overview and Plan
+## Wave Mechanics: Overview and Plan
 
 This chapter introduces the wave-mechanical description of quantum particles. We begin with **electron interference** because it exposes the central problem directly: electrons are detected as localized particles, but the distribution of many detection events can show interference, a characteristic wave phenomenon.
 
@@ -17,101 +22,73 @@ The specific goals for this chapter are:
 5. Introduce the **de Broglie relations** between momentum and wave vector and between energy and frequency.
 6. Motivate the **Schrödinger equation** and its description of the time evolution of a quantum state.
 
+
 :::: {.callout-important collapse="true" title="Core Knowledge — Know"}
 
-A harmonic plane wave can be written in complex form as
+### The wave function and probability
+
+A quantum particle is described by a generally complex **wave function** $\psi(\vec r,t)$. Its absolute square gives the probability density for finding the particle at position $\vec r$:
 
 $$
-\psi(\vec r,t)
-=
-A e^{i(\vec k\cdot\vec r-\omega t+\phi)},
-$$
-
-with
-
-$$
-k=\frac{2\pi}{\lambda},
+\boxed{p(\vec r,t)=|\psi(\vec r,t)|^2},
 \qquad
-\omega=2\pi f.
-$$
-
-Quantum-mechanical amplitudes obey the **superposition principle**,
-
-$$
-\psi=\psi_1+\psi_2,
-$$
-
-and the measurable position probability density is given by the **Born rule**,
-
-$$
-\boxed{
-p(\vec r,t)=|\psi(\vec r,t)|^2.
-}
-$$
-
-For a normalizable state,
-
-$$
-\boxed{
 \int_{\mathbb R^3}|\psi(\vec r,t)|^2\,d^3r=1.
-}
 $$
 
-Matter-wave quantities are related to particle quantities by the de Broglie relations
+### Superposition and interference
+
+Quantum-mechanical **probability amplitudes add**, not probabilities:
 
 $$
-\boxed{
-\vec p=\hbar\vec k,
+\boxed{\psi=\psi_1+\psi_2},
 \qquad
-E=\hbar\omega.
-}
+|\psi|^2=|\psi_1+\psi_2|^2.
+$$
+
+The resulting interference depends on the **relative phase** of the amplitudes.
+
+### Matter waves and momentum
+
+A plane wave is a state of definite momentum, described by
+
+$$
+\psi(\vec r,t)=A e^{i(\vec k\cdot\vec r-\omega t)},
+$$
+
+where $\vec k$ is the wave vector and $\omega$ the angular frequency. The **de Broglie relations** connect wave and particle properties:
+
+$$
+\boxed{\vec p=\hbar\vec k,\qquad E=\hbar\omega}.
 $$
 
 In position representation, the momentum operator is
 
 $$
-\boxed{
-\hat{\vec p}=-i\hbar\vec\nabla.
-}
+\boxed{\hat{\vec p}=-i\hbar\vec\nabla}.
 $$
 
-The time evolution of a nonrelativistic quantum state is governed by the Schrödinger equation,
+### Schrödinger equation and stationary states
+
+The **time-dependent Schrödinger equation** governs the evolution of the wave function:
 
 $$
-\boxed{
-i\hbar\frac{\partial}{\partial t}\psi
-=
-\hat H\psi.
-}
+\boxed{i\hbar\frac{\partial\psi}{\partial t}=\hat H\psi},
+\qquad
+\hat H=-\frac{\hbar^2}{2m}\nabla^2+V(\vec r,t).
 $$
 
-For a particle in a potential $V(\vec r,t)$,
+For a time-independent Hamiltonian, **stationary states** satisfy
 
 $$
-\boxed{
-\hat H
-=
--\frac{\hbar^2}{2m}\nabla^2+V.
-}
+\boxed{\hat H\phi=E\phi},
+\qquad
+\psi(\vec r,t)=\phi(\vec r)e^{-iEt/\hbar}.
 $$
 
-If the Hamiltonian has no explicit time dependence, states of definite energy satisfy
-
-$$
-\boxed{
-\hat H\phi=E\phi
-}
-$$
-
-and have time dependence
-
-$$
-\psi(\vec r,t)
-=
-\phi(\vec r)e^{-iEt/\hbar}.
-$$
+Their probability density is independent of time.
 
 ::::
+
 
 
 :::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
@@ -139,9 +116,9 @@ The detailed interference derivations, Fourier-transform formulas, and Gaussian 
 
 ---
 
-# 2.1.1. Electron Interference and Matter Waves
+## 2.1.1. Electron Interference and Matter Waves
 
-## 2.1.1.1 What is an electron?
+### 2.1.1.1 What is an electron?
 
 By the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.  
 
@@ -335,7 +312,7 @@ The key observation is therefore:
 This behavior cannot be described by a simple classical particle picture or by a simple classical material wave.
 
 
-## 2.1.1.2 Historical perspective: Electron diffraction
+### 2.1.1.2 Historical perspective: Electron diffraction
 
 The electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.
 
@@ -349,17 +326,15 @@ The two experiments used different geometries but led to the same conclusion: el
 
 The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 2.1.5.
 
-::: {.callout-note collapse="true"}
-## Historical note
-
+::: {.callout-note collapse="true" title="Historical note"}
 George Paget Thomson was the son of **J. J. Thomson**, whose cathode-ray experiments helped establish the electron as a constituent of matter with particle-like properties. About three decades later, G. P. Thomson's diffraction experiments provided direct evidence for the electron's wave-like behavior.
 :::
 
 ---
 
-# 2.1.2. Waves and Complex Wave Amplitudes
+## 2.1.2. Waves and Complex Wave Amplitudes
 
-## 2.1.2.1 A traveling wave
+### 2.1.2.1 A traveling wave
 
 A one-dimensional harmonic traveling wave can be written as
 
@@ -447,7 +422,7 @@ $$
 
 More importantly for interference, two waves need not have the same phase at a given position. Their **relative phase** will determine whether they interfere constructively or destructively.
 
-## 2.1.2.2 Complex representation
+### 2.1.2.2 Complex representation
 
 Using Euler's relation,
 
@@ -474,7 +449,7 @@ For a classical wave, the complex notation is often only a mathematical convenie
 
 ---
 
-# 2.1.3. Superposition and Interference
+## 2.1.3. Superposition and Interference
 
 For two waves with amplitudes $A_1$ and $A_2$,
 
@@ -540,9 +515,7 @@ $$
 
 Thus different positions on the observation screen correspond to different relative phases and therefore to alternating constructive and destructive interference.
 
-::: {.callout-note collapse="true"}
-## Derivation of the interference term
-
+::: {.callout-note collapse="true" title="Derivation of the interference term"}
 Starting from
 
 $$
@@ -718,9 +691,9 @@ HTML(
 
 ---
 
-# 2.1.4. Probability and the Born Rule
+## 2.1.4. Probability and the Born Rule
 
-## 2.1.4.1 Probability distributions
+### 2.1.4.1 Probability distributions
 
 Before assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.
 
@@ -762,7 +735,7 @@ $$
 \sigma_x=\sqrt{\operatorname{Var}(x)}.
 $$
 
-## 2.1.4.2 The Born interpretation
+### 2.1.4.2 The Born interpretation
 
 Quantum mechanics associates a complex wave function $\psi(\vec r,t)$ with the state of a particle. According to the **Born rule**, the probability density for position is
 
@@ -815,7 +788,7 @@ A plane wave extending over all space is not square-normalizable in the usual se
 
 ---
 
-# 2.1.5. Matter Waves and the de Broglie Relations
+## 2.1.5. Matter Waves and the de Broglie Relations
 
 The experiments discussed in Section 2.1.1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by
 
@@ -859,7 +832,7 @@ $$
 
 so it is completely delocalized in position. This is consistent with the plane wave representing a state of precisely defined momentum.
 
-## 2.1.5.1 Wave packets and momentum space
+### 2.1.5.1 Wave packets and momentum space
 
 A localized particle cannot be represented by a single plane wave. Instead, it is represented by a **superposition of plane waves** with different wave vectors.
 
@@ -885,9 +858,9 @@ Because $p=\hbar k$, the distribution in $k$ is directly related to the distribu
 
 ---
 
-# 2.1.6. Time Evolution and the Schrödinger Equation
+## 2.1.6. Time Evolution and the Schrödinger Equation
 
-## 2.1.6.1 Energy and momentum as differential operators
+### 2.1.6.1 Energy and momentum as differential operators
 
 Consider again a plane wave,
 
@@ -938,7 +911,7 @@ $$
 
 These are examples of **operators**: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.
 
-## 2.1.6.2 Potential energy and the Hamiltonian
+### 2.1.6.2 Potential energy and the Hamiltonian
 
 For a nonrelativistic classical particle,
 
@@ -999,7 +972,7 @@ $$
 The argument above **motivates** the form of the Schrödinger equation; it is not a derivation from classical mechanics. Within nonrelativistic quantum mechanics, the Schrödinger equation is a fundamental dynamical law.
 :::
 
-## 2.1.6.3 Time-independent Schrödinger equation
+### 2.1.6.3 Time-independent Schrödinger equation
 
 If the potential has no explicit time dependence,
 
@@ -1038,7 +1011,7 @@ $$
 
 Such states are therefore called **stationary states**.
 
-## 2.1.6.4 Example: a free Gaussian wave packet
+### 2.1.6.4 Example: a free Gaussian wave packet
 
 A physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,
 
@@ -1062,6 +1035,188 @@ $$
 =\sigma_0
 \sqrt{1+\left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}.
 $$
+
+
+
+
+::: {.callout-note collapse="true" title="Why does a free wave packet move and spread?"}
+
+
+**1. A localized particle is a superposition of plane waves**
+
+A single plane wave extends over all space and cannot describe a localized particle. Instead, a localized wave packet is constructed by superposing plane waves with different wave numbers.
+
+Mathematically, this is a **Fourier transform**. The function $\tilde\psi(k,0)$ is the Fourier transform of the initial wave function $\psi(x,0)$ and specifies the complex amplitude (magnitude and phase) of each plane-wave component:
+
+$$
+\tilde\psi(k,0)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\psi(x,0)e^{-ikx}\,dx.
+$$
+
+Conversely, the initial wave function is reconstructed by the inverse Fourier transform,
+
+$$
+\boxed{
+\psi(x,0)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\tilde\psi(k,0)e^{ikx}\,dk.
+}
+$$
+
+For our initial Gaussian packet, the Fourier amplitudes are concentrated around $k_0$, but include a range of wave numbers. This range is what allows the particle to be localized.
+
+**2. The Schrödinger equation determines how each plane wave evolves**
+
+For a free particle, the time-dependent Schrödinger equation is
+
+$$
+i\hbar\frac{\partial\psi}{\partial t}
+=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}.
+$$
+
+We insert a plane-wave solution
+
+$$
+\psi_k(x,t)=Ae^{i(kx-\omega t)}.
+$$
+
+Taking the derivatives gives
+
+$$
+\hbar\omega\psi_k
+=\frac{\hbar^2k^2}{2m}\psi_k.
+$$
+
+Therefore,
+
+$$
+\boxed{\omega(k)=\frac{\hbar k^2}{2m}.}
+$$
+
+This is the **dispersion relation** of a free quantum particle: different wave numbers have different frequencies.
+
+**3. The wave packet evolves because the relative phases change**
+
+Since the Schrödinger equation is linear, every plane-wave component evolves independently, and the complete wave packet becomes
+
+$$
+\boxed{
+\psi(x,t)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\tilde\psi(k,0)
+e^{i[kx-\omega(k)t]}\,dk.
+}
+$$
+
+Each component acquires a phase $-\omega(k)t$. Because $\omega(k)$ depends on $k$, the relative phases change with time, modifying the interference between the components.
+
+The **phase velocity** of an individual plane wave is
+
+$$
+v_{\mathrm{ph}}=\frac{\omega}{k}
+=\frac{\hbar k}{2m}.
+$$
+
+However, the motion of the wave packet is determined by the **group velocity**,
+
+$$
+\boxed{
+v_g=\frac{d\omega}{dk}
+=\frac{\hbar k}{m}.
+}
+$$
+
+For a packet concentrated around $k_0$, its center therefore moves with
+
+$$
+\boxed{v_g=\frac{\hbar k_0}{m}.}
+$$
+
+
+**4. Why does the packet spread?**
+
+The free-particle dispersion relation is quadratic in $k$,
+
+$$
+\omega(k)=\frac{\hbar k^2}{2m}.
+$$
+
+Consequently, different wave-number components have different group velocities,
+
+$$
+v_g(k)=\frac{d\omega}{dk}=\frac{\hbar k}{m}.
+$$
+
+As their relative phases evolve, the interference between the components changes, causing the wave packet to spread.
+
+For the Gaussian initial state introduced above,
+
+$$
+\psi(x,0)=
+\frac{1}{(2\pi\sigma_0^2)^{1/4}}
+\exp\left[-\frac{(x-x_0)^2}{4\sigma_0^2}\right]
+e^{ik_0x},
+$$
+
+the time-dependent wave function can be obtained by **evaluating the Fourier integral in part 3**. The result is
+
+$$
+\boxed{
+\begin{aligned}
+\psi(x,t)
+={}&
+\frac{1}{(2\pi\sigma_0^2)^{1/4}}
+\frac{1}{\sqrt{1+i\tau}}\\
+&\times
+\exp\left[
+-\frac{(x-x_0-v_gt)^2}
+{4\sigma_0^2(1+i\tau)}
+\right]
+e^{i(k_0x-\omega_0t)},
+\end{aligned}
+}
+$$
+
+where
+
+$$
+\tau=\frac{\hbar t}{2m\sigma_0^2},
+\qquad
+v_g=\frac{\hbar k_0}{m},
+\qquad
+\omega_0=\frac{\hbar k_0^2}{2m}.
+$$
+
+Taking the absolute square gives the probability density,
+
+$$
+\boxed{
+|\psi(x,t)|^2=
+\frac{1}{\sqrt{2\pi}\,\sigma(t)}
+\exp\left[
+-\frac{(x-x_0-v_gt)^2}{2\sigma(t)^2}
+\right],
+}
+$$
+
+with
+
+$$
+\boxed{
+\sigma(t)=\sigma_0
+\sqrt{1+\left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}.
+}
+$$
+
+The probability density remains Gaussian. Its center moves with velocity $v_g$, while its width $\sigma(t)$ increases with time.
+
+**Physical interpretation:** A localized particle contains a range of momenta. The different plane-wave components propagate with different group velocities, so the wave packet spreads. A narrower initial packet contains a broader range of wave numbers and therefore spreads more rapidly.
+
+:::
+
+
+
 
 ```{python}
 #| label: fig-wavepacket
@@ -1105,7 +1260,7 @@ The wave packet illustrates several important ideas at once:
 
 ---
 
-## Additional remarks
+### Additional remarks
 
 - Analytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.
 - The nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.

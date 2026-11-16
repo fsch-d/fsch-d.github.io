@@ -101,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Introduction to Hilbert spaces and Dirac notation in quantum mechanics, including state vectors, inner products, operators, orthonormal bases, eigenstates, and quantum measurements.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -466,7 +467,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+  <a href="../mod2/relwaves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
@@ -874,8 +875,8 @@ window.Quarto = {
 </header>
 
 
-<section id="quantum-mechanics-as-linear-algebra-overview-and-plan" class="level1">
-<h1>Quantum Mechanics as Linear Algebra: Overview and Plan</h1>
+<section id="quantum-mechanics-as-linear-algebra-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-mechanics-as-linear-algebra-overview-and-plan">Quantum Mechanics as Linear Algebra: Overview and Plan</h2>
 <p>In the previous chapter, we approached quantum mechanics primarily from the perspective of <strong>wave mechanics</strong>. Mathematically, this led us to differential equations: the wave function <span class="math inline">\(\psi(\vec r,t)\)</span> evolves according to the Schrödinger equation, and stationary states are obtained by solving the time-independent Schrödinger equation.</p>
 <p>There is, however, a more general mathematical structure underlying quantum mechanics.</p>
 <p>Quantum states form a <strong>vector space</strong>, and physical quantities are represented by <strong>linear operators</strong> acting on this space. From this perspective, quantum mechanics is largely a theory of linear algebra.</p>
@@ -1013,6 +1014,7 @@ P(a_n)
 \left\langle a_n \middle| \psi \right\rangle\right|^2.
 }
 \]</span></p>
+<p>This expression assumes a normalized state and a nondegenerate eigenvalue. For a degenerate eigenvalue, the probability is obtained by summing over all orthonormal eigenstates belonging to that eigenvalue.</p>
 <p>The expectation value of the observable is</p>
 <p><span class="math display">\[
 \boxed{
@@ -1066,10 +1068,10 @@ P(a_n)
 </div>
 <hr>
 </section>
-<section id="operators-and-linear-structure" class="level1">
-<h1>2.2.1. Operators and Linear Structure</h1>
-<section id="operators" class="level2">
-<h2 class="anchored" data-anchor-id="operators">2.2.1.1 Operators</h2>
+<section id="operators-and-linear-structure" class="level2">
+<h2 class="anchored" data-anchor-id="operators-and-linear-structure">2.2.1. Operators and Linear Structure</h2>
+<section id="operators" class="level3">
+<h3 class="anchored" data-anchor-id="operators">2.2.1.1 Operators</h3>
 <p>An <strong>operator</strong> is a mathematical object that acts on another object and produces a new object.</p>
 <p>For example,</p>
 <p><span class="math display">\[
@@ -1126,8 +1128,8 @@ i\hbar\frac{\partial}{\partial t}\psi
 \]</span></p>
 <p>the Hamiltonian generates the time evolution of the quantum state.</p>
 </section>
-<section id="linearity" class="level2">
-<h2 class="anchored" data-anchor-id="linearity">2.2.1.2 Linearity</h2>
+<section id="linearity" class="level3">
+<h3 class="anchored" data-anchor-id="linearity">2.2.1.2 Linearity</h3>
 <p>The operators of quantum mechanics are <strong>linear operators</strong>.</p>
 <p>An operator <span class="math inline">\(\hat A\)</span> is linear if</p>
 <p><span class="math display">\[
@@ -1173,8 +1175,8 @@ c_2\hat p_x\psi_2.
 \]</span></p>
 <p>is also a possible state.</p>
 </section>
-<section id="eigenvalue-equations" class="level2">
-<h2 class="anchored" data-anchor-id="eigenvalue-equations">2.2.1.3 Eigenvalue equations</h2>
+<section id="eigenvalue-equations" class="level3">
+<h3 class="anchored" data-anchor-id="eigenvalue-equations">2.2.1.3 Eigenvalue equations</h3>
 <p>A particularly important situation occurs when the action of an operator reproduces the same function, multiplied only by a number:</p>
 <p><span class="math display">\[
 \boxed{
@@ -1213,10 +1215,10 @@ p=\hbar k,
 <hr>
 </section>
 </section>
-<section id="quantum-states-as-vectors" class="level1">
-<h1>2.2.2. Quantum States as Vectors</h1>
-<section id="from-functions-to-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="from-functions-to-vectors">2.2.2.1 From functions to vectors</h2>
+<section id="quantum-states-as-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-states-as-vectors">2.2.2. Quantum States as Vectors</h2>
+<section id="from-functions-to-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="from-functions-to-vectors">2.2.2.1 From functions to vectors</h3>
 <p>A wave function such as <span class="math inline">\(\psi(x)\)</span> may not initially look like a vector.</p>
 <p>We are accustomed to vectors written as columns,</p>
 <p><span class="math display">\[
@@ -1237,7 +1239,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 \]</span></p>
 <p>belongs to the same space.</p>
 <p>Wave functions can therefore be regarded as vectors in a vector space.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="What is a vector space?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1278,8 +1280,8 @@ c_1\psi_1(x)+c_2\psi_2(x)
 </div>
 </div>
 </section>
-<section id="hilbert-space" class="level2">
-<h2 class="anchored" data-anchor-id="hilbert-space">2.2.2.2 Hilbert space</h2>
+<section id="hilbert-space" class="level3">
+<h3 class="anchored" data-anchor-id="hilbert-space">2.2.2.2 Hilbert space</h3>
 <p>The vector space used in quantum mechanics has additional structure.</p>
 <p>In particular, we need to define an <strong>inner product</strong> between two vectors. This allows us to discuss lengths, angles, orthogonality, and projections.</p>
 <p>A complex vector space equipped with an inner product and satisfying an additional mathematical completeness condition is called a <strong>Hilbert space</strong>, usually denoted by</p>
@@ -1287,7 +1289,7 @@ c_1\psi_1(x)+c_2\psi_2(x)
 \mathscr H.
 \]</span></p>
 <p>Quantum states are represented by vectors in a Hilbert space.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="More precisely: what is a Hilbert space?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1326,8 +1328,8 @@ L^2(\mathbb R^3),
 </div>
 </div>
 </section>
-<section id="the-abstract-quantum-state" class="level2">
-<h2 class="anchored" data-anchor-id="the-abstract-quantum-state">2.2.2.3 The abstract quantum state</h2>
+<section id="the-abstract-quantum-state" class="level3">
+<h3 class="anchored" data-anchor-id="the-abstract-quantum-state">2.2.2.3 The abstract quantum state</h3>
 <p>Wave mechanics represents a state by a function such as</p>
 <p><span class="math display">\[
 \psi(\vec r).
@@ -1353,10 +1355,10 @@ b
 <hr>
 </section>
 </section>
-<section id="dirac-notation-and-the-dual-space" class="level1">
-<h1>2.2.3. Dirac Notation and the Dual Space</h1>
-<section id="ket-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="ket-vectors">2.2.3.1 Ket vectors</h2>
+<section id="dirac-notation-and-the-dual-space" class="level2">
+<h2 class="anchored" data-anchor-id="dirac-notation-and-the-dual-space">2.2.3. Dirac Notation and the Dual Space</h2>
+<section id="ket-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="ket-vectors">2.2.3.1 Ket vectors</h3>
 <p>A ket</p>
 <p><span class="math display">\[
 \left\lvert \psi \right\rangle\in\mathscr H
@@ -1377,7 +1379,7 @@ a\left\lvert a \right\rangle.
 \]</span></p>
 <p>This equation makes no reference to coordinate space.</p>
 <p>The same equation may later be represented as a differential equation, a matrix equation, or in some other basis.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="A technical point: physical states are rays">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1401,8 +1403,8 @@ e^{i\phi}\left\lvert \psi \right\rangle\]</span></p>
 </div>
 </div>
 </section>
-<section id="bra-vectors-and-the-dual-space" class="level2">
-<h2 class="anchored" data-anchor-id="bra-vectors-and-the-dual-space">2.2.3.2 Bra vectors and the dual space</h2>
+<section id="bra-vectors-and-the-dual-space" class="level3">
+<h3 class="anchored" data-anchor-id="bra-vectors-and-the-dual-space">2.2.3.2 Bra vectors and the dual space</h3>
 <p>Associated with the Hilbert space <span class="math inline">\(\mathscr H\)</span> is its <strong>dual space</strong></p>
 <p><span class="math display">\[
 \mathscr H^\ast.
@@ -1424,33 +1426,34 @@ e^{i\phi}\left\lvert \psi \right\rangle\]</span></p>
 \left\langle \phi \middle| \psi \right\rangle}
 \]</span></p>
 <p>is the <strong>inner product</strong> of the two states.</p>
-<p>With the convention used in physics, the inner product is linear in the ket and conjugate-linear in the bra:</p>
+<p>Both bras and kets are <strong>linear objects</strong>: linear combinations of kets are again kets, and linear combinations of bras are again bras. A bra acts linearly on a ket:</p>
 <p><span class="math display">\[
-\left\langle \phi \middle|
-c_1\psi_1+c_2\psi_2
-\right\rangle=
+\left\langle \phi \middle| c_1\psi_1+c_2\psi_2 \right\rangle=
 c_1\left\langle \phi \middle| \psi_1 \right\rangle+
-c_2\left\langle \phi \middle| \psi_2 \right\rangle,
+c_2\left\langle \phi \middle| \psi_2 \right\rangle.
 \]</span></p>
-<p>while</p>
+<p>Similarly, for a linear combination of bras,</p>
 <p><span class="math display">\[
 \left(
 c_1\left\langle \phi_1 \right\rvert+
 c_2\left\langle \phi_2 \right\rvert\right)
 \left\lvert \psi \right\rangle=
 c_1\left\langle \phi_1 \middle| \psi \right\rangle+
-c_2\left\langle \phi_2 \middle| \psi \right\rangle,
+c_2\left\langle \phi_2 \middle| \psi \right\rangle.
 \]</span></p>
-<p>but taking the bra associated with a linear combination of kets gives</p>
+<p>However, the correspondence between a ket and its associated bra is <strong>conjugate-linear</strong>: taking the Hermitian conjugate also complex-conjugates the coefficients,</p>
 <p><span class="math display">\[
+\boxed{
 \left(
 c_1\left\lvert \phi_1 \right\rangle+
 c_2\left\lvert \phi_2 \right\rangle\right)^\dagger
 =
 c_1^\ast\left\langle \phi_1 \right\rvert+
 c_2^\ast\left\langle \phi_2 \right\rvert.
+}
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Thus, bras act linearly on kets, but constructing a bra from a ket involves complex conjugation.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why does every ket have a corresponding bra?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1476,8 +1479,8 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 </div>
 </div>
 </section>
-<section id="inner-products-norms-and-normalization" class="level2">
-<h2 class="anchored" data-anchor-id="inner-products-norms-and-normalization">2.2.3.3 Inner products, norms, and normalization</h2>
+<section id="inner-products-norms-and-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="inner-products-norms-and-normalization">2.2.3.3 Inner products, norms, and normalization</h3>
 <p>The inner product of a state with itself is</p>
 <p><span class="math display">\[
 \left\langle \psi \middle| \psi \right\rangle.
@@ -1501,10 +1504,10 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 <hr>
 </section>
 </section>
-<section id="representations-bases-and-orthogonality" class="level1">
-<h1>2.2.4. Representations, Bases, and Orthogonality</h1>
-<section id="the-position-representation" class="level2">
-<h2 class="anchored" data-anchor-id="the-position-representation">2.2.4.1 The position representation</h2>
+<section id="representations-bases-and-orthogonality" class="level2">
+<h2 class="anchored" data-anchor-id="representations-bases-and-orthogonality">2.2.4. Representations, Bases, and Orthogonality</h2>
+<section id="the-position-representation" class="level3">
+<h3 class="anchored" data-anchor-id="the-position-representation">2.2.4.1 The position representation</h3>
 <p>The abstract state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> can be represented in a basis.</p>
 <p>If we choose the position basis <span class="math inline">\(\{\left\lvert x \right\rangle\}\)</span>, the components of the state in this basis are</p>
 <p><span class="math display">\[
@@ -1523,8 +1526,8 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 <p>They are two different representations of the same state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>.</p>
 <p>This is analogous to representing one ordinary vector using two different coordinate systems.</p>
 </section>
-<section id="inner-product-in-the-position-representation" class="level2">
-<h2 class="anchored" data-anchor-id="inner-product-in-the-position-representation">2.2.4.2 Inner product in the position representation</h2>
+<section id="inner-product-in-the-position-representation" class="level3">
+<h3 class="anchored" data-anchor-id="inner-product-in-the-position-representation">2.2.4.2 Inner product in the position representation</h3>
 <p>For two states <span class="math inline">\(\left\lvert \phi \right\rangle\)</span> and <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>,</p>
 <p><span class="math display">\[
 \left\langle \phi \middle| \psi \right\rangle\]</span></p>
@@ -1540,8 +1543,8 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 <p>Thus, the familiar integral over wave functions is not the fundamental definition of the quantum-mechanical inner product.</p>
 <p>Rather, it is the form taken by the abstract inner product when the states are represented in the position basis.</p>
 </section>
-<section id="orthogonality" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonality">2.2.4.3 Orthogonality</h2>
+<section id="orthogonality" class="level3">
+<h3 class="anchored" data-anchor-id="orthogonality">2.2.4.3 Orthogonality</h3>
 <p>Two states are <strong>orthogonal</strong> if</p>
 <p><span class="math display">\[
 \boxed{
@@ -1564,8 +1567,8 @@ c_2^\ast\left\langle \phi_2 \right\rvert.
 \phi^\ast(x)\psi(x)\,dx=0.
 \]</span></p>
 </section>
-<section id="orthonormal-bases" class="level2">
-<h2 class="anchored" data-anchor-id="orthonormal-bases">2.2.4.4 Orthonormal bases</h2>
+<section id="orthonormal-bases" class="level3">
+<h3 class="anchored" data-anchor-id="orthonormal-bases">2.2.4.4 Orthonormal bases</h3>
 <p>Consider a discrete orthonormal set of states</p>
 <p><span class="math display">\[
 \{\left\lvert n \right\rangle\}.
@@ -1602,8 +1605,8 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 }
 \]</span></p>
 </section>
-<section id="completeness" class="level2">
-<h2 class="anchored" data-anchor-id="completeness">2.2.4.5 Completeness</h2>
+<section id="completeness" class="level3">
+<h3 class="anchored" data-anchor-id="completeness">2.2.4.5 Completeness</h3>
 <p>The previous expansion can be written as</p>
 <p><span class="math display">\[
 \left\lvert \psi \right\rangle=
@@ -1634,7 +1637,7 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 \left\langle x' \middle| x \right\rangle=
 \delta(x-x').
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Are $\ket{x}$ and $\ket{p}$ really Hilbert-space vectors?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1661,8 +1664,8 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 </div>
 </div>
 </section>
-<section id="a-linear-algebra-dictionary" class="level2">
-<h2 class="anchored" data-anchor-id="a-linear-algebra-dictionary">2.2.4.6 A linear-algebra dictionary</h2>
+<section id="a-linear-algebra-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="a-linear-algebra-dictionary">2.2.4.6 A linear-algebra dictionary</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -1710,10 +1713,10 @@ c_n=\left\langle n \middle| \psi \right\rangle.
 <hr>
 </section>
 </section>
-<section id="linear-operators-in-hilbert-space" class="level1">
-<h1>2.2.5. Linear Operators in Hilbert Space</h1>
-<section id="operators-acting-on-kets" class="level2">
-<h2 class="anchored" data-anchor-id="operators-acting-on-kets">2.2.5.1 Operators acting on kets</h2>
+<section id="linear-operators-in-hilbert-space" class="level2">
+<h2 class="anchored" data-anchor-id="linear-operators-in-hilbert-space">2.2.5. Linear Operators in Hilbert Space</h2>
+<section id="operators-acting-on-kets" class="level3">
+<h3 class="anchored" data-anchor-id="operators-acting-on-kets">2.2.5.1 Operators acting on kets</h3>
 <p>A linear operator maps vectors to vectors:</p>
 <p><span class="math display">\[
 \hat A:\mathscr H\rightarrow\mathscr H.
@@ -1736,8 +1739,8 @@ a_n\left\lvert a_n \right\rangle.
 }
 \]</span></p>
 </section>
-<section id="matrix-elements" class="level2">
-<h2 class="anchored" data-anchor-id="matrix-elements">2.2.5.2 Matrix elements</h2>
+<section id="matrix-elements" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-elements">2.2.5.2 Matrix elements</h3>
 <p>Once a basis <span class="math inline">\(\{\left\lvert n \right\rangle\}\)</span> has been selected, the operator can be represented by a matrix.</p>
 <p>Its matrix elements are</p>
 <p><span class="math display">\[
@@ -1771,8 +1774,8 @@ A_{mn}\left\lvert m \right\rangle\!\!\left\langle n \right\rvert.
 \]</span></p>
 <p>A differential operator and a matrix can therefore represent the <strong>same abstract linear operator</strong> in different bases.</p>
 </section>
-<section id="outer-products-and-projectors" class="level2">
-<h2 class="anchored" data-anchor-id="outer-products-and-projectors">2.2.5.3 Outer products and projectors</h2>
+<section id="outer-products-and-projectors" class="level3">
+<h3 class="anchored" data-anchor-id="outer-products-and-projectors">2.2.5.3 Outer products and projectors</h3>
 <p>An inner product produces a complex number,</p>
 <p><span class="math display">\[
 \left\langle \phi \middle| \psi \right\rangle\in\mathbb C,
@@ -1805,10 +1808,10 @@ A_{mn}\left\lvert m \right\rangle\!\!\left\langle n \right\rvert.
 <hr>
 </section>
 </section>
-<section id="adjoint-and-hermitian-operators" class="level1">
-<h1>2.2.6. Adjoint and Hermitian Operators</h1>
-<section id="hermitian-conjugation" class="level2">
-<h2 class="anchored" data-anchor-id="hermitian-conjugation">2.2.6.1 Hermitian conjugation</h2>
+<section id="adjoint-and-hermitian-operators" class="level2">
+<h2 class="anchored" data-anchor-id="adjoint-and-hermitian-operators">2.2.6. Adjoint and Hermitian Operators</h2>
+<section id="hermitian-conjugation" class="level3">
+<h3 class="anchored" data-anchor-id="hermitian-conjugation">2.2.6.1 Hermitian conjugation</h3>
 <p>The <strong>Hermitian conjugate</strong>, or <strong>adjoint</strong>, of a vector or operator is denoted by</p>
 <p><span class="math display">\[
 \dagger.
@@ -1861,8 +1864,8 @@ c_2^\ast\left\langle \psi_2 \right\rvert.
 }
 \]</span></p>
 </section>
-<section id="hermitian-operators" class="level2">
-<h2 class="anchored" data-anchor-id="hermitian-operators">2.2.6.2 Hermitian operators</h2>
+<section id="hermitian-operators" class="level3">
+<h3 class="anchored" data-anchor-id="hermitian-operators">2.2.6.2 Hermitian operators</h3>
 <p>An operator is called <strong>Hermitian</strong> if</p>
 <p><span class="math display">\[
 \boxed{
@@ -1870,7 +1873,7 @@ c_2^\ast\left\langle \psi_2 \right\rvert.
 }
 \]</span></p>
 <p>Hermitian operators have real eigenvalues.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Why are the eigenvalues of a Hermitian operator real?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1934,7 +1937,7 @@ a_m\neq a_n
 \quad\Rightarrow\quad
 \left\langle a_m \middle| a_n \right\rangle=0.
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Why are eigenstates with different eigenvalues orthogonal?">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1999,7 +2002,7 @@ a_n\neq a_m,
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Hermitian versus self-adjoint">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -2022,10 +2025,10 @@ a_n\neq a_m,
 <hr>
 </section>
 </section>
-<section id="observables-and-measurement-1" class="level1">
-<h1>2.2.7. Observables and Measurement</h1>
-<section id="observables" class="level2">
-<h2 class="anchored" data-anchor-id="observables">2.2.7.1 Observables</h2>
+<section id="observables-and-measurement-1" class="level2">
+<h2 class="anchored" data-anchor-id="observables-and-measurement-1">2.2.7. Observables and Measurement</h2>
+<section id="observables" class="level3">
+<h3 class="anchored" data-anchor-id="observables">2.2.7.1 Observables</h3>
 <p>A measurable physical quantity is represented by a Hermitian—or, more precisely, self-adjoint—operator.</p>
 <p>Examples include</p>
 <ul>
@@ -2043,8 +2046,8 @@ a_n\left\lvert a_n \right\rangle.
 \]</span></p>
 <p>The values <span class="math inline">\(a_n\)</span> are possible measurement outcomes.</p>
 </section>
-<section id="spectral-decomposition" class="level2">
-<h2 class="anchored" data-anchor-id="spectral-decomposition">2.2.7.2 Spectral decomposition</h2>
+<section id="spectral-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="spectral-decomposition">2.2.7.2 Spectral decomposition</h3>
 <p>For a nondegenerate discrete spectrum with a complete orthonormal set of eigenvectors,</p>
 <p><span class="math display">\[
 \boxed{
@@ -2058,8 +2061,8 @@ a_n\left\lvert a_n \right\rangle\!\!\left\langle a_n \right\rvert.
 <p>If degeneracies are present, the projection operator onto each eigenspace must include all states belonging to that eigenvalue.</p>
 <p>Continuous spectra require the corresponding integral form.</p>
 </section>
-<section id="measurement-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="measurement-probabilities">2.2.7.3 Measurement probabilities</h2>
+<section id="measurement-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="measurement-probabilities">2.2.7.3 Measurement probabilities</h3>
 <p>Suppose the system is in the normalized state</p>
 <p><span class="math display">\[
 \left\lvert \psi \right\rangle.
@@ -2086,9 +2089,27 @@ P(a_n)
 }
 \]</span></p>
 <p>Thus, measurement probabilities are determined by the projection of the state vector onto the eigenvectors of the observable.</p>
+<p>If an eigenvalue <span class="math inline">\(a_n\)</span> is <strong>degenerate</strong>, several orthonormal eigenstates <span class="math inline">\(\left\lvert a_n,\alpha \right\rangle\)</span> correspond to the same measurement outcome. The probability is then the sum of the probabilities for these states:</p>
+<p><span class="math display">\[
+P(a_n)
+=
+\sum_\alpha
+\left|\left\langle a_n,\alpha \middle| \psi \right\rangle\right|^2.
+\]</span></p>
+<p>Equivalently, using the projection operator onto the corresponding eigenspace,</p>
+<p><span class="math display">\[
+\boxed{
+P(a_n)=\left\langle \psi \middle| \hat P_n \middle| \psi \right\rangle,
+\qquad
+\hat P_n=
+\sum_\alpha
+\left\lvert a_n,\alpha \right\rangle\!\!\left\langle a_n,\alpha \right\rvert.
+}
+\]</span></p>
+<p>For a nondegenerate eigenvalue, this reduces to the usual Born rule.</p>
 </section>
-<section id="expectation-values" class="level2">
-<h2 class="anchored" data-anchor-id="expectation-values">2.2.7.4 Expectation values</h2>
+<section id="expectation-values" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-values">2.2.7.4 Expectation values</h3>
 <p>The expectation value of an observable <span class="math inline">\(\hat A\)</span> in the state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span> is</p>
 <p><span class="math display">\[
 \boxed{
@@ -2120,8 +2141,8 @@ P(a_n)
 \]</span></p>
 <p>Thus, the abstract operator expression reproduces the usual statistical average over possible measurement results.</p>
 </section>
-<section id="variance-and-uncertainty" class="level2">
-<h2 class="anchored" data-anchor-id="variance-and-uncertainty">2.2.7.5 Variance and uncertainty</h2>
+<section id="variance-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="variance-and-uncertainty">2.2.7.5 Variance and uncertainty</h3>
 <p>The variance of an observable is</p>
 <p><span class="math display">\[
 \boxed{
@@ -2159,8 +2180,8 @@ P(a_n)
 <hr>
 </section>
 </section>
-<section id="the-central-idea" class="level1">
-<h1>2.2.8. The Central Idea</h1>
+<section id="the-central-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-central-idea">2.2.8. The Central Idea</h2>
 <p>The wave-mechanical and linear-algebra descriptions of quantum mechanics are not competing theories.</p>
 <p>They are two ways of describing the same physics.</p>
 <p>The wave function</p>

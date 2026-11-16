@@ -142,6 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Introduction to the quantum harmonic oscillator using ladder operators, energy eigenvalues, number states, wavefunctions, and coherent states, including Python visualizations.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -175,10 +176,10 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="2.6 The One-Dimensional Quantum Harmonic Oscillator – Introduction into Atomic, Molecular, and Optical Physics">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://fsch-d.github.io/mod2/qosc_files/figure-html/cell-2-output-1.png">
+<meta property="og:description" content="Ladder Operators, Energy Eigenstates, and Coherent States">
+<meta property="og:image" content="https://fsch-d.github.io/mod2/qosc_files/figure-html/fig-harmonic-wavefunctions-output-1.png">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
-<meta property="og:image:alt" content="Wavefunctions of the first seven harmonic oscillator states.">
+<meta property="og:image:alt" content="Parabolic harmonic potential with equally spaced energy levels and the corresponding wavefunctions.">
 <meta property="og:image:height" content="1112">
 <meta property="og:image:width" content="1399">
 </head>
@@ -511,7 +512,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+  <a href="../mod2/relwaves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
@@ -838,20 +839,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-hamiltonian-ladder-and-number-operators" id="toc-the-hamiltonian-ladder-and-number-operators" class="nav-link" data-scroll-target="#the-hamiltonian-ladder-and-number-operators">2.6.1. The Hamiltonian, Ladder , and Number Operators</a>
+  <li><a href="#the-quantum-harmonic-oscillator-overview-and-plan" id="toc-the-quantum-harmonic-oscillator-overview-and-plan" class="nav-link active" data-scroll-target="#the-quantum-harmonic-oscillator-overview-and-plan">The Quantum Harmonic Oscillator: Overview and Plan</a></li>
+  <li><a href="#the-hamiltonian-ladder-and-number-operators" id="toc-the-hamiltonian-ladder-and-number-operators" class="nav-link" data-scroll-target="#the-hamiltonian-ladder-and-number-operators">2.6.1. The Hamiltonian, Ladder, and Number Operators</a>
   <ul class="collapse">
   <li><a href="#the-ladder-operators" id="toc-the-ladder-operators" class="nav-link" data-scroll-target="#the-ladder-operators">2.6.1.1 The Ladder Operators</a></li>
-  <li><a href="#the-number-operator" id="toc-the-number-operator" class="nav-link" data-scroll-target="#the-number-operator">2.6.1.2 The Number Operator</a>
-  <ul class="collapse">
-  <li><a href="#proof-by-induction" id="toc-proof-by-induction" class="nav-link" data-scroll-target="#proof-by-induction">Proof (by induction)</a></li>
-  <li><a href="#determining-the-normalization-factors-of-the-ladder-operators" id="toc-determining-the-normalization-factors-of-the-ladder-operators" class="nav-link" data-scroll-target="#determining-the-normalization-factors-of-the-ladder-operators">Determining the normalization factors of the ladder operators</a></li>
-  </ul></li>
+  <li><a href="#the-number-operator" id="toc-the-number-operator" class="nav-link" data-scroll-target="#the-number-operator">2.6.1.2 The Number Operator</a></li>
   </ul></li>
   <li><a href="#energy-eigenvalues" id="toc-energy-eigenvalues" class="nav-link" data-scroll-target="#energy-eigenvalues">2.6.2. Energy Eigenvalues</a></li>
   <li><a href="#finding-the-wavefunctions" id="toc-finding-the-wavefunctions" class="nav-link" data-scroll-target="#finding-the-wavefunctions">2.6.3. Finding the Wavefunctions</a></li>
   <li><a href="#coherent-states" id="toc-coherent-states" class="nav-link" data-scroll-target="#coherent-states">2.6.4. Coherent States</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#the-central-idea" id="toc-the-central-idea" class="nav-link" data-scroll-target="#the-central-idea">2.6.5. The Central Idea</a></li>
   </ul>
 </nav>
     </div>
@@ -862,6 +859,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/qosc.html">2.6 The One-Dimensional Quantum Harmonic Oscillator</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">2.6 The One-Dimensional Quantum Harmonic Oscillator</h1>
+<p class="subtitle lead">Ladder Operators, Energy Eigenstates, and Coherent States</p>
 </div>
 
 
@@ -884,8 +882,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="the-quantum-harmonic-oscillator-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="the-quantum-harmonic-oscillator-overview-and-plan">The Quantum Harmonic Oscillator: Overview and Plan</h2>
 <p>The <strong>harmonic oscillator</strong> is one of the most fundamental problems in physics. It appears not only in <strong>quantum mechanics</strong>, but also in <strong>molecular vibrations</strong>, <strong>phonons</strong>, <strong>field quantization</strong>, and even <strong>quantum information theory</strong>.</p>
 <p>Its importance stems from the fact that <strong>any potential</strong> that is smooth near its equilibrium point can be approximated as quadratic — and hence locally behaves like a harmonic oscillator.</p>
 <p>There are several ways to solve the Schrödinger equation for the harmonic oscillator:</p>
@@ -897,10 +895,134 @@ window.Quarto = {
 - the <strong>quantization of the electromagnetic field</strong>,<br>
 - <strong>angular momentum algebra</strong>, and<br>
 - <strong>many-body quantum theory</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="harmonic-oscillator-and-ladder-operators" class="level3">
+<h3 class="anchored" data-anchor-id="harmonic-oscillator-and-ladder-operators">Harmonic oscillator and ladder operators</h3>
+<p>The <strong>one-dimensional harmonic oscillator</strong> describes a particle in a quadratic potential. Its Hamiltonian is</p>
+<p><span class="math display">\[
+\boxed{
+\hat H=\frac{\hat p^2}{2m}+\frac12m\omega^2\hat x^2.
+}
+\]</span></p>
+<p>The <strong>annihilation and creation operators</strong> are defined by</p>
+<p><span class="math display">\[
+\hat a=
+\sqrt{\frac{m\omega}{2\hbar}}\,\hat x
++\frac{i}{\sqrt{2m\hbar\omega}}\,\hat p,
+\qquad
+\hat a^\dagger=
+\sqrt{\frac{m\omega}{2\hbar}}\,\hat x
+-\frac{i}{\sqrt{2m\hbar\omega}}\,\hat p.
+\]</span></p>
+<p>They satisfy the fundamental commutation relation</p>
+<p><span class="math display">\[
+\boxed{[\hat a,\hat a^\dagger]=1}.
+\]</span></p>
+</section>
+<section id="number-operator-and-energy-spectrum" class="level3">
+<h3 class="anchored" data-anchor-id="number-operator-and-energy-spectrum">Number operator and energy spectrum</h3>
+<p>The <strong>number operator</strong> counts the excitation quanta of the oscillator. It allows the Hamiltonian to be written in the form</p>
+<p><span class="math display">\[
+\boxed{
+\hat N=\hat a^\dagger\hat a,
+\qquad
+\hat H=\hbar\omega\left(\hat N+\frac12\right).
+}
+\]</span></p>
+<p>The energy eigenstates <span class="math inline">\(\ket n\)</span> satisfy</p>
+<p><span class="math display">\[
+\hat N\ket n=n\ket n,
+\qquad
+\boxed{E_n=\hbar\omega\left(n+\frac12\right)},
+\qquad n=0,1,2,\ldots.
+\]</span></p>
+<p>The energy levels are <strong>equally spaced</strong> by <span class="math inline">\(\hbar\omega\)</span>. Even the ground state has a nonzero <strong>zero-point energy</strong>:</p>
+<p><span class="math display">\[
+\boxed{E_0=\frac12\hbar\omega}.
+\]</span></p>
+</section>
+<section id="raising-and-lowering-energy-eigenstates" class="level3">
+<h3 class="anchored" data-anchor-id="raising-and-lowering-energy-eigenstates">Raising and lowering energy eigenstates</h3>
+<p>The ladder operators connect neighboring energy eigenstates:</p>
+<p><span class="math display">\[
+\boxed{
+\hat a\ket n=\sqrt n\,\ket{n-1},
+\qquad
+\hat a^\dagger\ket n=\sqrt{n+1}\,\ket{n+1}.
+}
+\]</span></p>
+<p>The ground state is the lowest state of the ladder and satisfies</p>
+<p><span class="math display">\[
+\boxed{\hat a\ket0=0}.
+\]</span></p>
+</section>
+<section id="wavefunctions-and-coherent-states" class="level3">
+<h3 class="anchored" data-anchor-id="wavefunctions-and-coherent-states">Wavefunctions and coherent states</h3>
+<p>The <strong>ground-state wavefunction</strong> is a normalized Gaussian:</p>
+<p><span class="math display">\[
+\boxed{
+\psi_0(x)=
+\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+e^{-m\omega x^2/(2\hbar)}.
+}
+\]</span></p>
+<p>Higher energy eigenstates are obtained by repeatedly applying the creation operator:</p>
+<p><span class="math display">\[
+\psi_n(x)=\frac{1}{\sqrt{n!}}(\hat a^\dagger)^n\psi_0(x).
+\]</span></p>
+<p><strong>Coherent states</strong> are eigenstates of the annihilation operator,</p>
+<p><span class="math display">\[
+\boxed{\hat a\ket\alpha=\alpha\ket\alpha}.
+\]</span></p>
+<p>Unlike stationary energy eigenstates, they describe wave packets whose probability distributions oscillate without changing shape, closely resembling classical harmonic motion.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You should understand that</p>
+<ul>
+<li>the harmonic oscillator is important because a smooth potential near a stable equilibrium can be approximated by a quadratic potential;</li>
+<li>the algebraic method uses creation and annihilation operators instead of solving the Schrödinger differential equation directly;</li>
+<li>the commutation relation <span class="math inline">\([\hat a,\hat a^\dagger]=1\)</span> leads to equally spaced energy levels;</li>
+<li>the creation operator <span class="math inline">\(\hat a^\dagger\)</span> raises the energy by <span class="math inline">\(\hbar\omega\)</span>, while the annihilation operator <span class="math inline">\(\hat a\)</span> lowers it by the same amount;</li>
+<li>the number operator <span class="math inline">\(\hat N\)</span> counts the excitation quanta, with eigenvalues <span class="math inline">\(n=0,1,2,\ldots\)</span>;</li>
+<li>the ground state has a nonzero energy <span class="math inline">\(E_0=\hbar\omega/2\)</span>, called the <strong>zero-point energy</strong>;</li>
+<li>the factors <span class="math inline">\(\sqrt{n+1}\)</span> and <span class="math inline">\(\sqrt n\)</span> ensure the correct normalization of states obtained by applying the ladder operators;</li>
+<li>the ground-state wavefunction is Gaussian, while excited-state wavefunctions involve Hermite polynomials;</li>
+<li>coherent states are superpositions of energy eigenstates whose probability distributions oscillate without changing shape, providing a connection to classical harmonic motion.</li>
+</ul>
+<p>The derivations of the ladder-operator commutators, number-operator properties, and energy spectrum are included to show <strong>where these results come from</strong>, but the intermediate algebra is not intended as material to memorize.</p>
+<p>The detailed derivation of the excited-state wavefunctions and the coherent-state expansion are included for additional understanding rather than as formulas to memorize.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
-<section id="the-hamiltonian-ladder-and-number-operators" class="level1">
-<h1>2.6.1. The Hamiltonian, Ladder , and Number Operators</h1>
+<section id="the-hamiltonian-ladder-and-number-operators" class="level2">
+<h2 class="anchored" data-anchor-id="the-hamiltonian-ladder-and-number-operators">2.6.1. The Hamiltonian, Ladder, and Number Operators</h2>
 <p>The one-dimensional harmonic oscillator describes a particle of mass <span class="math inline">\(m\)</span> moving in a quadratic potential:</p>
 <p><span class="math display">\[
 \hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2.
@@ -910,8 +1032,8 @@ window.Quarto = {
 [\hat{x}, \hat{p}] = i\hbar.
 \]</span></p>
 <hr>
-<section id="the-ladder-operators" class="level2">
-<h2 class="anchored" data-anchor-id="the-ladder-operators">2.6.1.1 The Ladder Operators</h2>
+<section id="the-ladder-operators" class="level3">
+<h3 class="anchored" data-anchor-id="the-ladder-operators">2.6.1.1 The Ladder Operators</h3>
 <p>To simplify the algebra, we introduce <strong>ladder operators</strong> (also called <strong>annihilation</strong> and <strong>creation</strong> operators):</p>
 <p><span class="math display">\[
 \hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\,\hat{x} + \frac{i}{\sqrt{2m\hbar\omega}}\,\hat{p}, \qquad
@@ -926,7 +1048,7 @@ window.Quarto = {
 \hat{H} = \hbar \omega \left( \hat{a}^\dagger \hat{a} + \frac{1}{2} \right).
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -935,7 +1057,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Starting from the definition of <span class="math inline">\(\hat{a}\)</span> and <span class="math inline">\(\hat{a}^\dagger\)</span>, you can show that:</p>
 <p><span class="math display">\[
@@ -982,8 +1104,8 @@ window.Quarto = {
 \tag{4}\]</span></span></p>
 <hr>
 </section>
-<section id="the-number-operator" class="level2">
-<h2 class="anchored" data-anchor-id="the-number-operator">2.6.1.2 The Number Operator</h2>
+<section id="the-number-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-number-operator">2.6.1.2 The Number Operator</h3>
 <p>We introduce the <strong>number operator</strong></p>
 <p><span class="math display">\[
 \hat{N} = \hat{a}^\dagger \hat{a}.
@@ -991,8 +1113,8 @@ window.Quarto = {
 <p>We will now <strong>prove</strong> that <span class="math inline">\(\hat{N}\)</span> acts as a counting operator, that is, <span class="math display">\[
 \hat{N}|n\rangle = n\,|n\rangle,
 \]</span> for all nonnegative integers <span class="math inline">\(n\)</span>.</p>
-<section id="proof-by-induction" class="level3">
-<h3 class="anchored" data-anchor-id="proof-by-induction">Proof (by induction)</h3>
+<section id="proof-by-induction" class="level4">
+<h4 class="anchored" data-anchor-id="proof-by-induction">Proof (by induction)</h4>
 <p><strong>Base case:</strong><br>
 Since energy cannot be negative, there must exist a lowest-energy state <span class="math inline">\(|0\rangle\)</span> (the <strong>ground state</strong>) such that:</p>
 <p><span class="math display">\[
@@ -1016,8 +1138,8 @@ Using the commutation relation <span class="math inline">\([\hat{N}, \hat{a}^\da
 Thus, if the statement holds for <span class="math inline">\(n\)</span>, it also holds for <span class="math inline">\(n+1\)</span>.<br>
 By mathematical induction, <span class="math inline">\(\hat{N}|n\rangle = n|n\rangle\)</span> for all <span class="math inline">\(n\)</span>.</p>
 </section>
-<section id="determining-the-normalization-factors-of-the-ladder-operators" class="level3">
-<h3 class="anchored" data-anchor-id="determining-the-normalization-factors-of-the-ladder-operators">Determining the normalization factors of the ladder operators</h3>
+<section id="determining-the-normalization-factors-of-the-ladder-operators" class="level4">
+<h4 class="anchored" data-anchor-id="determining-the-normalization-factors-of-the-ladder-operators">Determining the normalization factors of the ladder operators</h4>
 <p>To determine the correct normalization constants stated in <a href="#eq-adagger" class="quarto-xref">Equation&nbsp;3</a> and <a href="#eq-a" class="quarto-xref">Equation&nbsp;4</a>, we now use the number operator.</p>
 <ol type="1">
 <li><p><strong>Unnormalized definition</strong></p>
@@ -1046,8 +1168,8 @@ C_{n+1} = \sqrt{n+1}.
 </section>
 </section>
 </section>
-<section id="energy-eigenvalues" class="level1">
-<h1>2.6.2. Energy Eigenvalues</h1>
+<section id="energy-eigenvalues" class="level2">
+<h2 class="anchored" data-anchor-id="energy-eigenvalues">2.6.2. Energy Eigenvalues</h2>
 <p>Let <span class="math inline">\(|n\rangle\)</span> be an energy eigenstate of the oscillator, defined by:</p>
 <p><span class="math display">\[
 \hat{H}|n\rangle = E_n |n\rangle.
@@ -1072,8 +1194,8 @@ E_0 = \frac{1}{2}\hbar\omega.
 <p><span class="math display">\[
 E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled" title="Why is this the **complete** spectrum?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1082,7 +1204,7 @@ E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A natural question arises: could there be “hidden” energy eigenstates between the levels we’ve constructed? The answer is no, and here’s why:</p>
 <p>Suppose <span class="math inline">\(|\psi\rangle\)</span> is <em>any</em> energy eigenstate with energy <span class="math inline">\(E\)</span>. Since <span class="math inline">\(\hat{H} = \hbar\omega(\hat{N} + \frac{1}{2})\)</span>, we have: <span class="math display">\[
@@ -1099,8 +1221,8 @@ E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
 </div>
 <hr>
 </section>
-<section id="finding-the-wavefunctions" class="level1">
-<h1>2.6.3. Finding the Wavefunctions</h1>
+<section id="finding-the-wavefunctions" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-wavefunctions">2.6.3. Finding the Wavefunctions</h2>
 <p>To find the explicit forms of the wavefunctions, we can apply the lowering operator definition to the coordinate representation.</p>
 <p>In position space, the ground state <span class="math inline">\(|0\rangle\)</span> satisfies:</p>
 <p><span class="math display">\[
@@ -1131,7 +1253,7 @@ E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
 H_n\!\left(\sqrt{\frac{m\omega}{\hbar}}\,x\right)
 e^{-\frac{m\omega x^2}{2\hbar}}.
 \]</span></p>
-<div id="c685b14a" class="cell" data-execution_count="1">
+<div id="cell-fig-harmonic-wavefunctions" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1251,17 +1373,22 @@ e^{-\frac{m\omega x^2}{2\hbar}}.
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="qosc_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="page-gallery"><img src="qosc_files/figure-html/cell-2-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Wavefunctions of the first seven harmonic oscillator states." width="700" height="556"></a></p>
+<div id="fig-harmonic-wavefunctions" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Parabolic harmonic potential with equally spaced energy levels and the corresponding wavefunctions.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-harmonic-wavefunctions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="qosc_files/figure-html/fig-harmonic-wavefunctions-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Energy levels and wavefunctions of the one-dimensional quantum harmonic oscillator."><img src="qosc_files/figure-html/fig-harmonic-wavefunctions-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Parabolic harmonic potential with equally spaced energy levels and the corresponding wavefunctions." width="700" height="556"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-harmonic-wavefunctions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Energy levels and wavefunctions of the one-dimensional quantum harmonic oscillator.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <hr>
 </section>
-<section id="coherent-states" class="level1">
-<h1>2.6.4. Coherent States</h1>
+<section id="coherent-states" class="level2">
+<h2 class="anchored" data-anchor-id="coherent-states">2.6.4. Coherent States</h2>
 <p>Although our focus is the stationary states of the harmonic oscillator, there exists a special class of <strong>non-stationary states</strong> — the <strong>coherent states</strong> — that behave most like classical oscillations.</p>
 <p>A <strong>coherent state</strong> <span class="math inline">\(|\alpha\rangle\)</span> is defined as the <strong>eigenstate</strong> of the annihilation operator:</p>
 <p><span class="math display">\[
@@ -1280,7 +1407,7 @@ e^{-\frac{m\omega x^2}{2\hbar}}.
 \]</span></p>
 <p>showing that the <strong>center of the wave packet</strong> oscillates just like a <strong>classical particle</strong>.</p>
 <p>The following animation illustrates the structure and dynamics of a coherent state. Each stationary wavefunction <span class="math inline">\(\psi_n(x)\)</span> is plotted at its corresponding energy level <span class="math inline">\(E_n\)</span>, scaled according to the coefficient <span class="math inline">\(|c_n| = e^{-|\alpha|^2/2} |\alpha|^n / \sqrt{n!}\)</span> appearing in the coherent-state superposition. The red curve represents the <strong>time-dependent probability density</strong> <span class="math inline">\(|\psi_\alpha(x, t)|^2\)</span> of the coherent state, which oscillates back and forth in the harmonic potential without changing shape — a uniquely quantum realization of a classical oscillation.</p>
-<div id="19367f89" class="cell" data-execution_count="2">
+<div id="ef93e547" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1470,11 +1597,17 @@ e^{-\frac{m\omega x^2}{2\hbar}}.
 <span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
 <span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="co"># Display as HTML5 video in Jupyter</span></span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>HTML(anim.to_html5_video())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="co"># Display as looping HTML5 video</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>HTML(</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>    anim.to_html5_video().replace(</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>        <span class="st">"&lt;video "</span>,</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>        <span class="st">'&lt;video muted playsinline '</span>,</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<video width="720" height="576" controls="" autoplay="" loop="">
+<video muted="" playsinline="" width="720" height="576" controls="" autoplay="" loop="">
   <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQACHBptZGF0AAACrgYF//+q
 3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCByMzEwOCAzMWUxOWY5IC0gSC4yNjQvTVBF
 Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMyAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
@@ -3963,8 +4096,8 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTYuMTAw
 <p>Coherent states thus form a conceptual bridge between <strong>quantum</strong> and <strong>classical mechanics</strong>, and they play a crucial role in <strong>quantum optics</strong> and <strong>field theory</strong>.</p>
 <hr>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key Takeaways</h1>
+<section id="the-central-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-central-idea">2.6.5. The Central Idea</h2>
 <ul>
 <li>The <strong>algebraic method</strong> provides an elegant and general solution to the harmonic oscillator problem.<br>
 </li>

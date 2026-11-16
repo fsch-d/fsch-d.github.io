@@ -59,7 +59,7 @@ website:
         text: 2.10 The Variational Method
       - href: mod2/exchange.qmd
         text: '2.11 Exchange Interaction: Fermions and Bosons'
-      - href: mod4/relwaves.qmd
+      - href: mod2/relwaves.qmd
         text: 2.12 Relativistic Wave Equations — the Dirac Equation
     - section: '3 Hydrogen Atom: Wave Functions'
       href: mod3/index.qmd

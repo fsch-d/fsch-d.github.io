@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Quantization of the electromagnetic field, from electromagnetic potentials and minimal coupling to transverse normal modes, photons, vacuum fluctuations, and quantum states of light.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -172,7 +173,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="2.7 Quantization of the Electromagnetic Field – Introduction into Atomic, Molecular, and Optical Physics">
-<meta property="og:description" content="From classical electrodynamics to photons">
+<meta property="og:description" content="From Classical Electrodynamics to Photons">
 <meta property="og:image" content="https://fsch-d.github.io/mod2/quantized_em_field_files/figure-html/fig-helmholtz-decomposition-output-1.png">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 <meta property="og:image:alt" content="Two schematic vector fields. Left: eight blue arrows radiate outward from an orange positive charge, illustrating a curl-free longitudinal field. Right: three concentric blue circles with clockwise arrows illustrate a divergence-free transverse field.">
@@ -508,7 +509,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+  <a href="../mod2/relwaves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
@@ -835,7 +836,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#from-classical-electrodynamics-to-photons-overview-and-plan" id="toc-from-classical-electrodynamics-to-photons-overview-and-plan" class="nav-link active" data-scroll-target="#from-classical-electrodynamics-to-photons-overview-and-plan">From Classical Electrodynamics to Photons: Overview and Plan</a></li>
   <li><a href="#charged-particles-and-electromagnetic-potentials" id="toc-charged-particles-and-electromagnetic-potentials" class="nav-link" data-scroll-target="#charged-particles-and-electromagnetic-potentials">2.7.1. Charged particles and electromagnetic potentials</a></li>
   <li><a href="#minimal-coupling-from-the-classical-lagrangian" id="toc-minimal-coupling-from-the-classical-lagrangian" class="nav-link" data-scroll-target="#minimal-coupling-from-the-classical-lagrangian">2.7.2. Minimal coupling from the classical Lagrangian</a>
   <ul class="collapse">
@@ -863,14 +864,14 @@ window.Quarto = {
   <li><a href="#the-quantized-electromagnetic-field" id="toc-the-quantized-electromagnetic-field" class="nav-link" data-scroll-target="#the-quantized-electromagnetic-field">2.7.5.1. The quantized electromagnetic field</a></li>
   <li><a href="#vacuum-fluctuations-and-the-uncertainty-principle" id="toc-vacuum-fluctuations-and-the-uncertainty-principle" class="nav-link" data-scroll-target="#vacuum-fluctuations-and-the-uncertainty-principle">2.7.5.2. Vacuum fluctuations and the uncertainty principle</a></li>
   </ul></li>
-  <li><a href="#quantum-states-of-the-electromagnetic-field" id="toc-quantum-states-of-the-electromagnetic-field" class="nav-link" data-scroll-target="#quantum-states-of-the-electromagnetic-field">2.7.6. Quantum States of the Electromagnetic Field</a>
+  <li><a href="#quantum-states-of-the-electromagnetic-field" id="toc-quantum-states-of-the-electromagnetic-field" class="nav-link" data-scroll-target="#quantum-states-of-the-electromagnetic-field">2.7.6. Quantum states of the electromagnetic field</a>
   <ul class="collapse">
-  <li><a href="#field-quadratures-and-the-uncertainty-principle" id="toc-field-quadratures-and-the-uncertainty-principle" class="nav-link" data-scroll-target="#field-quadratures-and-the-uncertainty-principle">Field quadratures and the uncertainty principle</a></li>
-  <li><a href="#fock-states-light-with-a-definite-photon-number" id="toc-fock-states-light-with-a-definite-photon-number" class="nav-link" data-scroll-target="#fock-states-light-with-a-definite-photon-number">2.7.6.1. Fock states: Light with a definite photon number</a></li>
-  <li><a href="#coherent-states-the-quantum-description-of-classical-light" id="toc-coherent-states-the-quantum-description-of-classical-light" class="nav-link" data-scroll-target="#coherent-states-the-quantum-description-of-classical-light">2.7.6.2. Coherent states: The quantum description of classical light</a></li>
-  <li><a href="#squeezed-states-redistributing-quantum-uncertainty" id="toc-squeezed-states-redistributing-quantum-uncertainty" class="nav-link" data-scroll-target="#squeezed-states-redistributing-quantum-uncertainty">2.7.6.3. Squeezed states: Redistributing quantum uncertainty</a></li>
+  <li><a href="#field-quadratures-and-the-uncertainty-principle" id="toc-field-quadratures-and-the-uncertainty-principle" class="nav-link" data-scroll-target="#field-quadratures-and-the-uncertainty-principle">2.7.6.1 Field quadratures and the uncertainty principle</a></li>
+  <li><a href="#fock-states-light-with-a-definite-photon-number" id="toc-fock-states-light-with-a-definite-photon-number" class="nav-link" data-scroll-target="#fock-states-light-with-a-definite-photon-number">2.7.6.2. Fock states: Light with a definite photon number</a></li>
+  <li><a href="#coherent-states-the-quantum-description-of-classical-light" id="toc-coherent-states-the-quantum-description-of-classical-light" class="nav-link" data-scroll-target="#coherent-states-the-quantum-description-of-classical-light">2.7.6.3. Coherent states: The quantum description of classical light</a></li>
+  <li><a href="#squeezed-states-redistributing-quantum-uncertainty" id="toc-squeezed-states-redistributing-quantum-uncertainty" class="nav-link" data-scroll-target="#squeezed-states-redistributing-quantum-uncertainty">2.7.6.4. Squeezed states: Redistributing quantum uncertainty</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">2.7.8. Summary</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">2.7.7. Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -881,7 +882,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/quantized_em_field.html">2.7 Quantization of the Electromagnetic Field</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">2.7 Quantization of the Electromagnetic Field</h1>
-<p class="subtitle lead">From classical electrodynamics to photons</p>
+<p class="subtitle lead">From Classical Electrodynamics to Photons</p>
 </div>
 
 
@@ -904,8 +905,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="from-classical-electrodynamics-to-photons-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="from-classical-electrodynamics-to-photons-overview-and-plan">From Classical Electrodynamics to Photons: Overview and Plan</h2>
 <p>The quantum harmonic oscillator is more than a model for a particle moving near a stable equilibrium. It also provides the mathematical framework for describing the electromagnetic field quantum mechanically. The central result of this chapter is that <strong>each independent normal mode of the free electromagnetic field is equivalent to a harmonic oscillator</strong>. Its quantized excitations are photons.</p>
 <p>Establishing this connection requires concepts from classical mechanics and electrodynamics that go beyond the usual introductory physics curriculum. These include the Lagrangian and Hamiltonian formulations of mechanics, electromagnetic potentials, gauge transformations, and the energy of electromagnetic fields. A complete and mathematically rigorous treatment would require considerably more background and is beyond the scope of this course.</p>
 <p>This chapter therefore aims to <strong>strike a balance between theoretical foundations and practical relevance</strong>. Rather than developing all the underlying classical theory from first principles, we introduce the essential concepts and use them to motivate the quantization of the electromagnetic field. The emphasis is on understanding the physical principles and the origin of the results that we will use in atomic, molecular, and optical physics.</p>
@@ -3066,12 +3067,12 @@ E_0=
 </section>
 </section>
 <section id="quantum-states-of-the-electromagnetic-field" class="level2">
-<h2 class="anchored" data-anchor-id="quantum-states-of-the-electromagnetic-field">2.7.6. Quantum States of the Electromagnetic Field</h2>
+<h2 class="anchored" data-anchor-id="quantum-states-of-the-electromagnetic-field">2.7.6. Quantum states of the electromagnetic field</h2>
 <p>Quantizing the electromagnetic field allows us to describe light in terms of photons. However, specifying the number of photons is not the only way to characterize a quantum state of light.</p>
 <p>Different quantum states can have very different electric-field properties. In particular, they differ in their average electric field and in the quantum fluctuations around that average.</p>
 <p>To visualize these differences, it is useful to introduce a representation based on the two <strong>field quadratures</strong>.</p>
 <section id="field-quadratures-and-the-uncertainty-principle" class="level3">
-<h3 class="anchored" data-anchor-id="field-quadratures-and-the-uncertainty-principle">Field quadratures and the uncertainty principle</h3>
+<h3 class="anchored" data-anchor-id="field-quadratures-and-the-uncertainty-principle">2.7.6.1 Field quadratures and the uncertainty principle</h3>
 <p>Recall that each electromagnetic mode is described by a quantum harmonic oscillator with coordinate <span class="math inline">\(\hat q\)</span> and momentum <span class="math inline">\(\hat p\)</span>.</p>
 <p>For a single mode of frequency <span class="math inline">\(\omega\)</span>, we define the dimensionless quadrature operators</p>
 <p><span class="math display">\[
@@ -3374,7 +3375,7 @@ Figure&nbsp;3: Two equivalent representations of a classical monochromatic elect
 <p>We will use this representation to compare three important types of quantum states of light.</p>
 </section>
 <section id="fock-states-light-with-a-definite-photon-number" class="level3">
-<h3 class="anchored" data-anchor-id="fock-states-light-with-a-definite-photon-number">2.7.6.1. Fock states: Light with a definite photon number</h3>
+<h3 class="anchored" data-anchor-id="fock-states-light-with-a-definite-photon-number">2.7.6.2. Fock states: Light with a definite photon number</h3>
 <p>A Fock state <span class="math inline">\(|n\rangle\)</span> contains exactly <span class="math inline">\(n\)</span> photons in a given electromagnetic mode:</p>
 <p><span class="math display">\[
 \hat N|n\rangle=n|n\rangle,
@@ -3617,7 +3618,7 @@ Figure&nbsp;4: A Fock state with a definite photon number (n = 3). (a) Rotationa
 </div>
 </section>
 <section id="coherent-states-the-quantum-description-of-classical-light" class="level3">
-<h3 class="anchored" data-anchor-id="coherent-states-the-quantum-description-of-classical-light">2.7.6.2. Coherent states: The quantum description of classical light</h3>
+<h3 class="anchored" data-anchor-id="coherent-states-the-quantum-description-of-classical-light">2.7.6.3. Coherent states: The quantum description of classical light</h3>
 <p>A coherent state <span class="math inline">\(|\alpha\rangle\)</span> is defined as an eigenstate of the annihilation operator:</p>
 <p><span class="math display">\[
 \boxed{
@@ -4000,7 +4001,7 @@ Figure&nbsp;5: Coherent state of a single electromagnetic mode. (a) The circular
 </div>
 </section>
 <section id="squeezed-states-redistributing-quantum-uncertainty" class="level3">
-<h3 class="anchored" data-anchor-id="squeezed-states-redistributing-quantum-uncertainty">2.7.6.3. Squeezed states: Redistributing quantum uncertainty</h3>
+<h3 class="anchored" data-anchor-id="squeezed-states-redistributing-quantum-uncertainty">2.7.6.4. Squeezed states: Redistributing quantum uncertainty</h3>
 <p>The uncertainty principle requires</p>
 <p><span class="math display">\[
 \Delta X\,\Delta Y\geq\frac14,
@@ -4431,8 +4432,8 @@ Figure&nbsp;6: Amplitude- and phase-squeezed coherent states of a single electro
 </div>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">2.7.8. Summary</h2>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">2.7.7. Key Takeaways</h2>
 <p>The route from classical electrodynamics to the quantum description of light can now be summarized:</p>
 <ol type="1">
 <li>The Lorentz force follows from a Lagrangian containing the scalar and vector potentials.</li>

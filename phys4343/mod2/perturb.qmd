@@ -1,177 +1,426 @@
 ---
-title: 2.8 Time-Independent Perturbation Theory
+title: "2.8 Time-Independent Perturbation Theory"
+subtitle: "Non-Degenerate Perturbation Theory"
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to non-degenerate time-independent perturbation theory, including first-order energy and state corrections, second-order energy shifts, and limits of the approximation.">
 ---
 
-## Time-independent (and non-degenerate) perturbation theory
+## Perturbation Theory: Overview and Plan
 
-### Problem setup
+So far, we have studied quantum systems for which the Schrödinger equation can be solved exactly, or at least reduced to a manageable mathematical problem. In realistic atoms and molecules, however, the Hamiltonian often contains additional interactions that prevent an exact solution. Examples include weak external fields and small corrections to an otherwise solvable atomic Hamiltonian.
 
-We consider a system whose Hamiltonian is given by
+**Perturbation theory** provides a systematic way to approximate the energies and states of such systems. The central idea is to start from a Hamiltonian whose eigenstates and eigenenergies are known, then calculate how a weak additional interaction changes them.
 
-$$
-\hat{H} = \hat{H}_0 + \hat{V},
-$$
+In this chapter, we consider **time-independent, non-degenerate perturbation theory**. The perturbation does not depend explicitly on time, and the unperturbed energy level of interest is assumed to be non-degenerate.
 
-where $\hat{V}$ is a weak perturbation of the system.  
-The eigenstates $\ket{n^{(0)}}$ and eigenenergies $E_n^{(0)}$ of the unperturbed system are assumed to be known, i.e.
+The specific goals for this chapter are:
 
-$$
-\hat{H}_0 \ket{n^{(0)}} = E_n^{(0)} \ket{n^{(0)}}.
-$$
+1. Separate a Hamiltonian into a solvable part and a weak perturbation.
+2. Introduce a formal expansion of energies and eigenstates in powers of the perturbation strength.
+3. Derive the **first-order energy correction** and **first-order correction to the state**.
+4. Obtain the **second-order energy correction** and interpret its dependence on nearby levels.
+5. Understand when non-degenerate perturbation theory is reliable and why nearly degenerate levels require special treatment.
 
-**Question:** How does the perturbation $\hat{V}$ modify the eigenenergies and eigenstates?
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
 
----
+### Perturbative Hamiltonian
 
-### Ansatz
-
-We introduce a real-valued “tuning” parameter $\lambda$ (between 0 and 1) to interpolate between the unperturbed ($\lambda=0$) and the fully perturbed ($\lambda=1$) system:
+A weak, time-independent interaction is added to a solvable Hamiltonian:
 
 $$
-\hat{H} = \hat{H}_0 + \lambda \hat{V}.
+\boxed{\hat H=\hat H_0+\lambda\hat V,}
 $$
 
-We then expand the eigenenergies and eigenstates in powers of $\lambda$:
+where $\lambda$ is a formal expansion parameter, set to $1$ after calculating the corrections. The unperturbed states satisfy
 
 $$
-E_n = E_n^{(0)} + \lambda E_n^{(1)} + \lambda^2 E_n^{(2)} + \lambda^3 E_n^{(3)} + \dots
+\hat H_0\ket{n^{(0)}}=E_n^{(0)}\ket{n^{(0)}}.
 $$
 
-$$
-\ket{n} = N(\lambda)\left( \ket{n^{(0)}} + \sum_{k \neq n} c_{nk}(\lambda) \ket{k^{(0)}} \right),
-$$
+### Energy corrections
 
-with expansion coefficients
+The energy of level $n$ is expanded as
 
 $$
-c_{nk}(\lambda) = \lambda c_{nk}^{(1)} + \lambda^2 c_{nk}^{(2)} + \lambda^3 c_{nk}^{(3)} + \dots
+E_n=E_n^{(0)}+\lambda E_n^{(1)}+\lambda^2 E_n^{(2)}+\cdots.
 $$
 
----
-
-### Solution strategy
-
-We plug this expansion into the Schrödinger equation:
+The **first-order energy correction** is the expectation value of the perturbation in the unperturbed state:
 
 $$
-(\hat{H}_0 + \lambda \hat{V})
-\left( \ket{n^{(0)}} + \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \ket{k^{(0)}} \right)
+\boxed{E_n^{(1)}=\bra{n^{(0)}}\hat V\ket{n^{(0)}}.}
+$$
+
+The **second-order energy correction** depends on couplings to all other unperturbed states:
+
+$$
+\boxed{
+E_n^{(2)}=\sum_{k\ne n}
+\frac{\left|\bra{k^{(0)}}\hat V\ket{n^{(0)}}\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+}
+$$
+
+### First-order correction to the state
+
+The perturbation mixes the unperturbed state with other energy eigenstates:
+
+$$
+\boxed{
+\ket{n}\approx\ket{n^{(0)}}+
+\sum_{k\ne n}
+\frac{\bra{k^{(0)}}\hat V\ket{n^{(0)}}}
+{E_n^{(0)}-E_k^{(0)}}\ket{k^{(0)}}.
+}
+$$
+
+This expression is accurate through first order in the perturbation, with $\lambda=1$.
+
+::::
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+### Physical meaning of the corrections
+
+- The first-order energy shift is determined by the **diagonal matrix element** of the perturbation in the original state.
+- **Off-diagonal matrix elements** couple different unperturbed states and produce corrections to the eigenstates.
+- A vanishing first-order energy shift does **not** imply that the perturbation has no effect: the state may change, and the energy may shift at second order.
+- Second-order contributions can be positive or negative. Coupling to a higher-energy state contributes negatively; coupling to a lower-energy state contributes positively.
+
+### Validity of the approximation
+
+- The perturbative corrections must remain small enough that successive orders provide a useful approximation.
+- State mixing is controlled by the ratio of an off-diagonal perturbation matrix element to the corresponding unperturbed energy separation.
+- When two coupled levels are degenerate or nearly degenerate, the non-degenerate expansion can fail. Such cases require **degenerate perturbation theory** or another treatment.
+- Normalization of the corrected state matters, but its first nontrivial correction appears at second order.
+
+The order-by-order algebra below explains **how the perturbative formulas follow from the Schrödinger equation**. The intermediate expansions are not intended as formulas to memorize; the central results and their physical interpretation are the important outcomes.
+
+::::
+
+## 2.8.1. The Perturbative Approach
+
+### 2.8.1.1. Problem setup
+
+Consider a Hamiltonian
+
+$$
+\hat H=\hat H_0+\hat V,
+$$
+
+where $\hat H_0$ describes a system whose eigenstates $\ket{n^{(0)}}$ and eigenenergies $E_n^{(0)}$ are known:
+
+$$
+\hat H_0\ket{n^{(0)}}=E_n^{(0)}\ket{n^{(0)}}.
+$$
+
+The additional interaction $\hat V$ is assumed to be sufficiently weak for a perturbative treatment. We want to determine how it modifies the energies and eigenstates of the system.
+
+For now, we assume that the unperturbed level $E_n^{(0)}$ is **non-degenerate**.
+
+### 2.8.1.2. Expansion in the perturbation strength
+
+We introduce a real parameter $\lambda$ and write
+
+$$
+\hat H(\lambda)=\hat H_0+\lambda\hat V.
+$$
+
+At $\lambda=0$, the system is unperturbed. At $\lambda=1$, we recover the Hamiltonian of interest. The parameter is a bookkeeping device that allows us to identify successive orders of the correction.
+
+We expand the energy as
+
+$$
+E_n(\lambda)=E_n^{(0)}+\lambda E_n^{(1)}+\lambda^2 E_n^{(2)}+\cdots.
+$$
+
+Similarly, we expand the eigenstate in the basis of unperturbed eigenstates:
+
+$$
+\ket{n(\lambda)}=N(\lambda)\left[
+\ket{n^{(0)}}+
+\sum_{k\ne n}c_{nk}(\lambda)\ket{k^{(0)}}
+\right],
+$$
+
+with
+
+$$
+c_{nk}(\lambda)=\lambda c_{nk}^{(1)}+\lambda^2 c_{nk}^{(2)}+\cdots.
+$$
+
+Here $N(\lambda)$ ensures normalization. To derive the corrections, it is convenient to work first with the expression inside the brackets, fixing the coefficient of $\ket{n^{(0)}}$ to unity; normalization can be restored afterward.
+
+### 2.8.1.3. Solution strategy
+
+
+To substitute the eigenstate expansion into the Schrödinger equation, it is convenient to collect terms with the same power of $\lambda$.
+
+For the moment, we omit the overall normalization factor $N(\lambda)$ and write
+
+$$
+\begin{aligned}
+\ket{n(\lambda)}
+&\propto \ket{n^{(0)}}
++\lambda\sum_{k\neq n}c_{nk}^{(1)}\ket{k^{(0)}}\\
+&\quad+\lambda^2\sum_{k\neq n}c_{nk}^{(2)}\ket{k^{(0)}}
++\cdots.
+\end{aligned}
+$$
+
+The sums become cumbersome when we substitute this expression into the Schrödinger equation. We therefore introduce the abbreviations
+
+$$
+\ket{n^{(1)}}\equiv
+\sum_{k\neq n}c_{nk}^{(1)}\ket{k^{(0)}},
+\qquad
+\ket{n^{(2)}}\equiv
+\sum_{k\neq n}c_{nk}^{(2)}\ket{k^{(0)}}.
+$$
+
+The eigenstate expansion then takes the simpler form
+
+$$
+\boxed{
+\ket{n(\lambda)}
+\propto
+\ket{n^{(0)}}+
+\lambda\ket{n^{(1)}}+
+\lambda^2\ket{n^{(2)}}+\cdots.
+}
+$$
+
+We can now substitute this expression, together with the energy expansion, into the Schrödinger equation and compare equal powers of $\lambda$.
+
+We start from
+
+$$
+(\hat H_0+\lambda\hat V)\ket{n(\lambda)}
+=E_n(\lambda)\ket{n(\lambda)}.
+$$
+
+Substituting the expansions explicitly into the Schrödinger equation  up to second order gives
+
+$$
+\begin{aligned}
+&(\hat H_0+\lambda\hat V)
+\left(\ket{n^{(0)}}+\lambda\ket{n^{(1)}}
++\lambda^2\ket{n^{(2)}}+\cdots\right)\\
+&\qquad=
+\left(E_n^{(0)}+\lambda E_n^{(1)}
++\lambda^2 E_n^{(2)}+\cdots\right)
+\left(\ket{n^{(0)}}+\lambda\ket{n^{(1)}}
++\lambda^2\ket{n^{(2)}}+\cdots\right).
+\end{aligned}
+$$
+
+**The key trick:** Collect all terms proportional to the same power of $\lambda$. Because the equation must hold order by order, their coefficients must agree.
+
+This gives a sequence of equations:
+
+$$
+\boxed{
+\begin{aligned}
+\lambda^0:\quad&
+\hat H_0\ket{n^{(0)}}
+=E_n^{(0)}\ket{n^{(0)}},\\[6pt]
+\lambda^1:\quad&
+(\hat H_0-E_n^{(0)})\ket{n^{(1)}}
+=(E_n^{(1)}-\hat V)\ket{n^{(0)}},\\[6pt]
+\lambda^2:\quad&
+(\hat H_0-E_n^{(0)})\ket{n^{(2)}}
+=(E_n^{(1)}-\hat V)\ket{n^{(1)}}
++E_n^{(2)}\ket{n^{(0)}}.
+\end{aligned}
+}
+$$
+
+The important feature is that **each equation involves corrections of only the same or lower order**. We can therefore solve the equations successively:
+
+1. **Zeroth order:** Start from the known unperturbed system.
+2. **First order:** Determine the leading corrections to its energies and states.
+3. **Second order:** Use the first-order results to calculate the next corrections.
+
+Once the desired corrections have been calculated, we set $\lambda=1$ to recover the physical Hamiltonian $\hat H=\hat H_0+\hat V$.
+
+The following sections show how the first- and second-order energy corrections follow from these equations.
+
+
+## 2.8.2. First-Order Perturbation Theory
+
+In Section 2.8.1.3, we obtained the Schrödinger equation at first order in $\lambda$:
+
+$$
+(\hat H_0-E_n^{(0)})\ket{n^{(1)}}
 =
-\left( \sum_{i\geq 0} \lambda^i E_n^{(i)} \right)
-\left( \ket{n^{(0)}} + \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \ket{k^{(0)}} \right).
+(E_n^{(1)}-\hat V)\ket{n^{(0)}}.
 $$
 
-By comparing powers of $\lambda$ on both sides, we obtain recursive equations for the corrections $E_n^{(i)}$ and $c_{nk}^{(i)}$.  
-At the end, we set $\lambda=1$.
-
-> **Remark.** This method works because the perturbation is assumed *small*. If $\hat{V}$ is comparable to $\hat{H}_0$ in magnitude, the perturbation expansion does not converge.
-
----
-
-### Zeroth order ($\lambda^0$)
-
-At order $\lambda^0$ we recover the unperturbed Schrödinger equation:
+To determine the energy and state corrections, we now express $\ket{n^{(1)}}$ in the basis of unperturbed eigenstates,
 
 $$
-\hat{H}_0 \ket{n^{(0)}} = E_n^{(0)} \ket{n^{(0)}},
+\ket{n^{(1)}}=
+\sum_{k\neq n}c_{nk}^{(1)}\ket{k^{(0)}}.
 $$
 
-which is already solved.
-
----
-
-### First order ($\lambda^1$)
-
-At order $\lambda^1$ we find
+Substituting this expansion gives
 
 $$
-\sum_{k' \neq n} c_{nk'}^{(1)} \hat{H}_0 \ket{k'^{(0)}} + \hat{V}\ket{n^{(0)}}
+\boxed{
+\sum_{k\neq n}
+c_{nk}^{(1)}(E_k^{(0)}-E_n^{(0)})\ket{k^{(0)}}
 =
-\sum_{k' \neq n} c_{nk'}^{(1)} E_n^{(0)} \ket{k'^{(0)}} + E_n^{(1)} \ket{n^{(0)}}.
+(E_n^{(1)}-\hat V)\ket{n^{(0)}}.
+}
 $$
 
-Taking the inner product with $\bra{k^{(0)}}$ and using orthonormality $\braket{k^{(0)}}{n^{(0)}} = \delta_{nk}$ gives
+Here we have used $\hat H_0\ket{k^{(0)}}=E_k^{(0)}\ket{k^{(0)}}$.
+
+The advantage of this representation is that the unperturbed eigenstates form an **orthonormal basis**. By projecting the equation onto $\bra{n^{(0)}}$ or $\bra{k^{(0)}}$ with $k\neq n$, we can determine the energy correction and the coefficients describing the first-order change of the state.
+
+### 2.8.2.1. First-order energy correction
+
+Taking the inner product with $\bra{n^{(0)}}$ and using orthonormality, all terms in the sums vanish because $k\ne n$. We find
 
 $$
-c_{nk}^{(1)} E_k^{(0)} + \bra{k^{(0)}} \hat{V} \ket{n^{(0)}}
-= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \delta_{nk}.
+\boxed{E_n^{(1)}=\bra{n^{(0)}}\hat V\ket{n^{(0)}}.}
 $$
 
-#### First-order energy correction
-For $n=k$, this reduces to:
+Thus, to first order, the perturbed energy is
 
 $$
-E_n^{(1)} = \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
+\boxed{E_n\approx E_n^{(0)}+\bra{n^{(0)}}\hat V\ket{n^{(0)}}.}
 $$
 
-So the energy to first order is:
+The first-order shift is simply the expectation value of the perturbing interaction in the original, unperturbed state.
+
+### 2.8.2.2. First-order correction to the state
+
+Instead, project the first-order equation onto $\bra{k^{(0)}}$, with $k\ne n$. Using
 
 $$
-E_n \approx E_n^{(0)} + \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
+\bra{k^{(0)}}\hat H_0\ket{k^{(0)}}=E_k^{(0)},
 $$
 
-#### First-order correction to the state
-For $k \neq n$, we obtain:
+we obtain
 
 $$
-c_{nk}^{(1)} = \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.
+c_{nk}^{(1)}E_k^{(0)}+\bra{k^{(0)}}\hat V\ket{n^{(0)}}
+=c_{nk}^{(1)}E_n^{(0)}.
 $$
 
-Thus the perturbed state (to first order) becomes:
+Therefore,
 
 $$
-\ket{n} \approx N(1) \left(
-\ket{n^{(0)}} +
-\sum_{k \neq n} \ket{k^{(0)}} \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}
-\right).
+\boxed{
+c_{nk}^{(1)}=
+\frac{\bra{k^{(0)}}\hat V\ket{n^{(0)}}}
+{E_n^{(0)}-E_k^{(0)}}.
+}
 $$
 
-> **Remark.** Notice the denominators $E_n^{(0)} - E_k^{(0)}$.  
-> If two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need *degenerate perturbation theory* in those cases.
-
----
-
-### Second order ($\lambda^2$)
-
-At second order, one finds for the energy correction:
+The corrected eigenstate, through first order, is
 
 $$
-E_n^{(2)} = \sum_{k \neq n} \frac{|\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.
+\boxed{
+\ket{n}\approx\ket{n^{(0)}}+
+\sum_{k\ne n}\ket{k^{(0)}}
+\frac{\bra{k^{(0)}}\hat V\ket{n^{(0)}}}
+{E_n^{(0)}-E_k^{(0)}}.
+}
 $$
 
-This expression shows that states closer in energy contribute more strongly.
+Two features are important: the perturbation must **couple** the two states through a nonzero matrix element, and the mixing becomes stronger when their unperturbed energies are closer together.
 
----
+## 2.8.3. Second-Order Energy Correction
 
-### Additional notes
+The first-order energy shift can vanish even when the perturbation changes the state. The next correction to the energy is
 
-- The perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.  
-- The normalization factor $N(1)$ must be chosen such that
-  $$
-  \braket{n}{n} = 1.
-  $$
+$$
+\boxed{
+E_n^{(2)}=
+\sum_{k\ne n}
+\frac{\left|\bra{k^{(0)}}\hat V\ket{n^{(0)}}\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+}
+$$
 
----
+The numerator measures the strength of the coupling between states $n$ and $k$. The denominator determines both the size and the sign of each contribution.
 
-### Summary
+- If $E_k^{(0)}>E_n^{(0)}$, the contribution from state $k$ is **negative**.
+- If $E_k^{(0)}<E_n^{(0)}$, the contribution is **positive**.
 
-- First-order correction to the **energy**:  
-  $$
-  E_n^{(1)} = \bra{n^{(0)}} \hat{V} \ket{n^{(0)}}.
-  $$
+In particular, the second-order correction to the **non-degenerate ground-state energy** is nonpositive, because every other unperturbed level lies above it.
 
-- First-order correction to the **state**:  
-  $$
-  \ket{n} \approx \ket{n^{(0)}} +
-  \sum_{k \neq n} \ket{k^{(0)}} \frac{\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}}{E_n^{(0)} - E_k^{(0)}}.
-  $$
+::: {.callout-note collapse="true" title="Derivation: Second-order energy correction"}
 
-- Second-order correction to the **energy**:  
-  $$
-  E_n^{(2)} = \sum_{k \neq n} \frac{|\bra{k^{(0)}} \hat{V} \ket{n^{(0)}}|^2}{E_n^{(0)} - E_k^{(0)}}.
-  $$
+At order $\lambda^2$, the Schrödinger equation contains
 
----
+$$
+\hat H_0\ket{n^{(2)}}+\hat V\ket{n^{(1)}}
+=E_n^{(0)}\ket{n^{(2)}}+E_n^{(1)}\ket{n^{(1)}}+E_n^{(2)}\ket{n^{(0)}}.
+$$
+
+Here $\ket{n^{(1)}}=\sum_{k\ne n}c_{nk}^{(1)}\ket{k^{(0)}}$, and the expansion is chosen so that $\braket{n^{(0)}}{n^{(1)}}=0$. Projecting onto $\bra{n^{(0)}}$ therefore gives
+
+$$
+E_n^{(2)}=\bra{n^{(0)}}\hat V\ket{n^{(1)}}
+=\sum_{k\ne n}c_{nk}^{(1)}\bra{n^{(0)}}\hat V\ket{k^{(0)}}.
+$$
+
+Substituting the first-order coefficients and using $\hat V=\hat V^\dagger$ yields
+
+$$
+E_n^{(2)}=\sum_{k\ne n}
+\frac{\left|\bra{k^{(0)}}\hat V\ket{n^{(0)}}\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+$$
+
+:::
+
+## 2.8.4. Validity and Limitations of Perturbation Theory
+
+The first-order state correction contains the ratios
+
+$$
+\frac{\bra{k^{(0)}}\hat V\ket{n^{(0)}}}
+{E_n^{(0)}-E_k^{(0)}}.
+$$
+
+For non-degenerate perturbation theory to be useful, the relevant mixing coefficients must be small. Thus, the important comparison is between **coupling matrix elements** and **energy separations**, not simply between the overall magnitudes of $\hat V$ and $\hat H_0$.
+
+If two states are degenerate, the denominator vanishes. If they are nearly degenerate and appreciably coupled, the correction can become large even for a weak perturbation. In such cases, we must treat the coupled states together, as in **degenerate perturbation theory**.
+
+The first-order corrected state is not exactly normalized. Because the admixtures are orthogonal to the original state, the leading normalization correction is of second order:
+
+$$
+N(\lambda)=\left[1+\lambda^2\sum_{k\ne n}|c_{nk}^{(1)}|^2+\cdots\right]^{-1/2}
+=1+O(\lambda^2).
+$$
+
+Consequently, the first-order state formula can be written without an explicit normalization factor. Higher-order calculations require consistent treatment of normalization and higher-order state corrections.
+
+## 2.8.5 Key Takeaways
+
+1. **Perturbation theory starts from a solvable Hamiltonian.** Write $\hat H=\hat H_0+\hat V$ and expand the energies and eigenstates in powers of the weak interaction.
+2. The **first-order energy shift** is the diagonal matrix element of the perturbation:
+   $$
+   \boxed{E_n^{(1)}=\bra{n^{(0)}}\hat V\ket{n^{(0)}}.}
+   $$
+3. The **first-order state correction** mixes other unperturbed states into the original eigenstate, with amplitudes proportional to the coupling matrix elements and inversely proportional to energy separations.
+4. The **second-order energy shift** is
+   $$
+   \boxed{E_n^{(2)}=\sum_{k\ne n}
+   \frac{|\bra{k^{(0)}}\hat V\ket{n^{(0)}}|^2}
+   {E_n^{(0)}-E_k^{(0)}}.}
+   $$
+   Contributions from levels above and below the original level have opposite signs.
+5. **Non-degenerate perturbation theory can fail near degeneracies.** Small energy denominators can produce strong state mixing even when the perturbing interaction is weak.
+
+The essential idea is that **weak interactions shift energy levels and mix quantum states in a systematic, calculable way**. This provides a starting point for understanding many small corrections to atomic energy levels.

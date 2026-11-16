@@ -1,6 +1,11 @@
 ---
 title: 2 Quantum Mechanics — A Refresher
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="A quantum mechanics refresher for atomic, molecular, and optical physics, covering wave mechanics, quantum measurement, angular momentum, perturbation theory, and quantum systems.">
 ---
 
 ## Scope of This Section
@@ -22,10 +27,10 @@ These pages should be read first and provide the basic language used throughout 
 
 ## II. Important Quantum Systems
 
-These chapters apply the general formalism to systems that occur repeatedly in AMO physics.
+These pages apply the general formalism to systems that occur repeatedly in AMO physics.
 
 1. [**Angular Momenta and Their Couplings**](amcoupling.qmd) — Angular-momentum eigenvalues, quantum numbers, and coupling.
-2. [**The One-Dimensional Quantum Harmonic Oscillator**](qosc.qmd) — Ladder operators, oscillator states, and coherent states. This chapter can be used as a reference when the harmonic oscillator appears later.
+2. [**The One-Dimensional Quantum Harmonic Oscillator**](qosc.qmd) — Ladder operators, oscillator states, and coherent states. This page can be used as a reference when the harmonic oscillator appears later.
 3. [**Quantization of the Electromagnetic Field**](quantized_em_field.qmd) — Electromagnetic modes, photons, vacuum fluctuations, and quantum states of light.
 
 ## III. Approximation Methods
@@ -38,7 +43,7 @@ These methods are important when a quantum problem cannot be solved exactly and 
 
 ## IV. Advanced Concepts and Reference Material
 
-These pages introduce concepts needed for particular later topics but are not prerequisites for the first atomic-physics chapters.
+These pages introduce concepts needed for particular later topics but are not prerequisites for the first atomic-physics pages.
 
 1. [**Exchange Interaction: Fermions and Bosons**](exchange.qmd) — Indistinguishable particles, exchange symmetry, and the Pauli principle; especially relevant for many-electron atoms.
 2. [**Relativistic Wave Equations and the Dirac Equation**](../mod4/relwaves.qmd) — Relativistic quantum mechanics and the Dirac equation; mainly background for spin and relativistic effects in atoms.

@@ -1,0 +1,268 @@
+---
+title: 2.12 Relativistic Wave Equations — the Dirac Equation
+author: Daniel Fischer
+#engine: python3
+#jupyter: python3
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to relativistic quantum mechanics, from the limitations of the Schrödinger equation and the Klein–Gordon equation to the Dirac equation, gamma matrices, electron spin, antimatter, and relativistic effects in atomic physics.">
+---
+
+
+## Relativistic Quantum Mechanics: Overview and Plan
+
+The Schrödinger equation provides an accurate description of quantum systems at nonrelativistic energies. However, it is not consistent with **special relativity**, which establishes a fundamental relationship between a particle's energy, momentum, and mass.
+
+Our goal is to develop a relativistic quantum-mechanical wave equation for a **free particle**. We begin by examining why the Schrödinger equation must be modified. This leads naturally to the **Klein–Gordon equation**, which incorporates the relativistic energy–momentum relation but is not suitable for describing spin-$\tfrac12$ particles such as electrons.
+
+We then introduce the **Dirac equation**, which is consistent with special relativity and naturally incorporates spin-$\tfrac12$. Although our discussion is restricted to free particles, the equation can be extended to include interactions, particularly with electromagnetic fields. These extensions explain important features of atomic physics, including the electron's magnetic moment, spin–orbit coupling, and relativistic corrections to atomic energy levels. The Dirac equation also provides the theoretical foundation for understanding antimatter.
+
+
+
+
+## 2.12.1. The Limitations of the Schrödinger Equation
+
+The non-relativistic Schrödinger equation for a free particle is
+
+$$
+-\frac{\hbar^{2}}{2m}\,\nabla^{2}\phi(\mathbf{r},t)
+= i\hbar\,\frac{\partial}{\partial t}\phi(\mathbf{r},t).
+$$
+
+This equation successfully describes many quantum phenomena at low energies.  
+However, it has a serious limitation: it is not consistent with special relativity.  
+
+In relativity, the energy–momentum relation is
+
+$$
+E^{2} = p^{2}c^{2} + m^{2}c^{4}.
+$$
+
+The Schrödinger equation, being first-order in time but second-order in space, does not respect this relation. In other words, it is **not Lorentz invariant**.
+
+---
+
+## 2.12.2. The Klein–Gordon Equation
+
+A natural attempt to fix this is to take the relativistic dispersion relation and promote $E$ and $\mathbf{p}$ to quantum operators:
+
+$$
+E \;\to\; i\hbar \frac{\partial}{\partial t},
+\qquad
+\mathbf{p} \;\to\; -i\hbar \nabla.
+$$
+
+Applying these substitutions to $E^2 = p^2c^2 + m^2c^4$ leads to the **Klein–Gordon equation (KGE):**
+
+$$
+\left(-\frac{1}{c^{2}} \frac{\partial^{2}}{\partial t^{2}} + \nabla^{2}\right)\phi(\mathbf{r},t)
+= \frac{m^{2}c^{2}}{\hbar^{2}}\,\phi(\mathbf{r},t).
+$$
+
+The Klein–Gordon equation is **second-order in time**, unlike the Schrödinger equation.  
+It correctly incorporates special relativity, but it comes with its own challenges:
+
+- It naturally describes **spin-0 (scalar) particles** rather than spin-$\tfrac{1}{2}$ particles like the electron.  
+- Its probability density can take negative values, making the usual probabilistic interpretation of $\lvert\phi\rvert^2$ problematic.  
+
+Because of these issues, the KGE alone is not sufficient to describe electrons and other spin-$\tfrac{1}{2}$ particles.
+
+---
+
+
+## 2.12.3. The Dirac Equation
+
+The Klein–Gordon equation incorporates the relativistic energy–momentum relation, but its second-order time derivative complicates the usual quantum-mechanical interpretation of the wavefunction.
+
+Paul Dirac sought an alternative that would retain a key feature of the Schrödinger equation: **first-order time evolution**, corresponding to an equation linear in energy. At the same time, the equation had to be consistent with special relativity.
+
+The challenge was therefore to construct a Hamiltonian that reproduces the relativistic energy–momentum relation while remaining linear in the energy operator. Dirac's solution was to introduce a Hamiltonian linear in momentum, with matrix-valued coefficients.
+
+
+### 2.12.3.1. Linearizing the Relativistic Energy Relation
+
+For a free particle, the relativistic energy–momentum relation is
+
+$$
+E^2 = p^2c^2 + m^2c^4.
+$$
+
+Dirac proposed a Hamiltonian of the form
+
+$$
+H_D = c\,\boldsymbol{\alpha}\cdot\mathbf{p} + \beta mc^2,
+$$
+
+where $\boldsymbol{\alpha}$ and $\beta$ are matrices chosen so that squaring the Hamiltonian reproduces the relativistic energy–momentum relation.
+
+Replacing the momentum by its quantum-mechanical operator, $\mathbf{p}\to-i\hbar\nabla$, and using the Schrödinger form of the time-evolution equation, $i\hbar\partial_t\psi=\hat H_D\psi$, we obtain the **Dirac equation**:
+
+$$
+\boxed{
+i\hbar \frac{\partial}{\partial t}\psi
+= \Big(-i\hbar c\,\boldsymbol{\alpha}\cdot\nabla + \beta\,mc^{2}\Big)\psi.
+}
+$$
+
+Unlike the Schrödinger equation, the Dirac equation is first-order in both time and spatial derivatives. The matrices $\boldsymbol{\alpha}$ and $\beta$ ensure that this linear equation remains consistent with the relativistic energy–momentum relation.
+
+---
+
+
+### 2.12.3.2. The Dirac Matrices
+
+The Dirac Hamiltonian was introduced as
+
+$$
+H_D = c\,\boldsymbol{\alpha}\cdot\mathbf{p} + \beta mc^2.
+$$
+
+To ensure consistency with special relativity, squaring this Hamiltonian must reproduce the relativistic energy–momentum relation:
+
+$$
+H_D^2 = (p^2c^2 + m^2c^4)I.
+$$
+
+Expanding the square gives
+
+$$
+H_D^2 =
+c^2\sum_{i,j}\alpha_i\alpha_j p_i p_j
++mc^3\sum_i(\alpha_i\beta+\beta\alpha_i)p_i
++\beta^2m^2c^4.
+$$
+
+For this expression to agree with the relativistic energy–momentum relation for arbitrary momentum, the matrices must satisfy
+
+$$
+\boxed{
+\begin{aligned}
+\{\alpha_i,\alpha_j\} &= 2\delta_{ij}I,\\
+\{\alpha_i,\beta\} &= 0,\\
+\beta^2 &= I.
+\end{aligned}
+}
+$$
+
+Here, $\{A,B\}=AB+BA$ denotes the **anticommutator**.
+
+These relations cannot be satisfied by ordinary numbers. Instead, they require matrices, with the smallest representation in three spatial dimensions having dimension $4\times4$.
+
+One possible choice, known as the **Dirac representation**, is
+
+$$
+\boldsymbol{\alpha} =
+\begin{pmatrix}
+0 & \boldsymbol{\sigma}\\
+\boldsymbol{\sigma} & 0
+\end{pmatrix},
+\qquad
+\beta =
+\begin{pmatrix}
+I & 0\\
+0 & -I
+\end{pmatrix},
+$$
+
+where $I$ is the $2\times2$ identity matrix and $\boldsymbol{\sigma}=(\sigma_x,\sigma_y,\sigma_z)$ denotes the Pauli matrices:
+
+$$
+\sigma_x =
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix},
+\qquad
+\sigma_y =
+\begin{pmatrix}
+0 & -i\\
+i & 0
+\end{pmatrix},
+\qquad
+\sigma_z =
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}.
+$$
+
+The Pauli matrices satisfy
+
+$$
+\{\sigma_i,\sigma_j\}=2\delta_{ij}I,
+\qquad
+[\sigma_i,\sigma_j]=2i\epsilon_{ijk}\sigma_k.
+$$
+
+Their appearance in the Dirac equation provides an important connection to the spin-$\tfrac12$ structure already encountered in nonrelativistic quantum mechanics.
+
+---
+
+### 2.12.3.3. Covariant Form of the Dirac Equation
+
+The Dirac equation can also be written in a more compact form that makes its relativistic structure explicit.
+
+Introducing the **gamma matrices**
+
+$$
+\gamma^0=\beta,
+\qquad
+\gamma^i=\beta\alpha_i,
+$$
+
+we obtain, in the Dirac representation,
+
+$$
+\gamma^0 =
+\begin{pmatrix}
+I & 0\\
+0 & -I
+\end{pmatrix},
+\qquad
+\gamma^i =
+\begin{pmatrix}
+0 & \sigma_i\\
+-\sigma_i & 0
+\end{pmatrix}.
+$$
+
+These matrices satisfy the anticommutation relations
+
+$$
+\boxed{
+\{\gamma^\mu,\gamma^\nu\}=2g^{\mu\nu}I,
+}
+$$
+
+where $g^{\mu\nu}=\mathrm{diag}(1,-1,-1,-1)$ is the Minkowski metric.
+
+With $\partial_\mu=(c^{-1}\partial_t,\nabla)$, the Dirac equation becomes
+
+$$
+\boxed{
+(i\hbar\gamma^\mu\partial_\mu-mc)\psi=0,
+}
+$$
+
+where summation over the repeated index $\mu=0,1,2,3$ is understood.
+
+This is the **manifestly covariant form** of the Dirac equation. The wavefunction $\psi$ is now a four-component spinor, whose transformation properties under Lorentz transformations ensure that the equation has the same form in all inertial reference frames.
+
+
+
+---
+
+## Key Takeaways
+
+The Dirac equation has profound physical consequences:
+
+- **Spin-$\tfrac{1}{2}$:** It naturally incorporates electron spin, without being put in by hand.  
+- **Four-component spinors:** The solutions $\psi$ have four components, corresponding to spin-up/spin-down and particle/antiparticle states.  
+- **Fine structure:** It predicts relativistic corrections and spin–orbit coupling in atomic spectra.  
+- **Antimatter:** It predicts the existence of antiparticles, such as the positron.  
+- **Magnetic moment:** It gives an electron $g$-factor of exactly 2 at tree level (later corrected slightly by quantum electrodynamics).
+
+---
+

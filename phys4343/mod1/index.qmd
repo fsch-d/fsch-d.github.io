@@ -1,16 +1,20 @@
 ---
+title: 1 From Classical Physics to the Quantum World of Atoms
+subtitle: How a few small wrinkles changed our view of nature
+author: "Daniel Fischer"
 filters:
-- ../physics-macros.lua
+  - ../physics-macros.lua
 format:
   html:
     css: ../styles.css
     fig-alt: true
-subtitle: How a few small wrinkles changed our view of nature
-title: 1 From Classical Physics to the Quantum World of Atoms
-author: "Daniel Fischer"
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore the historical failures of classical physics that led to quantum mechanics, from blackbody radiation and atomic spectra to wave-particle duality.">
+
 ---
 
-# A world without quantum mechanics
+## A world without quantum mechanics
 
 Why does the wire in a toaster glow orange when it gets hot? Why do
 atoms not simply collapse? Why can molecules form stable structures, and
@@ -40,7 +44,7 @@ To understand that, it is useful to go back to a time **before quantum
 mechanics existed**---to a period when the foundations of physics seemed
 remarkably secure.
 
-# 1878: Physics is almost complete
+## 1878: Physics is almost complete
 
 Imagine Munich in **1878**. A young student, about twenty years old, has
 begun studying physics at the university. His name is **Max Planck**.
@@ -92,7 +96,7 @@ But dismissing Jolly's assessment would be too easy. To understand why
 such confidence was possible, we should first appreciate just how
 successful nineteenth-century physics had become.
 
-# The triumph of classical physics
+## The triumph of classical physics
 
 By the end of the nineteenth century, much of physics could be organized
 around three extraordinarily successful theoretical frameworks:
@@ -106,7 +110,7 @@ around three extraordinarily successful theoretical frameworks:
 ![The three pillars of classical physics: mechanics, electrodynamics, and thermodynamics.](Classical_Physics_Temple.png){#fig-classical-pillars fig-alt="An intact classical Greek temple labeled Classical Physics, supported by three columns representing mechanics, electrodynamics, and thermodynamics." width="85%" fig-align="center"}
 
 
-## Mechanics: predicting motion
+### Mechanics: predicting motion
 
 The development of what we now call **classical mechanics** was closely
 tied to one of humanity's oldest scientific problems: understanding the
@@ -197,7 +201,7 @@ Classical mechanics could describe falling objects, projectiles, pendulums, gyro
 Its practical reach was just as impressive. Classical mechanics underpinned engineering, machine design, ballistics, navigation, and increasingly precise astronomy. The same mathematical framework could be used to design a bridge, predict the trajectory of a projectile, or calculate the orbit of a planet.
 
 
-## Electrodynamics: one theory for many phenomena
+### Electrodynamics: one theory for many phenomena
 
 The nineteenth century also transformed the understanding of electricity and magnetism.
 
@@ -272,7 +276,7 @@ For someone entering physics around 1878, the lesson was difficult to miss:
 
 
 
-## Thermodynamics: from steam engines to atoms
+### Thermodynamics: from steam engines to atoms
 
 The third pillar was **thermodynamics**, the study of heat, work,
 temperature, and energy.
@@ -382,7 +386,7 @@ describing our incomplete knowledge of an underlying mechanical
 reality---not as a fundamental indeterminacy in nature itself.
 
 
-# A clockwork universe
+## A clockwork universe
 
 Put the pieces together.
 
@@ -440,7 +444,7 @@ Because there were a few **small wrinkles** in the classical picture.
 
 And one of them would eventually occupy Planck himself.
 
-# Small wrinkles
+## Small wrinkles
 
 A successful physical theory should agree with observations, make
 testable predictions, and remain internally consistent. Classical
@@ -460,7 +464,7 @@ solved---perhaps missing details in an otherwise successful framework.
 They turned out to be much more than that.
 
 
-## Wrinkle 1: How does a hot object glow?
+### Wrinkle 1: How does a hot object glow?
 
 Heat a piece of metal and it begins to glow. At first it appears dull
 red. As its temperature increases, the emitted light becomes brighter
@@ -615,7 +619,7 @@ mechanics we use today. But the idea that energy exchange might be
 fundamentally discrete was a sharp break with classical expectations.
 :::
 
-## Wrinkle 2: What is light?
+### Wrinkle 2: What is light?
 
 Maxwell's theory had given one of the great triumphs of
 nineteenth-century physics:
@@ -929,7 +933,7 @@ What, then, **is** light?
 
 Planck had introduced discreteness in the exchange of energy between matter and radiation. Einstein had gone further and attached the quantum $h\nu$ to light itself. The next clues came from the other side of the interaction: **matter**, and atoms in particular, also seemed to permit only very specific energies.
 
-## Wrinkle 3: What is an atom?
+### Wrinkle 3: What is an atom?
 
 There was another difficulty---one even more directly connected to the
 subject of this course.
@@ -1079,7 +1083,7 @@ A classical planetary atom should therefore be unstable.
 But atoms are stable.
 
 
-## Wrinkle 4: Why do atoms have colors?
+### Wrinkle 4: Why do atoms have colors?
 
 Atoms presented another clue.
 
@@ -1254,7 +1258,7 @@ hydrogen but fail for more complicated atoms?
 
 The rules worked---but the underlying physics was still missing.
 
-## Wrinkle 5: Is light a particle after all?
+### Wrinkle 5: Is light a particle after all?
 
 Einstein's light quanta provided an explanation of the photoelectric
 effect, but the wave description of light remained indispensable.
@@ -1541,7 +1545,7 @@ Light had been one of the strongest successes of classical wave physics.
 Now experiments demanded that it also carry energy and momentum in
 discrete quanta.
 
-## Wrinkle 6: And are particles waves?
+### Wrinkle 6: And are particles waves?
 
 The classical categories were becoming increasingly difficult to maintain. Light, the paradigm of a wave, displayed particle-like energy and momentum.
 
@@ -1561,7 +1565,7 @@ The symmetry was difficult to ignore:
 
 The classical distinction between particles and waves was no longer sufficient.
 
-# Something has to give
+## Something has to give
 
 By the early twentieth century, the small wrinkles had accumulated.
 
@@ -1641,7 +1645,7 @@ mathematical language of quantum mechanics and then use them to
 understand the structure and dynamics of atoms.
 :::
 
-# Further reading and historical sources {#further-reading-and-historical-sources .unnumbered}
+## Further reading and historical sources {#further-reading-and-historical-sources .unnumbered}
 
 The development of quantum mechanics is unusually well documented in the original scientific literature. Many of the foundational papers and historical texts are freely available online. The following sources provide the historical basis for the discussion on this page.
 

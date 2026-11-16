@@ -101,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Introduction to non-degenerate time-independent perturbation theory, including first-order energy and state corrections, second-order energy shifts, and limits of the approximation.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -134,6 +135,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="2.8 Time-Independent Perturbation Theory – Introduction into Atomic, Molecular, and Optical Physics">
+<meta property="og:description" content="Non-Degenerate Perturbation Theory">
 <meta property="og:site_name" content="Introduction into Atomic, Molecular, and Optical Physics">
 </head>
 
@@ -465,7 +467,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+  <a href="../mod2/relwaves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
@@ -792,17 +794,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#time-independent-and-non-degenerate-perturbation-theory" id="toc-time-independent-and-non-degenerate-perturbation-theory" class="nav-link active" data-scroll-target="#time-independent-and-non-degenerate-perturbation-theory">Time-independent (and non-degenerate) perturbation theory</a>
+  <li><a href="#perturbation-theory-overview-and-plan" id="toc-perturbation-theory-overview-and-plan" class="nav-link active" data-scroll-target="#perturbation-theory-overview-and-plan">Perturbation Theory: Overview and Plan</a></li>
+  <li><a href="#the-perturbative-approach" id="toc-the-perturbative-approach" class="nav-link" data-scroll-target="#the-perturbative-approach">2.8.1. The Perturbative Approach</a>
   <ul class="collapse">
-  <li><a href="#problem-setup" id="toc-problem-setup" class="nav-link" data-scroll-target="#problem-setup">Problem setup</a></li>
-  <li><a href="#ansatz" id="toc-ansatz" class="nav-link" data-scroll-target="#ansatz">Ansatz</a></li>
-  <li><a href="#solution-strategy" id="toc-solution-strategy" class="nav-link" data-scroll-target="#solution-strategy">Solution strategy</a></li>
-  <li><a href="#zeroth-order-lambda0" id="toc-zeroth-order-lambda0" class="nav-link" data-scroll-target="#zeroth-order-lambda0">Zeroth order (<span class="math inline">\(\lambda^0\)</span>)</a></li>
-  <li><a href="#first-order-lambda1" id="toc-first-order-lambda1" class="nav-link" data-scroll-target="#first-order-lambda1">First order (<span class="math inline">\(\lambda^1\)</span>)</a></li>
-  <li><a href="#second-order-lambda2" id="toc-second-order-lambda2" class="nav-link" data-scroll-target="#second-order-lambda2">Second order (<span class="math inline">\(\lambda^2\)</span>)</a></li>
-  <li><a href="#additional-notes" id="toc-additional-notes" class="nav-link" data-scroll-target="#additional-notes">Additional notes</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#problem-setup" id="toc-problem-setup" class="nav-link" data-scroll-target="#problem-setup">2.8.1.1. Problem setup</a></li>
+  <li><a href="#expansion-in-the-perturbation-strength" id="toc-expansion-in-the-perturbation-strength" class="nav-link" data-scroll-target="#expansion-in-the-perturbation-strength">2.8.1.2. Expansion in the perturbation strength</a></li>
+  <li><a href="#solution-strategy" id="toc-solution-strategy" class="nav-link" data-scroll-target="#solution-strategy">2.8.1.3. Solution strategy</a></li>
   </ul></li>
+  <li><a href="#first-order-perturbation-theory" id="toc-first-order-perturbation-theory" class="nav-link" data-scroll-target="#first-order-perturbation-theory">2.8.2. First-Order Perturbation Theory</a>
+  <ul class="collapse">
+  <li><a href="#first-order-energy-correction" id="toc-first-order-energy-correction" class="nav-link" data-scroll-target="#first-order-energy-correction">2.8.2.1. First-order energy correction</a></li>
+  <li><a href="#first-order-correction-to-the-state-1" id="toc-first-order-correction-to-the-state-1" class="nav-link" data-scroll-target="#first-order-correction-to-the-state-1">2.8.2.2. First-order correction to the state</a></li>
+  </ul></li>
+  <li><a href="#second-order-energy-correction" id="toc-second-order-energy-correction" class="nav-link" data-scroll-target="#second-order-energy-correction">2.8.3. Second-Order Energy Correction</a></li>
+  <li><a href="#validity-and-limitations-of-perturbation-theory" id="toc-validity-and-limitations-of-perturbation-theory" class="nav-link" data-scroll-target="#validity-and-limitations-of-perturbation-theory">2.8.4. Validity and Limitations of Perturbation Theory</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">2.8.5 Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -813,6 +819,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod2/index.html">2 Quantum Mechanics</a></li><li class="breadcrumb-item"><a href="../mod2/perturb.html">2.8 Time-Independent Perturbation Theory</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">2.8 Time-Independent Perturbation Theory</h1>
+<p class="subtitle lead">Non-Degenerate Perturbation Theory</p>
 </div>
 
 
@@ -835,150 +842,361 @@ window.Quarto = {
 </header>
 
 
-<section id="time-independent-and-non-degenerate-perturbation-theory" class="level2">
-<h2 class="anchored" data-anchor-id="time-independent-and-non-degenerate-perturbation-theory">Time-independent (and non-degenerate) perturbation theory</h2>
-<section id="problem-setup" class="level3">
-<h3 class="anchored" data-anchor-id="problem-setup">Problem setup</h3>
-<p>We consider a system whose Hamiltonian is given by</p>
+<section id="perturbation-theory-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="perturbation-theory-overview-and-plan">Perturbation Theory: Overview and Plan</h2>
+<p>So far, we have studied quantum systems for which the Schrödinger equation can be solved exactly, or at least reduced to a manageable mathematical problem. In realistic atoms and molecules, however, the Hamiltonian often contains additional interactions that prevent an exact solution. Examples include weak external fields and small corrections to an otherwise solvable atomic Hamiltonian.</p>
+<p><strong>Perturbation theory</strong> provides a systematic way to approximate the energies and states of such systems. The central idea is to start from a Hamiltonian whose eigenstates and eigenenergies are known, then calculate how a weak additional interaction changes them.</p>
+<p>In this chapter, we consider <strong>time-independent, non-degenerate perturbation theory</strong>. The perturbation does not depend explicitly on time, and the unperturbed energy level of interest is assumed to be non-degenerate.</p>
+<p>The specific goals for this chapter are:</p>
+<ol type="1">
+<li>Separate a Hamiltonian into a solvable part and a weak perturbation.</li>
+<li>Introduce a formal expansion of energies and eigenstates in powers of the perturbation strength.</li>
+<li>Derive the <strong>first-order energy correction</strong> and <strong>first-order correction to the state</strong>.</li>
+<li>Obtain the <strong>second-order energy correction</strong> and interpret its dependence on nearby levels.</li>
+<li>Understand when non-degenerate perturbation theory is reliable and why nearly degenerate levels require special treatment.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Core Knowledge — Know">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Core Knowledge — Know
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="perturbative-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="perturbative-hamiltonian">Perturbative Hamiltonian</h3>
+<p>A weak, time-independent interaction is added to a solvable Hamiltonian:</p>
 <p><span class="math display">\[
-\hat{H} = \hat{H}_0 + \hat{V},
+\boxed{\hat H=\hat H_0+\lambda\hat V,}
 \]</span></p>
-<p>where <span class="math inline">\(\hat{V}\)</span> is a weak perturbation of the system.<br>
-The eigenstates <span class="math inline">\(\left\lvert n^{(0)} \right\rangle\)</span> and eigenenergies <span class="math inline">\(E_n^{(0)}\)</span> of the unperturbed system are assumed to be known, i.e.</p>
+<p>where <span class="math inline">\(\lambda\)</span> is a formal expansion parameter, set to <span class="math inline">\(1\)</span> after calculating the corrections. The unperturbed states satisfy</p>
 <p><span class="math display">\[
-\hat{H}_0 \left\lvert n^{(0)} \right\rangle= E_n^{(0)} \left\lvert n^{(0)} \right\rangle.
+\hat H_0\left\lvert n^{(0)} \right\rangle=E_n^{(0)}\left\lvert n^{(0)} \right\rangle.
 \]</span></p>
-<p><strong>Question:</strong> How does the perturbation <span class="math inline">\(\hat{V}\)</span> modify the eigenenergies and eigenstates?</p>
-<hr>
 </section>
-<section id="ansatz" class="level3">
-<h3 class="anchored" data-anchor-id="ansatz">Ansatz</h3>
-<p>We introduce a real-valued “tuning” parameter <span class="math inline">\(\lambda\)</span> (between 0 and 1) to interpolate between the unperturbed (<span class="math inline">\(\lambda=0\)</span>) and the fully perturbed (<span class="math inline">\(\lambda=1\)</span>) system:</p>
+<section id="energy-corrections" class="level3">
+<h3 class="anchored" data-anchor-id="energy-corrections">Energy corrections</h3>
+<p>The energy of level <span class="math inline">\(n\)</span> is expanded as</p>
 <p><span class="math display">\[
-\hat{H} = \hat{H}_0 + \lambda \hat{V}.
+E_n=E_n^{(0)}+\lambda E_n^{(1)}+\lambda^2 E_n^{(2)}+\cdots.
 \]</span></p>
-<p>We then expand the eigenenergies and eigenstates in powers of <span class="math inline">\(\lambda\)</span>:</p>
+<p>The <strong>first-order energy correction</strong> is the expectation value of the perturbation in the unperturbed state:</p>
 <p><span class="math display">\[
-E_n = E_n^{(0)} + \lambda E_n^{(1)} + \lambda^2 E_n^{(2)} + \lambda^3 E_n^{(3)} + \dots
+\boxed{E_n^{(1)}=\left\langle n^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle.}
 \]</span></p>
+<p>The <strong>second-order energy correction</strong> depends on couplings to all other unperturbed states:</p>
 <p><span class="math display">\[
-\left\lvert n \right\rangle= N(\lambda)\left( \left\lvert n^{(0)} \right\rangle+ \sum_{k \neq n} c_{nk}(\lambda) \left\lvert k^{(0)} \right\rangle\right),
+\boxed{
+E_n^{(2)}=\sum_{k\ne n}
+\frac{\left|\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+}
 \]</span></p>
-<p>with expansion coefficients</p>
+</section>
+<section id="first-order-correction-to-the-state" class="level3">
+<h3 class="anchored" data-anchor-id="first-order-correction-to-the-state">First-order correction to the state</h3>
+<p>The perturbation mixes the unperturbed state with other energy eigenstates:</p>
 <p><span class="math display">\[
-c_{nk}(\lambda) = \lambda c_{nk}^{(1)} + \lambda^2 c_{nk}^{(2)} + \lambda^3 c_{nk}^{(3)} + \dots
+\boxed{
+\left\lvert n \right\rangle\approx\left\lvert n^{(0)} \right\rangle+
+\sum_{k\ne n}
+\frac{\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle}
+{E_n^{(0)}-E_k^{(0)}}\left\lvert k^{(0)} \right\rangle.
+}
 \]</span></p>
-<hr>
+<p>This expression is accurate through first order in the perturbation, with <span class="math inline">\(\lambda=1\)</span>.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Working Knowledge — Understand">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working Knowledge — Understand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="physical-meaning-of-the-corrections" class="level3">
+<h3 class="anchored" data-anchor-id="physical-meaning-of-the-corrections">Physical meaning of the corrections</h3>
+<ul>
+<li>The first-order energy shift is determined by the <strong>diagonal matrix element</strong> of the perturbation in the original state.</li>
+<li><strong>Off-diagonal matrix elements</strong> couple different unperturbed states and produce corrections to the eigenstates.</li>
+<li>A vanishing first-order energy shift does <strong>not</strong> imply that the perturbation has no effect: the state may change, and the energy may shift at second order.</li>
+<li>Second-order contributions can be positive or negative. Coupling to a higher-energy state contributes negatively; coupling to a lower-energy state contributes positively.</li>
+</ul>
+</section>
+<section id="validity-of-the-approximation" class="level3">
+<h3 class="anchored" data-anchor-id="validity-of-the-approximation">Validity of the approximation</h3>
+<ul>
+<li>The perturbative corrections must remain small enough that successive orders provide a useful approximation.</li>
+<li>State mixing is controlled by the ratio of an off-diagonal perturbation matrix element to the corresponding unperturbed energy separation.</li>
+<li>When two coupled levels are degenerate or nearly degenerate, the non-degenerate expansion can fail. Such cases require <strong>degenerate perturbation theory</strong> or another treatment.</li>
+<li>Normalization of the corrected state matters, but its first nontrivial correction appears at second order.</li>
+</ul>
+<p>The order-by-order algebra below explains <strong>how the perturbative formulas follow from the Schrödinger equation</strong>. The intermediate expansions are not intended as formulas to memorize; the central results and their physical interpretation are the important outcomes.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="the-perturbative-approach" class="level2">
+<h2 class="anchored" data-anchor-id="the-perturbative-approach">2.8.1. The Perturbative Approach</h2>
+<section id="problem-setup" class="level3">
+<h3 class="anchored" data-anchor-id="problem-setup">2.8.1.1. Problem setup</h3>
+<p>Consider a Hamiltonian</p>
+<p><span class="math display">\[
+\hat H=\hat H_0+\hat V,
+\]</span></p>
+<p>where <span class="math inline">\(\hat H_0\)</span> describes a system whose eigenstates <span class="math inline">\(\left\lvert n^{(0)} \right\rangle\)</span> and eigenenergies <span class="math inline">\(E_n^{(0)}\)</span> are known:</p>
+<p><span class="math display">\[
+\hat H_0\left\lvert n^{(0)} \right\rangle=E_n^{(0)}\left\lvert n^{(0)} \right\rangle.
+\]</span></p>
+<p>The additional interaction <span class="math inline">\(\hat V\)</span> is assumed to be sufficiently weak for a perturbative treatment. We want to determine how it modifies the energies and eigenstates of the system.</p>
+<p>For now, we assume that the unperturbed level <span class="math inline">\(E_n^{(0)}\)</span> is <strong>non-degenerate</strong>.</p>
+</section>
+<section id="expansion-in-the-perturbation-strength" class="level3">
+<h3 class="anchored" data-anchor-id="expansion-in-the-perturbation-strength">2.8.1.2. Expansion in the perturbation strength</h3>
+<p>We introduce a real parameter <span class="math inline">\(\lambda\)</span> and write</p>
+<p><span class="math display">\[
+\hat H(\lambda)=\hat H_0+\lambda\hat V.
+\]</span></p>
+<p>At <span class="math inline">\(\lambda=0\)</span>, the system is unperturbed. At <span class="math inline">\(\lambda=1\)</span>, we recover the Hamiltonian of interest. The parameter is a bookkeeping device that allows us to identify successive orders of the correction.</p>
+<p>We expand the energy as</p>
+<p><span class="math display">\[
+E_n(\lambda)=E_n^{(0)}+\lambda E_n^{(1)}+\lambda^2 E_n^{(2)}+\cdots.
+\]</span></p>
+<p>Similarly, we expand the eigenstate in the basis of unperturbed eigenstates:</p>
+<p><span class="math display">\[
+\left\lvert n(\lambda) \right\rangle=N(\lambda)\left[
+\left\lvert n^{(0)} \right\rangle+
+\sum_{k\ne n}c_{nk}(\lambda)\left\lvert k^{(0)} \right\rangle\right],
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+c_{nk}(\lambda)=\lambda c_{nk}^{(1)}+\lambda^2 c_{nk}^{(2)}+\cdots.
+\]</span></p>
+<p>Here <span class="math inline">\(N(\lambda)\)</span> ensures normalization. To derive the corrections, it is convenient to work first with the expression inside the brackets, fixing the coefficient of <span class="math inline">\(\left\lvert n^{(0)} \right\rangle\)</span> to unity; normalization can be restored afterward.</p>
 </section>
 <section id="solution-strategy" class="level3">
-<h3 class="anchored" data-anchor-id="solution-strategy">Solution strategy</h3>
-<p>We plug this expansion into the Schrödinger equation:</p>
+<h3 class="anchored" data-anchor-id="solution-strategy">2.8.1.3. Solution strategy</h3>
+<p>To substitute the eigenstate expansion into the Schrödinger equation, it is convenient to collect terms with the same power of <span class="math inline">\(\lambda\)</span>.</p>
+<p>For the moment, we omit the overall normalization factor <span class="math inline">\(N(\lambda)\)</span> and write</p>
 <p><span class="math display">\[
-(\hat{H}_0 + \lambda \hat{V})
-\left( \left\lvert n^{(0)} \right\rangle+ \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \left\lvert k^{(0)} \right\rangle\right)
-=
-\left( \sum_{i\geq 0} \lambda^i E_n^{(i)} \right)
-\left( \left\lvert n^{(0)} \right\rangle+ \sum_{\substack{k\neq n \\ i \geq 1}} \lambda^i c_{nk}^{(i)} \left\lvert k^{(0)} \right\rangle\right).
+\begin{aligned}
+\left\lvert n(\lambda) \right\rangle&amp;\propto \left\lvert n^{(0)} \right\rangle+\lambda\sum_{k\neq n}c_{nk}^{(1)}\left\lvert k^{(0)} \right\rangle\\
+&amp;\quad+\lambda^2\sum_{k\neq n}c_{nk}^{(2)}\left\lvert k^{(0)} \right\rangle+\cdots.
+\end{aligned}
 \]</span></p>
-<p>By comparing powers of <span class="math inline">\(\lambda\)</span> on both sides, we obtain recursive equations for the corrections <span class="math inline">\(E_n^{(i)}\)</span> and <span class="math inline">\(c_{nk}^{(i)}\)</span>.<br>
-At the end, we set <span class="math inline">\(\lambda=1\)</span>.</p>
-<blockquote class="blockquote">
-<p><strong>Remark.</strong> This method works because the perturbation is assumed <em>small</em>. If <span class="math inline">\(\hat{V}\)</span> is comparable to <span class="math inline">\(\hat{H}_0\)</span> in magnitude, the perturbation expansion does not converge.</p>
-</blockquote>
-<hr>
-</section>
-<section id="zeroth-order-lambda0" class="level3">
-<h3 class="anchored" data-anchor-id="zeroth-order-lambda0">Zeroth order (<span class="math inline">\(\lambda^0\)</span>)</h3>
-<p>At order <span class="math inline">\(\lambda^0\)</span> we recover the unperturbed Schrödinger equation:</p>
+<p>The sums become cumbersome when we substitute this expression into the Schrödinger equation. We therefore introduce the abbreviations</p>
 <p><span class="math display">\[
-\hat{H}_0 \left\lvert n^{(0)} \right\rangle= E_n^{(0)} \left\lvert n^{(0)} \right\rangle,
+\left\lvert n^{(1)} \right\rangle\equiv
+\sum_{k\neq n}c_{nk}^{(1)}\left\lvert k^{(0)} \right\rangle,
+\qquad
+\left\lvert n^{(2)} \right\rangle\equiv
+\sum_{k\neq n}c_{nk}^{(2)}\left\lvert k^{(0)} \right\rangle.
 \]</span></p>
-<p>which is already solved.</p>
-<hr>
-</section>
-<section id="first-order-lambda1" class="level3">
-<h3 class="anchored" data-anchor-id="first-order-lambda1">First order (<span class="math inline">\(\lambda^1\)</span>)</h3>
-<p>At order <span class="math inline">\(\lambda^1\)</span> we find</p>
+<p>The eigenstate expansion then takes the simpler form</p>
 <p><span class="math display">\[
-\sum_{k' \neq n} c_{nk'}^{(1)} \hat{H}_0 \left\lvert k'^{(0)} \right\rangle+ \hat{V}\left\lvert n^{(0)} \right\rangle=
-\sum_{k' \neq n} c_{nk'}^{(1)} E_n^{(0)} \left\lvert k'^{(0)} \right\rangle+ E_n^{(1)} \left\lvert n^{(0)} \right\rangle.
-\]</span></p>
-<p>Taking the inner product with <span class="math inline">\(\left\langle k^{(0)} \right\rvert\)</span> and using orthonormality <span class="math inline">\(\left\langle k^{(0)} \middle| n^{(0)} \right\rangle= \delta_{nk}\)</span> gives</p>
-<p><span class="math display">\[
-c_{nk}^{(1)} E_k^{(0)} + \left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle= c_{nk}^{(1)} E_n^{(0)} + E_n^{(1)} \delta_{nk}.
-\]</span></p>
-<section id="first-order-energy-correction" class="level4">
-<h4 class="anchored" data-anchor-id="first-order-energy-correction">First-order energy correction</h4>
-<p>For <span class="math inline">\(n=k\)</span>, this reduces to:</p>
-<p><span class="math display">\[
-E_n^{(1)} = \left\langle n^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle.
-\]</span></p>
-<p>So the energy to first order is:</p>
-<p><span class="math display">\[
-E_n \approx E_n^{(0)} + \left\langle n^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle.
-\]</span></p>
-</section>
-<section id="first-order-correction-to-the-state" class="level4">
-<h4 class="anchored" data-anchor-id="first-order-correction-to-the-state">First-order correction to the state</h4>
-<p>For <span class="math inline">\(k \neq n\)</span>, we obtain:</p>
-<p><span class="math display">\[
-c_{nk}^{(1)} = \frac{\left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle}{E_n^{(0)} - E_k^{(0)}}.
-\]</span></p>
-<p>Thus the perturbed state (to first order) becomes:</p>
-<p><span class="math display">\[
-\left\lvert n \right\rangle\approx N(1) \left(
+\boxed{
+\left\lvert n(\lambda) \right\rangle\propto
 \left\lvert n^{(0)} \right\rangle+
-\sum_{k \neq n} \left\lvert k^{(0)} \right\rangle\frac{\left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle}{E_n^{(0)} - E_k^{(0)}}
-\right).
+\lambda\left\lvert n^{(1)} \right\rangle+
+\lambda^2\left\lvert n^{(2)} \right\rangle+\cdots.
+}
 \]</span></p>
-<blockquote class="blockquote">
-<p><strong>Remark.</strong> Notice the denominators <span class="math inline">\(E_n^{(0)} - E_k^{(0)}\)</span>.<br>
-If two states are nearly degenerate (energies close together), the correction becomes very large. This is the reason we need <em>degenerate perturbation theory</em> in those cases.</p>
-</blockquote>
-<hr>
-</section>
-</section>
-<section id="second-order-lambda2" class="level3">
-<h3 class="anchored" data-anchor-id="second-order-lambda2">Second order (<span class="math inline">\(\lambda^2\)</span>)</h3>
-<p>At second order, one finds for the energy correction:</p>
+<p>We can now substitute this expression, together with the energy expansion, into the Schrödinger equation and compare equal powers of <span class="math inline">\(\lambda\)</span>.</p>
+<p>We start from</p>
 <p><span class="math display">\[
-E_n^{(2)} = \sum_{k \neq n} \frac{|\left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.
+(\hat H_0+\lambda\hat V)\left\lvert n(\lambda) \right\rangle=E_n(\lambda)\left\lvert n(\lambda) \right\rangle.
 \]</span></p>
-<p>This expression shows that states closer in energy contribute more strongly.</p>
-<hr>
+<p>Substituting the expansions explicitly into the Schrödinger equation up to second order gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;(\hat H_0+\lambda\hat V)
+\left(\left\lvert n^{(0)} \right\rangle+\lambda\left\lvert n^{(1)} \right\rangle+\lambda^2\left\lvert n^{(2)} \right\rangle+\cdots\right)\\
+&amp;\qquad=
+\left(E_n^{(0)}+\lambda E_n^{(1)}
++\lambda^2 E_n^{(2)}+\cdots\right)
+\left(\left\lvert n^{(0)} \right\rangle+\lambda\left\lvert n^{(1)} \right\rangle+\lambda^2\left\lvert n^{(2)} \right\rangle+\cdots\right).
+\end{aligned}
+\]</span></p>
+<p><strong>The key trick:</strong> Collect all terms proportional to the same power of <span class="math inline">\(\lambda\)</span>. Because the equation must hold order by order, their coefficients must agree.</p>
+<p>This gives a sequence of equations:</p>
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+\lambda^0:\quad&amp;
+\hat H_0\left\lvert n^{(0)} \right\rangle=E_n^{(0)}\left\lvert n^{(0)} \right\rangle,\\[6pt]
+\lambda^1:\quad&amp;
+(\hat H_0-E_n^{(0)})\left\lvert n^{(1)} \right\rangle=(E_n^{(1)}-\hat V)\left\lvert n^{(0)} \right\rangle,\\[6pt]
+\lambda^2:\quad&amp;
+(\hat H_0-E_n^{(0)})\left\lvert n^{(2)} \right\rangle=(E_n^{(1)}-\hat V)\left\lvert n^{(1)} \right\rangle+E_n^{(2)}\left\lvert n^{(0)} \right\rangle.
+\end{aligned}
+}
+\]</span></p>
+<p>The important feature is that <strong>each equation involves corrections of only the same or lower order</strong>. We can therefore solve the equations successively:</p>
+<ol type="1">
+<li><strong>Zeroth order:</strong> Start from the known unperturbed system.</li>
+<li><strong>First order:</strong> Determine the leading corrections to its energies and states.</li>
+<li><strong>Second order:</strong> Use the first-order results to calculate the next corrections.</li>
+</ol>
+<p>Once the desired corrections have been calculated, we set <span class="math inline">\(\lambda=1\)</span> to recover the physical Hamiltonian <span class="math inline">\(\hat H=\hat H_0+\hat V\)</span>.</p>
+<p>The following sections show how the first- and second-order energy corrections follow from these equations.</p>
 </section>
-<section id="additional-notes" class="level3">
-<h3 class="anchored" data-anchor-id="additional-notes">Additional notes</h3>
+</section>
+<section id="first-order-perturbation-theory" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-perturbation-theory">2.8.2. First-Order Perturbation Theory</h2>
+<p>In Section 2.8.1.3, we obtained the Schrödinger equation at first order in <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[
+(\hat H_0-E_n^{(0)})\left\lvert n^{(1)} \right\rangle=
+(E_n^{(1)}-\hat V)\left\lvert n^{(0)} \right\rangle.
+\]</span></p>
+<p>To determine the energy and state corrections, we now express <span class="math inline">\(\left\lvert n^{(1)} \right\rangle\)</span> in the basis of unperturbed eigenstates,</p>
+<p><span class="math display">\[
+\left\lvert n^{(1)} \right\rangle=
+\sum_{k\neq n}c_{nk}^{(1)}\left\lvert k^{(0)} \right\rangle.
+\]</span></p>
+<p>Substituting this expansion gives</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{k\neq n}
+c_{nk}^{(1)}(E_k^{(0)}-E_n^{(0)})\left\lvert k^{(0)} \right\rangle=
+(E_n^{(1)}-\hat V)\left\lvert n^{(0)} \right\rangle.
+}
+\]</span></p>
+<p>Here we have used <span class="math inline">\(\hat H_0\left\lvert k^{(0)} \right\rangle=E_k^{(0)}\left\lvert k^{(0)} \right\rangle\)</span>.</p>
+<p>The advantage of this representation is that the unperturbed eigenstates form an <strong>orthonormal basis</strong>. By projecting the equation onto <span class="math inline">\(\left\langle n^{(0)} \right\rvert\)</span> or <span class="math inline">\(\left\langle k^{(0)} \right\rvert\)</span> with <span class="math inline">\(k\neq n\)</span>, we can determine the energy correction and the coefficients describing the first-order change of the state.</p>
+<section id="first-order-energy-correction" class="level3">
+<h3 class="anchored" data-anchor-id="first-order-energy-correction">2.8.2.1. First-order energy correction</h3>
+<p>Taking the inner product with <span class="math inline">\(\left\langle n^{(0)} \right\rvert\)</span> and using orthonormality, all terms in the sums vanish because <span class="math inline">\(k\ne n\)</span>. We find</p>
+<p><span class="math display">\[
+\boxed{E_n^{(1)}=\left\langle n^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle.}
+\]</span></p>
+<p>Thus, to first order, the perturbed energy is</p>
+<p><span class="math display">\[
+\boxed{E_n\approx E_n^{(0)}+\left\langle n^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle.}
+\]</span></p>
+<p>The first-order shift is simply the expectation value of the perturbing interaction in the original, unperturbed state.</p>
+</section>
+<section id="first-order-correction-to-the-state-1" class="level3">
+<h3 class="anchored" data-anchor-id="first-order-correction-to-the-state-1">2.8.2.2. First-order correction to the state</h3>
+<p>Instead, project the first-order equation onto <span class="math inline">\(\left\langle k^{(0)} \right\rvert\)</span>, with <span class="math inline">\(k\ne n\)</span>. Using</p>
+<p><span class="math display">\[
+\left\langle k^{(0)} \right\rvert\hat H_0\left\lvert k^{(0)} \right\rangle=E_k^{(0)},
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+c_{nk}^{(1)}E_k^{(0)}+\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle=c_{nk}^{(1)}E_n^{(0)}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+c_{nk}^{(1)}=
+\frac{\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle}
+{E_n^{(0)}-E_k^{(0)}}.
+}
+\]</span></p>
+<p>The corrected eigenstate, through first order, is</p>
+<p><span class="math display">\[
+\boxed{
+\left\lvert n \right\rangle\approx\left\lvert n^{(0)} \right\rangle+
+\sum_{k\ne n}\left\lvert k^{(0)} \right\rangle\frac{\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle}
+{E_n^{(0)}-E_k^{(0)}}.
+}
+\]</span></p>
+<p>Two features are important: the perturbation must <strong>couple</strong> the two states through a nonzero matrix element, and the mixing becomes stronger when their unperturbed energies are closer together.</p>
+</section>
+</section>
+<section id="second-order-energy-correction" class="level2">
+<h2 class="anchored" data-anchor-id="second-order-energy-correction">2.8.3. Second-Order Energy Correction</h2>
+<p>The first-order energy shift can vanish even when the perturbation changes the state. The next correction to the energy is</p>
+<p><span class="math display">\[
+\boxed{
+E_n^{(2)}=
+\sum_{k\ne n}
+\frac{\left|\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+}
+\]</span></p>
+<p>The numerator measures the strength of the coupling between states <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span>. The denominator determines both the size and the sign of each contribution.</p>
 <ul>
-<li>The perturbation expansion breaks down for nearly degenerate levels because denominators approach zero. Degenerate perturbation theory must be used instead.<br>
-</li>
-<li>The normalization factor <span class="math inline">\(N(1)\)</span> must be chosen such that <span class="math display">\[
-\left\langle n \middle| n \right\rangle= 1.
+<li>If <span class="math inline">\(E_k^{(0)}&gt;E_n^{(0)}\)</span>, the contribution from state <span class="math inline">\(k\)</span> is <strong>negative</strong>.</li>
+<li>If <span class="math inline">\(E_k^{(0)}&lt;E_n^{(0)}\)</span>, the contribution is <strong>positive</strong>.</li>
+</ul>
+<p>In particular, the second-order correction to the <strong>non-degenerate ground-state energy</strong> is nonpositive, because every other unperturbed level lies above it.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation: Second-order energy correction">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation: Second-order energy correction
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>At order <span class="math inline">\(\lambda^2\)</span>, the Schrödinger equation contains</p>
+<p><span class="math display">\[
+\hat H_0\left\lvert n^{(2)} \right\rangle+\hat V\left\lvert n^{(1)} \right\rangle=E_n^{(0)}\left\lvert n^{(2)} \right\rangle+E_n^{(1)}\left\lvert n^{(1)} \right\rangle+E_n^{(2)}\left\lvert n^{(0)} \right\rangle.
+\]</span></p>
+<p>Here <span class="math inline">\(\left\lvert n^{(1)} \right\rangle=\sum_{k\ne n}c_{nk}^{(1)}\left\lvert k^{(0)} \right\rangle\)</span>, and the expansion is chosen so that <span class="math inline">\(\left\langle n^{(0)} \middle| n^{(1)} \right\rangle=0\)</span>. Projecting onto <span class="math inline">\(\left\langle n^{(0)} \right\rvert\)</span> therefore gives</p>
+<p><span class="math display">\[
+E_n^{(2)}=\left\langle n^{(0)} \right\rvert\hat V\left\lvert n^{(1)} \right\rangle=\sum_{k\ne n}c_{nk}^{(1)}\left\langle n^{(0)} \right\rvert\hat V\left\lvert k^{(0)} \right\rangle.
+\]</span></p>
+<p>Substituting the first-order coefficients and using <span class="math inline">\(\hat V=\hat V^\dagger\)</span> yields</p>
+<p><span class="math display">\[
+E_n^{(2)}=\sum_{k\ne n}
+\frac{\left|\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle\right|^2}
+{E_n^{(0)}-E_k^{(0)}}.
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="validity-and-limitations-of-perturbation-theory" class="level2">
+<h2 class="anchored" data-anchor-id="validity-and-limitations-of-perturbation-theory">2.8.4. Validity and Limitations of Perturbation Theory</h2>
+<p>The first-order state correction contains the ratios</p>
+<p><span class="math display">\[
+\frac{\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle}
+{E_n^{(0)}-E_k^{(0)}}.
+\]</span></p>
+<p>For non-degenerate perturbation theory to be useful, the relevant mixing coefficients must be small. Thus, the important comparison is between <strong>coupling matrix elements</strong> and <strong>energy separations</strong>, not simply between the overall magnitudes of <span class="math inline">\(\hat V\)</span> and <span class="math inline">\(\hat H_0\)</span>.</p>
+<p>If two states are degenerate, the denominator vanishes. If they are nearly degenerate and appreciably coupled, the correction can become large even for a weak perturbation. In such cases, we must treat the coupled states together, as in <strong>degenerate perturbation theory</strong>.</p>
+<p>The first-order corrected state is not exactly normalized. Because the admixtures are orthogonal to the original state, the leading normalization correction is of second order:</p>
+<p><span class="math display">\[
+N(\lambda)=\left[1+\lambda^2\sum_{k\ne n}|c_{nk}^{(1)}|^2+\cdots\right]^{-1/2}
+=1+O(\lambda^2).
+\]</span></p>
+<p>Consequently, the first-order state formula can be written without an explicit normalization factor. Higher-order calculations require consistent treatment of normalization and higher-order state corrections.</p>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">2.8.5 Key Takeaways</h2>
+<ol type="1">
+<li><strong>Perturbation theory starts from a solvable Hamiltonian.</strong> Write <span class="math inline">\(\hat H=\hat H_0+\hat V\)</span> and expand the energies and eigenstates in powers of the weak interaction.</li>
+<li>The <strong>first-order energy shift</strong> is the diagonal matrix element of the perturbation: <span class="math display">\[
+\boxed{E_n^{(1)}=\left\langle n^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle.}
 \]</span></li>
-</ul>
-<hr>
-</section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
-<ul>
-<li><p>First-order correction to the <strong>energy</strong>:<br>
-<span class="math display">\[
-E_n^{(1)} = \left\langle n^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle.
-\]</span></p></li>
-<li><p>First-order correction to the <strong>state</strong>:<br>
-<span class="math display">\[
-\left\lvert n \right\rangle\approx \left\lvert n^{(0)} \right\rangle+
-\sum_{k \neq n} \left\lvert k^{(0)} \right\rangle\frac{\left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle}{E_n^{(0)} - E_k^{(0)}}.
-\]</span></p></li>
-<li><p>Second-order correction to the <strong>energy</strong>:<br>
-<span class="math display">\[
-E_n^{(2)} = \sum_{k \neq n} \frac{|\left\langle k^{(0)} \right\rvert\hat{V} \left\lvert n^{(0)} \right\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.
-\]</span></p></li>
-</ul>
-<hr>
+<li>The <strong>first-order state correction</strong> mixes other unperturbed states into the original eigenstate, with amplitudes proportional to the coupling matrix elements and inversely proportional to energy separations.</li>
+<li>The <strong>second-order energy shift</strong> is <span class="math display">\[
+\boxed{E_n^{(2)}=\sum_{k\ne n}
+\frac{|\left\langle k^{(0)} \right\rvert\hat V\left\lvert n^{(0)} \right\rangle|^2}
+{E_n^{(0)}-E_k^{(0)}}.}
+\]</span> Contributions from levels above and below the original level have opposite signs.</li>
+<li><strong>Non-degenerate perturbation theory can fail near degeneracies.</strong> Small energy denominators can produce strong state mixing even when the perturbing interaction is weak.</li>
+</ol>
+<p>The essential idea is that <strong>weak interactions shift energy levels and mix quantum states in a systematic, calculable way</strong>. This provides a starting point for understanding many small corrections to atomic energy levels.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

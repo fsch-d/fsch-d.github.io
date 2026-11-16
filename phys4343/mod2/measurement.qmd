@@ -4,10 +4,15 @@ filters:
   - ../physics-macros.lua
 title: 2.3 Quantum Measurement and the Measurement Problem
 subtitle: State Reduction, Probability, and Interpretation
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to quantum measurement, the Born rule, state reduction, the quantum measurement problem, decoherence, and interpretations of quantum mechanics.">
 ---
 
 
-# Quantum Measurement and the Measurement Problem: Overview and Plan
+## Quantum Measurement and the Measurement Problem: Overview and Plan
 
 In the previous section, we introduced quantum states as vectors in Hilbert space and observables as Hermitian operators. We also learned how the expansion of a state in the eigenbasis of an observable determines the probabilities for the possible outcomes of a measurement.
 
@@ -88,9 +93,9 @@ The discussion of Copenhagen-type interpretations, Everettian quantum mechanics,
 ::::
 
 
-# 2.3.1. Measurement and the Quantum State
+## 2.3.1. Measurement and the Quantum State
 
-## 2.3.1.1 Measurement probabilities
+### 2.3.1.1 Measurement probabilities
 
 Consider an observable represented by the Hermitian operator $\hat A$.
 
@@ -141,7 +146,7 @@ Quantum mechanics therefore does not, in general, predict the result of an indiv
 Instead, it predicts the probabilities of the possible outcomes.
 
 
-## 2.3.1.2 The state after a measurement
+### 2.3.1.2 The state after a measurement
 
 Suppose the initial state is
 
@@ -170,7 +175,7 @@ The second name is more general: the abstract state $\ket{\psi}$ changes, not me
 The measurement therefore does more than reveal one of the possible values of $A$. It also changes the state used to describe the system.
 
 
-### A simple example
+#### A simple example
 
 Suppose
 
@@ -210,8 +215,7 @@ $$
 The first measurement has therefore changed the quantum state.
 
 
-::: {.callout-note collapse="true"}
-## Degenerate eigenvalues
+::: {.callout-note collapse="true" title="Degenerate eigenvalues"}
 
 If the measured eigenvalue is degenerate, a measurement does not necessarily select one unique eigenvector.
 
@@ -264,7 +268,7 @@ and this reduces to the familiar statement that the state collapses onto $\ket{a
 :::
 
 
-## 2.3.1.3 Deterministic evolution and probabilistic measurement
+### 2.3.1.3 Deterministic evolution and probabilistic measurement
 
 The Schrödinger equation determines the time evolution of a state:
 
@@ -328,9 +332,9 @@ $$
 The coexistence of these two kinds of evolution lies at the heart of the **quantum measurement problem**.
 
 
-# 2.3.2. The Quantum Measurement Problem
+## 2.3.2. The Quantum Measurement Problem
 
-## 2.3.2.1 Where does collapse come from?
+### 2.3.2.1 Where does collapse come from?
 
 To see the measurement problem more clearly, let us try to describe **both the quantum system and the measuring apparatus using quantum mechanics**.
 
@@ -385,7 +389,7 @@ $$
 So far, there is no difficulty. If the system begins in an eigenstate of the measured observable, the apparatus simply becomes correlated with the corresponding result.
 
 
-### What if the system begins in a superposition?
+#### What if the system begins in a superposition?
 
 Now suppose the system is initially in the superposition
 
@@ -504,7 +508,7 @@ This is the essence of the **quantum measurement problem**:
 > **How does a quantum superposition of possible outcomes lead to the single definite outcome that we observe?**
 
 
-### This is where the interpretations differ
+#### This is where the interpretations differ
 
 Different interpretations of quantum mechanics agree on the unitary evolution above but disagree about what happens—or what it means—when a definite outcome is observed.
 
@@ -548,8 +552,7 @@ Thus, the different interpretations do not disagree about the basic calculation 
 
 
 
-::: {.callout-note collapse="true"}
-## Can these interpretations be distinguished experimentally?
+::: {.callout-note collapse="true" title="Can these interpretations be distinguished experimentally?"}
 
 Many interpretations of **standard quantum mechanics** are deliberately constructed to reproduce the same experimental probabilities.
 
@@ -567,7 +570,7 @@ The philosophical interpretations may differ, but the operational rules used for
 :::
 
 
-## 2.3.2.2 What we will use
+### 2.3.2.2 What we will use
 
 For the purposes of this course, we will use the standard operational measurement rules:
 
@@ -581,7 +584,7 @@ We do not need to choose a particular interpretation of quantum mechanics in ord
 What matters for our subsequent calculations is that **measurement changes the state**.
 
 
-# 2.3.3. From One Measurement to the Next
+## 2.3.3. From One Measurement to the Next
 
 Suppose we prepare a system in some state $\ket{\psi}$ and measure an observable $\hat A$.
 

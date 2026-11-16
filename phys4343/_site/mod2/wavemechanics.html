@@ -142,6 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Introduction to quantum wave mechanics, covering electron interference, complex wave functions, superposition, the Born rule, de Broglie relations, and the Schrödinger equation.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -509,7 +510,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mod4/relwaves.html" class="sidebar-item-text sidebar-link">
+  <a href="../mod2/relwaves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.12 Relativistic Wave Equations — the Dirac Equation</span></a>
   </div>
 </li>
@@ -847,7 +848,7 @@ window.Quarto = {
   <li><a href="#a-traveling-wave" id="toc-a-traveling-wave" class="nav-link" data-scroll-target="#a-traveling-wave">2.1.2.1 A traveling wave</a></li>
   <li><a href="#complex-representation" id="toc-complex-representation" class="nav-link" data-scroll-target="#complex-representation">2.1.2.2 Complex representation</a></li>
   </ul></li>
-  <li><a href="#superposition-and-interference" id="toc-superposition-and-interference" class="nav-link" data-scroll-target="#superposition-and-interference">2.1.3. Superposition and Interference</a></li>
+  <li><a href="#superposition-and-interference-1" id="toc-superposition-and-interference-1" class="nav-link" data-scroll-target="#superposition-and-interference-1">2.1.3. Superposition and Interference</a></li>
   <li><a href="#probability-and-the-born-rule" id="toc-probability-and-the-born-rule" class="nav-link" data-scroll-target="#probability-and-the-born-rule">2.1.4. Probability and the Born Rule</a>
   <ul class="collapse">
   <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions">2.1.4.1 Probability distributions</a></li>
@@ -897,8 +898,8 @@ window.Quarto = {
 </header>
 
 
-<section id="wave-mechanics-overview-and-plan" class="level1">
-<h1>Wave Mechanics: Overview and Plan</h1>
+<section id="wave-mechanics-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="wave-mechanics-overview-and-plan">Wave Mechanics: Overview and Plan</h2>
 <p>This chapter introduces the wave-mechanical description of quantum particles. We begin with <strong>electron interference</strong> because it exposes the central problem directly: electrons are detected as localized particles, but the distribution of many detection events can show interference, a characteristic wave phenomenon.</p>
 <p>The specific goals for this chapter are:</p>
 <ol type="1">
@@ -921,76 +922,56 @@ window.Quarto = {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A harmonic plane wave can be written in complex form as</p>
+<section id="the-wave-function-and-probability" class="level3">
+<h3 class="anchored" data-anchor-id="the-wave-function-and-probability">The wave function and probability</h3>
+<p>A quantum particle is described by a generally complex <strong>wave function</strong> <span class="math inline">\(\psi(\vec r,t)\)</span>. Its absolute square gives the probability density for finding the particle at position <span class="math inline">\(\vec r\)</span>:</p>
 <p><span class="math display">\[
-\psi(\vec r,t)
-=
-A e^{i(\vec k\cdot\vec r-\omega t+\phi)},
-\]</span></p>
-<p>with</p>
-<p><span class="math display">\[
-k=\frac{2\pi}{\lambda},
+\boxed{p(\vec r,t)=|\psi(\vec r,t)|^2},
 \qquad
-\omega=2\pi f.
-\]</span></p>
-<p>Quantum-mechanical amplitudes obey the <strong>superposition principle</strong>,</p>
-<p><span class="math display">\[
-\psi=\psi_1+\psi_2,
-\]</span></p>
-<p>and the measurable position probability density is given by the <strong>Born rule</strong>,</p>
-<p><span class="math display">\[
-\boxed{
-p(\vec r,t)=|\psi(\vec r,t)|^2.
-}
-\]</span></p>
-<p>For a normalizable state,</p>
-<p><span class="math display">\[
-\boxed{
 \int_{\mathbb R^3}|\psi(\vec r,t)|^2\,d^3r=1.
-}
 \]</span></p>
-<p>Matter-wave quantities are related to particle quantities by the de Broglie relations</p>
+</section>
+<section id="superposition-and-interference" class="level3">
+<h3 class="anchored" data-anchor-id="superposition-and-interference">Superposition and interference</h3>
+<p>Quantum-mechanical <strong>probability amplitudes add</strong>, not probabilities:</p>
 <p><span class="math display">\[
-\boxed{
-\vec p=\hbar\vec k,
+\boxed{\psi=\psi_1+\psi_2},
 \qquad
-E=\hbar\omega.
-}
+|\psi|^2=|\psi_1+\psi_2|^2.
+\]</span></p>
+<p>The resulting interference depends on the <strong>relative phase</strong> of the amplitudes.</p>
+</section>
+<section id="matter-waves-and-momentum" class="level3">
+<h3 class="anchored" data-anchor-id="matter-waves-and-momentum">Matter waves and momentum</h3>
+<p>A plane wave is a state of definite momentum, described by</p>
+<p><span class="math display">\[
+\psi(\vec r,t)=A e^{i(\vec k\cdot\vec r-\omega t)},
+\]</span></p>
+<p>where <span class="math inline">\(\vec k\)</span> is the wave vector and <span class="math inline">\(\omega\)</span> the angular frequency. The <strong>de Broglie relations</strong> connect wave and particle properties:</p>
+<p><span class="math display">\[
+\boxed{\vec p=\hbar\vec k,\qquad E=\hbar\omega}.
 \]</span></p>
 <p>In position representation, the momentum operator is</p>
 <p><span class="math display">\[
-\boxed{
-\hat{\vec p}=-i\hbar\vec\nabla.
-}
+\boxed{\hat{\vec p}=-i\hbar\vec\nabla}.
 \]</span></p>
-<p>The time evolution of a nonrelativistic quantum state is governed by the Schrödinger equation,</p>
+</section>
+<section id="schrödinger-equation-and-stationary-states" class="level3">
+<h3 class="anchored" data-anchor-id="schrödinger-equation-and-stationary-states">Schrödinger equation and stationary states</h3>
+<p>The <strong>time-dependent Schrödinger equation</strong> governs the evolution of the wave function:</p>
 <p><span class="math display">\[
-\boxed{
-i\hbar\frac{\partial}{\partial t}\psi
-=
-\hat H\psi.
-}
+\boxed{i\hbar\frac{\partial\psi}{\partial t}=\hat H\psi},
+\qquad
+\hat H=-\frac{\hbar^2}{2m}\nabla^2+V(\vec r,t).
 \]</span></p>
-<p>For a particle in a potential <span class="math inline">\(V(\vec r,t)\)</span>,</p>
+<p>For a time-independent Hamiltonian, <strong>stationary states</strong> satisfy</p>
 <p><span class="math display">\[
-\boxed{
-\hat H
-=
--\frac{\hbar^2}{2m}\nabla^2+V.
-}
+\boxed{\hat H\phi=E\phi},
+\qquad
+\psi(\vec r,t)=\phi(\vec r)e^{-iEt/\hbar}.
 \]</span></p>
-<p>If the Hamiltonian has no explicit time dependence, states of definite energy satisfy</p>
-<p><span class="math display">\[
-\boxed{
-\hat H\phi=E\phi
-}
-\]</span></p>
-<p>and have time dependence</p>
-<p><span class="math display">\[
-\psi(\vec r,t)
-=
-\phi(\vec r)e^{-iEt/\hbar}.
-\]</span></p>
+<p>Their probability density is independent of time.</p>
+</section>
 </div>
 </div>
 </div>
@@ -1027,10 +1008,10 @@ i\hbar\frac{\partial}{\partial t}\psi
 </div>
 <hr>
 </section>
-<section id="electron-interference-and-matter-waves" class="level1">
-<h1>2.1.1. Electron Interference and Matter Waves</h1>
-<section id="what-is-an-electron" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-an-electron">2.1.1.1 What is an electron?</h2>
+<section id="electron-interference-and-matter-waves" class="level2">
+<h2 class="anchored" data-anchor-id="electron-interference-and-matter-waves">2.1.1. Electron Interference and Matter Waves</h2>
+<section id="what-is-an-electron" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-electron">2.1.1.1 What is an electron?</h3>
 <p>By the beginning of the 20th century, the electron was well established as a constituent of matter with a definite electric charge and mass. These properties naturally suggested a particle-like picture: an electron could be thought of as a small charged particle following a definite trajectory.</p>
 <p>In an idealized double-slit experiment, such a classical particle picture suggests that each electron passes through either slit 1 or slit 2. The distribution observed with both slits open should therefore simply be the sum of the distributions obtained from the individual slits,</p>
 <p><span class="math display">\[
@@ -4505,8 +4486,8 @@ Figure&nbsp;1: Simulated build-up of an interference pattern from individual det
 </ul>
 <p>This behavior cannot be described by a simple classical particle picture or by a simple classical material wave.</p>
 </section>
-<section id="historical-perspective-electron-diffraction" class="level2">
-<h2 class="anchored" data-anchor-id="historical-perspective-electron-diffraction">2.1.1.2 Historical perspective: Electron diffraction</h2>
+<section id="historical-perspective-electron-diffraction" class="level3">
+<h3 class="anchored" data-anchor-id="historical-perspective-electron-diffraction">2.1.1.2 Historical perspective: Electron diffraction</h3>
 <p>The electron double-slit experiment provides a particularly intuitive illustration of wave-particle behavior. Historically, however, the wave nature of electrons had already been demonstrated in diffraction experiments in the 1920s.</p>
 <p>In 1927, <strong>Clinton Davisson and Lester Germer</strong> scattered electrons from a single crystal of nickel and observed pronounced maxima in the angular distribution of the scattered electrons. These maxima could be explained as <strong>electron diffraction by the periodic crystal lattice</strong>, in close analogy to the diffraction of x rays by crystals (<a href="https://doi.org/10.1103/PhysRev.30.705" target="_blank">Davisson &amp; Germer, 1927</a>).</p>
 <p>At about the same time, <strong>George Paget Thomson</strong> investigated electrons transmitted through thin crystalline films. Instead of angular scattering maxima, these experiments produced characteristic <strong>diffraction rings</strong> on photographic plates. The ring patterns provided another striking demonstration that electrons exhibit wave-like behavior.</p>
@@ -4522,7 +4503,7 @@ Figure&nbsp;2: Electron diffraction pattern recorded in experiments by George Pa
 </div>
 <p>The two experiments used different geometries but led to the same conclusion: electrons, despite their particle-like properties such as charge and mass, can undergo diffraction. Davisson and Thomson later shared the <strong>1937 Nobel Prize in Physics</strong> for the experimental discovery of electron diffraction.</p>
 <p>The experiments provided direct evidence that electrons possess a wavelength. We will return to the quantitative relation between wavelength and momentum in Section 2.1.5.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Historical note">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -4541,10 +4522,10 @@ Figure&nbsp;2: Electron diffraction pattern recorded in experiments by George Pa
 <hr>
 </section>
 </section>
-<section id="waves-and-complex-wave-amplitudes" class="level1">
-<h1>2.1.2. Waves and Complex Wave Amplitudes</h1>
-<section id="a-traveling-wave" class="level2">
-<h2 class="anchored" data-anchor-id="a-traveling-wave">2.1.2.1 A traveling wave</h2>
+<section id="waves-and-complex-wave-amplitudes" class="level2">
+<h2 class="anchored" data-anchor-id="waves-and-complex-wave-amplitudes">2.1.2. Waves and Complex Wave Amplitudes</h2>
+<section id="a-traveling-wave" class="level3">
+<h3 class="anchored" data-anchor-id="a-traveling-wave">2.1.2.1 A traveling wave</h3>
 <p>A one-dimensional harmonic traveling wave can be written as</p>
 <p><span class="math display">\[
 y(x,t)=A\cos\big(kx-\omega t+\phi\big).
@@ -4632,8 +4613,8 @@ Figure&nbsp;3: A harmonic wave at fixed time. The figure illustrates the amplitu
 \]</span></p>
 <p>More importantly for interference, two waves need not have the same phase at a given position. Their <strong>relative phase</strong> will determine whether they interfere constructively or destructively.</p>
 </section>
-<section id="complex-representation" class="level2">
-<h2 class="anchored" data-anchor-id="complex-representation">2.1.2.2 Complex representation</h2>
+<section id="complex-representation" class="level3">
+<h3 class="anchored" data-anchor-id="complex-representation">2.1.2.2 Complex representation</h3>
 <p>Using Euler’s relation,</p>
 <p><span class="math display">\[
 e^{i\theta}=\cos\theta+i\sin\theta,
@@ -4652,8 +4633,8 @@ e^{i\theta}=\cos\theta+i\sin\theta,
 <hr>
 </section>
 </section>
-<section id="superposition-and-interference" class="level1">
-<h1>2.1.3. Superposition and Interference</h1>
+<section id="superposition-and-interference-1" class="level2">
+<h2 class="anchored" data-anchor-id="superposition-and-interference-1">2.1.3. Superposition and Interference</h2>
 <p>For two waves with amplitudes <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>,</p>
 <p><span class="math display">\[
 \psi_1=A_1e^{i\theta_1},
@@ -4699,7 +4680,7 @@ e^{i\theta}=\cos\theta+i\sin\theta,
 \Delta L\simeq d\sin\alpha.
 \]</span></p>
 <p>Thus different positions on the observation screen correspond to different relative phases and therefore to alternating constructive and destructive interference.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation of the interference term">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -6278,10 +6259,10 @@ Figure&nbsp;4: Double-slit interference. Instantaneous real part of a monochroma
 </div>
 <hr>
 </section>
-<section id="probability-and-the-born-rule" class="level1">
-<h1>2.1.4. Probability and the Born Rule</h1>
-<section id="probability-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="probability-distributions">2.1.4.1 Probability distributions</h2>
+<section id="probability-and-the-born-rule" class="level2">
+<h2 class="anchored" data-anchor-id="probability-and-the-born-rule">2.1.4. Probability and the Born Rule</h2>
+<section id="probability-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="probability-distributions">2.1.4.1 Probability distributions</h3>
 <p>Before assigning a physical meaning to the quantum-mechanical wave function, we briefly review probability densities.</p>
 <p>Let <span class="math inline">\(p(x)\)</span> be a probability density. The probability of finding a measurement outcome between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is</p>
 <p><span class="math display">\[
@@ -6310,8 +6291,8 @@ dP=p(x)\,dx.
 \sigma_x=\sqrt{\operatorname{Var}(x)}.
 \]</span></p>
 </section>
-<section id="the-born-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="the-born-interpretation">2.1.4.2 The Born interpretation</h2>
+<section id="the-born-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="the-born-interpretation">2.1.4.2 The Born interpretation</h3>
 <p>Quantum mechanics associates a complex wave function <span class="math inline">\(\psi(\vec r,t)\)</span> with the state of a particle. According to the <strong>Born rule</strong>, the probability density for position is</p>
 <p><span class="math display">\[
 \boxed{p(\vec r,t)=|\psi(\vec r,t)|^2.}
@@ -6358,8 +6339,8 @@ Note
 <hr>
 </section>
 </section>
-<section id="matter-waves-and-the-de-broglie-relations" class="level1">
-<h1>2.1.5. Matter Waves and the de Broglie Relations</h1>
+<section id="matter-waves-and-the-de-broglie-relations" class="level2">
+<h2 class="anchored" data-anchor-id="matter-waves-and-the-de-broglie-relations">2.1.5. Matter Waves and the de Broglie Relations</h2>
 <p>The experiments discussed in Section 2.1.1 show that particles can exhibit wave-like behavior. de Broglie proposed that the momentum of a particle is related to its wave vector by</p>
 <p><span class="math display">\[
 \boxed{\vec p=\hbar\vec k}
@@ -6388,8 +6369,8 @@ E=\hbar\omega.
 |\psi(x,t)|^2=|A|^2,
 \]</span></p>
 <p>so it is completely delocalized in position. This is consistent with the plane wave representing a state of precisely defined momentum.</p>
-<section id="wave-packets-and-momentum-space" class="level2">
-<h2 class="anchored" data-anchor-id="wave-packets-and-momentum-space">2.1.5.1 Wave packets and momentum space</h2>
+<section id="wave-packets-and-momentum-space" class="level3">
+<h3 class="anchored" data-anchor-id="wave-packets-and-momentum-space">2.1.5.1 Wave packets and momentum space</h3>
 <p>A localized particle cannot be represented by a single plane wave. Instead, it is represented by a <strong>superposition of plane waves</strong> with different wave vectors.</p>
 <p>In one dimension,</p>
 <p><span class="math display">\[
@@ -6409,10 +6390,10 @@ E=\hbar\omega.
 <hr>
 </section>
 </section>
-<section id="time-evolution-and-the-schrödinger-equation" class="level1">
-<h1>2.1.6. Time Evolution and the Schrödinger Equation</h1>
-<section id="energy-and-momentum-as-differential-operators" class="level2">
-<h2 class="anchored" data-anchor-id="energy-and-momentum-as-differential-operators">2.1.6.1 Energy and momentum as differential operators</h2>
+<section id="time-evolution-and-the-schrödinger-equation" class="level2">
+<h2 class="anchored" data-anchor-id="time-evolution-and-the-schrödinger-equation">2.1.6. Time Evolution and the Schrödinger Equation</h2>
+<section id="energy-and-momentum-as-differential-operators" class="level3">
+<h3 class="anchored" data-anchor-id="energy-and-momentum-as-differential-operators">2.1.6.1 Energy and momentum as differential operators</h3>
 <p>Consider again a plane wave,</p>
 <p><span class="math display">\[
 \psi(x,t)=Ae^{i(kx-\omega t)}.
@@ -6448,8 +6429,8 @@ p_x\longleftrightarrow -i\hbar\frac{\partial}{\partial x}.
 \]</span></p>
 <p>These are examples of <strong>operators</strong>: mathematical objects that act on a wave function. Operators and their general role in quantum mechanics are discussed in the next chapter.</p>
 </section>
-<section id="potential-energy-and-the-hamiltonian" class="level2">
-<h2 class="anchored" data-anchor-id="potential-energy-and-the-hamiltonian">2.1.6.2 Potential energy and the Hamiltonian</h2>
+<section id="potential-energy-and-the-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="potential-energy-and-the-hamiltonian">2.1.6.2 Potential energy and the Hamiltonian</h3>
 <p>For a nonrelativistic classical particle,</p>
 <p><span class="math display">\[
 E=T+V=\frac{p^2}{2m}+V.
@@ -6503,8 +6484,8 @@ Important
 </div>
 </div>
 </section>
-<section id="time-independent-schrödinger-equation" class="level2">
-<h2 class="anchored" data-anchor-id="time-independent-schrödinger-equation">2.1.6.3 Time-independent Schrödinger equation</h2>
+<section id="time-independent-schrödinger-equation" class="level3">
+<h3 class="anchored" data-anchor-id="time-independent-schrödinger-equation">2.1.6.3 Time-independent Schrödinger equation</h3>
 <p>If the potential has no explicit time dependence,</p>
 <p><span class="math display">\[
 V(\vec r,t)=V(\vec r),
@@ -6531,8 +6512,8 @@ V(\vec r,t)=V(\vec r),
 \]</span></p>
 <p>Such states are therefore called <strong>stationary states</strong>.</p>
 </section>
-<section id="example-a-free-gaussian-wave-packet" class="level2">
-<h2 class="anchored" data-anchor-id="example-a-free-gaussian-wave-packet">2.1.6.4 Example: a free Gaussian wave packet</h2>
+<section id="example-a-free-gaussian-wave-packet" class="level3">
+<h3 class="anchored" data-anchor-id="example-a-free-gaussian-wave-packet">2.1.6.4 Example: a free Gaussian wave packet</h3>
 <p>A physically localized particle can be represented by a wave packet. A convenient initial state is a Gaussian packet,</p>
 <p><span class="math display">\[
 \psi(x,0)
@@ -6550,6 +6531,146 @@ v_g=\frac{\hbar k_0}{m},
 =\sigma_0
 \sqrt{1+\left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}.
 \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why does a free wave packet move and spread?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why does a free wave packet move and spread?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. A localized particle is a superposition of plane waves</strong></p>
+<p>A single plane wave extends over all space and cannot describe a localized particle. Instead, a localized wave packet is constructed by superposing plane waves with different wave numbers.</p>
+<p>Mathematically, this is a <strong>Fourier transform</strong>. The function <span class="math inline">\(\tilde\psi(k,0)\)</span> is the Fourier transform of the initial wave function <span class="math inline">\(\psi(x,0)\)</span> and specifies the complex amplitude (magnitude and phase) of each plane-wave component:</p>
+<p><span class="math display">\[
+\tilde\psi(k,0)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\psi(x,0)e^{-ikx}\,dx.
+\]</span></p>
+<p>Conversely, the initial wave function is reconstructed by the inverse Fourier transform,</p>
+<p><span class="math display">\[
+\boxed{
+\psi(x,0)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\tilde\psi(k,0)e^{ikx}\,dk.
+}
+\]</span></p>
+<p>For our initial Gaussian packet, the Fourier amplitudes are concentrated around <span class="math inline">\(k_0\)</span>, but include a range of wave numbers. This range is what allows the particle to be localized.</p>
+<p><strong>2. The Schrödinger equation determines how each plane wave evolves</strong></p>
+<p>For a free particle, the time-dependent Schrödinger equation is</p>
+<p><span class="math display">\[
+i\hbar\frac{\partial\psi}{\partial t}
+=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}.
+\]</span></p>
+<p>We insert a plane-wave solution</p>
+<p><span class="math display">\[
+\psi_k(x,t)=Ae^{i(kx-\omega t)}.
+\]</span></p>
+<p>Taking the derivatives gives</p>
+<p><span class="math display">\[
+\hbar\omega\psi_k
+=\frac{\hbar^2k^2}{2m}\psi_k.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{\omega(k)=\frac{\hbar k^2}{2m}.}
+\]</span></p>
+<p>This is the <strong>dispersion relation</strong> of a free quantum particle: different wave numbers have different frequencies.</p>
+<p><strong>3. The wave packet evolves because the relative phases change</strong></p>
+<p>Since the Schrödinger equation is linear, every plane-wave component evolves independently, and the complete wave packet becomes</p>
+<p><span class="math display">\[
+\boxed{
+\psi(x,t)=\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\tilde\psi(k,0)
+e^{i[kx-\omega(k)t]}\,dk.
+}
+\]</span></p>
+<p>Each component acquires a phase <span class="math inline">\(-\omega(k)t\)</span>. Because <span class="math inline">\(\omega(k)\)</span> depends on <span class="math inline">\(k\)</span>, the relative phases change with time, modifying the interference between the components.</p>
+<p>The <strong>phase velocity</strong> of an individual plane wave is</p>
+<p><span class="math display">\[
+v_{\mathrm{ph}}=\frac{\omega}{k}
+=\frac{\hbar k}{2m}.
+\]</span></p>
+<p>However, the motion of the wave packet is determined by the <strong>group velocity</strong>,</p>
+<p><span class="math display">\[
+\boxed{
+v_g=\frac{d\omega}{dk}
+=\frac{\hbar k}{m}.
+}
+\]</span></p>
+<p>For a packet concentrated around <span class="math inline">\(k_0\)</span>, its center therefore moves with</p>
+<p><span class="math display">\[
+\boxed{v_g=\frac{\hbar k_0}{m}.}
+\]</span></p>
+<p><strong>4. Why does the packet spread?</strong></p>
+<p>The free-particle dispersion relation is quadratic in <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+\omega(k)=\frac{\hbar k^2}{2m}.
+\]</span></p>
+<p>Consequently, different wave-number components have different group velocities,</p>
+<p><span class="math display">\[
+v_g(k)=\frac{d\omega}{dk}=\frac{\hbar k}{m}.
+\]</span></p>
+<p>As their relative phases evolve, the interference between the components changes, causing the wave packet to spread.</p>
+<p>For the Gaussian initial state introduced above,</p>
+<p><span class="math display">\[
+\psi(x,0)=
+\frac{1}{(2\pi\sigma_0^2)^{1/4}}
+\exp\left[-\frac{(x-x_0)^2}{4\sigma_0^2}\right]
+e^{ik_0x},
+\]</span></p>
+<p>the time-dependent wave function can be obtained by <strong>evaluating the Fourier integral in part 3</strong>. The result is</p>
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+\psi(x,t)
+={}&amp;
+\frac{1}{(2\pi\sigma_0^2)^{1/4}}
+\frac{1}{\sqrt{1+i\tau}}\\
+&amp;\times
+\exp\left[
+-\frac{(x-x_0-v_gt)^2}
+{4\sigma_0^2(1+i\tau)}
+\right]
+e^{i(k_0x-\omega_0t)},
+\end{aligned}
+}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\tau=\frac{\hbar t}{2m\sigma_0^2},
+\qquad
+v_g=\frac{\hbar k_0}{m},
+\qquad
+\omega_0=\frac{\hbar k_0^2}{2m}.
+\]</span></p>
+<p>Taking the absolute square gives the probability density,</p>
+<p><span class="math display">\[
+\boxed{
+|\psi(x,t)|^2=
+\frac{1}{\sqrt{2\pi}\,\sigma(t)}
+\exp\left[
+-\frac{(x-x_0-v_gt)^2}{2\sigma(t)^2}
+\right],
+}
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+\boxed{
+\sigma(t)=\sigma_0
+\sqrt{1+\left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}.
+}
+\]</span></p>
+<p>The probability density remains Gaussian. Its center moves with velocity <span class="math inline">\(v_g\)</span>, while its width <span class="math inline">\(\sigma(t)\)</span> increases with time.</p>
+<p><strong>Physical interpretation:</strong> A localized particle contains a range of momenta. The different plane-wave components propagate with different group velocities, so the wave packet spreads. A narrower initial packet contains a broader range of wave numbers and therefore spreads more rapidly.</p>
+</div>
+</div>
+</div>
 <div id="cell-fig-wavepacket" class="cell" data-fig-format="svg" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
@@ -6600,8 +6721,8 @@ Figure&nbsp;5: Free Gaussian wave packet: the center moves while the position di
 </ul>
 <hr>
 </section>
-<section id="additional-remarks" class="level2">
-<h2 class="anchored" data-anchor-id="additional-remarks">Additional remarks</h2>
+<section id="additional-remarks" class="level3">
+<h3 class="anchored" data-anchor-id="additional-remarks">Additional remarks</h3>
 <ul>
 <li>Analytic solutions of the Schrödinger equation exist only for a limited number of systems. Approximation methods and numerical solutions are therefore essential in atomic and molecular physics.</li>
 <li>The nonrelativistic Schrödinger equation is not sufficient when relativistic effects become important. Relativistic quantum mechanics leads to equations such as the Dirac equation, and a fully quantized treatment of electromagnetic interactions requires quantum electrodynamics.</li>

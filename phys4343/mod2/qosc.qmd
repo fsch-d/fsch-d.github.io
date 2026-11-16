@@ -1,10 +1,16 @@
 ---
 title: 2.6 The One-Dimensional Quantum Harmonic Oscillator
+subtitle: "Ladder Operators, Energy Eigenstates, and Coherent States"
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to the quantum harmonic oscillator using ladder operators, energy eigenvalues, number states, wavefunctions, and coherent states, including Python visualizations.">
 ---
 
 
-# Introduction
+## The Quantum Harmonic Oscillator: Overview and Plan
 
 The **harmonic oscillator** is one of the most fundamental problems in physics. 
 It appears not only in **quantum mechanics**, but also in **molecular vibrations**, **phonons**, **field quantization**, and even **quantum information theory**.
@@ -21,9 +27,138 @@ In this chapter, we focus on the **algebraic method**, which introduces concepts
 - **angular momentum algebra**, and  
 - **many-body quantum theory**.
 
+
+
+
+:::: {.callout-important collapse="true" title="Core Knowledge — Know"}
+
+### Harmonic oscillator and ladder operators
+
+The **one-dimensional harmonic oscillator** describes a particle in a quadratic potential. Its Hamiltonian is
+
+$$
+\boxed{
+\hat H=\frac{\hat p^2}{2m}+\frac12m\omega^2\hat x^2.
+}
+$$
+
+The **annihilation and creation operators** are defined by
+
+$$
+\hat a=
+\sqrt{\frac{m\omega}{2\hbar}}\,\hat x
++\frac{i}{\sqrt{2m\hbar\omega}}\,\hat p,
+\qquad
+\hat a^\dagger=
+\sqrt{\frac{m\omega}{2\hbar}}\,\hat x
+-\frac{i}{\sqrt{2m\hbar\omega}}\,\hat p.
+$$
+
+They satisfy the fundamental commutation relation
+
+$$
+\boxed{[\hat a,\hat a^\dagger]=1}.
+$$
+
+### Number operator and energy spectrum
+
+The **number operator** counts the excitation quanta of the oscillator. It allows the Hamiltonian to be written in the form
+
+$$
+\boxed{
+\hat N=\hat a^\dagger\hat a,
+\qquad
+\hat H=\hbar\omega\left(\hat N+\frac12\right).
+}
+$$
+
+The energy eigenstates $\ket n$ satisfy
+
+$$
+\hat N\ket n=n\ket n,
+\qquad
+\boxed{E_n=\hbar\omega\left(n+\frac12\right)},
+\qquad n=0,1,2,\ldots.
+$$
+
+The energy levels are **equally spaced** by $\hbar\omega$. Even the ground state has a nonzero **zero-point energy**:
+
+$$
+\boxed{E_0=\frac12\hbar\omega}.
+$$
+
+### Raising and lowering energy eigenstates
+
+The ladder operators connect neighboring energy eigenstates:
+
+$$
+\boxed{
+\hat a\ket n=\sqrt n\,\ket{n-1},
+\qquad
+\hat a^\dagger\ket n=\sqrt{n+1}\,\ket{n+1}.
+}
+$$
+
+The ground state is the lowest state of the ladder and satisfies
+
+$$
+\boxed{\hat a\ket0=0}.
+$$
+
+### Wavefunctions and coherent states
+
+The **ground-state wavefunction** is a normalized Gaussian:
+
+$$
+\boxed{
+\psi_0(x)=
+\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+e^{-m\omega x^2/(2\hbar)}.
+}
+$$
+
+Higher energy eigenstates are obtained by repeatedly applying the creation operator:
+
+$$
+\psi_n(x)=\frac{1}{\sqrt{n!}}(\hat a^\dagger)^n\psi_0(x).
+$$
+
+**Coherent states** are eigenstates of the annihilation operator,
+
+$$
+\boxed{\hat a\ket\alpha=\alpha\ket\alpha}.
+$$
+
+Unlike stationary energy eigenstates, they describe wave packets whose probability distributions oscillate without changing shape, closely resembling classical harmonic motion.
+
+::::
+
+
+
+:::: {.callout-note collapse="true" title="Working Knowledge — Understand"}
+
+You should understand that
+
+- the harmonic oscillator is important because a smooth potential near a stable equilibrium can be approximated by a quadratic potential;
+- the algebraic method uses creation and annihilation operators instead of solving the Schrödinger differential equation directly;
+- the commutation relation $[\hat a,\hat a^\dagger]=1$ leads to equally spaced energy levels;
+- the creation operator $\hat a^\dagger$ raises the energy by $\hbar\omega$, while the annihilation operator $\hat a$ lowers it by the same amount;
+- the number operator $\hat N$ counts the excitation quanta, with eigenvalues $n=0,1,2,\ldots$;
+- the ground state has a nonzero energy $E_0=\hbar\omega/2$, called the **zero-point energy**;
+- the factors $\sqrt{n+1}$ and $\sqrt n$ ensure the correct normalization of states obtained by applying the ladder operators;
+- the ground-state wavefunction is Gaussian, while excited-state wavefunctions involve Hermite polynomials;
+- coherent states are superpositions of energy eigenstates whose probability distributions oscillate without changing shape, providing a connection to classical harmonic motion.
+
+The derivations of the ladder-operator commutators, number-operator properties, and energy spectrum are included to show **where these results come from**, but the intermediate algebra is not intended as material to memorize.
+
+The detailed derivation of the excited-state wavefunctions and the coherent-state expansion are included for additional understanding rather than as formulas to memorize.
+
+:::: 
+
+
 ---
 
-# 2.6.1. The Hamiltonian, Ladder , and Number Operators
+## 2.6.1. The Hamiltonian, Ladder, and Number Operators
 
 The one-dimensional harmonic oscillator describes a particle of mass $m$ moving in a quadratic potential:
 
@@ -39,7 +174,7 @@ $$
 
 ---
 
-## 2.6.1.1 The Ladder Operators
+### 2.6.1.1 The Ladder Operators
 
 To simplify the algebra, we introduce **ladder operators** (also called **annihilation** and **creation** operators):
 
@@ -123,7 +258,7 @@ $$ {#eq-a}
 
 ---
 
-## 2.6.1.2 The Number Operator
+### 2.6.1.2 The Number Operator
 
 We introduce the **number operator**
 
@@ -138,7 +273,7 @@ $$
 for all nonnegative integers $n$.
 
 
-### Proof (by induction)
+#### Proof (by induction)
 
 **Base case:**  
 Since energy cannot be negative, there must exist a lowest-energy state $|0\rangle$ (the **ground state**) such that:
@@ -170,7 +305,7 @@ By mathematical induction, $\hat{N}|n\rangle = n|n\rangle$ for all $n$.
 
 
 
-### Determining the normalization factors of the ladder operators
+#### Determining the normalization factors of the ladder operators
 
 To determine the correct normalization constants stated in @eq-adagger and @eq-a, we now use the number operator.
 
@@ -212,7 +347,7 @@ $$
 
 ---
 
-# 2.6.2. Energy Eigenvalues
+## 2.6.2. Energy Eigenvalues
 
 Let $|n\rangle$ be an energy eigenstate of the oscillator, defined by:
 
@@ -252,8 +387,7 @@ $$
 E_n = \hbar\omega\left(n + \frac{1}{2}\right), \qquad n = 0, 1, 2, \ldots
 $$
 
-::: {.callout-note collapse=true}
-#### Why is this the **complete** spectrum?
+::: {.callout-note collapse="true" title="Why is this the **complete** spectrum?"}
 
 A natural question arises: could there be "hidden" energy eigenstates between the levels we've constructed? The answer is no, and here's why:
 
@@ -273,7 +407,7 @@ Therefore, every energy eigenstate must correspond to $\hat{N}$ eigenvalue $n \i
 
 ---
 
-# 2.6.3. Finding the Wavefunctions
+## 2.6.3. Finding the Wavefunctions
 
 To find the explicit forms of the wavefunctions, we can apply the lowering operator definition to the coordinate representation.
 
@@ -320,8 +454,12 @@ e^{-\frac{m\omega x^2}{2\hbar}}.
 $$
 
 ```{python}
-#| fig-alt: "Wavefunctions of the first seven harmonic oscillator states."
+#| label: fig-harmonic-wavefunctions
+#| fig-format: png
+#| fig-cap: "Energy levels and wavefunctions of the one-dimensional quantum harmonic oscillator."
+#| fig-alt: "Parabolic harmonic potential with equally spaced energy levels and the corresponding wavefunctions."
 #| fig-align: center
+#| out-width: "75%"
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import hermite
@@ -441,7 +579,7 @@ plt.show()
 
 ---
 
-# 2.6.4. Coherent States
+## 2.6.4. Coherent States
 
 Although our focus is the stationary states of the harmonic oscillator, there exists a special class of **non-stationary states** — the **coherent states** — that behave most like classical oscillations.
 
@@ -666,15 +804,21 @@ anim = FuncAnimation(fig, animate, frames=frames, interval=50, blit=False)
 plt.tight_layout()
 plt.close()
 
-# Display as HTML5 video in Jupyter
-HTML(anim.to_html5_video())
+# Display as looping HTML5 video
+HTML(
+    anim.to_html5_video().replace(
+        "<video ",
+        '<video muted playsinline ',
+        1
+    )
+)
 ```
 
 Coherent states thus form a conceptual bridge between **quantum** and **classical mechanics**, and they play a crucial role in **quantum optics** and **field theory**.
 
 ---
 
-# Key Takeaways
+## 2.6.5. The Central Idea
 
 - The **algebraic method** provides an elegant and general solution to the harmonic oscillator problem.  
 - **Ladder operators** simplify the derivation of the entire energy spectrum.  

@@ -1,12 +1,21 @@
 ---
 title: "2.7 Quantization of the Electromagnetic Field"
-subtitle: "From classical electrodynamics to photons"
+subtitle: "From Classical Electrodynamics to Photons"
+author: Daniel Fischer
+jupyter: python3
+filters:
+  - ../physics-macros.lua
 number-sections: false
-author: "Daniel Fischer"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Quantization of the electromagnetic field, from electromagnetic potentials and minimal coupling to transverse normal modes, photons, vacuum fluctuations, and quantum states of light.">
 ---
 
 
-## Introduction
+
+## From Classical Electrodynamics to Photons: Overview and Plan
 
 The quantum harmonic oscillator is more than a model for a particle moving near a stable equilibrium. It also provides the mathematical framework for describing the electromagnetic field quantum mechanically. The central result of this chapter is that **each independent normal mode of the free electromagnetic field is equivalent to a harmonic oscillator**. Its quantized excitations are photons.
 
@@ -3056,7 +3065,7 @@ modes, and the field variance at an idealized
 point requires additional care.
 
 
-## 2.7.6. Quantum States of the Electromagnetic Field
+## 2.7.6. Quantum states of the electromagnetic field
 
 Quantizing the electromagnetic field allows us to
 describe light in terms of photons. However, specifying
@@ -3072,7 +3081,7 @@ To visualize these differences, it is useful to
 introduce a representation based on the two
 **field quadratures**.
 
-### Field quadratures and the uncertainty principle
+### 2.7.6.1 Field quadratures and the uncertainty principle
 
 Recall that each electromagnetic mode is described
 by a quantum harmonic oscillator with coordinate
@@ -3421,7 +3430,7 @@ We will use this representation to compare
 three important types of quantum states
 of light.
 
-### 2.7.6.1. Fock states: Light with a definite photon number
+### 2.7.6.2. Fock states: Light with a definite photon number
 
 A Fock state $|n\rangle$ contains exactly
 $n$ photons in a given electromagnetic mode:
@@ -3694,7 +3703,7 @@ plt.show()
 ```
 
 
-### 2.7.6.2. Coherent states: The quantum description of classical light
+### 2.7.6.3. Coherent states: The quantum description of classical light
 
 A coherent state $|\alpha\rangle$ is
 defined as an eigenstate of the
@@ -4123,7 +4132,7 @@ plt.show()
 ```
 
 
-### 2.7.6.3. Squeezed states: Redistributing quantum uncertainty
+### 2.7.6.4. Squeezed states: Redistributing quantum uncertainty
 
 The uncertainty principle requires
 
@@ -4610,7 +4619,7 @@ the same electromagnetic mode.
 
 :::
 
-## 2.7.8. Summary
+## 2.7.7. Key Takeaways
 
 The route from classical electrodynamics to the quantum description of light can now be summarized:
 

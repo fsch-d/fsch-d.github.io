@@ -1,9 +1,16 @@
 ---
 title: 2.10 The Variational Method
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to the variational principle in quantum mechanics, including energy upper bounds, optimization of trial wavefunctions, the hydrogen ground state, and the Ritz method for approximating quantum energies and eigenstates.">
+
 ---
 
-# Introduction
+## The Variational Method: Overview and Plan
+
 
 The **variational method** is one of the most elegant and broadly useful ideas in quantum mechanics. It provides a way to approximate the energy and wavefunction of a quantum system **without ever solving the Schrödinger equation exactly**.  
 
@@ -24,13 +31,12 @@ In this chapter, we will:
 By the end, you’ll see how this principle transforms an impossible differential equation into a solvable problem of **optimization**—a theme that reappears throughout all of modern quantum physics.
 
 
-# 2.10.1. The Variational Principle in Quantum Mechanics
+## 2.10.1. The Variational Principle in Quantum Mechanics
 
 In quantum mechanics, we often seek the **ground-state energy** (lowest possible energy) and its corresponding **wavefunction**. 
 The **variational principle** provides a general and remarkably useful way to approximate both.
 
-:::{.callout-tip}
-## Variational principle
+:::{.callout-tip title="Variational principle"}
 
 For any trial wavefunction $\psi$, the expectation value of the Hamiltonian satisfies
 
@@ -53,7 +59,7 @@ Even if your trial function isn’t normalized, the principle still holds as lon
 
 ---
 
-## 2.10.1.1 Why It Works
+### 2.10.1.1 Why It Works
 
 Let $\{|n\rangle\}$ be the complete set of energy eigenstates of $\hat{H}$:
 
@@ -83,7 +89,7 @@ Thus, the variational principle is a direct consequence of the **spectral decomp
 
 ---
 
-## 2.10.1.2 How to Use It
+### 2.10.1.2 How to Use It
 
 In practice, the method becomes a systematic algorithm:
 
@@ -108,7 +114,7 @@ In practice, the method becomes a systematic algorithm:
 
 ---
 
-## 2.10.1.3 Example: The Hydrogen Ground State
+### 2.10.1.3 Example: The Hydrogen Ground State
 
 To see the method in action, let’s approximate the ground-state energy of the hydrogen atom without solving Schrödinger’s equation directly.
 
@@ -120,12 +126,12 @@ $$
 
 where $\alpha$ is the variational parameter.
 
-### Step 1: Normalize
+#### Step 1: Normalize
 $$
 N = \sqrt{\frac{\alpha^3}{\pi}}
 $$
 
-### Step 2: Compute the Energy Expectation
+#### Step 2: Compute the Energy Expectation
 
 For the hydrogen Hamiltonian,
 $$
@@ -138,7 +144,7 @@ $$
 \frac{\hbar^2 \alpha^2}{2m} - \frac{e^2\alpha}{4\pi\varepsilon_0}.
 $$
 
-### Step 3: Minimize
+#### Step 3: Minimize
 
 Setting $dE/d\alpha=0$ gives
 
@@ -146,7 +152,7 @@ $$
 \alpha_\text{opt} = \frac{m e^2}{4\pi\varepsilon_0 \hbar^2}.
 $$
 
-### Step 4: Evaluate
+#### Step 4: Evaluate
 
 Substituting $\alpha_\text{opt}$ back in:
 
@@ -159,7 +165,7 @@ Had we chosen a less perfect functional form, the result would still have been a
 
 ---
 
-## 2.10.1.4 Summary
+### 2.10.1.4 Summary
 
 | Concept | Formula | Comment |
 |----------|----------|----------|
@@ -171,14 +177,14 @@ Had we chosen a less perfect functional form, the result would still have been a
 
 
 
-# 2.10.2. Ritz’s Method {#sec-ritz}
+## 2.10.2. Ritz’s Method {#sec-ritz}
 
 The **Ritz variational method** generalizes the basic variational principle into a systematic and computationally tractable form. 
 Instead of relying on a single trial function with a few adjustable parameters, it allows the wavefunction to be expressed as a *flexible linear combination* of simpler building blocks.
 
 ---
 
-## 2.10.2.1 The Linear Variational Method
+### 2.10.2.1 The Linear Variational Method
 
 Rather than guessing one function $\psi(r)$, we represent the trial wavefunction as a **linear combination of known basis functions**:
 
@@ -199,7 +205,7 @@ In practice, we work with a finite subset that captures the essential physics of
 ---
 
 
-## 2.10.2.2 Derivation of the Secular Equation
+### 2.10.2.2 Derivation of the Secular Equation
 
 We start from the energy expectation value for the trial wave function
 
@@ -273,8 +279,7 @@ This is the **secular equation**. Its solutions determine the approximate energy
 
 The important result is that **the variational method transforms the original differential-equation problem into a matrix eigenvalue problem**.
 
-::: {.callout-note collapse="true"}
-## Detailed derivation: Minimizing the energy expectation value
+::: {.callout-note collapse="true" title="Detailed derivation: Minimizing the energy expectation value"}
 
 We begin with
 
@@ -290,7 +295,7 @@ N=\sum_{ij}c_i^*H_{ij}c_j,
 D=\sum_{ij}c_i^*S_{ij}c_j.
 $$
 
-### 1. Differentiation with respect to a complex coefficient
+#### 1. Differentiation with respect to a complex coefficient
 
 A complex coefficient $c_k=x_k+iy_k$ represents two independent real variables. For a real-valued energy functional $E$, stationarity therefore requires
 
@@ -334,7 +339,7 @@ $$
 We could equally well differentiate with respect to $c_k$, but choosing $c_k^*$ leads directly to the desired matrix eigenvalue equation.
 
 
-### 2. Apply the quotient rule
+#### 2. Apply the quotient rule
 
 Differentiating $E=N/D$ gives
 
@@ -368,7 +373,7 @@ $$
 
 Here, $E$ denotes the value of the energy functional at the stationary point. We do not need to differentiate $E$ again in this expression.
 
-### 3. Evaluate the derivatives
+#### 3. Evaluate the derivatives
 
 For the numerator,
 
@@ -411,7 +416,7 @@ $$
 \boxed{\mathbf H\vec c=E\mathbf S\vec c.}
 $$
 
-### 4. The secular determinant
+#### 4. The secular determinant
 
 Rearranging gives
 
@@ -433,7 +438,7 @@ Solving this equation determines the allowed variational energies.
 ---
 
 
-## 2.10.2.3 Interpretation and Computational Aspects
+### 2.10.2.3 Interpretation and Computational Aspects
 
 The secular equation represents a **generalized eigenvalue problem**:
 
@@ -454,7 +459,7 @@ In practice:
 
 ---
 
-## 2.10.2.4 Advantages of the Ritz Approach
+### 2.10.2.4 Advantages of the Ritz Approach
 
 1. **Systematic improvement**  
    Increasing the number of basis functions ($n$) always lowers the ground-state energy estimate, converging toward the exact value.
@@ -470,7 +475,7 @@ In practice:
 
 ---
 
-## 2.10.2.5 Applications
+### 2.10.2.5 Applications
 
 The Ritz variational method underlies many modern computational frameworks:
 
@@ -483,7 +488,7 @@ Together, these methods form the foundation of nearly all modern quantum-chemica
 
 ---
 
-## 2.10.2.6 Summary and Takeaways
+### 2.10.2.6 Summary and Takeaways
 
 | Concept | Formula | Comment |
 |----------|----------|----------|
@@ -493,7 +498,7 @@ Together, these methods form the foundation of nearly all modern quantum-chemica
 
 ---
 
-# 2.10.3. Conclusion
+## 2.10.3. Conclusion
 
 The **variational method** is one of the most powerful and conceptually elegant tools in quantum mechanics. 
 Even a rough trial function yields a rigorous **upper bound** to the true energy. 

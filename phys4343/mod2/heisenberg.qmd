@@ -4,10 +4,15 @@ filters:
   - ../physics-macros.lua
 title: 2.4 Commutators and the Heisenberg Uncertainty Principle
 subtitle: Compatible Observables and Quantum Uncertainty
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to commutators, compatible observables, complete sets of commuting observables, the Heisenberg uncertainty principle, and angular momentum commutation relations.">
 ---
 
 
-# Commutators and the Heisenberg Uncertainty Principle: Overview and Plan
+## Commutators and the Heisenberg Uncertainty Principle: Overview and Plan
 
 In the previous section, we saw that an ideal quantum measurement generally changes the state of the system.
 
@@ -31,7 +36,7 @@ If they do not commute, the observables are generally incompatible.
 
 The **Heisenberg uncertainty principle** provides a quantitative connection between this noncommutativity and the statistical uncertainties of measurements.
 
-The specific goals for this chapter are:
+The specific goals for this section are:
 
 1. Understand why successive measurements of different observables can depend on the order in which they are performed.
 2. Introduce compatible and incompatible observables.
@@ -156,9 +161,9 @@ The stronger Schrödinger--Robertson uncertainty relation is included as additio
 ::::
 
 
-# 2.4.1. Successive Measurements and Compatibility
+## 2.4.1. Successive Measurements and Compatibility
 
-## 2.4.1.1 Measuring two different observables
+### 2.4.1.1 Measuring two different observables
 
 Suppose the system is initially in the state
 
@@ -217,7 +222,7 @@ $$
 $$
 
 
-## 2.4.1.2 Measuring $A$ again
+### 2.4.1.2 Measuring $A$ again
 
 Now suppose we immediately measure $A$ once more.
 
@@ -250,7 +255,7 @@ $$
 need not reproduce the result of the first measurement.
 
 
-## 2.4.1.3 Compatible observables
+### 2.4.1.3 Compatible observables
 
 There is, however, an important special case.
 
@@ -287,9 +292,9 @@ We therefore need a mathematical criterion that tells us whether two observables
 That criterion is provided by the **commutator**.
 
 
-# 2.4.2. Commutators and Compatible Observables
+## 2.4.2. Commutators and Compatible Observables
 
-## 2.4.2.1 The commutator
+### 2.4.2.1 The commutator
 
 The commutator of two operators $\hat A$ and $\hat B$ is defined by
 
@@ -332,7 +337,7 @@ $$
 Noncommuting observables are called **incompatible observables**.
 
 
-## 2.4.2.2 Useful properties of commutators
+### 2.4.2.2 Useful properties of commutators
 
 Commutators obey a number of useful algebraic relations.
 
@@ -346,8 +351,7 @@ Commutators obey a number of useful algebraic relations.
 | Product rule | $[\hat A\hat B,\hat C]=\hat A[\hat B,\hat C]+[\hat A,\hat C]\hat B$ |
 
 
-::: {.callout-note collapse="true"}
-## Proof of the product rule
+::: {.callout-note collapse="true" title="Proof of the product rule"}
 
 Starting with
 
@@ -397,7 +401,7 @@ $$
 :::
 
 
-## 2.4.2.3 Why do commuting observables have common eigenstates?
+### 2.4.2.3 Why do commuting observables have common eigenstates?
 
 Suppose
 
@@ -426,8 +430,7 @@ $$
 Thus $\hat B\ket{a}$ is itself contained in the eigenspace of $\hat A$ with eigenvalue $a$.
 
 
-::: {.callout-note collapse="true"}
-## Proof for nondegenerate and degenerate eigenvalues
+::: {.callout-note collapse="true" title="Proof for nondegenerate and degenerate eigenvalues"}
 
 First consider a nondegenerate eigenvalue $a$:
 
@@ -473,8 +476,7 @@ Thus commuting Hermitian operators can be represented using a common orthonormal
 :::
 
 
-::: {.callout-note collapse="true"}
-## A mathematical qualification
+::: {.callout-note collapse="true" title="A mathematical qualification"}
 
 For finite-dimensional Hermitian operators, simultaneous diagonalization of commuting operators is straightforward.
 
@@ -484,7 +486,7 @@ For the operators considered in this course, we will use the standard quantum-me
 :::
 
 
-## 2.4.2.4 Complete sets of commuting observables
+### 2.4.2.4 Complete sets of commuting observables
 
 One observable does not always uniquely identify a quantum state.
 
@@ -497,7 +499,7 @@ A collection of mutually commuting observables whose eigenvalues uniquely specif
 This idea will become particularly important for angular momentum and for the hydrogen atom.
 
 
-# 2.4.3. The Heisenberg Uncertainty Principle
+## 2.4.3. The Heisenberg Uncertainty Principle
 
 In the section on [States and Operators](braket.qmd), we introduced the variance and standard deviation of an observable.
 
@@ -516,7 +518,7 @@ describes the spread of the possible outcomes of repeated measurements.
 We will now ask how small the uncertainties of **two different observables** can be at the same time.
 
 
-## 2.4.3.1 Centered operators
+### 2.4.3.1 Centered operators
 
 It is convenient to define the operator describing the deviation from the expectation value,
 
@@ -559,7 +561,7 @@ $$
 $$
 
 
-## 2.4.3.2 The general Heisenberg uncertainty relation
+### 2.4.3.2 The general Heisenberg uncertainty relation
 
 For any two Hermitian observables $\hat A$ and $\hat B$,
 
@@ -597,8 +599,7 @@ is a special case of this general relation.
 Thus, the Heisenberg uncertainty principle is not an independent rule added to quantum mechanics. It follows naturally from the operator structure of the theory.
 
 
-::: {.callout-note collapse="true"}
-## Derivation of the general Heisenberg uncertainty relation
+::: {.callout-note collapse="true" title="Derivation of the general Heisenberg uncertainty relation"}
 
 The following derivation gives the relation commonly called the **Robertson uncertainty relation**.
 
@@ -761,7 +762,7 @@ $$
 :::
 
 
-## 2.4.3.3 A subtle but important point
+### 2.4.3.3 A subtle but important point
 
 A nonzero commutator,
 
@@ -802,8 +803,7 @@ $$
 This does **not** mean that the two operators commute. It only means that this particular form of the uncertainty relation provides no nonzero lower bound for that state.
 
 
-::: {.callout-note collapse="true"}
-## The stronger Schrödinger–Robertson uncertainty relation
+::: {.callout-note collapse="true" title="The stronger Schrödinger–Robertson uncertainty relation"}
 
 The general Heisenberg relation above contains only the commutator of the two observables.
 
@@ -854,9 +854,9 @@ follows immediately by dropping the second, non-negative term.
 :::
 
 
-# 2.4.4. Position and Momentum
+## 2.4.4. Position and Momentum
 
-## 2.4.4.1 The canonical commutation relation {#sec-canonical-commutation}
+### 2.4.4.1 The canonical commutation relation {#sec-canonical-commutation}
 
 The position and momentum operators satisfy
 
@@ -893,8 +893,7 @@ $$
 $$
 
 
-::: {.callout-note collapse="true"}
-## Proof of $[\hat x,\hat p_x]=i\hbar$
+::: {.callout-note collapse="true" title="Proof of $[\hat x,\hat p_x]=i\hbar$"}
 
 The momentum operator in the position representation is
 
@@ -977,7 +976,7 @@ $$
 :::
 
 
-## 2.4.4.2 The Heisenberg position–momentum uncertainty principle
+### 2.4.4.2 The Heisenberg position–momentum uncertainty principle
 
 Substituting
 
@@ -1011,7 +1010,7 @@ This is the familiar **Heisenberg position–momentum uncertainty principle**.
 Unlike the general uncertainty bound, the right-hand side is independent of the quantum state because the commutator is simply a constant times the identity operator.
 
 
-## 2.4.4.3 What the uncertainty principle means
+### 2.4.4.3 What the uncertainty principle means
 
 The relation
 
@@ -1042,7 +1041,7 @@ $$
 This limitation belongs to the structure of the quantum state itself.
 
 
-# 2.4.5. Angular Momentum: A Preview
+## 2.4.5. Angular Momentum: A Preview
 
 Angular momentum provides one of the most important examples of incompatible observables.
 
@@ -1086,8 +1085,7 @@ $$
 $$
 
 
-::: {.callout-note collapse="true"}
-## Proof of $[\hat L_x,\hat L_y]=i\hbar\hat L_z$
+::: {.callout-note collapse="true" title="Proof of $[\hat L_x,\hat L_y]=i\hbar\hat L_z$"}
 
 For orbital angular momentum,
 
@@ -1185,7 +1183,7 @@ $$
 :::
 
 
-## 2.4.5.1 Angular-momentum magnitude and one component
+### 2.4.5.1 Angular-momentum magnitude and one component
 
 Although the Cartesian components do not commute with one another,
 
@@ -1218,8 +1216,7 @@ $$
 This is why angular-momentum states can be labeled by two quantum numbers.
 
 
-::: {.callout-note collapse="true"}
-## Proof that $[\hat{\mathbf L}^2,\hat L_z]=0$
+::: {.callout-note collapse="true" title="Proof that $[\hat{\mathbf L}^2,\hat L_z]=0$"}
 
 Using
 
@@ -1309,7 +1306,7 @@ $$
 :::
 
 
-## 2.4.5.2 Angular momentum and rotational symmetry
+### 2.4.5.2 Angular momentum and rotational symmetry
 
 For a rotationally invariant Hamiltonian,
 
@@ -1332,7 +1329,7 @@ Angular momentum therefore provides a natural set of quantum numbers for central
 We will develop orbital angular momentum in detail in the next section.
 
 
-# 2.4.6. The Central Idea
+## 2.4.6. The Central Idea
 
 A measurement generally changes the quantum state. Because of this, successive measurements of different observables need not be independent of one another.
 
