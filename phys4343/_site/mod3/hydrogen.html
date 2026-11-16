@@ -8,7 +8,7 @@
 
 <meta name="author" content="Daniel Fischer">
 
-<title>3.2 Hydrogen atom — Schrödinger equation and radial solutions – Introduction into Atomic, Molecular, and Optical Physics</title>
+<title>3.2 Hydrogen atom — Schrödinger equation and radial solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Solve the hydrogen atom Schrödinger equation using separation of variables, radial wavefunctions, energy quantization, and associated Laguerre polynomials.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -850,10 +851,7 @@ window.Quarto = {
   <li><a href="#specialize-to-the-coulomb-potential-hydrogen-like-atom" id="toc-specialize-to-the-coulomb-potential-hydrogen-like-atom" class="nav-link" data-scroll-target="#specialize-to-the-coulomb-potential-hydrogen-like-atom">3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)</a>
   <ul class="collapse">
   <li><a href="#asymptotic-behavior" id="toc-asymptotic-behavior" class="nav-link" data-scroll-target="#asymptotic-behavior">3.2.3.1 Asymptotic behavior</a></li>
-  <li><a href="#polynomial-ansatz-and-reduced-equation" id="toc-polynomial-ansatz-and-reduced-equation" class="nav-link" data-scroll-target="#polynomial-ansatz-and-reduced-equation">3.2.3.2 Polynomial Ansatz and reduced equation</a>
-  <ul class="collapse">
-  <li><a href="#termination-condition" id="toc-termination-condition" class="nav-link" data-scroll-target="#termination-condition">Termination condition</a></li>
-  </ul></li>
+  <li><a href="#polynomial-ansatz-and-reduced-equation" id="toc-polynomial-ansatz-and-reduced-equation" class="nav-link" data-scroll-target="#polynomial-ansatz-and-reduced-equation">3.2.3.2 Polynomial Ansatz and reduced equation</a></li>
   <li><a href="#energy-quantization-and-the-principal-quantum-number" id="toc-energy-quantization-and-the-principal-quantum-number" class="nav-link" data-scroll-target="#energy-quantization-and-the-principal-quantum-number">3.2.3.3 Energy quantization and the principal quantum number</a></li>
   </ul></li>
   <li><a href="#radial-eigenfunctions-closed-form" id="toc-radial-eigenfunctions-closed-form" class="nav-link" data-scroll-target="#radial-eigenfunctions-closed-form">3.2.4. Radial eigenfunctions: closed form</a>
@@ -896,8 +894,8 @@ window.Quarto = {
 </header>
 
 
-<section id="hydrogen-atom-overview-and-plan" class="level1">
-<h1>Hydrogen atom: overview and plan</h1>
+<section id="hydrogen-atom-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="hydrogen-atom-overview-and-plan">Hydrogen atom: overview and plan</h2>
 <p>We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number <span class="math inline">\(Z\)</span>). The goals of this chapter are:</p>
 <ol type="1">
 <li>Re-express the Hamiltonian using the angular-momentum operator <span class="math inline">\(\hat{\vec L}\)</span>.<br>
@@ -908,8 +906,8 @@ window.Quarto = {
 </ol>
 <hr>
 </section>
-<section id="hamiltonian-and-the-angular-momentum-form" class="level1">
-<h1>3.2.1. Hamiltonian and the angular-momentum form</h1>
+<section id="hamiltonian-and-the-angular-momentum-form" class="level2">
+<h2 class="anchored" data-anchor-id="hamiltonian-and-the-angular-momentum-form">3.2.1. Hamiltonian and the angular-momentum form</h2>
 <p>The non-relativistic time-independent Hamiltonian for an electron–proton system (masses <span class="math inline">\(m\)</span> and <span class="math inline">\(M\)</span>, respectively) interacting via the Coulomb potential is</p>
 <p><span class="math display">\[
 \hat H = -\frac{\hbar^2}{2m}\nabla_e^2 -\frac{\hbar^2}{2M}\nabla_p^2 + V(r).
@@ -923,8 +921,8 @@ V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r},
 \]</span></p>
 <p>where <span class="math inline">\(Z\)</span> is the nuclear charge (<span class="math inline">\(Z=1\)</span> for hydrogen), <span class="math inline">\(e\)</span> the elementary charge, <span class="math inline">\(\varepsilon_0\)</span> the vacuum permittivity, and <span class="math inline">\(r = |\vec r_e - \vec r_p|\)</span> is the distance between the electron and the proton.</p>
 <hr>
-<section id="center-of-mass-and-relative-motion" class="level2">
-<h2 class="anchored" data-anchor-id="center-of-mass-and-relative-motion">3.2.1.1 Center of Mass and Relative Motion</h2>
+<section id="center-of-mass-and-relative-motion" class="level3">
+<h3 class="anchored" data-anchor-id="center-of-mass-and-relative-motion">3.2.1.1 Center of Mass and Relative Motion</h3>
 <p>It is convenient to switch from the electron and proton coordinates <span class="math inline">\((\vec r_e, \vec r_p)\)</span> to</p>
 <ul>
 <li>the <strong>center-of-mass coordinate</strong> <span class="math display">\[
@@ -950,8 +948,8 @@ V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r},
 \]</span> describes the free motion of the atom as a whole through space. Since spectroscopy and bound-state problems are only sensitive to the <strong>internal dynamics</strong>, this center-of-mass contribution can be ignored (or factored out as a plane wave).</p>
 <hr>
 </section>
-<section id="effective-one-body-hamiltonian" class="level2">
-<h2 class="anchored" data-anchor-id="effective-one-body-hamiltonian">3.2.1.2 Effective One-Body Hamiltonian</h2>
+<section id="effective-one-body-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="effective-one-body-hamiltonian">3.2.1.2 Effective One-Body Hamiltonian</h3>
 <p>Thus, for studying the hydrogen spectrum we keep only the relative motion:</p>
 <p><span class="math display">\[
 \hat H = -\frac{\hbar^2}{2\mu}\nabla_r^2
@@ -961,8 +959,8 @@ V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r},
 <p>For hydrogen, since <span class="math inline">\(M \gg m\)</span>, one has <span class="math inline">\(\mu \approx m\)</span>, but the correction is important for <strong>high-precision spectroscopy</strong>.</p>
 <hr>
 </section>
-<section id="the-laplacian-and-hat-l2" class="level2">
-<h2 class="anchored" data-anchor-id="the-laplacian-and-hat-l2">3.2.1.3 The Laplacian and <span class="math inline">\(\hat L^2\)</span></h2>
+<section id="the-laplacian-and-hat-l2" class="level3">
+<h3 class="anchored" data-anchor-id="the-laplacian-and-hat-l2">3.2.1.3 The Laplacian and <span class="math inline">\(\hat L^2\)</span></h3>
 <p>We will rewrite the Laplacian in spherical coordinates and express the angular part in terms of <span class="math inline">\(\hat L^2\)</span>.</p>
 <p>In spherical coordinates <span class="math inline">\((r,\theta,\varphi)\)</span> the Laplacian acting on a scalar <span class="math inline">\(\psi(r,\theta,\varphi)\)</span> reads</p>
 <p><span class="math display">\[
@@ -1016,8 +1014,8 @@ This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radia
 <hr>
 </section>
 </section>
-<section id="separation-of-variables-angular-and-radial-parts" class="level1">
-<h1>3.2.2. Separation of variables: angular and radial parts</h1>
+<section id="separation-of-variables-angular-and-radial-parts" class="level2">
+<h2 class="anchored" data-anchor-id="separation-of-variables-angular-and-radial-parts">3.2.2. Separation of variables: angular and radial parts</h2>
 <p>Because the Coulomb potential depends only on the distance <span class="math inline">\(r\)</span>, the Hamiltonian commutes with the angular momentum operators:</p>
 <p><span class="math display">\[
 [\hat H, \hat L^2] = 0,
@@ -1040,8 +1038,8 @@ This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radia
 + \frac{\hbar^2 \ell(\ell+1)}{2 \mu r^2} R(r) + V(r) R(r) = E R(r).
 \]</span></p>
 <hr>
-<section id="the-rotational-centrifugal-barrier" class="level2">
-<h2 class="anchored" data-anchor-id="the-rotational-centrifugal-barrier">3.2.2.1 The rotational (centrifugal) barrier</h2>
+<section id="the-rotational-centrifugal-barrier" class="level3">
+<h3 class="anchored" data-anchor-id="the-rotational-centrifugal-barrier">3.2.2.1 The rotational (centrifugal) barrier</h3>
 <p>The term</p>
 <p><span class="math display">\[
 \frac{\hbar^2 \ell(\ell+1)}{2 \mu r^2}
@@ -1055,8 +1053,8 @@ This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radia
 <p>This is often called the <em>centrifugal barrier</em>. Classically, it reflects the fact that angular motion produces an effective outward “force.” Quantum mechanically, it makes it harder for states with high angular momentum to penetrate the central region.</p>
 <hr>
 </section>
-<section id="convert-to-the-reduced-radial-equation" class="level2">
-<h2 class="anchored" data-anchor-id="convert-to-the-reduced-radial-equation">3.2.2.2 Convert to the reduced radial equation</h2>
+<section id="convert-to-the-reduced-radial-equation" class="level3">
+<h3 class="anchored" data-anchor-id="convert-to-the-reduced-radial-equation">3.2.2.2 Convert to the reduced radial equation</h3>
 <p>Define the reduced radial function</p>
 <p><span class="math display">\[
 u(r) = r\, R(r).
@@ -1130,8 +1128,8 @@ Figure&nbsp;1: Effective radial Coulomb potential for different angular momenta.
 <hr>
 </section>
 </section>
-<section id="specialize-to-the-coulomb-potential-hydrogen-like-atom" class="level1">
-<h1>3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)</h1>
+<section id="specialize-to-the-coulomb-potential-hydrogen-like-atom" class="level2">
+<h2 class="anchored" data-anchor-id="specialize-to-the-coulomb-potential-hydrogen-like-atom">3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)</h2>
 <p>Set</p>
 <p><span class="math display">\[
 V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r}.
@@ -1143,8 +1141,8 @@ V(r) = -\frac{Z e^2}{4\pi\varepsilon_0}\,\frac{1}{r}.
 \]</span></p>
 <p>We seek square-integrable bound-state solutions (<span class="math inline">\(E&lt;0\)</span>). The standard method proceeds in three steps: (A) analyze asymptotic behavior at <span class="math inline">\(r\to 0\)</span> and <span class="math inline">\(r\to\infty\)</span>, (B) extract the dominant factors and reduce to a power-series equation, and (C) impose termination of the series to get quantized energies.</p>
 <hr>
-<section id="asymptotic-behavior" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotic-behavior">3.2.3.1 Asymptotic behavior</h2>
+<section id="asymptotic-behavior" class="level3">
+<h3 class="anchored" data-anchor-id="asymptotic-behavior">3.2.3.1 Asymptotic behavior</h3>
 <p><strong>As <span class="math inline">\(r\to\infty\)</span></strong>: the Coulomb potential is negligible compared to <span class="math inline">\(E&lt;0\)</span>, so the equation approximates</p>
 <p><span class="math display">\[
 -\frac{\hbar^2}{2\mu}\frac{d^2 u}{dr^2} \approx E\, u .
@@ -1164,8 +1162,8 @@ R(r) = \frac{u(r)}{r} \sim r^{\ell} \quad (r\to 0).
 \]</span></p>
 <hr>
 </section>
-<section id="polynomial-ansatz-and-reduced-equation" class="level2">
-<h2 class="anchored" data-anchor-id="polynomial-ansatz-and-reduced-equation">3.2.3.2 Polynomial Ansatz and reduced equation</h2>
+<section id="polynomial-ansatz-and-reduced-equation" class="level3">
+<h3 class="anchored" data-anchor-id="polynomial-ansatz-and-reduced-equation">3.2.3.2 Polynomial Ansatz and reduced equation</h3>
 <p>From the asymptotic analysis we propose</p>
 <p><span class="math display">\[
 u(r) = r^{\ell+1} e^{-\kappa r} v(r),
@@ -1177,7 +1175,7 @@ u(r) = r^{\ell+1} e^{-\kappa r} v(r),
 <p>one finds that <span class="math inline">\(v(\rho)\)</span> satisfies</p>
 <p><span class="math display">\[
 \rho \frac{d^2 v}{d\rho^2} + (2\ell + 2 - \rho)\frac{dv}{d\rho} +
-\left( \frac{Z e^2}{2\pi \varepsilon_0 \hbar}\frac{\mu}{\kappa} - \ell - 1 \right) v = 0.
+\left( \frac{Z e^2}{2\pi \varepsilon_0 \hbar^2}\frac{\mu}{\kappa} - \ell - 1 \right) v = 0.
 \]</span></p>
 <p>This is of the <strong>confluent hypergeometric form</strong>.</p>
 <p>To solve, assume <span class="math inline">\(v(\rho)\)</span> can be expressed as a power series:</p>
@@ -1188,8 +1186,8 @@ v(\rho) = \sum_{j=0}^{\infty} a_j \rho^j.
 <p><span class="math display">\[
 a_{j+1} = \frac{j + \ell + 1 - \frac{\mu Z e^2}{2\pi \varepsilon_0 \hbar^2 \kappa}}{(j+1)(j+2\ell+2)}\, a_j.
 \]</span></p>
-<section id="termination-condition" class="level3">
-<h3 class="anchored" data-anchor-id="termination-condition">Termination condition</h3>
+<section id="termination-condition" class="level4">
+<h4 class="anchored" data-anchor-id="termination-condition">Termination condition</h4>
 <ul>
 <li>If the series does not terminate, the coefficients <span class="math inline">\(a_j\)</span> fall off too slowly and <span class="math inline">\(v(\rho)\)</span> grows exponentially, which spoils normalizability.<br>
 </li>
@@ -1203,10 +1201,10 @@ a_{j+1} = \frac{j + \ell + 1 - \frac{\mu Z e^2}{2\pi \varepsilon_0 \hbar^2 \kapp
 <hr>
 </section>
 </section>
-<section id="energy-quantization-and-the-principal-quantum-number" class="level2">
-<h2 class="anchored" data-anchor-id="energy-quantization-and-the-principal-quantum-number">3.2.3.3 Energy quantization and the principal quantum number</h2>
+<section id="energy-quantization-and-the-principal-quantum-number" class="level3">
+<h3 class="anchored" data-anchor-id="energy-quantization-and-the-principal-quantum-number">3.2.3.3 Energy quantization and the principal quantum number</h3>
 <p>The requirement that the power-series solution terminates at a finite order fixes the parameter <span class="math inline">\(\kappa\)</span>. Using <span class="math inline">\(\kappa^2 = \tfrac{-2\mu E}{\hbar^2}\)</span>, the allowed bound-state energies are</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Bound-state energies">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1240,10 +1238,10 @@ E_n = -\frac{1}{2}\frac{\mu e^4 Z^2}{(4\pi\varepsilon_0)^2 \hbar^2}\frac{1}{n^2}
 <hr>
 </section>
 </section>
-<section id="radial-eigenfunctions-closed-form" class="level1">
-<h1>3.2.4. Radial eigenfunctions: closed form</h1>
-<p>The bound-state normalized radial functions (in SI units) are</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="radial-eigenfunctions-closed-form" class="level2">
+<h2 class="anchored" data-anchor-id="radial-eigenfunctions-closed-form">3.2.4. Radial eigenfunctions: closed form</h2>
+<p>The normalized bound-state radial wavefunctions for hydrogen (<span class="math inline">\(Z=1\)</span>) are given by</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Radial wave function">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1273,7 +1271,7 @@ N_{n\ell} = \sqrt{\left(\frac{2}{n a_0}\right)^3
 \frac{(n-\ell-1)!}{2n\, (n+\ell)!}\ }.
 \]</span></p>
 <p>The full hydrogenic stationary state is</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Hydrogen wave function">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1289,8 +1287,8 @@ N_{n\ell} = \sqrt{\left(\frac{2}{n a_0}\right)^3
 </div>
 </div>
 <hr>
-<section id="explicit-low-n-examples" class="level2">
-<h2 class="anchored" data-anchor-id="explicit-low-n-examples">3.2.4.1 Explicit low-<span class="math inline">\(n\)</span> examples</h2>
+<section id="explicit-low-n-examples" class="level3">
+<h3 class="anchored" data-anchor-id="explicit-low-n-examples">3.2.4.1 Explicit low-<span class="math inline">\(n\)</span> examples</h3>
 <ul>
 <li><p><strong>1s state</strong> <span class="math inline">\((n=1,\ell=0)\)</span>:</p>
 <p><span class="math display">\[
@@ -1569,8 +1567,8 @@ Figure&nbsp;3: Radial wave probability densities in the effective potential for 
 <hr>
 </section>
 </section>
-<section id="remarks-on-degeneracy-and-physical-interpretation" class="level1">
-<h1>3.2.5. Remarks on degeneracy and physical interpretation</h1>
+<section id="remarks-on-degeneracy-and-physical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="remarks-on-degeneracy-and-physical-interpretation">3.2.5. Remarks on degeneracy and physical interpretation</h2>
 <ul>
 <li><p>The energy <span class="math inline">\(E_n\)</span> depends only on <span class="math inline">\(n\)</span> (not on <span class="math inline">\(\ell\)</span> or <span class="math inline">\(m\)</span>) for the non-relativistic Coulomb problem.<br>
 Thus each energy level has the well-known degeneracy <span class="math inline">\(n^2\)</span>, meaning there are <span class="math inline">\(n^2\)</span> orthonormal eigenstates of the Hamiltonian with the same eigenvalue:</p>
@@ -1590,10 +1588,10 @@ Thus each energy level has the well-known degeneracy <span class="math inline">\
 </ul>
 <hr>
 </section>
-<section id="atomic-states-in-dirac-notation" class="level1">
-<h1>3.2.6. Atomic states in Dirac notation</h1>
+<section id="atomic-states-in-dirac-notation" class="level2">
+<h2 class="anchored" data-anchor-id="atomic-states-in-dirac-notation">3.2.6. Atomic states in Dirac notation</h2>
 <p>In the hydrogen atom, the solutions of the Schrödinger equation are labeled by the three quantum numbers:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Atomic quantum numbers">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1617,7 +1615,7 @@ Thus each energy level has the well-known degeneracy <span class="math inline">\
 |n,\ell,m\rangle.
 \]</span></p>
 <p>These states satisfy the following eigenvalue equations:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Eigenvalue equations">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1653,8 +1651,8 @@ Thus each energy level has the well-known degeneracy <span class="math inline">\
 We will use the compact ket notation <span class="math inline">\(|n,\ell,m\rangle\)</span> throughout the following discussions, since it highlights the algebraic properties (eigenvalues, degeneracies, operator actions) without always writing out the full coordinate-space wavefunctions.</p>
 <hr>
 </section>
-<section id="orbital-naming-conventions" class="level1">
-<h1>3.2.7. Orbital Naming Conventions</h1>
+<section id="orbital-naming-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="orbital-naming-conventions">3.2.7. Orbital Naming Conventions</h2>
 <p>In quantum mechanics, the orbital angular momentum quantum number <span class="math inline">\(\ell\)</span> dictates the shape of an electron’s orbital and gives rise to a specific naming convention. These are the common designations for the first few values of <span class="math inline">\(\ell\)</span>:</p>
 <ul>
 <li><span class="math inline">\(\ell = 0\)</span>: <strong>s-state</strong> (from “sharp”)</li>
@@ -1665,8 +1663,8 @@ We will use the compact ket notation <span class="math inline">\(|n,\ell,m\rangl
 <p>This nomenclature is a historical convention from early spectroscopy, where these letters corresponded to the appearance of certain series of spectral lines: sharp, principal, diffuse, and fundamental.</p>
 <hr>
 </section>
-<section id="appendix-useful-expressions" class="level1">
-<h1>Appendix: useful expressions</h1>
+<section id="appendix-useful-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-useful-expressions">Appendix: useful expressions</h2>
 <ul>
 <li><p>Bohr radius: <span class="math display">\[
 a_0 = \frac{4\pi\varepsilon_0 \hbar^2}{m e^2}.

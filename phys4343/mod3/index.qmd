@@ -1,6 +1,11 @@
 ---
 title: '3 Hydrogen Atom: Wave Functions'
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore the hydrogen atom in quantum mechanics, including orbital angular momentum, the Schrödinger equation, energy levels, and hydrogen orbitals.">
 ---
 
 ## Why Hydrogen?
@@ -13,7 +18,7 @@ Hydrogen is the simplest atom, consisting of just one electron bound to one prot
 
 ---
 
-## Scope of this Section
+## Scope of this Chapter
 
 In this chapter, we study hydrogen in the **nonrelativistic Schrödinger picture**.  
 Our goals are:
@@ -27,10 +32,10 @@ Our goals are:
   See [Visualizing Hydrogen Orbitals](orbitals.qmd).  
 - Connect angular momentum quantum numbers $(\ell,m)$ with the orbital shapes and nodal structure.  
 
-This material provides the **foundation** for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the [Hydrogen (Details)](../mod4/spin.qmd) chapter.
+This material provides the **foundation** for later refinements (spin, relativistic corrections, Lamb shift, hyperfine structure) treated in the [Hydrogen Atom: Shifts and Interactions](../mod4/index.qmd) chapter.
 
 ---
 
-## A Final Remark
+## Why Hydrogen Still Matters
 
 Hydrogen is not just a “toy problem.” It remains a **testing ground for quantum mechanics** and a reference point for experiments across physics, from spectroscopy to astrophysics. By mastering the hydrogen atom at this basic level, we gain insight into both the methods of quantum mechanics and the rich structure of atomic physics.

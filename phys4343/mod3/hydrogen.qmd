@@ -2,9 +2,14 @@
 title: 3.2 Hydrogen atom — Schrödinger equation and radial solutions
 author: Daniel Fischer
 #engine: python3
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Solve the hydrogen atom Schrödinger equation using separation of variables, radial wavefunctions, energy quantization, and associated Laguerre polynomials.">
 ---
 
-# Hydrogen atom: overview and plan
+## Hydrogen atom: overview and plan
 
 We solve the time-independent Schrödinger equation for a single electron in the Coulomb potential of a nucleus (atomic number $Z$). The goals of this chapter are:
 
@@ -14,7 +19,7 @@ We solve the time-independent Schrödinger equation for a single electron in the
 
 ---
 
-# 3.2.1. Hamiltonian and the angular-momentum form
+## 3.2.1. Hamiltonian and the angular-momentum form
 
 
 The non-relativistic time-independent Hamiltonian for an electron–proton system 
@@ -38,7 +43,7 @@ where $Z$ is the nuclear charge ($Z=1$ for hydrogen), $e$ the elementary charge,
 
 ---
 
-## 3.2.1.1 Center of Mass and Relative Motion
+### 3.2.1.1 Center of Mass and Relative Motion
 
 It is convenient to switch from the electron and proton coordinates 
 $(\vec r_e, \vec r_p)$ to
@@ -79,7 +84,7 @@ Since spectroscopy and bound-state problems are only sensitive to the
 
 ---
 
-## 3.2.1.2 Effective One-Body Hamiltonian
+### 3.2.1.2 Effective One-Body Hamiltonian
 
 Thus, for studying the hydrogen spectrum we keep only the relative motion:
 
@@ -98,7 +103,7 @@ For hydrogen, since $M \gg m$, one has $\mu \approx m$, but the correction is im
 
 ---
 
-## 3.2.1.3 The Laplacian and $\hat L^2$
+### 3.2.1.3 The Laplacian and $\hat L^2$
 
 We will rewrite the Laplacian in spherical coordinates and express the angular part in terms of $\hat L^2$.
 
@@ -168,7 +173,7 @@ This positive term grows rapidly as $r\to 0$ and therefore *suppresses the radia
 
 
 
-# 3.2.2. Separation of variables: angular and radial parts
+## 3.2.2. Separation of variables: angular and radial parts
 
 Because the Coulomb potential depends only on the distance $r$, the Hamiltonian commutes with the angular momentum operators:
 
@@ -201,7 +206,7 @@ $$
 
 ---
 
-## 3.2.2.1 The rotational (centrifugal) barrier
+### 3.2.2.1 The rotational (centrifugal) barrier
 
 The term
 
@@ -218,7 +223,7 @@ This is often called the *centrifugal barrier*. Classically, it reflects the fac
 
 ---
 
-## 3.2.2.2 Convert to the reduced radial equation
+### 3.2.2.2 Convert to the reduced radial equation
 
 Define the reduced radial function
 
@@ -293,7 +298,7 @@ plt.show()
 
 ---
 
-# 3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)
+## 3.2.3. Specialize to the Coulomb potential (hydrogen-like atom)
 
 Set
 
@@ -312,7 +317,7 @@ We seek square-integrable bound-state solutions ($E<0$). The standard method pro
 
 ---
 
-## 3.2.3.1 Asymptotic behavior
+### 3.2.3.1 Asymptotic behavior
 
 **As $r\to\infty$**: the Coulomb potential is negligible compared to $E<0$, so the equation approximates
 
@@ -342,7 +347,7 @@ $$
 
 ---
 
-## 3.2.3.2 Polynomial Ansatz and reduced equation
+### 3.2.3.2 Polynomial Ansatz and reduced equation
 
 From the asymptotic analysis we propose
 
@@ -360,7 +365,7 @@ one finds that $v(\rho)$ satisfies
 
 $$
 \rho \frac{d^2 v}{d\rho^2} + (2\ell + 2 - \rho)\frac{dv}{d\rho} + 
-\left( \frac{Z e^2}{2\pi \varepsilon_0 \hbar}\frac{\mu}{\kappa} - \ell - 1 \right) v = 0.
+\left( \frac{Z e^2}{2\pi \varepsilon_0 \hbar^2}\frac{\mu}{\kappa} - \ell - 1 \right) v = 0.
 $$
 
 This is of the **confluent hypergeometric form**.  
@@ -377,7 +382,7 @@ $$
 a_{j+1} = \frac{j + \ell + 1 - \frac{\mu Z e^2}{2\pi \varepsilon_0 \hbar^2 \kappa}}{(j+1)(j+2\ell+2)}\, a_j.
 $$
 
-### Termination condition
+#### Termination condition
 
 - If the series does not terminate, the coefficients $a_j$ fall off too slowly and $v(\rho)$ grows exponentially, which spoils normalizability.  
 - Normalizable solutions exist only if the numerator vanishes for some finite $j=n_r$ (the **radial quantum number**). This forces the series to terminate, producing a polynomial.
@@ -393,14 +398,14 @@ where $n$ is the **principal quantum number**.
 
 ---
 
-## 3.2.3.3 Energy quantization and the principal quantum number
+### 3.2.3.3 Energy quantization and the principal quantum number
 
 The requirement that the power-series solution terminates at a finite order fixes 
 the parameter $\kappa$. Using $\kappa^2 = \tfrac{-2\mu E}{\hbar^2}$, the allowed 
 bound-state energies are
 
-::: {.callout-tip}
-## Bound-state energies
+::: {.callout-tip title="Bound-state energies"}
+
 $$
 E_n = - \frac{\mu e^4 Z^2}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2}
 = -\frac{R_\mathrm{y} Z^2}{n^2}, \qquad n = 1,2,3,\dots
@@ -431,12 +436,12 @@ $$
 
 ---
 
-# 3.2.4. Radial eigenfunctions: closed form
+## 3.2.4. Radial eigenfunctions: closed form
 
-The bound-state normalized radial functions (in SI units) are
+The normalized bound-state radial wavefunctions for hydrogen ($Z=1$) are given by
 
-::: {.callout-tip}
-## Radial wave function
+::: {.callout-tip title="Radial wave function"}
+
 $$
 R_{n\ell}(r)
 = N_{n\ell}\,\left(\frac{2 r}{n a_0}\right)^{\ell}
@@ -463,8 +468,8 @@ $$
 
 The full hydrogenic stationary state is
 
-::: {.callout-tip}
-## Hydrogen wave function
+::: {.callout-tip title="Hydrogen wave function"}
+
 $$
 \psi_{n\ell m}(r,\theta,\varphi) = R_{n\ell}(r)\, Y_\ell^m(\theta,\varphi).
 $$
@@ -472,7 +477,7 @@ $$
 
 ---
 
-## 3.2.4.1 Explicit low-$n$ examples
+### 3.2.4.1 Explicit low-$n$ examples
 
 - **1s state** $(n=1,\ell=0)$:
 
@@ -746,7 +751,7 @@ plt.show()
 
 ---
 
-# 3.2.5. Remarks on degeneracy and physical interpretation
+## 3.2.5. Remarks on degeneracy and physical interpretation
 
 - The energy $E_n$ depends only on $n$ (not on $\ell$ or $m$) for the non-relativistic Coulomb problem.  
   Thus each energy level has the well-known degeneracy $n^2$, meaning there are $n^2$ orthonormal eigenstates of the Hamiltonian with the same eigenvalue:
@@ -769,12 +774,12 @@ plt.show()
 
 ---
 
-# 3.2.6. Atomic states in Dirac notation
+## 3.2.6. Atomic states in Dirac notation
 
 In the hydrogen atom, the solutions of the Schrödinger equation are labeled by the three quantum numbers:
 
-::: {.callout-tip}
-## Atomic quantum numbers
+::: {.callout-tip title="Atomic quantum numbers"}
+
 - the **principal quantum number** $n = 1,2,3,\dots$,  
 - the **orbital angular momentum quantum number** $\ell = 0,1,\dots,n-1$,  
 - the **magnetic quantum number** $m = -\ell, -\ell+1, \dots, \ell$.
@@ -788,8 +793,8 @@ $$
 
 These states satisfy the following eigenvalue equations:
 
-::: {.callout-tip}
-## Eigenvalue equations
+::: {.callout-tip title="Eigenvalue equations"}
+
 $$
 \hat H |n,\ell,m\rangle = E_n |n,\ell,m\rangle,
 $$
@@ -827,7 +832,7 @@ We will use the compact ket notation $|n,\ell,m\rangle$ throughout the following
 
 ---
 
-# 3.2.7. Orbital Naming Conventions
+## 3.2.7. Orbital Naming Conventions
 
 In quantum mechanics, the orbital angular momentum quantum number $\ell$ dictates the shape of an electron's orbital and gives rise to a specific naming convention. These are the common designations for the first few values of $\ell$:
 
@@ -840,7 +845,7 @@ This nomenclature is a historical convention from early spectroscopy, where thes
 
 ---
 
-# Appendix: useful expressions
+## Appendix: useful expressions
 
 - Bohr radius:
   $$
