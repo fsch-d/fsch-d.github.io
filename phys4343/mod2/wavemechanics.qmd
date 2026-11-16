@@ -6,7 +6,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to quantum wave mechanics, covering electron interference, complex wave functions, superposition, the Born rule, de Broglie relations, and the Schrödinger equation.">
+        <meta name="description" content="Introduction to quantum wave mechanics: electron interference, wave functions, superposition, the Born rule, de Broglie relations, and Schrödinger's equation.">
 ---
 
 ## Wave Mechanics: Overview and Plan

@@ -9,7 +9,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to Hilbert spaces and Dirac notation in quantum mechanics, including state vectors, inner products, operators, orthonormal bases, eigenstates, and quantum measurements.">
+        <meta name="description" content="Hilbert spaces and Dirac notation in quantum mechanics: state vectors, inner products, operators, orthonormal bases, eigenstates, and measurements.">
 ---
 
 

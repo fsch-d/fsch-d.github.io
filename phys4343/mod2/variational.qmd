@@ -5,7 +5,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to the variational principle in quantum mechanics, including energy upper bounds, optimization of trial wavefunctions, the hydrogen ground state, and the Ritz method for approximating quantum energies and eigenstates.">
+        <meta name="description" content="The variational principle in quantum mechanics: energy upper bounds, trial wavefunctions, the hydrogen ground state, and the Ritz method.">
 
 ---
 

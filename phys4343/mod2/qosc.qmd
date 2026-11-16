@@ -6,7 +6,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to the quantum harmonic oscillator using ladder operators, energy eigenvalues, number states, wavefunctions, and coherent states, including Python visualizations.">
+        <meta name="description" content="The quantum harmonic oscillator: ladder operators, energy eigenvalues, number states, wavefunctions, coherent states, and Python visualizations.">
 ---
 
 

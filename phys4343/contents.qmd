@@ -5,7 +5,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Explore the complete contents of an introductory textbook on atomic, molecular, and optical physics, covering quantum mechanics, atomic structure, spectroscopy, molecular physics, and laser–atom interactions.">
+        <meta name="description" content="Contents of an atomic, molecular, and optical physics textbook: quantum mechanics, atomic structure, spectroscopy, molecular physics, and laser interactions.">
 ---
 
 This page provides an overview and links to all the sections of the website.

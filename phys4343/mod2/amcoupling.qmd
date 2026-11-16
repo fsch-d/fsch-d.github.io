@@ -5,7 +5,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to quantum angular momentum, commutation relations, ladder operators, angular-momentum eigenvalues, coupled and uncoupled bases, and Clebsch-Gordan coefficients.">
+        <meta name="description" content="Quantum angular momentum: commutation relations, ladder operators, eigenvalues, coupled and uncoupled bases, and Clebsch-Gordan coefficients.">
 ---
 
 ## Angular Momenta and Their Couplings: Overview and Plan

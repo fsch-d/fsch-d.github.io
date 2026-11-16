@@ -7,7 +7,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to indistinguishable particles, exchange symmetry, bosons and fermions, the spin-statistics connection, and the Pauli exclusion principle in quantum mechanics.">
+        <meta name="description" content="Identical particles in quantum mechanics: exchange symmetry, bosons and fermions, the spin-statistics connection, and the Pauli exclusion principle.">
 ---
 
 ## Identical Particles and Exchange Symmetry: Overview and Plan

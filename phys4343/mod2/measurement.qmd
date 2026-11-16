@@ -8,7 +8,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to quantum measurement, the Born rule, state reduction, the quantum measurement problem, decoherence, and interpretations of quantum mechanics.">
+        <meta name="description" content="Quantum measurement: the Born rule, state reduction, the measurement problem, decoherence, and interpretations of quantum mechanics.">
 ---
 
 

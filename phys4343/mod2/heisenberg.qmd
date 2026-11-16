@@ -8,7 +8,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to commutators, compatible observables, complete sets of commuting observables, the Heisenberg uncertainty principle, and angular momentum commutation relations.">
+        <meta name="description" content="Commutators in quantum mechanics: compatible observables, commuting operators, the Heisenberg uncertainty principle, and angular momentum relations.">
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 title: "Introduction to Atomic, Molecular, and Optical Physics"
+pagetitle: "Introduction to AMO Physics"
 subtitle: "PHYS 4343 — Missouri S&T"
 author: "Daniel Fischer"
 format:
@@ -8,7 +9,7 @@ format:
       text: |
         <meta name="google-site-verification" content="21RE9_PY5tEqEJ0wGgmEvqK8Ub2NrGq51TGpgY-_pWk" />
         <meta name="msvalidate.01" content="DC04BF69459E2454A344F6D179320B96" />
-        <meta name="description" content="An introduction to atomic, molecular, and optical physics, covering quantum mechanics, atomic structure, spectroscopy, molecular physics, and laser–atom interactions.">
+        <meta name="description" content="Introduction to atomic, molecular, and optical physics: quantum mechanics, atomic structure, spectroscopy, molecular physics, and laser–atom interactions.">
 ---
 
 ## Welcome

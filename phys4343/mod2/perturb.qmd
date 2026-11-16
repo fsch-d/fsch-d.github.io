@@ -8,7 +8,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to non-degenerate time-independent perturbation theory, including first-order energy and state corrections, second-order energy shifts, and limits of the approximation.">
+        <meta name="description" content="Non-degenerate time-independent perturbation theory: first-order energy and state corrections, second-order energy shifts, and approximation limits.">
 ---
 
 ## Perturbation Theory: Overview and Plan

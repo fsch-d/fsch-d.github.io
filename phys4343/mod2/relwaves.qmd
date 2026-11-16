@@ -7,7 +7,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to relativistic quantum mechanics, from the limitations of the Schrödinger equation and the Klein–Gordon equation to the Dirac equation, gamma matrices, electron spin, antimatter, and relativistic effects in atomic physics.">
+        <meta name="description" content="Relativistic quantum mechanics: the Klein–Gordon and Dirac equations, gamma matrices, electron spin, antimatter, and relativistic effects in atoms.">
 ---
 
 

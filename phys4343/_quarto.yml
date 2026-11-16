@@ -166,6 +166,7 @@ lightbox:
   effect: fade
 format:
   html:
+    title-prefix: ""
     theme:
       light: cosmo
       dark: darkly

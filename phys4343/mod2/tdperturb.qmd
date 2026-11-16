@@ -7,7 +7,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Introduction to time-dependent perturbation theory, including transition amplitudes, resonant excitation, finite-time transition probabilities, and the derivation of Fermi's Golden Rule.">
+        <meta name="description" content="Time-dependent perturbation theory: transition amplitudes, resonant excitation, finite-time transition probabilities, and Fermi's Golden Rule.">
 ---
 
 ## Time-Dependent Perturbation Theory: Overview and Plan

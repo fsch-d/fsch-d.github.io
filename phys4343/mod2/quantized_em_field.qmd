@@ -10,7 +10,7 @@ format:
   html:
     include-in-header:
       text: |
-        <meta name="description" content="Quantization of the electromagnetic field, from electromagnetic potentials and minimal coupling to transverse normal modes, photons, vacuum fluctuations, and quantum states of light.">
+        <meta name="description" content="Quantization of the electromagnetic field: minimal coupling, transverse field modes, photons, vacuum fluctuations, and quantum states of light.">
 ---
 
 
