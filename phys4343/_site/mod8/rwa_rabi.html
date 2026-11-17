@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Explore the rotating wave approximation, Rabi oscillations, detuning, dressed states, AC Stark shifts, and coherent control of two-level atoms.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -838,28 +839,10 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#the-rotating-wave-approximation-rwa" id="toc-the-rotating-wave-approximation-rwa" class="nav-link" data-scroll-target="#the-rotating-wave-approximation-rwa">8.2.1. The Rotating-Wave Approximation (RWA)</a>
   <ul class="collapse">
-  <li><a href="#two-level-system-coupled-to-a-classical-field" id="toc-two-level-system-coupled-to-a-classical-field" class="nav-link" data-scroll-target="#two-level-system-coupled-to-a-classical-field">8.2.1.1 Two-Level System Coupled to a Classical Field</a>
-  <ul class="collapse">
-  <li><a href="#interaction-with-a-classical-field" id="toc-interaction-with-a-classical-field" class="nav-link" data-scroll-target="#interaction-with-a-classical-field">Interaction with a Classical Field</a></li>
-  <li><a href="#matrix-elements-of-the-dipole-operator" id="toc-matrix-elements-of-the-dipole-operator" class="nav-link" data-scroll-target="#matrix-elements-of-the-dipole-operator">Matrix Elements of the Dipole Operator</a></li>
-  <li><a href="#the-rabi-frequency" id="toc-the-rabi-frequency" class="nav-link" data-scroll-target="#the-rabi-frequency">The Rabi Frequency</a></li>
-  <li><a href="#time-dependent-schrödinger-equation" id="toc-time-dependent-schrödinger-equation" class="nav-link" data-scroll-target="#time-dependent-schrödinger-equation">Time-Dependent Schrödinger Equation</a></li>
-  </ul></li>
-  <li><a href="#transformation-to-a-rotating-frame" id="toc-transformation-to-a-rotating-frame" class="nav-link" data-scroll-target="#transformation-to-a-rotating-frame">8.2.1.2 Transformation to a Rotating Frame</a>
-  <ul class="collapse">
-  <li><a href="#rotating-frame-schrödinger-equation" id="toc-rotating-frame-schrödinger-equation" class="nav-link" data-scroll-target="#rotating-frame-schrödinger-equation">Rotating-Frame Schrödinger Equation</a></li>
-  </ul></li>
-  <li><a href="#physical-interpretation-and-meaning-of-the-rotating-frame" id="toc-physical-interpretation-and-meaning-of-the-rotating-frame" class="nav-link" data-scroll-target="#physical-interpretation-and-meaning-of-the-rotating-frame">8.2.1.3 Physical Interpretation and Meaning of the Rotating Frame</a>
-  <ul class="collapse">
-  <li><a href="#structure-of-the-rotating-frame-hamiltonian" id="toc-structure-of-the-rotating-frame-hamiltonian" class="nav-link" data-scroll-target="#structure-of-the-rotating-frame-hamiltonian">Structure of the Rotating-Frame Hamiltonian</a></li>
-  </ul></li>
-  <li><a href="#sec-rwa" id="toc-sec-rwa" class="nav-link" data-scroll-target="#sec-rwa">8.2.1.4 The Rotating-Wave Approximation (RWA)</a>
-  <ul class="collapse">
-  <li><a href="#time-scale-averaging-argument" id="toc-time-scale-averaging-argument" class="nav-link" data-scroll-target="#time-scale-averaging-argument">Time-Scale (Averaging) Argument</a></li>
-  <li><a href="#near-resonance-argument" id="toc-near-resonance-argument" class="nav-link" data-scroll-target="#near-resonance-argument">Near-Resonance Argument</a></li>
-  <li><a href="#transformation-to-the-laser-frequency-rotating-basis" id="toc-transformation-to-the-laser-frequency-rotating-basis" class="nav-link" data-scroll-target="#transformation-to-the-laser-frequency-rotating-basis">Transformation to the Laser-Frequency Rotating Basis</a></li>
-  <li><a href="#interpretation-of-the-new-basis" id="toc-interpretation-of-the-new-basis" class="nav-link" data-scroll-target="#interpretation-of-the-new-basis">Interpretation of the New Basis</a></li>
-  </ul></li>
+  <li><a href="#two-level-system-coupled-to-a-classical-field" id="toc-two-level-system-coupled-to-a-classical-field" class="nav-link" data-scroll-target="#two-level-system-coupled-to-a-classical-field">8.2.1.1 Two-Level System Coupled to a Classical Field</a></li>
+  <li><a href="#transformation-to-a-rotating-frame" id="toc-transformation-to-a-rotating-frame" class="nav-link" data-scroll-target="#transformation-to-a-rotating-frame">8.2.1.2 Transformation to a Rotating Frame</a></li>
+  <li><a href="#physical-interpretation-and-meaning-of-the-rotating-frame" id="toc-physical-interpretation-and-meaning-of-the-rotating-frame" class="nav-link" data-scroll-target="#physical-interpretation-and-meaning-of-the-rotating-frame">8.2.1.3 Physical Interpretation and Meaning of the Rotating Frame</a></li>
+  <li><a href="#sec-rwa" id="toc-sec-rwa" class="nav-link" data-scroll-target="#sec-rwa">8.2.1.4 The Rotating-Wave Approximation (RWA)</a></li>
   </ul></li>
   <li><a href="#solutions-in-the-rwa-rabi-oscillations-and-dressed-states" id="toc-solutions-in-the-rwa-rabi-oscillations-and-dressed-states" class="nav-link" data-scroll-target="#solutions-in-the-rwa-rabi-oscillations-and-dressed-states">8.2.2. Solutions in the RWA: Rabi oscillations and dressed states</a>
   <ul class="collapse">
@@ -912,8 +895,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>The <strong>coherent interaction</strong> of atoms—or other quantum two-level systems—with a strong, monochromatic electromagnetic field lies at the heart of many modern experiments: <strong>laser spectroscopy</strong>, <strong>optical trapping</strong>, <strong>atomic clocks</strong>, <strong>quantum information with qubits</strong>, and <strong>quantum simulation</strong> in optical lattices.</p>
 <p>In this chapter, we develop the <em>minimal but powerful theoretical framework</em> that describes such interactions <strong>non-perturbatively</strong>: a <strong>two-level system</strong> coupled to a <strong>classical, monochromatic field</strong>.</p>
 <p>By the end of this chapter, you should be able to:</p>
@@ -930,12 +913,12 @@ window.Quarto = {
 <p>This framework forms the conceptual and mathematical foundation for much of <strong>quantum optics</strong>, <strong>quantum control</strong>, and <strong>atomic physics</strong> today.</p>
 <hr>
 </section>
-<section id="the-rotating-wave-approximation-rwa" class="level1">
-<h1>8.2.1. The Rotating-Wave Approximation (RWA)</h1>
+<section id="the-rotating-wave-approximation-rwa" class="level2">
+<h2 class="anchored" data-anchor-id="the-rotating-wave-approximation-rwa">8.2.1. The Rotating-Wave Approximation (RWA)</h2>
 <p>Before diving into the details, let us recall that the <em>Rotating-Wave Approximation</em> (RWA) is one of the most powerful simplifications in quantum optics. It allows us to focus on the <strong>slow, resonant dynamics</strong> of a system while neglecting rapidly oscillating, non-resonant terms that average out over time. We begin by constructing the Hamiltonian for a two-level atom interacting with a classical, monochromatic field.</p>
 <hr>
-<section id="two-level-system-coupled-to-a-classical-field" class="level2">
-<h2 class="anchored" data-anchor-id="two-level-system-coupled-to-a-classical-field">8.2.1.1 Two-Level System Coupled to a Classical Field</h2>
+<section id="two-level-system-coupled-to-a-classical-field" class="level3">
+<h3 class="anchored" data-anchor-id="two-level-system-coupled-to-a-classical-field">8.2.1.1 Two-Level System Coupled to a Classical Field</h3>
 <p>We consider an atom (or any quantum two-level system) with a <strong>ground state</strong> <span class="math inline">\(\left\lvert g \right\rangle\)</span> and an <strong>excited state</strong> <span class="math inline">\(\left\lvert e \right\rangle\)</span>.<br>
 The atomic Hamiltonian is</p>
 <p><span class="math display">\[
@@ -955,8 +938,8 @@ The atomic Hamiltonian is</p>
 </figure>
 </div>
 <hr>
-<section id="interaction-with-a-classical-field" class="level3">
-<h3 class="anchored" data-anchor-id="interaction-with-a-classical-field">Interaction with a Classical Field</h3>
+<section id="interaction-with-a-classical-field" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-with-a-classical-field">Interaction with a Classical Field</h4>
 <p>The atom interacts with a <strong>classical, monochromatic electric field</strong> in the <strong>electric dipole approximation</strong>. We assume the field is spatially uniform across the atom, i.e., the phase factor <span class="math inline">\(e^{-i k z}\)</span> can be neglected. The electric field is written as</p>
 <p><span class="math display">\[
 \vec{E}(t) = \frac{1}{2}\left( \vec{E}_0 e^{-i \omega_L t} + \vec{E}_0^* e^{i \omega_L t} \right),
@@ -968,8 +951,8 @@ The atomic Hamiltonian is</p>
 \]</span></p>
 <hr>
 </section>
-<section id="matrix-elements-of-the-dipole-operator" class="level3">
-<h3 class="anchored" data-anchor-id="matrix-elements-of-the-dipole-operator">Matrix Elements of the Dipole Operator</h3>
+<section id="matrix-elements-of-the-dipole-operator" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-elements-of-the-dipole-operator">Matrix Elements of the Dipole Operator</h4>
 <p>In the <span class="math inline">\(\{\left\lvert e \right\rangle, \left\lvert g \right\rangle\}\)</span> basis, the <strong>diagonal dipole matrix elements</strong> vanish for non-degenerate atomic eigenstates of definite parity, because the integrand is odd:</p>
 <p><span class="math display">\[
 \langle e | \hat{\vec{d}} | e \rangle = \langle g | \hat{\vec{d}} | g \rangle  = 0.
@@ -1003,8 +986,8 @@ The atomic Hamiltonian is</p>
 </div>
 <hr>
 </section>
-<section id="the-rabi-frequency" class="level3">
-<h3 class="anchored" data-anchor-id="the-rabi-frequency">The Rabi Frequency</h3>
+<section id="the-rabi-frequency" class="level4">
+<h4 class="anchored" data-anchor-id="the-rabi-frequency">The Rabi Frequency</h4>
 <p>It is convenient to introduce the <strong>(complex) Rabi frequency</strong></p>
 <p><span class="math display">\[
 \Omega_0 = \frac{\vec{d}_{eg}\cdot\vec{E}_0}{\hbar}, \qquad
@@ -1021,8 +1004,8 @@ The atomic Hamiltonian is</p>
 \]</span></p>
 <hr>
 </section>
-<section id="time-dependent-schrödinger-equation" class="level3">
-<h3 class="anchored" data-anchor-id="time-dependent-schrödinger-equation">Time-Dependent Schrödinger Equation</h3>
+<section id="time-dependent-schrödinger-equation" class="level4">
+<h4 class="anchored" data-anchor-id="time-dependent-schrödinger-equation">Time-Dependent Schrödinger Equation</h4>
 <p>We expand the total wavefunction in the energy basis as</p>
 <p><span class="math display">\[
 \left\lvert \psi(t) \right\rangle= c_e(t)\left\lvert e \right\rangle+ c_g(t)\left\lvert g \right\rangle.
@@ -1047,8 +1030,8 @@ i\hbar \frac{d}{dt}
 <hr>
 </section>
 </section>
-<section id="transformation-to-a-rotating-frame" class="level2">
-<h2 class="anchored" data-anchor-id="transformation-to-a-rotating-frame">8.2.1.2 Transformation to a Rotating Frame</h2>
+<section id="transformation-to-a-rotating-frame" class="level3">
+<h3 class="anchored" data-anchor-id="transformation-to-a-rotating-frame">8.2.1.2 Transformation to a Rotating Frame</h3>
 <p>So far, the coefficients <span class="math inline">\(c_e(t)\)</span> and <span class="math inline">\(c_g(t)\)</span> in our Schrödinger equation still carry the <strong>rapid phase oscillations</strong> associated with the stationary atomic energies <span class="math inline">\(\pm \hbar \omega_0 / 2\)</span>. It is convenient to remove this trivial time dependence by moving into a <em>rotating frame</em> that follows the free evolution of the atom. This will allow us to isolate the <strong>slow, driven dynamics</strong> produced by the field.</p>
 <p>We define new amplitudes <span class="math inline">\(\tilde c_e(t)\)</span> and <span class="math inline">\(\tilde c_g(t)\)</span> through the unitary transformation</p>
 <p><span id="eq-rframe"><span class="math display">\[\label{eq:rframe}
@@ -1063,8 +1046,8 @@ e^{-i\omega_0 t/2} &amp; 0 \\
 \tag{2}\]</span></span></p>
 <p>The transformation <span class="math inline">\(\hat U(t)\)</span> simply removes the <strong>free atomic phase evolution</strong> generated by <span class="math inline">\(\hat H_A\)</span>. We now derive the equation of motion for <span class="math inline">\(\tilde{\vec c} \equiv (\tilde c_e, \tilde c_g)^T\)</span>.</p>
 <hr>
-<section id="rotating-frame-schrödinger-equation" class="level3">
-<h3 class="anchored" data-anchor-id="rotating-frame-schrödinger-equation">Rotating-Frame Schrödinger Equation</h3>
+<section id="rotating-frame-schrödinger-equation" class="level4">
+<h4 class="anchored" data-anchor-id="rotating-frame-schrödinger-equation">Rotating-Frame Schrödinger Equation</h4>
 <p>Substituting <a href="#eq-rframe" class="quarto-xref">Equation&nbsp;2</a> into the Schrödinger equation <a href="#eq-seraw" class="quarto-xref">Equation&nbsp;1</a>, we obtain after some algebra</p>
 <p><span id="eq-serot"><span class="math display">\[
 i\hbar\frac{d}{dt}
@@ -1184,10 +1167,10 @@ i\hbar\frac{d\tilde{\vec c}}{dt} = \hat U^\dagger \hat H_I \hat U\, \tilde{\vec 
 <hr>
 </section>
 </section>
-<section id="physical-interpretation-and-meaning-of-the-rotating-frame" class="level2">
-<h2 class="anchored" data-anchor-id="physical-interpretation-and-meaning-of-the-rotating-frame">8.2.1.3 Physical Interpretation and Meaning of the Rotating Frame</h2>
+<section id="physical-interpretation-and-meaning-of-the-rotating-frame" class="level3">
+<h3 class="anchored" data-anchor-id="physical-interpretation-and-meaning-of-the-rotating-frame">8.2.1.3 Physical Interpretation and Meaning of the Rotating Frame</h3>
 <p>The representation in the rotating frame clarifies the time scales present in the interaction. Before analyzing those time scales, it is helpful to recall what the unitary transformation does physically and how the two representations relate.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="What the unitary transformation means">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1209,8 +1192,8 @@ i\hbar\frac{d\tilde{\vec c}}{dt} = \hat U^\dagger \hat H_I \hat U\, \tilde{\vec 
 </ul>
 </div>
 </div>
-<section id="structure-of-the-rotating-frame-hamiltonian" class="level3">
-<h3 class="anchored" data-anchor-id="structure-of-the-rotating-frame-hamiltonian">Structure of the Rotating-Frame Hamiltonian</h3>
+<section id="structure-of-the-rotating-frame-hamiltonian" class="level4">
+<h4 class="anchored" data-anchor-id="structure-of-the-rotating-frame-hamiltonian">Structure of the Rotating-Frame Hamiltonian</h4>
 <p>The rotated interaction Hamiltonian <span class="math inline">\(\hat U^\dagger \hat H_I \hat U\)</span> contains two distinct oscillatory contributions:</p>
 <ul>
 <li><p>A <strong>slowly varying</strong> term proportional to <span class="math inline">\(e^{\pm i(\omega_L-\omega_0)t}\)</span>, which is the near-resonant coupling between the two levels.</p></li>
@@ -1220,8 +1203,8 @@ i\hbar\frac{d\tilde{\vec c}}{dt} = \hat U^\dagger \hat H_I \hat U\, \tilde{\vec 
 <hr>
 </section>
 </section>
-<section id="sec-rwa" class="level2">
-<h2 class="anchored" data-anchor-id="sec-rwa">8.2.1.4 The Rotating-Wave Approximation (RWA)</h2>
+<section id="sec-rwa" class="level3">
+<h3 class="anchored" data-anchor-id="sec-rwa">8.2.1.4 The Rotating-Wave Approximation (RWA)</h3>
 <p>The <strong>rotating-wave approximation (RWA)</strong> consists of neglecting the <em>counter-rotating</em> terms oscillating at <span class="math inline">\(\omega_L+\omega_0\)</span> (and similar fast combinations) in <a href="#eq-serot" class="quarto-xref">Equation&nbsp;3</a>, yielding</p>
 <p><span id="eq-serwarot"><span class="math display">\[
 i\hbar\frac{d}{dt}
@@ -1234,8 +1217,8 @@ i\hbar\frac{d}{dt}
 \begin{pmatrix}\tilde c_e \\ \tilde c_g \end{pmatrix}.
 \tag{4}\]</span></span></p>
 <p>The justification for this approximation rests on two complementary arguments: one based on <strong>time-scale separation</strong> and the other on <strong>near-resonance dynamics</strong>.</p>
-<section id="time-scale-averaging-argument" class="level3">
-<h3 class="anchored" data-anchor-id="time-scale-averaging-argument">Time-Scale (Averaging) Argument</h3>
+<section id="time-scale-averaging-argument" class="level4">
+<h4 class="anchored" data-anchor-id="time-scale-averaging-argument">Time-Scale (Averaging) Argument</h4>
 <p>To understand the suppression of the fast terms more explicitly, consider that the (slow) evolution of the amplitudes <span class="math inline">\(\tilde c_{e,g}\)</span> over a short interval <span class="math inline">\(\Delta t\)</span> is—according to <a href="#eq-serot" class="quarto-xref">Equation&nbsp;3</a>—determined by integrals of oscillatory factors of the form</p>
 <p><span class="math display">\[
 \int_t^{t+\Delta t} e^{i\omega t'}\, \mathrm{d}t'
@@ -1245,13 +1228,13 @@ i\hbar\frac{d}{dt}
 <p>In our problem, the slowly varying <em>co-rotating</em> terms oscillate with frequency <span class="math inline">\(\omega_L - \omega_0\)</span>, while the <em>counter-rotating</em> components oscillate with <span class="math inline">\(\omega_L + \omega_0\)</span>, typically two orders of magnitude faster near resonance. The influence of the latter on the long-term (secular) evolution therefore becomes negligible.</p>
 <p>A second, complementary observation is that both kinds of oscillatory terms produce periodic effects. Over many cycles, their net contribution averages to zero. Thus, the counter-rotating terms merely induce small, rapid modulations of the dynamics that can safely be ignored in a good approximation.</p>
 </section>
-<section id="near-resonance-argument" class="level3">
-<h3 class="anchored" data-anchor-id="near-resonance-argument">Near-Resonance Argument</h3>
+<section id="near-resonance-argument" class="level4">
+<h4 class="anchored" data-anchor-id="near-resonance-argument">Near-Resonance Argument</h4>
 <p>Near resonance <span class="math inline">\((\omega_L \approx \omega_0)\)</span>, the co-rotating terms evolve slowly and are responsible for the resonant energy exchange between the two levels. The counter-rotating components, oscillating at roughly <span class="math inline">\(2\omega_0\)</span>, average out over any physically relevant timescale. Neglecting these fast oscillations simplifies the equations substantially while retaining the essential resonant physics.</p>
 <hr>
 </section>
-<section id="transformation-to-the-laser-frequency-rotating-basis" class="level3">
-<h3 class="anchored" data-anchor-id="transformation-to-the-laser-frequency-rotating-basis">Transformation to the Laser-Frequency Rotating Basis</h3>
+<section id="transformation-to-the-laser-frequency-rotating-basis" class="level4">
+<h4 class="anchored" data-anchor-id="transformation-to-the-laser-frequency-rotating-basis">Transformation to the Laser-Frequency Rotating Basis</h4>
 <p>To eliminate the remaining explicit time dependence in the operator, we now move to a frame rotating with the <strong>laser frequency</strong> <span class="math inline">\(\omega_L\)</span>. In this frame, the phase oscillation at <span class="math inline">\(\omega_L\)</span> is transferred from the Hamiltonian to the amplitudes themselves:</p>
 <p><span class="math display">\[
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}
@@ -1274,8 +1257,8 @@ i\hbar\frac{d}{dt}
 <p><a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a> is central: it encapsulates all the coherent two-level dynamics within the RWA. For constant <span class="math inline">\(\Omega_0\)</span> and <span class="math inline">\(\delta\)</span>, it forms a linear system with constant coefficients, solvable analytically.</p>
 <hr>
 </section>
-<section id="interpretation-of-the-new-basis" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-of-the-new-basis">Interpretation of the New Basis</h3>
+<section id="interpretation-of-the-new-basis" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-of-the-new-basis">Interpretation of the New Basis</h4>
 <p>It is important to note the following about the representations involved:</p>
 <ul>
 <li><p><strong>Equivalence of representations:</strong><br>
@@ -1294,12 +1277,12 @@ The eigenvalues of the operator in <a href="#eq-serwarotl" class="quarto-xref">E
 </section>
 </section>
 </section>
-<section id="solutions-in-the-rwa-rabi-oscillations-and-dressed-states" class="level1">
-<h1>8.2.2. Solutions in the RWA: Rabi oscillations and dressed states</h1>
+<section id="solutions-in-the-rwa-rabi-oscillations-and-dressed-states" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-in-the-rwa-rabi-oscillations-and-dressed-states">8.2.2. Solutions in the RWA: Rabi oscillations and dressed states</h2>
 <p>In the previous section we have derived the equations of motion for a two-level atom interacting coherently with a near-resonant field, expressed in the rotating-wave approximation (RWA). We now turn to their solutions. This section provides both a direct time-domain solution for the population dynamics and a more general perspective in terms of <em>dressed states</em>. Before discussing the energy structure, we start with the simplest yet fundamental case—the resonant interaction—where the oscillatory population transfer between ground and excited state becomes most transparent.</p>
 <hr>
-<section id="sec-rabires" class="level2">
-<h2 class="anchored" data-anchor-id="sec-rabires">8.2.2.1 Resonant case: <span class="math inline">\(\delta=0\)</span> and Rabi oscillations</h2>
+<section id="sec-rabires" class="level3">
+<h3 class="anchored" data-anchor-id="sec-rabires">8.2.2.1 Resonant case: <span class="math inline">\(\delta=0\)</span> and Rabi oscillations</h3>
 <p>Set <span class="math inline">\(\delta=0\)</span> in <a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a>. For simplicity we also take <span class="math inline">\(\Omega_0\)</span> real (one can always absorb a global phase into the definition of <span class="math inline">\(\left\lvert g \right\rangle\)</span> or <span class="math inline">\(\left\lvert e \right\rangle\)</span>).</p>
 <p>The equations reduce to</p>
 <p><span class="math display">\[
@@ -1344,8 +1327,8 @@ C_{e}(t)=i\sin\!\left(\frac{\Omega_{0}t}{2}\right).
 <p>This oscillatory behavior stands in stark contrast to the population dynamics obtained from <em>rate equations</em> using Einstein coefficients. In that perturbative picture, photon absorption competes with stimulated emission and spontaneous decay, leading to exponential relaxation toward a steady state. The Rabi model, in contrast, describes the <em>non-perturbative</em>, fully coherent exchange of energy between atom and field—an essential feature when dealing with strong or short laser pulses. However, the effects of spontaneous decay still remain to be included in this model, as they ultimately limit the coherence and lead to damping of the oscillations in real systems.</p>
 <hr>
 </section>
-<section id="sec-offresrabi" class="level2">
-<h2 class="anchored" data-anchor-id="sec-offresrabi">8.2.2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer</h2>
+<section id="sec-offresrabi" class="level3">
+<h3 class="anchored" data-anchor-id="sec-offresrabi">8.2.2.2 Off-resonant case: generalized Rabi frequency and incomplete transfer</h3>
 <p>For the general case of nonzero detuning <span class="math inline">\(\delta\neq 0\)</span> and (again) constant <span class="math inline">\(\Omega_0\)</span> (possibly complex, with phase conventions fixed later), the exact solution of <a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a> for arbitrary initial amplitudes <span class="math inline">\(C_e(0)\)</span> and <span class="math inline">\(C_g(0)\)</span> is given by (see box below for proof)</p>
 <p><span id="eq-cgcewd"><span class="math display">\[
 \begin{align}
@@ -1520,8 +1503,8 @@ Figure&nbsp;1: Rabi oscillations showing effect of detuning on population transf
 </div>
 <hr>
 </section>
-<section id="dressed-states-autlertownes-splitting-and-acstark-shift" class="level2">
-<h2 class="anchored" data-anchor-id="dressed-states-autlertownes-splitting-and-acstark-shift">8.2.2.3 Dressed states, Autler–Townes splitting, and AC–Stark shift</h2>
+<section id="dressed-states-autlertownes-splitting-and-acstark-shift" class="level3">
+<h3 class="anchored" data-anchor-id="dressed-states-autlertownes-splitting-and-acstark-shift">8.2.2.3 Dressed states, Autler–Townes splitting, and AC–Stark shift</h3>
 <p>We now examine the eigenenergies of the coupled two-level system. In the frame rotating with the laser frequency, the energies correspond to the eigenvalues <span class="math inline">\(E_\pm\)</span> of the Hamiltonian appearing in <a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a>. They are found by setting the characteristic polynomial to zero:</p>
 <p><span id="eq-dresse"><span class="math display">\[
 \begin{align}
@@ -1768,13 +1751,13 @@ I=\frac{1}{2}c\varepsilon_0E_0^2,\qquad
 <hr>
 </section>
 </section>
-<section id="physical-consequences-and-applications" class="level1">
-<h1>8.2.3. Physical consequences and applications</h1>
+<section id="physical-consequences-and-applications" class="level2">
+<h2 class="anchored" data-anchor-id="physical-consequences-and-applications">8.2.3. Physical consequences and applications</h2>
 <p>In the previous sections we derived how a two-level atom interacts coherently with a near-resonant optical field, obtained explicit time-dependent solutions for the amplitudes, and analyzed the corresponding energy structure in terms of dressed states. The mathematical formalism developed there — Rabi oscillations, detuning, and light-induced energy shifts — now allows us to understand a broad range of physical effects and experimental techniques in atomic, molecular, and optical physics.</p>
 <p>This section highlights a few representative consequences and applications of the atom–light interaction. The goal is to connect the abstract theory to measurable phenomena: how precisely timed laser pulses can manipulate quantum states, how far-detuned light fields create conservative potentials for trapping atoms, and how spectroscopic measurements reveal the underlying level structure of the coupled system.</p>
 <hr>
-<section id="pulse-area-control-coherent-state-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="pulse-area-control-coherent-state-preparation">8.2.3.1 Pulse area control: coherent state preparation</h2>
+<section id="pulse-area-control-coherent-state-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="pulse-area-control-coherent-state-preparation">8.2.3.1 Pulse area control: coherent state preparation</h3>
 <p>From the analytic solutions we saw that the system’s evolution depends on the <em>pulse area</em></p>
 <p><span class="math display">\[
 A = \int \Omega_0(t)\, dt.
@@ -1791,8 +1774,8 @@ A = \int \Omega_0(t)\, dt.
 <p>Thus, control of the pulse area translates mathematical parameters like <span class="math inline">\(\Omega_0(t)\)</span> and <span class="math inline">\(\delta\)</span> directly into physical control knobs in the laboratory.</p>
 <hr>
 </section>
-<section id="optical-dipole-traps-and-lattices" class="level2">
-<h2 class="anchored" data-anchor-id="optical-dipole-traps-and-lattices">8.2.3.2 Optical dipole traps and lattices</h2>
+<section id="optical-dipole-traps-and-lattices" class="level3">
+<h3 class="anchored" data-anchor-id="optical-dipole-traps-and-lattices">8.2.3.2 Optical dipole traps and lattices</h3>
 <p>Even when the driving laser is far detuned from resonance, the coupling still induces an energy shift of the atomic levels. For red detuning (<span class="math inline">\(\delta &lt; 0\)</span>), the shift of the ground-state energy is (see <a href="#eq-acstark" class="quarto-xref">Equation&nbsp;10</a>)</p>
 <p><span class="math display">\[
 U(\vec{r}) \approx -\frac{\hbar |\Omega_0(\vec{r})|^2}{4|\delta|}
@@ -1806,8 +1789,8 @@ U(x) \propto -I_0 \cos^2(kx),
 <p>is known as an <strong>optical lattice</strong>, which can trap atoms in a regular array of potential wells. These light-induced periodic potentials provide an exceptionally clean platform to study condensed-matter phenomena, such as Bloch oscillations, tunneling, and quantum phase transitions — but with complete control over the parameters. The underlying principle — the AC-Stark shift discussed earlier — thus connects directly to modern experiments in ultracold atoms and quantum simulation.</p>
 <hr>
 </section>
-<section id="spectroscopic-manifestation-autlertownes-splitting" class="level2">
-<h2 class="anchored" data-anchor-id="spectroscopic-manifestation-autlertownes-splitting">8.2.3.3 Spectroscopic manifestation: Autler–Townes splitting</h2>
+<section id="spectroscopic-manifestation-autlertownes-splitting" class="level3">
+<h3 class="anchored" data-anchor-id="spectroscopic-manifestation-autlertownes-splitting">8.2.3.3 Spectroscopic manifestation: Autler–Townes splitting</h3>
 <p>The dressed-state picture derived in Section 8.2.2 also predicts clear and observable signatures in spectroscopy. If a strong coupling laser drives one transition of an atom, and a weak probe laser scans across the same resonance, the probe no longer sees a single absorption line. Instead, the spectrum splits into two distinct peaks separated by <span class="math inline">\(\hbar\Omega\)</span>, where</p>
 <p><span class="math display">\[
 \Omega = \sqrt{|\Omega_0|^2 + \delta^2}
@@ -1821,8 +1804,8 @@ U(x) \propto -I_0 \cos^2(kx),
 <hr>
 </section>
 </section>
-<section id="limitations-of-the-rwa-and-beyond" class="level1">
-<h1>8.2.4. Limitations of the RWA and beyond</h1>
+<section id="limitations-of-the-rwa-and-beyond" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-the-rwa-and-beyond">8.2.4. Limitations of the RWA and beyond</h2>
 <p>Up to this point we have used the <strong>rotating-wave approximation (RWA)</strong> to simplify the atom–field interaction. This approximation neglects the rapidly oscillating counter-rotating terms in the interaction Hamiltonian, retaining only those that vary slowly in the rotating frame. It allows us to describe the dynamics in terms of resonant coupling with a single Rabi frequency and yields elegant analytic solutions such as those derived above.</p>
 <p>The RWA works remarkably well for optical transitions driven near resonance, provided that the coupling strength is much smaller than the optical frequency itself:</p>
 <p><span class="math display">\[
@@ -1830,8 +1813,8 @@ U(x) \propto -I_0 \cos^2(kx),
 \]</span></p>
 <p>In this regime, the fast oscillating terms average to zero over many optical cycles, and the dynamics of interest — population transfer, Rabi oscillations, and light shifts — unfold on much slower timescales. Most experiments in atomic, molecular, and optical physics fall safely within this regime, which explains the wide success of the RWA in describing laser–atom interactions.</p>
 <hr>
-<section id="breakdown-of-the-rwa-counter-rotating-effects" class="level2">
-<h2 class="anchored" data-anchor-id="breakdown-of-the-rwa-counter-rotating-effects">8.2.4.1 Breakdown of the RWA: counter-rotating effects</h2>
+<section id="breakdown-of-the-rwa-counter-rotating-effects" class="level3">
+<h3 class="anchored" data-anchor-id="breakdown-of-the-rwa-counter-rotating-effects">8.2.4.1 Breakdown of the RWA: counter-rotating effects</h3>
 <p>When the driving field becomes extremely strong or very short in duration, the neglected terms begin to play a role. In the full interaction Hamiltonian (before applying the RWA), one encounters contributions proportional to <span class="math inline">\(\exp[\pm i(\omega_0+\omega_L)t]\)</span>, which oscillate at <em>sum frequencies</em> rather than near-resonant differences. If <span class="math inline">\(\Omega_0\)</span> is no longer negligible compared to <span class="math inline">\(\omega_0\)</span>, these terms cannot be averaged out.</p>
 <p>A first observable consequence is the <strong>Bloch–Siegert shift</strong>, a small additional frequency shift beyond the ordinary AC–Stark shift. It originates from the counter-rotating component that drives <em>virtual</em> transitions at the sum frequency <span class="math inline">\(\omega_0+\omega_L\)</span>, slightly modifying the resonance condition. This shift is typically very small in optical transitions but can be measurable in microwave or radiofrequency experiments, where <span class="math inline">\(\Omega_0/\omega_0\)</span> is not extremely small.</p>
 <p>Beyond simple shifts, the breakdown of the RWA leads to richer phenomena such as:</p>
@@ -1845,8 +1828,8 @@ U(x) \propto -I_0 \cos^2(kx),
 <p>These effects signal that the atom responds not only to the resonant component of the field but also to its rapidly oscillating part — the “counter-rotating” partner usually discarded in the RWA.</p>
 <hr>
 </section>
-<section id="fully-quantum-description-the-jaynescummings-model" class="level2">
-<h2 class="anchored" data-anchor-id="fully-quantum-description-the-jaynescummings-model">8.2.4.2 Fully quantum description: the Jaynes–Cummings model</h2>
+<section id="fully-quantum-description-the-jaynescummings-model" class="level3">
+<h3 class="anchored" data-anchor-id="fully-quantum-description-the-jaynescummings-model">8.2.4.2 Fully quantum description: the Jaynes–Cummings model</h3>
 <p>So far, the field has been treated classically as an oscillating electromagnetic wave. To describe situations involving single photons, spontaneous emission, or entanglement between atoms and light, we must quantize the field. This leads to the <strong>Jaynes–Cummings model</strong>, in which the two-level atom interacts with a single quantized field mode.</p>
 <p>The Jaynes–Cummings Hamiltonian,</p>
 <p><span class="math display">\[
@@ -1858,14 +1841,14 @@ U(x) \propto -I_0 \cos^2(kx),
 <p>In the strong-coupling regime of cavity or circuit QED, the Jaynes–Cummings model predicts <strong>vacuum Rabi splitting</strong>, <strong>Rabi oscillations involving single photons</strong>, and the formation of <strong>entangled atom–photon states</strong>. Such effects represent the natural continuation of the ideas developed under the RWA, extended into the fully quantum domain.</p>
 <hr>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">8.2.4.3 Summary</h2>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">8.2.4.3 Summary</h3>
 <p>The rotating-wave approximation is one of the most powerful simplifications in light–matter theory. It distills the essential resonant dynamics into a tractable form and accurately describes a vast range of optical phenomena. Nevertheless, recognizing its limits — and understanding how to go beyond it — provides deeper insight into the full richness of coherent interactions, from the small corrections observed in the Bloch–Siegert effect to the fully quantum mechanical behavior captured by the Jaynes–Cummings model.</p>
 <hr>
 </section>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key takeaways</h1>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key takeaways</h2>
 <ul>
 <li>Starting from the dipole interaction <span class="math inline">\(-\hat{\vec d}\cdot\vec E(t)\)</span>, the two-level Schrödinger equation contains rapidly oscillating terms at frequencies <span class="math inline">\(\omega_L \pm \omega_0\)</span>.</li>
 <li>A unitary transformation into a <strong>rotating frame</strong> removes the fast-varying atomic phase; algebraically, this is <span class="math inline">\(\vec c = \hat U(t)\,\tilde{\vec c}\)</span> with <span class="math inline">\(\hat U=\mathrm{diag}(e^{-i\omega_0 t/2},\,e^{i\omega_0 t/2})\)</span>.</li>

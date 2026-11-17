@@ -3,8 +3,13 @@ title: 8.4 The Optical Bloch Equations
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Understand optical Bloch equations, coherent driving, spontaneous emission, relaxation, dephasing, and the dynamics of driven two-level atoms.">
 ---
-# Introduction
+## Introduction
 
 The **Optical Bloch Equations (OBEs)** describe the dynamics of a two-level quantum
 system interacting with a coherent electromagnetic field while subject to spontaneous
@@ -48,7 +53,7 @@ their physical content.
 
 ---
 
-# 8.4.1. The Optical Bloch Equations (OBEs)
+## 8.4.1. The Optical Bloch Equations (OBEs)
 
 The time evolution of the density matrix of a two-level atom interacting with a classical laser field is obtained by inserting the Hamiltonian from Equation 5 on the page about the
 [*Rotating Wave Approximation*](rwa_rabi.qmd#eq-serwarotl){target=blank_} 
@@ -62,11 +67,11 @@ In this section we derive the **Optical Bloch Equations (OBEs)**. The derivation
 
 ---
 
-## 8.4.1.1 Spontaneous decay
+### 8.4.1.1 Spontaneous decay
 
 Real atoms decay from the excited state even in the absence of external fields. This effect is **not contained in the Hamiltonian**, because spontaneous emission originates from vacuum fluctuations of the quantized electromagnetic field. Since we are treating the field classically, we incorporate spontaneous decay phenomenologically by modifying the Liouville–von Neumann equation.
 
-### Exponential decay of the excited state
+#### Exponential decay of the excited state
 
 Without any driving field, the excited-state population decays exponentially with rate 
 $\gamma = 1/\tau$:
@@ -83,7 +88,7 @@ $$
   = -\gamma \rho_{ee}.
 $$
 
-### Relaxation of the coherences
+#### Relaxation of the coherences
 
 The off-diagonal elements represent **quantum coherence** between the states, and coherence is lost when population decays. A more rigorous derivation requires quantized-field perturbation theory, but the well-established result is:
 
@@ -95,7 +100,7 @@ $$
   = -\frac{\gamma}{2}\rho_{ge}.
 $$
 
-### Modified Liouville–von Neumann equation
+#### Modified Liouville–von Neumann equation
 
 Including these relaxation terms yields:
 
@@ -110,7 +115,7 @@ $${#eq-sesd}
 
 ---
 
-## 8.4.1.2 Coherent evolution in the rotating frame
+### 8.4.1.2 Coherent evolution in the rotating frame
 
 To obtain the full Optical Bloch Equations, we now include the **coherent atom–field interaction**.  
 We use the **Hamiltonian in the laser-rotating frame** derived in the RWA section:
@@ -122,7 +127,7 @@ We use the **Hamiltonian in the laser-rotating frame** derived in the RWA sectio
 Before adding relaxation, we first compute the unitary part of the evolution:
 the commutator $[\hat H,\hat\rho]$ in the rotating frame.
 
-### Evaluating the commutator
+#### Evaluating the commutator
 
 Using the Hamiltonian from the
 [*Rotating-Wave Approximation*](rwa_rabi.qmd#eq-serwarotl){target=blank_}, 
@@ -157,7 +162,7 @@ $$
 \end{align}
 $$
 
-### Full evolution: unitary + relaxation
+#### Full evolution: unitary + relaxation
 
 Substituting this into @eq-sesd gives the matrix form of the OBEs:
 
@@ -179,7 +184,7 @@ $$
 \end{pmatrix}.
 $${#eq-obematrix}
 
-### Component form: the Optical Bloch Equations
+#### Component form: the Optical Bloch Equations
 
 Writing @eq-obematrix element-wise:
 
@@ -211,7 +216,7 @@ These are the **Optical Bloch Equations**.
 
 ---
 
-## 8.4.1.3 Reducing the system: inversion and coherence
+### 8.4.1.3 Reducing the system: inversion and coherence
 
 Because the density matrix satisfies  
 
@@ -221,7 +226,7 @@ $$
 
 the OBEs contain redundant information and can be reduced to two coupled differential equations.
 
-### Defining the inversion
+#### Defining the inversion
 
 Define the inversion:
 
@@ -239,7 +244,7 @@ w = \rho_{ee}-\rho_{gg}
   \rho_{ee} = \tfrac12(w+1).
 $${#eq-eew}
 
-### Reduced-form OBEs {#sec-reducedformobes}
+#### Reduced-form OBEs {#sec-reducedformobes}
 
 Then the OBEs reduce to the pair
 
@@ -260,7 +265,7 @@ These two equations fully describe the dynamics of a driven two-level atom in th
 
 ---
 
-# 8.4.2. Solutions of the Optical Bloch Equations {#sec-obe-solutions}
+## 8.4.2. Solutions of the Optical Bloch Equations {#sec-obe-solutions}
 
 The Optical Bloch Equations (OBEs) describe the driven dynamics of a damped
 two-level system in the rotating frame. Analytic solutions exist in important
@@ -269,7 +274,7 @@ general case the equations are nonlinear and must be solved numerically.
 Before turning to analytic limits, we illustrate the full dynamics via direct
 numerical integration.
 
-## 8.4.2.1 General solution (numerical)
+### 8.4.2.1 General solution (numerical)
 
 The rotating-frame OBEs for a two-level atom driven with Rabi frequency
 $\Omega_0$ and detuning $\delta$ were derived in
@@ -392,7 +397,7 @@ plt.show()
 
 ---
 
-### Interpretation of the numerical solution
+#### Interpretation of the numerical solution
 
 As shown in @fig-damprabi, spontaneous emission damps the Rabi oscillations.
 Two characteristic regimes appear:
@@ -410,7 +415,7 @@ that organize the regimes of operation.
 
 ---
 
-## 8.4.2.2 Saturation parameters
+### 8.4.2.2 Saturation parameters
 
 Using the definitions of $\Omega_0$ and $\gamma$
 
@@ -437,7 +442,7 @@ S = \frac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}
   = \frac{S_0}{1 + 4\delta^2/\gamma^2}.
 $${#eq-satpar}
 
-### Physical meaning
+#### Physical meaning
 
 - **Saturation intensity $I_{sat}$:**  
   A property of the transition. 
@@ -458,7 +463,7 @@ in the next section.
 
 ---
 
-## 8.4.2.3 Steady-State Solutions
+### 8.4.2.3 Steady-State Solutions
 
 In many practically relevant situations, atoms interact with a near-resonant, monochromatic laser field for times *much longer* than the natural lifetime of the excited state. 
 In such cases, all transient dynamics have decayed away, and the system reaches a **true steady state**, meaning that all time derivatives of the density-matrix elements vanish.
@@ -476,7 +481,7 @@ We now solve Eqs. @eq-becoh and @eq-beinv under this condition.
 
 ---
 
-### Steady-state solutions
+#### Steady-state solutions
 
 Solving the OBEs for $\dot w=\dot\rho_{eg}=0$ yields the steady-state inversion 
 and coherence:
@@ -505,8 +510,7 @@ including spontaneous emission.
 
 ---
 
-::: {.callout-note collapse="true"}
-## Derivation
+::: {.callout-note collapse="true" title="Derivation"}
 
 The expression for the steady-state coherence follows directly by solving 
 Eq. @eq-becoh for $\rho_{eg}$ under the condition $\partial_t\rho_{eg}=0$:
@@ -574,7 +578,7 @@ This completes the derivation.
 
 ---
 
-### Excited-state steady-state population
+#### Excited-state steady-state population
 
 Using the identity from Eq. @eq-eew,
 
@@ -601,7 +605,7 @@ This saturation behavior is fundamental to two-level systems with spontaneous de
 ---
 
 
-## 8.4.2.4 Photon Scattering Rate and Intensity Broadening
+### 8.4.2.4 Photon Scattering Rate and Intensity Broadening
 
 When an atom is illuminated by near-resonant laser light, it undergoes a continuous cycle of **stimulated absorption**, **stimulated emission**, and—at random times—**spontaneous decay**. 
 The spontaneously emitted photons are the ones detected in a fluorescence experiment (see Fig. @fig-scat). 
@@ -628,7 +632,7 @@ $${#eq-scatrate}
 
 ---
 
-### Basic properties of the scattering rate
+#### Basic properties of the scattering rate
 
 Several important features follow directly from Eq. @eq-scatrate:
 
@@ -653,7 +657,7 @@ These features form the basis of many fluorescence-based measurement techniques,
 
 ---
 
-### Lorentzian form and power broadening
+#### Lorentzian form and power broadening
 
 In a typical fluorescence or absorption experiment, one scans the **laser detuning**  
 $$\delta = \omega_L - \omega_0$$  
@@ -694,7 +698,7 @@ This has the standard **Lorentzian form** in the variable $\delta$ (see @fig-int
 
 ---
 
-### Physical meaning: why the line broadens
+#### Physical meaning: why the line broadens
 
 - At **low intensity**, $S_0\ll1$, the width is essentially the **natural linewidth** $\gamma$.  
 - As intensity increases, $\gamma'$ grows because the transition is driven more strongly.
@@ -776,7 +780,7 @@ plt.show()
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - The **optical Bloch equations (OBEs)** describe the full time evolution of a two-level atom interacting with a coherent laser field, incorporating both coherent dynamics and relaxation processes.
 

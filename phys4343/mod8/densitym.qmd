@@ -3,9 +3,14 @@ title: 8.3 The Density Matrix Formalism
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Learn the density matrix formalism for quantum systems, including pure and mixed states, coherences, expectation values, and quantum dynamics.">
 ---
 
-# Introduction
+## Introduction
 
 Up to this point, we have assumed that the two–level system is always in a pure quantum state that can be written as a *coherent superposition* of the bare states. This is expressed as
 
@@ -41,7 +46,7 @@ By the end of this chapter, you should be able to:
 
 ---
 
-# 8.3.1. The density matrix formalism
+## 8.3.1. The density matrix formalism
 
 A powerful and conceptually elegant solution to the limitations of the wavefunction description is the **density matrix** (or *density operator*) formalism. Instead of describing a state by a vector in Hilbert space, we represent the state by an operator:
 
@@ -72,7 +77,7 @@ At this stage the density matrix is simply a rewriting of our familiar wavefunct
 
 ---
 
-## 8.3.1.1 Pure states
+### 8.3.1.1 Pure states
 
 A **pure state** is one that can be written as a coherent superposition such as @eq-cohst. 
 In this case, the density matrix is constructed directly from the state vector, so its elements have a *strict and unambiguous* interpretation:
@@ -99,7 +104,7 @@ In this case, the density matrix is constructed directly from the state vector, 
 
 ---
 
-## 8.3.1.2 Mixed states
+### 8.3.1.2 Mixed states
 
 A **mixed state** represents an ensemble of systems or repeated preparations in which the state is *not* given by a single wavefunction. 
 The density matrix still has the same mathematical form, but its entries have a **different physical meaning**:
@@ -130,7 +135,7 @@ The density matrix still has the same mathematical form, but its entries have a 
 
 ---
 
-## 8.3.1.3 Experimental distinction between pure and mixed states
+### 8.3.1.3 Experimental distinction between pure and mixed states
 
 How can one tell experimentally whether a state is pure or mixed?
 
@@ -143,7 +148,7 @@ How can one tell experimentally whether a state is pure or mixed?
 This operational difference—**coherent vs. incoherent response to a resonant field**—provides a direct experimental signature distinguishing pure from mixed quantum states.
 
 
-## 8.3.1.4 Partially coherent states
+### 8.3.1.4 Partially coherent states
 
 In real systems the loss of coherence is usually gradual rather than sudden.
 A state with 
@@ -158,7 +163,7 @@ their dynamics exhibit damped Rabi oscillations whose decay rate reflects the lo
 
 ---
 
-# 8.3.2. Expectation values from the density matrix
+## 8.3.2. Expectation values from the density matrix
 
 One of the most useful features of the density matrix is that it provides a **basis-independent** formula for expectation values.  
 
@@ -188,7 +193,7 @@ This trace rule remains valid whether the state is pure or mixed.
 
 ---
 
-# 8.3.3. Time evolution: the Liouville–von Neumann equation
+## 8.3.3. Time evolution: the Liouville–von Neumann equation
 
 To derive the equation of motion for the density matrix, we start from the Schrödinger equation,
 
@@ -213,7 +218,7 @@ In later chapters we will extend it by including additional terms that model spo
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - The wavefunction formalism cannot describe decoherence or statistical mixtures.  
 - The **density matrix** captures both *populations* and *coherences* in a unified framework.  

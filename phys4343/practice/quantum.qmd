@@ -1,6 +1,11 @@
 
 ---
 title: "P1 Quantum Mechanics"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Test your quantum mechanics knowledge with practice problems on wavefunctions, time evolution, angular momentum, and quantum-to-classical correspondence.">
 ---
 
 

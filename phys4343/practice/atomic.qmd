@@ -1,6 +1,10 @@
-
 ---
 title: "P2 Hydrogen Atom: Wave Functions"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Practice hydrogen atom quantum mechanics with problems on atomic wavefunctions, quantum numbers, angular momentum, and hydrogenic states.">
 ---
 
 These problems explore the Bohr model, hydrogenic atoms, positronium, and measurements of atomic quantum states.

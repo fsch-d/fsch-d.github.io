@@ -3,9 +3,14 @@ title: 8.6 The Bloch Sphere Representation
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Visualize two-level quantum systems using the Bloch sphere, including quantum superpositions, coherent rotations, Rabi dynamics, and decoherence.">
 ---
 
-# Introduction
+## Introduction
 
 In the previous chapters, we explored several complementary ways to describe the state and dynamics of a two-level quantum system. 
 In the  chapter on [Two-Level Systems](./twoleveltheory.qmd){target=blank_}, pure states were written as vectors in $\mathbb{C}^2$, whose components represent the complex probability amplitudes of the ground and excited states. 
@@ -26,7 +31,7 @@ The following sections will
 
 ---
 
-# 8.6.1. Definition of Bloch Vectors
+## 8.6.1. Definition of Bloch Vectors
 
 Before deriving the Bloch equations in their vector form, we first introduce the Bloch vector itself. 
 The goal is to rewrite the quantum state of a two-level system—whether pure or mixed—in terms of three real numbers that capture its coherence and population imbalance. 
@@ -37,7 +42,7 @@ We begin by considering the case of a pure state, where the Bloch vector has uni
 
 ---
 
-## 8.6.1.1 Bloch vectors for pure states
+### 8.6.1.1 Bloch vectors for pure states
 
 Consider a coherent superposition of the excited and ground states,
 $$
@@ -197,8 +202,7 @@ The phase $\varphi$ has a direct physical meaning: it determines the instantaneo
 A Bloch vector pointing along $+u$ corresponds to a dipole oscillating in phase with the field, whereas a vector along $+v$ indicates a phase shift of $\pi/2$. 
 Thus, the geometry of the Bloch sphere mirrors the interference and coherence properties of the two-level system.
 
-::: {.callout-note collapse="true"}
-## Why the angle $\varphi$ represents the phase shift
+::: {.callout-note collapse="true" title="Why the angle $\\varphi$ represents the phase shift"}
 
 To see why the azimuthal Bloch-sphere angle $\varphi$ corresponds to the *momentary phase difference* between the atomic dipole oscillation and the external driving field, consider the expectation value of the dipole operator for the superposition state
 $$
@@ -208,7 +212,7 @@ $$
 e^{i\varphi}\sin\!\left(\frac{\vartheta}{2}\right)\ket{g}.
 $$
 
-### Dipole operator in the rotating frame
+#### Dipole operator in the rotating frame
 In the laboratory frame, the dipole operator connecting ground and excited states has the matrix form
 $$
 \hat{\vec d} = 
@@ -233,7 +237,7 @@ $$
 \hat U = \mathrm{diag}(e^{-i\omega_L t/2},\, e^{i\omega_L t/2}).
 $$
 
-### Dipole expectation value
+#### Dipole expectation value
 Evaluating $\langle \hat{\vec D} \rangle$ for the state $\ket{\psi}$ gives
 $$
 \langle \hat{\vec D} \rangle
@@ -250,7 +254,7 @@ $$
 
 Thus, the atomic dipole oscillates as a cosine with **phase offset $\varphi$**.  
 
-### Comparison to the driving field
+#### Comparison to the driving field
 The external electric field is
 $$
 \vec E(t) = \vec E_0 \cos(\omega_L t).
@@ -265,7 +269,7 @@ A Bloch vector pointing along the $+u$ direction ($\varphi = 0$) describes an in
 
 ---
 
-## 8.6.1.2 General definition from the density matrix
+### 8.6.1.2 General definition from the density matrix
 
 The Bloch-vector representation naturally extends from pure states to *all* quantum states—pure or mixed—through its relation to the density matrix. 
 Any $2\times 2$ density operator can be expanded in the basis of the identity matrix and the Pauli matrices (cf. [*Two-Level Systems*](./twoleveltheory.qmd){target=blank_}):
@@ -316,7 +320,7 @@ $$ {#eq-blochw}
 For pure states, these formulas reduce exactly to the angular definitions given earlier (@eq-blochpure).
 
 
-### Length of the Bloch vector and mixed states
+#### Length of the Bloch vector and mixed states
 
 For pure states, the Bloch vector always has unit length,
 $$
@@ -352,7 +356,7 @@ $$
 
 
 
-### Geometric picture
+#### Geometric picture
 
 - **Pure states:**  
   Full coherence, $|\rho_{eg}| = \sqrt{\rho_{ee}\rho_{gg}}$, giving $|\vec b| = 1$.  
@@ -409,7 +413,7 @@ the poles.
 ---
 
 
-# 8.6.2. The Optical Bloch Equations for Bloch Vectors
+## 8.6.2. The Optical Bloch Equations for Bloch Vectors
 
 To describe how a two-level atom evolves in time under the influence of a laser field, we use the **Optical Bloch Equations (OBEs)**. 
 These equations govern the motion of the Bloch vector
@@ -422,7 +426,7 @@ Throughout this section, we assume that the Rabi frequency $\Omega_0$ is **real*
 
 ---
 
-## 8.6.2.1 Component form of the OBEs
+### 8.6.2.1 Component form of the OBEs
 
 Starting from the equations of motion for the density-matrix elements ([Eqs. 9 and 10 in the section on OBEs](./obe.qmd#sec-reducedformobes){target=blank_}) and the definitions of the Bloch-vector components (@eq-blochu–@eq-blochw), one obtains the following differential equations:
 $$
@@ -442,7 +446,7 @@ Thus the light field tries to drive the Bloch vector around, while damping proce
 
 ---
 
-## 8.6.2.2 Compact vector form and the Rabi vector
+### 8.6.2.2 Compact vector form and the Rabi vector
 
 It is convenient to collect the driving terms into a single vector called the **Rabi vector**:
 $$
@@ -495,7 +499,7 @@ Overall, @eq-bvbe describes a competition between **coherent rotation** (laser-d
 
 ---
 
-# 8.6.3. Dynamics of Bloch Vectors without Damping
+## 8.6.3. Dynamics of Bloch Vectors without Damping
 
 When damping is absent (i.e., $\gamma = 0$), the Optical Bloch Equations for the Bloch vector simplify considerably. 
 Starting from @eq-bvbe, we obtain
@@ -514,7 +518,7 @@ $$
 
 This is fully consistent with the Rabi oscillations derived earlier for arbitrary detuning.
 
-### Example 1: Resonant Rabi oscillations ($\delta = 0$)
+#### Example 1: Resonant Rabi oscillations ($\delta = 0$)
 
 ```{python}
 #| label: fig-resrabi
@@ -582,7 +586,7 @@ $$
 If the atom starts in the ground state ($w=-1$), the Bloch vector begins at the south pole of the sphere and precesses around the horizontal $u$-axis. The resulting trajectory passes through both poles, and the corresponding excited-state population performs full-contrast Rabi oscillations.  
 This is precisely the resonant case discussed in the section on [*resonant Rabi oscillations*](./rwa_rabi.qmd#sec-rabires){target=blank_}.
 
-### Example 2: Off-resonant driving ($\delta \neq 0$)
+#### Example 2: Off-resonant driving ($\delta \neq 0$)
 
 ```{python}
 #| label: fig-rabidet
@@ -651,7 +655,7 @@ $$
 
 The Bloch vector again starts at the south pole but now precesses around a tilted axis. The trajectory becomes a smaller circle on the Bloch sphere, reflecting the reduced oscillation amplitude of the excited-state population seen earlier in the section on [*off-resonant Rabi oscillations*](./rwa_rabi.qmd#sec-offresrabi){target=blank_}.
 
-### General case
+#### General case
 
 In the most general situation—with arbitrary detuning and initial state—the Bloch vector always moves along a circular path on the surface of the Bloch sphere, centered on the direction of $\vec{\Omega}$. The radius and orientation of this circle depend on the angle between the initial Bloch vector and the Rabi vector.  
 
@@ -659,7 +663,7 @@ Regardless of these details, the motion is always a uniform precession at angula
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - **Bloch vectors provide a geometric picture:** Every pure or mixed state of a two-level system can be represented by a vector in $\mathbb{R}^3$. Pure states lie on the surface of the Bloch sphere, while mixed states lie inside it.  
 

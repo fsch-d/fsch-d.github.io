@@ -1,5 +1,10 @@
 ---
 title: "Practice Your AMO Knowledge"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Practice atomic, molecular, and optical physics with interactive problems covering quantum mechanics, atomic structure, spectroscopy, and molecular physics.">
 ---
 
 A collection of conceptual questions, practice problems, and worked

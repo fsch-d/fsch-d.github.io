@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Understand optical Bloch equations, coherent driving, spontaneous emission, relaxation, dephasing, and the dynamics of driven two-level atoms.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -838,45 +839,16 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#the-optical-bloch-equations-obes" id="toc-the-optical-bloch-equations-obes" class="nav-link" data-scroll-target="#the-optical-bloch-equations-obes">8.4.1. The Optical Bloch Equations (OBEs)</a>
   <ul class="collapse">
-  <li><a href="#spontaneous-decay" id="toc-spontaneous-decay" class="nav-link" data-scroll-target="#spontaneous-decay">8.4.1.1 Spontaneous decay</a>
-  <ul class="collapse">
-  <li><a href="#exponential-decay-of-the-excited-state" id="toc-exponential-decay-of-the-excited-state" class="nav-link" data-scroll-target="#exponential-decay-of-the-excited-state">Exponential decay of the excited state</a></li>
-  <li><a href="#relaxation-of-the-coherences" id="toc-relaxation-of-the-coherences" class="nav-link" data-scroll-target="#relaxation-of-the-coherences">Relaxation of the coherences</a></li>
-  <li><a href="#modified-liouvillevon-neumann-equation" id="toc-modified-liouvillevon-neumann-equation" class="nav-link" data-scroll-target="#modified-liouvillevon-neumann-equation">Modified Liouville–von Neumann equation</a></li>
-  </ul></li>
-  <li><a href="#coherent-evolution-in-the-rotating-frame" id="toc-coherent-evolution-in-the-rotating-frame" class="nav-link" data-scroll-target="#coherent-evolution-in-the-rotating-frame">8.4.1.2 Coherent evolution in the rotating frame</a>
-  <ul class="collapse">
-  <li><a href="#evaluating-the-commutator" id="toc-evaluating-the-commutator" class="nav-link" data-scroll-target="#evaluating-the-commutator">Evaluating the commutator</a></li>
-  <li><a href="#full-evolution-unitary-relaxation" id="toc-full-evolution-unitary-relaxation" class="nav-link" data-scroll-target="#full-evolution-unitary-relaxation">Full evolution: unitary + relaxation</a></li>
-  <li><a href="#component-form-the-optical-bloch-equations" id="toc-component-form-the-optical-bloch-equations" class="nav-link" data-scroll-target="#component-form-the-optical-bloch-equations">Component form: the Optical Bloch Equations</a></li>
-  </ul></li>
-  <li><a href="#reducing-the-system-inversion-and-coherence" id="toc-reducing-the-system-inversion-and-coherence" class="nav-link" data-scroll-target="#reducing-the-system-inversion-and-coherence">8.4.1.3 Reducing the system: inversion and coherence</a>
-  <ul class="collapse">
-  <li><a href="#defining-the-inversion" id="toc-defining-the-inversion" class="nav-link" data-scroll-target="#defining-the-inversion">Defining the inversion</a></li>
-  <li><a href="#sec-reducedformobes" id="toc-sec-reducedformobes" class="nav-link" data-scroll-target="#sec-reducedformobes">Reduced-form OBEs</a></li>
-  </ul></li>
+  <li><a href="#spontaneous-decay" id="toc-spontaneous-decay" class="nav-link" data-scroll-target="#spontaneous-decay">8.4.1.1 Spontaneous decay</a></li>
+  <li><a href="#coherent-evolution-in-the-rotating-frame" id="toc-coherent-evolution-in-the-rotating-frame" class="nav-link" data-scroll-target="#coherent-evolution-in-the-rotating-frame">8.4.1.2 Coherent evolution in the rotating frame</a></li>
+  <li><a href="#reducing-the-system-inversion-and-coherence" id="toc-reducing-the-system-inversion-and-coherence" class="nav-link" data-scroll-target="#reducing-the-system-inversion-and-coherence">8.4.1.3 Reducing the system: inversion and coherence</a></li>
   </ul></li>
   <li><a href="#sec-obe-solutions" id="toc-sec-obe-solutions" class="nav-link" data-scroll-target="#sec-obe-solutions">8.4.2. Solutions of the Optical Bloch Equations</a>
   <ul class="collapse">
-  <li><a href="#general-solution-numerical" id="toc-general-solution-numerical" class="nav-link" data-scroll-target="#general-solution-numerical">8.4.2.1 General solution (numerical)</a>
-  <ul class="collapse">
-  <li><a href="#interpretation-of-the-numerical-solution" id="toc-interpretation-of-the-numerical-solution" class="nav-link" data-scroll-target="#interpretation-of-the-numerical-solution">Interpretation of the numerical solution</a></li>
-  </ul></li>
-  <li><a href="#saturation-parameters" id="toc-saturation-parameters" class="nav-link" data-scroll-target="#saturation-parameters">8.4.2.2 Saturation parameters</a>
-  <ul class="collapse">
-  <li><a href="#physical-meaning" id="toc-physical-meaning" class="nav-link" data-scroll-target="#physical-meaning">Physical meaning</a></li>
-  </ul></li>
-  <li><a href="#steady-state-solutions" id="toc-steady-state-solutions" class="nav-link" data-scroll-target="#steady-state-solutions">8.4.2.3 Steady-State Solutions</a>
-  <ul class="collapse">
-  <li><a href="#steady-state-solutions-1" id="toc-steady-state-solutions-1" class="nav-link" data-scroll-target="#steady-state-solutions-1">Steady-state solutions</a></li>
-  <li><a href="#excited-state-steady-state-population" id="toc-excited-state-steady-state-population" class="nav-link" data-scroll-target="#excited-state-steady-state-population">Excited-state steady-state population</a></li>
-  </ul></li>
-  <li><a href="#photon-scattering-rate-and-intensity-broadening" id="toc-photon-scattering-rate-and-intensity-broadening" class="nav-link" data-scroll-target="#photon-scattering-rate-and-intensity-broadening">8.4.2.4 Photon Scattering Rate and Intensity Broadening</a>
-  <ul class="collapse">
-  <li><a href="#basic-properties-of-the-scattering-rate" id="toc-basic-properties-of-the-scattering-rate" class="nav-link" data-scroll-target="#basic-properties-of-the-scattering-rate">Basic properties of the scattering rate</a></li>
-  <li><a href="#lorentzian-form-and-power-broadening" id="toc-lorentzian-form-and-power-broadening" class="nav-link" data-scroll-target="#lorentzian-form-and-power-broadening">Lorentzian form and power broadening</a></li>
-  <li><a href="#physical-meaning-why-the-line-broadens" id="toc-physical-meaning-why-the-line-broadens" class="nav-link" data-scroll-target="#physical-meaning-why-the-line-broadens">Physical meaning: why the line broadens</a></li>
-  </ul></li>
+  <li><a href="#general-solution-numerical" id="toc-general-solution-numerical" class="nav-link" data-scroll-target="#general-solution-numerical">8.4.2.1 General solution (numerical)</a></li>
+  <li><a href="#saturation-parameters" id="toc-saturation-parameters" class="nav-link" data-scroll-target="#saturation-parameters">8.4.2.2 Saturation parameters</a></li>
+  <li><a href="#steady-state-solutions" id="toc-steady-state-solutions" class="nav-link" data-scroll-target="#steady-state-solutions">8.4.2.3 Steady-State Solutions</a></li>
+  <li><a href="#photon-scattering-rate-and-intensity-broadening" id="toc-photon-scattering-rate-and-intensity-broadening" class="nav-link" data-scroll-target="#photon-scattering-rate-and-intensity-broadening">8.4.2.4 Photon Scattering Rate and Intensity Broadening</a></li>
   </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
@@ -911,8 +883,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>The <strong>Optical Bloch Equations (OBEs)</strong> describe the dynamics of a two-level quantum system interacting with a coherent electromagnetic field while subject to spontaneous emission and decoherence.</p>
 <p>Whereas the wavefunction formalism captures only coherent evolution, the density-matrix approach naturally incorporates <strong>population decay</strong>, <strong>loss of coherence</strong>, and <strong>steady-state behavior</strong>. For this reason, OBEs form the foundational model for understanding how atoms respond to resonant and near-resonant light.</p>
 <p>In the previous chapter, we introduced the density matrix of a two-level atom and distinguished pure, mixed, and partially coherent states. We now build on that framework by including:</p>
@@ -937,8 +909,8 @@ window.Quarto = {
 <p>In the following section, we derive the Optical Bloch Equations step by step and explore their physical content.</p>
 <hr>
 </section>
-<section id="the-optical-bloch-equations-obes" class="level1">
-<h1>8.4.1. The Optical Bloch Equations (OBEs)</h1>
+<section id="the-optical-bloch-equations-obes" class="level2">
+<h2 class="anchored" data-anchor-id="the-optical-bloch-equations-obes">8.4.1. The Optical Bloch Equations (OBEs)</h2>
 <p>The time evolution of the density matrix of a two-level atom interacting with a classical laser field is obtained by inserting the Hamiltonian from Equation 5 on the page about the <a href="../mod8/rwa_rabi.html#eq-serwarotl" target="blank_"><em>Rotating Wave Approximation</em></a> into the <a href="../mod8/densitym.html#eq-sedm" target="blank_"><em>Liouville–von Neumann equation</em></a>.</p>
 <p>In this section we derive the <strong>Optical Bloch Equations (OBEs)</strong>. The derivation proceeds in two main parts:</p>
 <ol type="1">
@@ -947,11 +919,11 @@ window.Quarto = {
 <li>We then insert the <strong>Hamiltonian in the laser-rotating frame</strong> and explicitly evaluate the commutator, obtaining the full set of OBEs.</li>
 </ol>
 <hr>
-<section id="spontaneous-decay" class="level2">
-<h2 class="anchored" data-anchor-id="spontaneous-decay">8.4.1.1 Spontaneous decay</h2>
+<section id="spontaneous-decay" class="level3">
+<h3 class="anchored" data-anchor-id="spontaneous-decay">8.4.1.1 Spontaneous decay</h3>
 <p>Real atoms decay from the excited state even in the absence of external fields. This effect is <strong>not contained in the Hamiltonian</strong>, because spontaneous emission originates from vacuum fluctuations of the quantized electromagnetic field. Since we are treating the field classically, we incorporate spontaneous decay phenomenologically by modifying the Liouville–von Neumann equation.</p>
-<section id="exponential-decay-of-the-excited-state" class="level3">
-<h3 class="anchored" data-anchor-id="exponential-decay-of-the-excited-state">Exponential decay of the excited state</h3>
+<section id="exponential-decay-of-the-excited-state" class="level4">
+<h4 class="anchored" data-anchor-id="exponential-decay-of-the-excited-state">Exponential decay of the excited state</h4>
 <p>Without any driving field, the excited-state population decays exponentially with rate <span class="math inline">\(\gamma = 1/\tau\)</span>:</p>
 <p><span class="math display">\[
 \rho_{ee}(t) = \rho_{ee}(0)\, e^{-\gamma t}.
@@ -963,8 +935,8 @@ window.Quarto = {
   = -\gamma \rho_{ee}.
 \]</span></p>
 </section>
-<section id="relaxation-of-the-coherences" class="level3">
-<h3 class="anchored" data-anchor-id="relaxation-of-the-coherences">Relaxation of the coherences</h3>
+<section id="relaxation-of-the-coherences" class="level4">
+<h4 class="anchored" data-anchor-id="relaxation-of-the-coherences">Relaxation of the coherences</h4>
 <p>The off-diagonal elements represent <strong>quantum coherence</strong> between the states, and coherence is lost when population decays. A more rigorous derivation requires quantized-field perturbation theory, but the well-established result is:</p>
 <p><span class="math display">\[
 \left(\frac{\partial \rho_{eg}}{\partial t}\right)_{\mathrm{spont.dec.}}
@@ -974,8 +946,8 @@ window.Quarto = {
   = -\frac{\gamma}{2}\rho_{ge}.
 \]</span></p>
 </section>
-<section id="modified-liouvillevon-neumann-equation" class="level3">
-<h3 class="anchored" data-anchor-id="modified-liouvillevon-neumann-equation">Modified Liouville–von Neumann equation</h3>
+<section id="modified-liouvillevon-neumann-equation" class="level4">
+<h4 class="anchored" data-anchor-id="modified-liouvillevon-neumann-equation">Modified Liouville–von Neumann equation</h4>
 <p>Including these relaxation terms yields:</p>
 <p><span id="eq-sesd"><span class="math display">\[
 \frac{\partial \hat\rho}{\partial t}
@@ -988,8 +960,8 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="coherent-evolution-in-the-rotating-frame" class="level2">
-<h2 class="anchored" data-anchor-id="coherent-evolution-in-the-rotating-frame">8.4.1.2 Coherent evolution in the rotating frame</h2>
+<section id="coherent-evolution-in-the-rotating-frame" class="level3">
+<h3 class="anchored" data-anchor-id="coherent-evolution-in-the-rotating-frame">8.4.1.2 Coherent evolution in the rotating frame</h3>
 <p>To obtain the full Optical Bloch Equations, we now include the <strong>coherent atom–field interaction</strong>.<br>
 We use the <strong>Hamiltonian in the laser-rotating frame</strong> derived in the RWA section:</p>
 <ul>
@@ -1000,8 +972,8 @@ We use the <strong>Hamiltonian in the laser-rotating frame</strong> derived in t
 <li>It expresses the field coupling via the complex Rabi frequency <span class="math inline">\(\Omega_0\)</span>.</li>
 </ul>
 <p>Before adding relaxation, we first compute the unitary part of the evolution: the commutator <span class="math inline">\([\hat H,\hat\rho]\)</span> in the rotating frame.</p>
-<section id="evaluating-the-commutator" class="level3">
-<h3 class="anchored" data-anchor-id="evaluating-the-commutator">Evaluating the commutator</h3>
+<section id="evaluating-the-commutator" class="level4">
+<h4 class="anchored" data-anchor-id="evaluating-the-commutator">Evaluating the commutator</h4>
 <p>Using the Hamiltonian from the <a href="../mod8/rwa_rabi.html#eq-serwarotl" target="blank_"><em>Rotating-Wave Approximation</em></a>, we obtain</p>
 <p><span class="math display">\[
 \begin{align}
@@ -1032,8 +1004,8 @@ We use the <strong>Hamiltonian in the laser-rotating frame</strong> derived in t
 \end{align}
 \]</span></p>
 </section>
-<section id="full-evolution-unitary-relaxation" class="level3">
-<h3 class="anchored" data-anchor-id="full-evolution-unitary-relaxation">Full evolution: unitary + relaxation</h3>
+<section id="full-evolution-unitary-relaxation" class="level4">
+<h4 class="anchored" data-anchor-id="full-evolution-unitary-relaxation">Full evolution: unitary + relaxation</h4>
 <p>Substituting this into <a href="#eq-sesd" class="quarto-xref">Equation&nbsp;1</a> gives the matrix form of the OBEs:</p>
 <p><span id="eq-obematrix"><span class="math display">\[
 \frac{\partial}{\partial t}
@@ -1053,8 +1025,8 @@ We use the <strong>Hamiltonian in the laser-rotating frame</strong> derived in t
 \end{pmatrix}.
 \tag{2}\]</span></span></p>
 </section>
-<section id="component-form-the-optical-bloch-equations" class="level3">
-<h3 class="anchored" data-anchor-id="component-form-the-optical-bloch-equations">Component form: the Optical Bloch Equations</h3>
+<section id="component-form-the-optical-bloch-equations" class="level4">
+<h4 class="anchored" data-anchor-id="component-form-the-optical-bloch-equations">Component form: the Optical Bloch Equations</h4>
 <p>Writing <a href="#eq-obematrix" class="quarto-xref">Equation&nbsp;2</a> element-wise:</p>
 <p><span id="eq-obe11"><span class="math display">\[
 \frac{\partial\rho_{ee}}{\partial t}
@@ -1080,15 +1052,15 @@ We use the <strong>Hamiltonian in the laser-rotating frame</strong> derived in t
 <hr>
 </section>
 </section>
-<section id="reducing-the-system-inversion-and-coherence" class="level2">
-<h2 class="anchored" data-anchor-id="reducing-the-system-inversion-and-coherence">8.4.1.3 Reducing the system: inversion and coherence</h2>
+<section id="reducing-the-system-inversion-and-coherence" class="level3">
+<h3 class="anchored" data-anchor-id="reducing-the-system-inversion-and-coherence">8.4.1.3 Reducing the system: inversion and coherence</h3>
 <p>Because the density matrix satisfies</p>
 <p><span class="math display">\[
 \rho_{ee} + \rho_{gg} = 1, \qquad \rho_{eg} = \rho_{ge}^\ast,
 \]</span></p>
 <p>the OBEs contain redundant information and can be reduced to two coupled differential equations.</p>
-<section id="defining-the-inversion" class="level3">
-<h3 class="anchored" data-anchor-id="defining-the-inversion">Defining the inversion</h3>
+<section id="defining-the-inversion" class="level4">
+<h4 class="anchored" data-anchor-id="defining-the-inversion">Defining the inversion</h4>
 <p>Define the inversion:</p>
 <p><span id="eq-inv"><span class="math display">\[
 w = \rho_{ee} - \rho_{gg}.
@@ -1102,8 +1074,8 @@ w = \rho_{ee}-\rho_{gg}
   \rho_{ee} = \tfrac12(w+1).
 \tag{8}\]</span></span></p>
 </section>
-<section id="sec-reducedformobes" class="level3">
-<h3 class="anchored" data-anchor-id="sec-reducedformobes">Reduced-form OBEs</h3>
+<section id="sec-reducedformobes" class="level4">
+<h4 class="anchored" data-anchor-id="sec-reducedformobes">Reduced-form OBEs</h4>
 <p>Then the OBEs reduce to the pair</p>
 <p><span id="eq-becoh"><span class="math display">\[
 \frac{\partial\rho_{eg}}{\partial t}
@@ -1119,11 +1091,11 @@ w = \rho_{ee}-\rho_{gg}
 </section>
 </section>
 </section>
-<section id="sec-obe-solutions" class="level1">
-<h1>8.4.2. Solutions of the Optical Bloch Equations</h1>
+<section id="sec-obe-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="sec-obe-solutions">8.4.2. Solutions of the Optical Bloch Equations</h2>
 <p>The Optical Bloch Equations (OBEs) describe the driven dynamics of a damped two-level system in the rotating frame. Analytic solutions exist in important special cases (e.g., steady state, resonant drive, weak driving), but in the general case the equations are nonlinear and must be solved numerically. Before turning to analytic limits, we illustrate the full dynamics via direct numerical integration.</p>
-<section id="general-solution-numerical" class="level2">
-<h2 class="anchored" data-anchor-id="general-solution-numerical">8.4.2.1 General solution (numerical)</h2>
+<section id="general-solution-numerical" class="level3">
+<h3 class="anchored" data-anchor-id="general-solution-numerical">8.4.2.1 General solution (numerical)</h3>
 <p>The rotating-frame OBEs for a two-level atom driven with Rabi frequency <span class="math inline">\(\Omega_0\)</span> and detuning <span class="math inline">\(\delta\)</span> were derived in <a href="#eq-obe11" class="quarto-xref">Equation&nbsp;3</a>–<a href="#eq-obe14" class="quarto-xref">Equation&nbsp;6</a>.</p>
 <p>These coupled first-order equations are well suited to numerical integration. Below we use a fourth-order Runge–Kutta scheme to compute the population dynamics for several choices of <span class="math inline">\(\gamma\)</span>.</p>
 <p>The code is adapted from the MATLAB implementation of <a href="https://www.mathworks.com/matlabcentral/fileexchange/52305-numerical-solution-to-optical-bloch-equation-for-a-two-level-atom-using-runge-kutta-method" target="blank_">Sathyanarayan Rao (2015)</a>.</p>
@@ -1230,7 +1202,7 @@ w = \rho_{ee}-\rho_{gg}
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-damprabi" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Calculated excited-state population vs. time from numerical integration of the OBEs. The laser is resonant (δ=0). Curves show γ = Ω₀/10 (solid), Ω₀/4 (dashed), and γ = Ω₀ (dotted)." data-fig-align="center">
+<div id="fig-damprabi" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Calculated excited-state population vs. time from numerical integration of the OBEs. The laser is resonant (δ=0). Curves show γ = Ω₀/10 (solid), Ω₀/4 (dashed), and γ = Ω₀ (dotted).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-damprabi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="obe_files/figure-html/fig-damprabi-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;1: Calculated excited-state population vs.&nbsp;time from numerical integration of the OBEs. The laser is resonant (\delta =0). Curves show \gamma=\Omega_0 /10 (solid), \Omega_0 /4 (dashed), and \gamma =\Omega_0 (dotted)."><img src="obe_files/figure-html/fig-damprabi-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Calculated excited-state population vs. time from numerical integration of the OBEs. The laser is resonant (δ=0). Curves show γ = Ω₀/10 (solid), Ω₀/4 (dashed), and γ = Ω₀ (dotted)." width="693" height="453"></a>
@@ -1243,8 +1215,8 @@ Figure&nbsp;1: Calculated excited-state population vs.&nbsp;time from numerical 
 </div>
 </div>
 <hr>
-<section id="interpretation-of-the-numerical-solution" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-of-the-numerical-solution">Interpretation of the numerical solution</h3>
+<section id="interpretation-of-the-numerical-solution" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-of-the-numerical-solution">Interpretation of the numerical solution</h4>
 <p>As shown in <a href="#fig-damprabi" class="quarto-xref">Figure&nbsp;1</a>, spontaneous emission damps the Rabi oscillations. Two characteristic regimes appear:</p>
 <ul>
 <li><p><strong>Short times <span class="math inline">\(t \ll 1/\gamma\)</span>:</strong><br>
@@ -1256,8 +1228,8 @@ The system approaches a <strong>steady state</strong> with no further population
 <hr>
 </section>
 </section>
-<section id="saturation-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="saturation-parameters">8.4.2.2 Saturation parameters</h2>
+<section id="saturation-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="saturation-parameters">8.4.2.2 Saturation parameters</h3>
 <p>Using the definitions of <span class="math inline">\(\Omega_0\)</span> and <span class="math inline">\(\gamma\)</span></p>
 <p><span class="math display">\[
 \Omega_0=\frac{d_{eg}E_0}{\hbar},\qquad
@@ -1277,8 +1249,8 @@ S_0 = \frac{I}{I_{sat}}
 S = \frac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}
   = \frac{S_0}{1 + 4\delta^2/\gamma^2}.
 \tag{11}\]</span></span></p>
-<section id="physical-meaning" class="level3">
-<h3 class="anchored" data-anchor-id="physical-meaning">Physical meaning</h3>
+<section id="physical-meaning" class="level4">
+<h4 class="anchored" data-anchor-id="physical-meaning">Physical meaning</h4>
 <ul>
 <li><p><strong>Saturation intensity <span class="math inline">\(I_{sat}\)</span>:</strong><br>
 A property of the transition. For <span class="math inline">\(I&lt;I_{sat}\)</span> the atom cannot undergo many Rabi cycles before decaying. Typical values for alkali atoms are <span class="math inline">\(1\)</span>–<span class="math inline">\(10\)</span> mW/cm².</p></li>
@@ -1291,8 +1263,8 @@ Reduces to <span class="math inline">\(S_0\)</span> at <span class="math inline"
 <hr>
 </section>
 </section>
-<section id="steady-state-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="steady-state-solutions">8.4.2.3 Steady-State Solutions</h2>
+<section id="steady-state-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="steady-state-solutions">8.4.2.3 Steady-State Solutions</h3>
 <p>In many practically relevant situations, atoms interact with a near-resonant, monochromatic laser field for times <em>much longer</em> than the natural lifetime of the excited state. In such cases, all transient dynamics have decayed away, and the system reaches a <strong>true steady state</strong>, meaning that all time derivatives of the density-matrix elements vanish.</p>
 <p>Mathematically, the steady state of the Optical Bloch Equations corresponds to imposing</p>
 <p><span class="math display">\[
@@ -1302,8 +1274,8 @@ Reduces to <span class="math inline">\(S_0\)</span> at <span class="math inline"
 \]</span></p>
 <p>where <span class="math inline">\(w\)</span> is the inversion (Eq. <a href="#eq-inv" class="quarto-xref">Equation&nbsp;7</a>). We now solve Eqs. <a href="#eq-becoh" class="quarto-xref">Equation&nbsp;9</a> and <a href="#eq-beinv" class="quarto-xref">Equation&nbsp;10</a> under this condition.</p>
 <hr>
-<section id="steady-state-solutions-1" class="level3">
-<h3 class="anchored" data-anchor-id="steady-state-solutions-1">Steady-state solutions</h3>
+<section id="steady-state-solutions-1" class="level4">
+<h4 class="anchored" data-anchor-id="steady-state-solutions-1">Steady-state solutions</h4>
 <p>Solving the OBEs for <span class="math inline">\(\dot w=\dot\rho_{eg}=0\)</span> yields the steady-state inversion and coherence:</p>
 <p><span class="math display">\[
 w_{\mathrm{ss}}
@@ -1320,7 +1292,7 @@ S \equiv \frac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}
 \]</span></p>
 <p>These expressions describe the long-time limit of a driven two-level system including spontaneous emission.</p>
 <hr>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1379,8 +1351,8 @@ w = -\frac{1}{1 + \dfrac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}}
 </div>
 <hr>
 </section>
-<section id="excited-state-steady-state-population" class="level3">
-<h3 class="anchored" data-anchor-id="excited-state-steady-state-population">Excited-state steady-state population</h3>
+<section id="excited-state-steady-state-population" class="level4">
+<h4 class="anchored" data-anchor-id="excited-state-steady-state-population">Excited-state steady-state population</h4>
 <p>Using the identity from Eq. <a href="#eq-eew" class="quarto-xref">Equation&nbsp;8</a>,</p>
 <p><span class="math display">\[
 \rho_{ee} = \tfrac12(w+1),
@@ -1400,8 +1372,8 @@ w = -\frac{1}{1 + \dfrac{2|\Omega_0|^2}{\gamma^2 + 4\delta^2}}
 <hr>
 </section>
 </section>
-<section id="photon-scattering-rate-and-intensity-broadening" class="level2">
-<h2 class="anchored" data-anchor-id="photon-scattering-rate-and-intensity-broadening">8.4.2.4 Photon Scattering Rate and Intensity Broadening</h2>
+<section id="photon-scattering-rate-and-intensity-broadening" class="level3">
+<h3 class="anchored" data-anchor-id="photon-scattering-rate-and-intensity-broadening">8.4.2.4 Photon Scattering Rate and Intensity Broadening</h3>
 <p>When an atom is illuminated by near-resonant laser light, it undergoes a continuous cycle of <strong>stimulated absorption</strong>, <strong>stimulated emission</strong>, and—at random times—<strong>spontaneous decay</strong>. The spontaneously emitted photons are the ones detected in a fluorescence experiment (see Fig. <a href="#fig-scat" class="quarto-xref">Figure&nbsp;2</a>). A natural question is:</p>
 <blockquote class="blockquote">
 <p><strong>At what rate does the atom emit fluorescence photons?</strong></p>
@@ -1427,8 +1399,8 @@ Figure&nbsp;2: Sketch of an atom in a laser field that continuously undergoes ab
 </figure>
 </div>
 <hr>
-<section id="basic-properties-of-the-scattering-rate" class="level3">
-<h3 class="anchored" data-anchor-id="basic-properties-of-the-scattering-rate">Basic properties of the scattering rate</h3>
+<section id="basic-properties-of-the-scattering-rate" class="level4">
+<h4 class="anchored" data-anchor-id="basic-properties-of-the-scattering-rate">Basic properties of the scattering rate</h4>
 <p>Several important features follow directly from Eq. <a href="#eq-scatrate" class="quarto-xref">Equation&nbsp;13</a>:</p>
 <ul>
 <li><p><strong>Saturation limit.</strong><br>
@@ -1447,8 +1419,8 @@ The detuning <span class="math inline">\(\delta = \omega_L - \omega_0\)</span> p
 <p>These features form the basis of many fluorescence-based measurement techniques, including Doppler cooling.</p>
 <hr>
 </section>
-<section id="lorentzian-form-and-power-broadening" class="level3">
-<h3 class="anchored" data-anchor-id="lorentzian-form-and-power-broadening">Lorentzian form and power broadening</h3>
+<section id="lorentzian-form-and-power-broadening" class="level4">
+<h4 class="anchored" data-anchor-id="lorentzian-form-and-power-broadening">Lorentzian form and power broadening</h4>
 <p>In a typical fluorescence or absorption experiment, one scans the <strong>laser detuning</strong><br>
 <span class="math display">\[\delta = \omega_L - \omega_0\]</span><br>
 while keeping the <strong>laser intensity fixed</strong>. Thus <strong><span class="math inline">\(\delta\)</span> is the independent variable</strong>, and <strong><span class="math inline">\(S_0\)</span></strong> (the on-resonance saturation parameter) is a constant during the scan.</p>
@@ -1477,8 +1449,8 @@ while keeping the <strong>laser intensity fixed</strong>. Thus <strong><span cla
 <p>This has the standard <strong>Lorentzian form</strong> in the variable <span class="math inline">\(\delta\)</span> (see <a href="#fig-intensitybr" class="quarto-xref">Figure&nbsp;3</a>).</p>
 <hr>
 </section>
-<section id="physical-meaning-why-the-line-broadens" class="level3">
-<h3 class="anchored" data-anchor-id="physical-meaning-why-the-line-broadens">Physical meaning: why the line broadens</h3>
+<section id="physical-meaning-why-the-line-broadens" class="level4">
+<h4 class="anchored" data-anchor-id="physical-meaning-why-the-line-broadens">Physical meaning: why the line broadens</h4>
 <ul>
 <li>At <strong>low intensity</strong>, <span class="math inline">\(S_0\ll1\)</span>, the width is essentially the <strong>natural linewidth</strong> <span class="math inline">\(\gamma\)</span>.<br>
 </li>
@@ -1555,7 +1527,7 @@ while keeping the <strong>laser intensity fixed</strong>. Thus <strong><span cla
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-intensitybr" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of normalized scattering rate versus laser detuning showing that increasing laser intensity broadens the Lorentzian resonance, while the maximum scattering rate saturates at gamma over two." data-fig-align="center">
+<div id="fig-intensitybr" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Plot of normalized scattering rate versus laser detuning showing that increasing laser intensity broadens the Lorentzian resonance, while the maximum scattering rate saturates at gamma over two.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-intensitybr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="obe_files/figure-html/fig-intensitybr-output-1.png" class="lightbox" data-gallery="page-gallery" title="Figure&nbsp;3: Scattering rate \Gamma/\gamma as a function of normalized detuning \delta/\gamma for several fixed values of the on-resonance saturation parameter S_0."><img src="obe_files/figure-html/fig-intensitybr-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Plot of normalized scattering rate versus laser detuning showing that increasing laser intensity broadens the Lorentzian resonance, while the maximum scattering rate saturates at gamma over two." width="699" height="459"></a>
@@ -1571,8 +1543,8 @@ Figure&nbsp;3: Scattering rate <span class="math inline">\(\Gamma/\gamma\)</span
 </section>
 </section>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key Takeaways</h1>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
 <li><p>The <strong>optical Bloch equations (OBEs)</strong> describe the full time evolution of a two-level atom interacting with a coherent laser field, incorporating both coherent dynamics and relaxation processes.</p></li>
 <li><p>By introducing the <strong>density matrix formalism</strong>, the OBEs account for <strong>population dynamics</strong>, <strong>atomic coherences</strong>, and <strong>decoherence</strong> due to spontaneous emission.</p></li>

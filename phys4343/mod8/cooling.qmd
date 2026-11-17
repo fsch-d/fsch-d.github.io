@@ -3,10 +3,15 @@ title: 8.5 Laser Cooling
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore laser cooling of atoms, radiation pressure, Doppler cooling, optical molasses, Doppler limits, and sub-Doppler cooling mechanisms.">
 ---
 
 
-# Introduction
+## Introduction
 
 In general, several mechanisms can exert forces on atoms exposed to laser fields. One example is the *optical dipole force*, a conservative force arising from the Autler–Townes shift (for details see the page on [Rabi Oscillations](rwa_rabi.qmd){target=blank_}) at positions with a non-vanishing laser-intensity gradient. Another mechanism is the *photon scattering force*, which originates from the impulse an atom receives during each photon-absorption and photon-emission event. 
 
@@ -22,14 +27,14 @@ After studying this chapter, you will be able to:
 
 ---
 
-# 8.5.1. Doppler Cooling
+## 8.5.1. Doppler Cooling
 
 Laser cooling relies on the fact that light can exert forces on atoms. 
 Before examining Doppler cooling in detail, we first analyze the *scattering force*, which arises when atoms repeatedly absorb and spontaneously emit photons. This force is central to all radiative cooling mechanisms and forms the foundation of optical molasses, magneto-optical traps, and most modern cold-atom techniques.
 
 ---
 
-## 8.5.1.1 The Scattering Force
+### 8.5.1.1 The Scattering Force
 
 To understand the scattering force, let us recall that a force is defined as the rate of change of momentum,
 $$
@@ -62,7 +67,7 @@ This force points along the laser beam direction and is largest when the detunin
 
 ----
 
-## 8.5.1.2 Doppler Cooling
+### 8.5.1.2 Doppler Cooling
 
 The expression in @eq-scatforce describes atoms at rest. For a moving atom, however, the laser frequency is Doppler-shifted in the atom’s rest frame. The first-order (non-relativistic) Doppler shift is
 
@@ -89,7 +94,7 @@ This simplifies the Doppler-shifted scattering force and allows us to study how 
 
 ---
 
-### Two Counterpropagating Beams
+#### Two Counterpropagating Beams
 
 We now consider the standard cooling configuration of **two counterpropagating laser beams**, one with wave vector $+k$ and one with $-k$. Neglecting Autler–Townes shifts and interference effects, the total force along the beam axis is the difference of the forces from the two beams:
 
@@ -255,7 +260,7 @@ plt.show()
 
 ---
 
-## 8.5.1.3 Low-velocity limit
+### 8.5.1.3 Low-velocity limit
 
 For $kv \ll \gamma$ and $kv \ll |\delta|$, @eq-coolingforce reduces to a linear viscous force,
 
@@ -267,8 +272,7 @@ $$
 
 which shows that, at sufficiently small velocity, the Doppler cooling force behaves like friction.  
 
-:::{.callout-note collapse=true}
-### Derivation
+:::{.callout-note collapse=true title="Derivation"}
 
 We start from the low-saturation approximate expression from @eq-coolingforce (one-dimensional motion along the beam axis):
 
@@ -313,7 +317,7 @@ Since the factors $\hbar$, $k^2$, $S_0$, and $\gamma$ are positive, the sign of 
 Thus Doppler cooling only occurs for red detuning.
 
 
-### Cooling (energy) rate and time constant  
+#### Cooling (energy) rate and time constant  
 
 With kinetic energy $E=\tfrac12 m v^2$ we have
 
@@ -335,7 +339,7 @@ $$
 
 For red detuning ($\alpha>0$), $\tau_{\rm cool}$ is positive and sets how quickly the atomic energy decreases.
 
-### Optimal detuning for maximum damping
+#### Optimal detuning for maximum damping
 
 To maximize the damping strength $|\alpha|$, set $x = \delta/\gamma$ and maximize
 
@@ -360,7 +364,7 @@ is reached at $\delta = -\gamma/2$. Both optimal detunings are of order $\gamma$
 
 ---
 
-## 8.5.1.4 The Doppler Cooling Limit
+### 8.5.1.4 The Doppler Cooling Limit
 
 Each spontaneous emission event imparts a random recoil momentum of magnitude $\hbar k$ to the atom.  
 These kicks act like a momentum-space diffusion process. Averaging over many such events gives a *heating rate*.
@@ -378,8 +382,7 @@ $$
 \frac{\hbar^2 k^2}{m}\,\Gamma.
 $$
 
-:::{.callout-note collapse=true}
-### Derivation of the mean recoil energy
+:::{.callout-note collapse=true title="Derivation of the mean recoil energy"}
 
 The kinetic energy of an atom with momentum $\vec p$ is
 $$
@@ -443,7 +446,7 @@ This expression implicitly assumes that the atomic velocity distribution is broa
 
 ---
 
-### Steady-state temperature
+#### Steady-state temperature
 
 Cooling (from @eq-coolrate) and heating (from @eq-heatrate) balance in steady state:
 
@@ -472,8 +475,7 @@ $$
 
 This is the fundamental temperature limit for Doppler cooling based solely on absorption and spontaneous emission.
 
-::: {.callout-note}
-### Beyond the Doppler limit
+::: {.callout-note title="Beyond the Doppler limit"}
 
 Colder temperatures can be achieved through mechanisms requiring multilevel structure and polarization gradients, such as *Sisyphus* or *polarization-gradient cooling*. These are known as **sub-Doppler processes** and can reach temperatures near the recoil limit:
 
@@ -487,7 +489,7 @@ $$
 
 ---
 
-# 8.5.2. Magneto-Optical Traps (MOTs)
+## 8.5.2. Magneto-Optical Traps (MOTs)
 
 Laser cooling, as discussed in the previous section, can reduce the velocity spread of an atomic gas. 
 However, *optical molasses alone does not confine atoms spatially*: the ensemble slowly drifts away. 
@@ -495,7 +497,7 @@ This limitation is a consequence of the **Optical Earnshaw Theorem**, which stat
 
 ---
 
-## 8.5.2.1 Optical Earnshaw Theorem
+### 8.5.2.1 Optical Earnshaw Theorem
 
 The central assumption is that atoms are **point-like dipoles** with internal structure *independent* of position. Under this assumption, the scattering force from a laser field is proportional to the **Poynting vector**
 $$
@@ -534,7 +536,7 @@ This motivates adding a mechanism that **breaks the assumptions** of the Earnsha
 
 ---
 
-## 8.5.2.2 Position-dependent structure: Zeeman effect
+### 8.5.2.2 Position-dependent structure: Zeeman effect
 
 A MOT introduces a weak, spatially varying magnetic field produced by **anti-Helmholtz coils**, creating a near-linear field gradient,
 $$
@@ -561,7 +563,7 @@ This breaks the assumptions of the optical Earnshaw theorem and allows a restori
 
 ---
 
-## 8.5.2.3 Selection rules and polarization
+### 8.5.2.3 Selection rules and polarization
 
 A second ingredient is the ability to **drive transitions selectively** into specific Zeeman sublevels using circular polarization:
 
@@ -941,7 +943,7 @@ plt.show()
 ```
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - **Optical molasses provides efficient velocity damping** through Doppler cooling, but **cannot confine atoms spatially**. 
   The fundamental limitation arises because, for structureless atoms in static optical fields, the **scattering force field is divergence-free**, prohibiting a true optical trap.

@@ -1,9 +1,14 @@
 ---
 title: 8 Laser–Atom Interactions
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore coherent laser–atom interactions, two-level systems, Rabi oscillations, optical Bloch equations, laser cooling, and atomic clocks.">
 ---
 
-# Interaction of Atoms with Coherent Light
+## Interaction of Atoms with Coherent Light
 
 In atomic physics, the interaction of atoms with **coherent radiation**, such as laser light, plays a central role in many modern experimental techniques. 
 Examples include **laser spectroscopy**, **atom trapping and cooling**, **atomic clocks**, **optical lattices**, and various schemes in **quantum optics**.
@@ -13,7 +18,7 @@ However, for intense and coherent laser fields, the perturbative approach breaks
 
 ---
 
-## Scope and Simplifying Assumptions
+### Scope and Simplifying Assumptions
 
 To make progress, we adopt a few well-justified approximations that capture the essential physics:
 
@@ -38,7 +43,7 @@ To make progress, we adopt a few well-justified approximations that capture the 
 
 ---
 
-## Structure of This Module
+### Structure of This Module
 
 This module is organized into a sequence of chapters that gradually develop the theoretical tools needed to understand coherent light–atom interactions and their experimental applications:
 
@@ -59,7 +64,7 @@ This module is organized into a sequence of chapters that gradually develop the 
 
 ---
 
-## Broader Relevance
+### Broader Relevance
 
 The formalism developed here has applications that extend far beyond atomic physics. 
 It provides the conceptual foundation for a wide range of phenomena and technologies, including:

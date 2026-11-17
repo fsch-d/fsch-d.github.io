@@ -1,5 +1,10 @@
 ---
 title: "P4 Interaction with Radiation"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Practice atomic transitions and light–matter interactions with problems on selection rules, transition rates, polarization, and spectroscopy.">
 ---
 
 These problems explore electric-dipole transitions, selection rules, Einstein rate equations, and spectral linewidths.

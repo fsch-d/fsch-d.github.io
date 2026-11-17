@@ -1,6 +1,10 @@
-
 ---
 title: "P3 Hydrogen Atom: Shifts and Interactions"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Solve practice problems on hydrogen energy shifts, fine and hyperfine structure, spin interactions, and the effects of external fields.">
 ---
 
 These problems explore electron spin, magnetic interactions, coupled spins, and the hyperfine structure of hydrogen.

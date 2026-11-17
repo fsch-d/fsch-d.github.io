@@ -1,5 +1,10 @@
 ---
 title: "P6 Molecular Physics"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Practice molecular physics with problems on chemical bonding, molecular orbitals, rotational and vibrational states, and molecular spectroscopy.">
 ---
 
 This collection explores intermolecular forces, molecular orbitals, vibrations, and rotational–vibrational spectroscopy. Try each problem before opening its hint or worked solution.

@@ -3,10 +3,15 @@ title: 8.7 Ramsey Spectroscopy and Atomic Clocks
 author: Daniel Fischer
 filters:
   - ../physics-macros.lua
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Learn Ramsey spectroscopy, separated oscillatory fields, quantum interference, Ramsey fringes, frequency standards, and atomic clock principles.">
 ---
 
 
-# Introduction
+## Introduction
 
 In this chapter, we apply the Bloch-vector formalism to one of its most important real-world uses: **Ramsey interferometry**, the core operating principle behind modern **atomic clocks**.  
 
@@ -14,7 +19,7 @@ We focus on cesium–133, the atom that defines the SI second through the freque
 
 ---
 
-# 8.7.1. Experimental Setup
+## 8.7.1. Experimental Setup
 
 Cesium is an alkali atom with electronic ground state configuration [Xe]$6s$ and total angular momentum $F=3$ or $F=4$ due to hyperfine coupling with its nuclear spin $I = 7/2$. 
 The transition between these two hyperfine states has a frequency
@@ -41,14 +46,14 @@ This pulse–drift–pulse sequence creates quantum interference fringes that al
 
 ---
 
-# 8.7.2. Bloch Vector Dynamics in Ramsey Spectroscopy
+## 8.7.2. Bloch Vector Dynamics in Ramsey Spectroscopy
 
 The Bloch-vector description provides a simple geometric interpretation of the Ramsey sequence. 
 We now walk through the evolution of the Bloch vector step by step.
 
 ---
 
-## 8.7.2.1 Initial State
+### 8.7.2.1 Initial State
 
 Atoms emerge from the source in the lower hyperfine level $F=3$. 
 In Bloch-vector representation this is the south pole of the Bloch sphere:
@@ -62,7 +67,7 @@ $$
 
 ---
 
-## 8.7.2.2 Step 1 — First $\pi/2$ pulse
+### 8.7.2.2 Step 1 — First $\pi/2$ pulse
 
 In the first interaction zone, the microwave field is tuned such that the Rabi frequency satisfies 
 $\Omega_0 \tau = \pi/2$ and $\Omega_0 \gg \delta$, so the Rabi vector points nearly along the $u$-axis.
@@ -143,7 +148,7 @@ plt.show()
 ---
 
 
-## 8.7.2.3 Step 2 — Field-free propagation
+### 8.7.2.3 Step 2 — Field-free propagation
 
 During the drift time $T$, the atoms evolve freely at their eigenfrequency $\omega_0$. 
 The driving field in the two interaction zones has frequency $\omega_L$, so the two accumulate a **relative phase** at the detuning
@@ -278,7 +283,7 @@ plt.show()
 
 ---
 
-## 8.7.2.4 Step 3 — Second $\pi/2$ pulse
+### 8.7.2.4 Step 3 — Second $\pi/2$ pulse
 
 In the second interaction zone, the same $\pi/2$ pulse rotates the Bloch vector by $-\pi/2$ around the $u$-axis.
 
@@ -400,7 +405,7 @@ plt.show()
 
 ---
 
-# 8.7.3. Ramsey Spectrum and Interpretation
+## 8.7.3. Ramsey Spectrum and Interpretation
 
 The excited-state population after the second pulse oscillates as a function of detuning:
 
@@ -518,7 +523,7 @@ plt.show()
 
 ---
 
-## 8.7.3.1 What is actually happening physically?
+### 8.7.3.1 What is actually happening physically?
 
 Traditional laser spectroscopy measures how strongly a monochromatic field can drive transitions between two states. In that case, the **width of the excitation line** is fundamentally limited by the **interaction time**: a short pulse produces a broad line (Fourier limit), and only by making the interaction longer can the resonance be determined more precisely.
 
@@ -536,7 +541,7 @@ $$
 
 and the second $\pi/2$ pulse converts this accumulated phase difference into a measurable change in population. When plotted versus $\delta$, this produces the **narrow Ramsey fringe pattern**.
 
-### Why are Ramsey fringes so narrow?
+#### Why are Ramsey fringes so narrow?
 
 Because the “frequency measurement” is based on how much phase difference builds up during the long time $T$ — not on how strongly the atom is driven. This means:
 
@@ -554,7 +559,7 @@ So the resolution is directly set by how long the atom is allowed to precess fre
 
 ---
 
-## 8.7.3.2 Comparison with traditional single-pulse (Rabi) spectroscopy
+### 8.7.3.2 Comparison with traditional single-pulse (Rabi) spectroscopy
 
 **Rabi (continuous-wave or long-pulse) spectroscopy:**
 
@@ -574,7 +579,7 @@ This makes Ramsey’s method fundamentally better for high-precision measurement
 
 ---
 
-## 8.7.3.3 Why this matters
+### 8.7.3.3 Why this matters
 
 Ramsey interferometry provides:
 
@@ -585,7 +590,7 @@ Ramsey interferometry provides:
 
 These properties are why the Ramsey method underlies modern atomic clocks, molecular beam resonance experiments, and nearly all precision measurements of fundamental constants.
 
-### How this leads to an actual clock
+#### How this leads to an actual clock
 
 To see how one *builds a clock* from such a spectroscopy experiment, it helps to recall that the goal of any atomic clock is to stabilize a local oscillator—typically a microwave or optical field—so that its frequency matches the natural transition frequency of the atom. The Ramsey sequence provides the crucial error signal needed for this stabilization.
 
@@ -603,7 +608,7 @@ In this way, the atoms act as a **phase reference**: the accumulated phase durin
 
 ---
 
-# 8.7.4. Further Developments
+## 8.7.4. Further Developments
 
 Modern atomic clocks build on the Ramsey principle but incorporate additional innovations:
 
@@ -621,7 +626,7 @@ Modern atomic clocks build on the Ramsey principle but incorporate additional in
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - Ramsey spectroscopy uses two $\pi/2$ pulses separated by free evolution to create quantum interference sensitive to detuning.
 - The Bloch-vector description makes the dynamics intuitive: successive rotations around the $u$- and $w$-axes map directly onto population outcomes.

@@ -1,5 +1,10 @@
 ---
 title: "P5 Multielectron Atoms"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore multielectron atomic physics through practice problems on electron configurations, exchange symmetry, atomic term symbols, and Hund's rules.">
 ---
 
 These problems explore helium, electron exchange, atomic term symbols, Hund's rules, and autoionization.

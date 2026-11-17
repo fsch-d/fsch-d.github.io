@@ -101,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Learn the density matrix formalism for quantum systems, including pure and mixed states, coherences, expectation values, and quantum dynamics.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -836,8 +837,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Up to this point, we have assumed that the two–level system is always in a pure quantum state that can be written as a <em>coherent superposition</em> of the bare states. This is expressed as</p>
 <p><span id="eq-cohst"><span class="math display">\[
 \left\lvert \psi \right\rangle= c_e \left\lvert e \right\rangle+ c_g \left\lvert g \right\rangle= \lvert c_e\rvert e^{-i\varphi_e}\left\lvert e \right\rangle+ \lvert c_g\rvert e^{-i\varphi_g}\left\lvert g \right\rangle.
@@ -865,8 +866,8 @@ known as the <strong>Liouville–von Neumann equation</strong>.</li>
 </ul>
 <hr>
 </section>
-<section id="the-density-matrix-formalism" class="level1">
-<h1>8.3.1. The density matrix formalism</h1>
+<section id="the-density-matrix-formalism" class="level2">
+<h2 class="anchored" data-anchor-id="the-density-matrix-formalism">8.3.1. The density matrix formalism</h2>
 <p>A powerful and conceptually elegant solution to the limitations of the wavefunction description is the <strong>density matrix</strong> (or <em>density operator</em>) formalism. Instead of describing a state by a vector in Hilbert space, we represent the state by an operator:</p>
 <p><span class="math display">\[
 \hat{\rho} = \left\lvert \psi \right\rangle\!\!\left\langle \psi \right\rvert.
@@ -891,8 +892,8 @@ known as the <strong>Liouville–von Neumann equation</strong>.</li>
 \tag{2}\]</span></span></p>
 <p>At this stage the density matrix is simply a rewriting of our familiar wavefunction. Its power becomes clear when we consider states that cannot be represented by a single pure state <span class="math inline">\(\left\lvert \psi \right\rangle\)</span>.</p>
 <hr>
-<section id="pure-states" class="level2">
-<h2 class="anchored" data-anchor-id="pure-states">8.3.1.1 Pure states</h2>
+<section id="pure-states" class="level3">
+<h3 class="anchored" data-anchor-id="pure-states">8.3.1.1 Pure states</h3>
 <p>A <strong>pure state</strong> is one that can be written as a coherent superposition such as <a href="#eq-cohst" class="quarto-xref">Equation&nbsp;1</a>. In this case, the density matrix is constructed directly from the state vector, so its elements have a <em>strict and unambiguous</em> interpretation:</p>
 <ul>
 <li><p>The <strong>diagonal elements</strong> are the populations of the excited and ground states <em>in that specific state vector</em>:</p>
@@ -911,8 +912,8 @@ known as the <strong>Liouville–von Neumann equation</strong>.</li>
 </ul>
 <hr>
 </section>
-<section id="mixed-states" class="level2">
-<h2 class="anchored" data-anchor-id="mixed-states">8.3.1.2 Mixed states</h2>
+<section id="mixed-states" class="level3">
+<h3 class="anchored" data-anchor-id="mixed-states">8.3.1.2 Mixed states</h3>
 <p>A <strong>mixed state</strong> represents an ensemble of systems or repeated preparations in which the state is <em>not</em> given by a single wavefunction. The density matrix still has the same mathematical form, but its entries have a <strong>different physical meaning</strong>:</p>
 <ul>
 <li><p>The diagonal elements now represent <strong>ensemble probabilities</strong>:</p>
@@ -934,8 +935,8 @@ p_e + p_g = 1,
 </ul>
 <hr>
 </section>
-<section id="experimental-distinction-between-pure-and-mixed-states" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-distinction-between-pure-and-mixed-states">8.3.1.3 Experimental distinction between pure and mixed states</h2>
+<section id="experimental-distinction-between-pure-and-mixed-states" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-distinction-between-pure-and-mixed-states">8.3.1.3 Experimental distinction between pure and mixed states</h3>
 <p>How can one tell experimentally whether a state is pure or mixed?</p>
 <ul>
 <li><p><strong>Pure states</strong> can undergo coherent evolution.<br>
@@ -945,8 +946,8 @@ When driven with the same coherent field, a mixed state (with <span class="math 
 </ul>
 <p>This operational difference—<strong>coherent vs.&nbsp;incoherent response to a resonant field</strong>—provides a direct experimental signature distinguishing pure from mixed quantum states.</p>
 </section>
-<section id="partially-coherent-states" class="level2">
-<h2 class="anchored" data-anchor-id="partially-coherent-states">8.3.1.4 Partially coherent states</h2>
+<section id="partially-coherent-states" class="level3">
+<h3 class="anchored" data-anchor-id="partially-coherent-states">8.3.1.4 Partially coherent states</h3>
 <p>In real systems the loss of coherence is usually gradual rather than sudden. A state with</p>
 <p><span class="math display">\[
 0 &lt; \lvert\rho_{eg}\rvert &lt; \sqrt{\rho_{ee}\rho_{gg}}
@@ -955,8 +956,8 @@ When driven with the same coherent field, a mixed state (with <span class="math 
 <hr>
 </section>
 </section>
-<section id="expectation-values-from-the-density-matrix" class="level1">
-<h1>8.3.2. Expectation values from the density matrix</h1>
+<section id="expectation-values-from-the-density-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-values-from-the-density-matrix">8.3.2. Expectation values from the density matrix</h2>
 <p>One of the most useful features of the density matrix is that it provides a <strong>basis-independent</strong> formula for expectation values.</p>
 <p>Starting from</p>
 <p><span class="math display">\[
@@ -978,8 +979,8 @@ When driven with the same coherent field, a mixed state (with <span class="math 
 <p>where <code>Tr</code> denotes the trace (sum of diagonal elements). This trace rule remains valid whether the state is pure or mixed.</p>
 <hr>
 </section>
-<section id="time-evolution-the-liouvillevon-neumann-equation" class="level1">
-<h1>8.3.3. Time evolution: the Liouville–von Neumann equation</h1>
+<section id="time-evolution-the-liouvillevon-neumann-equation" class="level2">
+<h2 class="anchored" data-anchor-id="time-evolution-the-liouvillevon-neumann-equation">8.3.3. Time evolution: the Liouville–von Neumann equation</h2>
 <p>To derive the equation of motion for the density matrix, we start from the Schrödinger equation,</p>
 <p><span class="math display">\[
 i\hbar \frac{\partial}{\partial t}\left\lvert \psi \right\rangle= \hat{H}\left\lvert \psi \right\rangle,
@@ -996,8 +997,8 @@ i\hbar \frac{\partial}{\partial t}\left\lvert \psi \right\rangle= \hat{H}\left\l
 <p>This is the <strong>Liouville–von Neumann equation</strong>, the analogue of the Schrödinger equation in the density-matrix formalism. It describes <em>unitary</em>, fully coherent time evolution. In later chapters we will extend it by including additional terms that model spontaneous decay and dephasing, leading to the <strong>optical Bloch equations</strong>.</p>
 <hr>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key Takeaways</h1>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
 <li>The wavefunction formalism cannot describe decoherence or statistical mixtures.<br>
 </li>
