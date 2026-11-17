@@ -415,20 +415,31 @@ Neglecting these fast oscillations simplifies the equations substantially while 
 
 #### Transformation to the Laser-Frequency Rotating Basis
 
-To eliminate the remaining explicit time dependence in the operator, we now move to a frame rotating with the **laser frequency** $\omega_L$. 
-In this frame, the phase oscillation at $\omega_L$ is transferred from the Hamiltonian to the amplitudes themselves:
+To eliminate the remaining explicit time dependence in the operator, we perform **another unitary transformation**, analogous to the transformation into the atomic rotating frame introduced in Section 8.2.1.2. While the earlier transformation used the atomic transition frequency $\omega_0$, we now choose a frame rotating at the **laser frequency** $\omega_L$. Relative to the atomic rotating frame, this corresponds to a rotation at the **detuning** $\delta=\omega_L-\omega_0$.
+
+The new amplitudes are related to the original amplitudes $c_e,c_g$ and the atomic rotating-frame amplitudes $\tilde c_e,\tilde c_g$ by
 
 $$
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}
-= \begin{pmatrix} c_e e^{i\omega_L t/2} \\[0.3em] c_g e^{-i\omega_L t/2} \end{pmatrix}
-= \begin{pmatrix} \tilde c_e e^{i(\omega_L - \omega_0)t/2} \\[0.3em] \tilde c_g e^{-i(\omega_L - \omega_0)t/2} \end{pmatrix}.
+=
+\underbrace{
+\begin{pmatrix}
+e^{i\omega_L t/2} & 0\\
+0 & e^{-i\omega_L t/2}
+\end{pmatrix}
+}_{U_L(t)}
+\begin{pmatrix} c_e \\ c_g \end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+e^{i\delta t/2} & 0\\
+0 & e^{-i\delta t/2}
+\end{pmatrix}
+}_{U_\delta(t)}
+\begin{pmatrix} \tilde c_e \\ \tilde c_g \end{pmatrix}.
 $$
 
-Introducing the detuning
-$$
-\delta = \omega_L - \omega_0,
-$$
-and substituting this transformation into the RWA equation removes the residual time dependence, yielding the compact, time-independent form:
+As before, this unitary transformation preserves the populations while transferring the oscillating phases from the Hamiltonian to the amplitudes. Substituting into the RWA equations yields the **time-independent Hamiltonian**:
 
 $$
 i\hbar\frac{d}{dt}
@@ -441,8 +452,7 @@ i\hbar\frac{d}{dt}
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}.
 $${#eq-serwarotl}
 
-@eq-serwarotl is central: it encapsulates all the coherent two-level dynamics within the RWA. 
-For constant $\Omega_0$ and $\delta$, it forms a linear system with constant coefficients, solvable analytically.
+@eq-serwarotl is central: it encapsulates all the coherent two-level dynamics within the RWA. For constant $\Omega_0$ and $\delta$, it forms a linear system with constant coefficients that can be solved analytically.
 
 ---
 

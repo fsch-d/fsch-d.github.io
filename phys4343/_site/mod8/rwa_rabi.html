@@ -1235,15 +1235,28 @@ i\hbar\frac{d}{dt}
 </section>
 <section id="transformation-to-the-laser-frequency-rotating-basis" class="level4">
 <h4 class="anchored" data-anchor-id="transformation-to-the-laser-frequency-rotating-basis">Transformation to the Laser-Frequency Rotating Basis</h4>
-<p>To eliminate the remaining explicit time dependence in the operator, we now move to a frame rotating with the <strong>laser frequency</strong> <span class="math inline">\(\omega_L\)</span>. In this frame, the phase oscillation at <span class="math inline">\(\omega_L\)</span> is transferred from the Hamiltonian to the amplitudes themselves:</p>
+<p>To eliminate the remaining explicit time dependence in the operator, we perform <strong>another unitary transformation</strong>, analogous to the transformation into the atomic rotating frame introduced in Section 8.2.1.2. While the earlier transformation used the atomic transition frequency <span class="math inline">\(\omega_0\)</span>, we now choose a frame rotating at the <strong>laser frequency</strong> <span class="math inline">\(\omega_L\)</span>. Relative to the atomic rotating frame, this corresponds to a rotation at the <strong>detuning</strong> <span class="math inline">\(\delta=\omega_L-\omega_0\)</span>.</p>
+<p>The new amplitudes are related to the original amplitudes <span class="math inline">\(c_e,c_g\)</span> and the atomic rotating-frame amplitudes <span class="math inline">\(\tilde c_e,\tilde c_g\)</span> by</p>
 <p><span class="math display">\[
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}
-= \begin{pmatrix} c_e e^{i\omega_L t/2} \\[0.3em] c_g e^{-i\omega_L t/2} \end{pmatrix}
-= \begin{pmatrix} \tilde c_e e^{i(\omega_L - \omega_0)t/2} \\[0.3em] \tilde c_g e^{-i(\omega_L - \omega_0)t/2} \end{pmatrix}.
+=
+\underbrace{
+\begin{pmatrix}
+e^{i\omega_L t/2} &amp; 0\\
+0 &amp; e^{-i\omega_L t/2}
+\end{pmatrix}
+}_{U_L(t)}
+\begin{pmatrix} c_e \\ c_g \end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+e^{i\delta t/2} &amp; 0\\
+0 &amp; e^{-i\delta t/2}
+\end{pmatrix}
+}_{U_\delta(t)}
+\begin{pmatrix} \tilde c_e \\ \tilde c_g \end{pmatrix}.
 \]</span></p>
-<p>Introducing the detuning <span class="math display">\[
-\delta = \omega_L - \omega_0,
-\]</span> and substituting this transformation into the RWA equation removes the residual time dependence, yielding the compact, time-independent form:</p>
+<p>As before, this unitary transformation preserves the populations while transferring the oscillating phases from the Hamiltonian to the amplitudes. Substituting into the RWA equations yields the <strong>time-independent Hamiltonian</strong>:</p>
 <p><span id="eq-serwarotl"><span class="math display">\[
 i\hbar\frac{d}{dt}
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}
@@ -1254,7 +1267,7 @@ i\hbar\frac{d}{dt}
 \end{pmatrix}
 \begin{pmatrix} C_e \\ C_g \end{pmatrix}.
 \tag{5}\]</span></span></p>
-<p><a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a> is central: it encapsulates all the coherent two-level dynamics within the RWA. For constant <span class="math inline">\(\Omega_0\)</span> and <span class="math inline">\(\delta\)</span>, it forms a linear system with constant coefficients, solvable analytically.</p>
+<p><a href="#eq-serwarotl" class="quarto-xref">Equation&nbsp;5</a> is central: it encapsulates all the coherent two-level dynamics within the RWA. For constant <span class="math inline">\(\Omega_0\)</span> and <span class="math inline">\(\delta\)</span>, it forms a linear system with constant coefficients that can be solved analytically.</p>
 <hr>
 </section>
 <section id="interpretation-of-the-new-basis" class="level4">
