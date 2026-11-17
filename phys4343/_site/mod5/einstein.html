@@ -104,6 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Derive Einstein A and B coefficients for atomic absorption and emission, connect transition rates to Planck's radiation law, and explore stimulated emission and lasers.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -801,26 +802,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#atomic-transitions-and-radiation-overview-and-plan" id="toc-atomic-transitions-and-radiation-overview-and-plan" class="nav-link active" data-scroll-target="#atomic-transitions-and-radiation-overview-and-plan">Atomic Transitions and Radiation: Overview and Plan</a></li>
-  <li><a href="#historical-pretext" id="toc-historical-pretext" class="nav-link" data-scroll-target="#historical-pretext">5.1.1. Historical Pretext</a></li>
-  <li><a href="#definitions-and-system-of-consideration" id="toc-definitions-and-system-of-consideration" class="nav-link" data-scroll-target="#definitions-and-system-of-consideration">5.1.2. Definitions and System of Consideration</a>
-  <ul class="collapse">
-  <li><a href="#spectral-energy-density-of-the-radiation-field" id="toc-spectral-energy-density-of-the-radiation-field" class="nav-link" data-scroll-target="#spectral-energy-density-of-the-radiation-field">Spectral energy density of the radiation field</a></li>
-  <li><a href="#transition-probabilities" id="toc-transition-probabilities" class="nav-link" data-scroll-target="#transition-probabilities">Transition probabilities</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul></li>
-  <li><a href="#transition-rates-in-thermal-equilibrium" id="toc-transition-rates-in-thermal-equilibrium" class="nav-link" data-scroll-target="#transition-rates-in-thermal-equilibrium">5.1.3. Transition Rates in Thermal Equilibrium</a>
-  <ul class="collapse">
-  <li><a href="#populations-in-thermal-equilibrium" id="toc-populations-in-thermal-equilibrium" class="nav-link" data-scroll-target="#populations-in-thermal-equilibrium">Populations in thermal equilibrium</a></li>
-  <li><a href="#radiation-field-implied-by-equilibrium" id="toc-radiation-field-implied-by-equilibrium" class="nav-link" data-scroll-target="#radiation-field-implied-by-equilibrium">Radiation field implied by equilibrium</a></li>
-  <li><a href="#relations-between-einstein-coefficients" id="toc-relations-between-einstein-coefficients" class="nav-link" data-scroll-target="#relations-between-einstein-coefficients">Relations between Einstein coefficients</a></li>
-  </ul></li>
-  <li><a href="#physical-interpretation-and-significance" id="toc-physical-interpretation-and-significance" class="nav-link" data-scroll-target="#physical-interpretation-and-significance">5.1.4. Physical Interpretation and Significance</a>
-  <ul class="collapse">
-  <li><a href="#mode-density-and-spontaneous-emission" id="toc-mode-density-and-spontaneous-emission" class="nav-link" data-scroll-target="#mode-density-and-spontaneous-emission">Mode density and spontaneous emission</a></li>
-  <li><a href="#ratio-of-induced-to-spontaneous-emission" id="toc-ratio-of-induced-to-spontaneous-emission" class="nav-link" data-scroll-target="#ratio-of-induced-to-spontaneous-emission">Ratio of induced to spontaneous emission</a></li>
-  <li><a href="#consequences-of-the-b-coefficient-symmetry" id="toc-consequences-of-the-b-coefficient-symmetry" class="nav-link" data-scroll-target="#consequences-of-the-b-coefficient-symmetry">Consequences of the <span class="math inline">\(B\)</span>-coefficient symmetry</a></li>
-  <li><a href="#conceptual-summary" id="toc-conceptual-summary" class="nav-link" data-scroll-target="#conceptual-summary">Conceptual summary</a></li>
-  </ul></li>
+  <li><a href="#historical-context" id="toc-historical-context" class="nav-link" data-scroll-target="#historical-context">5.1.1. Historical Context</a></li>
+  <li><a href="#definitions-and-system-of-consideration" id="toc-definitions-and-system-of-consideration" class="nav-link" data-scroll-target="#definitions-and-system-of-consideration">5.1.2. Definitions and System of Consideration</a></li>
+  <li><a href="#transition-rates-in-thermal-equilibrium" id="toc-transition-rates-in-thermal-equilibrium" class="nav-link" data-scroll-target="#transition-rates-in-thermal-equilibrium">5.1.3. Transition Rates in Thermal Equilibrium</a></li>
+  <li><a href="#physical-interpretation-and-significance" id="toc-physical-interpretation-and-significance" class="nav-link" data-scroll-target="#physical-interpretation-and-significance">5.1.4. Physical Interpretation and Significance</a></li>
   </ul>
 </nav>
     </div>
@@ -853,8 +838,8 @@ window.Quarto = {
 </header>
 
 
-<section id="atomic-transitions-and-radiation-overview-and-plan" class="level1">
-<h1>Atomic Transitions and Radiation: Overview and Plan</h1>
+<section id="atomic-transitions-and-radiation-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="atomic-transitions-and-radiation-overview-and-plan">Atomic Transitions and Radiation: Overview and Plan</h2>
 <p>This chapter introduces the quantum-statistical description of how atoms interact with electromagnetic radiation. We focus on the fundamental processes of <strong>absorption</strong>, <strong>spontaneous emission</strong>, and <strong>stimulated emission</strong>, and show how these are quantified by the <strong>Einstein coefficients</strong>. Understanding these coefficients is crucial for linking microscopic atomic transitions to macroscopic radiation laws, such as Planck’s law, and for explaining phenomena like optical amplification and lasers.</p>
 <p>The specific goals for this chapter are:</p>
 <ol type="1">
@@ -869,8 +854,8 @@ window.Quarto = {
 <li>Appreciate the historical and conceptual insights of Einstein’s work, particularly the prediction of stimulated emission well before its experimental realization.</li>
 </ol>
 </section>
-<section id="historical-pretext" class="level1">
-<h1>5.1.1. Historical Pretext</h1>
+<section id="historical-context" class="level2">
+<h2 class="anchored" data-anchor-id="historical-context">5.1.1. Historical Context</h2>
 <p>The question we address in this section is: <em>How does the radiation field couple to the electronic degrees of freedom in atoms?</em></p>
 <p>A key step toward a quantitative answer was taken by Albert Einstein in 1916 in his short but influential paper <em>“Strahlungs-Emission und -Absorption nach der Quantentheorie”</em>. This work appeared before the development of modern quantum mechanics (Schrödinger, Heisenberg) and at a time when the Bohr model of the atom was the dominant picture. Einstein’s analysis used only a few simple and physically motivated assumptions and produced striking results. The original paper is available online: <a href="https://www.informationphilosopher.com/solutions/scientists/einstein/1916_A-B.html" target="_blank">Einstein (1916)</a>.</p>
 <p>In his paper, Einstein argued that if one assumes atoms can absorb and emit radiation in ways consistent with the emerging ideas of quantum theory, then a system of atoms in thermal equilibrium will also be in equilibrium with blackbody radiation. From this condition, he was able to derive Planck’s radiation law in a remarkably simple and general fashion. The logic was that the quantum-theoretical distribution of atomic states should be consistent with energy exchange via emission and absorption of radiation alone.</p>
@@ -878,7 +863,7 @@ window.Quarto = {
 <ol type="1">
 <li><p><strong>An alternative derivation of Planck’s radiation law.</strong><br>
 Planck’s original derivation (1900) relied on quantized energy exchange of oscillators. Einstein showed that Planck’s formula for blackbody radiation can also be obtained from the statistical balance between emission and absorption by atoms (or molecules) with discrete energy levels.</p></li>
-<li><p><strong>A formulation anticipating Bohr’s second postulate and the probabilistic description of radiative transitions.</strong><br>
+<li><p><strong>A probabilistic description of radiative transitions.</strong><br>
 Bohr’s model already asserted that discrete transitions between stationary states occur with photon energy given by <span class="math display">\[
 h\nu = E_2 - E_1.
 \]</span> Einstein went further by introducing coefficients that quantify transition probabilities: the coefficient <span class="math inline">\(A\)</span> for spontaneous emission and the coefficients <span class="math inline">\(B\)</span> for stimulated processes (absorption and stimulated emission). These <strong>Einstein coefficients</strong> provide a statistical (and dynamical) underpinning for the connection between discrete atomic energy levels and the properties of radiation in thermal equilibrium.</p></li>
@@ -886,8 +871,8 @@ h\nu = E_2 - E_1.
 <p>Einstein’s 1916 analysis thus provided a physically transparent bridge between Planck’s early quantum hypothesis and the later, more complete quantum theory of matter and radiation. In what follows we introduce the Einstein coefficients and derive their relation to the spectral energy density of radiation and to Planck’s law.</p>
 <hr>
 </section>
-<section id="definitions-and-system-of-consideration" class="level1">
-<h1>5.1.2. Definitions and System of Consideration</h1>
+<section id="definitions-and-system-of-consideration" class="level2">
+<h2 class="anchored" data-anchor-id="definitions-and-system-of-consideration">5.1.2. Definitions and System of Consideration</h2>
 <p>When an atom interacts with electromagnetic radiation, there are only three fundamental processes that can connect two energy levels, denoted here as a lower state <span class="math inline">\(|1\rangle\)</span> and an upper state <span class="math inline">\(|2\rangle\)</span>:</p>
 <ol type="1">
 <li><strong>Spontaneous emission</strong> (the atom decays without external influence),<br>
@@ -909,8 +894,8 @@ h\nu = E_2 - E_1.
 </div>
 <p>To make this precise, we first introduce the radiation field itself and then define the transition rates for each process.</p>
 <hr>
-<section id="spectral-energy-density-of-the-radiation-field" class="level3">
-<h3 class="anchored" data-anchor-id="spectral-energy-density-of-the-radiation-field">Spectral energy density of the radiation field</h3>
+<section id="spectral-energy-density-of-the-radiation-field" class="level4">
+<h4 class="anchored" data-anchor-id="spectral-energy-density-of-the-radiation-field">Spectral energy density of the radiation field</h4>
 <p>The <strong>strength of the radiation field</strong> at frequency <span class="math inline">\(\nu\)</span> is quantified by the <strong>spectral energy density</strong>:</p>
 <p><span class="math display">\[
 \mathcal{w}(\nu) = n(\nu)\, h\nu,
@@ -924,11 +909,11 @@ h\nu = E_2 - E_1.
 <p>This quantity measures how much radiant energy per unit volume is available at frequency <span class="math inline">\(\nu\)</span>. In the following, <span class="math inline">\(\mathcal{w}(\nu)\)</span> will appear as the factor describing the field strength in absorption and stimulated emission, while the Einstein coefficients specify the atomic response.</p>
 <hr>
 </section>
-<section id="transition-probabilities" class="level3">
-<h3 class="anchored" data-anchor-id="transition-probabilities">Transition probabilities</h3>
+<section id="transition-probabilities" class="level4">
+<h4 class="anchored" data-anchor-id="transition-probabilities">Transition probabilities</h4>
 <p>With this setup, we now define the transition probabilities for the three processes.</p>
-<section id="spontaneous-emission" class="level4">
-<h4 class="anchored" data-anchor-id="spontaneous-emission">Spontaneous emission</h4>
+<section id="spontaneous-emission" class="level5">
+<h5 class="anchored" data-anchor-id="spontaneous-emission">Spontaneous emission</h5>
 <p>Even in the absence of radiation, an excited atom in state <span class="math inline">\(|2\rangle\)</span> will eventually decay to the lower state <span class="math inline">\(|1\rangle\)</span>, emitting a photon.</p>
 <p>The probability per unit time for this is</p>
 <p><span class="math display">\[
@@ -942,8 +927,8 @@ h\nu = E_2 - E_1.
 </ul>
 <hr>
 </section>
-<section id="absorption" class="level4">
-<h4 class="anchored" data-anchor-id="absorption">Absorption</h4>
+<section id="absorption" class="level5">
+<h5 class="anchored" data-anchor-id="absorption">Absorption</h5>
 <p>If an atom is initially in the lower state <span class="math inline">\(|1\rangle\)</span>, it can absorb a photon of frequency <span class="math inline">\(\nu\)</span> that matches the energy spacing between the levels:</p>
 <p><span class="math display">\[
 h\nu = E_2 - E_1.
@@ -958,8 +943,8 @@ h\nu = E_2 - E_1.
 - the <em>available radiation energy</em> at the right frequency (<span class="math inline">\(\mathcal{w}(\nu)\)</span>).</p>
 <hr>
 </section>
-<section id="stimulated-induced-emission" class="level4">
-<h4 class="anchored" data-anchor-id="stimulated-induced-emission">Stimulated (induced) emission</h4>
+<section id="stimulated-induced-emission" class="level5">
+<h5 class="anchored" data-anchor-id="stimulated-induced-emission">Stimulated (induced) emission</h5>
 <p>Finally, if the atom is in the excited state <span class="math inline">\(|2\rangle\)</span>, the presence of radiation at the transition frequency can stimulate it to decay to the lower state <span class="math inline">\(|1\rangle\)</span>. In this process, a second photon is emitted that is <strong>identical</strong> to the stimulating one: same frequency, phase, and direction.</p>
 <p>The probability per unit time is</p>
 <p><span class="math display">\[
@@ -970,8 +955,8 @@ h\nu = E_2 - E_1.
 <hr>
 </section>
 </section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">Summary</h4>
 <p>We have thus defined:</p>
 <ul>
 <li><span class="math inline">\(A_{21}\)</span> for spontaneous emission,<br>
@@ -984,8 +969,8 @@ h\nu = E_2 - E_1.
 <hr>
 </section>
 </section>
-<section id="transition-rates-in-thermal-equilibrium" class="level1">
-<h1>5.1.3. Transition Rates in Thermal Equilibrium</h1>
+<section id="transition-rates-in-thermal-equilibrium" class="level2">
+<h2 class="anchored" data-anchor-id="transition-rates-in-thermal-equilibrium">5.1.3. Transition Rates in Thermal Equilibrium</h2>
 <p>Let <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> denote the populations of the lower and upper states, respectively.<br>
 In the presence of radiation, absorption, stimulated emission, and spontaneous emission all contribute to population changes.</p>
 <p>At <strong>steady state</strong> (detailed balance), the upward transition rate equals the total downward transition rate:</p>
@@ -994,8 +979,8 @@ B_{12}\,\mathcal{w}(\nu)\,N_1
 = \big(B_{21}\,\mathcal{w}(\nu) + A_{21}\big)\,N_2.
 \tag{1}\]</span></span></p>
 <hr>
-<section id="populations-in-thermal-equilibrium" class="level3">
-<h3 class="anchored" data-anchor-id="populations-in-thermal-equilibrium">Populations in thermal equilibrium</h3>
+<section id="populations-in-thermal-equilibrium" class="level4">
+<h4 class="anchored" data-anchor-id="populations-in-thermal-equilibrium">Populations in thermal equilibrium</h4>
 <p>In thermal equilibrium at temperature <span class="math inline">\(T\)</span>, the ratio of level populations is given by the <strong>Boltzmann distribution</strong>:</p>
 <p><span id="eq-boltzm"><span class="math display">\[
 \frac{N_2}{N_1} = \frac{g_2}{g_1}\, e^{-h\nu/k_B T},
@@ -1003,8 +988,8 @@ B_{12}\,\mathcal{w}(\nu)\,N_1
 <p>where <span class="math inline">\(g_i = 2J_i+1\)</span> denotes the degeneracy (statistical weight) of the level with total angular momentum <span class="math inline">\(J_i\)</span>.</p>
 <hr>
 </section>
-<section id="radiation-field-implied-by-equilibrium" class="level3">
-<h3 class="anchored" data-anchor-id="radiation-field-implied-by-equilibrium">Radiation field implied by equilibrium</h3>
+<section id="radiation-field-implied-by-equilibrium" class="level4">
+<h4 class="anchored" data-anchor-id="radiation-field-implied-by-equilibrium">Radiation field implied by equilibrium</h4>
 <p>Substituting <a href="#eq-boltzm" class="quarto-xref">Equation&nbsp;2</a> into <a href="#eq-rates" class="quarto-xref">Equation&nbsp;1</a> and solving for the spectral energy density <span class="math inline">\(\mathcal{w}(\nu)\)</span> yields</p>
 <p><span id="eq-planck1"><span class="math display">\[
 \mathcal{w}(\nu) =
@@ -1021,10 +1006,10 @@ B_{12}\,\mathcal{w}(\nu)\,N_1
 \tag{4}\]</span></span></p>
 <hr>
 </section>
-<section id="relations-between-einstein-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="relations-between-einstein-coefficients">Relations between Einstein coefficients</h3>
+<section id="relations-between-einstein-coefficients" class="level4">
+<h4 class="anchored" data-anchor-id="relations-between-einstein-coefficients">Relations between Einstein coefficients</h4>
 <p>By comparing <a href="#eq-planck1" class="quarto-xref">Equation&nbsp;3</a> and <a href="#eq-planck2" class="quarto-xref">Equation&nbsp;4</a>, one finds the fundamental relations:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Einstein coefficient relations">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1052,18 +1037,18 @@ Einstein’s original derivation used Wien’s law as an input. By requiring tha
 <hr>
 </section>
 </section>
-<section id="physical-interpretation-and-significance" class="level1">
-<h1>5.1.4. Physical Interpretation and Significance</h1>
+<section id="physical-interpretation-and-significance" class="level2">
+<h2 class="anchored" data-anchor-id="physical-interpretation-and-significance">5.1.4. Physical Interpretation and Significance</h2>
 <p>The Einstein relations carry clear physical meaning and useful practical consequences.</p>
-<section id="mode-density-and-spontaneous-emission" class="level3">
-<h3 class="anchored" data-anchor-id="mode-density-and-spontaneous-emission">Mode density and spontaneous emission</h3>
+<section id="mode-density-and-spontaneous-emission" class="level4">
+<h4 class="anchored" data-anchor-id="mode-density-and-spontaneous-emission">Mode density and spontaneous emission</h4>
 <p>The factor <span class="math inline">\(\dfrac{8\pi\nu^2}{c^3}\)</span> that appears in <a href="#eq-ab" class="quarto-xref">Equation&nbsp;6</a> is the number of electromagnetic modes per unit volume in the frequency interval <span class="math inline">\(\Delta\nu = 1~\text{s}^{-1}\)</span>. Writing (<a href="#eq-ab" class="quarto-xref">6</a>) as <span class="math display">\[
 A_{21} = \left(\frac{8\pi\nu^2}{c^3}\right)\, (h\nu)\, B_{21},
 \]</span> emphasizes that spontaneous emission can be viewed as emission into the <em>vacuum modes</em> of the field: the atomic coupling <span class="math inline">\(B_{21}\)</span> multiplied by the zero-point occupancy (so to speak) of each mode and by the mode density yields the spontaneous rate.</p>
 </section>
-<section id="ratio-of-induced-to-spontaneous-emission" class="level3">
-<h3 class="anchored" data-anchor-id="ratio-of-induced-to-spontaneous-emission">Ratio of induced to spontaneous emission</h3>
-<p>Using <span class="math inline">\(\mathcal{w}(\nu)=n(\nu)\, h\nu\)</span> and <a href="#eq-ab" class="quarto-xref">Equation&nbsp;6</a>, the ratio of induced (stimulated) to spontaneous emission into a single mode is <span class="math display">\[
+<section id="ratio-of-induced-to-spontaneous-emission" class="level4">
+<h4 class="anchored" data-anchor-id="ratio-of-induced-to-spontaneous-emission">Ratio of induced to spontaneous emission</h4>
+<p>Using <span class="math inline">\(\mathcal{w}(\nu)=n(\nu)\, h\nu\)</span> and <a href="#eq-ab" class="quarto-xref">Equation&nbsp;6</a>, the ratio of the total stimulated and spontaneous emission rates in an isotropic radiation field is <span class="math display">\[
 \frac{P_{2\to 1}^{\text{ind}}}{P_{2\to 1}^{\text{spont}}}
 = \frac{B_{21}\,\mathcal{w}(\nu)}{A_{21}}
 = \frac{B_{21}\,\rho(\nu)\,h\nu\,\bar n(\nu)}{\rho(\nu)\,h\nu\,B_{21}}
@@ -1077,7 +1062,7 @@ A_{21} = \left(\frac{8\pi\nu^2}{c^3}\right)\, (h\nu)\, B_{21},
 </li>
 <li>If <span class="math inline">\(\bar n(\nu)\gg 1\)</span> stimulated emission dominates and the emission rate grows linearly with the existing photon number — this is the basis for <strong>optical amplification</strong> and lasers.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Remark on notation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1096,8 +1081,8 @@ This explains why spontaneous emission can be interpreted as emission into the v
 </div>
 </div>
 </section>
-<section id="consequences-of-the-b-coefficient-symmetry" class="level3">
-<h3 class="anchored" data-anchor-id="consequences-of-the-b-coefficient-symmetry">Consequences of the <span class="math inline">\(B\)</span>-coefficient symmetry</h3>
+<section id="consequences-of-the-b-coefficient-symmetry" class="level4">
+<h4 class="anchored" data-anchor-id="consequences-of-the-b-coefficient-symmetry">Consequences of the <span class="math inline">\(B\)</span>-coefficient symmetry</h4>
 <p>The symmetry <span class="math display">\[
 B_{12} = \frac{g_2}{g_1}\, B_{21}
 \]</span> ensures detailed balance between absorption and stimulated emission in thermal equilibrium. A few important consequences:</p>
@@ -1111,7 +1096,7 @@ B_{12}\,\mathcal{w}\,N_1 \approx B_{21}\,\mathcal{w}\,N_2
 <li><p><strong>Role of degeneracy.</strong><br>
 If <span class="math inline">\(g_2&gt;g_1\)</span>, then under strong illumination the upper level population can exceed 50% (since <span class="math inline">\(N_2/N_1 \approx g_2/g_1\)</span>). This is one route (though rarely sufficient alone) toward favorable conditions for inversion.</p></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Thermodynamic consistency and the Second Law">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1134,8 +1119,8 @@ g_1 B_{12} = g_2 B_{21}
 </div>
 </div>
 </section>
-<section id="conceptual-summary" class="level3">
-<h3 class="anchored" data-anchor-id="conceptual-summary">Conceptual summary</h3>
+<section id="conceptual-summary" class="level4">
+<h4 class="anchored" data-anchor-id="conceptual-summary">Conceptual summary</h4>
 <ul>
 <li>Spontaneous emission connects atoms to the vacuum mode structure of the electromagnetic field.<br>
 </li>

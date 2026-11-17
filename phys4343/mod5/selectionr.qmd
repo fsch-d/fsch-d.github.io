@@ -1,24 +1,29 @@
 ---
 title: 5.4 Radiation and Selection Rules
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Understand electric-dipole selection rules, spherical polarization, angular emission patterns, and optical pumping in atoms through symmetry and examples.">
 ---
 
 
-# Radiation and Dipole Selection Rules: Overview and Plan
+## Radiation and Dipole Selection Rules: Overview and Plan
 
 This section begins with the role of **light polarization** in atomic transitions: how $\pi$ and $\sigma^\pm$ polarizations couple to changes in the magnetic quantum number $M_L$. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces $\Delta L = \pm 1$. Finally, we connect these ideas to the general selection rules used in spectroscopy.
 
 Specific goals:
 
 1. Explain how $\pi$ and $\sigma^\pm$ polarizations determine the allowed changes in magnetic quantum number $\Delta M = 0, \pm 1$.  
-2. Motivate the parity-based rule $\Delta L = \pm 1$ by analyzing the dipole operator’s odd parity.  
+2. Motivate the parity-based rule $\Delta \ell = \pm 1$ by analyzing the dipole operator’s odd parity.  
 3. Summarize the general electric-dipole selection rules in terms of $L, J, S$, and discuss their physical basis and common exceptions.  
 
 By the end of this section students should understand how light polarization controls $\Delta M$, why parity forces $\Delta L = \pm 1$, and how these simple principles combine into the full set of electric-dipole selection rules.
 
 ---
 
-# 5.4.1. Polarization of Light
+## 5.4.1. Polarization of Light
 
 The coupling between atomic states and the light field is governed by the [dipole matrix element](./dipolematrix.qmd)
 
@@ -116,16 +121,16 @@ By expressing polarization in the spherical basis, we see directly how light car
 
 ---
 
-# 5.4.2. Calculating Dipole Matrix Elements
+## 5.4.2. Calculating Dipole Matrix Elements
 
 To understand how atoms interact with light, we need to evaluate the dipole matrix elements. These quantities determine both **whether a transition is allowed** (through angular momentum constraints) and **how strong it is** (through the radial overlap of the wavefunctions). We will first write down the general expression and then separate it into its radial and angular parts.
 
-## 5.4.2.1 General Form of the Dipole Matrix Element
+### 5.4.2.1 General Form of the Dipole Matrix Element
 
 
 
 
-### The Dipole Operator
+#### The Dipole Operator
 
 In the transition amplitude we encounter the dot product $\hat{\vec{\varepsilon}} \cdot \vec{r}$. Since the polarization vector $\hat{\vec{\varepsilon}}$ has already been expressed in the spherical basis $(\vec{e}_{+}, \vec{e}_{-}, \vec{e}_{z})$, it is natural to also express the position vector $\vec{r}$ in the same basis.
 
@@ -156,14 +161,13 @@ However, this form is not the most convenient for our purposes. The angular part
 
 $$
 \hat{\vec{D}}
-= - e r \, \sqrt{\tfrac{4\pi}{3}} \,
-\big( Y_{1,-1}(\theta,\varphi) \, \vec{e}_{-} +
+= e r \, \sqrt{\tfrac{4\pi}{3}} \,
+\big( Y_{1,-1}(\theta,\varphi) \, \vec{e}_{+} -
       Y_{1,0}(\theta,\varphi) \, \vec{e}_{z} +
-      Y_{1,1}(\theta,\varphi)  \, \vec{e}_{+} \big).
+      Y_{1,1}(\theta,\varphi)  \, \vec{e}_{-} \big).
 $$ {#eq-dipoleop}
 
-::: {.callout-note collapse="true"}
-## Detailed Steps: Expressing Cartesian Functions with Spherical Harmonics
+::: {.callout-note collapse="true" title="Detailed Steps: Expressing Cartesian Functions with Spherical Harmonics"}
 
 The angular functions $x/r$, $y/r$, and $z/r$ can be expressed as linear combinations of $\ell=1$ spherical harmonics:
 
@@ -222,13 +226,13 @@ where $\varepsilon_{-}, \varepsilon_{z}, \varepsilon_{+}$ are the spherical comp
 
 ---
 
-### Setting up the Integral
+#### Setting up the Integral
 
 The dipole matrix element then separates naturally into two parts:
 
 $$
 \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle
-= \int_0^\infty dr \, r^2 R_{n\ell}(r) R_{n'\ell'}(r) \, r
+= \sqrt{\tfrac{4\pi}{3}} \, \int_0^\infty dr \, r^2 R_{n\ell}(r) R_{n'\ell'}(r) \, r
 \int d\Omega \, Y_{\ell m}^*(\theta,\varphi)
 \big[ \varepsilon_{-} Y_{1,-1} + \varepsilon_{z} Y_{1,0} + \varepsilon_{+} Y_{1,1} \big]
 Y_{\ell' m'}(\theta,\varphi) .
@@ -239,7 +243,7 @@ $$
 
 ---
 
-## 5.4.2.2 Radial Integral: Overlap of Wavefunctions
+### 5.4.2.2 Radial Integral: Overlap of Wavefunctions
 
 The radial integral is
 
@@ -263,7 +267,7 @@ You can see this visually in [one of the previous sections](../mod3/hydrogen.qmd
 
 ---
 
-## 5.4.2.3 Angular Integral and Selection Rules {#sec-selectionrules}
+### 5.4.2.3 Angular Integral and Selection Rules {#sec-selectionrules}
 
 The angular contribution to the dipole matrix element is
 
@@ -316,8 +320,7 @@ Taken together, the dipole selection rules are:
 - $\Delta m = 0, \pm 1$ depending on the light polarization.  
 
 
-:::{.callout-note collapse="true"}
-### Proof of the $\Delta m$ selection rules using commutators
+:::{.callout-note collapse="true" title="Proof of the $\Delta m$ selection rules using commutators"}
 
 We assume the atomic states $|\phi_i\rangle$ and $|\phi_f\rangle$ are simultaneous eigenstates of $L^2$ and $L_z$ with
 $$
@@ -406,8 +409,7 @@ $$
 
 :::
 
-::: {.callout-note collapse="true"}
-## Motivation for $\Delta \ell = \pm 1$: The Laporte Rule
+::: {.callout-note collapse="true" title="Motivation for $\Delta \ell = \pm 1$: The Laporte Rule"}
 
 The **dipole selection rule** $\Delta \ell = \pm 1$ follows from two basic ideas:  
 (1) how wavefunctions behave under **parity** (spatial inversion), and  
@@ -495,16 +497,48 @@ If the integrand is odd, the whole matrix element cancels out. Because the dipol
 :::
 
 
-::: {.callout-tip}
-## Summary: Electric Dipole Selection Rules
+::: {.callout-tip title="Summary: Electric Dipole Selection Rules"}
+
 
 The following rules govern **all** electric dipole ($E1$) transitions, not only in hydrogen but also in multi-electron atoms. They follow directly from symmetry (parity, angular momentum, and spin):
 
-- **Orbital Angular Momentum:**  
+
+
+- **Orbital Angular Momentum and Parity:**
+
+  As discussed above, the electric dipole operator has odd parity. Therefore, an electric dipole transition requires **opposite parity** of the initial and final states:
+
   $$
-  \Delta L = \pm 1
+  \pi_f = -\pi_i.
   $$
-  (The dipole operator carries $L=1$, connecting states of opposite parity.)
+
+  For a single electron, the parity is $\pi=(-1)^\ell$. In a **multi-electron atom**, however, the parity is determined by the electron configuration:
+
+  $$
+  \pi = (-1)^{\ell_1+\ell_2+\cdots}.
+  $$
+
+  Thus, all terms belonging to the same electron configuration have the same parity, independent of their total orbital angular momentum $L$.
+
+  We can distinguish two cases:
+
+  - **States with equal parity ($\pi_f=\pi_i$):** Electric dipole transitions are forbidden, regardless of the change in $L$.
+
+  - **States with opposite parity ($\pi_f=-\pi_i$):** Electric dipole transitions are allowed by parity. Conservation of angular momentum imposes the additional selection rule
+
+    $$
+    \Delta L = 0,\pm 1,
+    \qquad L=0 \not\leftrightarrow L=0.
+    $$
+
+  For **single-electron atoms**, the parity condition excludes $\Delta\ell=0$, leaving the familiar rule
+
+  $$
+  \Delta\ell=\pm1.
+  $$
+
+  For **multi-electron atoms**, transitions with $\Delta L=0$ are also possible, provided the initial and final states have opposite parity.
+
 
 - **Magnetic Quantum Number:**  
   $$
@@ -528,15 +562,17 @@ The following rules govern **all** electric dipole ($E1$) transitions, not only 
 ---
 
 **IN SUMMARY:**  
-Electric dipole transitions require a change of parity,  
-with $\Delta L = \pm 1$, $\Delta M_L = 0, \pm 1$,  
-no change in spin ($\Delta S = 0$),  
-and $\Delta J = 0, \pm 1$ (except $J=0 \not\leftrightarrow J=0$).
+Electric dipole transitions require a **change of parity**.  
+For single-electron atoms, $\Delta\ell=\pm1$; for multi-electron atoms, $\Delta L=0,\pm1$ (except $L=0\not\leftrightarrow L=0$).  
+The magnetic quantum number follows $\Delta M_L=0,\pm1$, depending on the polarization of the light.  
+The spin remains unchanged ($\Delta S=0$).  
+The total angular momentum follows $\Delta J=0,\pm1$ (except $J=0\not\leftrightarrow J=0$).
+
 :::
 
 
 
-# 5.4.3 Angular Distribution of Emission and Excitation
+## 5.4.3 Angular Distribution of Emission and Excitation
 
 So far, we have described the three polarization components ($\pi$, $\sigma^+$, $\sigma^-$) as if they were absolute:  
 - $\pi$: linear polarization along the quantization axis ($z$)  
@@ -550,22 +586,24 @@ $$
 
 ---
 
-## 5.4.3.1 Absorption (Excitation by Laser Light)
+### 5.4.3.1 Absorption (Excitation by Laser Light)
 
-- If the laser propagates **perpendicular to $z$** ($\vec k \perp z$), then the polarization must lie in the transverse plane ($xy$-plane).  
-  * A field polarized along $z$ is allowed (this is pure $\pi$).  
-  * A field polarized linearly in the $xy$-plane can be expressed as a **superposition** of $\sigma^+$ and $\sigma^-$ components. (To realize a *pure* $\sigma^+$ or $\sigma^-$ basis state, one needs a circular polarization in the transverse plane, i.e. a coherent combination of two orthogonal linear polarizations with a $\pm 90^\circ$ phase difference.)
+- If the laser propagates **perpendicular to the quantization axis** ($\vec k \cdot \vec e_z = 0$), its electric field must be perpendicular to $\vec k$, but can have a component along $z$. For example, if the laser propagates along $x$, its polarization lies in the $yz$-plane.
+  * A field polarized along $z$ drives pure $\pi$ transitions ($\Delta M=0$).
+  * A field polarized along $y$ drives both $\sigma^+$ and $\sigma^-$ transitions ($\Delta M=\pm1$).
+  * More generally, the polarization can contain both $\pi$ and $\sigma^\pm$ components. Pure $\sigma^+$ or $\sigma^-$ polarization is not possible in this propagation geometry.
 
+- If the laser propagates **along the quantization axis** ($\vec k \parallel \vec e_z$), its electric field lies entirely in the $xy$-plane.
+  * $\pi$ excitation is forbidden because the electric field has no $z$-component.
+  * Circularly polarized light drives pure $\sigma^+$ or $\sigma^-$ transitions, depending on its helicity.
+  * Linearly polarized light drives a superposition of $\sigma^+$ and $\sigma^-$ transitions.
 
-- If the laser propagates **along $z$** ($\vec k \parallel z$), then $E$ has no $z$-component.  
-  * $\pi$ excitation is forbidden  
-  * only $\sigma^\pm$ remain
+- For **intermediate propagation directions**, the electric field remains perpendicular to $\vec k$, but its orientation relative to the quantization axis depends on the polarization. In general, the field contains both $\pi$ and $\sigma^\pm$ components and can drive a mixture of transitions with $\Delta M=0,\pm1$. Their relative strengths depend on the propagation direction and polarization of the light.
 
-- For **intermediate directions** of $\vec k$, the polarization projects partly onto the $z$-axis and partly onto the transverse plane. This means the laser light drives a *mixture* of $\pi$ and $\sigma$ transitions, with relative strengths determined by geometry.
 
 ---
 
-## 5.4.3.2 Emission (Spontaneous Decay)
+### 5.4.3.2 Emission (Spontaneous Decay)
 
 The same geometry shows up in the **angular distribution of emitted radiation**. A dipole oriented along a given axis radiates anisotropically:
 
@@ -577,7 +615,7 @@ Thus, just as absorption depends on how the photon’s polarization decomposes i
 
 ---
 
-## 5.4.3.3 Summary: Symmetry Between Absorption and Emission
+### 5.4.3.3 Summary: Symmetry Between Absorption and Emission
 
 - **Absorption:** the ability of a photon to drive $\pi$ or $\sigma$ transitions depends on the angle between $\vec k$ and the quantization axis.  
 - **Emission:** the angular pattern and polarization of the emitted photon depend on whether the atomic dipole oscillates along $z$ ($\pi$) or rotates in the $xy$-plane ($\sigma^\pm$).  
@@ -735,21 +773,21 @@ plt.show()
 ```
 
 
-# 5.4.4. An Experimental Example: Optical Pumping
+## 5.4.4. An Experimental Example: Optical Pumping
 
 So far we have derived the **dipole selection rules** and discussed how light polarization controls the allowed transitions between quantum states. Let us now see how these rules can be exploited in practice — in particular, how we can use them to *align* or *orient* the angular momentum of an ensemble of atoms. The method is known as **optical pumping**.
 
 
 ---
 
-## 5.4.4.1 Optical pumping of $^{87}$Rb
+### 5.4.4.1 Optical pumping of $^{87}$Rb
 
 As a concrete example, consider optical pumping of **${}^{87}\text{Rb}$**. We focus on the transition from the ground state $5S_{1/2}, F=2$ to the excited state $5P_{3/2}, F'=3$ using $\sigma^+$ polarized light.
 
 When $\sigma^+$ light is applied along the quantization axis ($z$), it preferentially drives transitions with $\Delta m_F = +1$.  
 Starting from a distribution over all $m_F$ sublevels in $F=2$, atoms are successively excited and decay in such a way that population is pushed toward higher $m_F$ values.  
 
-- For example, an atom in $m_F=0$ absorbs a $\sigma^+$ photon and is excited to $m_F'=+1$. Spontaneous decay can return it to $m_F=0, +1$, or $-1$. Over many cycles, the net effect is to funnel atoms upward in $m_F$.  
+- For example, an atom in $m_F=0$ absorbs a $\sigma^+$ photon and is excited to $m_F'=+1$. Spontaneous decay can return it to $m_F=0, +1$, or $+2$. Over many cycles, the net effect is to funnel atoms upward in $m_F$.  
 - Eventually, atoms accumulate in the **stretched sublevel** $m_F=+2$. From there, absorption by $\sigma^+$ light brings the atom to $m_F'=+3$, and spontaneous decay from $m_F'=+3$ can only return it to $m_F=+2$ (within the $F=2$ ground manifold).
 
 Thus, population is trapped in the **cycling pair** $m_F=+2 \leftrightarrow m_F'=+3$. Atoms in this pair continue to interact with the light — scattering photons repeatedly — but they are no longer redistributed to other $m_F$ states. The result is a macroscopic alignment of angular momentum along the $+z$ direction.
@@ -864,7 +902,7 @@ with open(os.devnull, 'w') as FNULL:
 
 ---
 
-## 5.4.4.2 Why It Matters
+### 5.4.4.2 Why It Matters
 
 Optical pumping is more than a neat trick — it is a cornerstone of modern atomic physics. It is used to:
 

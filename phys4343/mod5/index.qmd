@@ -1,6 +1,11 @@
 ---
 title: 5 Absorption and Emission of Radiation
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore atomic absorption and emission, Einstein coefficients, dipole transitions, selection rules, spectral line widths, and Doppler-free spectroscopy.">
 ---
 
 
@@ -8,7 +13,7 @@ author: Daniel Fischer
 
 Light–matter interaction is at the heart of modern atomic physics. When atoms absorb and emit radiation, they reveal their internal structure: energy levels, angular momentum couplings, and the dynamics of excited states. Spectroscopy—the precise study of these processes—provides the main experimental window into atomic and molecular physics.  
 
-In this module, we develop the theoretical framework for light–atom interaction and connect it to experimentally observed spectra. We begin with the fundamental description of transition rates and Einstein coefficients, then show how dipole matrix elements provide the actual numbers that determine transition probabilities. Next, we discuss polarization and selection rules, which govern which transitions are allowed, and examine how finite lifetimes and atomic motion give rise to spectral line widths and Doppler effects. Finally, we introduce Doppler-free spectroscopy as a powerful technique to resolve fine details beyond thermal broadening.  
+In this module, we develop the theoretical framework for light–atom interaction and connect it to experimentally observed spectra. We begin by describing absorption and emission through transition rates and Einstein coefficients, then show how dipole matrix elements allow us to calculate transition strengths from atomic wavefunctions. Next, we discuss polarization and selection rules, which govern which transitions are allowed, and examine how finite lifetimes and atomic motion give rise to spectral line widths and Doppler effects. Finally, we introduce Doppler-free spectroscopy as a powerful technique to resolve fine details beyond thermal broadening.  
 
 ## Scope of This Section
 
@@ -16,7 +21,7 @@ In this module, we develop the theoretical framework for light–atom interactio
 
 - **[From Relations to Values: Dipole Matrix Elements](dipolematrix.qmd)** — How transition strengths are expressed in terms of dipole matrix elements, moving from general relations to usable numbers.  
 
-- **[Visualizing Atomic Transitions](visual.qmd)** — Using time-dependent superpositions to build intuition for how transitions occur and interfere.  
+- **[Visualizing Atomic Transitions](visual.qmd)** — Using time-dependent superpositions to visualize atomic dynamics and the oscillating dipole moments associated with transitions.  
 
 - **[Radiation and Selection Rules](selectionr.qmd)** — How polarization, parity, and angular momentum conservation determine which transitions are allowed.  
 

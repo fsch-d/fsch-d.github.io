@@ -2,9 +2,14 @@
 title: '5.3 Visualizing Atomic Transitions: Intuition, Superposition, and Interference'
 pagetitle: "5.3 Visualizing Atomic Transitions and Interference"
 author: "Daniel Fischer"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Visualize atomic transitions using hydrogen orbital animations, quantum superpositions, interference, oscillating dipole moments, and polarization.">
 ---
 
-# Atomic transitions: overview and plan
+## Atomic transitions: overview and plan
 
 This chapter provides an intuitive perspective on the **time-dependent process of atomic transitions**. Instead of focusing only on rate equations and Einstein coefficients, we emphasize how the electron’s wavefunction evolves dynamically as the atom emits or absorbs radiation.
 
@@ -17,7 +22,7 @@ The specific goals for this chapter are:
 
 ---
 
-# Intuitive picture of atomic transitions
+## 5.3.1 Intuitive picture of atomic transitions
 
 We consider the **time evolution of the electron’s wavefunction** during an atomic transition.  
 
@@ -245,7 +250,7 @@ def c_f(t):
 
 
 # Create and display the visualization
-for t in range(188,201)
+for t in range(188,201):
     fig = plot_combined_orbitals(t)
     fig.savefig(f'frame_{t:03d}.png')
     plt.close(fig) # Close the figure to free up memory   else:
@@ -298,7 +303,7 @@ Excitation animation of the hydrogen transition $1s \to 2p(m=1)$. The probabilit
 
 ---
 
-## Qualitative motivation
+## 5.3.2 Qualitative motivation
 
 During a transition, the atomic state is **not instantaneously in either the ground or excited state**, but can be described as a **coherent superposition** of stationary eigenstates:
 
@@ -351,7 +356,7 @@ This oscillating dipole drives the emission or absorption of radiation and produ
 
 ---
 
-## Connection to radiation patterns and polarization
+## 5.3.3 Connection to radiation patterns and polarization
 
 The animations also illustrate how the atom couples to the electromagnetic field via the **dipole moment $\vec{D}(t)$**, which behaves as a microscopic antenna.
 
@@ -360,7 +365,7 @@ The animations also illustrate how the atom couples to the electromagnetic field
 For the $2p(m=0)$ decay, the dipole oscillates along the $z$–axis. This corresponds to a **linear (Hertz) dipole antenna**:
 
 - Radiation is strongest perpendicular to the dipole axis and zero along it.  
-- Emission is **linearly polarized in the plane perpendicular to the dipole axis**.  
+- For radiation propagating perpendicular to the dipole axis, the electric field is **linearly polarized along the dipole axis**.  
 
 Thus, the decay produces linearly polarized photons consistent with classical dipole radiation.
 
@@ -375,7 +380,7 @@ This shows how orbital orientation and angular momentum determine the polarizati
 
 ---
 
-## Visual summary
+## 5.3.4 Visual summary
 
 - The animations (@fig-decay2p0 and @fig-exc2p1) show the **isosurface of $|\psi(\vec r,t)|^2$** at 30% of the maximum.  
 - **Oscillations** correspond to quantum interference between stationary states.  

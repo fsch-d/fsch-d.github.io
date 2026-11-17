@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Learn natural linewidths, Lorentzian line shapes, Doppler broadening, and spectroscopy through atomic lifetimes, Fourier analysis, and hydrogen Ly-alpha.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -850,10 +851,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#doppler-broadening" id="toc-doppler-broadening" class="nav-link" data-scroll-target="#doppler-broadening">5.5.3. Doppler Broadening</a>
   <ul class="collapse">
-  <li><a href="#frequency-shift-for-a-moving-atom" id="toc-frequency-shift-for-a-moving-atom" class="nav-link" data-scroll-target="#frequency-shift-for-a-moving-atom">5.5.3.1 Frequency shift for a moving atom</a>
-  <ul class="collapse">
-  <li><a href="#non-relativistic-low-velocity-limit" id="toc-non-relativistic-low-velocity-limit" class="nav-link" data-scroll-target="#non-relativistic-low-velocity-limit">Non-relativistic (low-velocity) limit</a></li>
-  </ul></li>
+  <li><a href="#frequency-shift-for-a-moving-atom" id="toc-frequency-shift-for-a-moving-atom" class="nav-link" data-scroll-target="#frequency-shift-for-a-moving-atom">5.5.3.1 Frequency shift for a moving atom</a></li>
   <li><a href="#mapping-velocity-distribution-to-frequency" id="toc-mapping-velocity-distribution-to-frequency" class="nav-link" data-scroll-target="#mapping-velocity-distribution-to-frequency">5.5.3.2 Mapping velocity distribution to frequency</a></li>
   <li><a href="#width-of-the-doppler-broadened-line" id="toc-width-of-the-doppler-broadened-line" class="nav-link" data-scroll-target="#width-of-the-doppler-broadened-line">5.5.3.3 Width of the Doppler-broadened line</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">5.5.3.4 Summary</a></li>
@@ -898,8 +896,8 @@ window.Quarto = {
 </header>
 
 
-<section id="spectroscopy-and-spectral-line-widths-overview-and-plan" class="level1">
-<h1>Spectroscopy and Spectral Line Widths: Overview and Plan</h1>
+<section id="spectroscopy-and-spectral-line-widths-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="spectroscopy-and-spectral-line-widths-overview-and-plan">Spectroscopy and Spectral Line Widths: Overview and Plan</h2>
 <p>This section introduces the <strong>origins of spectral line widths</strong> in atomic spectroscopy and how different physical effects shape the observed profiles. We begin with the natural linewidth that arises from the finite lifetime of excited states, then examine the role of coherence and subtle departures from the simple exponential decay model. Finally, we explore Doppler broadening in gases and compare its magnitude to intrinsic atomic energy scales.</p>
 <p>Specific goals:</p>
 <ol type="1">
@@ -912,8 +910,8 @@ window.Quarto = {
 <p>By the end of this section students should understand the physical origin of line broadening, be able to distinguish between natural and Doppler contributions, and appreciate how these effects determine the resolution of spectroscopic measurements.</p>
 <hr>
 </section>
-<section id="spectroscopy-and-spectral-lines" class="level1">
-<h1>5.5.1. Spectroscopy and Spectral Lines</h1>
+<section id="spectroscopy-and-spectral-lines" class="level2">
+<h2 class="anchored" data-anchor-id="spectroscopy-and-spectral-lines">5.5.1. Spectroscopy and Spectral Lines</h2>
 <p>In spectroscopy we measure the <strong>energy difference between two atomic states</strong> by detecting how atoms interact with light of frequency <span class="math inline">\(\nu\)</span>. The resonance condition is <span class="math display">\[
 h\nu = E_2 - E_1,
 \]</span> so by scanning <span class="math inline">\(\nu\)</span> and monitoring absorption or emission we can determine level spacings with high precision.</p>
@@ -935,11 +933,11 @@ h\nu = E_2 - E_1,
 </figure>
 </div>
 <hr>
-<section id="line-properties" class="level2">
-<h2 class="anchored" data-anchor-id="line-properties">5.5.1.1 Line Properties</h2>
+<section id="line-properties" class="level3">
+<h3 class="anchored" data-anchor-id="line-properties">5.5.1.1 Line Properties</h3>
 <p>A spectral line is not infinitely sharp. Instead, it has a finite <strong>profile</strong> centered around the resonance frequency <span class="math inline">\(\nu_0\)</span> with a maximum intensity <span class="math inline">\(P_0\)</span>. The width of this profile contains important physical information.</p>
 <p>The figure below shows a typical line profile (here drawn as a Gaussian). The <strong>full width at half maximum (FWHM)</strong>, denoted <span class="math inline">\(\delta\nu = \nu_2 - \nu_1\)</span>, is the standard measure of line width. The central region is the <strong>line core</strong>, while the tails are called the <strong>line wings</strong>.</p>
-<div id="8a3af76f" class="cell" data-execution_count="2">
+<div id="1a3dfe49" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1052,8 +1050,8 @@ h\nu = E_2 - E_1,
 </div>
 <hr>
 </section>
-<section id="observed-line-widths-and-broadening" class="level2">
-<h2 class="anchored" data-anchor-id="observed-line-widths-and-broadening">5.5.1.2 Observed Line Widths and Broadening</h2>
+<section id="observed-line-widths-and-broadening" class="level3">
+<h3 class="anchored" data-anchor-id="observed-line-widths-and-broadening">5.5.1.2 Observed Line Widths and Broadening</h3>
 <p>In practice, several physical and technical mechanisms contribute to the observed line width:</p>
 <ul>
 <li><p><strong>Natural line width</strong><br>
@@ -1073,8 +1071,8 @@ The spectrometer itself has finite frequency resolution (set by grating, interfe
 <p>In the following sections we will examine the <strong>natural linewidth</strong> and <strong>Doppler broadening</strong> in detail, as these are the most fundamental and unavoidable mechanisms.</p>
 </section>
 </section>
-<section id="natural-line-width" class="level1">
-<h1>5.5.2. Natural Line Width</h1>
+<section id="natural-line-width" class="level2">
+<h2 class="anchored" data-anchor-id="natural-line-width">5.5.2. Natural Line Width</h2>
 <p>The <strong>natural line width</strong> is an intrinsic property of any atomic transition. It originates from the fact that an excited state has only a finite lifetime. As a result, the emitted radiation cannot be perfectly monochromatic but acquires a characteristic spectral width.</p>
 <p>In <a href="../mod5/visual.html">the discussion of time-dependent superpositions</a>, we saw that during a transition the atomic state is not purely ground or excited, but can be written as a coherent superposition of stationary eigenstates, <span class="math display">\[
 |\psi(t)\rangle
@@ -1085,8 +1083,8 @@ The spectrometer itself has finite frequency resolution (set by grating, interfe
 P_2(t) = |c_2(t)|^2 = e^{-\Gamma t},
 \]</span> where <span class="math inline">\(\Gamma\)</span> is the decay rate. This is the same decay law that appears in the Einstein rate equations (see <a href="../mod5/einstein.html">Transition Processes and Einstein Coefficients</a>).</p>
 <hr>
-<section id="the-oscillating-dipole" class="level2">
-<h2 class="anchored" data-anchor-id="the-oscillating-dipole">5.5.2.1 The oscillating dipole</h2>
+<section id="the-oscillating-dipole" class="level3">
+<h3 class="anchored" data-anchor-id="the-oscillating-dipole">5.5.2.1 The oscillating dipole</h3>
 <p>The radiated field is driven by the atomic dipole expectation value <span class="math display">\[
 \vec{D}(t) = -e \,\langle \psi(t)| \vec{r} | \psi(t)\rangle .
 \]</span> Keeping only the rapidly oscillating coherence term, one finds <span class="math display">\[
@@ -1099,7 +1097,7 @@ e^{-i(\omega_2 - \omega_1)t} + \text{c.c.},
 <span class="math display">\[
 c_1^*(t)c_2(t) \sim e^{-\Gamma t/2},
 \]</span> so that <span class="math inline">\(\vec{D}(t)\)</span> resembles a <strong>damped harmonic oscillator</strong>: a sinusoidal oscillation under an exponentially decaying envelope.</p>
-<div id="298d4cc2" class="cell" data-execution_count="3">
+<div id="7a4ad9f3" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1174,7 +1172,7 @@ c_1^*(t)c_2(t) \sim e^{-\Gamma t/2},
 <span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create comprehensive plot</span></span>
 <span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fig, axes = plt.subplots(3, 1, figsize=(14, 12))</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot 1: Expectation value with decay</span></span>
 <span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    plt.plot(t, z_exp_decay, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'⟨z⟩(t)'</span>)</span>
@@ -1217,15 +1215,15 @@ c_1^*(t)c_2(t) \sim e^{-\Gamma t/2},
 </div>
 <hr>
 </section>
-<section id="from-time-to-frequency" class="level2">
-<h2 class="anchored" data-anchor-id="from-time-to-frequency">5.5.2.2 From time to frequency</h2>
+<section id="from-time-to-frequency" class="level3">
+<h3 class="anchored" data-anchor-id="from-time-to-frequency">5.5.2.2 From time to frequency</h3>
 <p>The spectral profile of the emitted radiation is obtained by Fourier transforming this time-domain signal. The Fourier transform of an exponential decay yields a <strong>Lorentzian function</strong>, <span class="math display">\[
 I(\omega) \;\propto\; \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{2})^2}.
 \]</span></p>
 <p>This is the <strong>natural line shape</strong>. The full width at half maximum (FWHM) of the Lorentzian is <span class="math display">\[
 \delta\omega = \Gamma,
 \]</span> or equivalently in frequency units <span class="math inline">\(\delta\nu = \Gamma/(2\pi)\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Derivation of the Lorentzian from a damped oscillator">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1253,12 +1251,12 @@ F(\omega) \;\propto\; 0 - \left( -\frac{e^0}{\Gamma/2 + i(\omega_{21}-\omega)} \
 \]</span> The spectral intensity <span class="math inline">\(I(\omega)\)</span> is proportional to the absolute square of the Fourier transform: <span class="math display">\[
 I(\omega) \;\propto\; |F(\omega)|^2 = \left| \frac{1}{\Gamma/2 + i(\omega_{21}-\omega)} \right|^2
 \]</span> <span class="math display">\[
-I(\omega) = \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{2})^2}
-\]</span> The last step introduces the factor of <span class="math inline">\(\Gamma/2\)</span> to normalize the peak intensity, but the dependence on frequency is the key result. This is exactly the Lorentzian line shape.</p>
+I(\omega) = \frac{\tfrac{\Gamma}{2\pi}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{2})^2}
+\]</span> The last step introduces the factor of <span class="math inline">\(\Gamma/2\pi\)</span> to normalize the peak intensity, but the dependence on frequency is the key result. This is exactly the Lorentzian line shape.</p>
 </div>
 </div>
 </div>
-<div id="2ba0ba29" class="cell" data-execution_count="4">
+<div id="5fd70e9d" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1330,13 +1328,13 @@ I(\omega) = \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{
 <span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="op">-</span><span class="fl">4.5</span>, P_half, <span class="vs">r'</span><span class="dv">$</span><span class="vs">P_0/2</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co"># X-axis labels</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>ax.text(v1, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="ch">\n</span><span class="vs">u_1</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>ax.text(v0, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="ch">\n</span><span class="vs">u_0</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>ax.text(v2, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="ch">\n</span><span class="vs">u_2</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>ax.text(v1, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">omega_1</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>ax.text(v0, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">omega_0</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>ax.text(v2, <span class="op">-</span><span class="fl">0.021</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">omega_2</span><span class="dv">$</span><span class="vs">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
 <span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Set labels and title</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="ch">\n</span><span class="vs">u</span><span class="dv">$</span><span class="vs">'</span>, loc<span class="op">=</span><span class="st">'right'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'</span><span class="dv">$</span><span class="vs">P</span><span class="kw">(</span><span class="ch">\n</span><span class="vs">u</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>, loc<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">omega</span><span class="dv">$</span><span class="vs">'</span>, loc<span class="op">=</span><span class="st">'right'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'</span><span class="dv">$</span><span class="vs">P</span><span class="kw">(</span><span class="er">\</span><span class="vs">omega</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>, loc<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_title(r'Line Profile of a Spectral Line', fontsize=1, pad=15)</span></span>
 <span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Set axis limits</span></span>
@@ -1370,8 +1368,8 @@ I(\omega) = \frac{\tfrac{\Gamma}{2}}{(\omega - \omega_{21})^2 + (\tfrac{\Gamma}{
 </div>
 <hr>
 </section>
-<section id="subtleties-of-coherence" class="level2">
-<h2 class="anchored" data-anchor-id="subtleties-of-coherence">5.5.2.3 Subtleties of coherence</h2>
+<section id="subtleties-of-coherence" class="level3">
+<h3 class="anchored" data-anchor-id="subtleties-of-coherence">5.5.2.3 Subtleties of coherence</h3>
 <p>The simple picture of an exponential decay leading to a Lorentzian lineshape is very powerful — but it is also an <strong>approximation</strong>. In reality, the time evolution of the coherence term <span class="math inline">\(c_e^*(t)c_g(t)\)</span> shows two important deviations:</p>
 <ol type="1">
 <li><p><strong>At very short times (the “quantum Zeno” regime)</strong> (<span class="math inline">\(t \to 0\)</span>), the decay cannot yet be exponential.<br>
@@ -1386,8 +1384,8 @@ Instead of continuing forever, the decay turns into a very slow <strong>power-la
 <p>In practice, these deviations are extremely small and are not observed in most experiments. The exponential law and the associated Lorentzian lineshape remain the dominant and accurate description for almost all practical purposes.</p>
 <hr>
 </section>
-<section id="physical-picture" class="level2">
-<h2 class="anchored" data-anchor-id="physical-picture">5.5.2.4 Physical picture</h2>
+<section id="physical-picture" class="level3">
+<h3 class="anchored" data-anchor-id="physical-picture">5.5.2.4 Physical picture</h3>
 <p>The natural line width can be understood in several complementary ways:</p>
 <ul>
 <li><strong>Uncertainty principle:</strong> The finite lifetime <span class="math inline">\(\tau = 1/\Gamma\)</span> of the excited state implies an energy uncertainty <span class="math inline">\(\Delta E \sim \hbar/(2\tau)\)</span>, which translates into a frequency width.<br>
@@ -1399,13 +1397,13 @@ Instead of continuing forever, the decay turns into a very slow <strong>power-la
 <p>In short: the <strong>Lorentzian natural line shape</strong> is a universal consequence of finite excited-state lifetimes and the coherence properties of quantum superpositions.</p>
 </section>
 </section>
-<section id="doppler-broadening" class="level1">
-<h1>5.5.3. Doppler Broadening</h1>
+<section id="doppler-broadening" class="level2">
+<h2 class="anchored" data-anchor-id="doppler-broadening">5.5.3. Doppler Broadening</h2>
 <p>So far, we have considered atomic transitions at a fixed resonance frequency <span class="math inline">\(\omega_0\)</span>.<br>
 In a gas, however, atoms move with thermal velocities, and the observed resonance frequency depends on the motion of each atom relative to the incident light. This effect is known as <strong>Doppler broadening</strong>.</p>
 <hr>
-<section id="frequency-shift-for-a-moving-atom" class="level2">
-<h2 class="anchored" data-anchor-id="frequency-shift-for-a-moving-atom">5.5.3.1 Frequency shift for a moving atom</h2>
+<section id="frequency-shift-for-a-moving-atom" class="level3">
+<h3 class="anchored" data-anchor-id="frequency-shift-for-a-moving-atom">5.5.3.1 Frequency shift for a moving atom</h3>
 <p>We first consider the relativistic Doppler formulas in three dimensions. Let:<br>
 - <span class="math inline">\(\nu_s\)</span> (or <span class="math inline">\(\omega_s\)</span>) be the frequency (angular frequency) emitted in the <strong>source</strong> (atom) rest frame,<br>
 - <span class="math inline">\(f\nu_r\)</span> (or <span class="math inline">\(\omega\)</span>) be the frequency measured in the <strong>receiver / lab</strong> frame,<br>
@@ -1415,19 +1413,19 @@ In a gas, however, atoms move with thermal velocities, and the observed resonanc
 - <span class="math inline">\(\theta_r\)</span> the angle between <span class="math inline">\(\vec v\)</span> and the photon direction <strong>measured in the receiver frame</strong>.</p>
 <p>Two equivalent relativistic forms are commonly used:</p>
 <p>Frequency measured in the receiver frame (expressed using the source-frame angle): <span class="math display">\[
-\nu_r \;=\; \gamma\big(1 - \beta\cos\theta_s\big)\; \nu_s
+\nu_r \;=\; \gamma\big(1 + \beta\cos\theta_s\big)\; \nu_s
 \qquad\text{or in angular frequency}\qquad
-\omega \;=\; \gamma\big(1 - \beta\cos\theta_s\big)\; \omega_s.
+\omega \;=\; \gamma\big(1 + \beta\cos\theta_s\big)\; \omega_s.
 \]</span></p>
 <p>Frequency measured in the receiver frame (expressed using the receiver-frame angle): <span class="math display">\[
-\nu_r \;=\; \frac{\nu_s}{\gamma\big(1 + \beta\cos\theta_r\big)}
+\nu_r \;=\; \frac{\nu_s}{\gamma\big(1 - \beta\cos\theta_r\big)}
 \qquad\text{or}\qquad
-\omega \;=\; \frac{\omega_s}{\gamma\big(1 + \beta\cos\theta_r\big)}.
+\omega \;=\; \frac{\omega_s}{\gamma\big(1 - \beta\cos\theta_r\big)}.
 \]</span></p>
 <p>(These two forms are equivalent but use different angles; beware which angle is being referenced.)</p>
 <hr>
-<section id="non-relativistic-low-velocity-limit" class="level3">
-<h3 class="anchored" data-anchor-id="non-relativistic-low-velocity-limit">Non-relativistic (low-velocity) limit</h3>
+<section id="non-relativistic-low-velocity-limit" class="level4">
+<h4 class="anchored" data-anchor-id="non-relativistic-low-velocity-limit">Non-relativistic (low-velocity) limit</h4>
 <p>For <span class="math inline">\(v\ll c\)</span> (i.e.&nbsp;<span class="math inline">\(\beta\ll 1\)</span>, <span class="math inline">\(\gamma\approx 1\)</span>) expand to first order in <span class="math inline">\(\beta\)</span>. Using the source-frame form, <span class="math display">\[
 \omega \;=\; \gamma\big(1 - \beta\cos\theta_s\big)\omega_s
 \;\approx\; \big(1 - \beta\cos\theta_s\big)\omega_s
@@ -1442,8 +1440,8 @@ In a gas, however, atoms move with thermal velocities, and the observed resonanc
 <hr>
 </section>
 </section>
-<section id="mapping-velocity-distribution-to-frequency" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-velocity-distribution-to-frequency">5.5.3.2 Mapping velocity distribution to frequency</h2>
+<section id="mapping-velocity-distribution-to-frequency" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-velocity-distribution-to-frequency">5.5.3.2 Mapping velocity distribution to frequency</h3>
 <p>At thermal equilibrium, the distribution of atomic velocities is given by the Maxwell–Boltzmann law.<br>
 For the one-dimensional velocity component <span class="math inline">\(v_z\)</span>, the probability density is <span class="math display">\[
 f(v_z)\,dv_z \;\propto\; \exp\!\left[-\tfrac{m v_z^2}{2 k_B T}\right] dv_z,
@@ -1458,8 +1456,8 @@ f(\omega)\,d\omega \;\propto\;
 <p>This is a <strong>Gaussian distribution</strong> centered at <span class="math inline">\(\omega_0\)</span>.</p>
 <hr>
 </section>
-<section id="width-of-the-doppler-broadened-line" class="level2">
-<h2 class="anchored" data-anchor-id="width-of-the-doppler-broadened-line">5.5.3.3 Width of the Doppler-broadened line</h2>
+<section id="width-of-the-doppler-broadened-line" class="level3">
+<h3 class="anchored" data-anchor-id="width-of-the-doppler-broadened-line">5.5.3.3 Width of the Doppler-broadened line</h3>
 <p>The Gaussian distribution has a standard deviation <span class="math display">\[
 \sigma_\omega = \frac{\omega_0}{c}\sqrt{\frac{k_B T}{m}},
 \]</span> and a <strong>full width at half maximum (FWHM)</strong> given by <span class="math display">\[
@@ -1468,14 +1466,14 @@ f(\omega)\,d\omega \;\propto\;
 \]</span></p>
 <hr>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">5.5.3.4 Summary</h2>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">5.5.3.4 Summary</h3>
 <p>Doppler broadening leads to a Gaussian spectral profile with width that increases with temperature and decreases with atomic mass: - <strong>Light atoms</strong> (small <span class="math inline">\(m\)</span>) and <strong>high temperatures</strong> (large <span class="math inline">\(T\)</span>) → stronger broadening. - <strong>Heavy atoms</strong> or <strong>low temperature samples</strong> → narrower Doppler width.</p>
 <p>This sets a fundamental limit to the spectral resolution in gaseous media unless Doppler-free spectroscopy techniques are employed.</p>
 </section>
 </section>
-<section id="worked-example-hydrogen-ly-alpha-2p-to-1s" class="level1">
-<h1>5.5.4. Worked example: hydrogen Ly-<span class="math inline">\(\alpha\)</span> (<span class="math inline">\(2p \to 1s\)</span>)</h1>
+<section id="worked-example-hydrogen-ly-alpha-2p-to-1s" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-hydrogen-ly-alpha-2p-to-1s">5.5.4. Worked example: hydrogen Ly-<span class="math inline">\(\alpha\)</span> (<span class="math inline">\(2p \to 1s\)</span>)</h2>
 <p>We now apply the concepts above to a concrete example: the hydrogen Ly-<span class="math inline">\(\alpha\)</span> transition, <span class="math inline">\(2p \to 1s\)</span>, which has wavelength</p>
 <p><span class="math display">\[
 \lambda_0 \approx 121.567\ \text{nm}.
@@ -1485,8 +1483,8 @@ f(\omega)\,d\omega \;\propto\;
 \nu_0 = \frac{c}{\lambda_0}, \qquad \omega_0 = 2\pi\nu_0.
 \]</span></p>
 <hr>
-<section id="natural-linewidth-from-lifetime" class="level2">
-<h2 class="anchored" data-anchor-id="natural-linewidth-from-lifetime">5.5.4.1 Natural linewidth (from lifetime)</h2>
+<section id="natural-linewidth-from-lifetime" class="level3">
+<h3 class="anchored" data-anchor-id="natural-linewidth-from-lifetime">5.5.4.1 Natural linewidth (from lifetime)</h3>
 <p>The <span class="math inline">\(2p\)</span> level in hydrogen has an Einstein <span class="math inline">\(A\)</span> coefficient of order</p>
 <p><span class="math display">\[
 A_{2p\to1s} \approx 6.27\times 10^8\ \text{s}^{-1}.
@@ -1502,8 +1500,8 @@ A_{2p\to1s} \approx 6.27\times 10^8\ \text{s}^{-1}.
 \]</span></p>
 <hr>
 </section>
-<section id="doppler-width-at-room-temperature" class="level2">
-<h2 class="anchored" data-anchor-id="doppler-width-at-room-temperature">5.5.4.2 Doppler width at room temperature</h2>
+<section id="doppler-width-at-room-temperature" class="level3">
+<h3 class="anchored" data-anchor-id="doppler-width-at-room-temperature">5.5.4.2 Doppler width at room temperature</h3>
 <p>For a gas at temperature <span class="math inline">\(T\)</span> the thermal one-dimensional velocity distribution yields a Gaussian frequency profile with (Gaussian) standard deviation</p>
 <p><span class="math display">\[
 \sigma_\nu = \frac{\nu_0}{c}\sqrt{\frac{k_B T}{m}},
@@ -1519,8 +1517,8 @@ A_{2p\to1s} \approx 6.27\times 10^8\ \text{s}^{-1}.
 \]</span></p>
 <hr>
 </section>
-<section id="fine-structure-lamb-shift-hyperfine-numerical-references" class="level2">
-<h2 class="anchored" data-anchor-id="fine-structure-lamb-shift-hyperfine-numerical-references">5.5.4.3 Fine structure, Lamb shift, hyperfine (numerical references)</h2>
+<section id="fine-structure-lamb-shift-hyperfine-numerical-references" class="level3">
+<h3 class="anchored" data-anchor-id="fine-structure-lamb-shift-hyperfine-numerical-references">5.5.4.3 Fine structure, Lamb shift, hyperfine (numerical references)</h3>
 <ul>
 <li>Fine structure splitting (<span class="math inline">\(2p_{3/2}\)</span>–<span class="math inline">\(2p_{1/2}\)</span>):<br>
 <span class="math display">\[
@@ -1549,8 +1547,8 @@ A_{2p\to1s} \approx 6.27\times 10^8\ \text{s}^{-1}.
 </ul>
 <hr>
 </section>
-<section id="temperature-required-to-resolve-the-lamb-shift" class="level2">
-<h2 class="anchored" data-anchor-id="temperature-required-to-resolve-the-lamb-shift">5.5.4.4 Temperature required to resolve the Lamb shift</h2>
+<section id="temperature-required-to-resolve-the-lamb-shift" class="level3">
+<h3 class="anchored" data-anchor-id="temperature-required-to-resolve-the-lamb-shift">5.5.4.4 Temperature required to resolve the Lamb shift</h3>
 <p>Since <span class="math inline">\(\Delta\nu_D \propto \sqrt{T}\)</span>,</p>
 <p><span class="math display">\[
 T_{\rm req} = T_0\left(\frac{\Delta\nu_{\rm target}}{\Delta\nu_D(T_0)}\right)^2.
@@ -1563,8 +1561,8 @@ T_{\rm req}\approx 0.36\ \text{K}.
 For the fine structure (11 GHz), the requirement is milder: <span class="math inline">\(T \sim 39\ \text{K}\)</span>.</p>
 <hr>
 </section>
-<section id="practical-implications" class="level2">
-<h2 class="anchored" data-anchor-id="practical-implications">5.5.4.5 Practical implications</h2>
+<section id="practical-implications" class="level3">
+<h3 class="anchored" data-anchor-id="practical-implications">5.5.4.5 Practical implications</h3>
 <p>Because Doppler broadening dominates, experimentalists use:</p>
 <ul>
 <li><strong>Laser cooling</strong> and trapping (temperatures <span class="math inline">\(\ll 1\ \text{K}\)</span>).<br>

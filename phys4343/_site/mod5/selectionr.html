@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Understand electric-dipole selection rules, spherical polarization, angular emission patterns, and optical pumping in atoms through symmetry and examples.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -839,11 +840,7 @@ window.Quarto = {
   <li><a href="#polarization-of-light" id="toc-polarization-of-light" class="nav-link" data-scroll-target="#polarization-of-light">5.4.1. Polarization of Light</a></li>
   <li><a href="#calculating-dipole-matrix-elements" id="toc-calculating-dipole-matrix-elements" class="nav-link" data-scroll-target="#calculating-dipole-matrix-elements">5.4.2. Calculating Dipole Matrix Elements</a>
   <ul class="collapse">
-  <li><a href="#general-form-of-the-dipole-matrix-element" id="toc-general-form-of-the-dipole-matrix-element" class="nav-link" data-scroll-target="#general-form-of-the-dipole-matrix-element">5.4.2.1 General Form of the Dipole Matrix Element</a>
-  <ul class="collapse">
-  <li><a href="#the-dipole-operator" id="toc-the-dipole-operator" class="nav-link" data-scroll-target="#the-dipole-operator">The Dipole Operator</a></li>
-  <li><a href="#setting-up-the-integral" id="toc-setting-up-the-integral" class="nav-link" data-scroll-target="#setting-up-the-integral">Setting up the Integral</a></li>
-  </ul></li>
+  <li><a href="#general-form-of-the-dipole-matrix-element" id="toc-general-form-of-the-dipole-matrix-element" class="nav-link" data-scroll-target="#general-form-of-the-dipole-matrix-element">5.4.2.1 General Form of the Dipole Matrix Element</a></li>
   <li><a href="#radial-integral-overlap-of-wavefunctions" id="toc-radial-integral-overlap-of-wavefunctions" class="nav-link" data-scroll-target="#radial-integral-overlap-of-wavefunctions">5.4.2.2 Radial Integral: Overlap of Wavefunctions</a></li>
   <li><a href="#sec-selectionrules" id="toc-sec-selectionrules" class="nav-link" data-scroll-target="#sec-selectionrules">5.4.2.3 Angular Integral and Selection Rules</a></li>
   </ul></li>
@@ -890,22 +887,22 @@ window.Quarto = {
 </header>
 
 
-<section id="radiation-and-dipole-selection-rules-overview-and-plan" class="level1">
-<h1>Radiation and Dipole Selection Rules: Overview and Plan</h1>
+<section id="radiation-and-dipole-selection-rules-overview-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="radiation-and-dipole-selection-rules-overview-and-plan">Radiation and Dipole Selection Rules: Overview and Plan</h2>
 <p>This section begins with the role of <strong>light polarization</strong> in atomic transitions: how <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> polarizations couple to changes in the magnetic quantum number <span class="math inline">\(M_L\)</span>. We then show how the symmetry of the dipole operator imposes further restrictions, most notably the parity rule that enforces <span class="math inline">\(\Delta L = \pm 1\)</span>. Finally, we connect these ideas to the general selection rules used in spectroscopy.</p>
 <p>Specific goals:</p>
 <ol type="1">
 <li>Explain how <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> polarizations determine the allowed changes in magnetic quantum number <span class="math inline">\(\Delta M = 0, \pm 1\)</span>.<br>
 </li>
-<li>Motivate the parity-based rule <span class="math inline">\(\Delta L = \pm 1\)</span> by analyzing the dipole operator’s odd parity.<br>
+<li>Motivate the parity-based rule <span class="math inline">\(\Delta \ell = \pm 1\)</span> by analyzing the dipole operator’s odd parity.<br>
 </li>
 <li>Summarize the general electric-dipole selection rules in terms of <span class="math inline">\(L, J, S\)</span>, and discuss their physical basis and common exceptions.</li>
 </ol>
 <p>By the end of this section students should understand how light polarization controls <span class="math inline">\(\Delta M\)</span>, why parity forces <span class="math inline">\(\Delta L = \pm 1\)</span>, and how these simple principles combine into the full set of electric-dipole selection rules.</p>
 <hr>
 </section>
-<section id="polarization-of-light" class="level1">
-<h1>5.4.1. Polarization of Light</h1>
+<section id="polarization-of-light" class="level2">
+<h2 class="anchored" data-anchor-id="polarization-of-light">5.4.1. Polarization of Light</h2>
 <p>The coupling between atomic states and the light field is governed by the <a href="../mod5/dipolematrix.html">dipole matrix element</a></p>
 <p><span class="math display">\[
 \Gamma_{i \to n}^{(\hat{\varepsilon})} \;\propto\;
@@ -991,13 +988,13 @@ Note
 </div>
 <hr>
 </section>
-<section id="calculating-dipole-matrix-elements" class="level1">
-<h1>5.4.2. Calculating Dipole Matrix Elements</h1>
+<section id="calculating-dipole-matrix-elements" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-dipole-matrix-elements">5.4.2. Calculating Dipole Matrix Elements</h2>
 <p>To understand how atoms interact with light, we need to evaluate the dipole matrix elements. These quantities determine both <strong>whether a transition is allowed</strong> (through angular momentum constraints) and <strong>how strong it is</strong> (through the radial overlap of the wavefunctions). We will first write down the general expression and then separate it into its radial and angular parts.</p>
-<section id="general-form-of-the-dipole-matrix-element" class="level2">
-<h2 class="anchored" data-anchor-id="general-form-of-the-dipole-matrix-element">5.4.2.1 General Form of the Dipole Matrix Element</h2>
-<section id="the-dipole-operator" class="level3">
-<h3 class="anchored" data-anchor-id="the-dipole-operator">The Dipole Operator</h3>
+<section id="general-form-of-the-dipole-matrix-element" class="level3">
+<h3 class="anchored" data-anchor-id="general-form-of-the-dipole-matrix-element">5.4.2.1 General Form of the Dipole Matrix Element</h3>
+<section id="the-dipole-operator" class="level4">
+<h4 class="anchored" data-anchor-id="the-dipole-operator">The Dipole Operator</h4>
 <p>In the transition amplitude we encounter the dot product <span class="math inline">\(\hat{\vec{\varepsilon}} \cdot \vec{r}\)</span>. Since the polarization vector <span class="math inline">\(\hat{\vec{\varepsilon}}\)</span> has already been expressed in the spherical basis <span class="math inline">\((\vec{e}_{+}, \vec{e}_{-}, \vec{e}_{z})\)</span>, it is natural to also express the position vector <span class="math inline">\(\vec{r}\)</span> in the same basis.</p>
 <p>We begin by introducing the <strong>dipole operator</strong>:</p>
 <p><span class="math display">\[
@@ -1019,12 +1016,12 @@ r \cos\theta  \, \vec{e}_{z} \big).
 <p>However, this form is not the most convenient for our purposes. The angular parts of atomic wavefunctions are themselves spherical harmonics, so it is advantageous to rewrite the dipole operator in terms of <span class="math inline">\(Y_{1,m}(\theta,\varphi)\)</span>. Carrying out this expansion gives</p>
 <p><span id="eq-dipoleop"><span class="math display">\[
 \hat{\vec{D}}
-= - e r \, \sqrt{\tfrac{4\pi}{3}} \,
-\big( Y_{1,-1}(\theta,\varphi) \, \vec{e}_{-} +
+= e r \, \sqrt{\tfrac{4\pi}{3}} \,
+\big( Y_{1,-1}(\theta,\varphi) \, \vec{e}_{+} -
       Y_{1,0}(\theta,\varphi) \, \vec{e}_{z} +
-      Y_{1,1}(\theta,\varphi)  \, \vec{e}_{+} \big).
+      Y_{1,1}(\theta,\varphi)  \, \vec{e}_{-} \big).
 \tag{1}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Detailed Steps: Expressing Cartesian Functions with Spherical Harmonics">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1082,12 +1079,12 @@ r \cos\theta  \, \vec{e}_{z} \big).
 </blockquote>
 <hr>
 </section>
-<section id="setting-up-the-integral" class="level3">
-<h3 class="anchored" data-anchor-id="setting-up-the-integral">Setting up the Integral</h3>
+<section id="setting-up-the-integral" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-the-integral">Setting up the Integral</h4>
 <p>The dipole matrix element then separates naturally into two parts:</p>
 <p><span class="math display">\[
 \langle n | \, \hat{\vec{\varepsilon}} \cdot \vec{r} \, | i \rangle
-= \int_0^\infty dr \, r^2 R_{n\ell}(r) R_{n'\ell'}(r) \, r
+= \sqrt{\tfrac{4\pi}{3}} \, \int_0^\infty dr \, r^2 R_{n\ell}(r) R_{n'\ell'}(r) \, r
 \int d\Omega \, Y_{\ell m}^*(\theta,\varphi)
 \big[ \varepsilon_{-} Y_{1,-1} + \varepsilon_{z} Y_{1,0} + \varepsilon_{+} Y_{1,1} \big]
 Y_{\ell' m'}(\theta,\varphi) .
@@ -1100,8 +1097,8 @@ Y_{\ell' m'}(\theta,\varphi) .
 <hr>
 </section>
 </section>
-<section id="radial-integral-overlap-of-wavefunctions" class="level2">
-<h2 class="anchored" data-anchor-id="radial-integral-overlap-of-wavefunctions">5.4.2.2 Radial Integral: Overlap of Wavefunctions</h2>
+<section id="radial-integral-overlap-of-wavefunctions" class="level3">
+<h3 class="anchored" data-anchor-id="radial-integral-overlap-of-wavefunctions">5.4.2.2 Radial Integral: Overlap of Wavefunctions</h3>
 <p>The radial integral is</p>
 <p><span class="math display">\[
 \langle R \rangle =
@@ -1120,8 +1117,8 @@ Y_{\ell' m'}(\theta,\varphi) .
 <p>You can see this visually in <a href="../mod3/hydrogen.html#fig-radwf" target="_blank">one of the previous sections</a>, where several hydrogen radial wavefunctions are plotted. For example, the <span class="math inline">\(1s\)</span> and <span class="math inline">\(2p\)</span> wavefunctions overlap significantly in the region near the Bohr radius, which leads to a relatively strong transition. In contrast, the overlap between <span class="math inline">\(1s\)</span> and <span class="math inline">\(3p\)</span> is smaller because the <span class="math inline">\(3p\)</span> wavefunction has more oscillations, and large parts of the integral cancel out.</p>
 <hr>
 </section>
-<section id="sec-selectionrules" class="level2">
-<h2 class="anchored" data-anchor-id="sec-selectionrules">5.4.2.3 Angular Integral and Selection Rules</h2>
+<section id="sec-selectionrules" class="level3">
+<h3 class="anchored" data-anchor-id="sec-selectionrules">5.4.2.3 Angular Integral and Selection Rules</h3>
 <p>The angular contribution to the dipole matrix element is</p>
 <p><span class="math display">\[
 \langle \Omega \rangle =
@@ -1158,7 +1155,7 @@ Y_{\ell' m'}(\theta,\varphi).
 </li>
 <li><span class="math inline">\(\Delta m = 0, \pm 1\)</span> depending on the light polarization.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Proof of the $\Delta m$ selection rules using commutators">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1221,7 +1218,7 @@ L_z |\phi_i\rangle = m_i\hbar\,|\phi_i\rangle,\qquad L_z |\phi_f\rangle = m_f\hb
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Motivation for $\Delta \ell = \pm 1$: The Laporte Rule">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1307,7 +1304,7 @@ If the integrand is odd, the whole matrix element cancels out. Because the dipol
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Summary: Electric Dipole Selection Rules">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1319,10 +1316,30 @@ If the integrand is odd, the whole matrix element cancels out. Because the dipol
 <div class="callout-body-container callout-body">
 <p>The following rules govern <strong>all</strong> electric dipole (<span class="math inline">\(E1\)</span>) transitions, not only in hydrogen but also in multi-electron atoms. They follow directly from symmetry (parity, angular momentum, and spin):</p>
 <ul>
-<li><p><strong>Orbital Angular Momentum:</strong><br>
-<span class="math display">\[
-\Delta L = \pm 1
-\]</span> (The dipole operator carries <span class="math inline">\(L=1\)</span>, connecting states of opposite parity.)</p></li>
+<li><p><strong>Orbital Angular Momentum and Parity:</strong></p>
+<p>As discussed above, the electric dipole operator has odd parity. Therefore, an electric dipole transition requires <strong>opposite parity</strong> of the initial and final states:</p>
+<p><span class="math display">\[
+\pi_f = -\pi_i.
+\]</span></p>
+<p>For a single electron, the parity is <span class="math inline">\(\pi=(-1)^\ell\)</span>. In a <strong>multi-electron atom</strong>, however, the parity is determined by the electron configuration:</p>
+<p><span class="math display">\[
+\pi = (-1)^{\ell_1+\ell_2+\cdots}.
+\]</span></p>
+<p>Thus, all terms belonging to the same electron configuration have the same parity, independent of their total orbital angular momentum <span class="math inline">\(L\)</span>.</p>
+<p>We can distinguish two cases:</p>
+<ul>
+<li><p><strong>States with equal parity (<span class="math inline">\(\pi_f=\pi_i\)</span>):</strong> Electric dipole transitions are forbidden, regardless of the change in <span class="math inline">\(L\)</span>.</p></li>
+<li><p><strong>States with opposite parity (<span class="math inline">\(\pi_f=-\pi_i\)</span>):</strong> Electric dipole transitions are allowed by parity. Conservation of angular momentum imposes the additional selection rule</p>
+<p><span class="math display">\[
+\Delta L = 0,\pm 1,
+\qquad L=0 \not\leftrightarrow L=0.
+\]</span></p></li>
+</ul>
+<p>For <strong>single-electron atoms</strong>, the parity condition excludes <span class="math inline">\(\Delta\ell=0\)</span>, leaving the familiar rule</p>
+<p><span class="math display">\[
+\Delta\ell=\pm1.
+\]</span></p>
+<p>For <strong>multi-electron atoms</strong>, transitions with <span class="math inline">\(\Delta L=0\)</span> are also possible, provided the initial and final states have opposite parity.</p></li>
 <li><p><strong>Magnetic Quantum Number:</strong><br>
 <span class="math display">\[
 \Delta M_L = 0, \pm 1
@@ -1339,16 +1356,17 @@ If the integrand is odd, the whole matrix element cancels out. Because the dipol
 </ul>
 <hr>
 <p><strong>IN SUMMARY:</strong><br>
-Electric dipole transitions require a change of parity,<br>
-with <span class="math inline">\(\Delta L = \pm 1\)</span>, <span class="math inline">\(\Delta M_L = 0, \pm 1\)</span>,<br>
-no change in spin (<span class="math inline">\(\Delta S = 0\)</span>),<br>
-and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class="math inline">\(J=0 \not\leftrightarrow J=0\)</span>).</p>
+Electric dipole transitions require a <strong>change of parity</strong>.<br>
+For single-electron atoms, <span class="math inline">\(\Delta\ell=\pm1\)</span>; for multi-electron atoms, <span class="math inline">\(\Delta L=0,\pm1\)</span> (except <span class="math inline">\(L=0\not\leftrightarrow L=0\)</span>).<br>
+The magnetic quantum number follows <span class="math inline">\(\Delta M_L=0,\pm1\)</span>, depending on the polarization of the light.<br>
+The spin remains unchanged (<span class="math inline">\(\Delta S=0\)</span>).<br>
+The total angular momentum follows <span class="math inline">\(\Delta J=0,\pm1\)</span> (except <span class="math inline">\(J=0\not\leftrightarrow J=0\)</span>).</p>
 </div>
 </div>
 </section>
 </section>
-<section id="angular-distribution-of-emission-and-excitation" class="level1">
-<h1>5.4.3 Angular Distribution of Emission and Excitation</h1>
+<section id="angular-distribution-of-emission-and-excitation" class="level2">
+<h2 class="anchored" data-anchor-id="angular-distribution-of-emission-and-excitation">5.4.3 Angular Distribution of Emission and Excitation</h2>
 <p>So far, we have described the three polarization components (<span class="math inline">\(\pi\)</span>, <span class="math inline">\(\sigma^+\)</span>, <span class="math inline">\(\sigma^-\)</span>) as if they were absolute:<br>
 - <span class="math inline">\(\pi\)</span>: linear polarization along the quantization axis (<span class="math inline">\(z\)</span>)<br>
 - <span class="math inline">\(\sigma^+\)</span>: right-circular polarization in the <span class="math inline">\(xy\)</span>-plane<br>
@@ -1358,27 +1376,27 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 \vec E \cdot \vec k = 0 .
 \]</span></p>
 <hr>
-<section id="absorption-excitation-by-laser-light" class="level2">
-<h2 class="anchored" data-anchor-id="absorption-excitation-by-laser-light">5.4.3.1 Absorption (Excitation by Laser Light)</h2>
+<section id="absorption-excitation-by-laser-light" class="level3">
+<h3 class="anchored" data-anchor-id="absorption-excitation-by-laser-light">5.4.3.1 Absorption (Excitation by Laser Light)</h3>
 <ul>
-<li>If the laser propagates <strong>perpendicular to <span class="math inline">\(z\)</span></strong> (<span class="math inline">\(\vec k \perp z\)</span>), then the polarization must lie in the transverse plane (<span class="math inline">\(xy\)</span>-plane).
+<li>If the laser propagates <strong>perpendicular to the quantization axis</strong> (<span class="math inline">\(\vec k \cdot \vec e_z = 0\)</span>), its electric field must be perpendicular to <span class="math inline">\(\vec k\)</span>, but can have a component along <span class="math inline">\(z\)</span>. For example, if the laser propagates along <span class="math inline">\(x\)</span>, its polarization lies in the <span class="math inline">\(yz\)</span>-plane.
 <ul>
-<li>A field polarized along <span class="math inline">\(z\)</span> is allowed (this is pure <span class="math inline">\(\pi\)</span>).<br>
-</li>
-<li>A field polarized linearly in the <span class="math inline">\(xy\)</span>-plane can be expressed as a <strong>superposition</strong> of <span class="math inline">\(\sigma^+\)</span> and <span class="math inline">\(\sigma^-\)</span> components. (To realize a <em>pure</em> <span class="math inline">\(\sigma^+\)</span> or <span class="math inline">\(\sigma^-\)</span> basis state, one needs a circular polarization in the transverse plane, i.e.&nbsp;a coherent combination of two orthogonal linear polarizations with a <span class="math inline">\(\pm 90^\circ\)</span> phase difference.)</li>
+<li>A field polarized along <span class="math inline">\(z\)</span> drives pure <span class="math inline">\(\pi\)</span> transitions (<span class="math inline">\(\Delta M=0\)</span>).</li>
+<li>A field polarized along <span class="math inline">\(y\)</span> drives both <span class="math inline">\(\sigma^+\)</span> and <span class="math inline">\(\sigma^-\)</span> transitions (<span class="math inline">\(\Delta M=\pm1\)</span>).</li>
+<li>More generally, the polarization can contain both <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> components. Pure <span class="math inline">\(\sigma^+\)</span> or <span class="math inline">\(\sigma^-\)</span> polarization is not possible in this propagation geometry.</li>
 </ul></li>
-<li>If the laser propagates <strong>along <span class="math inline">\(z\)</span></strong> (<span class="math inline">\(\vec k \parallel z\)</span>), then <span class="math inline">\(E\)</span> has no <span class="math inline">\(z\)</span>-component.
+<li>If the laser propagates <strong>along the quantization axis</strong> (<span class="math inline">\(\vec k \parallel \vec e_z\)</span>), its electric field lies entirely in the <span class="math inline">\(xy\)</span>-plane.
 <ul>
-<li><span class="math inline">\(\pi\)</span> excitation is forbidden<br>
-</li>
-<li>only <span class="math inline">\(\sigma^\pm\)</span> remain</li>
+<li><span class="math inline">\(\pi\)</span> excitation is forbidden because the electric field has no <span class="math inline">\(z\)</span>-component.</li>
+<li>Circularly polarized light drives pure <span class="math inline">\(\sigma^+\)</span> or <span class="math inline">\(\sigma^-\)</span> transitions, depending on its helicity.</li>
+<li>Linearly polarized light drives a superposition of <span class="math inline">\(\sigma^+\)</span> and <span class="math inline">\(\sigma^-\)</span> transitions.</li>
 </ul></li>
-<li>For <strong>intermediate directions</strong> of <span class="math inline">\(\vec k\)</span>, the polarization projects partly onto the <span class="math inline">\(z\)</span>-axis and partly onto the transverse plane. This means the laser light drives a <em>mixture</em> of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma\)</span> transitions, with relative strengths determined by geometry.</li>
+<li>For <strong>intermediate propagation directions</strong>, the electric field remains perpendicular to <span class="math inline">\(\vec k\)</span>, but its orientation relative to the quantization axis depends on the polarization. In general, the field contains both <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma^\pm\)</span> components and can drive a mixture of transitions with <span class="math inline">\(\Delta M=0,\pm1\)</span>. Their relative strengths depend on the propagation direction and polarization of the light.</li>
 </ul>
 <hr>
 </section>
-<section id="emission-spontaneous-decay" class="level2">
-<h2 class="anchored" data-anchor-id="emission-spontaneous-decay">5.4.3.2 Emission (Spontaneous Decay)</h2>
+<section id="emission-spontaneous-decay" class="level3">
+<h3 class="anchored" data-anchor-id="emission-spontaneous-decay">5.4.3.2 Emission (Spontaneous Decay)</h3>
 <p>The same geometry shows up in the <strong>angular distribution of emitted radiation</strong>. A dipole oriented along a given axis radiates anisotropically:</p>
 <ul>
 <li><p>A dipole oscillating along <span class="math inline">\(z\)</span> (<span class="math inline">\(\pi\)</span> transition) has a radiation pattern proportional to <span class="math inline">\(\sin^2\theta\)</span>, with a <strong>node along the <span class="math inline">\(z\)</span>-axis</strong> and maximum intensity in the <span class="math inline">\(xy\)</span>-plane.</p></li>
@@ -1387,8 +1405,8 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 <p>Thus, just as absorption depends on how the photon’s polarization decomposes into <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma\)</span> components, emission depends on how the atomic dipole radiation projects into the observation direction.</p>
 <hr>
 </section>
-<section id="summary-symmetry-between-absorption-and-emission" class="level2">
-<h2 class="anchored" data-anchor-id="summary-symmetry-between-absorption-and-emission">5.4.3.3 Summary: Symmetry Between Absorption and Emission</h2>
+<section id="summary-symmetry-between-absorption-and-emission" class="level3">
+<h3 class="anchored" data-anchor-id="summary-symmetry-between-absorption-and-emission">5.4.3.3 Summary: Symmetry Between Absorption and Emission</h3>
 <ul>
 <li><strong>Absorption:</strong> the ability of a photon to drive <span class="math inline">\(\pi\)</span> or <span class="math inline">\(\sigma\)</span> transitions depends on the angle between <span class="math inline">\(\vec k\)</span> and the quantization axis.<br>
 </li>
@@ -1397,7 +1415,7 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 <p>In both cases, the essential point is the same: the quantization axis and the photon propagation direction are not independent, and geometry determines which transitions are accessible or visible.</p>
 <p>It is important to see that the words <em>“<span class="math inline">\(\pi\)</span> polarization = <span class="math inline">\(z\)</span>”</em> and <em>“<span class="math inline">\(\sigma\)</span> polarization = <span class="math inline">\(xy\)</span>”</em> are really <strong>shortcuts</strong>. In reality, the distribution of light depends on both the dipole orientation and the photon propagation direction. The simplified picture is correct in the standard geometry but must be applied with care when the light comes in at an angle or when emission is observed in a particular direction.</p>
 <p>Three-dimensional polar plots showing the emission and absorption profiles of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\sigma\)</span> transitions are shown below.</p>
-<div id="39326ea9" class="cell" data-execution_count="1">
+<div id="9d3320e7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1552,17 +1570,17 @@ and <span class="math inline">\(\Delta J = 0, \pm 1\)</span> (except <span class
 </div>
 </section>
 </section>
-<section id="an-experimental-example-optical-pumping" class="level1">
-<h1>5.4.4. An Experimental Example: Optical Pumping</h1>
+<section id="an-experimental-example-optical-pumping" class="level2">
+<h2 class="anchored" data-anchor-id="an-experimental-example-optical-pumping">5.4.4. An Experimental Example: Optical Pumping</h2>
 <p>So far we have derived the <strong>dipole selection rules</strong> and discussed how light polarization controls the allowed transitions between quantum states. Let us now see how these rules can be exploited in practice — in particular, how we can use them to <em>align</em> or <em>orient</em> the angular momentum of an ensemble of atoms. The method is known as <strong>optical pumping</strong>.</p>
 <hr>
-<section id="optical-pumping-of-87rb" class="level2">
-<h2 class="anchored" data-anchor-id="optical-pumping-of-87rb">5.4.4.1 Optical pumping of <span class="math inline">\(^{87}\)</span>Rb</h2>
+<section id="optical-pumping-of-87rb" class="level3">
+<h3 class="anchored" data-anchor-id="optical-pumping-of-87rb">5.4.4.1 Optical pumping of <span class="math inline">\(^{87}\)</span>Rb</h3>
 <p>As a concrete example, consider optical pumping of <strong><span class="math inline">\({}^{87}\text{Rb}\)</span></strong>. We focus on the transition from the ground state <span class="math inline">\(5S_{1/2}, F=2\)</span> to the excited state <span class="math inline">\(5P_{3/2}, F'=3\)</span> using <span class="math inline">\(\sigma^+\)</span> polarized light.</p>
 <p>When <span class="math inline">\(\sigma^+\)</span> light is applied along the quantization axis (<span class="math inline">\(z\)</span>), it preferentially drives transitions with <span class="math inline">\(\Delta m_F = +1\)</span>.<br>
 Starting from a distribution over all <span class="math inline">\(m_F\)</span> sublevels in <span class="math inline">\(F=2\)</span>, atoms are successively excited and decay in such a way that population is pushed toward higher <span class="math inline">\(m_F\)</span> values.</p>
 <ul>
-<li>For example, an atom in <span class="math inline">\(m_F=0\)</span> absorbs a <span class="math inline">\(\sigma^+\)</span> photon and is excited to <span class="math inline">\(m_F'=+1\)</span>. Spontaneous decay can return it to <span class="math inline">\(m_F=0, +1\)</span>, or <span class="math inline">\(-1\)</span>. Over many cycles, the net effect is to funnel atoms upward in <span class="math inline">\(m_F\)</span>.<br>
+<li>For example, an atom in <span class="math inline">\(m_F=0\)</span> absorbs a <span class="math inline">\(\sigma^+\)</span> photon and is excited to <span class="math inline">\(m_F'=+1\)</span>. Spontaneous decay can return it to <span class="math inline">\(m_F=0, +1\)</span>, or <span class="math inline">\(+2\)</span>. Over many cycles, the net effect is to funnel atoms upward in <span class="math inline">\(m_F\)</span>.<br>
 </li>
 <li>Eventually, atoms accumulate in the <strong>stretched sublevel</strong> <span class="math inline">\(m_F=+2\)</span>. From there, absorption by <span class="math inline">\(\sigma^+\)</span> light brings the atom to <span class="math inline">\(m_F'=+3\)</span>, and spontaneous decay from <span class="math inline">\(m_F'=+3\)</span> can only return it to <span class="math inline">\(m_F=+2\)</span> (within the <span class="math inline">\(F=2\)</span> ground manifold).</li>
 </ul>
@@ -1579,8 +1597,8 @@ Starting from a distribution over all <span class="math inline">\(m_F\)</span> s
 </div>
 <hr>
 </section>
-<section id="why-it-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-it-matters">5.4.4.2 Why It Matters</h2>
+<section id="why-it-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-it-matters">5.4.4.2 Why It Matters</h3>
 <p>Optical pumping is more than a neat trick — it is a cornerstone of modern atomic physics. It is used to:</p>
 <ul>
 <li>Prepare well-defined quantum states for precision spectroscopy.<br>
