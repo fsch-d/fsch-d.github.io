@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Explore molecular rotation and vibration, the Born–Oppenheimer approximation, rigid rotors, Morse potentials, rovibrational coupling, and spectroscopy.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -634,7 +635,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 More than One Electron Atoms</span></a>
+ <span class="menu-text">6 Multi-Electron Atoms</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -864,10 +865,7 @@ window.Quarto = {
   <li><a href="#effect-of-rotation-on-the-effective-potential" id="toc-effect-of-rotation-on-the-effective-potential" class="nav-link" data-scroll-target="#effect-of-rotation-on-the-effective-potential">7.5.4.2 Effect of Rotation on the Effective Potential</a></li>
   <li><a href="#sec-speccons" id="toc-sec-speccons" class="nav-link" data-scroll-target="#sec-speccons">7.5.4.3 Spectroscopic Consequences</a></li>
   </ul></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a>
-  <ul class="collapse">
-  <li><a href="#typical-energy-scales" id="toc-typical-energy-scales" class="nav-link" data-scroll-target="#typical-energy-scales">Typical Energy Scales</a></li>
-  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -900,8 +898,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Having established how electronic states define the potential energy landscape of a molecule, we now turn to the <strong>motion of the nuclei</strong> within this landscape. While electrons adjust almost instantaneously to nuclear positions, the heavier nuclei move much more slowly — a separation of timescales that forms the basis of the <strong>Born–Oppenheimer approximation</strong>.</p>
 <p>This approximation allows us to treat the electrons and nuclei <strong>adiabatically</strong>: the electrons define an effective potential energy surface on which the nuclei move. Within this framework, molecular spectroscopy becomes a study of <strong>nuclear motion</strong> — rotations and vibrations — superimposed on the electronic structure.</p>
 <p>For diatomic molecules, these nuclear motions are especially transparent: the system reduces to a single <strong>internuclear coordinate</strong> <span class="math inline">\(R\)</span>, and the resulting dynamics explain the <strong>fine structure</strong> observed in molecular spectra. Rotational and vibrational energy levels reveal the geometry and stiffness of chemical bonds, providing a direct link between <strong>quantum mechanics and measurable molecular properties</strong>.</p>
@@ -925,12 +923,12 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="the-born-oppenheimer-approximation" class="level1">
-<h1>7.5.1. The Born-Oppenheimer Approximation</h1>
+<section id="the-born-oppenheimer-approximation" class="level2">
+<h2 class="anchored" data-anchor-id="the-born-oppenheimer-approximation">7.5.1. The Born-Oppenheimer Approximation</h2>
 <p>Understanding molecular vibrations and rotations requires us to solve the Schrödinger equation for a many-body system containing both electrons and nuclei. The complete quantum mechanical treatment of this problem is extremely complex, as all particles are coupled through Coulombic interactions. However, the large mass difference between electrons and nuclei (<span class="math inline">\(M_{\text{nucleus}}/m_e \sim 10^3\)</span>–<span class="math inline">\(10^5\)</span>) suggests a natural separation: electrons move much faster than nuclei and can adjust almost instantaneously to changes in nuclear positions. This physical insight forms the basis of the <strong>Born-Oppenheimer approximation</strong>, which allows us to treat electronic and nuclear motion separately. We first solve for the electronic structure at fixed nuclear geometries, and then use the resulting electronic energy as an effective potential governing nuclear motion.</p>
 <hr>
-<section id="the-complete-hamiltonian" class="level2">
-<h2 class="anchored" data-anchor-id="the-complete-hamiltonian">7.5.1.1 The Complete Hamiltonian</h2>
+<section id="the-complete-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="the-complete-hamiltonian">7.5.1.1 The Complete Hamiltonian</h3>
 <p>The complete molecular Hamiltonian describes both electronic and nuclear degrees of freedom. We can write it as:</p>
 <p><span class="math display">\[\hat{H} = \hat{H}_0 + \hat{T}_N\]</span></p>
 <p>where <span class="math inline">\(\hat{H}_0\)</span> is the electronic Hamiltonian (including nuclear-nuclear repulsion) and <span class="math inline">\(\hat{T}_N\)</span> is the kinetic energy operator for the nuclei.</p>
@@ -943,8 +941,8 @@ window.Quarto = {
 <p>Since nuclear masses are much larger than the electron mass (<span class="math inline">\(M_k \gg m_e\)</span>, typically by a factor of <span class="math inline">\(10^3\)</span> to <span class="math inline">\(10^5\)</span>), the <span class="math inline">\(\hat{T}_N\)</span> term represents a small perturbation to the electronic problem. This mass difference is the physical basis for treating nuclear and electronic motion separately.</p>
 <hr>
 </section>
-<section id="the-born-oppenheimer-ansatz" class="level2">
-<h2 class="anchored" data-anchor-id="the-born-oppenheimer-ansatz">7.5.1.2 The Born-Oppenheimer Ansatz</h2>
+<section id="the-born-oppenheimer-ansatz" class="level3">
+<h3 class="anchored" data-anchor-id="the-born-oppenheimer-ansatz">7.5.1.2 The Born-Oppenheimer Ansatz</h3>
 <p>We have already employed a separation of variables approach when solving for electronic wavefunctions—we separated the electronic coordinates from the nuclear coordinates by treating the nuclei as fixed. The Born-Oppenheimer approximation formalizes this idea by writing the total wavefunction as a product:</p>
 <p><span class="math display">\[\Psi(\vec{r}_i, \vec{R}_k) = \chi(\vec{R}_k) \cdot \Phi(\vec{r}_i, \vec{R}_k)\]</span></p>
 <p>where:<br>
@@ -956,8 +954,8 @@ window.Quarto = {
 <p><strong>Key assumption:</strong> Electrons move much faster than nuclei (due to their much smaller mass), and they adjust essentially instantaneously to changes in the nuclear configuration. This implies that electronic and nuclear motions can be treated as independent to a good approximation, and their coupling can be neglected. In other words, vibrations and rotations do not induce transitions between different electronic states (non-adiabatic effects are neglected).</p>
 <hr>
 </section>
-<section id="the-effective-nuclear-schrödinger-equation" class="level2">
-<h2 class="anchored" data-anchor-id="the-effective-nuclear-schrödinger-equation">7.5.1.3 The Effective Nuclear Schrödinger Equation</h2>
+<section id="the-effective-nuclear-schrödinger-equation" class="level3">
+<h3 class="anchored" data-anchor-id="the-effective-nuclear-schrödinger-equation">7.5.1.3 The Effective Nuclear Schrödinger Equation</h3>
 <p>To derive the equations governing electronic and nuclear motion, we substitute the Born-Oppenheimer ansatz into the time-independent Schrödinger equation:</p>
 <p><span class="math display">\[\hat{H}\Psi = E\Psi\]</span></p>
 <p><span class="math display">\[(\hat{H}_0 + \hat{T}_N)[\chi(\vec{R}_k) \Phi(\vec{r}_i, \vec{R}_k)] = E\,\chi(\vec{R}_k) \Phi(\vec{r}_i, \vec{R}_k)\]</span></p>
@@ -965,7 +963,7 @@ window.Quarto = {
 <p><span class="math display">\[-\frac{\hbar^2}{2M_k}\nabla_k^2[\chi \Phi] = -\frac{\hbar^2}{2M_k}[\underbrace{(\nabla_k^2\chi)\Phi}_{\text{Term I}} + \underbrace{2(\nabla_k\chi)\cdot(\nabla_k\Phi)}_{\text{Term II}} + \underbrace{\chi(\nabla_k^2\Phi)}_{\text{Term III}}]\]</span></p>
 <p>The Born-Oppenheimer approximation consists of neglecting the last two terms, which represent the coupling between nuclear and electronic motion. These terms are small because <span class="math inline">\(\Phi\)</span> varies slowly with nuclear coordinates (the electrons adjust adiabatically). Thus:</p>
 <p><span class="math display">\[\hat{T}_N[\chi \Phi] \approx [\hat{T}_N\chi]\Phi\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Why can Terms II and III be neglected? A quantitative justification">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -986,7 +984,7 @@ window.Quarto = {
 <p>The first argument establishes a hierarchy of characteristic energy scales. The second explains when this hierarchy allows us to neglect nonadiabatic transitions.</p>
 <section id="the-three-terms-in-the-bornoppenheimer-ansatz" class="level3">
 <h3 class="anchored" data-anchor-id="the-three-terms-in-the-bornoppenheimer-ansatz">1. The three terms in the Born–Oppenheimer ansatz</h3>
-<p>Recall the product ansatz introduced above:</p>
+<p>Recall the product ansatz introduced above: , how to estimate their resource needs, and how to design jobs that request only the necessary resources. No registration, prerequisites, or prior experience are required, making it a great opportunity for those looking to get started. There is no registration required to attend.</p>
 <p><span class="math display">\[
 \Psi(\vec r_i,\vec R_k)
 =
@@ -1516,8 +1514,8 @@ E_{nJ=0}\,u(R).
 <hr>
 </section>
 </section>
-<section id="separation-of-vibrational-and-rotational-motion-the-diatomic-case" class="level2">
-<h2 class="anchored" data-anchor-id="separation-of-vibrational-and-rotational-motion-the-diatomic-case">7.5.1.4 Separation of Vibrational and Rotational Motion: The Diatomic Case</h2>
+<section id="separation-of-vibrational-and-rotational-motion-the-diatomic-case" class="level3">
+<h3 class="anchored" data-anchor-id="separation-of-vibrational-and-rotational-motion-the-diatomic-case">7.5.1.4 Separation of Vibrational and Rotational Motion: The Diatomic Case</h3>
 <p>For a diatomic molecule, we can further separate the nuclear motion into vibrational and rotational components. Let us denote the internuclear distance as <span class="math inline">\(R = |\vec{R}_2 - \vec{R}_1|\)</span> and introduce center-of-mass and relative coordinates.</p>
 <p>The nuclear kinetic energy operator for a diatomic molecule can be written in terms of the reduced mass <span class="math inline">\(\mu = \frac{M_1 M_2}{M_1 + M_2}\)</span>:</p>
 <p><span class="math display">\[\hat{T}_N = -\frac{\hbar^2}{2\mu}\nabla^2\]</span></p>
@@ -1552,10 +1550,10 @@ E_{nJ=0}\,u(R).
 </section>
 </section>
 </section>
-<section id="molecular-rotation-the-rigid-rotor" class="level1">
-<h1>7.5.2. Molecular Rotation: The Rigid Rotor</h1>
+<section id="molecular-rotation-the-rigid-rotor" class="level2">
+<h2 class="anchored" data-anchor-id="molecular-rotation-the-rigid-rotor">7.5.2. Molecular Rotation: The Rigid Rotor</h2>
 <p>The final step in the Born-Oppenheimer approximation for diatomic molecules, as shown in the previous section, is the separation of the nuclear motion into vibrational (radial) and rotational (angular) components. We now proceed to simplify and solve the angular part of the nuclear Schrödinger equation by employing the <strong>rigid rotor approximation</strong>.</p>
-<div id="6c781930" class="cell" data-execution_count="1">
+<div id="77bc0ccd" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1672,8 +1670,8 @@ E_{nJ=0}\,u(R).
 </div>
 </div>
 <hr>
-<section id="rotational-energy-levels" class="level2">
-<h2 class="anchored" data-anchor-id="rotational-energy-levels">7.5.2.1 Rotational Energy Levels</h2>
+<section id="rotational-energy-levels" class="level3">
+<h3 class="anchored" data-anchor-id="rotational-energy-levels">7.5.2.1 Rotational Energy Levels</h3>
 <p>From the previous section, we saw that the nuclear Hamiltonian for a diatomic molecule (see <a href="#eq-nuclhamil" class="quarto-xref">Equation&nbsp;1</a>) contains the term:</p>
 <p><span class="math display">\[\hat{H}_{\text{rot}} = \frac{\hat{L}^2}{2\mu R^2}\]</span></p>
 <p>which represents the rotational kinetic energy. In the <strong>rigid rotor approximation</strong>, we assume that the molecule does not vibrate, i.e., the internuclear distance <span class="math inline">\(R\)</span> is fixed at its equilibrium value <span class="math inline">\(R_e\)</span>. This decouples rotation from vibration and allows us to treat the rotational problem independently.</p>
@@ -1693,9 +1691,9 @@ E_{nJ=0}\,u(R).
 <p>Typical values of the rotational constant <span class="math inline">\(B\)</span> are in the range of <span class="math inline">\(10^{-4}\)</span> to <span class="math inline">\(10^{-2}\)</span> eV, corresponding to rotational transition energies in the <strong>microwave and far-infrared region</strong> (wavelengths <span class="math inline">\(\sim 10^{-5}\)</span> to <span class="math inline">\(10^{-1}\)</span> m). This is much smaller than vibrational energies (<span class="math inline">\(\sim 0.1\)</span>–<span class="math inline">\(0.5\)</span> eV) and electronic energies (<span class="math inline">\(\sim 1\)</span>–<span class="math inline">\(10\)</span> eV).</p>
 <hr>
 </section>
-<section id="nuclear-spin-statistics-in-homonuclear-molecules" class="level2">
-<h2 class="anchored" data-anchor-id="nuclear-spin-statistics-in-homonuclear-molecules">7.5.2.2 Nuclear Spin Statistics in Homonuclear Molecules</h2>
-<p>For homonuclear diatomic molecules, an constraint arises from the symmetry properties of identical nuclei. Consider the example of H<span class="math inline">\(_2\)</span>, where both nuclei are protons.</p>
+<section id="nuclear-spin-statistics-in-homonuclear-molecules" class="level3">
+<h3 class="anchored" data-anchor-id="nuclear-spin-statistics-in-homonuclear-molecules">7.5.2.2 Nuclear Spin Statistics in Homonuclear Molecules</h3>
+<p>For homonuclear diatomic molecules, a constraint arises from the symmetry properties of identical nuclei. Consider the example of H<span class="math inline">\(_2\)</span>, where both nuclei are protons.</p>
 <p>Protons are fermions with spin <span class="math inline">\(I = 1/2\)</span>. The Pauli exclusion principle requires that the total wavefunction (including nuclear spin) must be <strong>antisymmetric</strong> under exchange of the two identical nuclei.</p>
 <section id="spin-exchange-symmetry" class="level4">
 <h4 class="anchored" data-anchor-id="spin-exchange-symmetry">Spin exchange symmetry:</h4>
@@ -1725,8 +1723,8 @@ E_{nJ=0}\,u(R).
 <hr>
 </section>
 </section>
-<section id="rotational-degrees-of-freedom-in-diatomic-molecules" class="level2">
-<h2 class="anchored" data-anchor-id="rotational-degrees-of-freedom-in-diatomic-molecules">7.5.2.3 Rotational Degrees of Freedom in Diatomic Molecules</h2>
+<section id="rotational-degrees-of-freedom-in-diatomic-molecules" class="level3">
+<h3 class="anchored" data-anchor-id="rotational-degrees-of-freedom-in-diatomic-molecules">7.5.2.3 Rotational Degrees of Freedom in Diatomic Molecules</h3>
 <p>A diatomic molecule has only <strong>two rotational degrees of freedom</strong>, corresponding to rotations about axes perpendicular to the internuclear axis. To understand this, consider the molecular axis as the <span class="math inline">\(z\)</span>-axis:</p>
 <ul>
 <li><p><strong>Rotations about the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axes</strong>: These change the orientation of the molecule in space and correspond to genuine rotational motion with significant moment of inertia <span class="math inline">\(I = \mu R_e^2\)</span>.</p></li>
@@ -1734,12 +1732,12 @@ E_{nJ=0}\,u(R).
 </ul>
 <p>When electronic angular momentum is present (in electronically excited states), the rotational situation becomes more complex. Electronic motion can be thought of as occurring <strong>“around” the molecular axis</strong> (the <span class="math inline">\(z\)</span>-axis in the molecular frame), characterized by the quantum number <strong><span class="math inline">\(\Lambda\)</span></strong> (the projection of the electronic orbital angular momentum onto the molecular axis). This electronic rotation is <strong>carried along</strong> when the molecule rotates, contributing energy to the total angular motion. The total angular momentum, <span class="math inline">\(\vec{J}\)</span>, is the vector sum of the nuclear rotational angular momentum (<span class="math inline">\(\vec{N}\)</span>, from the rotation of the nuclear framework) and the electronic angular momentum.</p>
 <ul>
-<li><strong>For <span class="math inline">\(\Sigma\)</span> states (<span class="math inline">\(\Lambda = 0\)</span>):</strong> There is no electronic rotation about the axis. The total angular momentum <span class="math inline">\(\vec{J}\)</span> is simply equal to the nuclear rotational angular momentum <span class="math inline">\(\vec{N}\)</span> (<span class="math inline">\(\mathbf{J=N}\)</span>), and the simple <span class="math inline">\(E_J = B J(J+1)\)</span> treatment applies directly.<br>
+<li><strong>For singlet <span class="math inline">\(\Sigma\)</span> states (<span class="math inline">\(\Lambda = 0\)</span>, <span class="math inline">\(S = 0\)</span>):</strong> There is no electronic rotation about the axis. The total angular momentum <span class="math inline">\(\vec{J}\)</span> is simply equal to the nuclear rotational angular momentum (<span class="math inline">\(\vec{J} = \vec{N}\)</span>), and the simple <span class="math inline">\(E_J = B J(J+1)\)</span> treatment applies directly.<br>
 </li>
 <li><strong>For states with <span class="math inline">\(\Lambda &gt; 0\)</span> (e.g., <span class="math inline">\(\Pi\)</span> states):</strong> The persistent electronic angular momentum <span class="math inline">\(\Lambda\)</span> is coupled to <span class="math inline">\(\vec{N}\)</span>. This coupling <strong>lifts the rotational ground state</strong> and forces the rotational quantum number <span class="math inline">\(J\)</span> to start from <span class="math inline">\(J = \Lambda, \Lambda+1, \Lambda+2, \dots\)</span> (instead of <span class="math inline">\(J=0\)</span>), effectively adding the electronic energy contribution into the molecular rotation.</li>
 </ul>
 <p>This vector coupling of electronic and nuclear angular momenta is described by <strong>Hund’s coupling cases</strong> (a-e).</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="💡 Thermodynamics: Rotational Energy and Equipartition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1761,22 +1759,22 @@ E_{nJ=0}\,u(R).
 </div>
 <hr>
 </section>
-<section id="centrifugal-distortion" class="level2">
-<h2 class="anchored" data-anchor-id="centrifugal-distortion">7.5.2.4 Centrifugal Distortion</h2>
+<section id="centrifugal-distortion" class="level3">
+<h3 class="anchored" data-anchor-id="centrifugal-distortion">7.5.2.4 Centrifugal Distortion</h3>
 <p>The rigid rotor approximation breaks down at high rotational quantum numbers. As <span class="math inline">\(J\)</span> increases, the centrifugal force stretches the bond, increasing the moment of inertia <span class="math inline">\(I\)</span> and decreasing the rotational constant. This leads to a <strong>centrifugal distortion correction</strong>:</p>
 <p><span class="math display">\[E_{\text{rot}}(J) = BJ(J+1) - D_J [J(J+1)]^2\]</span></p>
 <p>where <span class="math inline">\(D_J\)</span> is the centrifugal distortion constant, typically much smaller than <span class="math inline">\(B\)</span> (by a factor of <span class="math inline">\(\sim 10^{-3}\)</span> to <span class="math inline">\(10^{-6}\)</span>). This correction becomes significant only for high <span class="math inline">\(J\)</span> values and is important for precision spectroscopy.</p>
 <hr>
 </section>
 </section>
-<section id="molecular-vibration" class="level1">
-<h1>7.5.3. Molecular Vibration</h1>
+<section id="molecular-vibration" class="level2">
+<h2 class="anchored" data-anchor-id="molecular-vibration">7.5.3. Molecular Vibration</h2>
 <p>From Section 7.5.1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule: <span class="math display">\[\left[-\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2} + \frac{J(J+1)\hbar^2}{2\mu R^2} + E_n^{el}(R)\right]u(R) = E_{nJ}\,u(R)\]</span></p>
 <p>This equation describes the vibrational motion in the effective potential: <span class="math display">\[V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}\]</span></p>
 <p>The first term is the electronic potential energy surface, and the second is the centrifugal potential arising from rotation. There is no general analytical solution to this equation because it depends on the specific form of <span class="math inline">\(E_n^{el}(R)\)</span>. However, analytical solutions exist for certain approximations to the potential energy curve. We will examine two key analytical models: the <strong>Harmonic Oscillator</strong> and the more realistic <strong>Morse Potential</strong>.</p>
 <hr>
-<section id="the-harmonic-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="the-harmonic-approximation">7.5.3.1 The Harmonic Approximation</h2>
+<section id="the-harmonic-approximation" class="level3">
+<h3 class="anchored" data-anchor-id="the-harmonic-approximation">7.5.3.1 The Harmonic Approximation</h3>
 <p>Near the equilibrium distance <span class="math inline">\(R_e\)</span>, we can expand the electronic potential energy in a Taylor series. Since <span class="math inline">\(E_n^{el}(R)\)</span> has a minimum at <span class="math inline">\(R_e\)</span>, the first derivative vanishes and we obtain:</p>
 <p><span class="math display">\[E_n^{el}(R) \approx E_n^{el}(R_e) + \frac{1}{2}k(R - R_e)^2 + \mathcal{O}[(R-R_e)^3]\]</span></p>
 <p>where <span class="math inline">\(k = \left.\frac{d^2 E_n^{el}}{dR^2}\right|_{R=R_e}\)</span> is the <strong>force constant</strong>. This is the <strong>harmonic oscillator approximation</strong>.</p>
@@ -1797,8 +1795,8 @@ E_{nJ=0}\,u(R).
 <p>The harmonic approximation works well for low vibrational levels but fails at higher energies where anharmonic effects become important and eventually as the molecule approaches dissociation.</p>
 <hr>
 </section>
-<section id="the-morse-potential" class="level2">
-<h2 class="anchored" data-anchor-id="the-morse-potential">7.5.3.2 The Morse Potential</h2>
+<section id="the-morse-potential" class="level3">
+<h3 class="anchored" data-anchor-id="the-morse-potential">7.5.3.2 The Morse Potential</h3>
 <p>A more realistic description of molecular vibrations includes <strong>anharmonicity</strong>—the fact that the potential energy curve is not perfectly parabolic. As the bond stretches, it becomes easier to stretch further (the restoring force weakens), and eventually the molecule dissociates when <span class="math inline">\(R \to \infty\)</span>.</p>
 <p>The <strong>Morse potential</strong> provides an excellent analytical model that captures these features:</p>
 <p><span class="math display">\[V_{\text{Morse}}(R) = E_B\left[1 - e^{-a(R-R_e)}\right]^2\]</span></p>
@@ -1827,7 +1825,7 @@ E_{nJ=0}\,u(R).
 <p>The Morse potential provides an excellent description of real molecular potentials for most diatomic molecules, especially for vibrational levels up to dissociation. It is widely used in molecular spectroscopy to analyze vibrational structure.</p>
 <hr>
 <p>The figure below visually contrasts the Morse potential and the Harmonic approximation potential energy curves for a diatomic molecule. The blue solid line represents the Morse potential, which is asymmetric and flattens out to a Dissociation Limit as the internuclear distance (<span class="math inline">\(R\)</span>) increases. The blue horizontal lines show the Morse vibrational energy levels, demonstrating the effect of anharmonicity: the spacing between adjacent levels decreases as the vibrational quantum number <span class="math inline">\(v\)</span> increases. In contrast, the red dashed line (Harmonic approximation) is a perfect parabola, and its corresponding energy levels (red dashed horizontal lines) are equally spaced and incorrectly extend indefinitely beyond the true dissociation limit. The figure also clarifies the difference between the binding energy (<span class="math inline">\(E_B\)</span>) at the potential minimum and the spectroscopic dissociation energy (<span class="math inline">\(D_0\)</span>) measured from the zero-point energy (<span class="math inline">\(v=0\)</span>).</p>
-<div id="f5ee798d" class="cell" data-execution_count="2">
+<div id="480f3115" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1983,13 +1981,13 @@ E_{nJ=0}\,u(R).
 <hr>
 </section>
 </section>
-<section id="coupling-between-rotation-and-vibration" class="level1">
-<h1>7.5.4. Coupling Between Rotation and Vibration</h1>
+<section id="coupling-between-rotation-and-vibration" class="level2">
+<h2 class="anchored" data-anchor-id="coupling-between-rotation-and-vibration">7.5.4. Coupling Between Rotation and Vibration</h2>
 <p>In our treatment so far, we have largely treated rotation and vibration as independent degrees of freedom. However, in reality, these motions are <strong>coupled</strong>, leading to a continuous exchange of energy between them in a vibrating molecule.</p>
 <p>The total energy of the molecule (excluding electronic and translational components) can be written as the sum of the two distinct quantized motions:</p>
 <p><span class="math display">\[E_{\text{nJ}} \approx E_{\text{vib}}(v) + E_{\text{rot}}(J)\]</span></p>
 <p>The reason this approximation breaks down is that the <strong>moment of inertia (<span class="math inline">\(I\)</span>)</strong> depends on the instantaneous internuclear distance <span class="math inline">\(R(t)\)</span>, which varies during vibration. As the bond stretches (vibrates), the moment of inertia changes, thus directly affecting the rotational energy. Conversely, rotation imposes a centrifugal force that affects the effective vibrational potential. This interdependent relationship constitutes the <strong>rovibrational coupling</strong>.</p>
-<div id="32971467" class="cell" data-execution_count="3">
+<div id="b79fbd93" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -2127,19 +2125,21 @@ E_{nJ=0}\,u(R).
 </div>
 </div>
 <hr>
-<section id="effect-of-vibration-on-rotational-energy" class="level2">
-<h2 class="anchored" data-anchor-id="effect-of-vibration-on-rotational-energy">7.5.4.1 Effect of Vibration on Rotational Energy</h2>
+<section id="effect-of-vibration-on-rotational-energy" class="level3">
+<h3 class="anchored" data-anchor-id="effect-of-vibration-on-rotational-energy">7.5.4.1 Effect of Vibration on Rotational Energy</h3>
 <p>During vibration, the internuclear distance oscillates around the equilibrium value <span class="math inline">\(R_e\)</span>. Since the rotational energy depends on the moment of inertia <span class="math inline">\(I = \mu R^2\)</span>, the rotational energy varies with the vibrational motion:</p>
 <p><span class="math display">\[E_{\text{rot}} = \frac{J(J+1)\hbar^2}{2\mu R^2}\]</span></p>
 <p>As shown in the figure, when the molecule is compressed (<span class="math inline">\(R &lt; R_e\)</span>), the moment of inertia decreases and the rotational energy increases. Conversely, when the molecule is stretched (<span class="math inline">\(R &gt; R_e\)</span>), the moment of inertia increases and the rotational energy decreases.</p>
-<p>The <strong>time-averaged</strong> value of <span class="math inline">\(\langle R^{-2} \rangle\)</span> over a vibrational period is not equal to <span class="math inline">\(R_e^{-2}\)</span>. Due to the anharmonicity of the potential, the molecule spends more time at larger values of <span class="math inline">\(R\)</span>, leading to:</p>
-<p><span class="math display">\[\left\langle \frac{1}{R^2} \right\rangle \approx \frac{1}{R_e^2} - \frac{1}{R_e^4}\langle (R-R_e)^2 \rangle\]</span></p>
+<p>The <strong>time-averaged</strong> value of <span class="math inline">\(\langle R^{-2} \rangle\)</span> over a vibrational period is not equal to <span class="math inline">\(R_e^{-2}\)</span>. Due to the anharmonicity of the potential, the molecule spends more time at larger values of <span class="math inline">\(R\)</span>, leading to an effective bond length defined by</p>
+<p><span class="math display">\[
+R_{\mathrm{eff}} = \left\langle \frac{1}{R^2} \right\rangle^{-1/2}
+\]</span></p>
 <p>This results in an <strong>effective rotational constant</strong> that depends on the vibrational quantum number:</p>
 <p><span class="math display">\[B_v = B_e - \alpha_e\left(v + \frac{1}{2}\right)\]</span></p>
 <p>where <span class="math inline">\(B_e = \frac{\hbar^2}{2\mu R_e^2}\)</span> is the rotational constant at equilibrium, and <span class="math inline">\(\alpha_e &gt; 0\)</span> is the vibration-rotation coupling constant. Generally, <span class="math inline">\(\alpha_e \sim 0.01 B_e\)</span>.</p>
 <p><strong>Physical interpretation:</strong> As the vibrational quantum number <span class="math inline">\(v\)</span> increases, the average bond length increases due to the anharmonicity of the potential. This increases the average moment of inertia and decreases the effective rotational constant. Consequently, <strong>rovibrational energy levels depend on both <span class="math inline">\(v\)</span> and <span class="math inline">\(J\)</span></strong>.</p>
 <p>The physical effect described by the <span class="math inline">\(\alpha_e\)</span> term can be visualized by examining the quantum mechanical properties of the vibrating molecule. The figure below plots the Morse potential and the calculated wavefunctions for several vibrational states, <span class="math inline">\(v\)</span>. The red circles mark the effective bond length <span class="math inline">\(R_{\text{eff}} = \langle R^{-2} \rangle^{-1/2}\)</span> for each level. This visualization demonstrates that as <span class="math inline">\(v\)</span> increases, the probability density shifts toward larger internuclear distances, causing <span class="math inline">\(R_{\text{eff}}\)</span> to increase significantly and resulting in a smaller rotational constant <span class="math inline">\(B_v\)</span>.</p>
-<div id="dd4f216e" class="cell" data-execution_count="4">
+<div id="21f1304f" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -2362,11 +2362,11 @@ E_{nJ=0}\,u(R).
 </div>
 <hr>
 </section>
-<section id="effect-of-rotation-on-the-effective-potential" class="level2">
-<h2 class="anchored" data-anchor-id="effect-of-rotation-on-the-effective-potential">7.5.4.2 Effect of Rotation on the Effective Potential</h2>
+<section id="effect-of-rotation-on-the-effective-potential" class="level3">
+<h3 class="anchored" data-anchor-id="effect-of-rotation-on-the-effective-potential">7.5.4.2 Effect of Rotation on the Effective Potential</h3>
 <p>The centrifugal force arising from rotation modifies the effective potential experienced during vibration. The <strong>rotational barrier</strong> adds a term to the potential:</p>
 <p><span class="math display">\[V_{\text{eff}}(R) = E_n^{el}(R) + \frac{J(J+1)\hbar^2}{2\mu R^2}\]</span></p>
-<div id="31a1f420" class="cell" data-execution_count="5">
+<div id="6bb5a902" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2476,8 +2476,8 @@ E_{nJ=0}\,u(R).
 - A <span class="math inline">\(J\)</span>-dependent effective potential that can limit the number of bound states at high angular momentum</p>
 <hr>
 </section>
-<section id="sec-speccons" class="level2">
-<h2 class="anchored" data-anchor-id="sec-speccons">7.5.4.3 Spectroscopic Consequences</h2>
+<section id="sec-speccons" class="level3">
+<h3 class="anchored" data-anchor-id="sec-speccons">7.5.4.3 Spectroscopic Consequences</h3>
 <p>The coupling between rotation and vibration has important consequences for molecular spectroscopy. If the Morse potential description is valid, the rovibrational energies can be expressed using five molecular constants:</p>
 <p><span class="math display">\[E(v,J) = T_e + \hbar\omega_e\left(v + \frac{1}{2}\right) - \hbar\omega_e\chi_e\left(v + \frac{1}{2}\right)^2 + B_v J(J+1) - D_J[J(J+1)]^2\]</span></p>
 <p>where:<br>
@@ -2496,8 +2496,8 @@ E_{nJ=0}\,u(R).
 <hr>
 </section>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key Takeaways</h1>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
 <li><p>The <strong>Born–Oppenheimer approximation</strong> exploits the large mass difference between nuclei and electrons to separate their motions. Electrons adjust almost instantaneously to the nuclear configuration, defining <strong>potential energy surfaces</strong> on which the nuclei move.</p></li>
 <li><p>The <strong>electronic Schrödinger equation</strong> yields potential energy curves <span class="math inline">\(E^{el}(R)\)</span> that serve as <strong>effective potentials</strong> for the nuclear motion. The resulting <strong>nuclear Schrödinger equation</strong> describes vibrations and rotations on these surfaces.</p></li>
@@ -2514,8 +2514,8 @@ Real molecules exhibit <strong>anharmonic corrections</strong> that lead to uneq
 <li><p><strong>Nuclear spin statistics</strong> determine which rotational levels are allowed for homonuclear molecules, leading to the familiar <strong>ortho–para forms</strong> (e.g., ortho- and para-hydrogen).</p></li>
 </ul>
 <hr>
-<section id="typical-energy-scales" class="level3">
-<h3 class="anchored" data-anchor-id="typical-energy-scales">Typical Energy Scales</h3>
+<section id="typical-energy-scales" class="level4">
+<h4 class="anchored" data-anchor-id="typical-energy-scales">Typical Energy Scales</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">

@@ -101,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Explore helium and hydrogen-like ions, electron repulsion, the limits of exact solutions, and first-order perturbation theory for atomic energies.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -346,7 +347,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod6/index.html">6 More than One Electron Atoms</a></li><li class="breadcrumb-item"><a href="../mod6/helium.html">6.1 Helium (Basics)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod6/index.html">6 Multi-Electron Atoms</a></li><li class="breadcrumb-item"><a href="../mod6/helium.html">6.1 Helium (Basics)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -592,7 +593,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 More than One Electron Atoms</span></a>
+ <span class="menu-text">6 Multi-Electron Atoms</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -820,7 +821,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod6/index.html">6 More than One Electron Atoms</a></li><li class="breadcrumb-item"><a href="../mod6/helium.html">6.1 Helium (Basics)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mod6/index.html">6 Multi-Electron Atoms</a></li><li class="breadcrumb-item"><a href="../mod6/helium.html">6.1 Helium (Basics)</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">6.1 Helium (Basics)</h1>
 </div>
@@ -845,17 +846,17 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Helium <span class="math inline">\((Z=2)\)</span> provides our first look beyond hydrogen. After mastering the hydrogen atom, you might think that adding just one more electron would be a straightforward extension. However, as we’ll see, even this seemingly small step introduces fundamental challenges that will shape our understanding of all multi-electron atoms.</p>
 <p>In this chapter, we’ll start with the helium ion (He<span class="math inline">\(^+\)</span>), which we can solve exactly, and then tackle neutral helium, where we’ll encounter the limitations of our current methods. This journey will help us appreciate why approximate methods are not just convenient, but absolutely necessary in atomic physics.</p>
 </section>
-<section id="the-he-ion" class="level1">
-<h1>6.1.1. The He<span class="math inline">\(^+\)</span> Ion</h1>
+<section id="the-he-ion" class="level2">
+<h2 class="anchored" data-anchor-id="the-he-ion">6.1.1. The He<span class="math inline">\(^+\)</span> Ion</h2>
 <p>We begin with the <strong>helium ion</strong> (He<span class="math inline">\(^+\)</span>), which has lost one of its two electrons and therefore has only a single electron orbiting the nucleus. This makes it hydrogen-like, meaning we can use everything we learned about hydrogen with just a minor modification.</p>
 <p>The key insight is that for ions with only one electron, we can directly apply the hydrogen atom solutions that we have derived previously. The only change needed is to account for the fact that the nucleus now has a charge of <span class="math inline">\(+2e\)</span> instead of <span class="math inline">\(+e\)</span>. Mathematically, this means replacing <span class="math inline">\(e^2 \to Ze^2\)</span> throughout all hydrogen equations, where <span class="math inline">\(Z=2\)</span> for helium.</p>
-<section id="energy-levels" class="level2">
-<h2 class="anchored" data-anchor-id="energy-levels">6.1.1.1 Energy levels</h2>
+<section id="energy-levels" class="level3">
+<h3 class="anchored" data-anchor-id="energy-levels">6.1.1.1 Energy levels</h3>
 <p>Let’s see how this works for the energy levels. Recall that for hydrogen, we derived: <span class="math display">\[
 E_n = -\frac{m_e}{2\hbar^2}\left(\frac{e^2}{4\pi\epsilon_0}\right)^2 \frac{1}{n^2}
 \]</span></p>
@@ -869,7 +870,7 @@ E_n = -13.6\,\text{eV} \cdot \frac{Z^2}{n^2}
 E_1 = -13.6 \times 4\,\text{eV} = -54.4\,\text{eV}
 \]</span></p>
 <p>This is four times deeper than hydrogen’s ground state of <span class="math inline">\(-13.6\)</span> eV. The electron is bound much more tightly because it feels the full attraction of two protons in the nucleus.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Reminder: Energy units in atomic physics">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -883,8 +884,8 @@ E_1 = -13.6 \times 4\,\text{eV} = -54.4\,\text{eV}
 </div>
 </div>
 </section>
-<section id="bohr-radius" class="level2">
-<h2 class="anchored" data-anchor-id="bohr-radius">6.1.1.2 Bohr radius</h2>
+<section id="bohr-radius" class="level3">
+<h3 class="anchored" data-anchor-id="bohr-radius">6.1.1.2 Bohr radius</h3>
 <p>The stronger nuclear attraction also affects the size of the electron’s orbit. The Bohr radius, which characterizes the typical distance of the electron from the nucleus, also scales with nuclear charge.</p>
 <p>For <strong>hydrogen</strong>, recall: <span class="math display">\[
 a_0 = \frac{4\pi\epsilon_0\hbar^2}{m_e e^2} \approx 0.529\,\text{Å}
@@ -894,8 +895,8 @@ a = \frac{4\pi\epsilon_0\hbar^2}{m_e Ze^2} = \frac{a_0}{Z}
 \]</span></p>
 <p>For helium (<span class="math inline">\(Z=2\)</span>), the electron orbit is compressed to half the hydrogen size. This makes physical sense: the stronger nuclear charge pulls the electron closer. The electron cloud in He<span class="math inline">\(^+\)</span> is much more compact than in hydrogen.</p>
 </section>
-<section id="wave-functions" class="level2">
-<h2 class="anchored" data-anchor-id="wave-functions">6.1.1.3 Wave functions</h2>
+<section id="wave-functions" class="level3">
+<h3 class="anchored" data-anchor-id="wave-functions">6.1.1.3 Wave functions</h3>
 <p>The wave functions for hydrogenic ions follow the same functional form as hydrogen, but with the scaled Bohr radius <span class="math inline">\(a = a_0/Z\)</span>. This reflects both the tighter binding and the smaller orbital size.</p>
 <p>For the <strong>hydrogen ground state</strong>, we had: <span class="math display">\[
 \psi_{100} = \frac{1}{\sqrt{\pi a_0^3}} e^{-r/a_0}
@@ -911,12 +912,12 @@ a = \frac{4\pi\epsilon_0\hbar^2}{m_e Ze^2} = \frac{a_0}{Z}
 <hr>
 </section>
 </section>
-<section id="the-neutral-helium-atom" class="level1">
-<h1>6.1.2. The Neutral Helium Atom</h1>
+<section id="the-neutral-helium-atom" class="level2">
+<h2 class="anchored" data-anchor-id="the-neutral-helium-atom">6.1.2. The Neutral Helium Atom</h2>
 <p>Now we consider <strong>neutral helium</strong> with <strong>two electrons</strong>. You might think we could just put two electrons into the ground state and be done with it. However, there’s a complication: the two electrons repel each other. This electron-electron repulsion changes everything and makes the problem impossible to solve exactly.</p>
 <p>This is a watershed moment in atomic physics. With hydrogen and hydrogen-like ions, we could write down exact solutions. With helium, we encounter the first system that forces us to approximate.</p>
-<section id="the-hamiltonian" class="level2">
-<h2 class="anchored" data-anchor-id="the-hamiltonian">6.1.2.1 The Hamiltonian</h2>
+<section id="the-hamiltonian" class="level3">
+<h3 class="anchored" data-anchor-id="the-hamiltonian">6.1.2.1 The Hamiltonian</h3>
 <p>Let’s write down the full Hamiltonian for neutral helium and see what we’re up against. We need to include:<br>
 - The kinetic energy of both electrons<br>
 - The potential energy of each electron due to the nucleus<br>
@@ -933,8 +934,8 @@ a = \frac{4\pi\epsilon_0\hbar^2}{m_e Ze^2} = \frac{a_0}{Z}
 <p>The problem is that last term: <span class="math inline">\(|\vec{r}_1 - \vec{r}_2|\)</span> is the distance between the two electrons, and it couples the motion of the two particles. This term prevents us from separating the Schrödinger equation into two independent one-electron problems. The electrons are entangled—where one electron is affects where the other can be, and vice versa.</p>
 <p>It is important to recognize that no exact analytical solution exists for the helium atom. This is not due to insufficient mathematical sophistication, but rather reflects a fundamental property of systems with multiple interacting particles. If the two-electron problem defies exact solution, the situation for heavier atoms—with their many-body interactions—is considerably more challenging. The need for systematic approximation methods thus emerges as a central theme in atomic and molecular physics.</p>
 </section>
-<section id="zeroth-order-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="zeroth-order-approximation">6.1.2.2 Zeroth-order approximation</h2>
+<section id="zeroth-order-approximation" class="level3">
+<h3 class="anchored" data-anchor-id="zeroth-order-approximation">6.1.2.2 Zeroth-order approximation</h3>
 <p>Let’s make the simplest possible approximation: what if we just ignore the electron-electron repulsion? This is obviously unphysical, but it will give us a baseline to compare against.</p>
 <p>If we <strong>ignore the electron repulsion term</strong>, the Hamiltonian separates into two independent hydrogen-like problems, one for each electron: <span class="math display">\[
 \psi(\vec{r}_1, \vec{r}_2) = \psi_{\text{H-like}}(\vec{r}_1) \psi_{\text{H-like}}(\vec{r}_2)
@@ -946,47 +947,47 @@ a = \frac{4\pi\epsilon_0\hbar^2}{m_e Ze^2} = \frac{a_0}{Z}
 E_{100} = 2 \times (-54.4\,\text{eV}) = -108.8\,\text{eV} \approx -109\,\text{eV}
 \]</span></p>
 </section>
-<section id="comparison-with-experiment" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-with-experiment">6.1.2.3 Comparison with experiment</h2>
+<section id="comparison-with-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-with-experiment">6.1.2.3 Comparison with experiment</h3>
 <p>Now for the moment of truth: how does our approximation compare to reality? The <strong>experimental value</strong> for the helium ground state is: <span class="math display">\[
 E_{\text{exp}} \approx -79\,\text{eV}
 \]</span></p>
 <p>We’re off by about <span class="math inline">\(30\)</span> eV! That’s a huge discrepancy—roughly 40% of the experimental value. This tells us something important: <strong>the interaction term contributes significantly</strong> and cannot be neglected. Our zeroth-order approximation, while instructive, is far too crude.</p>
 </section>
-<section id="physical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="physical-interpretation">6.1.2.4 Physical interpretation</h2>
+<section id="physical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="physical-interpretation">6.1.2.4 Physical interpretation</h3>
 <p>Why is our calculated energy so much more negative (lower) than the experimental value? The answer lies in what we ignored: electron-electron repulsion.</p>
 <p>In our approximation, each electron feels the full <span class="math inline">\(Z=2\)</span> nuclear attraction and nothing else. In reality, the two electrons repel each other. This repulsion raises the energy (makes it less negative) compared to the independent-particle picture.</p>
 <p>Think of it this way: the nuclear attraction tries to pull both electrons close to the nucleus, but the electrons push each other away. The actual ground state is a compromise between these competing effects. The electrons can’t get as close to the nucleus as they would if they were alone, so the binding energy isn’t as deep as our simple model predicts.</p>
-<p>The <span class="math inline">\(30\)</span> eV difference is a direct measure of the average electron-electron repulsion energy in the helium ground state. This is a substantial fraction of the total binding energy, showing that electron correlations are crucial in determining atomic structure.</p>
+<p>The <span class="math inline">\(30\)</span> eV difference shows how strongly electron-electron repulsion affects the total binding energy of helium. This is a substantial fraction of the binding energy, demonstrating that electron-electron interactions are essential for understanding atomic structure.</p>
 <hr>
 </section>
 </section>
-<section id="first-order-perturbation-theory" class="level1">
-<h1>6.1.3 First-Order Perturbation Theory</h1>
+<section id="first-order-perturbation-theory" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-perturbation-theory">6.1.3 First-Order Perturbation Theory</h2>
 <p>To improve upon our crude zeroth-order approximation, we now treat the electron-electron repulsion term as a small perturbation (<span class="math inline">\(H'\)</span>) to the main, solvable Hamiltonian (<span class="math inline">\(H_0\)</span>).</p>
 <p>The full Hamiltonian is: <span class="math display">\[ \hat{H} = \hat{H}_0 + \hat{H}' \]</span></p>
 <p>where the unperturbed Hamiltonian is: <span class="math display">\[ \hat{H}_0 = -\frac{\hbar^2}{2m_e}\nabla_1^2 -\frac{Ze^2}{4\pi\epsilon_0 r_1} - \frac{\hbar^2}{2m_e}\nabla_2^2 -\frac{Ze^2}{4\pi\epsilon_0 r_2} \]</span></p>
 <p>and the perturbation is the electron-electron repulsion term: <span class="math display">\[ \hat{H}' = \frac{e^2}{4\pi\epsilon_0 r_{12}} \]</span></p>
-<section id="the-first-order-energy-correction" class="level2">
-<h2 class="anchored" data-anchor-id="the-first-order-energy-correction">6.1.3.1 The First-Order Energy Correction</h2>
+<section id="the-first-order-energy-correction" class="level3">
+<h3 class="anchored" data-anchor-id="the-first-order-energy-correction">6.1.3.1 The First-Order Energy Correction</h3>
 <p>The first-order correction to the ground state energy, <span class="math inline">\(E^{(1)}\)</span>, is the expectation value of the perturbation over the unperturbed ground state wavefunction (<span class="math inline">\(\psi^{(0)}\)</span>): <span class="math display">\[ E^{(1)} = \langle \psi^{(0)} | \hat{H}' | \psi^{(0)} \rangle \]</span></p>
 <p>Our zeroth-order ground state wavefunction is the product of two independent hydrogen-like wavefunctions for <span class="math inline">\(Z=2\)</span>: <span class="math display">\[ \psi^{(0)}(\vec{r}_1, \vec{r}_2) = \psi_{100}(\vec{r}_1) \psi_{100}(\vec{r}_2) \]</span></p>
 <p>The integral for the energy correction becomes: <span class="math display">\[ E^{(1)} = \int\int |\psi_{100}(\vec{r}_1)|^2 |\psi_{100}(\vec{r}_2)|^2 \frac{e^2}{4\pi\epsilon_0 |\vec{r}_1 - \vec{r}_2|} d^3r_1 d^3r_2 \]</span></p>
 <p>This integral is non-trivial but can be solved. Its value is found to be <span class="math inline">\(\frac{5}{8} \frac{Ze^2}{4\pi\epsilon_0 a_0}\)</span>, where <span class="math inline">\(a_0\)</span> is the Bohr radius. Given that the unperturbed ground state energy of a hydrogenic atom is <span class="math inline">\(-13.6 \text{ eV} \cdot Z^2\)</span>, we can re-express the correction in terms of this familiar unit.</p>
-<p>For helium (<span class="math inline">\(Z=2\)</span>): <span class="math display">\[ E^{(1)} = \frac{5}{8} (2) \left( \frac{e^2}{4\pi\epsilon_0 a_0} \right) = \frac{5}{4} \left( 13.6\,\text{eV} \right) = 34.0\,\text{eV} \]</span></p>
+<p>For helium (<span class="math inline">\(Z=2\)</span>): <span class="math display">\[ E^{(1)} = \frac{5}{8} (2) \left( \frac{e^2}{4\pi\epsilon_0 a_0} \right) = \frac{5}{4} \left( 27.2\,\text{eV} \right) = 34.0\,\text{eV} \]</span></p>
 </section>
-<section id="result-and-physical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="result-and-physical-interpretation">6.1.3.2 Result and Physical Interpretation</h2>
+<section id="result-and-physical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="result-and-physical-interpretation">6.1.3.2 Result and Physical Interpretation</h3>
 <p>The new, first-order approximation for the helium ground state energy is the sum of the zeroth-order energy and the first-order correction: <span class="math display">\[ E^{(1)}_{\text{total}} = E^{(0)} + E^{(1)} = -108.8\,\text{eV} + 34.0\,\text{eV} = -74.8\,\text{eV} \]</span></p>
 <p>This result of <span class="math inline">\(-74.8\,\text{eV}\)</span> is a significant improvement over the zeroth-order value of <span class="math inline">\(-108.8\,\text{eV}\)</span>. It is also much closer to the experimental value of approximately <span class="math inline">\(-79\,\text{eV}\)</span>.</p>
-<p>While much better, our calculated energy is still too high (i.e., less negative). This is because first-order perturbation theory calculates the average electron-electron repulsion using the <em>unperturbed</em> wavefunctions, which do not account for the <strong>screening effect</strong>. In reality, each electron’s wavefunction is distorted by the presence of the other, effectively reducing the nuclear charge they experience. Our calculation overestimates the energy by about 4.2 eV because it fails to capture this subtle, but important, quantum mechanical correlation between the electrons.</p>
+<p>While much better, our calculated energy is still too high (i.e., less negative). The reason is that first-order perturbation theory uses the <em>unperturbed</em> wavefunctions, which do not account for <strong>screening</strong> by the other electron. In reality, the electron orbitals adjust to the electron-electron repulsion, lowering the total energy. Further improvements require accounting for the correlated motion of the electrons.</p>
 <p>To get even closer to the experimental value, we would need to go to higher orders in perturbation theory or, more effectively, use the variational method.</p>
 <hr>
 </section>
 </section>
-<section id="summary" class="level1">
-<h1>6.1.4. Summary</h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">6.1.4. Summary</h2>
 <p>Let’s recap what we’ve learned:</p>
 <ul>
 <li><p><strong>He<span class="math inline">\(^+\)</span> (one electron):</strong> This is exactly solvable as a hydrogen-like ion with <span class="math inline">\(Z=2\)</span>. The energy levels scale as <span class="math inline">\(Z^2\)</span>, giving a ground state of <span class="math inline">\(E_1 = -54.4\,\text{eV}\)</span>. The electron orbits at half the Bohr radius of hydrogen due to the stronger nuclear attraction.</p></li>
@@ -1005,7 +1006,7 @@ E_{\text{exp}} \approx -79\,\text{eV}
 <li>The remaining difference between our best approximation and the experimental value highlights the importance of electron correlation effects, particularly the <strong>screening effect</strong>. Our first-order perturbation theory overestimates the repulsive energy because it doesn’t account for how the electrons’ positions affect each other.</li>
 </ul></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-important callout-titled" title="The challenge ahead">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1439,8 +1440,8 @@ E_{\text{exp}} \approx -79\,\text{eV}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../mod6/index.html" class="pagination-link" aria-label="6 More than One Electron Atoms">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6 More than One Electron Atoms</span>
+      <a href="../mod6/index.html" class="pagination-link" aria-label="6 Multi-Electron Atoms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6 Multi-Electron Atoms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

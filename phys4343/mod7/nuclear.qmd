@@ -1,9 +1,14 @@
 ---
 title: 7.5 Rotation and Vibration
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore molecular rotation and vibration, the Born–Oppenheimer approximation, rigid rotors, Morse potentials, rovibrational coupling, and spectroscopy.">
 ---
 
-# Introduction
+## Introduction
 
 Having established how electronic states define the potential energy landscape of a molecule, we now turn to the **motion of the nuclei** within this landscape. While electrons adjust almost instantaneously to nuclear positions, the heavier nuclei move much more slowly — a separation of timescales that forms the basis of the **Born–Oppenheimer approximation**.
 
@@ -26,13 +31,13 @@ The concepts introduced here — quantized nuclear motion and potential energy s
 
 ---
 
-# 7.5.1. The Born-Oppenheimer Approximation
+## 7.5.1. The Born-Oppenheimer Approximation
 
 Understanding molecular vibrations and rotations requires us to solve the Schrödinger equation for a many-body system containing both electrons and nuclei. The complete quantum mechanical treatment of this problem is extremely complex, as all particles are coupled through Coulombic interactions. However, the large mass difference between electrons and nuclei ($M_{\text{nucleus}}/m_e \sim 10^3$–$10^5$) suggests a natural separation: electrons move much faster than nuclei and can adjust almost instantaneously to changes in nuclear positions. This physical insight forms the basis of the **Born-Oppenheimer approximation**, which allows us to treat electronic and nuclear motion separately. We first solve for the electronic structure at fixed nuclear geometries, and then use the resulting electronic energy as an effective potential governing nuclear motion.
 
 ---
 
-## 7.5.1.1 The Complete Hamiltonian
+### 7.5.1.1 The Complete Hamiltonian
 
 The complete molecular Hamiltonian describes both electronic and nuclear degrees of freedom. We can write it as:  
 
@@ -56,7 +61,7 @@ Since nuclear masses are much larger than the electron mass ($M_k \gg m_e$, typi
 
 ---
 
-## 7.5.1.2 The Born-Oppenheimer Ansatz
+### 7.5.1.2 The Born-Oppenheimer Ansatz
 
 We have already employed a separation of variables approach when solving for electronic wavefunctions—we separated the electronic coordinates from the nuclear coordinates by treating the nuclei as fixed. The Born-Oppenheimer approximation formalizes this idea by writing the total wavefunction as a product:
 
@@ -74,7 +79,7 @@ The electronic wavefunction $\Phi(\vec{r}_i, \vec{R}_k)$ is said to be **paramet
 
 ---
 
-## 7.5.1.3 The Effective Nuclear Schrödinger Equation
+### 7.5.1.3 The Effective Nuclear Schrödinger Equation
 
 To derive the equations governing electronic and nuclear motion, we substitute the Born-Oppenheimer ansatz into the time-independent Schrödinger equation:
 
@@ -91,8 +96,7 @@ The Born-Oppenheimer approximation consists of neglecting the last two terms, wh
 $$\hat{T}_N[\chi \Phi] \approx [\hat{T}_N\chi]\Phi$$
 
 
-:::: {.callout-note collapse="true"}
-## Why can Terms II and III be neglected? A quantitative justification
+:::: {.callout-note collapse="true" title="Why can Terms II and III be neglected? A quantitative justification"}
 
 The Born–Oppenheimer approximation is commonly motivated by the
 large difference between electronic and nuclear masses. However,
@@ -113,6 +117,7 @@ us to neglect nonadiabatic transitions.
 ### 1. The three terms in the Born–Oppenheimer ansatz
 
 Recall the product ansatz introduced above:
+, how to estimate their resource needs, and how to design jobs that request only the necessary resources. No registration, prerequisites, or prior experience are required, making it a great opportunity for those looking to get started. There is no registration required to attend. 
 
 $$
 \Psi(\vec r_i,\vec R_k)
@@ -849,7 +854,7 @@ The electronic energy curve $E_n^{el}(\vec{R}_k)$ from the electronic problem no
 
 ---
 
-## 7.5.1.4 Separation of Vibrational and Rotational Motion: The Diatomic Case
+### 7.5.1.4 Separation of Vibrational and Rotational Motion: The Diatomic Case
 
 For a diatomic molecule, we can further separate the nuclear motion into vibrational and rotational components. Let us denote the internuclear distance as $R = |\vec{R}_2 - \vec{R}_1|$ and introduce center-of-mass and relative coordinates.
 
@@ -906,7 +911,7 @@ The second term is the **centrifugal potential**, which depends on the rotationa
 
 ---
 
-# 7.5.2. Molecular Rotation: The Rigid Rotor
+## 7.5.2. Molecular Rotation: The Rigid Rotor
 
 The final step in the Born-Oppenheimer approximation for diatomic molecules, as shown in the previous section, is the separation of the nuclear motion into vibrational (radial) and rotational (angular) components. We now proceed to simplify and solve the angular part of the nuclear Schrödinger equation by employing the **rigid rotor approximation**.
 
@@ -1021,7 +1026,7 @@ plt.show()
 
 ---
 
-## 7.5.2.1 Rotational Energy Levels
+### 7.5.2.1 Rotational Energy Levels
 
 From the previous section, we saw that the nuclear Hamiltonian for a diatomic molecule (see @eq-nuclhamil) contains the term:
 
@@ -1060,9 +1065,9 @@ Typical values of the rotational constant $B$ are in the range of $10^{-4}$ to $
 
 ---
 
-## 7.5.2.2 Nuclear Spin Statistics in Homonuclear Molecules
+### 7.5.2.2 Nuclear Spin Statistics in Homonuclear Molecules
 
-For homonuclear diatomic molecules, an constraint arises from the symmetry properties of identical nuclei. Consider the example of H$_2$, where both nuclei are protons.
+For homonuclear diatomic molecules, a constraint arises from the symmetry properties of identical nuclei. Consider the example of H$_2$, where both nuclei are protons.
 
 Protons are fermions with spin $I = 1/2$. The Pauli exclusion principle requires that the total wavefunction (including nuclear spin) must be **antisymmetric** under exchange of the two identical nuclei.
 
@@ -1097,7 +1102,7 @@ The equilibrium ratio at high temperature is 6:3 or 2:1 (ortho:para).
 
 ---
 
-## 7.5.2.3 Rotational Degrees of Freedom in Diatomic Molecules
+### 7.5.2.3 Rotational Degrees of Freedom in Diatomic Molecules
 
 A diatomic molecule has only **two rotational degrees of freedom**, corresponding to rotations about axes perpendicular to the internuclear axis. To understand this, consider the molecular axis as the $z$-axis:
 
@@ -1107,13 +1112,12 @@ A diatomic molecule has only **two rotational degrees of freedom**, correspondin
 
 When electronic angular momentum is present (in electronically excited states), the rotational situation becomes more complex. Electronic motion can be thought of as occurring **"around" the molecular axis** (the $z$-axis in the molecular frame), characterized by the quantum number **$\Lambda$** (the projection of the electronic orbital angular momentum onto the molecular axis). This electronic rotation is **carried along** when the molecule rotates, contributing energy to the total angular motion. The total angular momentum, $\vec{J}$, is the vector sum of the nuclear rotational angular momentum ($\vec{N}$, from the rotation of the nuclear framework) and the electronic angular momentum.
 
-* **For $\Sigma$ states ($\Lambda = 0$):** There is no electronic rotation about the axis. The total angular momentum $\vec{J}$ is simply equal to the nuclear rotational angular momentum $\vec{N}$ ($\mathbf{J=N}$), and the simple $E_J = B J(J+1)$ treatment applies directly.  
+* **For singlet $\Sigma$ states ($\Lambda = 0$, $S = 0$):** There is no electronic rotation about the axis. The total angular momentum $\vec{J}$ is simply equal to the nuclear rotational angular momentum ($\vec{J} = \vec{N}$), and the simple $E_J = B J(J+1)$ treatment applies directly.  
 * **For states with $\Lambda > 0$ (e.g., $\Pi$ states):** The persistent electronic angular momentum $\Lambda$ is coupled to $\vec{N}$. This coupling **lifts the rotational ground state** and forces the rotational quantum number $J$ to start from $J = \Lambda, \Lambda+1, \Lambda+2, \dots$ (instead of $J=0$), effectively adding the electronic energy contribution into the molecular rotation.
 
 This vector coupling of electronic and nuclear angular momenta is described by **Hund's coupling cases** (a-e).
 
-::: {.callout-note}
-#### 💡 Thermodynamics: Rotational Energy and Equipartition
+::: {.callout-note title="💡 Thermodynamics: Rotational Energy and Equipartition"}
 
 The rotational motion of molecules is directly relevant to their **heat capacity** and **internal thermal energy**.
 
@@ -1127,7 +1131,7 @@ This theorem provides a powerful link between quantum mechanical degrees of free
 
 ---
 
-## 7.5.2.4 Centrifugal Distortion
+### 7.5.2.4 Centrifugal Distortion
 
 The rigid rotor approximation breaks down at high rotational quantum numbers. As $J$ increases, the centrifugal force stretches the bond, increasing the moment of inertia $I$ and decreasing the rotational constant. This leads to a **centrifugal distortion correction**:
 
@@ -1139,7 +1143,7 @@ where $D_J$ is the centrifugal distortion constant, typically much smaller than 
 
 ---
 
-# 7.5.3. Molecular Vibration
+## 7.5.3. Molecular Vibration
 
 From Section 7.5.1.4, we derived the radial Schrödinger equation for nuclear motion in a diatomic molecule:
 $$\left[-\frac{\hbar^2}{2\mu}\frac{d^2}{dR^2} + \frac{J(J+1)\hbar^2}{2\mu R^2} + E_n^{el}(R)\right]u(R) = E_{nJ}\,u(R)$$
@@ -1151,7 +1155,7 @@ The first term is the electronic potential energy surface, and the second is the
 
 ---
 
-## 7.5.3.1 The Harmonic Approximation
+### 7.5.3.1 The Harmonic Approximation
 
 Near the equilibrium distance $R_e$, we can expand the electronic potential energy in a Taylor series. Since $E_n^{el}(R)$ has a minimum at $R_e$, the first derivative vanishes and we obtain:
 
@@ -1187,7 +1191,7 @@ The harmonic approximation works well for low vibrational levels but fails at hi
 
 ---
 
-## 7.5.3.2 The Morse Potential
+### 7.5.3.2 The Morse Potential
 
 A more realistic description of molecular vibrations includes **anharmonicity**—the fact that the potential energy curve is not perfectly parabolic. As the bond stretches, it becomes easier to stretch further (the restoring force weakens), and eventually the molecule dissociates when $R \to \infty$.
 
@@ -1388,7 +1392,7 @@ plt.show()
 
 ---
 
-# 7.5.4. Coupling Between Rotation and Vibration
+## 7.5.4. Coupling Between Rotation and Vibration
 
 In our treatment so far, we have largely treated rotation and vibration as independent degrees of freedom. However, in reality, these motions are **coupled**, leading to a continuous exchange of energy between them in a vibrating molecule.
 
@@ -1531,7 +1535,7 @@ plt.show()
 
 ---
 
-## 7.5.4.1 Effect of Vibration on Rotational Energy
+### 7.5.4.1 Effect of Vibration on Rotational Energy
 
 During vibration, the internuclear distance oscillates around the equilibrium value $R_e$. Since the rotational energy depends on the moment of inertia $I = \mu R^2$, the rotational energy varies with the vibrational motion:
 
@@ -1539,9 +1543,11 @@ $$E_{\text{rot}} = \frac{J(J+1)\hbar^2}{2\mu R^2}$$
 
 As shown in the figure, when the molecule is compressed ($R < R_e$), the moment of inertia decreases and the rotational energy increases. Conversely, when the molecule is stretched ($R > R_e$), the moment of inertia increases and the rotational energy decreases.
 
-The **time-averaged** value of $\langle R^{-2} \rangle$ over a vibrational period is not equal to $R_e^{-2}$. Due to the anharmonicity of the potential, the molecule spends more time at larger values of $R$, leading to:
+The **time-averaged** value of $\langle R^{-2} \rangle$ over a vibrational period is not equal to $R_e^{-2}$. Due to the anharmonicity of the potential, the molecule spends more time at larger values of $R$, leading to an effective bond length defined by
 
-$$\left\langle \frac{1}{R^2} \right\rangle \approx \frac{1}{R_e^2} - \frac{1}{R_e^4}\langle (R-R_e)^2 \rangle$$
+$$
+R_{\mathrm{eff}} = \left\langle \frac{1}{R^2} \right\rangle^{-1/2}
+$$
 
 This results in an **effective rotational constant** that depends on the vibrational quantum number:
 
@@ -1769,7 +1775,7 @@ plt.show()
 
 ---
 
-## 7.5.4.2 Effect of Rotation on the Effective Potential
+### 7.5.4.2 Effect of Rotation on the Effective Potential
 
 The centrifugal force arising from rotation modifies the effective potential experienced during vibration. The **rotational barrier** adds a term to the potential:
 
@@ -1880,7 +1886,7 @@ For $J = 0$, the effective potential is simply the electronic potential energy c
 
 ---
 
-## 7.5.4.3 Spectroscopic Consequences {#sec-speccons}
+### 7.5.4.3 Spectroscopic Consequences {#sec-speccons}
 
 The coupling between rotation and vibration has important consequences for molecular spectroscopy. If the Morse potential description is valid, the rovibrational energies can be expressed using five molecular constants:  
 
@@ -1904,7 +1910,7 @@ The analysis of rovibrational spectra thus provides detailed information about:
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - The **Born–Oppenheimer approximation** exploits the large mass difference between nuclei and electrons to separate their motions. Electrons adjust almost instantaneously to the nuclear configuration, defining **potential energy surfaces** on which the nuclei move.
 
@@ -1934,7 +1940,7 @@ The analysis of rovibrational spectra thus provides detailed information about:
 
 ---
 
-### Typical Energy Scales
+#### Typical Energy Scales
 
 | Type of motion | Typical energy spacing | Wavelength region | Example |
 |-----------------|-----------------------:|------------------:|:--------|

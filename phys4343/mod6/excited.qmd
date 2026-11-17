@@ -1,9 +1,14 @@
 ---
 title: 6.6 Excitation and Ionization
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore atomic excitation and ionization, metastable states, doubly excited atoms, autoionization, Fano resonances, and Auger decay.">
 ---
 
-# Introduction
+## Introduction
 
 Up to this point, we have mainly discussed the **static structure of atoms** — their energy levels, term symbols, and how these arise from electron–electron and spin–orbit interactions. 
 However, the **dynamics** of how atoms respond to external perturbations is just as fundamental:  
@@ -24,7 +29,7 @@ Instead, we will focus on a few **simple but representative scenarios** that ill
 
 ---
 
-# 6.6.1. Single-Electron Excitation
+## 6.6.1. Single-Electron Excitation
 
 In many atoms, low-lying excited configurations can be described as **single-electron excitations**: 
 one electron is promoted to a higher orbital while the rest of the atom remains in its ground-state configuration. 
@@ -37,7 +42,7 @@ However, because the electrons interact via the Coulomb force, changing the stat
 
 ---
 
-## 6.6.1.1 Example: Beryllium
+### 6.6.1.1 Example: Beryllium
 
 Beryllium provides a simple example. 
 Its **ground-state configuration** is:
@@ -57,7 +62,7 @@ The lowest **singly excited configurations** involve promoting one of the $2s$ e
 
 ---
 
-## 6.6.1.2 Typical Lifetimes of Excited States
+### 6.6.1.2 Typical Lifetimes of Excited States
 
 The **lifetime** of an excited state is inversely proportional to its **radiative decay rate** $A_{21}$:
 
@@ -86,7 +91,7 @@ Thus, the long lifetimes of Rydberg states arise not simply from the $1/n^2$ ene
 
 ---
 
-## 6.6.1.3 Metastable States
+### 6.6.1.3 Metastable States
 
 Some excited states have **very long lifetimes** because the lowest-order (electric-dipole) transitions to lower levels are **forbidden** by the selection rules.  As a result, decay must proceed via **higher-order** processes (magnetic dipole, electric quadrupole, or even two-photon transitions), or via weak mixing with allowed states — all of which lead to much smaller transition rates and therefore long lifetimes.
 
@@ -103,7 +108,7 @@ In some special cases, such as metastable helium, these long-lived states can al
 
 ---
 
-# 6.6.2. Doubly Excited States
+## 6.6.2. Doubly Excited States
 
 An atom is said to be **doubly excited** when *two* of its electrons are promoted from their ground-state configuration. 
 Such configurations reveal strong **electron–electron correlations**, since both excited electrons interact not only with the ionic core but also strongly with each other. 
@@ -112,7 +117,7 @@ They represent an important step beyond the **independent-electron model** intro
 ---
 
 
-## 6.6.2.1 Example: Doubly Excited States in Beryllium
+### 6.6.2.1 Example: Doubly Excited States in Beryllium
 
 We have already encountered **beryllium (Be)** in the previous section, where single-electron excitations could be described fairly well within the **independent-electron approximation**. 
 However, this picture begins to fail when *two* electrons are excited simultaneously. 
@@ -120,7 +125,7 @@ In that case, the interaction between the two excited electrons becomes crucial,
 
 ---
 
-### Ground-State Configuration
+#### Ground-State Configuration
 
 The ground state of beryllium is:
 
@@ -132,7 +137,7 @@ Here both $1s$ and $2s$ subshells are completely filled, resulting in a closed-s
 
 ---
 
-### Doubly Excited Configurations
+#### Doubly Excited Configurations
 
 If we excite **both 2s electrons**, several configurations become possible, such as:
 
@@ -156,7 +161,7 @@ Hence, they serve as an excellent example to illustrate **correlation effects** 
 
 ---
 
-### Energetics
+#### Energetics
 
 Approximate energy ordering (in eV, relative to the ground state):
 
@@ -174,7 +179,7 @@ Approximate energy ordering (in eV, relative to the ground state):
 
 ---
 
-## 6.6.2.2 Radiative Decay Channels
+### 6.6.2.2 Radiative Decay Channels
 
 **Doubly excited states** lying *below* the first ionization threshold decay **radiatively** back to the ground state.
 
@@ -191,7 +196,7 @@ Their decay therefore proceeds only via **spin-forbidden intercombination transi
 
 ---
 
-## 6.6.2.3 Autoionization
+### 6.6.2.3 Autoionization
 
 When a **doubly excited state** lies *above* the first ionization threshold, it becomes energetically unstable with respect to electron emission. 
 In such cases, the atom can decay by transferring energy from one excited electron to the other—causing one electron to relax while the other escapes to the continuum. 
@@ -334,10 +339,10 @@ with open(os.devnull, 'w') as FNULL:
 
 ---
 
-### Example: Autoionization of the ${}^1S_0$ Doubly Excited State in Be
+#### Example: Autoionization of the ${}^1S_0$ Doubly Excited State in Be
 
 In beryllium, the **${}^1S_0$** state of the $1s^2 2p^2$ configuration lies around **9.45 eV**, slightly *above* the ionization threshold at **9.32 eV**. 
-Because it lies above this limit, the state is **embedded in the continuum** of singly ionized configurations such as $1s^2 2s \, \varepsilon p$.
+Because it lies above this limit, the state is **embedded in the continuum** of singly ionized configurations such as $1s^2 2s \, \varepsilon s$.
 
 The dominant decay channel is therefore **autoionization**:
 
@@ -360,7 +365,7 @@ Although a **radiative decay** to a bound state (for instance, via two-photon em
 
 ---
 
-### Selection Rules and Open Autoionization Channels
+#### Selection Rules and Open Autoionization Channels
 
 The autoionization process is mediated entirely by **electron–electron interaction**, rather than by coupling to the radiation field. 
 Consequently, its selection rules differ from those of electric-dipole transitions:
@@ -374,7 +379,7 @@ This is in contrast to radiative decay, which is restricted by strict dipole rul
 
 ---
 
-### Fano Resonances
+#### Fano Resonances
 
 Experimentally, autoionizing states appear as **asymmetric line shapes** in photoabsorption spectra—known as **Fano resonances**. 
 These arise from **quantum interference** between two competing excitation pathways:  
@@ -455,7 +460,7 @@ plt.show()
 
 ```
 
-## 6.6.2.4 Core Holes and Auger Decay
+### 6.6.2.4 Core Holes and Auger Decay
 
 While autoionization involves energy transfer between two *excited* electrons, a closely related process occurs after **inner-shell ionization** or **core excitation**. 
 When an inner-shell electron (for instance, from the $1s$ orbital) is removed or excited, a **core hole** is created. 
@@ -476,7 +481,7 @@ The atom is then in a highly unstable state with excess internal energy, and it 
 
 ---
 
-### Competition Between Fluorescence and Auger Decay
+#### Competition Between Fluorescence and Auger Decay
 
 The relative probability of these two decay channels is described by the **fluorescence yield**—the fraction of core-hole decays that produce a photon rather than an Auger electron. 
 This yield depends strongly on the **atomic number $Z$**:

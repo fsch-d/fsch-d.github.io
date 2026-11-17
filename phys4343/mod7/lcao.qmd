@@ -1,9 +1,14 @@
 ---
 title: 7.3 Molecular Orbitals and the LCAO Method
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Learn the LCAO method for constructing molecular orbitals, including bonding and antibonding states, orbital symmetry, and the hydrogen molecular ion H2+.">
 ---
 
-# Introduction
+## Introduction
 
 Molecular orbitals (MOs) provide a framework for understanding **how atoms combine to form molecules**, influencing chemical bonding, spectroscopy, and reactivity. The **Linear Combination of Atomic Orbitals (LCAO)** method offers a simple and intuitive way to construct MOs by combining atomic orbitals (AOs) from individual atoms.  
 
@@ -23,7 +28,7 @@ This chapter combines **analytical derivations, graphical visualizations, and qu
 
 ---
 
-# 7.3.1. Conceptual Overview of the Linear Combination of Atomic Orbitals (LCAO)
+## 7.3.1. Conceptual Overview of the Linear Combination of Atomic Orbitals (LCAO)
 
 The central idea of the **Linear Combination of Atomic Orbitals (LCAO)** method is that molecular orbitals can be expressed as a linear combination of atomic orbitals from the constituent atoms. 
 For a diatomic molecule, for instance, we might write
@@ -39,7 +44,7 @@ This transforms the Schrödinger equation from a complicated differential equati
 
 ---
 
-## 7.3.1.1 From the Variational Principle to the Secular Equation
+### 7.3.1.1 From the Variational Principle to the Secular Equation
 
 You have already encountered the [**Ritz variational principle**](../mod2/variational.qmd#sec-ritz){target=_blank}, which states that the best approximate energy within a chosen trial space minimizes the expectation value of the Hamiltonian:
 
@@ -72,20 +77,19 @@ For each eigenvalue $E_n$, there is a corresponding eigenvector $\vec{c}_n$ that
 
 
 :::{.callout-note}
-In practice, solving the secular (or Roothaan) equations is just solving a set of coupled linear equations for the coefficients $c_j$. 
-This is why matrix methods play such a central role in modern quantum chemistry.
+In practice, the secular (or Roothaan) equations form a generalized matrix eigenvalue problem, which can be solved numerically to obtain molecular orbital energies and coefficients $c_j$. This is why matrix methods play such a central role in modern quantum chemistry.
 :::
 
 ---
 
-# 7.3.2. The H$_2^+$ Molecular Ion
+## 7.3.2. The H$_2^+$ Molecular Ion
 
 The H$_2^+$ ion is the simplest possible molecule: two protons and one electron.  
 This one-electron system is ideal to study bonding from first principles.
 
 ---
 
-## 7.3.2.1 Atomic Orbitals
+### 7.3.2.1 Atomic Orbitals
 
 For each hydrogen nucleus, we use the 1s atomic orbital:
 
@@ -104,12 +108,12 @@ with $\vec{r}_A = \vec{r} + \frac{\vec{R}}{2}$ and $\vec{r}_B = \vec{r} - \frac{
 
 ---
 
-## 7.3.2.2 Normalization
+### 7.3.2.2 Normalization
 
 The normalization condition reads:
 
 $$
-\langle \Phi | \Phi \rangle = c_1^2 + c_2^2 + 2\,\mathrm{Re}\!\left(c_1^* c_2\, S_{AB}\right) = 1
+\langle \Phi | \Phi \rangle = |c_1|^2 + |c_2|^2 + 2\,\mathrm{Re}\!\left(c_1^* c_2\, S_{AB}\right) = 1
 $$
 
 where $S_{AB} = \langle \phi_A | \phi_B \rangle$ is the overlap integral.
@@ -211,7 +215,7 @@ plt.show()
 
 ---
 
-## 7.3.2.3 Energies
+### 7.3.2.3 Energies
 
 The energies of these molecular orbitals are:
 
@@ -243,7 +247,7 @@ Assume identical centres so that $H_{AA}=H_{BB}$ and $H_{AB}=H_{BA}$, where $H_{
 
 ---
 
-### Bonding (symmetric) case
+#### Bonding (symmetric) case
 
 Compute the expectation value
 
@@ -276,7 +280,7 @@ $$
 
 ---
 
-### Antibonding (antisymmetric) case
+#### Antibonding (antisymmetric) case
 
 Similarly,
 
@@ -409,7 +413,7 @@ Despite its simplicity, the LCAO picture captures the **qualitative physics of b
 
 ---
 
-## 7.3.2.4 Qualitative Explanation of Bonding
+### 7.3.2.4 Qualitative Explanation of Bonding
 
 So far, we have derived molecular orbitals (MOs) for H$_2^+$ using linear combinations of atomic orbitals (LCAO) and found that the **symmetric (gerade)** combination leads to a lower energy — a **bonding orbital** — while the **antisymmetric (ungerade)** combination leads to a higher energy — an **antibonding orbital**.  
 But *why* does combining two 1$s$ atomic orbitals in this way produce an energy difference? We can gain some qualitative insight by thinking in terms of **electron density** and **kinetic energy**.
@@ -442,8 +446,7 @@ Thus, the stabilization of the bonding orbital arises from both:
 
 Together, these effects explain why $E_g < E_u$ and why the bonding orbital leads to a stable molecule.
 
-::: {.callout-tip}
-### Takeaways  
+::: {.callout-tip title="Takeaways"}
 
 - Bonding orbitals: **constructive overlap** between nuclei → increased electron density → attraction.  
 - Antibonding orbitals: **node between nuclei** → reduced density → repulsion.  
@@ -452,7 +455,7 @@ Together, these effects explain why $E_g < E_u$ and why the bonding orbital lead
 
 ---
 
-# 7.3.3. Molecular Symmetry and Orbital Classification
+## 7.3.3. Molecular Symmetry and Orbital Classification
 
 We have already encountered the essential ideas of molecular orbital symmetry in the context of the [H$_2^+$ molecular ion](h2plus.qmd){target=_blank}. 
 Here, we revisit these ideas more systematically and extend them to include orbitals formed from 2$p$ atomic orbitals.
@@ -679,7 +682,7 @@ plt.show()
 #plt.savefig('combined_molecular_orbitals_6rows.png')
 ```
 
-### Interpretation of the Figure
+#### Interpretation of the Figure
 
 The figure above illustrates how atomic orbitals from atoms A and B combine to form molecular orbitals (MOs):
 
@@ -687,15 +690,12 @@ The figure above illustrates how atomic orbitals from atoms A and B combine to f
 - When orbitals from the two atoms **overlap constructively** (red meets red, or blue meets blue), the wavefunctions add up, increasing electron density in the overlap region.  
 - When they **overlap destructively** (red meets blue), the wavefunctions cancel, creating a **node** between the nuclei where the electron probability is nearly zero.  
 
-Whether this constructive or destructive interference leads to a **bonding** or **antibonding** orbital depends on **where** the overlap occurs. 
-If the increased electron density lies **between the nuclei**, it lowers the potential energy and forms a **bonding** orbital. 
-If the density is located **outside** the internuclear region—as in some π orbitals (e.g., the $2p\pi_u$ state of H$_2^+$)—the overlap is constructive but **does not strengthen the bond**.
+Whether constructive or destructive interference leads to a **bonding** or **antibonding** orbital depends on how the electron density is redistributed. Constructive overlap generally increases electron density in regions where the electron can interact attractively with both nuclei, lowering the energy. This is true not only for $\sigma$ orbitals, but also for bonding $\pi$ orbitals, where the increased electron density lies **above and below the internuclear axis**. Destructive overlap, on the other hand, introduces additional nodes and generally raises the energy, producing antibonding orbitals.
 
 Thus, the color contrast in the figure visually encodes **phase interference**, but the *spatial location* of that interference determines whether it contributes to bonding or not.
 
 
-::: {.callout-note}
-### H$_2^+$ Antibonding Orbital: Two Naming Conventions
+::: {.callout-note title="H$_2^+$ Antibonding Orbital: Two Naming Conventions"}
 
 The first antibonding state of H$_2^+$ is referred to as either **$\sigma_u(1s)$** or **$2p\sigma_u$**, depending on the labeling convention:
 
@@ -726,7 +726,7 @@ Both conventions describe the *same orbital*—they simply emphasize **different
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - The **LCAO method** converts the Schrödinger equation into a **matrix eigenvalue problem**, making MO energies and compositions computable.  
 - Constructive overlap of atomic orbitals **increases electron density**, while destructive overlap creates a **node**; whether this results in a bonding or antibonding orbital depends on **where the density is located relative to the nuclei**.  

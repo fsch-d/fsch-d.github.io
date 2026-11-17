@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Explore the hydrogen molecular ion H2+, Born–Oppenheimer approximation, prolate spheroidal coordinates, molecular symmetry, and potential energy curves.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -634,7 +635,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 More than One Electron Atoms</span></a>
+ <span class="menu-text">6 Multi-Electron Atoms</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -850,11 +851,7 @@ window.Quarto = {
   <li><a href="#the-conserved-component-hatl_z" id="toc-the-conserved-component-hatl_z" class="nav-link" data-scroll-target="#the-conserved-component-hatl_z">7.2.4.2 The Conserved Component <span class="math inline">\(\hat{L}_z\)</span></a></li>
   <li><a href="#molecular-angular-momentum-labels" id="toc-molecular-angular-momentum-labels" class="nav-link" data-scroll-target="#molecular-angular-momentum-labels">7.2.4.3 Molecular Angular Momentum Labels</a></li>
   <li><a href="#including-electron-spin" id="toc-including-electron-spin" class="nav-link" data-scroll-target="#including-electron-spin">7.2.4.4 Including Electron Spin</a></li>
-  <li><a href="#inversion-symmetry-gerade-and-ungerade" id="toc-inversion-symmetry-gerade-and-ungerade" class="nav-link" data-scroll-target="#inversion-symmetry-gerade-and-ungerade">7.2.4.5 Inversion Symmetry: Gerade and Ungerade</a>
-  <ul class="collapse">
-  <li><a href="#connection-to-molecular-bonding" id="toc-connection-to-molecular-bonding" class="nav-link" data-scroll-target="#connection-to-molecular-bonding">Connection to molecular bonding</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul></li>
+  <li><a href="#inversion-symmetry-gerade-and-ungerade" id="toc-inversion-symmetry-gerade-and-ungerade" class="nav-link" data-scroll-target="#inversion-symmetry-gerade-and-ungerade">7.2.4.5 Inversion Symmetry: Gerade and Ungerade</a></li>
   </ul></li>
   <li><a href="#the-energy-eigenvalues" id="toc-the-energy-eigenvalues" class="nav-link" data-scroll-target="#the-energy-eigenvalues">7.2.5. The Energy Eigenvalues</a></li>
   </ul>
@@ -889,8 +886,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>The hydrogen molecular ion, H<span class="math inline">\(_2^+\)</span>, is the <strong>simplest conceivable molecule</strong>: two protons and one electron. Despite its simplicity, it is of profound importance in molecular physics.</p>
 <ul>
 <li><p>It provides the <strong>first step beyond the hydrogen atom</strong>, introducing the physics of <strong>chemical bonding</strong> within a fully quantum-mechanical framework.</p></li>
@@ -900,8 +897,8 @@ window.Quarto = {
 <p>We will see that the key to understanding H<span class="math inline">\(_2^+\)</span> lies in a clever choice of coordinates and the recognition that the electron experiences the combined Coulomb field of two fixed nuclei.</p>
 <hr>
 </section>
-<section id="setting-up-the-system-hamiltonian" class="level1">
-<h1>7.2.1. Setting up the System Hamiltonian</h1>
+<section id="setting-up-the-system-hamiltonian" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-system-hamiltonian">7.2.1. Setting up the System Hamiltonian</h2>
 <p>Let’s consider two protons, labeled <strong>A</strong> and <strong>B</strong>, separated by a distance <span class="math inline">\(R\)</span>. An electron with position vector <span class="math inline">\(\vec{r}\)</span> moves in the combined potential of these two nuclei.</p>
 <p>We define:</p>
 <ul>
@@ -922,7 +919,7 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 \]</span></p>
 <hr>
 <p>Here’s a sketch of the molecular geometry, including the relevant position vectors:</p>
-<div id="093b00ec" class="cell" data-fig-format="png" data-execution_count="1">
+<div id="6e68050b" class="cell" data-fig-format="png" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -997,8 +994,8 @@ E_\text{total} = E_e + \frac{e^2}{4\pi \epsilon_0 R}.
 </div>
 <hr>
 </section>
-<section id="ellipsoidal-coordinates" class="level1">
-<h1>7.2.2. Ellipsoidal Coordinates</h1>
+<section id="ellipsoidal-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="ellipsoidal-coordinates">7.2.2. Ellipsoidal Coordinates</h2>
 <p>Because the potential depends on the <strong>distances to the two nuclei</strong>, <span class="math inline">\((r_A,r_B)\)</span>, it is natural to choose coordinates that are built from those distances. Prolate spheroidal coordinates do exactly that and therefore align with the geometry and symmetry of the problem.</p>
 <p>Concretely, define <span class="math display">\[
 \xi=\frac{r_A+r_B}{R},\qquad
@@ -1022,7 +1019,7 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 = \frac{4\xi}{R(\xi^2-\eta^2)}.
 \]</span> Thus the potential is a rational function of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>, and—crucially—has the simple factor structure <span class="math inline">\(\propto \xi/(\xi^2-\eta^2)\)</span>.</p>
 <p>The figure visualizes the prolate spheroidal coordinate system: on the left, <span class="math inline">\(\xi\)</span>– and <span class="math inline">\(\eta\)</span>–lines form a two-dimensional grid in the <span class="math inline">\(xz\)</span>–plane, while on the right, an ellipsoid of constant <span class="math inline">\(\xi\)</span> is shown together with its <span class="math inline">\(\eta\)</span>– and <span class="math inline">\(\phi\)</span>–grid lines.</p>
-<div id="196bbcbd" class="cell" data-execution_count="2">
+<div id="85b77e57" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1200,8 +1197,8 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 </div>
 <hr>
 </section>
-<section id="separation-of-variables" class="level1">
-<h1>7.2.3. Separation of Variables</h1>
+<section id="separation-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="separation-of-variables">7.2.3. Separation of Variables</h2>
 <p>The main advantage of prolate spheroidal coordinates is that they allow us to <strong>separate the Schrödinger equation into ordinary differential equations</strong>. This is possible because the two-center Coulomb potential and the Laplacian have compatible mathematical structures in these coordinates.</p>
 <p>To simplify the following expressions, we use <strong>atomic units</strong> (<span class="math inline">\(\hbar=m_e=e=4\pi\varepsilon_0=1\)</span>). For two fixed protons separated by <span class="math inline">\(R\)</span>, the electronic Schrödinger equation is</p>
 <p><span class="math display">\[
@@ -1238,8 +1235,8 @@ r_A=\frac{R}{2}(\xi+\eta),\qquad r_B=\frac{R}{2}(\xi-\eta).
 \end{aligned}
 \]</span></p>
 <p>The crucial feature is the common factor <span class="math inline">\((\xi^2-\eta^2)^{-1}\)</span>, which also appears in the Coulomb potential. Multiplying the Schrödinger equation by <span class="math inline">\(R^2(\xi^2-\eta^2)\)</span> therefore allows the coordinate dependence to be separated.</p>
-<section id="the-separation-ansatz" class="level2">
-<h2 class="anchored" data-anchor-id="the-separation-ansatz">The separation ansatz</h2>
+<section id="the-separation-ansatz" class="level3">
+<h3 class="anchored" data-anchor-id="the-separation-ansatz">The separation ansatz</h3>
 <p>We seek solutions that can be written as products of functions of the individual coordinates:</p>
 <p><span class="math display">\[
 \psi(\xi,\eta,\phi)
@@ -1292,8 +1289,8 @@ G(\eta)=-A.
 \]</span></p>
 <p>The constant <span class="math inline">\(A\)</span> is called the <strong>separation constant</strong>. Its value is determined, together with the energy <span class="math inline">\(E_e\)</span>, by requiring that both differential equations have physically acceptable solutions.</p>
 </section>
-<section id="the-separated-equations" class="level2">
-<h2 class="anchored" data-anchor-id="the-separated-equations">The separated equations</h2>
+<section id="the-separated-equations" class="level3">
+<h3 class="anchored" data-anchor-id="the-separated-equations">The separated equations</h3>
 <p>Substituting the definitions of <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> gives two ordinary differential equations:</p>
 <p><span id="eq-h2plusdgl"><span class="math display">\[
 \boxed{
@@ -1321,7 +1318,7 @@ G(\eta)=-A.
 \tag{1}\]</span></span></p>
 <p>The original three-dimensional partial differential equation has thus been reduced to two ordinary differential equations, together with the already determined azimuthal dependence <span class="math inline">\(e^{im\phi}\)</span>.</p>
 <p>The two equations are linked through the <strong>same energy <span class="math inline">\(E_e\)</span> and separation constant <span class="math inline">\(A\)</span></strong>. For a given internuclear distance <span class="math inline">\(R\)</span> and magnetic quantum number <span class="math inline">\(m\)</span>, we must find values of <span class="math inline">\(E_e\)</span> and <span class="math inline">\(A\)</span> for which both equations have physically acceptable solutions satisfying the appropriate boundary conditions.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Detailed derivation of the separated equations">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1442,8 +1439,8 @@ G(\eta)=-A.
 </div>
 </div>
 </section>
-<section id="physical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="physical-interpretation">Physical interpretation</h2>
+<section id="physical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="physical-interpretation">Physical interpretation</h3>
 <p>The separation constant <span class="math inline">\(A\)</span> is related to the eigenvalues of the differential operators appearing in the separated Schrödinger equation. In the hydrogen atom, the angular dependence is governed by the orbital angular momentum operator <span class="math inline">\(\hat L^2\)</span>, whose eigenvalues are <span class="math inline">\(\ell(\ell+1)\)</span> in atomic units.</p>
 <p>For H<span class="math inline">\(_2^+\)</span>, the potential has only <strong>axial symmetry</strong>, so <span class="math inline">\(\hat L^2\)</span> no longer commutes with the Hamiltonian. Consequently, <span class="math inline">\(\ell\)</span> is not a good quantum number, and <span class="math inline">\(A\)</span> is generally not equal to <span class="math inline">\(\ell(\ell+1)\)</span>.</p>
 <p>In the united-atom limit <span class="math inline">\(R\to0\)</span>, spherical symmetry is restored. The angular equation then reduces to the eigenvalue equation for <span class="math inline">\(\hat L^2\)</span>, and</p>
@@ -1456,15 +1453,15 @@ A\longrightarrow\ell(\ell+1).
 <hr>
 </section>
 </section>
-<section id="angular-momentum-and-reflection-symmetries-in-h_2" class="level1">
-<h1>7.2.4. Angular Momentum and Reflection Symmetries in H<span class="math inline">\(_2^+\)</span></h1>
+<section id="angular-momentum-and-reflection-symmetries-in-h_2" class="level2">
+<h2 class="anchored" data-anchor-id="angular-momentum-and-reflection-symmetries-in-h_2">7.2.4. Angular Momentum and Reflection Symmetries in H<span class="math inline">\(_2^+\)</span></h2>
 <p>In the hydrogen atom, the potential depends only on the radial distance <span class="math inline">\(r\)</span>, so the Hamiltonian commutes with both <span class="math inline">\(\hat{L}^2\)</span> and <span class="math inline">\(\hat{L}_z\)</span>. This implies full <strong>rotational symmetry</strong> and allows eigenstates to be labeled by the quantum numbers <span class="math inline">\((\ell, m)\)</span> of total and projected orbital angular momentum.</p>
 <p>For the hydrogen molecular ion H<span class="math inline">\(_2^+\)</span>, this symmetry is <strong>partially broken</strong>. The potential <span class="math display">\[
 V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}\right)
 \]</span> depends on the distances to <strong>two fixed nuclei</strong>, not on the total radius <span class="math inline">\(r = |\vec{r}|\)</span> from a single center. As a result, the Hamiltonian is not spherically symmetric but only <strong>axially symmetric</strong> about the internuclear axis (the <span class="math inline">\(z\)</span>-axis).</p>
 <hr>
-<section id="loss-of-spherical-symmetry" class="level2">
-<h2 class="anchored" data-anchor-id="loss-of-spherical-symmetry">7.2.4.1 Loss of Spherical Symmetry</h2>
+<section id="loss-of-spherical-symmetry" class="level3">
+<h3 class="anchored" data-anchor-id="loss-of-spherical-symmetry">7.2.4.1 Loss of Spherical Symmetry</h3>
 <p>Mathematically, this means that the total orbital angular momentum operator <span class="math display">\[
 \hat{L}^2 = -\hbar^2\!\left[
 \frac{1}{\sin\theta}\frac{\partial}{\partial\theta}
@@ -1476,8 +1473,8 @@ V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}
 \]</span> A simple way to see this is to note that <span class="math inline">\(\hat{L}^2\)</span> generates <em>any</em> rotation, whereas the potential is invariant only under <strong>rotations about the <span class="math inline">\(z\)</span>-axis</strong>. By <strong>Noether’s theorem</strong>, conservation of a component of angular momentum corresponds to a rotational symmetry. Because the potential loses full spherical symmetry but retains axial symmetry, only <strong>the <span class="math inline">\(z\)</span>-component of angular momentum</strong> remains conserved.</p>
 <hr>
 </section>
-<section id="the-conserved-component-hatl_z" class="level2">
-<h2 class="anchored" data-anchor-id="the-conserved-component-hatl_z">7.2.4.2 The Conserved Component <span class="math inline">\(\hat{L}_z\)</span></h2>
+<section id="the-conserved-component-hatl_z" class="level3">
+<h3 class="anchored" data-anchor-id="the-conserved-component-hatl_z">7.2.4.2 The Conserved Component <span class="math inline">\(\hat{L}_z\)</span></h3>
 <p>The <span class="math inline">\(z\)</span>-component operator is <span class="math display">\[
 \hat{L}_z = -i\hbar\frac{\partial}{\partial\phi}.
 \]</span> Since <span class="math inline">\(V(\vec{r})\)</span> does not depend on the azimuthal angle <span class="math inline">\(\phi\)</span>, we have <span class="math display">\[
@@ -1490,7 +1487,7 @@ V(\vec{r}) = -\frac{e^2}{4\pi\varepsilon_0}\!\left(\frac{1}{r_A} + \frac{1}{r_B}
 \]</span> Because the potential of H<span class="math inline">\(_2^+\)</span> is invariant under reflection through any plane containing the molecular axis, the states with <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(-\lambda\)</span> are <strong>physically equivalent</strong> and <strong>degenerate</strong>. Hence, it is conventional to define <span class="math inline">\(\lambda\)</span> as a <strong>non-negative integer</strong>: <span class="math display">\[
 \lambda = 0, 1, 2, \ldots
 \]</span> Only the absolute value of the angular momentum projection has physical meaning for this system.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Why $+\lambda$ and $-\lambda$ have the same energy">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1553,7 +1550,7 @@ L_z &amp;= xp_y-yp_x.
 <p>Imagine a wheel rotating around the <span class="math inline">\(z\)</span>-axis. Viewed along the positive <span class="math inline">\(z\)</span>-direction, a counterclockwise rotation corresponds to angular momentum along <span class="math inline">\(+z\)</span>, according to the right-hand rule.</p>
 <p>Now reflect the wheel in a plane containing its rotation axis. The reflected motion is clockwise, and the angular momentum therefore points along <span class="math inline">\(-z\)</span>.</p>
 <p>The following illustration shows this reversal. The coordinates are drawn in the <span class="math inline">\(xy\)</span>-plane, viewed along the molecular axis.</p>
-<div id="bcfb0cfd" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
+<div id="8322fc92" class="cell" data-fig-format="svg" data-fig-height="5" data-fig-width="11" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1578,7 +1575,7 @@ L_z &amp;= xp_y-yp_x.
 (A_x,A_y,A_z)\longrightarrow(-A_x,A_y,-A_z).
 \]</span></p>
 <p>The following figure compares these transformations for vectors oriented parallel, perpendicular, and diagonally to the mirror plane. The blue arrows represent the original vectors, and the orange arrows their reflected counterparts.</p>
-<div id="d99c7337" class="cell" data-execution_count="4">
+<div id="5302881c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1589,7 +1586,7 @@ L_z &amp;= xp_y-yp_x.
 </div>
 <p>The comparison illustrates the defining distinction between polar and axial vectors under reflection. Under ordinary rotations, both types of vectors transform identically; their different behavior becomes apparent only under transformations that reverse spatial orientation, such as reflections.</p>
 <p>This difference can be expressed mathematically through the transformation properties of the cross product, as derived in the box below.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="Mathematical background: Transformation of pseudovectors">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1793,8 +1790,8 @@ E_{+\lambda}=E_{-\lambda}.
 </div>
 <hr>
 </section>
-<section id="molecular-angular-momentum-labels" class="level2">
-<h2 class="anchored" data-anchor-id="molecular-angular-momentum-labels">7.2.4.3 Molecular Angular Momentum Labels</h2>
+<section id="molecular-angular-momentum-labels" class="level3">
+<h3 class="anchored" data-anchor-id="molecular-angular-momentum-labels">7.2.4.3 Molecular Angular Momentum Labels</h3>
 <p>The quantum number <span class="math inline">\(\lambda\)</span> specifies the <strong>magnitude</strong> of the orbital angular momentum projection along the internuclear axis.<br>
 Since <span class="math inline">\(\lambda \ge 0\)</span> by convention, the total angular momentum quantum number <span class="math inline">\(\ell\)</span> no longer appears explicitly.</p>
 <p>Spectroscopically, the values of <span class="math inline">\(\lambda\)</span> are denoted by Greek letters: <span class="math display">\[
@@ -1809,7 +1806,7 @@ Since <span class="math inline">\(\lambda \ge 0\)</span> by convention, the tota
 \end{array}
 \]</span> Thus, <span class="math inline">\(\lambda = 0\)</span> corresponds to a <span class="math inline">\(\sigma\)</span> state, <span class="math inline">\(\lambda = 1\)</span> to a <span class="math inline">\(\pi\)</span> state, and so on.<br>
 In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</span> to denote spin (Pauli matrices) to prevent confusion.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Sigma and pi orbitals in larger molecules">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1842,15 +1839,15 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 </div>
 <hr>
 </section>
-<section id="including-electron-spin" class="level2">
-<h2 class="anchored" data-anchor-id="including-electron-spin">7.2.4.4 Including Electron Spin</h2>
+<section id="including-electron-spin" class="level3">
+<h3 class="anchored" data-anchor-id="including-electron-spin">7.2.4.4 Including Electron Spin</h3>
 <p>Each electronic state is further characterized by the <strong>spin projection</strong> quantum number <span class="math inline">\(m_s = \pm \tfrac{1}{2}\)</span>. The spin and orbital projections are often combined to describe the total angular momentum projection along the molecular axis <span class="math display">\[
 \Omega = |\lambda + m_s|.
 \]</span> For H<span class="math inline">\(_2^+\)</span>, which has only one electron, this simply distinguishes spin-up and spin-down components for each orbital state.</p>
 <hr>
 </section>
-<section id="inversion-symmetry-gerade-and-ungerade" class="level2">
-<h2 class="anchored" data-anchor-id="inversion-symmetry-gerade-and-ungerade">7.2.4.5 Inversion Symmetry: Gerade and Ungerade</h2>
+<section id="inversion-symmetry-gerade-and-ungerade" class="level3">
+<h3 class="anchored" data-anchor-id="inversion-symmetry-gerade-and-ungerade">7.2.4.5 Inversion Symmetry: Gerade and Ungerade</h3>
 <p>An additional symmetry of H<span class="math inline">\(_2^+\)</span> is <strong>inversion through the midpoint between the two nuclei</strong>. Choosing this point as the origin, inversion transforms the electron coordinates according to</p>
 <p><span class="math display">\[
 (x,y,z)\longrightarrow(-x,-y,-z),
@@ -1875,8 +1872,8 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 }
 \]</span></p>
 <p>The German terms <em>gerade</em> (even) and <em>ungerade</em> (odd) describe whether the wave function remains unchanged or reverses sign under inversion.</p>
-<section id="connection-to-molecular-bonding" class="level3">
-<h3 class="anchored" data-anchor-id="connection-to-molecular-bonding">Connection to molecular bonding</h3>
+<section id="connection-to-molecular-bonding" class="level4">
+<h4 class="anchored" data-anchor-id="connection-to-molecular-bonding">Connection to molecular bonding</h4>
 <p>The distinction becomes particularly intuitive when considering the electron density between the two nuclei.</p>
 <p>For an ungerade wave function,</p>
 <p><span class="math display">\[
@@ -1896,7 +1893,7 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 <li>The <strong><span class="math inline">\(2p\sigma_u\)</span> orbital</strong> is antisymmetric under inversion. Its wave function changes sign between the nuclei and has a nodal plane at their midpoint. The absence of electron density in this region contributes to its antibonding character.</li>
 </ul>
 <p>We will examine this connection more quantitatively using the <strong>linear combination of atomic orbitals (LCAO)</strong> method in the next chapter.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Gerade and ungerade beyond homonuclear diatomic molecules">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1923,8 +1920,8 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 </div>
 <hr>
 </section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">Summary</h4>
 <ul>
 <li>The H<span class="math inline">\(_2^+\)</span> Hamiltonian is <strong>not spherically symmetric</strong>, so total <span class="math inline">\(L\)</span> is not conserved.<br>
 </li>
@@ -1939,8 +1936,8 @@ In this chapter we avoid using the symbol <span class="math inline">\(\sigma\)</
 </section>
 </section>
 </section>
-<section id="the-energy-eigenvalues" class="level1">
-<h1>7.2.5. The Energy Eigenvalues</h1>
+<section id="the-energy-eigenvalues" class="level2">
+<h2 class="anchored" data-anchor-id="the-energy-eigenvalues">7.2.5. The Energy Eigenvalues</h2>
 <p>While we will not attempt to solve the coupled differential equations (<a href="#eq-h2plusdgl" class="quarto-xref">1</a>) explicitly here, we can discuss the structure and qualitative behavior of the energy eigenvalues.</p>
 <p>Just as in the <strong>atomic hydrogen</strong> problem, the stationary Schrödinger equation admits only <strong>discrete eigenvalues</strong> for bound electronic states. These discrete levels arise because the wavefunction must remain finite and single-valued—boundary conditions that can only be satisfied for specific energy values.</p>
 <p>However, there is an important difference compared to the atomic case. For the <strong>hydrogen molecular ion</strong>, the <strong>internuclear distance <span class="math inline">\(R\)</span></strong> enters the Hamiltonian explicitly. In the <strong>Born–Oppenheimer approximation</strong>, the nuclei are treated as fixed in space, so <span class="math inline">\(R\)</span> acts merely as a <strong>parameter</strong> in the <em>electronic</em> Schrödinger equation.</p>
@@ -1950,7 +1947,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <p>If we now plot these electronic energies as a function of <span class="math inline">\(R\)</span>, we obtain the <strong>potential energy curves</strong> for the molecule. These curves determine how the total molecular energy changes as the nuclei move relative to one another.</p>
 <p>At certain distances, one of the potential curves may exhibit a <strong>minimum</strong>—indicating a stable or quasi-stable equilibrium separation. Such a minimum corresponds to a <strong>bound molecular state</strong>. Higher-lying curves may be purely repulsive or correspond to excited electronic configurations that dissociate more easily.</p>
 <p>Below is an illustrative plot showing four typical potential energy curves for H<span class="math inline">\(_2^+\)</span>, labeled according to their symmetry.</p>
-<div id="14efdbce" class="cell" data-execution_count="5">
+<div id="6edd4078" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""H2+ Born-Oppenheimer curves, from numerical finite differences.</span></span>
@@ -2080,7 +2077,7 @@ E_n(R), \quad n = 1, 2, 3, \ldots
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="h2plus_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="page-gallery"><img src="h2plus_files/figure-html/cell-6-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="H2+ Born-Oppenheimer curves, from numerical finite differences." width="849" height="513"></a></p>
+<p><a href="h2plus_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="page-gallery"><img src="h2plus_files/figure-html/cell-6-output-1.png" class="quarto-figure quarto-figure-center figure-img" alt="Potential energy curves of the hydrogen molecular ion H2+ as a function of internuclear distance, showing bonding and antibonding sigma and pi electronic states." width="849" height="513"></a></p>
 </figure>
 </div>
 </div>

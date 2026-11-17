@@ -1,10 +1,15 @@
 ---
 title: 7.6 Molecular Transitions and Spectroscopy
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore molecular spectroscopy, transition dipole moments, selection rules, rovibrational spectra, Franck–Condon factors, and infrared and Raman spectroscopy.">
 ---
 
 
-# Introduction
+## Introduction
 
 Having established how molecular energy levels arise from **electronic, vibrational, and rotational degrees of freedom**, we now turn to how these quantized states interact with **electromagnetic radiation**. Absorption or emission of photons allows molecules to transition between these energy levels, providing a direct window into **molecular structure, bonding, and dynamics**.  
 
@@ -27,7 +32,7 @@ This chapter provides the **quantitative and qualitative tools** needed to inter
 
 ---
 
-# 7.6.1. Transition Rates and Selection Rules
+## 7.6.1. Transition Rates and Selection Rules
 
 The interaction of a molecule with electromagnetic radiation allows it to **change energy states**, with the rate of these transitions governed by quantum mechanics. For a molecule initially in state $| \Psi_i \rangle$ and finally in state $| \Psi_k \rangle$, the **transition probability** is determined by the **electric dipole operator** $\hat{\vec \mu}$:
 
@@ -40,16 +45,16 @@ This **transition dipole matrix element** encapsulates the likelihood of the tra
 The **spontaneous emission rate** is then given by the Einstein coefficient:
 
 $$
-A_{ik} = \frac{2\omega_{ik}^3}{3\varepsilon_0 c^3 \hbar} |M_{ik}|^2,
+A_{ik} = \frac{\omega_{ik}^3}{3\pi \varepsilon_0 c^3 \hbar} |M_{ik}|^2,
 $$
 
-where $\omega_{ik} = (E_k - E_i)/\hbar$ is the transition frequency. In the following sections, we will **decompose the transition dipole** into electronic and nuclear contributions, and explore how **selection rules** arise for electronic, vibrational, and rotational transitions.
+where $\omega_{ik} = (E_i - E_k)/\hbar$ is the transition frequency. In the following sections, we will **decompose the transition dipole** into electronic and nuclear contributions, and explore how **selection rules** arise for electronic, vibrational, and rotational transitions.
 
 
 ---
 
 
-## 7.6.1.1 Complete decomposition of the transition dipole
+### 7.6.1.1 Complete decomposition of the transition dipole
 
 The fundamental quantity that controls spectroscopic intensity is the transition dipole moment
 
@@ -158,11 +163,11 @@ Thus, **rotational and vibrational transitions are governed by the total molecul
 
 ---
 
-## 7.6.1.2 Useful limits and how they produce observed spectra
+### 7.6.1.2 Useful limits and how they produce observed spectra
 
 From the single formula above one obtains the familiar spectroscopic cases by taking the appropriate limits.
 
-### (A) Electronic transitions ($i$ and $k$ different electronic states)
+#### (A) Electronic transitions ($i$ and $k$ different electronic states)
 
 The dominant contribution arises from the first term, where $\rho_{ik}(R)\neq 0$. The outer integral
 
@@ -188,8 +193,8 @@ Electric dipole–allowed **electronic transitions** in diatomic molecules must 
   The $\Sigma \leftrightarrow \Sigma$ case is **forbidden** if both states have the same overall parity.
 
 - **Total angular momentum (including rotation):**  
-  $\Delta J_{\text{tot}} = 0, \pm 1$ (with $J_{\text{tot}} = 0 \leftrightarrow 0$ forbidden),
-  where $J_{\text{tot}} = J + \Omega$ and $J$ denotes the rotational quantum number of the nuclei.
+  $\Delta J = 0, \pm 1$ (with $J = 0 \leftrightarrow 0$ forbidden),
+  where $J$ denotes the total molecular angular momentum quantum number.
 
 - **Inversion symmetry (for homonuclear molecules):**  
   Electric dipole transitions must change parity:  
@@ -206,7 +211,7 @@ Electric dipole–allowed **electronic transitions** in diatomic molecules must 
 :::
 
 
-### (B) Vibrational / rovibrational transitions within the same electronic state ($i$ and $k$ same electronic state)
+#### (B) Vibrational / rovibrational transitions within the same electronic state ($i$ and $k$ same electronic state)
 
 For transitions within the same electronic state, we first recall the expression derived in the previous section:
 
@@ -242,7 +247,7 @@ where $\hat z_{\rm mol}$ denotes the unit vector along the molecular axis and $\
 
 **The important point is that $\mu(R)$ depends on the internuclear distance.** As the molecule vibrates, the electronic charge distribution changes, and consequently so does its dipole moment. This dependence allows electromagnetic radiation to induce vibrational transitions.
 
-#### Transition matrix element
+##### Transition matrix element
 
 For transitions within the same electronic state, we set $\Phi_k=\Phi_i\equiv\Phi_0$. The transition dipole matrix element then becomes
 
@@ -298,7 +303,7 @@ The radial factor describes how the dipole moment changes during molecular vibra
 
 For homonuclear diatomic molecules, symmetry requires $\mu(R)=0$ for every internuclear separation. Consequently, electric-dipole vibrational and rotational transitions are forbidden.
 
-#### Consequences
+##### Consequences
 
 **1. Vibrational selection rules**
 
@@ -430,7 +435,7 @@ For **electric-dipole transitions** in diatomic molecules in a $\Sigma$ electron
 
 
 
-### (C) Pure rotational transitions (microwave region)
+#### (C) Pure rotational transitions (microwave region)
 
 Take the same electronic and vibrational levels ($v'=v$) so the radial factor becomes approximately the permanent dipole evaluated at the vibrational state:
 
@@ -444,14 +449,14 @@ M_{J'\!,J}\approx \langle\mu\rangle_v \int Y_{J'M'}^*(\Omega)\cos\theta\,Y_{JM}(
 $$
 and the angular integral enforces $\Delta J=\pm1$. This is the origin of **pure rotational** spectroscopy (observed in the microwave) — it is simply the rovibrational expression collapsed to $v'=v$.
 
-### (D) Homonuclear molecules
+#### (D) Homonuclear molecules
 
 For homonuclear diatomics symmetry forces $\vec\mu(R)\equiv\vec 0$ for all $R$. Hence the entire family of electric-dipole vibrational/rotational matrix elements vanishes: **no IR-active rovibrational transitions**. Weak higher-order mechanisms (electric quadrupole, magnetic dipole) may produce extremely weak rotational lines, but those require separate operators and much smaller matrix elements.
 
 
 ---
 
-## 7.6.1.3 Physical Interpretation
+### 7.6.1.3 Physical Interpretation
 
 
 - **Electronic transitions** involve changes in $\Phi(\vec{r};R)$ and occur in the visible or UV range.  
@@ -471,7 +476,7 @@ In contrast, heteronuclear molecules like HCl or CO have nonzero $\mu(R)$ and th
 
 - **Water (H$_2$O)**: Water is a polar molecule with a permanent dipole, so it absorbs broadly in the IR. However, the atmospheric **transmission window** around 8–12~µm is relatively transparent to water. CO$_2$ absorbs in some of these windows, **blocking thermal radiation that would otherwise escape**.
 
-- **Abundance matters**: CO$_2$ is the **most abundant heteronuclear greenhouse gas** in the atmosphere. Combined with its active IR modes, this makes it extremely effective at trapping heat despite its linear, centrosymmetric structure.
+- **Abundance matters**: Apart from water vapor, CO$_2$ is the **most abundant heteroatomic greenhouse gas** in the atmosphere. Combined with its active IR modes, this makes it extremely effective at trapping heat despite its linear, centrosymmetric structure.
 
 - **Comparison**: Molecules like N$_2$ and O$_2$, being homonuclear, have no permanent dipole and no IR-active vibrational modes; they are essentially **transparent to IR radiation**. H$_2$O and CO$_2$ dominate IR absorption due to their dipole behavior, though H$_2$O has variable concentration and CO$_2$ is more uniformly mixed.
 
@@ -481,7 +486,7 @@ In contrast, heteronuclear molecules like HCl or CO have nonzero $\mu(R)$ and th
 
 ---
 
-# 7.6.2. Rovibrational Spectroscopy
+## 7.6.2. Rovibrational Spectroscopy
 
 As discussed in [Section 7.5.4.3](./nuclear.qmd#sec-speccons){target=_blank}, the total energy of a diatomic molecule in its ground electronic state can be written approximately as
 
@@ -501,7 +506,7 @@ where
 
 ---
 
-## 7.6.2.1 Rovibrational Spectrum Structure
+### 7.6.2.1 Rovibrational Spectrum Structure
 
 A typical infrared absorption spectrum of a diatomic molecule shows a characteristic **band structure** consisting of:
 
@@ -556,7 +561,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Analysis of Line Positions
+#### Analysis of Line Positions
 
 For a transition $v_i \to v_k$ with simultaneous rotational transition $J_i \to J_k$, the photon energy is:
 
@@ -566,22 +571,22 @@ For the fundamental vibrational transition ($v = 0 \to v = 1$) in the ground ele
 
 **R-branch** ($\Delta J = +1$, $J_k = J_i + 1$):
 
-$$\nu_R(J) = \nu_0 + B_1(J+1)(J+2) - B_0 J(J+1) = \nu_0 + 2B_1 + (3B_1 - B_0)J + (B_1 - B_0)J^2$$
+$$\nu_R(J) = \nu_0 + B_1(J+1)(J+2)/h - B_0 J(J+1)/h$$
 
 **P-branch** ($\Delta J = -1$, $J_k = J_i - 1$):
 
-$$\nu_P(J) = \nu_0 + B_1 J(J-1) - B_0 J(J+1) = \nu_0 - (B_1 + B_0)J + (B_1 - B_0)J^2$$
+$$\nu_P(J) = \nu_0 + B_1 J(J-1)/h - B_0 J(J+1)/h$$
 
 where:  
 - $\nu_0 = \omega_e(1 - 2\chi_e)$ is the band origin (pure vibrational frequency)  
 - $B_0$ and $B_1$ are the rotational constants for $v = 0$ and $v = 1$, respectively  
 - $J$ denotes the initial rotational quantum number $J_i$  
 
-### Key Spectroscopic Features
+#### Key Spectroscopic Features
 
 From the HCl spectrum, we can observe:
 
-1. **Line spacing**: The spacing between adjacent lines in each branch is approximately $2B$ (the rotational constant)
+1. **Line spacing**: The spacing between adjacent lines in each branch is approximately twice the rotational constant $2B$
 
 2. **Band center gap**: No transition appears at $\nu_0$ due to the $\Delta J = 0$ selection rule
 
@@ -605,7 +610,7 @@ Modern **Fourier Transform Infrared (FTIR) spectrometers** with resolutions bett
 
 ---
 
-# 7.6.3. Raman Spectroscopy
+## 7.6.3. Raman Spectroscopy
 
 **Raman spectroscopy** is based on the **inelastic scattering of light** by molecules. During the scattering process, energy is exchanged between the radiation field and the molecule's vibrational or rotational degrees of freedom. Consequently, the scattered photon has a frequency different from that of the incident photon.
 
@@ -626,7 +631,7 @@ The key to understanding Raman scattering is the **molecular polarizability**: m
 
 ---
 
-## 7.6.3.1 IR vs. Raman Activity
+### 7.6.3.1 IR vs. Raman Activity
 
 | Spectroscopy Type | Transition Mechanism | Selection Rule | Example Active Molecules |
 |-------------------|----------------------|----------------|--------------------------|
@@ -641,7 +646,7 @@ The key to understanding Raman scattering is the **molecular polarizability**: m
 ---
 
 
-## 7.6.3.2 Polarizability and the Origin of Raman Scattering
+### 7.6.3.2 Polarizability and the Origin of Raman Scattering
 
 In Raman scattering, the **electric field of the incident light** induces an **oscillating dipole moment** in the molecule.
 If the molecule's **polarizability** depends on its **nuclear configuration**, this induced dipole can oscillate not only at the frequency of the incoming light but also at **shifted frequencies** corresponding to molecular vibrations.
@@ -670,7 +675,7 @@ $$
 
 ---
 
-### Vibrational Dependence of Polarizability
+#### Vibrational Dependence of Polarizability
 
 The polarizability depends on the molecular geometry and thus on the **normal coordinates** $Q_k$ of the vibrations:
 
@@ -678,9 +683,9 @@ $$
 \alpha = \alpha_0 + \sum_k \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_k + \dots
 $$
 
-::: {.callout-note}
-## Normal Coordinates
-The complex, coupled motion of all atoms in a molecule can be mathematically simplified using **normal coordinates** ($Q_k$). These coordinates represent **independent, fundamental vibrational modes** where all atoms move in-phase and oscillate at a single, characteristic frequency ($\omega_k$).
+::: {.callout-note title="Normal Coordinates"}
+
+The complex, coupled motion of all atoms in a molecule can be mathematically simplified using **normal coordinates** ($Q_k$). These coordinates describe **independent vibrational modes** each characterized by a single frequency ($\omega_k$). Within a given mode, the atoms oscillate at that frequency with fixed relative amplitudes and phases.
 :::
 
 If we approximate one vibrational mode as
@@ -716,7 +721,7 @@ $$
 
 ---
 
-### Quantum-Mechanical Picture
+#### Quantum-Mechanical Picture
 
 In quantum terms, Raman scattering is a **second-order transition process** involving a **virtual intermediate state**:
 
@@ -748,7 +753,7 @@ In the **far off-resonant limit**, this second-order interaction effectively red
 
 ---
 
-## 7.6.3.3 Relevance of Raman Spectroscopy for Chemistry
+### 7.6.3.3 Relevance of Raman Spectroscopy for Chemistry
 
 Raman spectroscopy is widely used in chemistry for **molecular identification**, **structure determination**, and **reaction monitoring**. It is particularly valuable for **symmetric molecules** that are IR-inactive but Raman-active, providing complementary vibrational information. Raman can probe **bond strengths**, **molecular symmetry**, and **phase changes** in solids, liquids, and gases.
 
@@ -756,7 +761,7 @@ Raman spectroscopy is widely used in chemistry for **molecular identification**,
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 This chapter has introduced the fundamental concepts of **molecular transitions and spectroscopy**, focusing on rotational, vibrational, and electronic degrees of freedom. The following points summarize the essential ideas:
 

@@ -62,7 +62,7 @@ This page provides an overview and links to all the sections of the website.
 
 ---
 
-## [6 More than One Electron Atoms](mod6/index.qmd)
+## [6 Multi-Electron Atoms](mod6/index.qmd)
 
 * [6.1 Helium (Basics)](mod6/helium.qmd)
 * [6.2 Two-Electron States in Helium](mod6/twoelectron.qmd)

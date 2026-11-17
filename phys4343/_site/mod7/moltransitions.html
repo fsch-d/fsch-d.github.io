@@ -139,6 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;b9c37e17eea14260aaa09c0e9ade06a9&quot;}">
 </script>
 <script defer="" src="https://analytics.fschnet.org/script.js" data-website-id="4e1e7dbb-40d3-43d3-8e31-acc895244b0b"></script>
+<meta name="description" content="Explore molecular spectroscopy, transition dipole moments, selection rules, rovibrational spectra, Franck–Condon factors, and infrared and Raman spectroscopy.">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -632,7 +633,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../mod6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 More than One Electron Atoms</span></a>
+ <span class="menu-text">6 Multi-Electron Atoms</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -840,31 +841,17 @@ window.Quarto = {
   <li><a href="#transition-rates-and-selection-rules" id="toc-transition-rates-and-selection-rules" class="nav-link" data-scroll-target="#transition-rates-and-selection-rules">7.6.1. Transition Rates and Selection Rules</a>
   <ul class="collapse">
   <li><a href="#complete-decomposition-of-the-transition-dipole" id="toc-complete-decomposition-of-the-transition-dipole" class="nav-link" data-scroll-target="#complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</a></li>
-  <li><a href="#useful-limits-and-how-they-produce-observed-spectra" id="toc-useful-limits-and-how-they-produce-observed-spectra" class="nav-link" data-scroll-target="#useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</a>
-  <ul class="collapse">
-  <li><a href="#a-electronic-transitions-i-and-k-different-electronic-states" id="toc-a-electronic-transitions-i-and-k-different-electronic-states" class="nav-link" data-scroll-target="#a-electronic-transitions-i-and-k-different-electronic-states">(A) Electronic transitions (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> different electronic states)</a></li>
-  <li><a href="#b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state" id="toc-b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state" class="nav-link" data-scroll-target="#b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state">(B) Vibrational / rovibrational transitions within the same electronic state (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> same electronic state)</a></li>
-  <li><a href="#c-pure-rotational-transitions-microwave-region" id="toc-c-pure-rotational-transitions-microwave-region" class="nav-link" data-scroll-target="#c-pure-rotational-transitions-microwave-region">(C) Pure rotational transitions (microwave region)</a></li>
-  <li><a href="#d-homonuclear-molecules" id="toc-d-homonuclear-molecules" class="nav-link" data-scroll-target="#d-homonuclear-molecules">(D) Homonuclear molecules</a></li>
-  </ul></li>
+  <li><a href="#useful-limits-and-how-they-produce-observed-spectra" id="toc-useful-limits-and-how-they-produce-observed-spectra" class="nav-link" data-scroll-target="#useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</a></li>
   <li><a href="#physical-interpretation" id="toc-physical-interpretation" class="nav-link" data-scroll-target="#physical-interpretation">7.6.1.3 Physical Interpretation</a></li>
   </ul></li>
   <li><a href="#rovibrational-spectroscopy" id="toc-rovibrational-spectroscopy" class="nav-link" data-scroll-target="#rovibrational-spectroscopy">7.6.2. Rovibrational Spectroscopy</a>
   <ul class="collapse">
-  <li><a href="#rovibrational-spectrum-structure" id="toc-rovibrational-spectrum-structure" class="nav-link" data-scroll-target="#rovibrational-spectrum-structure">7.6.2.1 Rovibrational Spectrum Structure</a>
-  <ul class="collapse">
-  <li><a href="#analysis-of-line-positions" id="toc-analysis-of-line-positions" class="nav-link" data-scroll-target="#analysis-of-line-positions">Analysis of Line Positions</a></li>
-  <li><a href="#key-spectroscopic-features" id="toc-key-spectroscopic-features" class="nav-link" data-scroll-target="#key-spectroscopic-features">Key Spectroscopic Features</a></li>
-  </ul></li>
+  <li><a href="#rovibrational-spectrum-structure" id="toc-rovibrational-spectrum-structure" class="nav-link" data-scroll-target="#rovibrational-spectrum-structure">7.6.2.1 Rovibrational Spectrum Structure</a></li>
   </ul></li>
   <li><a href="#raman-spectroscopy" id="toc-raman-spectroscopy" class="nav-link" data-scroll-target="#raman-spectroscopy">7.6.3. Raman Spectroscopy</a>
   <ul class="collapse">
   <li><a href="#ir-vs.-raman-activity" id="toc-ir-vs.-raman-activity" class="nav-link" data-scroll-target="#ir-vs.-raman-activity">7.6.3.1 IR vs.&nbsp;Raman Activity</a></li>
-  <li><a href="#polarizability-and-the-origin-of-raman-scattering" id="toc-polarizability-and-the-origin-of-raman-scattering" class="nav-link" data-scroll-target="#polarizability-and-the-origin-of-raman-scattering">7.6.3.2 Polarizability and the Origin of Raman Scattering</a>
-  <ul class="collapse">
-  <li><a href="#vibrational-dependence-of-polarizability" id="toc-vibrational-dependence-of-polarizability" class="nav-link" data-scroll-target="#vibrational-dependence-of-polarizability">Vibrational Dependence of Polarizability</a></li>
-  <li><a href="#quantum-mechanical-picture" id="toc-quantum-mechanical-picture" class="nav-link" data-scroll-target="#quantum-mechanical-picture">Quantum-Mechanical Picture</a></li>
-  </ul></li>
+  <li><a href="#polarizability-and-the-origin-of-raman-scattering" id="toc-polarizability-and-the-origin-of-raman-scattering" class="nav-link" data-scroll-target="#polarizability-and-the-origin-of-raman-scattering">7.6.3.2 Polarizability and the Origin of Raman Scattering</a></li>
   <li><a href="#relevance-of-raman-spectroscopy-for-chemistry" id="toc-relevance-of-raman-spectroscopy-for-chemistry" class="nav-link" data-scroll-target="#relevance-of-raman-spectroscopy-for-chemistry">7.6.3.3 Relevance of Raman Spectroscopy for Chemistry</a></li>
   </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
@@ -900,8 +887,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Having established how molecular energy levels arise from <strong>electronic, vibrational, and rotational degrees of freedom</strong>, we now turn to how these quantized states interact with <strong>electromagnetic radiation</strong>. Absorption or emission of photons allows molecules to transition between these energy levels, providing a direct window into <strong>molecular structure, bonding, and dynamics</strong>.</p>
 <p>While electronic transitions probe the <strong>fast motion of electrons</strong>, vibrational and rotational transitions probe the <strong>slower motion of nuclei</strong>. For diatomic molecules, this separation of timescales makes the system especially transparent: nuclear motion reduces to a single <strong>internuclear coordinate</strong> <span class="math inline">\(R\)</span> with associated rotational and vibrational motions superimposed on the electronic structure.</p>
 <p>Within this framework, <strong>molecular spectroscopy</strong> becomes the study of <strong>transition rates and selection rules</strong> governing the allowed changes in vibrational, rotational, and electronic states. Infrared (IR) spectroscopy detects transitions due to changes in a molecule’s <strong>permanent dipole moment</strong>, whereas <strong>Raman spectroscopy</strong> probes changes in the <strong>molecular polarizability</strong>. Together, these complementary techniques provide a comprehensive picture of molecular vibrations and rotations, even for molecules with high symmetry or no permanent dipole moment.</p>
@@ -925,8 +912,8 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="transition-rates-and-selection-rules" class="level1">
-<h1>7.6.1. Transition Rates and Selection Rules</h1>
+<section id="transition-rates-and-selection-rules" class="level2">
+<h2 class="anchored" data-anchor-id="transition-rates-and-selection-rules">7.6.1. Transition Rates and Selection Rules</h2>
 <p>The interaction of a molecule with electromagnetic radiation allows it to <strong>change energy states</strong>, with the rate of these transitions governed by quantum mechanics. For a molecule initially in state <span class="math inline">\(| \Psi_i \rangle\)</span> and finally in state <span class="math inline">\(| \Psi_k \rangle\)</span>, the <strong>transition probability</strong> is determined by the <strong>electric dipole operator</strong> <span class="math inline">\(\hat{\vec \mu}\)</span>:</p>
 <p><span class="math display">\[
 M_{ik} = \langle \Psi_k | \hat{\vec{\mu}} | \Psi_i \rangle.
@@ -934,12 +921,12 @@ M_{ik} = \langle \Psi_k | \hat{\vec{\mu}} | \Psi_i \rangle.
 <p>This <strong>transition dipole matrix element</strong> encapsulates the likelihood of the transition: if <span class="math inline">\(M_{ik}=0\)</span>, the transition is forbidden; if <span class="math inline">\(M_{ik}\neq0\)</span>, the transition is allowed and its intensity depends on <span class="math inline">\(|M_{ik}|^2\)</span>.</p>
 <p>The <strong>spontaneous emission rate</strong> is then given by the Einstein coefficient:</p>
 <p><span class="math display">\[
-A_{ik} = \frac{2\omega_{ik}^3}{3\varepsilon_0 c^3 \hbar} |M_{ik}|^2,
+A_{ik} = \frac{\omega_{ik}^3}{3\pi \varepsilon_0 c^3 \hbar} |M_{ik}|^2,
 \]</span></p>
-<p>where <span class="math inline">\(\omega_{ik} = (E_k - E_i)/\hbar\)</span> is the transition frequency. In the following sections, we will <strong>decompose the transition dipole</strong> into electronic and nuclear contributions, and explore how <strong>selection rules</strong> arise for electronic, vibrational, and rotational transitions.</p>
+<p>where <span class="math inline">\(\omega_{ik} = (E_i - E_k)/\hbar\)</span> is the transition frequency. In the following sections, we will <strong>decompose the transition dipole</strong> into electronic and nuclear contributions, and explore how <strong>selection rules</strong> arise for electronic, vibrational, and rotational transitions.</p>
 <hr>
-<section id="complete-decomposition-of-the-transition-dipole" class="level2">
-<h2 class="anchored" data-anchor-id="complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</h2>
+<section id="complete-decomposition-of-the-transition-dipole" class="level3">
+<h3 class="anchored" data-anchor-id="complete-decomposition-of-the-transition-dipole">7.6.1.1 Complete decomposition of the transition dipole</h3>
 <p>The fundamental quantity that controls spectroscopic intensity is the transition dipole moment</p>
 <p><span class="math display">\[
 M_{ik}=\langle\Psi_k|\hat{\vec\mu}|\Psi_i\rangle,
@@ -1024,11 +1011,11 @@ M_{ik}
 </blockquote>
 <hr>
 </section>
-<section id="useful-limits-and-how-they-produce-observed-spectra" class="level2">
-<h2 class="anchored" data-anchor-id="useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</h2>
+<section id="useful-limits-and-how-they-produce-observed-spectra" class="level3">
+<h3 class="anchored" data-anchor-id="useful-limits-and-how-they-produce-observed-spectra">7.6.1.2 Useful limits and how they produce observed spectra</h3>
 <p>From the single formula above one obtains the familiar spectroscopic cases by taking the appropriate limits.</p>
-<section id="a-electronic-transitions-i-and-k-different-electronic-states" class="level3">
-<h3 class="anchored" data-anchor-id="a-electronic-transitions-i-and-k-different-electronic-states">(A) Electronic transitions (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> different electronic states)</h3>
+<section id="a-electronic-transitions-i-and-k-different-electronic-states" class="level4">
+<h4 class="anchored" data-anchor-id="a-electronic-transitions-i-and-k-different-electronic-states">(A) Electronic transitions (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> different electronic states)</h4>
 <p>The dominant contribution arises from the first term, where <span class="math inline">\(\rho_{ik}(R)\neq 0\)</span>. The outer integral</p>
 <p><span class="math display">\[
 \int d^3R\; \chi_k^*(R)\,\rho_{ik}(R)\,\chi_i(R)
@@ -1063,7 +1050,7 @@ Figure&nbsp;1: Franck–Condon diagram illustrating electronic transitions betwe
 (Transitions such as <span class="math inline">\(\Sigma \leftrightarrow \Sigma\)</span>, <span class="math inline">\(\Sigma \leftrightarrow \Pi\)</span>, or <span class="math inline">\(\Pi \leftrightarrow \Delta\)</span> are allowed.)<br>
 The <span class="math inline">\(\Sigma \leftrightarrow \Sigma\)</span> case is <strong>forbidden</strong> if both states have the same overall parity.</p></li>
 <li><p><strong>Total angular momentum (including rotation):</strong><br>
-<span class="math inline">\(\Delta J_{\text{tot}} = 0, \pm 1\)</span> (with <span class="math inline">\(J_{\text{tot}} = 0 \leftrightarrow 0\)</span> forbidden), where <span class="math inline">\(J_{\text{tot}} = J + \Omega\)</span> and <span class="math inline">\(J\)</span> denotes the rotational quantum number of the nuclei.</p></li>
+<span class="math inline">\(\Delta J = 0, \pm 1\)</span> (with <span class="math inline">\(J = 0 \leftrightarrow 0\)</span> forbidden), where <span class="math inline">\(J\)</span> denotes the total molecular angular momentum quantum number.</p></li>
 <li><p><strong>Inversion symmetry (for homonuclear molecules):</strong><br>
 Electric dipole transitions must change parity:<br>
 <span class="math inline">\(g \leftrightarrow u\)</span> allowed; <span class="math inline">\(g \leftrightarrow g\)</span> and <span class="math inline">\(u \leftrightarrow u\)</span> forbidden.</p></li>
@@ -1080,8 +1067,8 @@ Electric dipole transitions must change parity:<br>
 </div>
 </div>
 </section>
-<section id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state" class="level3">
-<h3 class="anchored" data-anchor-id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state">(B) Vibrational / rovibrational transitions within the same electronic state (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> same electronic state)</h3>
+<section id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state" class="level4">
+<h4 class="anchored" data-anchor-id="b-vibrational-rovibrational-transitions-within-the-same-electronic-state-i-and-k-same-electronic-state">(B) Vibrational / rovibrational transitions within the same electronic state (<span class="math inline">\(i\)</span> and <span class="math inline">\(k\)</span> same electronic state)</h4>
 <p>For transitions within the same electronic state, we first recall the expression derived in the previous section:</p>
 <p><span class="math display">\[
 \boxed{
@@ -1106,8 +1093,8 @@ Electric dipole transitions must change parity:<br>
 \]</span></p>
 <p>where <span class="math inline">\(\hat z_{\rm mol}\)</span> denotes the unit vector along the molecular axis and <span class="math inline">\(\mu(R)\)</span> is the <strong>signed dipole moment</strong>, which depends on the internuclear separation <span class="math inline">\(R\)</span>.</p>
 <p><strong>The important point is that <span class="math inline">\(\mu(R)\)</span> depends on the internuclear distance.</strong> As the molecule vibrates, the electronic charge distribution changes, and consequently so does its dipole moment. This dependence allows electromagnetic radiation to induce vibrational transitions.</p>
-<section id="transition-matrix-element" class="level4">
-<h4 class="anchored" data-anchor-id="transition-matrix-element">Transition matrix element</h4>
+<section id="transition-matrix-element" class="level5">
+<h5 class="anchored" data-anchor-id="transition-matrix-element">Transition matrix element</h5>
 <p>For transitions within the same electronic state, we set <span class="math inline">\(\Phi_k=\Phi_i\equiv\Phi_0\)</span>. The transition dipole matrix element then becomes</p>
 <p><span class="math display">\[
 M_{v'J'M',\,vJM}
@@ -1151,8 +1138,8 @@ Y_{JM}(\Omega)\,d\Omega
 <p>The radial factor describes how the dipole moment changes during molecular vibrations, while the angular factor describes how the rotating molecular dipole couples to the electric field of the radiation.</p>
 <p>For homonuclear diatomic molecules, symmetry requires <span class="math inline">\(\mu(R)=0\)</span> for every internuclear separation. Consequently, electric-dipole vibrational and rotational transitions are forbidden.</p>
 </section>
-<section id="consequences" class="level4">
-<h4 class="anchored" data-anchor-id="consequences">Consequences</h4>
+<section id="consequences" class="level5">
+<h5 class="anchored" data-anchor-id="consequences">Consequences</h5>
 <p><strong>1. Vibrational selection rules</strong></p>
 <p>The radial integral determines the strength of transitions between vibrational states:</p>
 <p><span class="math display">\[
@@ -1279,8 +1266,8 @@ Figure&nbsp;2: Rovibrational energy levels of a diatomic molecule illustrating t
 </div>
 </section>
 </section>
-<section id="c-pure-rotational-transitions-microwave-region" class="level3">
-<h3 class="anchored" data-anchor-id="c-pure-rotational-transitions-microwave-region">(C) Pure rotational transitions (microwave region)</h3>
+<section id="c-pure-rotational-transitions-microwave-region" class="level4">
+<h4 class="anchored" data-anchor-id="c-pure-rotational-transitions-microwave-region">(C) Pure rotational transitions (microwave region)</h4>
 <p>Take the same electronic and vibrational levels (<span class="math inline">\(v'=v\)</span>) so the radial factor becomes approximately the permanent dipole evaluated at the vibrational state:</p>
 <p><span class="math display">\[
 \int u_v(R)\,\mu(R)\,u_v(R)\,dR \equiv \langle\mu\rangle_v \simeq \mu_e \quad\text{(to leading order)}.
@@ -1289,14 +1276,14 @@ Figure&nbsp;2: Rovibrational energy levels of a diatomic molecule illustrating t
 M_{J'\!,J}\approx \langle\mu\rangle_v \int Y_{J'M'}^*(\Omega)\cos\theta\,Y_{JM}(\Omega)\,d\Omega,
 \]</span> and the angular integral enforces <span class="math inline">\(\Delta J=\pm1\)</span>. This is the origin of <strong>pure rotational</strong> spectroscopy (observed in the microwave) — it is simply the rovibrational expression collapsed to <span class="math inline">\(v'=v\)</span>.</p>
 </section>
-<section id="d-homonuclear-molecules" class="level3">
-<h3 class="anchored" data-anchor-id="d-homonuclear-molecules">(D) Homonuclear molecules</h3>
+<section id="d-homonuclear-molecules" class="level4">
+<h4 class="anchored" data-anchor-id="d-homonuclear-molecules">(D) Homonuclear molecules</h4>
 <p>For homonuclear diatomics symmetry forces <span class="math inline">\(\vec\mu(R)\equiv\vec 0\)</span> for all <span class="math inline">\(R\)</span>. Hence the entire family of electric-dipole vibrational/rotational matrix elements vanishes: <strong>no IR-active rovibrational transitions</strong>. Weak higher-order mechanisms (electric quadrupole, magnetic dipole) may produce extremely weak rotational lines, but those require separate operators and much smaller matrix elements.</p>
 <hr>
 </section>
 </section>
-<section id="physical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="physical-interpretation">7.6.1.3 Physical Interpretation</h2>
+<section id="physical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="physical-interpretation">7.6.1.3 Physical Interpretation</h3>
 <ul>
 <li><p><strong>Electronic transitions</strong> involve changes in <span class="math inline">\(\Phi(\vec{r};R)\)</span> and occur in the visible or UV range.</p></li>
 <li><p><strong>Vibrational and rotational transitions</strong> are allowed when the electronic state has a nonzero permanent dipole <span class="math inline">\(\mu(R)\)</span>. The transition probability is determined by the matrix element of <span class="math inline">\(\hat{\vec \mu}\)</span> between different vibrational and rotational nuclear wavefunctions.</p></li>
@@ -1317,7 +1304,7 @@ M_{J'\!,J}\approx \langle\mu\rangle_v \int Y_{J'M'}^*(\Omega)\cos\theta\,Y_{JM}(
 <ul>
 <li><p><strong>CO<span class="math inline">\(_2\)</span> and other linear molecules</strong>: Even though the main CO<span class="math inline">\(_2\)</span> isotopologues (<span class="math inline">\(^{12}\)</span>C<span class="math inline">\(^{16}\)</span>O<span class="math inline">\(_2\)</span>) are <strong>linear and have no permanent dipole moment</strong>, some vibrational modes (particularly the asymmetric stretch <span class="math inline">\(\nu_3\)</span> and bending modes <span class="math inline">\(\nu_2\)</span>) induce <strong>temporary dipole changes</strong> as the molecule vibrates. These <strong>transient dipoles</strong> allow IR absorption, making CO<span class="math inline">\(_2\)</span> IR-active.</p></li>
 <li><p><strong>Water (H<span class="math inline">\(_2\)</span>O)</strong>: Water is a polar molecule with a permanent dipole, so it absorbs broadly in the IR. However, the atmospheric <strong>transmission window</strong> around 8–12~µm is relatively transparent to water. CO<span class="math inline">\(_2\)</span> absorbs in some of these windows, <strong>blocking thermal radiation that would otherwise escape</strong>.</p></li>
-<li><p><strong>Abundance matters</strong>: CO<span class="math inline">\(_2\)</span> is the <strong>most abundant heteronuclear greenhouse gas</strong> in the atmosphere. Combined with its active IR modes, this makes it extremely effective at trapping heat despite its linear, centrosymmetric structure.</p></li>
+<li><p><strong>Abundance matters</strong>: Apart from water vapor, CO<span class="math inline">\(_2\)</span> is the <strong>most abundant heteroatomic greenhouse gas</strong> in the atmosphere. Combined with its active IR modes, this makes it extremely effective at trapping heat despite its linear, centrosymmetric structure.</p></li>
 <li><p><strong>Comparison</strong>: Molecules like N<span class="math inline">\(_2\)</span> and O<span class="math inline">\(_2\)</span>, being homonuclear, have no permanent dipole and no IR-active vibrational modes; they are essentially <strong>transparent to IR radiation</strong>. H<span class="math inline">\(_2\)</span>O and CO<span class="math inline">\(_2\)</span> dominate IR absorption due to their dipole behavior, though H<span class="math inline">\(_2\)</span>O has variable concentration and CO<span class="math inline">\(_2\)</span> is more uniformly mixed.</p></li>
 </ul>
 <p><strong>Summary:</strong> The ability of CO<span class="math inline">\(_2\)</span> and other heteronuclear molecules to absorb IR radiation through rovibrational transitions underlies the greenhouse effect. This absorption is critically dependent on <strong>transient dipoles induced by molecular vibrations</strong>, even for molecules that are globally nonpolar.</p>
@@ -1326,8 +1313,8 @@ M_{J'\!,J}\approx \langle\mu\rangle_v \int Y_{J'M'}^*(\Omega)\cos\theta\,Y_{JM}(
 <hr>
 </section>
 </section>
-<section id="rovibrational-spectroscopy" class="level1">
-<h1>7.6.2. Rovibrational Spectroscopy</h1>
+<section id="rovibrational-spectroscopy" class="level2">
+<h2 class="anchored" data-anchor-id="rovibrational-spectroscopy">7.6.2. Rovibrational Spectroscopy</h2>
 <p>As discussed in <a href="../mod7/nuclear.html#sec-speccons" target="_blank">Section 7.5.4.3</a>, the total energy of a diatomic molecule in its ground electronic state can be written approximately as</p>
 <p><span class="math display">\[
 E(v, J) \approx
@@ -1342,8 +1329,8 @@ E(v, J) \approx
 - <span class="math inline">\(\chi_e\)</span> accounts for <strong>anharmonicity</strong>,<br>
 - and <span class="math inline">\(D_J\)</span> describes <strong>centrifugal distortion</strong> (bond stretching at high <span class="math inline">\(J\)</span>).</p>
 <hr>
-<section id="rovibrational-spectrum-structure" class="level2">
-<h2 class="anchored" data-anchor-id="rovibrational-spectrum-structure">7.6.2.1 Rovibrational Spectrum Structure</h2>
+<section id="rovibrational-spectrum-structure" class="level3">
+<h3 class="anchored" data-anchor-id="rovibrational-spectrum-structure">7.6.2.1 Rovibrational Spectrum Structure</h3>
 <p>A typical infrared absorption spectrum of a diatomic molecule shows a characteristic <strong>band structure</strong> consisting of:</p>
 <ol type="1">
 <li><strong>P-branch</strong> (<span class="math inline">\(\Delta J = -1\)</span>): Lines at frequencies lower than the band center<br>
@@ -1352,7 +1339,7 @@ E(v, J) \approx
 </li>
 <li><strong>R-branch</strong> (<span class="math inline">\(\Delta J = +1\)</span>): Lines at frequencies higher than the band center</li>
 </ol>
-<div id="2dcf49ce" class="cell" data-execution_count="1">
+<div id="7a3c1626" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1409,25 +1396,25 @@ E(v, J) \approx
 </div>
 </div>
 </div>
-<section id="analysis-of-line-positions" class="level3">
-<h3 class="anchored" data-anchor-id="analysis-of-line-positions">Analysis of Line Positions</h3>
+<section id="analysis-of-line-positions" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-of-line-positions">Analysis of Line Positions</h4>
 <p>For a transition <span class="math inline">\(v_i \to v_k\)</span> with simultaneous rotational transition <span class="math inline">\(J_i \to J_k\)</span>, the photon energy is:</p>
 <p><span class="math display">\[h\nu = E(v_k, J_k) - E(v_i, J_i)\]</span></p>
 <p>For the fundamental vibrational transition (<span class="math inline">\(v = 0 \to v = 1\)</span>) in the ground electronic state:</p>
 <p><strong>R-branch</strong> (<span class="math inline">\(\Delta J = +1\)</span>, <span class="math inline">\(J_k = J_i + 1\)</span>):</p>
-<p><span class="math display">\[\nu_R(J) = \nu_0 + B_1(J+1)(J+2) - B_0 J(J+1) = \nu_0 + 2B_1 + (3B_1 - B_0)J + (B_1 - B_0)J^2\]</span></p>
+<p><span class="math display">\[\nu_R(J) = \nu_0 + B_1(J+1)(J+2)/h - B_0 J(J+1)/h\]</span></p>
 <p><strong>P-branch</strong> (<span class="math inline">\(\Delta J = -1\)</span>, <span class="math inline">\(J_k = J_i - 1\)</span>):</p>
-<p><span class="math display">\[\nu_P(J) = \nu_0 + B_1 J(J-1) - B_0 J(J+1) = \nu_0 - (B_1 + B_0)J + (B_1 - B_0)J^2\]</span></p>
+<p><span class="math display">\[\nu_P(J) = \nu_0 + B_1 J(J-1)/h - B_0 J(J+1)/h\]</span></p>
 <p>where:<br>
 - <span class="math inline">\(\nu_0 = \omega_e(1 - 2\chi_e)\)</span> is the band origin (pure vibrational frequency)<br>
 - <span class="math inline">\(B_0\)</span> and <span class="math inline">\(B_1\)</span> are the rotational constants for <span class="math inline">\(v = 0\)</span> and <span class="math inline">\(v = 1\)</span>, respectively<br>
 - <span class="math inline">\(J\)</span> denotes the initial rotational quantum number <span class="math inline">\(J_i\)</span></p>
 </section>
-<section id="key-spectroscopic-features" class="level3">
-<h3 class="anchored" data-anchor-id="key-spectroscopic-features">Key Spectroscopic Features</h3>
+<section id="key-spectroscopic-features" class="level4">
+<h4 class="anchored" data-anchor-id="key-spectroscopic-features">Key Spectroscopic Features</h4>
 <p>From the HCl spectrum, we can observe:</p>
 <ol type="1">
-<li><p><strong>Line spacing</strong>: The spacing between adjacent lines in each branch is approximately <span class="math inline">\(2B\)</span> (the rotational constant)</p></li>
+<li><p><strong>Line spacing</strong>: The spacing between adjacent lines in each branch is approximately twice the rotational constant <span class="math inline">\(2B\)</span></p></li>
 <li><p><strong>Band center gap</strong>: No transition appears at <span class="math inline">\(\nu_0\)</span> due to the <span class="math inline">\(\Delta J = 0\)</span> selection rule</p></li>
 <li><p><strong>Asymmetry</strong>: The R-branch and P-branch are not perfectly symmetric due to:</p>
 <ul>
@@ -1456,8 +1443,8 @@ E(v, J) \approx
 </section>
 </section>
 </section>
-<section id="raman-spectroscopy" class="level1">
-<h1>7.6.3. Raman Spectroscopy</h1>
+<section id="raman-spectroscopy" class="level2">
+<h2 class="anchored" data-anchor-id="raman-spectroscopy">7.6.3. Raman Spectroscopy</h2>
 <p><strong>Raman spectroscopy</strong> is based on the <strong>inelastic scattering of light</strong> by molecules. During the scattering process, energy is exchanged between the radiation field and the molecule’s vibrational or rotational degrees of freedom. Consequently, the scattered photon has a frequency different from that of the incident photon.</p>
 <p>Unlike the electric-dipole absorption and emission processes discussed above, which involve the absorption or emission of a single photon, Raman scattering involves two interactions with the electromagnetic field: an incoming photon is absorbed and an outgoing photon is emitted through a virtual intermediate state. Raman scattering is therefore a <strong>second-order quantum-mechanical process</strong>, involving two dipole interactions.</p>
 <p>Depending on the direction of energy transfer, we distinguish:</p>
@@ -1479,8 +1466,8 @@ Figure&nbsp;3: Raman energy level diagram illustrating Stokes and anti-Stokes sc
 </figure>
 </div>
 <hr>
-<section id="ir-vs.-raman-activity" class="level2">
-<h2 class="anchored" data-anchor-id="ir-vs.-raman-activity">7.6.3.1 IR vs.&nbsp;Raman Activity</h2>
+<section id="ir-vs.-raman-activity" class="level3">
+<h3 class="anchored" data-anchor-id="ir-vs.-raman-activity">7.6.3.1 IR vs.&nbsp;Raman Activity</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
@@ -1521,8 +1508,8 @@ Figure&nbsp;3: Raman energy level diagram illustrating Stokes and anti-Stokes sc
 </blockquote>
 <hr>
 </section>
-<section id="polarizability-and-the-origin-of-raman-scattering" class="level2">
-<h2 class="anchored" data-anchor-id="polarizability-and-the-origin-of-raman-scattering">7.6.3.2 Polarizability and the Origin of Raman Scattering</h2>
+<section id="polarizability-and-the-origin-of-raman-scattering" class="level3">
+<h3 class="anchored" data-anchor-id="polarizability-and-the-origin-of-raman-scattering">7.6.3.2 Polarizability and the Origin of Raman Scattering</h3>
 <p>In Raman scattering, the <strong>electric field of the incident light</strong> induces an <strong>oscillating dipole moment</strong> in the molecule. If the molecule’s <strong>polarizability</strong> depends on its <strong>nuclear configuration</strong>, this induced dipole can oscillate not only at the frequency of the incoming light but also at <strong>shifted frequencies</strong> corresponding to molecular vibrations.</p>
 <p>The <strong>polarizability</strong> describes how easily the charge distribution of a molecule can be distorted by an external electric field. In other words, it measures how rigidly the electrons are bound: a more easily deformable electron cloud corresponds to a larger polarizability.</p>
 <p>The <strong>induced dipole moment</strong> is given by</p>
@@ -1539,13 +1526,13 @@ p_{\rm ind}(t)=\alpha(t)E(t).
 E(t)=E_0\cos(\omega_{\rm in}t).
 \]</span></p>
 <hr>
-<section id="vibrational-dependence-of-polarizability" class="level3">
-<h3 class="anchored" data-anchor-id="vibrational-dependence-of-polarizability">Vibrational Dependence of Polarizability</h3>
+<section id="vibrational-dependence-of-polarizability" class="level4">
+<h4 class="anchored" data-anchor-id="vibrational-dependence-of-polarizability">Vibrational Dependence of Polarizability</h4>
 <p>The polarizability depends on the molecular geometry and thus on the <strong>normal coordinates</strong> <span class="math inline">\(Q_k\)</span> of the vibrations:</p>
 <p><span class="math display">\[
 \alpha = \alpha_0 + \sum_k \left( \frac{\partial \alpha}{\partial Q_k} \right)_0 Q_k + \dots
 \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Normal Coordinates">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1555,7 +1542,7 @@ E(t)=E_0\cos(\omega_{\rm in}t).
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The complex, coupled motion of all atoms in a molecule can be mathematically simplified using <strong>normal coordinates</strong> (<span class="math inline">\(Q_k\)</span>). These coordinates represent <strong>independent, fundamental vibrational modes</strong> where all atoms move in-phase and oscillate at a single, characteristic frequency (<span class="math inline">\(\omega_k\)</span>).</p>
+<p>The complex, coupled motion of all atoms in a molecule can be mathematically simplified using <strong>normal coordinates</strong> (<span class="math inline">\(Q_k\)</span>). These coordinates describe <strong>independent vibrational modes</strong> each characterized by a single frequency (<span class="math inline">\(\omega_k\)</span>). Within a given mode, the atoms oscillate at that frequency with fixed relative amplitudes and phases.</p>
 </div>
 </div>
 <p>If we approximate one vibrational mode as</p>
@@ -1585,8 +1572,8 @@ Q_k(t) = Q_{k0} \cos(\omega_k t),
 \]</span></p>
 <hr>
 </section>
-<section id="quantum-mechanical-picture" class="level3">
-<h3 class="anchored" data-anchor-id="quantum-mechanical-picture">Quantum-Mechanical Picture</h3>
+<section id="quantum-mechanical-picture" class="level4">
+<h4 class="anchored" data-anchor-id="quantum-mechanical-picture">Quantum-Mechanical Picture</h4>
 <p>In quantum terms, Raman scattering is a <strong>second-order transition process</strong> involving a <strong>virtual intermediate state</strong>:</p>
 <p><span class="math display">\[
 M_{fi} \sim
@@ -1617,14 +1604,14 @@ Raman scattering arises because molecular vibrations modulate the polarizability
 <hr>
 </section>
 </section>
-<section id="relevance-of-raman-spectroscopy-for-chemistry" class="level2">
-<h2 class="anchored" data-anchor-id="relevance-of-raman-spectroscopy-for-chemistry">7.6.3.3 Relevance of Raman Spectroscopy for Chemistry</h2>
+<section id="relevance-of-raman-spectroscopy-for-chemistry" class="level3">
+<h3 class="anchored" data-anchor-id="relevance-of-raman-spectroscopy-for-chemistry">7.6.3.3 Relevance of Raman Spectroscopy for Chemistry</h3>
 <p>Raman spectroscopy is widely used in chemistry for <strong>molecular identification</strong>, <strong>structure determination</strong>, and <strong>reaction monitoring</strong>. It is particularly valuable for <strong>symmetric molecules</strong> that are IR-inactive but Raman-active, providing complementary vibrational information. Raman can probe <strong>bond strengths</strong>, <strong>molecular symmetry</strong>, and <strong>phase changes</strong> in solids, liquids, and gases.</p>
 <hr>
 </section>
 </section>
-<section id="key-takeaways" class="level1">
-<h1>Key Takeaways</h1>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <p>This chapter has introduced the fundamental concepts of <strong>molecular transitions and spectroscopy</strong>, focusing on rotational, vibrational, and electronic degrees of freedom. The following points summarize the essential ideas:</p>
 <ol type="1">
 <li><strong>Molecular transitions are quantized:</strong> Molecules can only absorb or emit photons that match the <strong>energy difference</strong> between discrete quantum states.<br>

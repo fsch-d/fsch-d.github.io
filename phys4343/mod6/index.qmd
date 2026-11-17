@@ -1,15 +1,21 @@
 ---
-title: 6 More than One Electron Atoms
+title: 6 Multi-Electron Atoms
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore multielectron atoms, helium, electron interactions, Hartree–Fock theory, atomic shell structure, angular momentum coupling, and spectroscopy.">
 ---
 
-# Beyond Hydrogen
+## Beyond Hydrogen
 
 In previous modules, we focused on the **hydrogen atom**, whose single electron allows for an exact analytical solution of the Schrödinger equation. 
 Real atoms, however, contain **two or more electrons**, and their mutual **Coulomb interaction** makes the problem far more complex — and much richer in physics.
 
 In this chapter, we will build on the concepts developed for hydrogen and extend them to **multi-electron atoms**. 
-We will see how the additional electron–electron interactions lead to **energy shifts and complex coupling schemes** that determine the organization of the **periodic table** and the **spectra of real elements**.
+We will see how **electron–electron interactions and the Pauli exclusion principle** shape atomic shell structure, determine the organization of the **periodic table**, and explain the **spectra of real elements**.
+
 
 ---
 

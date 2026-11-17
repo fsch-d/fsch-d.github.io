@@ -1,9 +1,14 @@
 ---
-title: 7 Introduction into Molecular Physics
+title: 7 Introduction to Molecular Physics
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Introduction to molecular physics: chemical bonding, molecular orbitals, the Born–Oppenheimer approximation, rotations, vibrations, and spectroscopy.">
 ---
 
-# From Atoms to Molecules
+## From Atoms to Molecules
 
 Having understood how electrons behave in atoms, we now extend our view to **molecules** — systems in which two or more atoms share or exchange electrons. 
 The transition from isolated atoms to bound molecules introduces new layers of complexity: the **interaction between nuclei**, the **redistribution of electron density**, and the resulting **collective quantum motion** that defines chemical bonds.
@@ -33,7 +38,7 @@ By the end of this module, you should be able to:
 ## Structure of this Module
 
 * [Foundations of Molecular Bonding](./molfound.qmd) – Why molecules form: qualitative picture of bonding, potential energy curves, and the idea of bonding vs. antibonding orbitals.  
-* [The H$_2^+$ Molecular Ion](./h2plus.qmd) – The simplest possible molecule: exact solution and insights into electronic bonding.  
+* [The H$_2^+$ Molecular Ion](./h2plus.qmd) – The simplest possible molecule: an analytically tractable model of electronic bonding.  
 * [Molecular Orbitals and the LCAO Method](./lcao.qmd) – Building approximate molecular orbitals from atomic ones.  
 * [Beyond H$_2^+$ and LCAO](./beyondh2plus.qmd) – Refinements and limitations of simple bonding models.  
 * [Rotation and Vibration](./nuclear.qmd) – Nuclear motion on potential energy surfaces: rotational and vibrational quantization.  

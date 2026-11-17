@@ -1,11 +1,16 @@
 ---
 title: 6.4 Shell Model and Periodic Table
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore atomic shells, electron configurations, the Aufbau principle, Madelung's rule, periodic trends, atomic size, and ionization energies.">
 ---
 
 
 
-# Introduction
+## Introduction
 
 We have seen in the case of hydrogen that, to a very good approximation, the electron binding energy depends primarily on the principal quantum number $n$. 
 In the idealized Coulomb potential, states with the same $n$ but different orbital angular momenta $\ell$ are degenerate, and the Schrödinger equation can be solved analytically. 
@@ -21,12 +26,12 @@ In this chapter, we will develop physical approximations that allow us to unders
 
 ---
 
-# 6.4.1. The Shell Model
+## 6.4.1. The Shell Model
 
 We have already seen that the **screening** of the nuclear charge by other electrons plays a crucial role in determining the effective potential experienced by each electron. 
 To gain intuition for this, it is helpful to examine the **radial charge density** associated with a bound electron.
 
-## 6.4.1.1 Radial charge density
+### 6.4.1.1 Radial charge density
 
 For a single electron in a hydrogen-like orbital, the probability of finding the electron at a distance $r$ from the nucleus is proportional to
 
@@ -48,13 +53,16 @@ Thus, electrons with different $n$ occupy **spatially distinct regions** surroun
 
 ---
 
-## 6.4.1.2 The concept of shells
+### 6.4.1.2 The concept of shells
 
 For a given principal quantum number $n$, we can add up the contributions from all possible angular momenta $\ell$ and spin orientations to obtain the total charge density associated with that value of $n$:
 
+
 $$
-\rho_n(r) \propto - e\, 2n^2 \sum_{\ell=0}^{n-1} |R_{n\ell}(r)|^2.
+\rho_n(r) = -e\,r^2 \sum_{\ell=0}^{n-1}
+2(2\ell+1)|R_{n\ell}(r)|^2.
 $$
+
 
 Because the summation averages over all angular orientations, this total charge density is **spherically symmetric**. 
 Each $\rho_n(r)$ therefore represents a *concentric distribution of charge* centered on the nucleus — in other words, a **shell**.
@@ -71,7 +79,7 @@ $$
 
 Thus, a filled shell with principal quantum number $n$ can contain up to $2n^2$ electrons.
 
-## 6.4.1.3 Historical shell names
+### 6.4.1.3 Historical shell names
 
 From early X-ray spectroscopy, distinct groups of transitions were observed and labeled with the letters **K**, **L**, **M**, **N**, etc. 
 These correspond to the successive electron shells:
@@ -89,12 +97,12 @@ The terminology remains in use today, even though we now understand these shells
 ---
 
 
-# 6.4.2. Subshells and Electron Configuration
+## 6.4.2. Subshells and Electron Configuration
 
 The shell model provides a first, coarse picture of the atomic structure: electrons occupy discrete “shells” around the nucleus characterized by the principal quantum number $n$. 
 Within each shell, however, there are additional distinctions that arise from the **orbital angular momentum** $\ell$. These correspond to what we call **subshells**.
 
-## 6.4.2.1 Subshells and quantum numbers
+### 6.4.2.1 Subshells and quantum numbers
 
 Each shell with principal quantum number $n$ contains subshells corresponding to the allowed values of $\ell = 0, 1, 2, \dots, n-1$. 
 The values of $\ell$ are traditionally labeled using letters that originate from early spectroscopic classifications:
@@ -128,7 +136,7 @@ As we will see later, these capacities play a central role in shaping the period
 
 ---
 
-## 6.4.2.2 Electron configuration notation
+### 6.4.2.2 Electron configuration notation
 
 The **electron configuration** specifies how an atom’s electrons are distributed among the available shells characterized by the quantum numbers $(n, \ell)$. 
 Each combination of $(n, \ell)$ is indicated using the letter code introduced above ($s, p, d, f, \dots$), followed by a superscript that gives the number of electrons in that set:
@@ -148,7 +156,7 @@ This notation provides a compact summary of how electrons occupy the various ene
 
 ---
 
-### Shorthand notation for closed shells
+#### Shorthand notation for closed shells
 
 For atoms with many electrons, the notation above becomes cumbersome. 
 A convenient shorthand uses the configuration of the **nearest noble gas** to represent a completely filled inner shell. 
@@ -170,11 +178,11 @@ This **core notation** highlights the electrons outside the closed shells — th
 
 
 
-# 6.4.3. How the Periodic Table Fills Up
+## 6.4.3. How the Periodic Table Fills Up
 
 We are now looking in detail at how the shells are successively filled up.
 
-## 6.4.3.1 Degeneracy and energy ordering
+### 6.4.3.1 Degeneracy and energy ordering
 
 In the hydrogen atom, the dominant dependence of the binding energy is on the principal quantum number $n$, because the potential is purely Coulombic.  
 However, even in hydrogen this degeneracy is only approximate: relativistic **fine structure**, **Lamb shifts**, and **hyperfine interactions** cause small but measurable splittings between levels of different $\ell$ and $j$.
@@ -185,17 +193,20 @@ The **electron–electron interaction** modifies the potential felt by each elec
 - States with $\ell = 0$ penetrate close to the nucleus and experience a relatively large effective nuclear charge $Z_{\mathrm{eff}}$.  
 - States with larger $\ell$ have less penetration and therefore feel a smaller $Z_{\mathrm{eff}}$.
 
-Consequently, the total energy of a state depends on both $n$ and $\ell$, and the hydrogenic degeneracy is lifted:
+
+Consequently, the orbital energies depend on both $n$ and $\ell$, and the hydrogenic degeneracy is lifted. For a given $n$, the typical ordering is
 
 $$
 E_{n,\ell=0} < E_{n,\ell=1} < E_{n,\ell=2} < \dots
 $$
 
+although the detailed ordering depends on the atom and its electron configuration.
+
 This energy ordering — which reflects the competition between nuclear attraction and electronic screening — plays a central role in determining the ground-state configurations of many-electron atoms and the structure of the periodic table.
 
 ---
 
-## 6.4.3.2 The Aufbau Principle and the $n+\ell$ (Madelung) Rule
+### 6.4.3.2 The Aufbau Principle and the $n+\ell$ (Madelung) Rule
 
 When we go beyond hydrogen and consider atoms with several electrons, a natural question arises: **In what order do the available quantum states become occupied?**  
 This is where the **Aufbau principle** comes into play. It states that the electronic configuration of the ground state of an atom can be constructed by filling available states starting from the lowest energy and moving upward.
@@ -283,7 +294,7 @@ plt.show()
 
 ---
 
-## 6.4.3.3 The Periodic Table and Its Blocks
+### 6.4.3.3 The Periodic Table and Its Blocks
 
 The successive filling of electronic states according to the Madelung rule leads directly to the **block structure of the periodic table**:
 
@@ -320,12 +331,12 @@ These deviations highlight that while the Madelung rule provides a convenient an
 ![](./periodictable.svg){fig-alt="The periodic table of elements, showing the s-, p-, d-, and f-block structure."}
 
 
-## 6.4.3.4 Atomic Volume and Ionization Potential
+### 6.4.3.4 Atomic Volume and Ionization Potential
 
 Two measurable quantities — **atomic volume** and **ionization potential** — provide direct experimental evidence for the shell structure of atoms. Both properties can be interpreted in terms of the **radial extent** and **binding energy** of the outermost electrons.
 
 
-### Atomic Volume
+#### Atomic Volume
 
 The **atomic volume** (or atomic radius) is often estimated from the crystal structure of an element. 
 In the plot below, however, it is obtained from **atomic structure calculations**: specifically, from the **radius at which the electron density of the outermost shell reaches its maximum** for an **isolated atom**. 
@@ -498,7 +509,7 @@ for symbol, z in important_elements.items():
 
 # Add title and labels
 plt.xlabel('Atomic Number', fontsize=14)
-plt.ylabel('Atomic Volume ($a_0^3$/atom)', fontsize=14)
+plt.ylabel('Effectictive Atomic Volume ($a_0^3$/atom)', fontsize=14)
 
 # Add grid for better readability
 plt.grid(True, linestyle='--', alpha=0.6)
@@ -527,11 +538,12 @@ When plotted as a function of atomic number, the atomic volume exhibits **strong
 
 - In the **lanthanides**, a continuous decrease in volume — the **lanthanide contraction** — occurs as the $4f$ orbitals fill, increasing the effective nuclear charge felt by the outer electrons.
 
-Overall, these oscillations in atomic volume are a clear macroscopic signature of **quantized shell filling**.
+
+Overall, these oscillations in the effective atomic volume illustrate how the spatial extent of atomic electron clouds changes periodically as electronic shells are filled.
 
 ---
 
-### Ionization Potential
+#### Ionization Potential
 
 The **first ionization potential** (IP) — the energy required to remove the outermost electron from a neutral atom — provides complementary information.  
 

@@ -1,9 +1,14 @@
 ---
 title: 7.2 The H$_2^+$ Molecular Ion
 author: Daniel Fischer
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="description" content="Explore the hydrogen molecular ion H2+, Born–Oppenheimer approximation, prolate spheroidal coordinates, molecular symmetry, and potential energy curves.">
 ---
 
-# Introduction
+## Introduction
 
 The hydrogen molecular ion, H$_2^+$, is the **simplest conceivable molecule**: two protons and one electron. Despite its simplicity, it is of profound importance in molecular physics.
 
@@ -18,7 +23,7 @@ We will see that the key to understanding H$_2^+$ lies in a clever choice of coo
 
 ---
 
-# 7.2.1. Setting up the System Hamiltonian
+## 7.2.1. Setting up the System Hamiltonian
 
 Let’s consider two protons, labeled **A** and **B**, separated by a distance $R$.
 An electron with position vector $\vec{r}$ moves in the combined potential of these two nuclei.
@@ -117,7 +122,7 @@ plt.show()
 
 ---
 
-# 7.2.2. Ellipsoidal Coordinates
+## 7.2.2. Ellipsoidal Coordinates
 
 Because the potential depends on the **distances to the two nuclei**, $(r_A,r_B)$, it is natural to choose coordinates that are built from those distances. 
 Prolate spheroidal coordinates do exactly that and therefore align with the geometry and symmetry of the problem.
@@ -327,7 +332,7 @@ plt.show()
 ---
 
 
-# 7.2.3. Separation of Variables
+## 7.2.3. Separation of Variables
 
 The main advantage of prolate spheroidal coordinates is that they allow us to **separate the Schrödinger equation into ordinary differential equations**. This is possible because the two-center Coulomb potential and the Laplacian have compatible mathematical structures in these coordinates.
 
@@ -374,7 +379,7 @@ $$
 
 The crucial feature is the common factor $(\xi^2-\eta^2)^{-1}$, which also appears in the Coulomb potential. Multiplying the Schrödinger equation by $R^2(\xi^2-\eta^2)$ therefore allows the coordinate dependence to be separated.
 
-## The separation ansatz
+### The separation ansatz
 
 We seek solutions that can be written as products of functions of the individual coordinates:
 
@@ -445,7 +450,7 @@ $$
 The constant $A$ is called the **separation constant**. Its value is determined, together with the energy $E_e$, by requiring that both differential equations have physically acceptable solutions.
 
 
-## The separated equations
+### The separated equations
 
 Substituting the definitions of $F$ and $G$ gives two ordinary differential equations:
 
@@ -478,8 +483,7 @@ The original three-dimensional partial differential equation has thus been reduc
 
 The two equations are linked through the **same energy $E_e$ and separation constant $A$**. For a given internuclear distance $R$ and magnetic quantum number $m$, we must find values of $E_e$ and $A$ for which both equations have physically acceptable solutions satisfying the appropriate boundary conditions.
 
-::: {.callout-note collapse="true"}
-## Detailed derivation of the separated equations
+::: {.callout-note collapse="true" title="Detailed derivation of the separated equations"}
 
 Starting from the electronic Schrödinger equation in atomic units,
 
@@ -608,7 +612,7 @@ Multiplying the first equation by $\Lambda$ and the second by $M$ produces the t
 
 :::
 
-## Physical interpretation
+### Physical interpretation
 
 
 
@@ -631,7 +635,7 @@ The important lesson is that **the choice of coordinates determines whether the 
 ---
 
 
-# 7.2.4. Angular Momentum and Reflection Symmetries in H$_2^+$
+## 7.2.4. Angular Momentum and Reflection Symmetries in H$_2^+$
 
 In the hydrogen atom, the potential depends only on the radial distance $r$, so the Hamiltonian commutes with both $\hat{L}^2$ and $\hat{L}_z$.
 This implies full **rotational symmetry** and allows eigenstates to be labeled by the quantum numbers $(\ell, m)$ of total and projected orbital angular momentum.
@@ -646,7 +650,7 @@ As a result, the Hamiltonian is not spherically symmetric but only **axially sym
 
 ---
 
-## 7.2.4.1 Loss of Spherical Symmetry
+### 7.2.4.1 Loss of Spherical Symmetry
 
 Mathematically, this means that the total orbital angular momentum operator
 $$
@@ -666,7 +670,7 @@ Because the potential loses full spherical symmetry but retains axial symmetry, 
 
 ---
 
-## 7.2.4.2 The Conserved Component $\hat{L}_z$
+### 7.2.4.2 The Conserved Component $\hat{L}_z$
 
 The $z$-component operator is
 $$
@@ -694,8 +698,8 @@ Only the absolute value of the angular momentum projection has physical meaning 
 
 
 
-:::: {.callout-note collapse="true"}
-## Why $+\lambda$ and $-\lambda$ have the same energy
+:::: {.callout-note collapse="true" title="Why $+\lambda$ and $-\lambda$ have the same energy"}
+
 
 The electronic Hamiltonian of H$_2^+$ is invariant under reflection in any plane containing the molecular axis. To understand why this symmetry leads to the degeneracy of states with opposite angular momentum projections, we first need to examine how **angular momentum transforms under reflection**.
 
@@ -996,8 +1000,8 @@ The comparison illustrates the defining distinction between polar and axial vect
 This difference can be expressed mathematically through the transformation properties of the cross product, as derived in the box below.
 
 
-::: {.callout-tip collapse="true"}
-## Mathematical background: Transformation of pseudovectors
+::: {.callout-tip collapse="true" title="Mathematical background: Transformation of pseudovectors"}
+
 
 We have seen that angular momentum transforms differently from an ordinary vector under reflection. We can derive this behavior directly from its definition
 
@@ -1243,7 +1247,7 @@ This degeneracy follows directly from **reflection symmetry** and is a general p
 
 ---
 
-## 7.2.4.3 Molecular Angular Momentum Labels
+### 7.2.4.3 Molecular Angular Momentum Labels
 
 The quantum number $\lambda$ specifies the **magnitude** of the orbital angular momentum projection along the internuclear axis.  
 Since $\lambda \ge 0$ by convention, the total angular momentum quantum number $\ell$ no longer appears explicitly.
@@ -1264,8 +1268,7 @@ Thus, $\lambda = 0$ corresponds to a $\sigma$ state, $\lambda = 1$ to a $\pi$ st
 In this chapter we avoid using the symbol $\sigma$ to denote spin (Pauli matrices) to prevent confusion.
 
 
-::: {.callout-note collapse="true"}
-## Sigma and pi orbitals in larger molecules
+::: {.callout-note collapse="true" title="Sigma and pi orbitals in larger molecules"}
 
 The labels $\sigma$, $\pi$, $\delta$, etc. are also widely used to describe molecular orbitals and chemical bonds in more complex molecules. However, their precise meaning depends on the symmetry of the molecule.
 
@@ -1296,7 +1299,7 @@ Thus, while the terminology is closely related, **$\sigma$ and $\pi$ are exact a
 
 ---
 
-## 7.2.4.4 Including Electron Spin
+### 7.2.4.4 Including Electron Spin
 
 Each electronic state is further characterized by the **spin projection** quantum number $m_s = \pm \tfrac{1}{2}$. 
 The spin and orbital projections are often combined to describe the total angular momentum projection along the molecular axis
@@ -1308,7 +1311,7 @@ For H$_2^+$, which has only one electron, this simply distinguishes spin-up and 
 ---
 
 
-## 7.2.4.5 Inversion Symmetry: Gerade and Ungerade
+### 7.2.4.5 Inversion Symmetry: Gerade and Ungerade
 
 An additional symmetry of H$_2^+$ is **inversion through the midpoint between the two nuclei**. Choosing this point as the origin, inversion transforms the electron coordinates according to
 
@@ -1343,7 +1346,7 @@ $$
 
 The German terms *gerade* (even) and *ungerade* (odd) describe whether the wave function remains unchanged or reverses sign under inversion.
 
-### Connection to molecular bonding
+#### Connection to molecular bonding
 
 The distinction becomes particularly intuitive when considering the electron density between the two nuclei.
 
@@ -1372,8 +1375,7 @@ This is closely connected to the distinction between **bonding and antibonding m
 
 We will examine this connection more quantitatively using the **linear combination of atomic orbitals (LCAO)** method in the next chapter.
 
-::: {.callout-note collapse="true"}
-## Gerade and ungerade beyond homonuclear diatomic molecules
+::: {.callout-note collapse="true" title="Gerade and ungerade beyond homonuclear diatomic molecules"}
 
 The $g/u$ classification is not restricted to homonuclear diatomic molecules. It can be used whenever the **molecular Hamiltonian has inversion symmetry**.
 
@@ -1395,7 +1397,7 @@ The general requirement is therefore **inversion symmetry**, rather than the pre
 
 ---
 
-### Summary
+#### Summary
 
 - The H$_2^+$ Hamiltonian is **not spherically symmetric**, so total $L$ is not conserved.  
 - The system remains **axially symmetric**, so $L_z$ *is* conserved.  
@@ -1410,7 +1412,7 @@ This framework connects directly to the structure of the **potential energy curv
 
 
 
-# 7.2.5. The Energy Eigenvalues
+## 7.2.5. The Energy Eigenvalues
 
 While we will not attempt to solve the coupled differential equations ([-@eq-h2plusdgl]) explicitly here, we can discuss the structure and qualitative behavior of the energy eigenvalues.
 
@@ -1432,7 +1434,7 @@ Below is an illustrative plot showing four typical potential energy curves for H
 
 ```{python}
 #| fig-align: center
-#| fig-alt: "H2+ Born-Oppenheimer curves, from numerical finite differences."
+#| fig-alt: "Potential energy curves of the hydrogen molecular ion H2+ as a function of internuclear distance, showing bonding and antibonding sigma and pi electronic states."
 """H2+ Born-Oppenheimer curves, from numerical finite differences.
 Atomic units throughout: length a0, energy Hartree.
 """
