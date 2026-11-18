@@ -81,15 +81,17 @@ img[src$=".svg"] {
     height: auto !important;
   }
 
-  /* Allow wide display equations to scroll
-     without expanding the page width */
+/* Horizontal scrolling for numbered and unnumbered equations */
   mjx-container[display="true"] {
-    display: block;
-    max-width: 100%;
-    overflow-x: auto;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
-
+    
   /* Improve figure captions */
   .figure-caption {
     font-size: 0.9rem;
@@ -102,7 +104,7 @@ img[src$=".svg"] {
     display: none !important;
   }
 
-
+    
   /* ==========================================
      Mobile sidebar navigation
      ========================================== */
