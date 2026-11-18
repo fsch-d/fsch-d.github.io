@@ -106,7 +106,7 @@ In this case, the density matrix is constructed directly from the state vector, 
 
 ### 8.3.1.2 Mixed states
 
-A **mixed state** represents an ensemble of systems or repeated preparations in which the state is *not* given by a single wavefunction. 
+A fully incoherent **mixed state** represents an ensemble of systems or repeated preparations in which the relative phase between the excited- and ground-state amplitudes is completely undetermined. Unlike a pure state, it cannot be described by a single state vector. 
 The density matrix still has the same mathematical form, but its entries have a **different physical meaning**:
 
 - The diagonal elements now represent **ensemble probabilities**:
